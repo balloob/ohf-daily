@@ -14,6 +14,8 @@ import {
   latestScheduledReleaseDate,
   landedReleasesFromHistory,
   reportingWindow,
+  releaseTargetsForDate,
+  releasePreviewTargetsForDate,
   reviewCredits,
   sentenceSummary,
   shouldInspectPullFiles,
@@ -253,6 +255,31 @@ test("builds Release Radar items from GitHub releases inside the reporting windo
     accent: "green",
     sourcePullRequestIds: ["99"],
   }]);
+});
+
+test("creates preview targets only for scheduled stable releases on the edition date", () => {
+  assert.deepEqual(releaseTargetsForDate("2026-09-02", [
+    { product: "Home Assistant", kind: "Beta", date: "2026-08-26", accent: "blue" },
+    { product: "Home Assistant", kind: "Release", date: "2026-09-02", accent: "blue" },
+    { product: "ESPHome", kind: "Release", date: "2026-09-16", accent: "green" },
+  ]), [{ product: "Home Assistant", version: "2026.9", releaseDate: "2026-09-02" }]);
+});
+
+test("warms release previews throughout beta week without treating beta day as release day", () => {
+  const releases = [
+    { product: "Home Assistant", kind: "Beta" as const, date: "2026-08-26", accent: "blue" },
+    { product: "Home Assistant", kind: "Release" as const, date: "2026-09-02", accent: "blue" },
+    { product: "ESPHome", kind: "Release" as const, date: "2026-09-16", accent: "green" },
+  ];
+  const cycles = [
+    { product: "Home Assistant", rule: "first-wednesday" as const, beta_days_before: 7, release_offset_days: 0, accent: "blue" },
+    { product: "ESPHome", rule: "first-wednesday" as const, beta_days_before: 7, release_offset_days: 14, accent: "green" },
+  ];
+  assert.deepEqual(releasePreviewTargetsForDate("2026-08-31", releases, cycles), [
+    { product: "Home Assistant", version: "2026.9", releaseDate: "2026-09-02" },
+  ]);
+  assert.deepEqual(releaseTargetsForDate("2026-08-31", releases), []);
+  assert.deepEqual(releasePreviewTargetsForDate("2026-08-25", releases, cycles), []);
 });
 
 test("parses inclusive history-only backfill bounds", () => {

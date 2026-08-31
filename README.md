@@ -71,13 +71,14 @@ OPENAI_API_KEY=sk-… OPENAI_MODEL=gpt-5-mini npm run update
 The newsroom instructions are normal, reviewable Markdown files:
 
 - `prompts/reporter.md` tells each daily beat reporter how to investigate and cite candidate PRs;
+- `prompts/release-day.md` guides the mandatory headline article for a configured product's scheduled stable release day;
 - `prompts/weekly-recap.md` guides the Monday look-back across the preceding week;
 - `prompts/editor.md` controls selection, grouping, placement, tone, and final article structure.
 - `prompts/editorial-review.md` gives an independent post-publication critic a repeatable human-relevance, writing, evidence, and placement rubric;
 - `prompts/beats/*.md` adds organization-specific guidance without duplicating the shared evidence and tone rules.
 - `prompts/tracks/*.md` defines cross-organization editorial lenses such as new devices, reliability, community, documentation, and releases.
 
-Organizations answer **where to look**; editorial tracks answer **what story might be forming**. Tracks are never daily quotas. Reporter agents receive recent published-article context and may return no proposal when a track lacks evidence or ran too recently. The editor makes the final cadence decision, including whether a Monday beta/release preview adds enough beyond the release rail.
+Organizations answer **where to look**; editorial tracks answer **what story might be forming**. Tracks are never daily quotas. Reporter agents receive recent published-article context and may return no proposal when a track lacks evidence or ran too recently. A configured scheduled stable release day is the deliberate exception: its release article is the headline lead. Beta, prerelease, release-candidate, and patch coverage remains optional and must add enough human value beyond the release rail.
 
 The collector performs a one-time GitHub lookup for each repository/author pair to identify a genuinely first merged contribution. It also fetches each contributor's public display name, avatar, and profile URL once, then keeps both results in the ignored local contributor cache. Those contributors receive a concise welcome in the article; the milestone is never guessed from the partial local PR history or by the model.
 
@@ -143,13 +144,16 @@ For the actual bootstrap, the manual GitHub Actions workflow is also available. 
 - known dependency-update authors;
 - reporting-window and front-page limits;
 - Home Assistant and ESPHome release cycles;
+- official release-preview sources and their product-specific lookup strategies;
 - the 45-day upcoming-release horizon and explicit GitHub Release sources used by Release Radar;
 - official blog and announcement feeds or sitemaps, their editorial desks, and enablement;
 - AI model, reasoning, concurrency, and history-query limits.
 
 Every enabled organization costs at least one GitHub Search request per edition. Add or disable organizations in YAML; no collector change is necessary. Project Pulse reuses the primary organizations' daily totals and performs three additional lightweight searches for authoritative seven-day totals, so its counts do not depend on local backfill completeness or the editorial detail limit. If collection approaches rate limits, reduce `max_prs_per_organization`, disable low-signal sources, and preserve the API cache.
 
-Home Assistant releases are calculated for the first Wednesday of each month. ESPHome follows two weeks later, and both beta periods begin seven days before release. Change `release_cycles` if the publication calendar changes.
+Home Assistant releases are calculated for the first Wednesday of each month. ESPHome follows two weeks later, and both beta periods begin seven days before release. Change `release_cycles` if the publication calendar changes. `release_preview_sources` maps those products to their official preview material; Home Assistant uses its RC preview site and ESPHome uses its next-version site. Music Assistant can be added when its official preview URL and release cycle are known.
+
+On a configured stable release day, the preview is ingested even when it was first published before the edition's 24-hour reporting window, and the resulting release article is the front-page lead. Preview notes are treated as mutable work in progress: they support the article's description of release themes, while only matching landed stable-release metadata permits wording that says the release is available. Betas, prereleases, release candidates, and patch releases remain discretionary unless their verified contents are independently newsworthy.
 
 ## Site behavior
 
@@ -188,24 +192,22 @@ npm run regenerate:editorial -- --from 2026-08-29 --to 2026-08-31
 
 The workflow exposes the built-in `GITHUB_TOKEN` as `GH_TOKEN` for public GitHub collection. Organization searches explicitly filter to public repositories. No personal token is required in Actions. Locally, a fine-grained token with read-only access to public repositories is sufficient. Anonymous collection is supported by the low-level collector but usually exhausts its API limit during a full ecosystem run.
 
-GitHub API responses and ETags live under `data/cache/`. Feed XML, ETags, and Last-Modified values use `data/cache/feeds.json`. Locally they survive between runs; Actions restores and saves the cache directory plus both local history stores. Immutable PR details are reused, feeds are conditionally revalidated, and stale cached responses may bridge a transient upstream failure. The entire cache directory is ignored by Git—including binary downloads—while `data/cache/.gitkeep` preserves the directory.
+GitHub API responses and ETags live under `data/cache/`. Feed XML, ETags, and Last-Modified values use `data/cache/feeds.json`; release-note preview responses use `data/cache/release-previews.json` and are warmed throughout each configured beta week. Locally they survive between runs; manual Actions runs restore and save the cache directory plus both local history stores. Immutable PR details are reused, feeds are conditionally revalidated, and stale cached responses may bridge a transient upstream failure. The entire cache directory is ignored by Git—including binary downloads—while `data/cache/.gitkeep` preserves the directory.
 
 Never put a GitHub/OpenAI token or Google Alert feed URL in YAML, prompts, an edition, or a history shard.
 
 ## Daily automation and Pages setup
 
-`.github/workflows/pages.yml` runs every day at `06:15 UTC`, which is `07:15` in Amsterdam in winter and `08:15` in summer. GitHub cron uses UTC and scheduled jobs may start a little late under load. A concurrency group serializes collection and deployment.
+The local Codex task **Generate daily OHF edition** runs at `07:00` in `Europe/Amsterdam`. It owns daily collection and publication so daylight-saving changes do not shift the newsroom and a second cloud schedule cannot overwrite the same edition.
 
 Scheduled production runs:
 
-1. restore `data/cache/` plus the local PR and content history stores;
-2. require the `OPENAI_API_KEY` secret;
-3. run `npm run update -- --require-ai`;
-4. commit only dated publication data (the final edition and selected media); never commit either local database or the API/feed cache;
-5. build Astro with the origin and base path reported by GitHub Pages;
-6. upload and deploy the static Pages artifact.
+1. reuse `data/cache/` plus the local PR and content history stores;
+2. run the full `npm run update` newsroom with AI required for publication;
+3. commit only dated publication data (the final edition and selected media); never commit either local database or the API/feed cache;
+4. push to `main`, where `.github/workflows/pages.yml` builds Astro and deploys the static Pages artifact.
 
-Pushes to `main` only build and deploy. If the repository uses another default branch, update `push.branches` in the workflow.
+Pushes to `main` only build and deploy. The workflow can still be dispatched manually to regenerate an edition or backfill ignored local history using the private Actions cache. If the repository uses another default branch, update `push.branches` in the workflow.
 
 In the GitHub repository:
 

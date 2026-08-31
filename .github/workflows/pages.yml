@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  schedule:
-    # 07:15 in Amsterdam during winter, 08:15 during summer. GitHub cron uses UTC.
-    - cron: "15 6 * * *"
   workflow_dispatch:
     inputs:
       date:
@@ -72,7 +69,7 @@ jobs:
           fi
 
       - name: Restore API response cache
-        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.skip_update != true)
+        if: github.event_name == 'workflow_dispatch' && inputs.skip_update != true
         id: github-cache
         uses: actions/cache@v6
         with:
@@ -85,19 +82,8 @@ jobs:
             github-api-${{ runner.os }}-${{ hashFiles('data/sources.yaml') }}-
             github-api-${{ runner.os }}-
 
-      - name: Require AI for the scheduled edition
-        if: github.event_name == 'schedule'
-        shell: bash
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          if [[ -z "$OPENAI_API_KEY" ]]; then
-            echo "Scheduled production editions require the OPENAI_API_KEY repository secret." >&2
-            exit 1
-          fi
-
       - name: Run the editorial pipeline
-        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.skip_update != true && inputs.backfill_from == '' && inputs.backfill_to == '')
+        if: github.event_name == 'workflow_dispatch' && inputs.skip_update != true && inputs.backfill_from == '' && inputs.backfill_to == ''
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -119,9 +105,7 @@ jobs:
           if [[ "$DEMO_EDITION" == "true" ]]; then
             args+=(--demo)
           fi
-          if [[ "${{ github.event_name }}" == "schedule" ]]; then
-            args+=(--require-ai)
-          elif [[ "$DEMO_EDITION" != "true" && "$NO_AI" != "true" && -z "$OPENAI_API_KEY" ]]; then
+          if [[ "$DEMO_EDITION" != "true" && "$NO_AI" != "true" && -z "$OPENAI_API_KEY" ]]; then
             echo "This manual AI run needs the OPENAI_API_KEY secret. Select no_ai for the deterministic fallback." >&2
             exit 2
           fi
@@ -152,7 +136,7 @@ jobs:
           npm run backfill -- --from "$BACKFILL_FROM" --to "$BACKFILL_TO"
 
       - name: Commit generated publication data
-        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.skip_update != true && inputs.backfill_from == '' && inputs.backfill_to == '')
+        if: github.event_name == 'workflow_dispatch' && inputs.skip_update != true && inputs.backfill_from == '' && inputs.backfill_to == ''
         shell: bash
         env:
           REQUESTED_DATE: ${{ inputs.date }}
@@ -179,7 +163,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No publication data changed."
           else
-            # The scheduled run deploys this exact working tree; skip the redundant
+            # The manual run deploys this exact working tree; skip the redundant
             # push-triggered workflow that this archival commit would otherwise queue.
             git commit -m "$commit_message"
             git pull --rebase origin "$TARGET_BRANCH"

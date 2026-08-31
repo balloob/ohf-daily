@@ -10,6 +10,8 @@ Review every article for:
 - headline, dek, first paragraph, structure, repetition, and newspaper tone;
 - grouping around one reader outcome rather than author, repository, date, or chronology;
 - factual scope: merged versus released, reporting versus provisioning, and groundwork versus an available downstream capability;
+- release-day compliance: a configured scheduled stable release must be the headline lead, while a beta, prerelease, release candidate, or patch release needs independent news value to earn article space;
+- release evidence: preview notes must be treated as mutable work in progress, and `released`, `available`, or shipped language requires matching landed stable-release metadata;
 - continuity and recap quality, including repetition of recent editions;
 - accurate first-contributor recognition and source-supported human review credit.
 

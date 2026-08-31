@@ -46,6 +46,19 @@ export interface LandedRelease {
   sourcePullRequestIds?: string[];
 }
 
+export interface ReleasePreview {
+  id: string;
+  product: string;
+  version: string;
+  title: string;
+  url: string;
+  body: string;
+  mediaUrls: string[];
+  contentHash: string;
+  fetchedAt: string;
+  releaseDate: string;
+}
+
 export interface ArticleSource {
   id: string;
   title: string;
@@ -135,6 +148,7 @@ export interface Edition {
   articles?: Article[];
   pulse?: ProjectPulseItem[];
   landedReleases?: LandedRelease[];
+  releasePreviews?: ReleasePreview[];
   releases: ReleaseEvent[];
   notes?: string[];
 }

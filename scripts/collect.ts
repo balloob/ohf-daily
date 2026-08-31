@@ -5,9 +5,10 @@ import { fileURLToPath } from "node:url";
 import YAML from "yaml";
 import { buildReleaseCalendar, type ReleaseCycle } from "../src/lib/releases";
 import { collectContentFeeds, type FeedSourceConfig } from "../src/lib/feed-collector";
+import { collectReleasePreviews, type ActiveReleaseTarget, type ReleasePreviewSourceConfig } from "../src/lib/release-previews";
 import { isBotLogin, loadContributorCache, lookupContributorDetails, type ContributorCache } from "../src/lib/contributors";
 import { queryPullRequests, readPullRequestStore, upsertPullRequestStore, type StoredPullRequest, type StoredPullRequestInput } from "../src/lib/pr-store";
-import type { DependencyItem, Edition, LandedRelease, ProjectPulseItem, PullRequestStory, StoryKind } from "../src/lib/types";
+import type { DependencyItem, Edition, LandedRelease, ProjectPulseItem, PullRequestStory, ReleasePreview, StoryKind } from "../src/lib/types";
 
 interface OrganizationConfig {
   slug: string;
@@ -33,6 +34,7 @@ export interface SourcesConfig {
   release_horizon_days?: number;
   feed_sources?: FeedSourceConfig[];
   release_sources?: ReleaseSourceConfig[];
+  release_preview_sources?: ReleasePreviewSourceConfig[];
   organizations: OrganizationConfig[];
   editorial: {
     ignore_labels: string[];
@@ -912,10 +914,49 @@ export interface CollectionResult {
   projectPulse: ProjectPulseItem[];
 }
 
+export function releaseTargetsForDate(date: string, releases: Edition["releases"]): ActiveReleaseTarget[] {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new TypeError("Release target date must use YYYY-MM-DD format.");
+  return releases
+    .filter((event) => event.kind === "Release" && event.date === date)
+    .map((event) => {
+      const [year, month] = event.date.split("-").map(Number);
+      return { product: event.product, version: `${year}.${month}`, releaseDate: event.date };
+    });
+}
+
+export function releasePreviewTargetsForDate(
+  date: string,
+  releases: Edition["releases"],
+  cycles: ReleaseCycle[],
+): ActiveReleaseTarget[] {
+  const betaDays = new Map(cycles.map((cycle) => [cycle.product, cycle.beta_days_before]));
+  return releases.flatMap((event) => {
+    if (event.kind !== "Release") return [];
+    const daysBefore = betaDays.get(event.product);
+    if (daysBefore === undefined) return [];
+    const betaStart = new Date(`${event.date}T00:00:00Z`);
+    betaStart.setUTCDate(betaStart.getUTCDate() - daysBefore);
+    if (date < betaStart.toISOString().slice(0, 10) || date > event.date) return [];
+    const [year, month] = event.date.split("-").map(Number);
+    return [{ product: event.product, version: `${year}.${month}`, releaseDate: event.date }];
+  });
+}
+
+async function storedReleasePreviews(date: string): Promise<ReleasePreview[]> {
+  try {
+    const edition = JSON.parse(await readFile(resolve(editionDirectory, `${date}.json`), "utf8")) as Edition;
+    return edition.releasePreviews ?? [];
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
+    throw error;
+  }
+}
+
 export async function collect(): Promise<CollectionResult> {
   const config = await loadYaml<SourcesConfig>(configPath);
   const requestedDate = getArgument("--date");
   const { editionDate, start, end } = reportingWindow(new Date(), requestedDate, config.timezone, config.window_hours);
+  const releaseCalendar = buildReleaseCalendar(editionDate, config.release_cycles, 4, config.release_horizon_days ?? 45);
 
   if (hasArgument("--demo")) {
     const demo = makeDemoEdition(end, editionDate, config);
@@ -936,6 +977,28 @@ export async function collect(): Promise<CollectionResult> {
     configured: 0,
     warnings: [`Official posts and external coverage could not be collected: ${error instanceof Error ? error.message : String(error)}`],
   }));
+  const releaseTargets = releaseTargetsForDate(editionDate, releaseCalendar);
+  const previewTargets = releasePreviewTargetsForDate(editionDate, releaseCalendar, config.release_cycles);
+  const previousReleasePreviews = releaseTargets.length > 0 ? await storedReleasePreviews(editionDate) : [];
+  const historicalEdition = editionDate < dateInTimeZone(new Date(), config.timezone);
+  const reusableHistoricalPreviews = historicalEdition && releaseTargets.every((target) => previousReleasePreviews.some((preview) =>
+    preview.product === target.product && preview.version === target.version && preview.releaseDate.slice(0, 10) === target.releaseDate,
+  ));
+  if (historicalEdition && releaseTargets.length > 0 && !reusableHistoricalPreviews) {
+    throw new Error(`Historical release-day edition ${editionDate} has no stored official preview snapshot; refusing to overwrite it with current preview data.`);
+  }
+  const releasePreviewCollection = reusableHistoricalPreviews
+    ? Promise.resolve({ previews: previousReleasePreviews, warnings: [] })
+    : !historicalEdition && previewTargets.length > 0
+    ? collectReleasePreviews({
+      root,
+      sources: config.release_preview_sources ?? [],
+      targets: previewTargets,
+    }).catch((error) => ({
+      previews: [],
+      warnings: [`Release previews could not be collected: ${error instanceof Error ? error.message : String(error)}`],
+    }))
+    : Promise.resolve({ previews: [], warnings: [] });
 
   const cache = await loadCache();
   const client = new GitHubClient(cache);
@@ -1106,6 +1169,15 @@ export async function collect(): Promise<CollectionResult> {
   notes.push(...contentFeeds.warnings);
   console.log(`Content feeds: ${contentFeeds.current.length} current, ${contentFeeds.written} archived, ${contentFeeds.configured} configured.`);
 
+  const releasePreviews = await releasePreviewCollection;
+  notes.push(...releasePreviews.warnings);
+  if (previewTargets.length > 0) {
+    console.log(`Release previews: ${releasePreviews.previews.length} of ${previewTargets.length} active source${previewTargets.length === 1 ? "" : "s"} cached.`);
+  }
+  const editionReleasePreviews = releasePreviews.previews.filter((preview) => releaseTargets.some((target) =>
+    target.product === preview.product && target.version === preview.version && target.releaseDate === preview.releaseDate.slice(0, 10),
+  ));
+
   const releaseHistories = new Map<string, GitHubRelease[]>();
   const landedReleases: LandedRelease[] = [];
   const releaseSources = config.release_sources ?? [];
@@ -1172,7 +1244,8 @@ export async function collect(): Promise<CollectionResult> {
     dependencies,
     pulse,
     landedReleases,
-    releases: buildReleaseCalendar(editionDate, config.release_cycles, 4, config.release_horizon_days ?? 45),
+    releasePreviews: editionReleasePreviews.length > 0 ? editionReleasePreviews : undefined,
+    releases: releaseCalendar,
     notes: editionNotes.length > 0 ? editionNotes : undefined,
   };
 

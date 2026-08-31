@@ -3,7 +3,7 @@ import { dirname, resolve } from "node:path";
 import YAML from "yaml";
 import { isBotLogin } from "./contributors";
 import { queryContent, readContentStore, type ContentQuery, type StoredContent } from "./content-store";
-import type { Article, ArticleExternalSource, ArticleMedia, ArticleSource, Edition } from "./types";
+import type { Article, ArticleExternalSource, ArticleMedia, ArticleSource, Edition, ReleasePreview } from "./types";
 import { queryPullRequests, readPullRequestStore, type PullRequestQuery, type StoredPullRequest } from "./pr-store";
 import type { ReleaseCycle } from "./releases";
 
@@ -211,13 +211,13 @@ function compactRecord(record: StoredPullRequest): object {
   };
 }
 
-function compactContentRecord(record: StoredContent): object {
+function compactContentRecord(record: StoredContent, maximumBodyCharacters = 4_000): object {
   return {
     id: record.id,
     kind: record.kind,
     source: record.source,
     title: record.title,
-    description: (record.body ?? "").slice(0, 4000),
+    description: (record.body ?? "").slice(0, maximumBodyCharacters),
     author: record.author,
     publishedAt: record.publishedAt,
     updatedAt: record.updatedAt,
@@ -416,7 +416,12 @@ export function activeBetaWindows(date: string, releases: Edition["releases"], c
   });
 }
 
-function resolveArticles(raw: EditorArticle[], records: StoredPullRequest[], contentRecords: StoredContent[] = []): Article[] {
+function resolveArticles(
+  raw: EditorArticle[],
+  records: StoredPullRequest[],
+  contentRecords: StoredContent[] = [],
+  mandatoryLeadSourceIds: string[] = [],
+): Article[] {
   const byId = new Map(records.map((record) => [String(record.id), record]));
   const contentById = new Map(contentRecords.map((record) => [record.id, record]));
   const seen = new Set<string>();
@@ -439,7 +444,10 @@ function resolveArticles(raw: EditorArticle[], records: StoredPullRequest[], con
     });
     if (sources.length === 0 && externalSources.length === 0) continue;
     if (sources.length === 0 && externalSources.every((source) => source.kind === "external_coverage")) continue;
-    const allowedMedia = new Set(sources.flatMap((source) => byId.get(source.id)?.mediaUrls ?? []));
+    const allowedMedia = new Set([
+      ...sources.flatMap((source) => byId.get(source.id)?.mediaUrls ?? []),
+      ...externalSources.flatMap((source) => contentById.get(source.id)?.mediaUrls ?? []),
+    ]);
     const media: ArticleMedia[] = draft.media.flatMap((item) => allowedMedia.has(item.url) ? [{
       type: item.type,
       url: item.url,
@@ -492,13 +500,54 @@ function resolveArticles(raw: EditorArticle[], records: StoredPullRequest[], con
       media,
     });
   }
+  const mandatoryIds = [...new Set(mandatoryLeadSourceIds)];
+  const mandatoryArticles = mandatoryIds.map((id) => articles.find((article) =>
+    article.kind === "daily" && article.externalSources?.some((source) => source.id === id),
+  ));
+  const missingMandatoryIds = mandatoryIds.filter((_id, index) => !mandatoryArticles[index]);
+  if (missingMandatoryIds.length > 0) {
+    throw new Error(`Release-day editorial plan omitted mandatory official source${missingMandatoryIds.length === 1 ? "" : "s"}: ${missingMandatoryIds.join(", ")}`);
+  }
+
   const daily = articles.filter((article) => article.kind === "daily").sort((a, b) => b.score - a.score);
   if (daily.length > 0) {
-    const chosenLead = daily.find((article) => article.placement === "lead") ?? daily[0];
+    const chosenLead = mandatoryArticles[0] ?? daily.find((article) => article.placement === "lead") ?? daily[0];
     for (const article of daily) if (article.placement === "lead" && article !== chosenLead) article.placement = "feature";
     chosenLead.placement = "lead";
   }
   return articles.sort((a, b) => ({ lead: 0, feature: 1, brief: 2 })[a.placement] - ({ lead: 0, feature: 1, brief: 2 })[b.placement] || b.score - a.score);
+}
+
+function releasePreviewContent(preview: ReleasePreview): StoredContent {
+  const sourceId = `release-preview:${preview.id}`;
+  return {
+    schemaVersion: 1,
+    revision: 1,
+    firstSeenAt: preview.fetchedAt,
+    storedAt: preview.fetchedAt,
+    id: sourceId,
+    kind: "official_post",
+    source: `${preview.product} release preview`,
+    title: preview.title,
+    url: preview.url,
+    publishedAt: new Date(`${preview.releaseDate.slice(0, 10)}T00:00:00Z`).toISOString(),
+    updatedAt: preview.fetchedAt,
+    author: preview.product,
+    body: preview.body,
+    mediaUrls: preview.mediaUrls,
+  };
+}
+
+function majorMinorVersion(value: string): string | undefined {
+  const match = value.match(/(?:^|[^0-9])(\d{4})\.(\d{1,2})(?:\.|[^0-9]|$)/);
+  return match ? `${Number(match[1])}.${Number(match[2])}` : undefined;
+}
+
+function releasePreviewStatus(preview: ReleasePreview, releases: Edition["landedReleases"]): "released" | "due_today" {
+  const released = (releases ?? []).some((release) => release.channel === "stable"
+    && release.product === preview.product
+    && majorMinorVersion(`${release.tag} ${release.name}`) === majorMinorVersion(preview.version));
+  return released ? "released" : "due_today";
 }
 
 export async function runEditorial(options: EditorialOptions): Promise<Article[]> {
@@ -514,18 +563,42 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
   const edition = JSON.parse(await readFile(options.editionPath, "utf8")) as Edition;
   const history = await readPullRequestStore(resolve(options.root, "data/prs"));
   const contentHistory = await readContentStore(resolve(options.root, "data/content"));
+  const scheduledReleaseProducts = edition.releases
+    .filter((event) => event.kind === "Release" && event.date === edition.date)
+    .map((event) => event.product);
+  const releasePreviews = (edition.releasePreviews ?? []).filter((preview) =>
+    preview.releaseDate.slice(0, 10) === edition.date && scheduledReleaseProducts.includes(preview.product),
+  );
+  const missingReleasePreviews = scheduledReleaseProducts.filter((product) =>
+    !releasePreviews.some((preview) => preview.product === product),
+  );
+  if (missingReleasePreviews.length > 0) {
+    throw new Error(`Scheduled release day is missing an official preview for: ${missingReleasePreviews.join(", ")}`);
+  }
+  const releaseContent = releasePreviews.map(releasePreviewContent);
+  const allContentHistory = [...contentHistory, ...releaseContent];
   const current = queryPullRequests(history, { since: edition.windowStart, before: edition.windowEnd, limit: 10_000 }).filter((record) => !record.isDependency);
   const currentContent = queryContent(contentHistory, { since: edition.windowStart, before: edition.windowEnd, limit: 10_000 });
   const recentPublishedArticles = await loadRecentPublishedArticles(dirname(options.editionPath), edition.date, 14);
+  const releaseDay = releasePreviews.map((preview, index) => ({
+    product: preview.product,
+    version: preview.version,
+    releaseDate: preview.releaseDate.slice(0, 10),
+    status: releasePreviewStatus(preview, edition.landedReleases),
+    sourceId: releaseContent[index].id,
+    contentHash: preview.contentHash,
+  }));
   const releaseContext = {
     landedReleases: edition.landedReleases ?? [],
     upcomingEvents: edition.releases,
     activeBetas: activeBetaWindows(edition.date, edition.releases, config.release_cycles),
     cycles: config.release_cycles,
+    releaseDay,
   };
 
   const reporterPrompt = await readFile(resolve(options.root, "prompts/reporter.md"), "utf8");
   const weeklyPrompt = await readFile(resolve(options.root, "prompts/weekly-recap.md"), "utf8");
+  const releaseDayPrompt = releaseDay.length > 0 ? await readFile(resolve(options.root, "prompts/release-day.md"), "utf8") : "";
   const editorPrompt = await readFile(resolve(options.root, "prompts/editor.md"), "utf8");
   const beats = [...Map.groupBy(current, (record) => record.organization).entries()].map(([beat, records]) => ({
     kind: "beat" as const,
@@ -544,9 +617,9 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
     name: track.name,
     track,
     records: current,
-    contentRecords: currentContent,
+    contentRecords: track.slug === "releases" ? [...currentContent, ...releaseContent] : currentContent,
   }));
-  const reporterResults = await mapConcurrent([...beats, ...tracks], config.ai.max_parallel_reporters, async (assignment) => {
+  const reporterWork = mapConcurrent([...beats, ...tracks], config.ai.max_parallel_reporters, async (assignment) => {
     let specificPrompt = "";
     if (assignment.kind === "track") {
       specificPrompt = await readFile(trackPromptPath(options.root, assignment.track.prompt), "utf8");
@@ -580,11 +653,32 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
         contentItems,
       },
       history,
-      contentHistory,
+      allContentHistory,
       config.ai.max_history_queries_per_reporter,
     );
   });
+  const releaseWork = releaseDay.length > 0 ? runReporter(
+    fetcher,
+    options.apiKey,
+    model,
+    config.ai.reasoning_effort,
+    `${reporterPrompt}\n\n${releaseDayPrompt}`,
+    {
+      edition: { date: edition.date, windowStart: edition.windowStart, windowEnd: edition.windowEnd },
+      beat: "release day headline",
+      editorialTrack: { slug: "release-day", name: "Release day headline" },
+      recentPublishedArticles,
+      releaseContext,
+      pullRequests: current.map(compactRecord),
+      contentItems: releaseContent.map((record) => compactContentRecord(record, 12_000)),
+    },
+    history,
+    allContentHistory,
+    config.ai.max_history_queries_per_reporter,
+  ) : Promise.resolve([]);
+  const [reporterResults, releaseProposals] = await Promise.all([reporterWork, releaseWork]);
   const proposals = reporterResults.flat();
+  proposals.push(...releaseProposals);
 
   if (monday(edition.date)) {
     const recap = recapBounds(edition.date, edition.timezone);
@@ -605,13 +699,16 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
           contentItems: queryContent(contentHistory, { since: recap.start, before: recap.end, limit: 10_000 }).map(compactContentRecord),
         },
         history,
-        contentHistory,
+        allContentHistory,
         config.ai.max_history_queries_per_reporter,
       ));
     }
   }
 
-  if (proposals.length === 0) return [];
+  if (proposals.length === 0) {
+    if (releaseDay.length > 0) throw new Error("Release-day reporter returned no headline proposal.");
+    return [];
+  }
 
   const editorResponse = await apiRequest(fetcher, options.apiKey, {
     model,
@@ -628,11 +725,11 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
   });
   if (!editorResponse.output_text) throw new Error("Editor returned no structured newspaper plan.");
   const raw = (JSON.parse(editorResponse.output_text) as { articles: EditorArticle[] }).articles;
-  const articles = resolveArticles(raw, history, contentHistory);
+  const articles = resolveArticles(raw, history, allContentHistory, releaseDay.map((release) => release.sourceId));
   edition.articles = articles;
-  edition.notes = [...(edition.notes ?? []), `AI editorial plan generated with ${model} from auditable local prompts, ${history.length} stored pull requests, and ${contentHistory.length} stored posts or coverage items.`];
+  edition.notes = [...(edition.notes ?? []), `AI editorial plan generated with ${model} from auditable local prompts, ${history.length} stored pull requests, ${contentHistory.length} stored posts or coverage items, and ${releaseContent.length} release-day preview${releaseContent.length === 1 ? "" : "s"}.`];
   await writeFile(options.editionPath, `${JSON.stringify(edition, null, 2)}\n`);
   return articles;
 }
 
-export const editorialInternals = { monday, daysBefore, recapBounds, resolveArticles, historyQueryFromArguments, contentQueryFromArguments, compactRecord, compactContentRecord, loadRecentPublishedArticles, activeBetaWindows };
+export const editorialInternals = { monday, daysBefore, recapBounds, resolveArticles, releasePreviewContent, releasePreviewStatus, historyQueryFromArguments, contentQueryFromArguments, compactRecord, compactContentRecord, loadRecentPublishedArticles, activeBetaWindows };

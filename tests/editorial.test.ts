@@ -6,6 +6,7 @@ import test from "node:test";
 import { editorialInternals } from "../src/lib/editorial";
 import type { StoredContent } from "../src/lib/content-store";
 import type { StoredPullRequest } from "../src/lib/pr-store";
+import type { ReleasePreview } from "../src/lib/types";
 
 const record: StoredPullRequest = {
   schemaVersion: 1,
@@ -51,6 +52,19 @@ const officialPost: StoredContent = {
   author: "Home Assistant",
   body: "The official post explains the program.",
   mediaUrls: [],
+};
+
+const releasePreview: ReleasePreview = {
+  id: "Home Assistant/2026.9",
+  product: "Home Assistant",
+  version: "2026.9",
+  title: "Home Assistant 2026.9 preview",
+  url: "https://rc.home-assistant.io/blog/2026/08/26/release-20269/",
+  body: "A mutable preview of the September release.",
+  mediaUrls: ["https://rc.home-assistant.io/images/blog/2026-09/dashboard.png"],
+  contentHash: "a".repeat(64),
+  fetchedAt: "2026-09-02T05:00:00Z",
+  releaseDate: "2026-09-02",
 };
 
 test("identifies Monday editions and seven-day recap bounds", () => {
@@ -103,6 +117,14 @@ test("loads recent published article context newest edition first", async (t) =>
 test("exposes cached contributor identity to the reporting agent", () => {
   const compact = editorialInternals.compactRecord(record) as { authorProfile?: unknown };
   assert.deepEqual(compact.authorProfile, record.authorProfile);
+});
+
+test("can provide the release reporter with the full bounded preview body", () => {
+  const content = editorialInternals.releasePreviewContent({ ...releasePreview, body: "x".repeat(10_000) });
+  const ordinary = editorialInternals.compactContentRecord(content) as { description: string };
+  const release = editorialInternals.compactContentRecord(content, 12_000) as { description: string };
+  assert.equal(ordinary.description.length, 4_000);
+  assert.equal(release.description.length, 10_000);
 });
 
 test("resolves only locally evidenced PRs and media, including review credit", () => {
@@ -219,6 +241,85 @@ test("rejects an article supported only by Google Alert coverage", () => {
     media: [],
   }], [], [alert]);
   assert.deepEqual(articles, []);
+});
+
+test("forces a release-day source into the lead and accepts its official media", () => {
+  const previewContent = editorialInternals.releasePreviewContent(releasePreview);
+  const base = {
+    dek: "Official release notes provide the evidence.",
+    body: ["The release is due today."],
+    kind: "daily" as const,
+    score: 80,
+    contributors: [],
+    topics: ["release"],
+    continuity: null,
+    pullRequestIds: [],
+  };
+  const articles = editorialInternals.resolveArticles([{
+    ...base,
+    id: "ordinary-lead",
+    title: "Another story",
+    placement: "lead",
+    contentSourceIds: [officialPost.id],
+    media: [],
+  }, {
+    ...base,
+    id: "release-story",
+    title: "Home Assistant 2026.9 is due today",
+    placement: "feature",
+    contentSourceIds: [previewContent.id],
+    media: [{ type: "image", url: releasePreview.mediaUrls[0], alt: "Release dashboard", caption: null, poster: null }],
+  }], [], [officialPost, previewContent], [previewContent.id]);
+
+  assert.equal(articles[0].id, "release-story");
+  assert.equal(articles[0].placement, "lead");
+  assert.equal(articles[1].placement, "feature");
+  assert.deepEqual(articles[0].media.map((media) => media.url), releasePreview.mediaUrls);
+});
+
+test("rejects a release-day plan that omits its mandatory official source", () => {
+  const previewContent = editorialInternals.releasePreviewContent(releasePreview);
+  assert.throws(() => editorialInternals.resolveArticles([{
+    id: "wrong-story",
+    title: "An unrelated story",
+    dek: "This cannot displace the release.",
+    body: ["Unrelated."],
+    kind: "daily",
+    placement: "lead",
+    score: 99,
+    contributors: [],
+    topics: [],
+    continuity: null,
+    pullRequestIds: [],
+    contentSourceIds: [officialPost.id],
+    media: [],
+  }], [], [officialPost, previewContent], [previewContent.id]), /omitted mandatory official source/);
+});
+
+test("marks a release preview shipped only when a matching stable release landed", () => {
+  assert.equal(editorialInternals.releasePreviewStatus(releasePreview, []), "due_today");
+  assert.equal(editorialInternals.releasePreviewStatus(releasePreview, [{
+    id: "ha:2026.9.0",
+    product: "Home Assistant",
+    repository: "home-assistant/core",
+    name: "Home Assistant 2026.9.0",
+    tag: "2026.9.0",
+    url: "https://github.com/home-assistant/core/releases/tag/2026.9.0",
+    publishedAt: "2026-09-02T06:30:00Z",
+    channel: "stable",
+    accent: "blue",
+  }]), "released");
+  assert.equal(editorialInternals.releasePreviewStatus(releasePreview, [{
+    id: "ha:beta",
+    product: "Home Assistant",
+    repository: "home-assistant/core",
+    name: "Home Assistant 2026.9 beta",
+    tag: "2026.9.0b1",
+    url: "https://github.com/home-assistant/core/releases/tag/2026.9.0b1",
+    publishedAt: "2026-08-26T06:30:00Z",
+    channel: "prerelease",
+    accent: "blue",
+  }]), "due_today");
 });
 
 test("parses exact local-history tool filters", () => {
