@@ -40,6 +40,14 @@ test("identifies Monday editions and seven-day recap bounds", () => {
   assert.equal(editorialInternals.monday("2026-08-31"), true);
   assert.equal(editorialInternals.monday("2026-09-01"), false);
   assert.equal(editorialInternals.daysBefore("2026-08-31", 7), "2026-08-24T00:00:00.000Z");
+  assert.deepEqual(editorialInternals.recapBounds("2026-08-31", "Europe/Amsterdam"), {
+    start: "2026-08-23T22:00:00.000Z",
+    end: "2026-08-30T22:00:00.000Z",
+  });
+  assert.deepEqual(editorialInternals.recapBounds("2026-03-30", "Europe/Amsterdam"), {
+    start: "2026-03-22T23:00:00.000Z",
+    end: "2026-03-29T22:00:00.000Z",
+  });
 });
 
 test("derives active beta windows from configured release cycles", () => {

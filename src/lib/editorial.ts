@@ -273,6 +273,42 @@ function daysBefore(date: string, days: number): string {
   return value.toISOString();
 }
 
+function localDateParts(date: Date, timeZone: string): Record<"year" | "month" | "day" | "hour" | "minute" | "second", number> {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23",
+  }).formatToParts(date);
+  return Object.fromEntries(parts.filter((part) => part.type !== "literal").map((part) => [part.type, Number(part.value)])) as Record<"year" | "month" | "day" | "hour" | "minute" | "second", number>;
+}
+
+function localMidnight(date: string, timeZone: string): Date {
+  const parsed = new Date(`${date}T12:00:00Z`);
+  if (Number.isNaN(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== date) throw new TypeError("Recap date must be a valid YYYY-MM-DD date.");
+  const target = Date.UTC(parsed.getUTCFullYear(), parsed.getUTCMonth(), parsed.getUTCDate());
+  let candidate = target;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const parts = localDateParts(new Date(candidate), timeZone);
+    const represented = Date.UTC(parts.year, parts.month - 1, parts.day, parts.hour, parts.minute, parts.second);
+    candidate -= represented - target;
+  }
+  return new Date(candidate);
+}
+
+function recapBounds(date: string, timeZone: string): { start: string; end: string } {
+  const startDate = new Date(`${date}T12:00:00Z`);
+  startDate.setUTCDate(startDate.getUTCDate() - 7);
+  return {
+    start: localMidnight(startDate.toISOString().slice(0, 10), timeZone).toISOString(),
+    end: localMidnight(date, timeZone).toISOString(),
+  };
+}
+
 export async function loadRecentPublishedArticles(
   editionDirectory: string,
   beforeDate: string,
@@ -458,7 +494,8 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
   const proposals = reporterResults.flat();
 
   if (monday(edition.date)) {
-    const weeklyRecords = queryPullRequests(history, { since: daysBefore(edition.date, 7), before: edition.windowStart, limit: 10_000 }).filter((record) => !record.isDependency);
+    const recap = recapBounds(edition.date, edition.timezone);
+    const weeklyRecords = queryPullRequests(history, { since: recap.start, before: recap.end, limit: 10_000 }).filter((record) => !record.isDependency);
     if (weeklyRecords.length > 0) {
       proposals.push(...await runReporter(
         fetcher,
@@ -467,7 +504,7 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
         config.ai.reasoning_effort,
         `${reporterPrompt}\n\n${weeklyPrompt}`,
         {
-          edition: { date: edition.date, recapStart: daysBefore(edition.date, 7), recapEnd: edition.windowStart },
+          edition: { date: edition.date, recapStart: recap.start, recapEnd: recap.end },
           beat: "weekly recap",
           recentPublishedArticles,
           releaseContext,
@@ -503,4 +540,4 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
   return articles;
 }
 
-export const editorialInternals = { monday, daysBefore, resolveArticles, historyQueryFromArguments, compactRecord, loadRecentPublishedArticles, activeBetaWindows };
+export const editorialInternals = { monday, daysBefore, recapBounds, resolveArticles, historyQueryFromArguments, compactRecord, loadRecentPublishedArticles, activeBetaWindows };

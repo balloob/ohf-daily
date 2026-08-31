@@ -17,16 +17,26 @@ const articleBody = Array.isArray(article?.body) ? article.body.filter(Boolean) 
 const articleMedia = Array.isArray(article?.media) ? article.media.filter((item) => item?.url) : [];
 const articlePullRequests = Array.isArray(article?.pullRequests) ? article.pullRequests.filter((item) => item?.url) : [];
 const articleContributors = Array.isArray(article?.contributors) ? article.contributors.filter(Boolean) : [];
+const isRecap = article?.kind === "weekly_recap";
+const isArticlePreview = Boolean(articleHref);
+const useCompactRecapCredits = isRecap && isArticlePreview;
 const contributorProfiles = Array.isArray(article?.contributorProfiles)
   ? article.contributorProfiles.filter((profile) => profile?.login && profile.avatarUrl?.startsWith("https://") && profile.profileUrl?.startsWith("https://"))
   : [];
 const profiledLogins = new Set(contributorProfiles.map((profile) => profile.login.toLowerCase()));
 const unprofiledContributors = articleContributors.filter((login) => !profiledLogins.has(login.toLowerCase()));
+const recapContributorLimit = 3;
+const visibleContributorProfiles = useCompactRecapCredits ? contributorProfiles.slice(0, recapContributorLimit) : contributorProfiles;
+const remainingRecapContributorSlots = Math.max(0, recapContributorLimit - visibleContributorProfiles.length);
+const visibleUnprofiledContributors = useCompactRecapCredits
+  ? unprofiledContributors.slice(0, remainingRecapContributorSlots)
+  : unprofiledContributors;
+const remainingContributorCount = useCompactRecapCredits
+  ? contributorProfiles.length + unprofiledContributors.length - visibleContributorProfiles.length - visibleUnprofiledContributors.length
+  : 0;
 const articleReviewers = Array.isArray(article?.reviewers) ? article.reviewers.filter(Boolean) : [];
 const articleApprovers = Array.isArray(article?.approvers) ? article.approvers.filter(Boolean) : [];
 const articleTopics = Array.isArray(article?.topics) ? article.topics.filter(Boolean) : [];
-const isRecap = article?.kind === "weekly_recap";
-const isArticlePreview = Boolean(articleHref);
 const isSafeMediaUrl = (url: string) => url.startsWith("https://") || url.startsWith("/");
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
 const mediaUrl = (url: string) => url.startsWith("/") ? `${base}${url.replace(/^\/+/, "")}` : url;
@@ -89,21 +99,22 @@ const sourceGroups = articlePullRequests.reduce<Map<string, EditorialPullRequest
       {article.dek && <p class="dek">{article.dek}</p>}
       {(articleContributors.length > 0 || contributorProfiles.length > 0 || articlePullRequests.length > 0) && (
         <div class="byline">
-          {(contributorProfiles.length > 0 || unprofiledContributors.length > 0) && <span>With work by</span>}
-          {contributorProfiles.map((profile) => (
+          {(visibleContributorProfiles.length > 0 || visibleUnprofiledContributors.length > 0) && <span>With work by</span>}
+          {visibleContributorProfiles.map((profile) => (
             <a class="contributor" href={profile.profileUrl} target="_blank" rel="noreferrer" title={`View ${profile.login} on GitHub`}>
               <img src={profile.avatarUrl} alt="" loading="lazy" />
               <span>{profile.name || profile.login}{profile.name && <small>@{profile.login}</small>}</span>
             </a>
           ))}
-          {unprofiledContributors.length > 0 && <span>{unprofiledContributors.join(", ")}</span>}
+          {visibleUnprofiledContributors.length > 0 && <span>{visibleUnprofiledContributors.join(", ")}</span>}
+          {remainingContributorCount > 0 && <span>+{remainingContributorCount} more {remainingContributorCount === 1 ? "contributor" : "contributors"}</span>}
           {articlePullRequests.length > 0 && <span>{articlePullRequests.length} linked {articlePullRequests.length === 1 ? "pull request" : "pull requests"}</span>}
         </div>
       )}
       {(articleReviewers.length > 0 || articleApprovers.length > 0) && (
         <p class="editorial-credit">
-          {articleReviewers.length > 0 && <span>Reviewed by {articleReviewers.join(", ")}</span>}
-          {articleApprovers.length > 0 && <span>Approved by {articleApprovers.join(", ")}</span>}
+          {articleReviewers.length > 0 && <span>{useCompactRecapCredits ? `${articleReviewers.length} ${articleReviewers.length === 1 ? "reviewer" : "reviewers"}` : `Reviewed by ${articleReviewers.join(", ")}`}</span>}
+          {articleApprovers.length > 0 && <span>{useCompactRecapCredits ? `${articleApprovers.length} ${articleApprovers.length === 1 ? "approval" : "approvals"}` : `Approved by ${articleApprovers.join(", ")}`}</span>}
         </p>
       )}
       <div class="article-body">

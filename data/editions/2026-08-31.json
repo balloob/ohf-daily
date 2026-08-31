@@ -1034,62 +1034,314 @@
       "media": []
     },
     {
-      "id": "weekly-beta-protects-existing-setups",
-      "title": "Two beta-period fixes protect work in Home Assistant’s editors",
-      "dek": "Merged frontend repairs keep one editor’s state out of another and preserve automation configuration when a device is replaced.",
+      "id": "weekly-local-energy-voice-listening-cloud",
+      "title": "Local energy, broader voice and better listening shaped the week",
+      "dek": "From inverter data to seven more voice languages, long-form playback and a smoother Cloud signup path, the week’s merged work moved several parts of the open home forward.",
       "body": [
-        "From August 24 through August 30, Home Assistant entered the beta period for its September release. Two closely related frontend repairs from that week shared one practical aim: protect work people had already put into their editors.",
-        "One merged fix stops state from leaking when people switch between automations, scripts or scenes. Another keeps an automation’s existing configuration when one of its devices is replaced, instead of making that carefully built setup collateral damage.",
-        "Together, the changes tighten the boundary between editing one configuration and altering another. They are merged groundwork for a safer editing experience as the September release approaches."
+        "From Monday, August 24 through Sunday, August 30, four substantial threads stood above the maintenance stream: local energy hardware, multilingual voice, long-form listening and the path into Home Assistant Cloud.",
+        "Local inverter support became a wave rather than a one-off. Merged Home Assistant work added Modbus paths for Sofar, Fronius and KACO, while SolarEdge grew from its initial local integration into attached meters, batteries and writable select and switch controls. The implementations start at different depths, but together they move more solar data and control onto the local network.",
+        "Local voice broadened at the same time. OHF Voice gained lean Speech-to-Phrase grammar blocks for German, Italian, Dutch, Catalan, Spanish, French and Czech. A companion Hassil change replaced its regular-expression prefilter; benchmarks supplied with that PR measured matching improvements from 6.5× to 323× depending on language and entity count, rather than promising one universal speedup.",
+        "Music Assistant’s week concentrated on long-form listening. Mobile progress can follow audiobook and podcast chapters, CarPlay gained previous and next chapter controls, podcast ordering and played state were corrected across server and frontend, and seeking across Spotify audiobook chapters no longer stops playback.",
+        "Home Assistant Cloud’s signup journey also advanced across the Nabu Casa library, Core and frontend. The merged pieces redesign the login and signup pages, expose confirmation state and prepare background login after someone confirms their email, closing a gap that previously sent people back through the flow manually.",
+        "These changes are merged work, not a claim that every feature has reached a stable release. Taken together, they show a week that improved both the open home’s everyday surfaces and the local systems underneath them."
       ],
       "kind": "weekly_recap",
       "placement": "feature",
-      "score": 90,
+      "score": 93,
       "contributors": [
-        "MindFreeze",
-        "piitaya"
+        "teancom",
+        "OzGav",
+        "klejejs",
+        "synesthesiam",
+        "darkrain-nl",
+        "farmio",
+        "marcelveldt",
+        "frenck",
+        "g4bri3lDev"
       ],
       "contributorProfiles": [
         {
-          "login": "MindFreeze",
-          "name": "Petar Petrov",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/5219205?v=4",
-          "profileUrl": "https://github.com/MindFreeze"
+          "login": "teancom",
+          "name": "David Bishop",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/609527?v=4",
+          "profileUrl": "https://github.com/teancom"
         },
         {
-          "login": "piitaya",
-          "name": "Paul Bottein",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/5878303?v=4",
-          "profileUrl": "https://github.com/piitaya"
+          "login": "OzGav",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/19848947?v=4",
+          "profileUrl": "https://github.com/OzGav"
+        },
+        {
+          "login": "klejejs",
+          "name": "Krisjanis Lejejs",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/24546950?v=4",
+          "profileUrl": "https://github.com/klejejs"
+        },
+        {
+          "login": "synesthesiam",
+          "name": "Michael Hansen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2743976?v=4",
+          "profileUrl": "https://github.com/synesthesiam"
+        },
+        {
+          "login": "darkrain-nl",
+          "name": "darkrain-nl",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/24763370?v=4",
+          "profileUrl": "https://github.com/darkrain-nl"
+        },
+        {
+          "login": "farmio",
+          "name": "Matthias Alphart",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12422879?v=4",
+          "profileUrl": "https://github.com/farmio"
+        },
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        },
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        },
+        {
+          "login": "g4bri3lDev",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/7592130?v=4",
+          "profileUrl": "https://github.com/g4bri3lDev"
         }
       ],
       "reviewers": [
-        "bramkragten"
+        "formatBCE",
+        "MarvinSchenkel",
+        "fmunkes",
+        "ludeeus",
+        "balloob",
+        "erwindouna",
+        "joostlek",
+        "shayredmond",
+        "frenck",
+        "WillCodeForCats"
       ],
       "approvers": [
-        "bramkragten"
+        "formatBCE",
+        "MarvinSchenkel",
+        "fmunkes",
+        "ludeeus",
+        "balloob",
+        "frenck",
+        "joostlek"
       ],
       "topics": [
         "Week in review",
-        "Beta",
-        "Reliability"
+        "Energy",
+        "Voice",
+        "Music Assistant",
+        "Home Assistant Cloud"
       ],
-      "continuity": "The recap follows two frontend fixes with one reader outcome: preserving existing Home Assistant editor work during beta.",
+      "continuity": "The recap connects four independently significant threads across the full Monday-through-Sunday week instead of promoting a pair of related fixes.",
       "pullRequests": [
         {
-          "id": "4374501522",
-          "title": "Fix editor state leaking when switching automations, scripts, or scenes",
-          "url": "https://github.com/home-assistant/frontend/pull/53826",
+          "id": "4291419122",
+          "title": "Add Sofar Inverter Modbus integration (config flow + sensor)",
+          "url": "https://github.com/home-assistant/core/pull/179329",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4348368674",
+          "title": "Add Fronius Modbus TCP (SunSpec) support",
+          "url": "https://github.com/home-assistant/core/pull/179995",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4384624076",
+          "title": "Add SolarEdge Modbus integration",
+          "url": "https://github.com/home-assistant/core/pull/180508",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4388525851",
+          "title": "Add meter support to SolarEdge Modbus",
+          "url": "https://github.com/home-assistant/core/pull/180572",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4392507918",
+          "title": "Add battery support to SolarEdge Modbus",
+          "url": "https://github.com/home-assistant/core/pull/180657",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4393308489",
+          "title": "Add select entities to SolarEdge Modbus",
+          "url": "https://github.com/home-assistant/core/pull/180698",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4396366833",
+          "title": "Add switch entities to SolarEdge Modbus",
+          "url": "https://github.com/home-assistant/core/pull/180826",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4395763259",
+          "title": "Add KACO Modbus integration",
+          "url": "https://github.com/home-assistant/core/pull/180812",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4359205972",
+          "title": "[de] Add Speech-to-Phrase lean sentence blocks",
+          "url": "https://github.com/OHF-Voice/intents/pull/4130",
+          "repository": "OHF-Voice/intents"
+        },
+        {
+          "id": "4359206326",
+          "title": "[it] Add Speech-to-Phrase lean sentence blocks",
+          "url": "https://github.com/OHF-Voice/intents/pull/4131",
+          "repository": "OHF-Voice/intents"
+        },
+        {
+          "id": "4359206665",
+          "title": "[nl] Add Speech-to-Phrase lean sentence blocks",
+          "url": "https://github.com/OHF-Voice/intents/pull/4132",
+          "repository": "OHF-Voice/intents"
+        },
+        {
+          "id": "4359208446",
+          "title": "[ca] Add Speech-to-Phrase lean sentence blocks",
+          "url": "https://github.com/OHF-Voice/intents/pull/4133",
+          "repository": "OHF-Voice/intents"
+        },
+        {
+          "id": "4359208680",
+          "title": "[es] Add Speech-to-Phrase lean sentence blocks",
+          "url": "https://github.com/OHF-Voice/intents/pull/4134",
+          "repository": "OHF-Voice/intents"
+        },
+        {
+          "id": "4359208960",
+          "title": "[fr] Add Speech-to-Phrase lean sentence blocks",
+          "url": "https://github.com/OHF-Voice/intents/pull/4135",
+          "repository": "OHF-Voice/intents"
+        },
+        {
+          "id": "4359209206",
+          "title": "[cs] Add Speech-to-Phrase lean sentence blocks",
+          "url": "https://github.com/OHF-Voice/intents/pull/4136",
+          "repository": "OHF-Voice/intents"
+        },
+        {
+          "id": "4361842844",
+          "title": "Speed up matching; replace regex pre-filter with a sound required-literal filter",
+          "url": "https://github.com/OHF-Voice/hassil/pull/280",
+          "repository": "OHF-Voice/hassil"
+        },
+        {
+          "id": "4343026906",
+          "title": "Add audiobook and podcast chapter-based progress",
+          "url": "https://github.com/music-assistant/mobile-app/pull/906",
+          "repository": "music-assistant/mobile-app"
+        },
+        {
+          "id": "4362316619",
+          "title": "Add chapter next/prev button for audiobooks in CarPlay",
+          "url": "https://github.com/music-assistant/mobile-app/pull/917",
+          "repository": "music-assistant/mobile-app"
+        },
+        {
+          "id": "4342009801",
+          "title": "Fix podcast episodes showing in the wrong order",
+          "url": "https://github.com/music-assistant/server/pull/5929",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4342399270",
+          "title": "Show podcast episodes newest first",
+          "url": "https://github.com/music-assistant/frontend/pull/2620",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "4341897909",
+          "title": "Fix missing played status on podcast episode details page",
+          "url": "https://github.com/music-assistant/server/pull/5927",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4377802563",
+          "title": "Fix a Spotify audiobook stopping when you seek to another chapter",
+          "url": "https://github.com/music-assistant/server/pull/6063",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4321776145",
+          "title": "Add register and auto-login on account confirmation",
+          "url": "https://github.com/NabuCasa/hass-nabucasa/pull/1173",
+          "repository": "NabuCasa/hass-nabucasa"
+        },
+        {
+          "id": "4355426117",
+          "title": "Cloud register auto login",
+          "url": "https://github.com/home-assistant/core/pull/180105",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4364408057",
+          "title": "Improve cloud login/sign up pages, add auto login",
+          "url": "https://github.com/home-assistant/frontend/pull/53790",
           "repository": "home-assistant/frontend"
         },
         {
-          "id": "4367740854",
-          "title": "Keep the automation config when replacing a device in device automations",
-          "url": "https://github.com/home-assistant/frontend/pull/53805",
-          "repository": "home-assistant/frontend"
+          "id": "4375375827",
+          "title": "Harden register-and-auto-login and surface state on the controller",
+          "url": "https://github.com/NabuCasa/hass-nabucasa/pull/1187",
+          "repository": "NabuCasa/hass-nabucasa"
+        },
+        {
+          "id": "4377180984",
+          "title": "Read cloud auto-login state from the hass-nabucasa controller",
+          "url": "https://github.com/home-assistant/core/pull/180423",
+          "repository": "home-assistant/core"
         }
       ],
-      "media": []
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-08-31/weekly-local-energy-voice-listening-cloud-348f8bf7baaa-1600w.webp",
+          "alt": "Redesigned Home Assistant Cloud signup page from the merged frontend work.",
+          "caption": "The Cloud signup work connected a redesigned frontend with confirmation and auto-login state across Core and hass-nabucasa. Screenshot from home-assistant/frontend #53790.",
+          "width": 1600,
+          "height": 1540,
+          "variants": [
+            {
+              "url": "/media/2026-08-31/weekly-local-energy-voice-listening-cloud-348f8bf7baaa-480w.webp",
+              "width": 480,
+              "height": 462,
+              "bytes": 11572,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-08-31/weekly-local-energy-voice-listening-cloud-348f8bf7baaa-960w.webp",
+              "width": 960,
+              "height": 924,
+              "bytes": 35870,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-08-31/weekly-local-energy-voice-listening-cloud-348f8bf7baaa-1600w.webp",
+              "width": 1600,
+              "height": 1540,
+              "bytes": 68368,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 115810
+        }
+      ]
     },
     {
       "id": "icloud-calendars-in-home-assistant",
