@@ -1,35 +1,83 @@
 {
   "date": "2026-08-31",
-  "generatedAt": "2026-08-31T08:23:47.291Z",
-  "windowStart": "2026-08-30T21:59:59.999Z",
-  "windowEnd": "2026-08-31T21:59:59.999Z",
+  "generatedAt": "2026-08-31T12:06:40.245Z",
+  "windowStart": "2026-08-30T12:05:39.136Z",
+  "windowEnd": "2026-08-31T12:05:39.136Z",
   "timezone": "Europe/Amsterdam",
   "stats": {
-    "mergedPullRequests": 85,
-    "repositories": 29,
-    "contributors": 25,
-    "dependencyUpdates": 44
+    "mergedPullRequests": 302,
+    "repositories": 39,
+    "contributors": 71,
+    "dependencyUpdates": 61
   },
   "lead": {
-    "id": "4390666469",
-    "title": "Add VRT MAX music provider",
-    "summary": "What does this implement/fix? Adds a new music provider for VRT MAX , the streaming platform of the Flemish public broadcaster (VRT).",
-    "unlocks": "Unlocks: Add VRT MAX music provider.",
-    "url": "https://github.com/music-assistant/server/pull/6098",
-    "repository": "music-assistant/server",
-    "organization": "Music Assistant",
-    "author": "bollewolle",
-    "mergedAt": "2026-08-30T23:44:03Z",
+    "id": "4393703435",
+    "title": "[api] Add description and example metadata to user-defined actions",
+    "summary": "What does this implement/fix? Home Assistant renders user defined API actions as bare typed inputs because ListEntitiesServicesArgument only carries name and type .",
+    "unlocks": "Unlocks: [api] Add description and example metadata to user-defined actions.",
+    "url": "https://github.com/esphome/esphome/pull/18881",
+    "repository": "esphome/esphome",
+    "organization": "ESPHome",
+    "author": "bharvey88",
+    "mergedAt": "2026-08-30T18:52:51Z",
     "labels": [
-      "new-provider"
+      "new-feature",
+      "breaking-change",
+      "component: api",
+      "has-tests",
+      "core",
+      "component: const"
     ],
     "kind": "feature",
-    "score": 62,
-    "additions": 4468,
-    "deletions": 1,
-    "changedFiles": 25
+    "score": 95.4,
+    "additions": 590,
+    "deletions": 55,
+    "changedFiles": 22
   },
   "highlights": [
+    {
+      "id": "4390666469",
+      "title": "Add VRT MAX music provider",
+      "summary": "What does this implement/fix? Adds a new music provider for VRT MAX , the streaming platform of the Flemish public broadcaster (VRT).",
+      "unlocks": "Unlocks: Add VRT MAX music provider.",
+      "url": "https://github.com/music-assistant/server/pull/6098",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "bollewolle",
+      "mergedAt": "2026-08-30T23:44:03Z",
+      "labels": [
+        "new-provider"
+      ],
+      "kind": "feature",
+      "score": 62,
+      "additions": 4468,
+      "deletions": 1,
+      "changedFiles": 25
+    },
+    {
+      "id": "4395313620",
+      "title": "Add calendar platform to Apple iCloud",
+      "summary": "Adds a calendar platform to the Apple iCloud integration, exposing each iCloud calendar as a calendar entity showing the event in progress or the next one due.",
+      "unlocks": "Unlocks: Add calendar platform to Apple iCloud.",
+      "url": "https://github.com/home-assistant/core/pull/180735",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "FezVrasta",
+      "mergedAt": "2026-08-30T15:14:38Z",
+      "labels": [
+        "new-platform",
+        "cla-signed",
+        "new-feature",
+        "integration: icloud",
+        "has-tests",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 61.9,
+      "additions": 861,
+      "deletions": 1,
+      "changedFiles": 7
+    },
     {
       "id": "4065614450",
       "title": "[improv_serial] Support non-Wi-Fi network interfaces",
@@ -65,10 +113,136 @@
         "cla-signed"
       ],
       "kind": "feature",
-      "score": 52.6,
+      "score": 56.6,
       "additions": 1711,
       "deletions": 232,
-      "changedFiles": 99
+      "changedFiles": 99,
+      "image": "https://raw.githubusercontent.com/home-assistant/iOS/91bda3bd3a9df4281af6bf430207a6fe586cd0b7/Tests/Widgets/__Snapshots__/WidgetGallerySnapshot.test/gallerySnapshot-item.energy-accessoryCircular-dark.png"
+    }
+  ],
+  "briefs": [
+    {
+      "id": "4365082925",
+      "title": "Timer UI enhancements",
+      "summary": "Timer actions tile feature Start, pause, cancel, and optionally finish buttons.",
+      "url": "https://github.com/home-assistant/frontend/pull/53793",
+      "repository": "home-assistant/frontend",
+      "organization": "Home Assistant",
+      "author": "maartenla",
+      "mergedAt": "2026-08-31T11:12:26Z",
+      "labels": [
+        "cla-signed",
+        "design",
+        "tests: unit"
+      ],
+      "kind": "platform",
+      "score": 56.1,
+      "additions": 1861,
+      "deletions": 145,
+      "changedFiles": 26
+    },
+    {
+      "id": "3823175735",
+      "title": "Resolve missing local addresses for Mitsubishi Comfort devices",
+      "summary": "The cloud API never returns a device's LAN IP, so devices the integration cannot locate end up with no entities and no explanation.",
+      "unlocks": "Unlocks: Resolve missing local addresses for Mitsubishi Comfort devices.",
+      "url": "https://github.com/home-assistant/core/pull/173270",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "nikolairahimi",
+      "mergedAt": "2026-08-30T18:41:01Z",
+      "labels": [
+        "cla-signed",
+        "has-tests",
+        "by-code-owner",
+        "bugfix",
+        "quality-scale",
+        "quality scale: bronze",
+        "integration: mitsubishi_comfort"
+      ],
+      "kind": "feature",
+      "score": 55.7,
+      "additions": 1843,
+      "deletions": 31,
+      "changedFiles": 11
+    },
+    {
+      "id": "4398584216",
+      "title": "[core] Keep conditional log string literals in flash on ESP8266",
+      "summary": "What does this implement/fix? On ESP8266 the log macros move the format string to flash, but bare string literals passed as %s arguments stay in RAM.",
+      "url": "https://github.com/esphome/esphome/pull/18907",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-08-31T09:08:06Z",
+      "labels": [
+        "code-quality",
+        "platform: host",
+        "mega-pr",
+        "deprecated-component"
+      ],
+      "kind": "platform",
+      "score": 54.7,
+      "additions": 214,
+      "deletions": 165,
+      "changedFiles": 58
+    },
+    {
+      "id": "4395854530",
+      "title": "Separate what a task is from one run of it",
+      "summary": "A task type was a class, and a run of it was an instance of that class.",
+      "url": "https://github.com/matter-js/matter.js/pull/4366",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-08-30T16:19:47Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 54.1,
+      "additions": 1067,
+      "deletions": 877,
+      "changedFiles": 27
+    },
+    {
+      "id": "4396537357",
+      "title": "TC-SC-5.3 (sending a group message, proved by what it changed)",
+      "summary": "Adds the certification case TC SC 5.3, which the group messaging block had been blocked on.",
+      "url": "https://github.com/matter-js/matter.js/pull/4368",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-08-30T18:47:50Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "platform",
+      "score": 50.1,
+      "additions": 1114,
+      "deletions": 378,
+      "changedFiles": 17
+    },
+    {
+      "id": "4039253905",
+      "title": "velbus: fix unique_id collision for Property sensor entities",
+      "summary": "Breaking change Proposed change Property subclasses ( LightValue , SelectedProgram , BusErrorRx , ...) all return get channel number() == 0 , which caused unique id collisions in the entity…",
+      "unlocks": "Improves reliability around velbus: fix unique_id collision for Property sensor entities.",
+      "url": "https://github.com/home-assistant/core/pull/176343",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "StefCoene",
+      "mergedAt": "2026-08-30T18:26:11Z",
+      "labels": [
+        "cla-signed",
+        "integration: velbus",
+        "has-tests",
+        "bugfix",
+        "quality scale: silver"
+      ],
+      "kind": "fix",
+      "score": 47.3,
+      "additions": 308,
+      "deletions": 9,
+      "changedFiles": 8
     },
     {
       "id": "4398058488",
@@ -87,6 +261,117 @@
       "additions": 384,
       "deletions": 45,
       "changedFiles": 28
+    },
+    {
+      "id": "4395617083",
+      "title": "Make the balance slider work on mono tracks",
+      "summary": "What does this implement/fix? The balance slider did nothing at all on mono tracks.",
+      "url": "https://github.com/music-assistant/server/pull/6104",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "OzGav",
+      "mergedAt": "2026-08-31T10:58:27Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 45.9,
+      "additions": 58,
+      "deletions": 9,
+      "changedFiles": 2
+    },
+    {
+      "id": "4399762865",
+      "title": "Sonos speakers now play tracks you add to the queue",
+      "summary": "What does this implement/fix? Adding a track to the queue of a Sonos speaker often did nothing: the speaker played straight past it and left it sitting in the queue unplayed.",
+      "unlocks": "Unlocks: Sonos speakers now play tracks you add to the queue.",
+      "url": "https://github.com/music-assistant/server/pull/6116",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-08-31T09:20:13Z",
+      "labels": [
+        "bugfix",
+        "backport-to-stable"
+      ],
+      "kind": "feature",
+      "score": 45.2,
+      "additions": 654,
+      "deletions": 114,
+      "changedFiles": 5
+    },
+    {
+      "id": "4395070421",
+      "title": "Certification checks that could pass without seeing what they claim",
+      "summary": "A survey of eleven suspected weak checks in the certification suite — checks that report success, or an accepted unverified that does not fail a run, without observing what their step claims.",
+      "url": "https://github.com/matter-js/matter.js/pull/4365",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-08-30T13:37:52Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "platform",
+      "score": 44.3,
+      "additions": 218,
+      "deletions": 29,
+      "changedFiles": 12
+    },
+    {
+      "id": "4370229099",
+      "title": "Support multiple for media selector",
+      "summary": "Support multiple for media selector.",
+      "unlocks": "Unlocks: Support multiple for media selector.",
+      "url": "https://github.com/home-assistant/frontend/pull/53815",
+      "repository": "home-assistant/frontend",
+      "organization": "Home Assistant",
+      "author": "karwosts",
+      "mergedAt": "2026-08-31T09:02:03Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "feature",
+      "score": 43.6,
+      "additions": 524,
+      "deletions": 380,
+      "changedFiles": 5
+    },
+    {
+      "id": "4386178456",
+      "title": "Ensure WebView request mTLS cert to the app on cold start with cache",
+      "summary": "On servers requiring a TLS client certificate (mTLS), the first frontend load after a process start always failed and showed the retry screen.",
+      "url": "https://github.com/home-assistant/android/pull/7381",
+      "repository": "home-assistant/android",
+      "organization": "Home Assistant",
+      "author": "TimoPtr",
+      "mergedAt": "2026-08-31T09:13:31Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "platform",
+      "score": 43.2,
+      "additions": 554,
+      "deletions": 161,
+      "changedFiles": 7
+    },
+    {
+      "id": "4399705364",
+      "title": "Update Localized Strings",
+      "summary": "Automatically created by zacwest.",
+      "url": "https://github.com/home-assistant/iOS/pull/5578",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "github-actions[bot]",
+      "mergedAt": "2026-08-31T09:07:27Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "platform",
+      "score": 40.7,
+      "additions": 1006,
+      "deletions": 1006,
+      "changedFiles": 8
     },
     {
       "id": "4397145138",
@@ -108,9 +393,7 @@
       "additions": 162,
       "deletions": 0,
       "changedFiles": 3
-    }
-  ],
-  "briefs": [
+    },
     {
       "id": "4398827187",
       "title": "Add alias frontmatter so one page can cover several product names",
@@ -132,46 +415,6 @@
       "changedFiles": 15
     },
     {
-      "id": "4397308104",
-      "title": "[ci] Cache the integration test PlatformIO dir",
-      "summary": "What does this implement/fix? Every integration test bucket starts with a cold PlatformIO dir, so each job pays about 37 seconds compiling cache init.yaml just to install the native platform and toolchain.",
-      "unlocks": "Unlocks: [ci] Cache the integration test PlatformIO dir.",
-      "url": "https://github.com/esphome/esphome/pull/18896",
-      "repository": "esphome/esphome",
-      "organization": "ESPHome",
-      "author": "bdraco",
-      "mergedAt": "2026-08-30T22:34:33Z",
-      "labels": [
-        "has-tests",
-        "github-actions",
-        "medium-pr"
-      ],
-      "kind": "feature",
-      "score": 38,
-      "additions": 52,
-      "deletions": 3,
-      "changedFiles": 4
-    },
-    {
-      "id": "4252420726",
-      "title": "Add electricity meter six-parameter decode and hex frame wrappers",
-      "summary": "What Complete the electricity meter phase decoding by extracting reactive power, apparent power and power factor across all three datapoint encodings, and add a from hex helper for phase s string datapoints.",
-      "unlocks": "Unlocks: Add electricity meter six-parameter decode and hex frame wrappers.",
-      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/476",
-      "repository": "home-assistant-libs/tuya-device-handlers",
-      "organization": "Home Assistant Libraries",
-      "author": "huangrenwei79",
-      "mergedAt": "2026-08-31T07:35:11Z",
-      "labels": [
-        "enhancement"
-      ],
-      "kind": "feature",
-      "score": 36.5,
-      "additions": 60,
-      "deletions": 1,
-      "changedFiles": 2
-    },
-    {
       "id": "4397778580",
       "title": "Reduce to-do widget font size on small widget",
       "summary": "AI Policy I have read the Open Home Foundation AI Policy.",
@@ -184,291 +427,126 @@
         "cla-signed"
       ],
       "kind": "platform",
-      "score": 36,
+      "score": 40,
       "additions": 111,
       "deletions": 10,
-      "changedFiles": 8
+      "changedFiles": 8,
+      "image": "https://raw.githubusercontent.com/home-assistant/iOS/2f47054af57002de1d00f16f6c47f5b64fe8514f/Tests/Widgets/__Snapshots__/WidgetGallerySnapshot.test/gallerySnapshot-item.todoList-systemLarge-dark.png"
     },
     {
-      "id": "4333250126",
-      "title": "fix: disconnect clients when their scanner is unregistered",
-      "summary": "Fixes #608. async unregister scanner internal tears down every piece of bookkeeping about a scanner — advertisement tracking, smoothed RSSI, demoted sources, allocations, the slot manager…",
-      "unlocks": "Improves reliability around disconnect clients when their scanner is unregistered.",
-      "url": "https://github.com/Bluetooth-Devices/habluetooth/pull/609",
-      "repository": "Bluetooth-Devices/habluetooth",
-      "organization": "Bluetooth Devices",
-      "author": "rpodgorny",
-      "mergedAt": "2026-08-30T22:19:58Z",
-      "labels": [],
-      "kind": "fix",
-      "score": 35.7,
-      "additions": 859,
-      "deletions": 9,
-      "changedFiles": 7
-    },
-    {
-      "id": "4397350518",
-      "title": "[core] Deduplicate the host program path lookup",
-      "summary": "What does this implement/fix? command compile and command run carried identical blocks resolving the compiled host program path; they now share a host program path() helper.",
-      "url": "https://github.com/esphome/esphome/pull/18897",
-      "repository": "esphome/esphome",
-      "organization": "ESPHome",
-      "author": "bdraco",
-      "mergedAt": "2026-08-30T22:34:17Z",
-      "labels": [
-        "has-tests",
-        "core",
-        "code-quality",
-        "medium-pr"
-      ],
-      "kind": "platform",
-      "score": 34.7,
-      "additions": 68,
-      "deletions": 17,
-      "changedFiles": 2
-    },
-    {
-      "id": "4399674613",
-      "title": "Fix missing tracks on albums for collaboration tracks in YouTube Music",
-      "summary": "This issue was auto triaged. What does this implement/fix?",
-      "unlocks": "Improves reliability around fix missing tracks on albums for collaboration tracks in YouTube Music.",
-      "url": "https://github.com/music-assistant/server/pull/6115",
-      "repository": "music-assistant/server",
-      "organization": "Music Assistant",
-      "author": "MarvinSchenkel",
-      "mergedAt": "2026-08-31T07:12:37Z",
-      "labels": [
-        "bugfix",
-        "backport-to-stable"
-      ],
-      "kind": "fix",
-      "score": 34.2,
-      "additions": 81,
-      "deletions": 6,
-      "changedFiles": 2
-    },
-    {
-      "id": "4397692226",
-      "title": "Stop the Hikvision event stream on Home Assistant shutdown",
-      "summary": "Breaking change Proposed change pyHik runs the Hikvision alert stream in a non daemonic thread that calls schedule update ha state() on every event it receives.",
-      "unlocks": "Unlocks: Stop the Hikvision event stream on Home Assistant shutdown.",
-      "url": "https://github.com/home-assistant/core/pull/180873",
-      "repository": "home-assistant/core",
-      "organization": "Home Assistant",
-      "author": "ptarjan",
-      "mergedAt": "2026-08-31T05:15:24Z",
-      "labels": [
-        "cla-signed",
-        "small-pr",
-        "integration: hikvision",
-        "has-tests",
-        "by-code-owner",
-        "bugfix",
-        "quality scale: no score"
-      ],
-      "kind": "feature",
-      "score": 34.2,
-      "additions": 49,
-      "deletions": 3,
-      "changedFiles": 2
-    },
-    {
-      "id": "4399632151",
-      "title": "Use core `varh` unit constant for Fronius",
-      "summary": "Use core StrEnum instead of custom str const.",
-      "unlocks": "Unlocks: Use core `varh` unit constant for Fronius.",
-      "url": "https://github.com/home-assistant/core/pull/180890",
-      "repository": "home-assistant/core",
-      "organization": "Home Assistant",
-      "author": "farmio",
-      "mergedAt": "2026-08-31T07:16:13Z",
-      "labels": [
-        "cla-signed",
-        "small-pr",
-        "integration: fronius",
-        "by-code-owner",
-        "code-quality",
-        "quality scale: platinum"
-      ],
-      "kind": "feature",
-      "score": 30.8,
-      "additions": 12,
-      "deletions": 13,
-      "changedFiles": 2
-    },
-    {
-      "id": "4398060487",
-      "title": "Lead with the gist of a long report",
-      "summary": "Reports have got much longer. Descriptions over 1500 characters were 0% of issues in January 2026 and 22% in July; ones carrying their own markdown headings inside the form field went 3% to 9% over the same period.",
-      "url": "https://github.com/music-assistant/support/pull/6263",
-      "repository": "music-assistant/support",
-      "organization": "Music Assistant",
-      "author": "chrisuthe",
-      "mergedAt": "2026-08-30T23:46:21Z",
-      "labels": [],
-      "kind": "platform",
-      "score": 28.8,
-      "additions": 311,
-      "deletions": 0,
-      "changedFiles": 9
-    },
-    {
-      "id": "4393554613",
-      "title": "Fix filesystem scan crash on non-decimal digits in names",
-      "summary": "What does this implement/fix? str.isdigit() is True for characters like the superscript ³ , but int() only accepts decimal digits, so a folder such as \"Cherry Moon The Compilation 2002³\"…",
-      "unlocks": "Improves reliability around fix filesystem scan crash on non-decimal digits in names.",
-      "url": "https://github.com/music-assistant/server/pull/6102",
-      "repository": "music-assistant/server",
-      "organization": "Music Assistant",
-      "author": "OzGav",
-      "mergedAt": "2026-08-31T07:33:56Z",
-      "labels": [
-        "bugfix",
-        "backport-to-stable"
-      ],
-      "kind": "fix",
-      "score": 28.5,
-      "additions": 22,
-      "deletions": 1,
-      "changedFiles": 2
-    },
-    {
-      "id": "4392054898",
-      "title": "Add support for Miele KM7740 and KM7899",
-      "summary": "Breaking change Proposed change Adding 2 new models of Miele induction hobs to the list that contains the number of plates per hob.",
-      "unlocks": "Unlocks: Add support for Miele KM7740 and KM7899.",
-      "url": "https://github.com/home-assistant/core/pull/180632",
-      "repository": "home-assistant/core",
-      "organization": "Home Assistant",
-      "author": "SvenC81",
-      "mergedAt": "2026-08-31T07:29:43Z",
-      "labels": [
-        "cla-signed",
-        "small-pr",
-        "bugfix",
-        "quality scale: platinum",
-        "integration: miele",
-        "top 200"
-      ],
-      "kind": "feature",
-      "score": 28.3,
-      "additions": 2,
-      "deletions": 0,
-      "changedFiles": 1
-    },
-    {
-      "id": "4398253118",
-      "title": "Default the Fully Kiosk output codec to AAC",
-      "summary": "What does this implement/fix? Fully Kiosk aborts a long lived MP3 stream after 8m45s with \"Failed loading sound: Wrong URL or unsupported format?\" and then re requests the stream url, so…",
-      "url": "https://github.com/music-assistant/server/pull/6112",
-      "repository": "music-assistant/server",
-      "organization": "Music Assistant",
-      "author": "OzGav",
-      "mergedAt": "2026-08-31T06:29:45Z",
-      "labels": [
-        "bugfix",
-        "backport-to-stable"
-      ],
-      "kind": "platform",
-      "score": 27.3,
-      "additions": 7,
-      "deletions": 2,
-      "changedFiles": 2
-    },
-    {
-      "id": "4398705780",
-      "title": "Sync component catalog from schema 2026.8.2",
-      "summary": "Automated catalog refresh. Schema source: latest schema release (incl.",
-      "url": "https://github.com/esphome/device-builder/pull/2644",
-      "repository": "esphome/device-builder",
-      "organization": "ESPHome",
-      "author": "github-actions[bot]",
-      "mergedAt": "2026-08-31T03:51:06Z",
-      "labels": [
-        "catalog",
-        "automated"
-      ],
-      "kind": "platform",
-      "score": 26.1,
-      "additions": 9,
-      "deletions": 9,
-      "changedFiles": 9
-    },
-    {
-      "id": "4397921252",
-      "title": "Stop ranking reports on the form they share",
-      "summary": "What Every report carries the same consent block — a heading, confirmation checkboxes, and the links inside them.",
-      "url": "https://github.com/music-assistant/support/pull/6258",
-      "repository": "music-assistant/support",
-      "organization": "Music Assistant",
-      "author": "chrisuthe",
-      "mergedAt": "2026-08-30T23:03:25Z",
-      "labels": [],
-      "kind": "platform",
-      "score": 26.1,
-      "additions": 187,
-      "deletions": 11,
-      "changedFiles": 6
-    },
-    {
-      "id": "4397671542",
-      "title": "Android Studio config: add app in 'Validate screenshots'",
-      "summary": "Adjust the 'Validate screenshots' task/configuration in Android Studio so it also validates screenshot tests in the app module, and not just the common/wear modules.",
-      "unlocks": "Unlocks: Android Studio config: add app in 'Validate screenshots'.",
-      "url": "https://github.com/home-assistant/android/pull/7393",
-      "repository": "home-assistant/android",
-      "organization": "Home Assistant",
-      "author": "jpelgrom",
-      "mergedAt": "2026-08-31T08:19:21Z",
-      "labels": [
-        "cla-signed"
-      ],
-      "kind": "feature",
-      "score": 24.9,
-      "additions": 1,
-      "deletions": 0,
-      "changedFiles": 1
-    },
-    {
-      "id": "4400222561",
-      "title": "Add quirk for Konyks Priska Duo FR (avriaapskyik4eaa)",
-      "summary": "Add a device quirk for the Konyks Priska Duo FR ( avriaapskyik4eaa , category pc ).",
-      "unlocks": "Unlocks: Add quirk for Konyks Priska Duo FR (avriaapskyik4eaa).",
-      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/514",
+      "id": "4400995026",
+      "title": "Add map_dpid_initial_status_values to DeviceQuirk",
+      "summary": "As described by @gzeel in #452, the initial status values can be formatted incorrectly.",
+      "unlocks": "Unlocks: Add map_dpid_initial_status_values to DeviceQuirk.",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/515",
       "repository": "home-assistant-libs/tuya-device-handlers",
       "organization": "Home Assistant Libraries",
-      "author": "minimicro34",
-      "mergedAt": "2026-08-31T07:47:00Z",
+      "author": "epenet",
+      "mergedAt": "2026-08-31T09:32:49Z",
       "labels": [
-        "device-quirk"
+        "enhancement"
       ],
       "kind": "feature",
-      "score": 24.9,
-      "additions": 381,
-      "deletions": 0,
-      "changedFiles": 5
+      "score": 39.7,
+      "additions": 128,
+      "deletions": 35,
+      "changedFiles": 2
     },
     {
-      "id": "4396933079",
-      "title": "Add quirk for Konyks Priska Max 3 FR socket (ndvina39gbq8x0jk)",
-      "summary": "Add a device quirk for the Konyks Priska Max 3 FR ( ndvina39gbq8x0jk , category cz ).",
-      "unlocks": "Unlocks: Add quirk for Konyks Priska Max 3 FR socket (ndvina39gbq8x0jk).",
-      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/511",
-      "repository": "home-assistant-libs/tuya-device-handlers",
-      "organization": "Home Assistant Libraries",
-      "author": "minimicro34",
-      "mergedAt": "2026-08-31T07:46:10Z",
+      "id": "4085271331",
+      "title": "Use NEWEST_FIRST replay for Matter BLE commissioning",
+      "summary": "Replay the freshest advertisement first so commissioning surfaces the current device immediately rather than waiting through stale history.",
+      "unlocks": "Unlocks: Use NEWEST_FIRST replay for Matter BLE commissioning.",
+      "url": "https://github.com/home-assistant/core/pull/176822",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "cryptomilk",
+      "mergedAt": "2026-08-31T09:36:38Z",
       "labels": [
-        "device-quirk"
+        "cla-signed",
+        "small-pr",
+        "has-tests",
+        "bugfix",
+        "integration: matter",
+        "quality scale: no score",
+        "top 200",
+        "top 50",
+        "top 100"
       ],
       "kind": "feature",
-      "score": 24.7,
-      "additions": 419,
-      "deletions": 0,
-      "changedFiles": 3
+      "score": 39.3,
+      "additions": 8,
+      "deletions": 4,
+      "changedFiles": 2
     }
   ],
   "dependencies": [
+    {
+      "title": "Bump python-duco-connectivity to 0.13.1",
+      "url": "https://github.com/home-assistant/core/pull/180896",
+      "repository": "home-assistant/core",
+      "author": "ronaldvdmeer"
+    },
+    {
+      "title": "Bump tuya-device-handlers to 0.0.27",
+      "url": "https://github.com/home-assistant/core/pull/180906",
+      "repository": "home-assistant/core",
+      "author": "epenet"
+    },
+    {
+      "title": "Bump sofar-modbus to 0.7.0",
+      "url": "https://github.com/home-assistant/core/pull/180894",
+      "repository": "home-assistant/core",
+      "author": "darkrain-nl"
+    },
+    {
+      "title": "Bump pyHik to 0.4.5",
+      "url": "https://github.com/home-assistant/core/pull/180885",
+      "repository": "home-assistant/core",
+      "author": "ptarjan"
+    },
+    {
+      "title": "Bump pyHik to 0.4.4",
+      "url": "https://github.com/home-assistant/core/pull/180837",
+      "repository": "home-assistant/core",
+      "author": "ptarjan"
+    },
+    {
+      "title": "Bump wiim to 0.1.7",
+      "url": "https://github.com/home-assistant/core/pull/180884",
+      "repository": "home-assistant/core",
+      "author": "Linkplay2020"
+    },
+    {
+      "title": "Bump habluetooth to 6.26.11, bleak-retry-connector to 4.7.0 and bluetooth-data-tools to 1.29.24",
+      "url": "https://github.com/home-assistant/core/pull/180877",
+      "repository": "home-assistant/core",
+      "author": "bdraco"
+    },
+    {
+      "title": "Bump reolink_aio to 0.21.14",
+      "url": "https://github.com/home-assistant/core/pull/180870",
+      "repository": "home-assistant/core",
+      "author": "starkillerOG"
+    },
+    {
+      "title": "Bump solaredge-web to 0.4.0",
+      "url": "https://github.com/home-assistant/core/pull/180861",
+      "repository": "home-assistant/core",
+      "author": "tronikos"
+    },
+    {
+      "title": "Bump pytrafikverket to 2.0.0",
+      "url": "https://github.com/home-assistant/core/pull/180820",
+      "repository": "home-assistant/core",
+      "author": "gjohansson-ST"
+    },
+    {
+      "title": "Bump 2026.9.1",
+      "url": "https://github.com/home-assistant/iOS/pull/5579",
+      "repository": "home-assistant/iOS",
+      "author": "bgoncal"
+    },
     {
       "title": "Update dependency mobile-dev-inc/Maestro to v2.9.0",
       "url": "https://github.com/home-assistant/android/pull/7388",
@@ -518,70 +596,34 @@
       "author": "dependabot[bot]"
     },
     {
-      "title": "Bump webpack from 5.109.2 to 5.110.1",
-      "url": "https://github.com/home-assistant/services.home-assistant.io/pull/927",
-      "repository": "home-assistant/services.home-assistant.io",
-      "author": "dependabot[bot]"
-    },
-    {
-      "title": "Bump @types/node from 26.1.2 to 26.4.0",
-      "url": "https://github.com/home-assistant/services.home-assistant.io/pull/928",
-      "repository": "home-assistant/services.home-assistant.io",
-      "author": "dependabot[bot]"
-    },
-    {
-      "title": "Bump github.com/getsentry/sentry-go from 0.48.0 to 0.49.0",
-      "url": "https://github.com/home-assistant/os-agent/pull/288",
-      "repository": "home-assistant/os-agent",
-      "author": "dependabot[bot]"
-    },
-    {
-      "title": "Bump reolink_aio to 0.21.14",
-      "url": "https://github.com/home-assistant/core/pull/180870",
-      "repository": "home-assistant/core",
-      "author": "starkillerOG"
-    },
-    {
-      "title": "Bump rollup from 4.62.5 to 4.63.0",
-      "url": "https://github.com/home-assistant/my.home-assistant.io/pull/755",
-      "repository": "home-assistant/my.home-assistant.io",
-      "author": "dependabot[bot]"
-    },
-    {
-      "title": "Update pnpm to 11.23.0",
-      "url": "https://github.com/home-assistant/core/pull/180882",
-      "repository": "home-assistant/core",
+      "title": "Update zizmor",
+      "url": "https://github.com/home-assistant-libs/infrared-protocols/pull/137",
+      "repository": "home-assistant-libs/infrared-protocols",
       "author": "renovate[bot]"
     },
     {
-      "title": "Bump wiim to 0.1.7",
-      "url": "https://github.com/home-assistant/core/pull/180884",
-      "repository": "home-assistant/core",
-      "author": "Linkplay2020"
-    },
-    {
-      "title": "Bump pyHik to 0.4.5",
-      "url": "https://github.com/home-assistant/core/pull/180885",
-      "repository": "home-assistant/core",
-      "author": "ptarjan"
-    },
-    {
-      "title": "chore(deps): update github-actions",
-      "url": "https://github.com/home-assistant/installer/pull/79",
-      "repository": "home-assistant/installer",
-      "author": "renovate[bot]"
-    },
-    {
-      "title": "Bump svgo from 4.0.2 to 4.1.0",
-      "url": "https://github.com/home-assistant/my.home-assistant.io/pull/754",
-      "repository": "home-assistant/my.home-assistant.io",
+      "title": "Bump ruff from 0.16.3 to 0.16.5",
+      "url": "https://github.com/home-assistant-libs/pychromecast/pull/1266",
+      "repository": "home-assistant-libs/pychromecast",
       "author": "dependabot[bot]"
     },
     {
-      "title": "Bump habluetooth to 6.26.11, bleak-retry-connector to 4.7.0 and bluetooth-data-tools to 1.29.24",
-      "url": "https://github.com/home-assistant/core/pull/180877",
-      "repository": "home-assistant/core",
-      "author": "bdraco"
+      "title": "Bump mypy from 2.3.0 to 2.3.1",
+      "url": "https://github.com/home-assistant-libs/pychromecast/pull/1267",
+      "repository": "home-assistant-libs/pychromecast",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps): Bump ruff from 0.16.4 to 0.16.5",
+      "url": "https://github.com/home-assistant-libs/aiowebostv/pull/726",
+      "repository": "home-assistant-libs/aiowebostv",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump tox from 4.60.0 to 4.60.1",
+      "url": "https://github.com/home-assistant-libs/aiowebostv/pull/727",
+      "repository": "home-assistant-libs/aiowebostv",
+      "author": "dependabot[bot]"
     },
     {
       "title": "build(deps-dev): Bump ty from 0.0.73 to 0.0.75",
@@ -642,6 +684,18 @@
       "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/513",
       "repository": "home-assistant-libs/tuya-device-handlers",
       "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency zizmor to v1.30.0",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/512",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "[pre-commit.ci] pre-commit autoupdate",
+      "url": "https://github.com/esphome/esphome-desktop/pull/457",
+      "repository": "esphome/esphome-desktop",
+      "author": "pre-commit-ci[bot]"
     },
     {
       "title": "Bump cardinalby/schema-validator-action from 3.1.1 to 3.1.2 in /components",
@@ -716,9 +770,33 @@
       "author": "dependabot[bot]"
     },
     {
+      "title": "Bump aioesphomeapi from 46.2.1 to 46.3.0",
+      "url": "https://github.com/esphome/esphome/pull/18892",
+      "repository": "esphome/esphome",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump ruff from 0.15.22 to 0.16.5",
+      "url": "https://github.com/music-assistant/server/pull/6107",
+      "repository": "music-assistant/server",
+      "author": "dependabot[bot]"
+    },
+    {
       "title": "Bump pylast from 7.0.2 to 7.1.0",
       "url": "https://github.com/music-assistant/server/pull/6105",
       "repository": "music-assistant/server",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump oxfmt from 0.64.0 to 0.65.0",
+      "url": "https://github.com/matter-js/matter.js/pull/4377",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump hassil from 3.11.0 to 3.12.0",
+      "url": "https://github.com/OHF-Voice/intents/pull/4148",
+      "repository": "OHF-Voice/intents",
       "author": "dependabot[bot]"
     },
     {
@@ -732,63 +810,56 @@
       "url": "https://github.com/Bluetooth-Devices/bluetooth-data-tools/pull/320",
       "repository": "Bluetooth-Devices/bluetooth-data-tools",
       "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): bump bleak-retry-connector to 4.7.0",
+      "url": "https://github.com/Bluetooth-Devices/habluetooth/pull/623",
+      "repository": "Bluetooth-Devices/habluetooth",
+      "author": "bdraco"
+    },
+    {
+      "title": "chore(ci): bump browniebroke/hacktoberfest-labeler-action from 2.6.0 to 2.7.0 in the github-actions group",
+      "url": "https://github.com/Bluetooth-Devices/bleak-retry-connector/pull/318",
+      "repository": "Bluetooth-Devices/bleak-retry-connector",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps-dev): bump blockbuster from 1.5.26 to 1.5.27",
+      "url": "https://github.com/Bluetooth-Devices/bleak-retry-connector/pull/319",
+      "repository": "Bluetooth-Devices/bleak-retry-connector",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(pre-commit.ci): pre-commit autoupdate",
+      "url": "https://github.com/Bluetooth-Devices/bleak-retry-connector/pull/317",
+      "repository": "Bluetooth-Devices/bleak-retry-connector",
+      "author": "pre-commit-ci[bot]"
+    },
+    {
+      "title": "chore(pre-commit.ci): pre-commit autoupdate",
+      "url": "https://github.com/Bluetooth-Devices/habluetooth/pull/611",
+      "repository": "Bluetooth-Devices/habluetooth",
+      "author": "pre-commit-ci[bot]"
+    },
+    {
+      "title": "chore(pre-commit.ci): pre-commit autoupdate",
+      "url": "https://github.com/Bluetooth-Devices/bluetooth-data-tools/pull/307",
+      "repository": "Bluetooth-Devices/bluetooth-data-tools",
+      "author": "pre-commit-ci[bot]"
     }
   ],
   "articles": [
-    {
-      "id": "vrt-max-arrives-in-music-assistant",
-      "title": "VRT MAX support lands in Music Assistant",
-      "dek": "A first contribution adds Flemish public radio, podcasts, favourites and listening progress to the server.",
-      "body": [
-        "Bram Goolaerts’ newly merged provider connects Music Assistant with VRT MAX, the streaming service of the Flemish public broadcaster. It covers live stations including Radio 1, Radio 2, Studio Brussel, MNM and Klara, alongside listen-back programmes, podcasts and search. Live radio does not require an account.",
-        "Signing in enables on-demand playback, Mijn lijst library syncing and resume positions that carry across devices. Separate provider instances let people in one household keep their own accounts, while listen-back episodes can show played songs as chapters in Now Playing.",
-        "This is Goolaerts’ first merged contribution to the Music Assistant server. Welcome, Bram—and congratulations on landing an unusually complete first PR."
-      ],
-      "kind": "daily",
-      "placement": "feature",
-      "score": 93,
-      "contributors": [
-        "bollewolle"
-      ],
-      "contributorProfiles": [
-        {
-          "login": "bollewolle",
-          "name": "Bram Goolaerts",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/368306?v=4",
-          "profileUrl": "https://github.com/bollewolle"
-        }
-      ],
-      "reviewers": [
-        "OzGav"
-      ],
-      "approvers": [
-        "OzGav"
-      ],
-      "topics": [
-        "New capabilities",
-        "Music Assistant"
-      ],
-      "pullRequests": [
-        {
-          "id": "4390666469",
-          "title": "Add VRT MAX music provider",
-          "url": "https://github.com/music-assistant/server/pull/6098",
-          "repository": "music-assistant/server"
-        }
-      ],
-      "media": []
-    },
     {
       "id": "ios-energy-widget-gas-and-batteries",
       "title": "Gas and batteries land in Home Assistant’s iOS energy widget",
       "dek": "Merged iOS work expands the glanceable energy view from grid and solar to four parts of a household’s energy picture.",
       "body": [
         "Bruno Pantaleão Gonçalves expanded the Home Assistant iOS energy widget beyond grid and solar. The merged design stacks battery discharge above the chart axis and charging below it; gas appears as a separate figure because homes may measure it by volume rather than energy.",
-        "The merged widget code uses the same consumption math as the energy dashboard, so charging a battery is not also counted as household demand. It combines electricity and gas costs, and all four sources still fit on the small widget and Lock Screen accessories.",
+        "The widget uses the same consumption math as the energy dashboard, so charging a battery is not also counted as household demand. It combines electricity and gas costs, and all four sources still fit on the small widget and Lock Screen accessories.",
         "The work continues Gonçalves’s August run on the widget, after Lock Screen sizing, a reload action for missing data and clearer period and refresh-time information landed earlier in the month."
       ],
       "kind": "daily",
-      "placement": "lead",
+      "placement": "feature",
       "score": 97,
       "contributors": [
         "bgoncal"
@@ -852,81 +923,111 @@
       ]
     },
     {
-      "id": "bluetooth-adapters-release-connections",
-      "title": "Bluetooth repair clears connections left by removed adapters",
-      "dek": "A merged library fix drops links that depended on a disabled or removed adapter, allowing devices to reconnect cleanly.",
+      "id": "timer-controls-and-presets",
+      "title": "Home Assistant timers gain one-tap presets and clearer controls",
+      "dek": "Merged frontend work puts start, pause, cancel and finish actions beside configurable duration presets.",
       "body": [
-        "Radek Podgorny traced a stubborn Bluetooth state mismatch to scanner removal. Home Assistant cleared its bookkeeping when an adapter disappeared, but connections made through that adapter could remain alive, continuing to deliver notifications while occupying a slot the system believed was free.",
-        "The repair disconnects clients that still depend on an adapter when that adapter is removed, while leaving alone any device that has already found another route. It covers local adapters and ESPHome Bluetooth proxies.",
-        "Podgorny verified the local path on real BlueZ hardware: disabling the adapter dropped the kernel link, and enabling it again allowed a clean reconnect. The remote-proxy path has automated coverage but was not part of that hardware test."
+        "Maarten Lakerveld redesigned Home Assistant’s timer dialog around the actions people use most. Start, pause and cancel controls are joined by an optional finish button, so routine timer changes no longer depend on a separate action call.",
+        "People can also define preset durations that start a timer with one tap. Short lists appear as a row of buttons, while longer lists can use a dropdown; the same merged work modernizes the detail dialog and adds an animation when time runs out."
       ],
       "kind": "daily",
-      "placement": "feature",
-      "score": 90,
+      "placement": "lead",
+      "score": 95,
       "contributors": [
-        "rpodgorny"
+        "maartenla"
       ],
       "contributorProfiles": [
         {
-          "login": "rpodgorny",
-          "name": "Radek Podgorny",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/2897520?v=4",
-          "profileUrl": "https://github.com/rpodgorny"
+          "login": "maartenla",
+          "name": "Maarten Lakerveld",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1911588?v=4",
+          "profileUrl": "https://github.com/maartenla"
         }
       ],
       "reviewers": [
-        "bdraco"
+        "MindFreeze"
       ],
       "approvers": [
-        "bdraco"
+        "MindFreeze"
       ],
       "topics": [
-        "Reliability",
-        "Bluetooth"
+        "User interface",
+        "Home Assistant"
       ],
       "pullRequests": [
         {
-          "id": "4333250126",
-          "title": "fix: disconnect clients when their scanner is unregistered",
-          "url": "https://github.com/Bluetooth-Devices/habluetooth/pull/609",
-          "repository": "Bluetooth-Devices/habluetooth"
+          "id": "4365082925",
+          "title": "Timer UI enhancements",
+          "url": "https://github.com/home-assistant/frontend/pull/53793",
+          "repository": "home-assistant/frontend"
         }
       ],
-      "media": []
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-08-31/timer-controls-and-presets-cba31780e60b-602w.webp",
+          "alt": "Home Assistant timer dialog with Set, Pause, Cancel and Finish controls.",
+          "caption": "The redesigned timer dialog puts routine actions directly under the duration. Screenshot from home-assistant/frontend #53793.",
+          "width": 602,
+          "height": 373,
+          "variants": [
+            {
+              "url": "/media/2026-08-31/timer-controls-and-presets-cba31780e60b-480w.webp",
+              "width": 480,
+              "height": 297,
+              "bytes": 4382,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-08-31/timer-controls-and-presets-cba31780e60b-602w.webp",
+              "width": 602,
+              "height": 373,
+              "bytes": 5670,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 10052
+        }
+      ]
     },
     {
-      "id": "youtube-music-collaboration-tracks",
-      "title": "A Music Assistant fix keeps collaboration tracks in YouTube Music albums",
-      "dek": "Merged server work stops songs from silently disappearing when YouTube Music returns a collaborator without an artist ID.",
+      "id": "vrt-max-arrives-in-music-assistant",
+      "title": "VRT MAX support lands in Music Assistant",
+      "dek": "A first contribution adds Flemish public radio, podcasts, favourites and listening progress to the server.",
       "body": [
-        "Some YouTube Music collaboration tracks arrive without an artist ID. Music Assistant treated that missing identifier as invalid and quietly left the song out of its album listing; the reported album lost four tracks this way.",
-        "Marvin Schenkel’s merged repair follows YouTube Music’s own fallback: when none of a track’s credited artists can be matched, Music Assistant uses the album artist instead of dropping the track."
+        "Bram Goolaerts’ newly merged provider connects Music Assistant with VRT MAX, the streaming service of the Flemish public broadcaster. It covers live stations including Radio 1, Radio 2, Studio Brussel, MNM and Klara, alongside listen-back programmes, podcasts and search. Live radio does not require an account.",
+        "Signing in enables on-demand playback, Mijn lijst library syncing and resume positions that carry across devices. Separate provider instances let people in one household keep their own accounts, while listen-back episodes can show played songs as chapters in Now Playing.",
+        "This is Goolaerts’ first merged contribution to the Music Assistant server. Welcome, Bram—and congratulations on landing an unusually complete first PR."
       ],
       "kind": "daily",
-      "placement": "brief",
-      "score": 82,
+      "placement": "feature",
+      "score": 93,
       "contributors": [
-        "MarvinSchenkel"
+        "bollewolle"
       ],
       "contributorProfiles": [
         {
-          "login": "MarvinSchenkel",
-          "name": "Marvin Schenkel",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
-          "profileUrl": "https://github.com/MarvinSchenkel"
+          "login": "bollewolle",
+          "name": "Bram Goolaerts",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/368306?v=4",
+          "profileUrl": "https://github.com/bollewolle"
         }
       ],
-      "reviewers": [],
-      "approvers": [],
+      "reviewers": [
+        "OzGav"
+      ],
+      "approvers": [
+        "OzGav"
+      ],
       "topics": [
-        "Playback reliability",
+        "New capabilities",
         "Music Assistant"
       ],
       "pullRequests": [
         {
-          "id": "4399674613",
-          "title": "Fix missing tracks on albums for collaboration tracks in YouTube Music",
-          "url": "https://github.com/music-assistant/server/pull/6115",
+          "id": "4390666469",
+          "title": "Add VRT MAX music provider",
+          "url": "https://github.com/music-assistant/server/pull/6098",
           "repository": "music-assistant/server"
         }
       ],
@@ -937,13 +1038,13 @@
       "title": "Two beta-period fixes protect work in Home Assistant’s editors",
       "dek": "Merged frontend repairs keep one editor’s state out of another and preserve automation configuration when a device is replaced.",
       "body": [
-        "Home Assistant entered its September beta period last week with two closely related frontend repairs aimed at preserving work in its editors.",
-        "One merged fix stops editor state from leaking when people switch between automations, scripts or scenes. Another keeps an automation’s existing configuration when one of its devices is replaced, instead of making that carefully built setup collateral damage.",
+        "From August 24 through August 30, Home Assistant entered the beta period for its September release. Two closely related frontend repairs from that week shared one practical aim: protect work people had already put into their editors.",
+        "One merged fix stops state from leaking when people switch between automations, scripts or scenes. Another keeps an automation’s existing configuration when one of its devices is replaced, instead of making that carefully built setup collateral damage.",
         "Together, the changes tighten the boundary between editing one configuration and altering another. They are merged groundwork for a safer editing experience as the September release approaches."
       ],
       "kind": "weekly_recap",
       "placement": "feature",
-      "score": 92,
+      "score": 90,
       "contributors": [
         "MindFreeze",
         "piitaya"
@@ -963,11 +1064,9 @@
         }
       ],
       "reviewers": [
-        "TheJulianJES",
         "bramkragten"
       ],
       "approvers": [
-        "TheJulianJES",
         "bramkragten"
       ],
       "topics": [
@@ -991,28 +1090,78 @@
         }
       ],
       "media": []
+    },
+    {
+      "id": "icloud-calendars-in-home-assistant",
+      "title": "iCloud calendar support lands in Home Assistant",
+      "dek": "Merged Core work turns each Apple calendar into a read-only entity without another login or configuration step.",
+      "body": [
+        "Federico Zivolo added a calendar platform to Home Assistant’s existing Apple iCloud integration. Each iCloud calendar becomes a read-only calendar entity that shows the event in progress or the next one due, using the account and session already configured in Home Assistant.",
+        "The platform keeps a local window from the previous day through the coming month for quick current-event lookups, while broader calendar queries still go directly to iCloud. Creating and editing events is deliberately outside this merged work; companion documentation makes that read-only scope explicit."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 85,
+      "contributors": [
+        "FezVrasta"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "FezVrasta",
+          "name": "Federico Zivolo",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5382443?v=4",
+          "profileUrl": "https://github.com/FezVrasta"
+        }
+      ],
+      "reviewers": [
+        "joostlek",
+        "Laufmaschine"
+      ],
+      "approvers": [
+        "joostlek",
+        "Laufmaschine"
+      ],
+      "topics": [
+        "Calendars",
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4395313620",
+          "title": "Add calendar platform to Apple iCloud",
+          "url": "https://github.com/home-assistant/core/pull/180735",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4395312274",
+          "title": "Document the iCloud calendar platform",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/47738",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "media": []
     }
   ],
   "pulse": [
     {
       "product": "Home Assistant",
-      "today": 31,
-      "thisWeek": 31,
-      "sinceRelease": 573,
+      "today": 178,
+      "thisWeek": 1264,
+      "sinceRelease": 1884,
       "lastReleaseDate": "2026-08-05"
     },
     {
       "product": "Music Assistant",
-      "today": 15,
-      "thisWeek": 15,
-      "sinceRelease": 15,
+      "today": 19,
+      "thisWeek": 310,
+      "sinceRelease": 30,
       "lastReleaseDate": "2026-08-29"
     },
     {
       "product": "ESPHome",
-      "today": 22,
-      "thisWeek": 22,
-      "sinceRelease": 22,
+      "today": 35,
+      "thisWeek": 215,
+      "sinceRelease": 260,
       "lastReleaseDate": "2026-08-19"
     }
   ],

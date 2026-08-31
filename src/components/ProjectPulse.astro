@@ -7,7 +7,7 @@ interface Props {
 
 const { items = [] } = Astro.props;
 const validItems = items.filter((item) => item?.product);
-const activity = (value: number) => `${Number(value) > 0 ? "+" : ""}${Number(value) || 0}`;
+const activity = (value: number) => `${Number(value) || 0}`;
 ---
 
 {validItems.length > 0 && (

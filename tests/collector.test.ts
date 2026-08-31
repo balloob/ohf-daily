@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   backfillDatesNewestFirst,
   GitHubClient,
+  buildAuthoritativeProjectPulse,
   buildProjectPulse,
   classify,
   committedMediaUrls,
@@ -28,10 +29,22 @@ test("uses the configured timezone for edition dates and dated window ends", () 
 });
 
 test("keeps the reporting window at exactly the configured number of hours across DST", () => {
-  const window = reportingWindow(new Date("2026-10-25T20:00:00Z"), "2026-10-25", "Europe/Amsterdam", 24);
+  const window = reportingWindow(new Date("2026-10-26T20:00:00Z"), "2026-10-25", "Europe/Amsterdam", 24);
   assert.equal(window.editionDate, "2026-10-25");
   assert.equal(window.end.getTime() - window.start.getTime(), 24 * 60 * 60 * 1_000);
   assert.equal(window.end.toISOString(), "2026-10-25T22:59:59.999Z");
+});
+
+test("ends a requested current-date window at now and rejects future dates", () => {
+  const now = new Date("2026-08-31T08:23:47.291Z");
+  const window = reportingWindow(now, "2026-08-31", "Europe/Amsterdam", 24);
+  assert.equal(window.editionDate, "2026-08-31");
+  assert.equal(window.end.toISOString(), now.toISOString());
+  assert.equal(window.start.toISOString(), "2026-08-30T08:23:47.291Z");
+  assert.throws(
+    () => reportingWindow(now, "2026-09-01", "Europe/Amsterdam", 24),
+    /cannot be in the future/,
+  );
 });
 
 test("validates requested edition dates and window lengths", () => {
@@ -153,6 +166,53 @@ test("computes release-aware Project Pulse windows", () => {
     { product: "Music Assistant", today: 0, thisWeek: 0, sinceRelease: 1, lastReleaseDate: "2026-08-20" },
     { product: "ESPHome", today: 0, thisWeek: 0, sinceRelease: 1, lastReleaseDate: "2026-08-19" },
   ]);
+});
+
+test("uses authoritative GitHub totals for Project Pulse activity", async () => {
+  const end = new Date("2026-08-31T12:00:00Z");
+  const organizations = [
+    { slug: "home-assistant", name: "Home Assistant", enabled: true, weight: 1, featured_repositories: [] },
+    { slug: "music-assistant", name: "Music Assistant", enabled: true, weight: 1, featured_repositories: [] },
+    { slug: "esphome", name: "ESPHome", enabled: true, weight: 1, featured_repositories: [] },
+  ];
+  const calls: Array<{ slug: string; start: string; end: string }> = [];
+  const dailyTotals = new Map([
+    ["home-assistant", 143],
+    ["music-assistant", 15],
+    ["esphome", 22],
+  ]);
+  const totals = new Map([
+    ["home-assistant:2026-08-24T12:00:00.000Z", 1_095],
+    ["music-assistant:2026-08-24T12:00:00.000Z", 275],
+    ["esphome:2026-08-24T12:00:00.000Z", 183],
+  ]);
+  const cycles = [
+    { product: "Home Assistant", rule: "first-wednesday" as const, beta_days_before: 7, release_offset_days: 0, accent: "blue" },
+    { product: "ESPHome", rule: "first-wednesday" as const, beta_days_before: 7, release_offset_days: 14, accent: "green" },
+  ];
+
+  const pulse = await buildAuthoritativeProjectPulse(
+    [],
+    end,
+    "2026-08-31",
+    "Europe/Amsterdam",
+    cycles,
+    { published_at: "2026-08-20T08:00:00Z", html_url: "https://github.com/music-assistant/server/releases/tag/1", tag_name: "1" },
+    organizations,
+    dailyTotals,
+    async (organization, start, queryEnd) => {
+      calls.push({ slug: organization.slug, start: start.toISOString(), end: queryEnd.toISOString() });
+      return totals.get(`${organization.slug}:${start.toISOString()}`) ?? 0;
+    },
+  );
+
+  assert.deepEqual(pulse, [
+    { product: "Home Assistant", today: 143, thisWeek: 1_095, sinceRelease: 0, lastReleaseDate: "2026-08-05" },
+    { product: "Music Assistant", today: 15, thisWeek: 275, sinceRelease: 0, lastReleaseDate: "2026-08-20" },
+    { product: "ESPHome", today: 22, thisWeek: 183, sinceRelease: 0, lastReleaseDate: "2026-08-19" },
+  ]);
+  assert.equal(calls.length, 3);
+  assert.ok(calls.every((call) => call.end === end.toISOString()));
 });
 
 test("builds Release Radar items from GitHub releases inside the reporting window", () => {

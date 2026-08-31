@@ -189,10 +189,19 @@ export function reportingWindow(now: Date, requestedDate: string | undefined, ti
   end: Date;
 } {
   if (!Number.isFinite(hours) || hours <= 0) throw new TypeError("window_hours must be a positive number.");
-  const end = requestedDate ? endOfEditionDate(requestedDate, timeZone) : new Date(now);
+  if (Number.isNaN(now.getTime())) throw new TypeError("Reporting end must be a valid date.");
+  const currentDate = dateInTimeZone(now, timeZone);
+  let end: Date;
+  if (requestedDate) {
+    const requestedEnd = endOfEditionDate(requestedDate, timeZone);
+    if (requestedDate > currentDate) throw new TypeError("--date cannot be in the future.");
+    end = requestedDate === currentDate ? new Date(now) : requestedEnd;
+  } else {
+    end = new Date(now);
+  }
   if (Number.isNaN(end.getTime())) throw new TypeError("Reporting end must be a valid date.");
   return {
-    editionDate: requestedDate ?? dateInTimeZone(end, timeZone),
+    editionDate: requestedDate ?? currentDate,
     start: new Date(end.getTime() - hours * 3_600_000),
     end,
   };
@@ -575,6 +584,9 @@ async function searchMergedPullRequests(
     const pageSize = Math.min(100, limit - items.length);
     const searchUrl = `https://api.github.com/search/issues?q=${encodeURIComponent(query)}&sort=updated&order=desc&per_page=${pageSize}&page=${page}`;
     const response = await client.get<SearchResponse>(searchUrl, { maxAgeMinutes: 15 });
+    if (!Number.isSafeInteger(response.total_count) || response.total_count < 0) {
+      throw new Error(`GitHub returned an invalid merged pull request total for ${organization.slug}.`);
+    }
     total = response.total_count;
     incomplete ||= response.incomplete_results;
     items.push(...response.items);
@@ -829,6 +841,7 @@ export function buildProjectPulse(
   timeZone: string,
   cycles: ReleaseCycle[],
   musicAssistantRelease: GitHubRelease | null,
+  authoritativeActivity?: ReadonlyMap<string, { today: number; thisWeek: number }>,
 ): ProjectPulseItem[] {
   const projects = [
     { product: "Home Assistant", prefix: "home-assistant/", cycle: cycles.find((cycle) => cycle.product === "Home Assistant"), release: null as GitHubRelease | null },
@@ -843,14 +856,53 @@ export function buildProjectPulse(
     const lastReleaseDate = project.release?.published_at?.slice(0, 10) ?? scheduledDate;
     const releaseBoundary = project.release?.published_at ?? (scheduledDate ? startOfEditionDate(scheduledDate, timeZone).toISOString() : null);
     const countSince = (value: string) => queryPullRequests(projectRecords, { since: value, before: new Date(end.getTime() + 1).toISOString(), limit: Number.MAX_SAFE_INTEGER }).length;
+    const activity = authoritativeActivity?.get(project.product);
     return {
       product: project.product,
-      today: countSince(current24Hours),
-      thisWeek: countSince(trailing7Days),
+      today: activity?.today ?? countSince(current24Hours),
+      thisWeek: activity?.thisWeek ?? countSince(trailing7Days),
       sinceRelease: releaseBoundary ? countSince(releaseBoundary) : 0,
       lastReleaseDate,
     };
   });
+}
+
+type ProjectPulseTotalFetcher = (organization: OrganizationConfig, start: Date, end: Date) => Promise<number>;
+
+export async function buildAuthoritativeProjectPulse(
+  records: StoredPullRequest[],
+  end: Date,
+  editionDate: string,
+  timeZone: string,
+  cycles: ReleaseCycle[],
+  musicAssistantRelease: GitHubRelease | null,
+  organizations: OrganizationConfig[],
+  authoritativeToday: ReadonlyMap<string, number>,
+  fetchWeeklyTotal: ProjectPulseTotalFetcher,
+): Promise<ProjectPulseItem[]> {
+  const scopes = [
+    { product: "Home Assistant", slug: "home-assistant" },
+    { product: "Music Assistant", slug: "music-assistant" },
+    { product: "ESPHome", slug: "esphome" },
+  ];
+  const trailing7Days = new Date(end.getTime() - 7 * 24 * 3_600_000);
+  const activity = new Map<string, { today: number; thisWeek: number }>();
+
+  for (const scope of scopes) {
+    const organization = organizations.find((item) => item.enabled && item.slug.toLowerCase() === scope.slug);
+    if (!organization) throw new Error(`Project Pulse requires the enabled ${scope.slug} organization scope.`);
+    const today = authoritativeToday.get(scope.slug);
+    if (today === undefined || !Number.isSafeInteger(today) || today < 0) {
+      throw new Error(`Project Pulse is missing an authoritative daily total for ${scope.slug}.`);
+    }
+    const thisWeek = await fetchWeeklyTotal(organization, trailing7Days, end);
+    if (!Number.isSafeInteger(thisWeek) || thisWeek < 0) {
+      throw new Error(`Project Pulse received an invalid seven-day total for ${scope.slug}.`);
+    }
+    activity.set(scope.product, { today, thisWeek });
+  }
+
+  return buildProjectPulse(records, end, editionDate, timeZone, cycles, musicAssistantRelease, activity);
 }
 
 export interface CollectionResult {
@@ -885,6 +937,7 @@ export async function collect(): Promise<CollectionResult> {
   let reviewFailures = 0;
   let contributorLookupFailures = 0;
   let storedPullRequestWrites = 0;
+  const authoritativeDailyTotals = new Map<string, number>();
 
   for (const organization of config.organizations.filter((item) => item.enabled)) {
     console.log(`Scanning ${organization.name}…`);
@@ -898,6 +951,7 @@ export async function collect(): Promise<CollectionResult> {
     }
     mergedPullRequestCount += search.total;
     if (search.incomplete) notes.push(`GitHub marked the ${organization.name} search results as incomplete.`);
+    if (!search.incomplete) authoritativeDailyTotals.set(organization.slug.toLowerCase(), search.total);
     if (search.total > search.items.length) {
       notes.push(`${organization.name} had ${search.total} merged pull requests; the configured limit included ${search.items.length}.`);
     }
@@ -1059,7 +1113,21 @@ export async function collect(): Promise<CollectionResult> {
     .filter((release): release is GitHubRelease & { published_at: string } => Boolean(release.published_at) && !release.draft && !release.prerelease && Date.parse(release.published_at!) <= end.getTime())
     .sort((left, right) => right.published_at.localeCompare(left.published_at))[0] ?? null;
   if (!musicAssistantRelease) notes.push("No Music Assistant release baseline was available on or before this edition.");
-  const pulse = buildProjectPulse(await readPullRequestStore(pullRequestDirectory), end, editionDate, config.timezone, config.release_cycles, musicAssistantRelease);
+  const pulse = await buildAuthoritativeProjectPulse(
+    await readPullRequestStore(pullRequestDirectory),
+    end,
+    editionDate,
+    config.timezone,
+    config.release_cycles,
+    musicAssistantRelease,
+    config.organizations,
+    authoritativeDailyTotals,
+    async (organization, pulseStart, pulseEnd) => {
+      const result = await searchMergedPullRequests(client, organization, pulseStart, pulseEnd, 1);
+      if (result.incomplete) throw new Error(`GitHub returned an incomplete seven-day Project Pulse count for ${organization.slug}.`);
+      return result.total;
+    },
+  );
 
   const ranked = stories.sort((a, b) => b.score - a.score || b.mergedAt.localeCompare(a.mergedAt));
   const lead = ranked[0] ?? null;

@@ -22,13 +22,15 @@ GH_TOKEN=github_pat_… OPENAI_API_KEY=sk-… npm run update
 6. downloads selected GitHub images with strict size, host, and timeout limits and writes responsive WebP variants;
 7. writes `data/editions/YYYY-MM-DD.json`, ready for Astro to build.
 
-The reporter and editor may use text and media already present in public PRs. Every published article retains links to its underlying pull requests. Routine bumps stay available through the dependency dialog rather than taking over the front page.
+The reporter and editor may use text and media already present in public PRs. Every published article retains links to its underlying pull requests. Routine dependency bumps stay in the edition data but never surface on the front page.
 
 Use `--date` to regenerate a specific edition. The date is interpreted in the configured `Europe/Amsterdam` timezone:
 
 ```sh
 GH_TOKEN=github_pat_… OPENAI_API_KEY=sk-… npm run update -- --date 2026-08-30
 ```
+
+A requested date matching the current Amsterdam date uses the current instant as the end of its rolling 24-hour window. Past dates end at local midnight; future dates are rejected.
 
 For an entirely local deterministic edition, explicitly disable AI:
 
@@ -127,7 +129,7 @@ For the actual bootstrap, the manual GitHub Actions workflow is also available. 
 - the 45-day upcoming-release horizon and explicit GitHub Release sources used by Release Radar;
 - AI model, reasoning, concurrency, and history-query limits.
 
-Every enabled organization costs at least one GitHub Search request per edition. Add or disable organizations in YAML; no collector change is necessary. If collection approaches rate limits, reduce `max_prs_per_organization`, disable low-signal sources, and preserve the API cache.
+Every enabled organization costs at least one GitHub Search request per edition. Add or disable organizations in YAML; no collector change is necessary. Project Pulse reuses the primary organizations' daily totals and performs three additional lightweight searches for authoritative seven-day totals, so its counts do not depend on local backfill completeness or the editorial detail limit. If collection approaches rate limits, reduce `max_prs_per_organization`, disable low-signal sources, and preserve the API cache.
 
 Home Assistant releases are calculated for the first Wednesday of each month. ESPHome follows two weeks later, and both beta periods begin seven days before release. Change `release_cycles` if the publication calendar changes.
 
@@ -136,8 +138,6 @@ Home Assistant releases are calculated for the first Wednesday of each month. ES
 The newest edition is the home page. Older JSON files feed dated edition routes and the year/month archive. The release rail shows actual releases published during the reporting window above a compact calendar capped at 45 days. Reported articles are also published as an RSS 2.0 feed at `/rss.xml`; the site advertises it through page metadata and a masthead link.
 
 Dependency updates, editor diagnostics, and deterministic raw PR rankings do not appear on an AI-produced front page. If AI is unavailable, the raw ranked sections remain available as a fallback; scheduled production runs require AI.
-
-On desktop, supporting material such as dependency details opens in a contained dialog. On narrow mobile screens, dialogs become full-screen, keep their close control visible, and scroll internally so long lists do not move or overflow the newspaper behind them.
 
 To work on the site without collecting again:
 
