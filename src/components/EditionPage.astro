@@ -26,6 +26,12 @@ const editorialArticles = (Array.isArray(edition.articles) ? edition.articles : 
   .sort((a, b) => b.score - a.score);
 const leadArticle = editorialArticles.find((article) => article.placement === "lead");
 const deskArticles = editorialArticles.filter((article) => article.id !== leadArticle?.id);
+const signatureArticles = deskArticles.filter(
+  (article) => article.kind === "weekly_recap" || (Array.isArray(article.media) && article.media.some((item) => item?.url)),
+);
+const signatureArticleIds = new Set(signatureArticles.map((article) => article.id));
+const columnFeatures = deskArticles.filter((article) => !signatureArticleIds.has(article.id) && article.placement !== "brief");
+const columnBriefs = deskArticles.filter((article) => !signatureArticleIds.has(article.id) && article.placement === "brief");
 const coveredPullRequests = new Set(editorialArticles.flatMap((article) => Array.isArray(article.pullRequests) ? article.pullRequests.map((pullRequest) => pullRequest.id) : []));
 const visibleHighlights = edition.highlights.filter((story) => story.id !== edition.lead?.id && !coveredPullRequests.has(story.id));
 const uniqueBriefs = edition.briefs.filter((story) => story.id !== edition.lead?.id && !coveredPullRequests.has(story.id) && !visibleHighlights.some((feature) => feature.id === story.id));
@@ -80,9 +86,27 @@ const windowLabel = `${new Intl.DateTimeFormat("en", { hour: "numeric", minute: 
             <span>{deskArticles.length} original {deskArticles.length === 1 ? "article" : "articles"}</span>
           </div>
           <div class="article-grid">
-            {deskArticles.map((article) => (
-              <StoryCard article={article} variant={article.placement === "brief" ? "brief" : "feature"} articleHref={articleHref(article)} />
+            {signatureArticles.map((article) => (
+              <StoryCard article={article} variant="feature" articleHref={articleHref(article)} />
             ))}
+            {(columnFeatures.length > 0 || columnBriefs.length > 0) && (
+              <div class:list={["article-spread", { "features-only": columnBriefs.length === 0, "briefs-only": columnFeatures.length === 0 }]}>
+                {columnFeatures.length > 0 && (
+                  <div class="feature-column">
+                    {columnFeatures.map((article) => (
+                      <StoryCard article={article} variant="feature" articleHref={articleHref(article)} />
+                    ))}
+                  </div>
+                )}
+                {columnBriefs.length > 0 && (
+                  <div class="brief-column">
+                    {columnBriefs.map((article) => (
+                      <StoryCard article={article} variant="brief" articleHref={articleHref(article)} />
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </section>
       )}
@@ -238,13 +262,44 @@ const windowLabel = `${new Intl.DateTimeFormat("en", { hour: "numeric", minute: 
     gap: 0;
   }
 
-  .article-grid :global(.story) {
-    padding-inline: 0;
+  .article-spread {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(230px, 1fr);
+    gap: 0;
+    border-bottom: 1px solid var(--rule-dark);
+  }
+
+  .article-spread.features-only,
+  .article-spread.briefs-only {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .feature-column,
+  .brief-column {
+    min-width: 0;
+  }
+
+  .feature-column {
+    padding-right: clamp(0.9rem, 2vw, 1.35rem);
+    border-right: 1px solid var(--rule);
+  }
+
+  .brief-column {
+    padding-left: clamp(0.9rem, 2vw, 1.35rem);
+  }
+
+  .article-spread.features-only .feature-column {
+    padding-right: 0;
     border-right: 0;
   }
 
-  .article-grid :global(.story.recap) {
-    padding-inline: 0;
+  .article-spread.briefs-only .brief-column {
+    padding-left: 0;
+  }
+
+  .feature-column :global(.story:last-child),
+  .brief-column :global(.story:last-child) {
+    border-bottom: 0;
   }
 
   .highlight-grid :global(.story) {
@@ -361,6 +416,20 @@ const windowLabel = `${new Intl.DateTimeFormat("en", { hour: "numeric", minute: 
       padding-left: 1rem;
       border-left: 1px solid var(--rule);
     }
+
+    .article-spread {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+    }
+
+    .feature-column {
+      padding-right: 0;
+      border-right: 0;
+    }
+
+    .brief-column {
+      padding-left: 0;
+    }
   }
 
   @media (max-width: 760px) {
@@ -385,11 +454,6 @@ const windowLabel = `${new Intl.DateTimeFormat("en", { hour: "numeric", minute: 
 
     .article-grid {
       grid-template-columns: 1fr;
-    }
-
-    .article-grid :global(.story:nth-child(n)) {
-      padding-inline: 0;
-      border-right: 0;
     }
 
     .site-footer {
