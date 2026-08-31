@@ -3,12 +3,17 @@ import { formatEditionDate } from "../lib/editions";
 
 interface Props {
   date?: string;
+  previousDate?: string;
   section?: string;
 }
 
-const { date, section = "The Open Home Foundation world, one day at a time" } = Astro.props;
+const { date, previousDate, section = "The Open Home Foundation world, one day at a time" } = Astro.props;
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
 const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
+const day = 86_400_000;
+const previousIsYesterday = Boolean(date && previousDate)
+  && (Date.parse(`${date}T12:00:00Z`) - Date.parse(`${previousDate}T12:00:00Z`)) / day === 1;
+const previousLabel = previousIsYesterday ? "Yesterday" : "Previous edition";
 ---
 
 <header class="masthead shell">
@@ -16,8 +21,15 @@ const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
     <p>{date ? formatEditionDate(date) : "Daily open-source intelligence"}</p>
     <p class="edition-mark">Independent · Automated · Open</p>
     <div class="utility-links">
-      <a href={href("/archive/")}>Edition archive</a>
-      <a href={href("/rss.xml")}>RSS</a>
+      {previousDate && (
+        <a
+          class="previous-edition"
+          href={href(`/edition/${previousDate}/`)}
+          aria-label={`${previousLabel}: ${formatEditionDate(previousDate)}`}
+        >← {previousLabel}</a>
+      )}
+      <a href={href("/archive/")}>Archive</a>
+      <a class="rss-link" href={href("/rss.xml")}>RSS</a>
     </div>
   </div>
   <div class="nameplate">
@@ -58,6 +70,12 @@ const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
     display: flex;
     gap: 0.85rem;
     justify-self: end;
+    white-space: nowrap;
+  }
+
+  .previous-edition {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
   }
 
   .edition-mark {
@@ -107,6 +125,17 @@ const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
 
     .nameplate a {
       letter-spacing: -0.055em;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .utility,
+    .utility-links {
+      gap: 0.6rem;
+    }
+
+    .rss-link {
+      display: none;
     }
   }
 </style>

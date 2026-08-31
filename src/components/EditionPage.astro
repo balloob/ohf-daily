@@ -46,7 +46,7 @@ const uniqueBriefs = hasEditorial ? [] : edition.briefs.filter(
 const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => item?.product);
 ---
 
-<Masthead date={edition.date} />
+<Masthead date={edition.date} {previousDate} />
 
 <main id="main-content" class="shell">
   <section class:list={["edition-dashboard", { "has-pulse": hasPulse }]} aria-label="Edition activity">
@@ -158,7 +158,7 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
   <nav class="edition-nav" aria-label="Edition navigation">
     <span>{nextDate ? <a href={href(`/edition/${nextDate}/`)}>← Newer edition</a> : "You’re reading the latest"}</span>
     <a class="all" href={href("/archive/")}>All editions</a>
-    <span>{previousDate && <a href={href(`/edition/${previousDate}/`)}>Older edition →</a>}</span>
+    <span>{previousDate && <a href={href(`/edition/${previousDate}/`)}>Previous edition →</a>}</span>
   </nav>
 </main>
 

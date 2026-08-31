@@ -7,19 +7,20 @@ import Masthead from "../../../../components/Masthead.astro";
 import StoryCard from "../../../../components/StoryCard.astro";
 import { articleSlug } from "../../../../components/article-path";
 
-export const getStaticPaths = (() => editions.flatMap((edition) =>
+export const getStaticPaths = (() => editions.flatMap((edition, index) =>
   (edition.articles ?? []).map((article) => ({
     params: { date: edition.date, articleId: articleSlug(article.id) },
-    props: { edition, article },
+    props: { edition, article, previousDate: editions[index + 1]?.date },
   })),
 )) satisfies GetStaticPaths;
 
 interface Props {
   edition: Edition;
   article: Article;
+  previousDate?: string;
 }
 
-const { edition, article } = Astro.props;
+const { edition, article, previousDate } = Astro.props;
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
 const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
 const editionHref = href(`/edition/${encodeURIComponent(edition.date)}/`);
@@ -27,7 +28,7 @@ const topic = article.kind === "weekly_recap" ? "Week in review" : article.topic
 ---
 
 <BaseLayout title={`${article.title} · OHF Daily`} description={article.dek || `OHF Daily article for ${formatEditionDate(edition.date)}.`}>
-  <Masthead date={edition.date} section={`${topic} · ${formatEditionDate(edition.date)}`} />
+  <Masthead date={edition.date} {previousDate} section={`${topic} · ${formatEditionDate(edition.date)}`} />
   <main class="article-page shell">
     <nav class="breadcrumbs" aria-label="Article navigation">
       <a href={editionHref}><span aria-hidden="true">←</span> Back to the edition</a>
