@@ -106,7 +106,39 @@ test("resolves only locally evidenced PRs and media, including review credit", (
   assert.deepEqual(articles[0].media.map((media) => media.url), [record.mediaUrls[0]]);
   assert.deepEqual(articles[0].reviewers, ["human-reviewer"]);
   assert.deepEqual(articles[0].approvers, ["human-reviewer"]);
+  assert.deepEqual(articles[0].contributors, ["frenck"]);
   assert.deepEqual(articles[0].contributorProfiles, [record.authorProfile]);
+});
+
+test("derives contributor and human review credit from sources rather than model output", () => {
+  const second: StoredPullRequest = {
+    ...record,
+    id: 43,
+    number: 43,
+    url: "https://github.com/home-assistant/core/pull/43",
+    author: "new-author",
+    authorProfile: undefined,
+    reviewers: ["new-author", "Human-Reviewer", "renovate[bot]"],
+    approvers: ["new-author", "Second-Approver"],
+  };
+  const articles = editorialInternals.resolveArticles([{
+    id: "grouped-story",
+    title: "A grouped story",
+    dek: "Two contributions form one outcome.",
+    body: ["The sources establish the result."],
+    kind: "daily",
+    placement: "feature",
+    score: 80,
+    contributors: ["invented-model-credit"],
+    topics: ["testing"],
+    continuity: null,
+    pullRequestIds: ["42", "43"],
+    media: [],
+  }], [record, second]);
+
+  assert.deepEqual(articles[0].contributors, ["frenck", "new-author"]);
+  assert.deepEqual(articles[0].reviewers, ["human-reviewer"]);
+  assert.deepEqual(articles[0].approvers, ["human-reviewer", "Second-Approver"]);
 });
 
 test("parses exact local-history tool filters", () => {

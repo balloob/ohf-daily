@@ -71,6 +71,7 @@ The newsroom instructions are normal, reviewable Markdown files:
 - `prompts/reporter.md` tells each daily beat reporter how to investigate and cite candidate PRs;
 - `prompts/weekly-recap.md` guides the Monday look-back across the preceding week;
 - `prompts/editor.md` controls selection, grouping, placement, tone, and final article structure.
+- `prompts/editorial-review.md` gives an independent post-publication critic a repeatable human-relevance, writing, evidence, and placement rubric;
 - `prompts/beats/*.md` adds organization-specific guidance without duplicating the shared evidence and tone rules.
 - `prompts/tracks/*.md` defines cross-organization editorial lenses such as new devices, reliability, community, documentation, and releases.
 

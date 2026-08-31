@@ -740,7 +740,7 @@
       "title": "VRT MAX arrives in Music Assistant",
       "dek": "A first contribution brings Flemish public radio, podcasts, favourites and listening progress into Music Assistant.",
       "body": [
-        "Music Assistant can now connect directly to VRT MAX, the streaming service of the Flemish public broadcaster. Bram Goolaerts’ new provider covers live stations including Radio 1, Radio 2, Studio Brussel, MNM and Klara, alongside listen-back programmes, podcasts and search. Live radio works without signing in.",
+        "Merged provider support will let Music Assistant connect directly to VRT MAX, the streaming service of the Flemish public broadcaster. Bram Goolaerts’ contribution covers live stations including Radio 1, Radio 2, Studio Brussel, MNM and Klara, alongside listen-back programmes, podcasts and search. Live radio will work without signing in.",
         "Connecting an account adds on-demand playback, Mijn lijst library syncing and resume positions that carry across devices. The provider supports multiple instances, so people in one household can keep separate accounts, and listen-back episodes can expose played songs as chapters in Now Playing.",
         "This is Goolaerts’ first merged contribution to the Music Assistant server. Welcome, Bram—and congratulations on landing an unusually complete first PR."
       ],
@@ -784,7 +784,7 @@
       "dek": "Home Assistant’s glanceable energy view now carries four parts of a household’s energy picture, including two-way battery flow.",
       "body": [
         "Bruno Pantaleão Gonçalves expanded the Home Assistant iOS energy widget beyond grid and solar. Battery discharge is stacked above the chart axis, charging below it, while gas appears as a separate figure because its statistics may be measured in volume rather than energy.",
-        "The calculation ports the frontend’s consumption split so energy used to charge a battery is not counted as household demand. Cost combines electricity and gas, and adaptive layouts keep all four sources usable on the small widget and Lock Screen accessories.",
+        "The merged widget update uses the same consumption math as the energy dashboard, so energy used to charge a battery is not counted as household demand. Cost combines electricity and gas, and all four sources still fit on the small widget and Lock Screen accessories.",
         "The work continues Gonçalves’s August run on the widget, after Lock Screen sizing, a reload action for missing data and clearer period and refresh-time information landed earlier in the month."
       ],
       "kind": "daily",
@@ -853,16 +853,15 @@
     },
     {
       "id": "esphome-improv-beyond-wifi",
-      "title": "ESPHome’s serial setup learns there is more than Wi‑Fi",
-      "dek": "Improv Serial can now describe Ethernet, Thread and modem connectivity, opening setup and discovery to devices without a Wi‑Fi radio.",
+      "title": "ESPHome’s serial tools recognize devices beyond Wi‑Fi",
+      "dek": "A merged ESPHome change lets devices connected by Ethernet, Thread or a modem tell compatible serial tools how they are online and where to open their local web page.",
       "body": [
-        "ESPHome’s Improv Serial component now understands the wider network stack instead of depending entirely on Wi‑Fi. Keith Burzinski’s change lets the component build and run on devices with Wi‑Fi disabled or absent—including Ethernet-only boards—and adds the Improv protocol’s new Get Network State command.",
-        "Compatible clients can ask whether a device is online, see which interfaces it has—Wi‑Fi, Ethernet, Thread or modem—and receive web-server URLs for connected interfaces. The provisioning path also stops reporting stale success while a device is still leaving its previous Wi‑Fi network.",
-        "It continues a broader multi-interface theme in Burzinski’s recent ESPHome work, following August changes to default-route arbitration across Ethernet and Wi‑Fi."
+        "ESPHome’s Improv Serial protocol lets a setup tool talk to a device over USB or another serial connection. Keith Burzinski’s change allows that protocol to run on devices without Wi‑Fi, including Ethernet-only boards, and report whether they are online and which network interfaces they have.",
+        "Compatible tools can also receive the device’s local web address. Wi‑Fi provisioning remains Wi‑Fi-only; the new support reports Ethernet, Thread and modem connections rather than configuring them. The same work stops tools from showing stale success while a device is still leaving its previous Wi‑Fi network."
       ],
       "kind": "daily",
-      "placement": "feature",
-      "score": 90,
+      "placement": "brief",
+      "score": 76,
       "contributors": [
         "kbx81"
       ],
@@ -897,11 +896,11 @@
     },
     {
       "id": "bluetooth-adapters-release-connections",
-      "title": "Removed Bluetooth adapters no longer leave ghost connections",
-      "dek": "Home Assistant’s Bluetooth layer now disconnects clients tied to an unregistered scanner, keeping real links and slot accounting in sync.",
+      "title": "Bluetooth fix clears connections left by removed adapters",
+      "dek": "The merged repair drops connections that depended on a disabled or removed adapter, allowing devices to reconnect cleanly.",
       "body": [
         "Radek Podgorny traced a stubborn Bluetooth state mismatch to scanner removal. Home Assistant cleared its bookkeeping when an adapter disappeared, but connections made through that adapter could remain alive, continuing to deliver notifications while occupying a slot the system believed was free.",
-        "The Bluetooth manager now tracks clients per scanner and disconnects them during unregister, while avoiding clients that have already moved to another route. The change covers local adapters and ESPHome proxies, with weak references and bounded cleanup so a dropped client cannot leak or stall shutdown.",
+        "The fix disconnects clients that still depend on an adapter when that adapter is removed, while leaving alone any device that has already found another route. It covers local adapters and ESPHome Bluetooth proxies.",
         "Podgorny verified the local path on real BlueZ hardware: disabling the adapter dropped the kernel link, and enabling it again allowed a clean reconnect. The remote-proxy path has automated coverage but was not part of that hardware test."
       ],
       "kind": "daily",
@@ -939,80 +938,11 @@
       "media": []
     },
     {
-      "id": "music-assistant-support-first-response",
-      "title": "Music Assistant sharpens the first response to bug reports",
-      "dek": "Six connected changes make duplicate detection broader and more precise, preserve the full triage record and put a plain-language gist atop long reports.",
-      "body": [
-        "A six-PR sequence from Chris overhauled how Music Assistant’s support repository digests incoming reports. The index now strips repeated issue-form boilerplate from ranking, includes all existing issues instead of only the newest 2,500, and shows up to five related posts behind stricter confidence thresholds.",
-        "The same series refuses to append to an index built with an incompatible schema, model or vector width, and stores the full triage decision rather than only retrieval scores. Maintainers can now inspect missing fields, labels, pings and deterministic findings when judging whether the automation helped.",
-        "Reports longer than 1,500 characters also receive a three-line gist covering what the reporter was doing, what happened and what they expected—without nagging people who already supplied detail."
-      ],
-      "kind": "daily",
-      "placement": "brief",
-      "score": 82,
-      "contributors": [
-        "chrisuthe"
-      ],
-      "contributorProfiles": [
-        {
-          "login": "chrisuthe",
-          "name": "Chris",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/26907395?v=4",
-          "profileUrl": "https://github.com/chrisuthe"
-        }
-      ],
-      "reviewers": [],
-      "approvers": [],
-      "topics": [
-        "Contributor experience",
-        "Music Assistant"
-      ],
-      "pullRequests": [
-        {
-          "id": "4397792112",
-          "title": "Don't append to a posts index this configuration did not build",
-          "url": "https://github.com/music-assistant/support/pull/6257",
-          "repository": "music-assistant/support"
-        },
-        {
-          "id": "4397921252",
-          "title": "Stop ranking reports on the form they share",
-          "url": "https://github.com/music-assistant/support/pull/6258",
-          "repository": "music-assistant/support"
-        },
-        {
-          "id": "4397922076",
-          "title": "Index every issue, not the newest 2500",
-          "url": "https://github.com/music-assistant/support/pull/6259",
-          "repository": "music-assistant/support"
-        },
-        {
-          "id": "4397922932",
-          "title": "Show five related posts, not three",
-          "url": "https://github.com/music-assistant/support/pull/6260",
-          "repository": "music-assistant/support"
-        },
-        {
-          "id": "4397924144",
-          "title": "Record the whole triage decision, not the half the comment shows",
-          "url": "https://github.com/music-assistant/support/pull/6261",
-          "repository": "music-assistant/support"
-        },
-        {
-          "id": "4398060487",
-          "title": "Lead with the gist of a long report",
-          "url": "https://github.com/music-assistant/support/pull/6263",
-          "repository": "music-assistant/support"
-        }
-      ],
-      "media": []
-    },
-    {
       "id": "konyks-indicator-always-on",
-      "title": "Konyks sockets gain an always-on indicator setting",
-      "dek": "Two device quirks and a matching Home Assistant translation expose a light mode the sockets support but their Tuya cloud schemas omit.",
+      "title": "Konyks socket indicator setting lands",
+      "dek": "Merged library and Core changes expose an LED mode supported by two Konyks sockets even though Tuya’s published device information leaves it out.",
       "body": [
-        "New contributor minimicro34 added quirks for the Konyks Priska Max 3 FR and Priska Duo FR. Both devices were observed supporting four indicator modes—including always on—even though their cloud schemas list only relay, position and off; fixtures and regression coverage preserve the missing value.",
+        "New contributor minimicro34 added device definitions for the Konyks Priska Max 3 FR and Priska Duo FR. Both sockets support four indicator modes—including always on—even though Tuya’s metadata lists only relay, position and off.",
         "A companion Home Assistant change supplies the readable translation for Tuya’s light-mode selector. Together, the three PRs carry the capability from device knowledge in the shared library through to a label users can understand in Home Assistant.",
         "These are minimicro34’s first merged contributions to both tuya-device-handlers and Home Assistant Core. Welcome to both projects."
       ],
@@ -1064,65 +994,80 @@
     },
     {
       "id": "weekly-beta-hardening-and-energy-control",
-      "title": "The beta hardened while energy controls broadened",
-      "dek": "A wide repair pass protected automations, devices, voice and platform compatibility as Home Assistant moved through beta week; by Sunday, the center of gravity had shifted to inverters and EV charging.",
+      "title": "Beta week protects the homes people already configured",
+      "dek": "From August 24–30, repairs across Home Assistant Core and the frontend preserved automations, replacement devices and compatibility with existing systems.",
       "body": [
-        "Home Assistant entered beta on Wednesday ahead of the September release, and the week’s work quickly took on a stabilizing rhythm. Core, frontend and Music Assistant all absorbed focused fixes and backports while reviewers moved a broad set of repairs toward release.",
-        "In core, that meant unwinding a NumPy upgrade that broke Proxmox environments, validating stored KNX UI data, following through on voice regressions and correcting a Matter thermostat offset. These were not one headline feature, but together they reduced the number of sharp edges people could meet after updating.",
-        "The frontend received the same kind of attention. One repair stopped editor state leaking between automation steps; another kept replacement devices from losing useful configuration details. Both changes protect work users have already put into their homes.",
-        "By Sunday the energy beat had widened. A first contribution introduced Sunsynk support, KACO inverters gained a local Modbus path, and Franck Nijhof built SolarEdge Modbus from controls into dynamic discovery for attached meters and batteries. Peblar charging also gained authorization controls and richer session events.",
-        "That arc—from beta hardening to broader local energy control—is the week’s clearest pattern. It was carried not only by authors but by sustained human review from Franck Nijhof, Paulus Schoutsen, Paul Bottein, joostlek, silamon and TheJulianJES."
+        "From Monday, August 24 through Sunday, August 30, Home Assistant moved into beta with a clear theme: protect configurations and compatibility people already rely on. The work was spread across Core and the frontend, but each repair reduced the chance that an update would undo earlier setup or make established hardware behave differently.",
+        "Core reverted a NumPy update that broke Proxmox environments, validated stored KNX interface data before loading it, restored follow-up voice commands and corrected temperature-offset conversion for Matter thermostats. These fixes preserve compatibility rather than adding something new to configure.",
+        "In the frontend, one repair stopped editor state leaking when people switched between automations, scripts or scenes. Another kept the existing automation configuration when a device is replaced. Together, they protect work people have already put into their homes—the strongest common thread in the week’s beta fixes."
       ],
       "kind": "weekly_recap",
       "placement": "feature",
       "score": 94,
       "contributors": [
-        "g4bri3lDev",
-        "frenck",
-        "jamesridgway"
+        "erwindouna",
+        "farmio",
+        "synesthesiam",
+        "lboue",
+        "MindFreeze",
+        "piitaya"
       ],
       "contributorProfiles": [
         {
-          "login": "g4bri3lDev",
-          "name": null,
-          "avatarUrl": "https://avatars.githubusercontent.com/u/7592130?v=4",
-          "profileUrl": "https://github.com/g4bri3lDev"
+          "login": "erwindouna",
+          "name": "Erwin Douna",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5011203?v=4",
+          "profileUrl": "https://github.com/erwindouna"
         },
         {
-          "login": "frenck",
-          "name": "Franck Nijhof",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
-          "profileUrl": "https://github.com/frenck"
+          "login": "farmio",
+          "name": "Matthias Alphart",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12422879?v=4",
+          "profileUrl": "https://github.com/farmio"
         },
         {
-          "login": "jamesridgway",
-          "name": "James Ridgway",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/3121162?v=4",
-          "profileUrl": "https://github.com/jamesridgway"
+          "login": "synesthesiam",
+          "name": "Michael Hansen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2743976?v=4",
+          "profileUrl": "https://github.com/synesthesiam"
+        },
+        {
+          "login": "lboue",
+          "name": "Ludovic BOUÉ",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/938089?v=4",
+          "profileUrl": "https://github.com/lboue"
+        },
+        {
+          "login": "MindFreeze",
+          "name": "Petar Petrov",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5219205?v=4",
+          "profileUrl": "https://github.com/MindFreeze"
+        },
+        {
+          "login": "piitaya",
+          "name": "Paul Bottein",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5878303?v=4",
+          "profileUrl": "https://github.com/piitaya"
         }
       ],
       "reviewers": [
         "frenck",
-        "balloob",
-        "piitaya",
-        "joostlek",
         "silamon",
-        "TheJulianJES"
+        "TheJulianJES",
+        "bramkragten"
       ],
       "approvers": [
         "frenck",
-        "balloob",
-        "piitaya",
-        "joostlek",
         "silamon",
-        "TheJulianJES"
+        "TheJulianJES",
+        "bramkragten"
       ],
       "topics": [
         "Week in review",
         "Beta",
-        "Energy"
+        "Reliability"
       ],
-      "continuity": "Monday’s recap connects the previous week’s stabilization work with Sunday’s local-energy expansion.",
+      "continuity": "The recap narrows the week to one reader outcome: preserving existing Home Assistant configuration and compatibility during beta.",
       "pullRequests": [
         {
           "id": "4376244004",
@@ -1159,42 +1104,6 @@
           "title": "Preserve details when replacing devices",
           "url": "https://github.com/home-assistant/frontend/pull/53805",
           "repository": "home-assistant/frontend"
-        },
-        {
-          "id": "4390616848",
-          "title": "Add Sunsynk integration",
-          "url": "https://github.com/home-assistant/core/pull/180593",
-          "repository": "home-assistant/core"
-        },
-        {
-          "id": "4395763259",
-          "title": "Add KACO Modbus integration",
-          "url": "https://github.com/home-assistant/core/pull/180812",
-          "repository": "home-assistant/core"
-        },
-        {
-          "id": "4396366833",
-          "title": "Add SolarEdge Modbus controls",
-          "url": "https://github.com/home-assistant/core/pull/180826",
-          "repository": "home-assistant/core"
-        },
-        {
-          "id": "4396492196",
-          "title": "Discover SolarEdge meters and batteries dynamically",
-          "url": "https://github.com/home-assistant/core/pull/180830",
-          "repository": "home-assistant/core"
-        },
-        {
-          "id": "4392903111",
-          "title": "Add Peblar charging authorization",
-          "url": "https://github.com/home-assistant/core/pull/180678",
-          "repository": "home-assistant/core"
-        },
-        {
-          "id": "4395359138",
-          "title": "Add Peblar charging events",
-          "url": "https://github.com/home-assistant/core/pull/180744",
-          "repository": "home-assistant/core"
         }
       ],
       "media": []
@@ -1274,6 +1183,7 @@
     }
   ],
   "notes": [
-    "Feedback edition drafted from the local public-PR archive by parallel reporter desks; article grouping and tone are ready for editorial review."
+    "Feedback edition drafted from the local public-PR archive by parallel reporter desks.",
+    "An independent post-publication review tightened human relevance, corrected the scope of the ESPHome serial story, and narrowed the weekly recap to one supported thesis."
   ]
 }

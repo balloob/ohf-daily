@@ -339,13 +339,28 @@ function resolveArticles(raw: EditorArticle[], records: StoredPullRequest[]): Ar
     const id = draft.id.trim() || `article-${sources.map((source) => source.id).join("-")}`;
     if (seen.has(id)) continue;
     seen.add(id);
-    const contributorProfiles = [...new Map(
-      sources
-        .flatMap((source) => {
-          const profile = byId.get(source.id)?.authorProfile;
-          return profile ? [[profile.login.toLowerCase(), profile] as const] : [];
-        }),
-    ).values()];
+    const sourceRecords = sources.flatMap((source) => {
+      const record = byId.get(source.id);
+      return record ? [record] : [];
+    });
+    const contributorProfiles = [...new Map(sourceRecords.flatMap((record) => {
+      const profile = record.authorProfile;
+      return profile ? [[profile.login.toLowerCase(), profile] as const] : [];
+    })).values()];
+    const uniqueLogins = (logins: string[]): string[] => {
+      const seenLogins = new Set<string>();
+      return logins.filter((login) => {
+        const key = login.toLowerCase();
+        if (seenLogins.has(key)) return false;
+        seenLogins.add(key);
+        return true;
+      });
+    };
+    const contributors = uniqueLogins(sourceRecords
+      .map((record) => record.author)
+      .filter((login) => !isBotLogin(login)));
+    const humanCredits = (field: "reviewers" | "approvers"): string[] => uniqueLogins(sourceRecords.flatMap((record) => record[field]
+      .filter((login) => !isBotLogin(login) && login.toLowerCase() !== record.author.toLowerCase())));
     articles.push({
       id,
       title: draft.title.trim(),
@@ -354,10 +369,10 @@ function resolveArticles(raw: EditorArticle[], records: StoredPullRequest[]): Ar
       kind: draft.kind,
       placement: draft.placement,
       score: Math.max(0, Math.min(100, draft.score)),
-      contributors: [...new Set(draft.contributors.map((item) => item.trim()).filter(Boolean))],
+      contributors,
       contributorProfiles,
-      reviewers: [...new Set(sources.flatMap((source) => byId.get(source.id)?.reviewers ?? []).filter((login) => !isBotLogin(login)))],
-      approvers: [...new Set(sources.flatMap((source) => byId.get(source.id)?.approvers ?? []).filter((login) => !isBotLogin(login)))],
+      reviewers: humanCredits("reviewers"),
+      approvers: humanCredits("approvers"),
       topics: [...new Set(draft.topics.map((item) => item.trim()).filter(Boolean))],
       continuity: nullable(draft.continuity),
       pullRequests: sources,
