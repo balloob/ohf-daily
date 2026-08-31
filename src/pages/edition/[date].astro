@@ -1,0 +1,28 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EditionPage from "../../components/EditionPage.astro";
+import { editions, formatEditionDate } from "../../lib/editions";
+import type { Edition } from "../../lib/types";
+
+export const getStaticPaths = (() => editions.map((edition, index) => ({
+  params: { date: edition.date },
+  props: {
+    edition,
+    nextDate: editions[index - 1]?.date,
+    previousDate: editions[index + 1]?.date,
+  },
+}))) satisfies GetStaticPaths;
+
+interface Props {
+  edition: Edition;
+  nextDate?: string;
+  previousDate?: string;
+}
+
+const { edition, nextDate, previousDate } = Astro.props;
+---
+
+<BaseLayout title={`OHF Daily · ${formatEditionDate(edition.date)}`} description={`Open Home Foundation ecosystem news for ${formatEditionDate(edition.date)}.`}>
+  <EditionPage {edition} {nextDate} {previousDate} />
+</BaseLayout>

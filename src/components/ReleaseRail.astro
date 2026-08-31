@@ -1,0 +1,106 @@
+---
+import type { ReleaseEvent } from "../lib/types";
+
+interface Props {
+  releases: ReleaseEvent[];
+  today?: string;
+}
+
+const { releases, today = new Date().toISOString().slice(0, 10) } = Astro.props;
+const day = 86_400_000;
+const daysUntil = (date: string) => Math.ceil((Date.parse(`${date}T12:00:00Z`) - Date.parse(`${today}T12:00:00Z`)) / day);
+const formatShort = (date: string) => new Intl.DateTimeFormat("en", { day: "numeric", month: "short", timeZone: "UTC" }).format(new Date(`${date}T12:00:00Z`));
+---
+
+<aside class="release-rail" aria-labelledby="release-heading">
+  <div class="heading">
+    <p class="eyebrow">On the horizon</p>
+    <h2 id="release-heading">Release desk</h2>
+  </div>
+  {releases.length ? (
+    <ol>
+      {releases.map((release) => {
+        const remaining = daysUntil(release.date);
+        return (
+          <li style={`--event-accent: var(--${release.accent}, var(--accent))`}>
+            <time datetime={release.date}>
+              <span>{formatShort(release.date)}</span>
+              <small>{remaining === 0 ? "Today" : remaining === 1 ? "Tomorrow" : `In ${remaining} days`}</small>
+            </time>
+            <div>
+              <strong>{release.product}</strong>
+              <span>{release.kind}</span>
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+  ) : <p class="empty">The next release dates will appear after the first collection run.</p>}
+  <p class="cadence">Home Assistant ships on the first Wednesday of each month. ESPHome follows two weeks later; both enter beta one week before release.</p>
+</aside>
+
+<style>
+  .release-rail {
+    padding: 1rem;
+    border: 1px solid var(--rule-dark);
+    background: rgb(255 255 255 / 20%);
+  }
+
+  .heading {
+    padding-bottom: 0.8rem;
+    border-bottom: 3px double var(--rule-dark);
+  }
+
+  .heading h2 {
+    margin: 0;
+    font: 400 1.7rem/1 var(--display);
+  }
+
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: 5.3rem 1fr;
+    gap: 0.9rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  time {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.55rem;
+    border-left: 4px solid var(--event-accent);
+    font: 700 0.78rem/1.2 var(--label);
+    text-transform: uppercase;
+  }
+
+  time small {
+    margin-top: 0.2rem;
+    color: var(--muted);
+    font: 500 0.61rem/1.2 var(--sans);
+    text-transform: none;
+  }
+
+  li div {
+    display: flex;
+    flex-direction: column;
+    font: 500 0.8rem/1.3 var(--sans);
+  }
+
+  li div span {
+    color: var(--muted);
+  }
+
+  .cadence,
+  .empty {
+    margin: 0;
+    padding-top: 0.9rem;
+    color: var(--muted);
+    font: 500 0.7rem/1.45 var(--sans);
+  }
+</style>

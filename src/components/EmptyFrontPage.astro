@@ -1,0 +1,76 @@
+---
+import Masthead from "./Masthead.astro";
+import ReleaseRail from "./ReleaseRail.astro";
+import StoryImage from "./StoryImage.astro";
+import type { ReleaseEvent } from "../lib/types";
+
+interface Props {
+  releases: ReleaseEvent[];
+}
+
+const { releases } = Astro.props;
+---
+
+<Masthead section="The press is warming up" />
+<main class="shell">
+  <div class="grid">
+    <section>
+      <p class="eyebrow">First edition pending</p>
+      <h1>The Open Home news desk is ready.</h1>
+      <p class="lede">Once the daily collector runs, this front page will highlight the most consequential work across Home Assistant, Home Assistant Libraries, ESPHome, Music Assistant, and the wider Open Home Foundation ecosystem.</p>
+      <p class="detail">Routine maintenance will be grouped. Product changes will explain what they unlock. Screenshots attached to pull requests can become part of the story.</p>
+    </section>
+    <StoryImage alt="An illustrated open home glowing in the early morning" priority={true} />
+    <ReleaseRail {releases} />
+  </div>
+</main>
+
+<style>
+  main {
+    padding-block: clamp(1.5rem, 4vw, 3.5rem) 4rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: minmax(250px, 0.7fr) minmax(0, 1.3fr) 290px;
+    gap: clamp(1.3rem, 3vw, 2.8rem);
+    align-items: center;
+  }
+
+  h1 {
+    margin: 0;
+    font: 400 clamp(3rem, 6vw, 6rem)/0.93 var(--display);
+    letter-spacing: -0.04em;
+  }
+
+  .detail {
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font: 500 0.78rem/1.5 var(--sans);
+  }
+
+  @media (max-width: 1000px) {
+    .grid {
+      grid-template-columns: minmax(250px, 0.8fr) minmax(0, 1.2fr);
+    }
+
+    .grid :global(.release-rail) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .grid :global(.story-image) {
+      grid-row: 1;
+    }
+
+    .grid :global(.release-rail) {
+      grid-column: auto;
+    }
+  }
+</style>

@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EditionPage from "../components/EditionPage.astro";
+import EmptyFrontPage from "../components/EmptyFrontPage.astro";
+import { editions, getLatestEdition, formatEditionDate } from "../lib/editions";
+import { buildReleaseCalendar } from "../lib/releases";
+
+const latest = getLatestEdition();
+const releases = buildReleaseCalendar(new Date(), [
+  { product: "Home Assistant", rule: "first-wednesday", beta_days_before: 7, release_offset_days: 0, accent: "blue" },
+  { product: "ESPHome", rule: "first-wednesday", beta_days_before: 7, release_offset_days: 14, accent: "green" },
+]);
+const title = latest ? `OHF Daily · ${formatEditionDate(latest.date)}` : "OHF Daily · The Open Home news desk";
+const previousDate = editions[1]?.date;
+---
+
+<BaseLayout {title}>
+  {latest ? <EditionPage edition={latest} previousDate={previousDate} /> : <EmptyFrontPage {releases} />}
+</BaseLayout>

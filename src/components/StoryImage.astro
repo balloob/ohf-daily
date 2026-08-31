@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+import morning from "../assets/open-home-morning.png";
+
+interface Props {
+  src?: string;
+  alt: string;
+  priority?: boolean;
+}
+
+const { src, alt, priority = false } = Astro.props;
+---
+
+<figure class:list={["story-image", { generated: !src }]}>
+  {src ? (
+    <img src={src} alt={alt} loading={priority ? "eager" : "lazy"} fetchpriority={priority ? "high" : "auto"} />
+  ) : (
+    <Image src={morning} alt="An illustrated open home glowing in the early morning" loading={priority ? "eager" : "lazy"} />
+  )}
+  {!src && <figcaption>Open Home, morning edition · Editorial illustration</figcaption>}
+</figure>
+
+<style>
+  .story-image {
+    margin: 0;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    filter: saturate(0.82) contrast(1.02);
+  }
+
+  figcaption {
+    padding-top: 0.45rem;
+    color: var(--muted);
+    font: 500 0.66rem/1.35 var(--sans);
+  }
+</style>

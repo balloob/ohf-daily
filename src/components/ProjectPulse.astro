@@ -1,0 +1,137 @@
+---
+import type { PulseItem } from "./article-types";
+
+interface Props {
+  items?: PulseItem[];
+}
+
+const { items = [] } = Astro.props;
+const validItems = items.filter((item) => item?.product);
+const activity = (value: number) => `${Number(value) > 0 ? "+" : ""}${Number(value) || 0}`;
+---
+
+{validItems.length > 0 && (
+  <section class="pulse" aria-labelledby="pulse-heading">
+    <div class="pulse-label">
+      <p>Project</p>
+      <h2 id="pulse-heading">Pulse</h2>
+    </div>
+    <div class="pulse-items">
+      {validItems.map((item) => (
+        <article>
+          <h3>{item.product}</h3>
+          <dl>
+            <div><dt>Today</dt><dd>{activity(item.today)}</dd></div>
+            <div><dt>7 days</dt><dd>{activity(item.thisWeek)}</dd></div>
+          </dl>
+        </article>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .pulse {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 1rem;
+    padding: 0.7rem 0;
+    border-bottom: 3px double var(--rule-dark);
+  }
+
+  .pulse-label {
+    align-self: stretch;
+    padding-right: 1rem;
+    border-right: 1px solid var(--rule-dark);
+  }
+
+  .pulse-label p {
+    margin: 0 0 0.1rem;
+    color: var(--accent);
+    font: 700 0.55rem/1 var(--label);
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+
+  .pulse-label h2 {
+    margin: 0;
+    font: 400 1.25rem/1 var(--display);
+  }
+
+  .pulse-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    min-width: 0;
+  }
+
+  article {
+    display: grid;
+    grid-template-columns: minmax(7.5rem, 1.5fr) repeat(2, minmax(3rem, 0.7fr));
+    gap: 0.65rem;
+    align-items: center;
+    min-width: 0;
+    padding-inline: 0.9rem;
+    border-left: 1px solid var(--rule);
+  }
+
+  article:first-child {
+    border-left: 0;
+  }
+
+  h3 {
+    margin: 0;
+    font: 700 0.66rem/1.2 var(--label);
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+  }
+
+  dl {
+    display: contents;
+    margin: 0;
+  }
+
+  dl div {
+    min-width: 0;
+  }
+
+  dt {
+    overflow: hidden;
+    color: var(--muted);
+    font: 500 0.52rem/1.2 var(--sans);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  dd {
+    margin: 0.12rem 0 0;
+    color: var(--green);
+    font: 700 0.8rem/1.2 var(--label);
+  }
+
+  @media (max-width: 760px) {
+    .pulse {
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+    }
+
+    .pulse-label {
+      display: flex;
+      gap: 0.35rem;
+      align-items: baseline;
+      padding: 0;
+      border-right: 0;
+    }
+
+    .pulse-items {
+      grid-template-columns: 1fr;
+    }
+
+    article,
+    article:first-child {
+      grid-template-columns: minmax(7.25rem, 1.5fr) repeat(2, minmax(3rem, 0.7fr));
+      padding: 0.65rem 0;
+      border-top: 1px solid var(--rule);
+      border-left: 0;
+    }
+  }
+</style>

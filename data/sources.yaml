@@ -1,0 +1,132 @@
+# Every organization costs one GitHub Search API request per edition. PR details
+# are cached by URL and refreshed only when the PR changes.
+window_hours: 24
+timezone: Europe/Amsterdam
+max_prs_per_organization: 60
+front_page_stories: 5
+briefs_limit: 18
+
+organizations:
+  - slug: home-assistant
+    name: Home Assistant
+    enabled: true
+    weight: 1.35
+    featured_repositories: [core, frontend, operating-system, supervisor, android, iOS]
+  - slug: home-assistant-libs
+    name: Home Assistant Libraries
+    enabled: true
+    weight: 1.1
+    featured_repositories: []
+  - slug: OHF-Device-Database
+    name: OHF Device Database
+    enabled: true
+    weight: 1.05
+    featured_repositories: []
+  - slug: esphome
+    name: ESPHome
+    enabled: true
+    weight: 1.25
+    featured_repositories: [esphome, esphome-docs, home-assistant-voice-pe]
+  - slug: music-assistant
+    name: Music Assistant
+    enabled: true
+    weight: 1.25
+    featured_repositories: [server, frontend, client]
+  - slug: OpenHomeFoundation
+    name: Open Home Foundation
+    enabled: true
+    weight: 1.2
+    featured_repositories: [roadmap, openhomefoundation.org]
+  - slug: zigpy
+    name: Zigpy
+    enabled: true
+    weight: 1.05
+    featured_repositories: []
+  - slug: zwave-js
+    name: Z-Wave JS
+    enabled: true
+    weight: 1.1
+    featured_repositories: [zwave-js]
+  - slug: matter-js
+    name: Matter.js
+    enabled: true
+    weight: 1.1
+    featured_repositories: [matter.js]
+  - slug: ohf-voice
+    name: OHF Voice
+    enabled: true
+    weight: 1.15
+    featured_repositories: []
+  - slug: bluetooth-devices
+    name: Bluetooth Devices
+    enabled: true
+    weight: 1.0
+    featured_repositories: []
+  - slug: NabuCasa
+    name: Nabu Casa libraries
+    enabled: true
+    weight: 1.0
+    featured_repositories: [hass-nabucasa, universal-silabs-flasher]
+
+editorial:
+  ignore_labels: [skip-news, internal]
+  feature_labels: [feature, new-feature, enhancement]
+  breaking_labels: [breaking-change, backwards-incompatible]
+  dependency_authors: ["dependabot[bot]", "renovate[bot]", "pre-commit-ci[bot]"]
+  high_signal_terms:
+    - voice
+    - matter
+    - energy
+    - dashboard
+    - accessibility
+    - security
+    - bluetooth
+    - zigbee
+    - music
+    - player
+    - device
+    - migration
+
+# Editorial tracks are lenses, not quotas. Reporter agents consider every
+# enabled track; the editor decides whether the evidence and recent cadence
+# justify publishing it in a particular edition.
+editorial_tracks:
+  - slug: new-devices
+    name: New devices and capabilities
+    prompt: prompts/tracks/new-devices.md
+    enabled: true
+  - slug: releases
+    name: Releases and betas
+    prompt: prompts/tracks/releases.md
+    enabled: true
+  - slug: reliability
+    name: Reliability and quality
+    prompt: prompts/tracks/reliability.md
+    enabled: true
+  - slug: community
+    name: Contributors and maintainers
+    prompt: prompts/tracks/community.md
+    enabled: true
+  - slug: documentation
+    name: Documentation and learning
+    prompt: prompts/tracks/documentation.md
+    enabled: true
+
+release_cycles:
+  - product: Home Assistant
+    rule: first-wednesday
+    beta_days_before: 7
+    release_offset_days: 0
+    accent: blue
+  - product: ESPHome
+    rule: first-wednesday
+    beta_days_before: 7
+    release_offset_days: 14
+    accent: green
+
+ai:
+  # Override with OPENAI_MODEL without editing this file.
+  model: gpt-5-mini
+  reasoning_effort: medium
+  max_parallel_reporters: 4
+  max_history_queries_per_reporter: 6

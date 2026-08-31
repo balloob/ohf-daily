@@ -1,0 +1,209 @@
+name: Collect and publish OHF Daily
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # 07:15 in Amsterdam during winter, 08:15 during summer. GitHub cron uses UTC.
+    - cron: "15 6 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Edition end date (YYYY-MM-DD); leave blank for today"
+        required: false
+        type: string
+      skip_update:
+        description: "Deploy existing data without running the editorial pipeline"
+        required: false
+        default: false
+        type: boolean
+      demo:
+        description: "Generate demo content without querying GitHub or OpenAI"
+        required: false
+        default: false
+        type: boolean
+      no_ai:
+        description: "Use the deterministic local editor instead of OpenAI (manual runs only)"
+        required: false
+        default: false
+        type: boolean
+      backfill_from:
+        description: "History-only PR backfill start (YYYY-MM-DD); set with backfill_to"
+        required: false
+        type: string
+      backfill_to:
+        description: "History-only PR backfill end (YYYY-MM-DD, inclusive)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ohf-daily-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Check out the default branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        shell: bash
+        run: |
+          if [[ -f package-lock.json ]]; then
+            npm ci
+          else
+            npm install --no-audit --no-fund
+          fi
+
+      - name: Restore API response cache
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.skip_update != true)
+        id: github-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            data/cache
+            data/prs
+          key: github-api-${{ runner.os }}-${{ hashFiles('data/sources.yaml') }}-${{ github.run_id }}
+          restore-keys: |
+            github-api-${{ runner.os }}-${{ hashFiles('data/sources.yaml') }}-
+            github-api-${{ runner.os }}-
+
+      - name: Require AI for the scheduled edition
+        if: github.event_name == 'schedule'
+        shell: bash
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [[ -z "$OPENAI_API_KEY" ]]; then
+            echo "Scheduled production editions require the OPENAI_API_KEY repository secret." >&2
+            exit 1
+          fi
+
+      - name: Run the editorial pipeline
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.skip_update != true && inputs.backfill_from == '' && inputs.backfill_to == '')
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+          REQUESTED_DATE: ${{ inputs.date }}
+          DEMO_EDITION: ${{ inputs.demo }}
+          NO_AI: ${{ inputs.no_ai }}
+        run: |
+          args=()
+          if [[ -n "$REQUESTED_DATE" ]]; then
+            if [[ ! "$REQUESTED_DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+              echo "The date input must use YYYY-MM-DD." >&2
+              exit 2
+            fi
+            args+=(--date "$REQUESTED_DATE")
+          fi
+          if [[ "$DEMO_EDITION" == "true" ]]; then
+            args+=(--demo)
+          fi
+          if [[ "${{ github.event_name }}" == "schedule" ]]; then
+            args+=(--require-ai)
+          elif [[ "$DEMO_EDITION" != "true" && "$NO_AI" != "true" && -z "$OPENAI_API_KEY" ]]; then
+            echo "This manual AI run needs the OPENAI_API_KEY secret. Select no_ai for the deterministic fallback." >&2
+            exit 2
+          fi
+          if [[ "$NO_AI" == "true" ]]; then
+            if [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
+              echo "--no-ai is only permitted for manual runs." >&2
+              exit 2
+            fi
+            args+=(--no-ai)
+          fi
+          if [[ -z "$OPENAI_MODEL" ]]; then
+            unset OPENAI_MODEL
+          fi
+          npm run update -- "${args[@]}"
+
+      - name: Backfill the local PR store
+        if: github.event_name == 'workflow_dispatch' && inputs.skip_update != true && (inputs.backfill_from != '' || inputs.backfill_to != '')
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BACKFILL_FROM: ${{ inputs.backfill_from }}
+          BACKFILL_TO: ${{ inputs.backfill_to }}
+        run: |
+          if [[ ! "$BACKFILL_FROM" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ || ! "$BACKFILL_TO" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+            echo "Both backfill_from and backfill_to must use YYYY-MM-DD." >&2
+            exit 2
+          fi
+          npm run backfill -- --from "$BACKFILL_FROM" --to "$BACKFILL_TO"
+
+      - name: Commit generated publication data
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.skip_update != true && inputs.backfill_from == '' && inputs.backfill_to == '')
+        shell: bash
+        env:
+          REQUESTED_DATE: ${{ inputs.date }}
+          BACKFILL_FROM: ${{ inputs.backfill_from }}
+          BACKFILL_TO: ${{ inputs.backfill_to }}
+          TARGET_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          edition_date="${REQUESTED_DATE:-$(TZ=Europe/Amsterdam date +%F)}"
+          edition_path="data/editions/${edition_date}.json"
+          if [[ ! -f "$edition_path" ]]; then
+            echo "Editorial pipeline did not create ${edition_path}." >&2
+            exit 1
+          fi
+          commit_message="Add OHF Daily edition for ${edition_date} [skip ci]"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$edition_path"
+
+          if git diff --cached --quiet; then
+            echo "No publication data changed."
+          else
+            # The scheduled run deploys this exact working tree; skip the redundant
+            # push-triggered workflow that this archival commit would otherwise queue.
+            git commit -m "$commit_message"
+            git pull --rebase origin "$TARGET_BRANCH"
+            git push origin "HEAD:${TARGET_BRANCH}"
+          fi
+
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build the Astro site
+        env:
+          SITE_URL: ${{ steps.pages.outputs.origin }}
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

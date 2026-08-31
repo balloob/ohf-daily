@@ -1,0 +1,510 @@
+---
+import type { PullRequestStory } from "../lib/types";
+import type { EditorialArticle, EditorialMedia, EditorialPullRequest } from "./article-types";
+import StoryImage from "./StoryImage.astro";
+
+interface Props {
+  story?: PullRequestStory;
+  article?: EditorialArticle;
+  articleHref?: string;
+  variant?: "lead" | "feature" | "brief" | "article" | "detail";
+  showImage?: boolean;
+}
+
+const { story, article, articleHref, variant = article ? "article" : "feature", showImage = false } = Astro.props;
+const label = story ? (story.kind === "platform" ? "Platform" : `${story.kind[0].toUpperCase()}${story.kind.slice(1)}`) : "";
+const articleBody = Array.isArray(article?.body) ? article.body.filter(Boolean) : [];
+const articleMedia = Array.isArray(article?.media) ? article.media.filter((item) => item?.url) : [];
+const articlePullRequests = Array.isArray(article?.pullRequests) ? article.pullRequests.filter((item) => item?.url) : [];
+const articleContributors = Array.isArray(article?.contributors) ? article.contributors.filter(Boolean) : [];
+const contributorProfiles = Array.isArray(article?.contributorProfiles)
+  ? article.contributorProfiles.filter((profile) => profile?.login && profile.avatarUrl?.startsWith("https://") && profile.profileUrl?.startsWith("https://"))
+  : [];
+const profiledLogins = new Set(contributorProfiles.map((profile) => profile.login.toLowerCase()));
+const unprofiledContributors = articleContributors.filter((login) => !profiledLogins.has(login.toLowerCase()));
+const articleReviewers = Array.isArray(article?.reviewers) ? article.reviewers.filter(Boolean) : [];
+const articleApprovers = Array.isArray(article?.approvers) ? article.approvers.filter(Boolean) : [];
+const articleTopics = Array.isArray(article?.topics) ? article.topics.filter(Boolean) : [];
+const isRecap = article?.kind === "weekly_recap";
+const isArticlePreview = Boolean(articleHref);
+const isSafeMediaUrl = (url: string) => url.startsWith("https://") || url.startsWith("/");
+const media = articleMedia.filter((item) => isSafeMediaUrl(item.url));
+const visibleMedia = isArticlePreview ? media.slice(0, 1) : media;
+const sourceGroups = articlePullRequests.reduce<Map<string, EditorialPullRequest[]>>((groups, pullRequest) => {
+  const repository = pullRequest.repository || "Other projects";
+  groups.set(repository, [...(groups.get(repository) ?? []), pullRequest]);
+  return groups;
+}, new Map());
+---
+
+{article ? (
+  <article class:list={["story", "editorial-article", variant, { recap: isRecap, "has-media": visibleMedia.length > 0, preview: isArticlePreview }]}>
+    {visibleMedia.length > 0 && (
+      <div class="article-media" aria-label="Article media">
+        {visibleMedia.map((item: EditorialMedia, index) => (
+          <figure>
+            {item.type === "video" ? (
+              <video controls playsinline preload="metadata" poster={item.poster && isSafeMediaUrl(item.poster) ? item.poster : undefined} aria-label={item.alt || `Video for ${article.title}`}>
+                <source src={item.url} />
+                Your browser does not support embedded video. <a href={item.url}>Open the video</a>.
+              </video>
+            ) : (
+              <img src={item.url} alt={item.alt || ""} loading={variant === "lead" && index === 0 ? "eager" : "lazy"} fetchpriority={variant === "lead" && index === 0 ? "high" : "auto"} />
+            )}
+            {item.caption && <figcaption>{item.caption}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    )}
+    <div class="copy">
+      <p class="eyebrow">{isRecap ? "Week in review" : articleTopics[0] || "Reported"}</p>
+      {variant === "detail" ? (
+        <h1>{article.title}</h1>
+      ) : (
+        <h2>{articleHref ? <a href={articleHref}>{article.title}</a> : article.title}</h2>
+      )}
+      {article.dek && <p class="dek">{article.dek}</p>}
+      {(articleContributors.length > 0 || contributorProfiles.length > 0 || articlePullRequests.length > 0) && (
+        <div class="byline">
+          {(contributorProfiles.length > 0 || unprofiledContributors.length > 0) && <span>With work by</span>}
+          {contributorProfiles.map((profile) => (
+            <a class="contributor" href={profile.profileUrl} target="_blank" rel="noreferrer" title={`View ${profile.login} on GitHub`}>
+              <img src={profile.avatarUrl} alt="" loading="lazy" />
+              <span>{profile.name || profile.login}{profile.name && <small>@{profile.login}</small>}</span>
+            </a>
+          ))}
+          {unprofiledContributors.length > 0 && <span>{unprofiledContributors.join(", ")}</span>}
+          {articlePullRequests.length > 0 && <span>{articlePullRequests.length} linked {articlePullRequests.length === 1 ? "pull request" : "pull requests"}</span>}
+        </div>
+      )}
+      {(articleReviewers.length > 0 || articleApprovers.length > 0) && (
+        <p class="editorial-credit">
+          {articleReviewers.length > 0 && <span>Reviewed by {articleReviewers.join(", ")}</span>}
+          {articleApprovers.length > 0 && <span>Approved by {articleApprovers.join(", ")}</span>}
+        </p>
+      )}
+      <div class="article-body">
+        {(isArticlePreview ? articleBody.slice(0, variant === "brief" ? 0 : 1) : articleBody).map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      {articleHref && <a class="read-article" href={articleHref}>Read full article <span aria-hidden="true">→</span></a>}
+      {!isArticlePreview && article.continuity && (
+        <aside class="continuity"><strong>The continuing story</strong><span>{article.continuity}</span></aside>
+      )}
+      {!isArticlePreview && sourceGroups.size > 0 && (
+        <section class="source-ledger" aria-label={`Pull requests covered by ${article.title}`}>
+          <h3>From the source</h3>
+          <div class="source-groups">
+            {[...sourceGroups].map(([repository, pullRequests]) => (
+              <div class="source-group">
+                <h4>{repository}</h4>
+                <ul>
+                  {pullRequests.map((pullRequest) => (
+                    <li><a href={pullRequest.url} target="_blank" rel="noreferrer">{pullRequest.title}<span aria-hidden="true"> ↗</span></a></li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  </article>
+) : story ? (
+  <article class:list={["story", variant]}>
+    {showImage && <StoryImage src={story.image} alt={story.image ? `Screenshot from ${story.title}` : story.title} priority={variant === "lead"} />}
+    <div class="copy">
+      <p class="eyebrow">{label} · {story.organization}</p>
+      <h2><a href={story.url} target="_blank" rel="noreferrer">{story.title}</a></h2>
+      <footer>
+        <span>{story.repository}</span>
+        <span>By {story.author}</span>
+        {typeof story.changedFiles === "number" && <span>{story.changedFiles} files</span>}
+      </footer>
+    </div>
+  </article>
+) : null}
+
+<style>
+  .story {
+    min-width: 0;
+  }
+
+  .story h1,
+  .story h2 {
+    margin: 0;
+    font: 400 clamp(1.55rem, 3vw, 2.35rem)/1.04 var(--display);
+    letter-spacing: -0.025em;
+  }
+
+  .story h1 a,
+  .story h2 a {
+    text-decoration: none;
+  }
+
+  .story h1 a:hover,
+  .story h2 a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+  }
+
+  .editorial-article {
+    min-width: 0;
+    padding-block: 1.5rem;
+    border-bottom: 1px solid var(--rule-dark);
+  }
+
+  .editorial-article h2 {
+    max-width: 18ch;
+    font-size: clamp(2rem, 4.5vw, 4rem);
+    line-height: 0.98;
+  }
+
+  .editorial-article.detail {
+    display: block;
+    max-width: 1050px;
+    margin-inline: auto;
+    padding-block: 0;
+    border-bottom: 0;
+  }
+
+  .editorial-article.detail h1 {
+    max-width: 16ch;
+    margin: 0;
+    font: 400 clamp(3rem, 8vw, 7rem)/0.91 var(--display);
+    letter-spacing: -0.045em;
+  }
+
+  .editorial-article.detail .dek {
+    max-width: 52ch;
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  }
+
+  .editorial-article.detail .article-media {
+    margin-block: 1.6rem 2rem;
+  }
+
+  .editorial-article.detail .article-body {
+    max-width: 72ch;
+    margin-inline: auto;
+  }
+
+  .editorial-article.detail .article-body p {
+    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    line-height: 1.68;
+  }
+
+  .editorial-article.lead {
+    grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+    grid-template-areas: "media copy";
+    padding-block: 0;
+    border-bottom: 0;
+  }
+
+  .editorial-article.lead .article-media {
+    grid-area: media;
+  }
+
+  .editorial-article.lead .copy {
+    grid-area: copy;
+  }
+
+  .editorial-article.lead:not(.has-media) {
+    display: block;
+  }
+
+  .editorial-article.lead:not(.has-media) .copy {
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  .editorial-article.feature,
+  .editorial-article.brief,
+  .editorial-article.article {
+    display: block;
+  }
+
+  .editorial-article.brief h2 {
+    font-size: clamp(1.55rem, 3vw, 2.35rem);
+  }
+
+  .dek {
+    margin: 0.9rem 0;
+    color: #34342f;
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.45;
+  }
+
+  .read-article {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font: 700 0.68rem/1.3 var(--label);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .byline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1rem;
+    margin: 1rem 0;
+    padding-block: 0.6rem;
+    border-block: 1px solid var(--rule);
+    color: var(--muted);
+    font: 600 0.67rem/1.35 var(--sans);
+  }
+
+  .contributor {
+    display: inline-flex;
+    gap: 0.38rem;
+    align-items: center;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .contributor:hover span {
+    text-decoration: underline;
+  }
+
+  .contributor img {
+    width: 1.7rem;
+    height: 1.7rem;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .contributor > span {
+    display: inline-flex;
+    gap: 0.25rem;
+    align-items: baseline;
+  }
+
+  .contributor small {
+    color: var(--muted);
+    font: inherit;
+  }
+
+  .editorial-credit {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.9rem;
+    margin: -0.45rem 0 1rem;
+    color: var(--muted);
+    font: 500 0.61rem/1.35 var(--sans);
+  }
+
+  .article-body {
+    max-width: 68ch;
+  }
+
+  .article-body p {
+    margin: 0 0 0.9rem;
+    font-size: 1.03rem;
+    line-height: 1.58;
+  }
+
+  .article-body p:first-child::first-letter {
+    float: left;
+    margin: 0.08em 0.1em 0 0;
+    color: var(--ink);
+    font: 400 3.2em/0.72 var(--display);
+  }
+
+  .article-media {
+    display: grid;
+    gap: 0.75rem;
+    min-width: 0;
+    margin-bottom: 1.1rem;
+  }
+
+  .article-media figure {
+    min-width: 0;
+    margin: 0;
+  }
+
+  .article-media img,
+  .article-media video {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 10;
+    border: 0;
+    background: #151512;
+    object-fit: cover;
+  }
+
+  .article-media figcaption {
+    margin-top: 0.4rem;
+    color: var(--muted);
+    font: 500 0.65rem/1.4 var(--sans);
+  }
+
+  .continuity {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.7rem;
+    margin-block: 1.2rem;
+    padding: 0.8rem;
+    border-left: 4px solid var(--accent);
+    background: rgb(20 119 212 / 6%);
+    font: 500 0.75rem/1.45 var(--sans);
+  }
+
+  .continuity strong {
+    font: 700 0.65rem/1.4 var(--label);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .source-ledger {
+    margin-top: 1.3rem;
+    padding-top: 0.8rem;
+    border-top: 3px double var(--rule-dark);
+  }
+
+  .source-ledger > h3 {
+    margin: 0 0 0.75rem;
+    font: 700 0.65rem/1.3 var(--label);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .source-groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+
+  .source-group {
+    min-width: 0;
+  }
+
+  .source-group h4 {
+    margin: 0 0 0.35rem;
+    overflow-wrap: anywhere;
+    color: var(--muted);
+    font: 700 0.65rem/1.3 var(--sans);
+  }
+
+  .source-group ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .source-group li {
+    padding: 0.32rem 0;
+    border-top: 1px solid var(--rule);
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  .source-group a {
+    overflow-wrap: anywhere;
+  }
+
+  .recap {
+    position: relative;
+    padding: clamp(1.2rem, 3vw, 2rem);
+    border: 1px solid var(--rule-dark);
+    border-top: 7px solid var(--rust);
+    background: #eee8dc;
+  }
+
+  .recap::before {
+    content: "7 days";
+    position: absolute;
+    top: -1px;
+    right: 1rem;
+    padding: 0.45rem 0.65rem;
+    background: var(--rust);
+    color: #fff;
+    font: 700 0.62rem/1 var(--label);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .recap h2 {
+    font-size: clamp(2.2rem, 5vw, 4.6rem);
+  }
+
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.9rem;
+    margin-top: 1rem;
+    color: var(--muted);
+    font: 500 0.66rem/1.35 var(--sans);
+  }
+
+  .lead {
+    display: grid;
+    grid-template-columns: minmax(0, 1.38fr) minmax(260px, 0.62fr);
+    grid-template-areas: "image copy";
+    gap: clamp(1rem, 2.6vw, 2.3rem);
+  }
+
+  .lead :global(.story-image) {
+    grid-area: image;
+  }
+
+  .lead .copy {
+    grid-area: copy;
+    align-self: center;
+  }
+
+  .lead h2 {
+    font-size: clamp(2.4rem, 5.2vw, 5rem);
+    line-height: 0.96;
+  }
+
+  .feature h2 {
+    font-size: clamp(1.45rem, 2.2vw, 2rem);
+  }
+
+  .brief {
+    padding: 1rem 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .brief h2 {
+    font-size: 1.18rem;
+    line-height: 1.14;
+  }
+
+  .brief footer {
+    margin-top: 0.55rem;
+  }
+
+  @media (max-width: 840px) {
+    .lead {
+      grid-template-columns: 1fr;
+      grid-template-areas: "image" "copy";
+    }
+
+    .lead h2 {
+      font-size: clamp(2.3rem, 9vw, 4.3rem);
+    }
+
+    .editorial-article.lead {
+      grid-template-columns: 1fr;
+      grid-template-areas: "media" "copy";
+    }
+  }
+
+  @media (max-width: 560px) {
+    .source-groups {
+      grid-template-columns: 1fr;
+    }
+
+    .continuity {
+      grid-template-columns: 1fr;
+    }
+
+    .recap {
+      margin-inline: -12px;
+      padding-inline: 12px;
+    }
+  }
+</style>
