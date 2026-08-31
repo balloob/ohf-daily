@@ -234,23 +234,17 @@ const windowLabel = `${new Intl.DateTimeFormat("en", { hour: "numeric", minute: 
 
   .article-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
     gap: 0;
   }
 
-  .article-grid :global(.story:nth-child(odd)) {
-    padding-right: 1.5rem;
-    border-right: 1px solid var(--rule);
-  }
-
-  .article-grid :global(.story:nth-child(even)) {
-    padding-left: 1.5rem;
+  .article-grid :global(.story) {
+    padding-inline: 0;
+    border-right: 0;
   }
 
   .article-grid :global(.story.recap) {
-    grid-column: 1 / -1;
     padding-inline: 0;
-    border-right: 0;
   }
 
   .highlight-grid :global(.story) {
