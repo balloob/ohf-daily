@@ -5,6 +5,15 @@ export interface EditorialPullRequest {
   repository: string;
 }
 
+export interface EditorialExternalSource {
+  id: string;
+  title: string;
+  url: string;
+  publisher: string;
+  publishedAt: string;
+  kind: "official_post" | "external_coverage";
+}
+
 export interface EditorialMedia {
   type: "image" | "video";
   url: string;
@@ -44,6 +53,7 @@ export interface EditorialArticle {
   topics: string[];
   continuity?: string;
   pullRequests: EditorialPullRequest[];
+  externalSources?: EditorialExternalSource[];
   media: EditorialMedia[];
 }
 

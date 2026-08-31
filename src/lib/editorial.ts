@@ -2,7 +2,8 @@ import { readdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import YAML from "yaml";
 import { isBotLogin } from "./contributors";
-import type { Article, ArticleMedia, ArticleSource, Edition } from "./types";
+import { queryContent, readContentStore, type ContentQuery, type StoredContent } from "./content-store";
+import type { Article, ArticleExternalSource, ArticleMedia, ArticleSource, Edition } from "./types";
 import { queryPullRequests, readPullRequestStore, type PullRequestQuery, type StoredPullRequest } from "./pr-store";
 import type { ReleaseCycle } from "./releases";
 
@@ -17,6 +18,14 @@ interface EditorialTrackConfig {
   slug: string;
   name: string;
   prompt: string;
+  enabled?: boolean;
+}
+
+interface FeedSourceConfig {
+  id: string;
+  name: string;
+  kind: "official" | "google_alert";
+  desk?: string;
   enabled?: boolean;
 }
 
@@ -45,6 +54,7 @@ interface ReporterProposal {
   topics: string[];
   continuity: string | null;
   pullRequestIds: string[];
+  contentSourceIds: string[];
   media: Array<{ type: "image" | "video"; url: string; alt: string; caption: string | null; poster: string | null }>;
 }
 
@@ -85,7 +95,7 @@ const proposalSchema = {
       items: {
         type: "object",
         additionalProperties: false,
-        required: ["id", "title", "dek", "body", "kind", "score", "contributors", "topics", "continuity", "pullRequestIds", "media"],
+        required: ["id", "title", "dek", "body", "kind", "score", "contributors", "topics", "continuity", "pullRequestIds", "contentSourceIds", "media"],
         properties: {
           id: { type: "string" },
           title: { type: "string" },
@@ -96,7 +106,8 @@ const proposalSchema = {
           contributors: { type: "array", items: { type: "string" } },
           topics: { type: "array", items: { type: "string" } },
           continuity: { type: ["string", "null"] },
-          pullRequestIds: { type: "array", items: { type: "string" }, minItems: 1 },
+          pullRequestIds: { type: "array", items: { type: "string" } },
+          contentSourceIds: { type: "array", items: { type: "string" } },
           media: {
             type: "array",
             items: {
@@ -159,6 +170,26 @@ const historyTool = {
   },
 } as const;
 
+const contentHistoryTool = {
+  type: "function",
+  name: "query_content_history",
+  description: "Query older official posts and external coverage in the local OHF Daily store. Google Alert results remain discovery leads unless corroborated by a pull request or official post.",
+  strict: true,
+  parameters: {
+    type: "object",
+    additionalProperties: false,
+    required: ["kind", "source", "text", "since", "before", "limit"],
+    properties: {
+      kind: { type: ["string", "null"], enum: ["official_post", "external_coverage", null] },
+      source: { type: ["string", "null"], description: "Exact publisher or feed display name." },
+      text: { type: ["string", "null"], description: "Case-insensitive title/body/source text search." },
+      since: { type: ["string", "null"], description: "Optional ISO timestamp or YYYY-MM-DD lower bound." },
+      before: { type: ["string", "null"], description: "Optional ISO timestamp or YYYY-MM-DD upper bound." },
+      limit: { type: "integer", minimum: 1, maximum: 30 },
+    },
+  },
+} as const;
+
 function compactRecord(record: StoredPullRequest): object {
   return {
     id: String(record.id),
@@ -176,6 +207,21 @@ function compactRecord(record: StoredPullRequest): object {
     isDependency: record.isDependency,
     firstContribution: record.firstContribution,
     isFirstContributionToRepository: record.isFirstContribution ?? false,
+    url: record.url,
+  };
+}
+
+function compactContentRecord(record: StoredContent): object {
+  return {
+    id: record.id,
+    kind: record.kind,
+    source: record.source,
+    title: record.title,
+    description: (record.body ?? "").slice(0, 4000),
+    author: record.author,
+    publishedAt: record.publishedAt,
+    updatedAt: record.updatedAt,
+    mediaUrls: record.mediaUrls,
     url: record.url,
   };
 }
@@ -209,6 +255,19 @@ function historyQueryFromArguments(value: string | undefined): PullRequestQuery 
   };
 }
 
+function contentQueryFromArguments(value: string | undefined): ContentQuery {
+  const parsed = JSON.parse(value ?? "{}") as Record<string, unknown>;
+  const kind = parsed.kind === "official_post" || parsed.kind === "external_coverage" ? parsed.kind : undefined;
+  return {
+    kind,
+    source: nullable(parsed.source),
+    text: nullable(parsed.text),
+    since: nullable(parsed.since),
+    before: nullable(parsed.before),
+    limit: typeof parsed.limit === "number" ? Math.min(parsed.limit, 30) : 10,
+  };
+}
+
 async function runReporter(
   fetcher: typeof fetch,
   apiKey: string,
@@ -217,6 +276,7 @@ async function runReporter(
   instructions: string,
   input: object,
   history: StoredPullRequest[],
+  contentHistory: StoredContent[],
   maximumQueries: number,
 ): Promise<ReporterProposal[]> {
   let previousResponseId: string | undefined;
@@ -230,12 +290,12 @@ async function runReporter(
       input: nextInput,
       previous_response_id: previousResponseId,
       reasoning: { effort },
-      tools: [historyTool],
+      tools: [historyTool, contentHistoryTool],
       parallel_tool_calls: true,
       text: { format: { type: "json_schema", name: "ohf_reporter_proposals", strict: true, schema: proposalSchema } },
       metadata: { publication: "ohf-daily", stage: "reporter" },
     });
-    const calls = (response.output ?? []).filter((item) => item.type === "function_call" && item.name === "query_pr_history");
+    const calls = (response.output ?? []).filter((item) => item.type === "function_call" && (item.name === "query_pr_history" || item.name === "query_content_history"));
     if (calls.length === 0) {
       if (!response.output_text) throw new Error("Reporter returned neither tool calls nor structured output.");
       return (JSON.parse(response.output_text) as { proposals: ReporterProposal[] }).proposals;
@@ -243,7 +303,9 @@ async function runReporter(
     if (queryCount + calls.length > maximumQueries) throw new Error(`Reporter exceeded its ${maximumQueries}-query local-history budget.`);
     queryCount += calls.length;
     nextInput = calls.map((call) => {
-      const results = queryPullRequests(history, historyQueryFromArguments(call.arguments)).map(compactRecord);
+      const results = call.name === "query_content_history"
+        ? queryContent(contentHistory, contentQueryFromArguments(call.arguments)).map(compactContentRecord)
+        : queryPullRequests(history, historyQueryFromArguments(call.arguments)).map(compactRecord);
       return { type: "function_call_output", call_id: call.call_id, output: JSON.stringify({ results }) };
     });
     previousResponseId = response.id;
@@ -354,8 +416,9 @@ export function activeBetaWindows(date: string, releases: Edition["releases"], c
   });
 }
 
-function resolveArticles(raw: EditorArticle[], records: StoredPullRequest[]): Article[] {
+function resolveArticles(raw: EditorArticle[], records: StoredPullRequest[], contentRecords: StoredContent[] = []): Article[] {
   const byId = new Map(records.map((record) => [String(record.id), record]));
+  const contentById = new Map(contentRecords.map((record) => [record.id, record]));
   const seen = new Set<string>();
   const articles: Article[] = [];
   for (const draft of raw) {
@@ -363,7 +426,19 @@ function resolveArticles(raw: EditorArticle[], records: StoredPullRequest[]): Ar
       const record = byId.get(String(id));
       return record ? [{ id: String(record.id), title: record.title, url: record.url, repository: record.repository }] : [];
     });
-    if (sources.length === 0) continue;
+    const externalSources: ArticleExternalSource[] = [...new Set(draft.contentSourceIds ?? [])].flatMap((id) => {
+      const record = contentById.get(String(id));
+      return record ? [{
+        id: record.id,
+        title: record.title,
+        url: record.url,
+        publisher: record.source,
+        publishedAt: record.publishedAt,
+        kind: record.kind,
+      }] : [];
+    });
+    if (sources.length === 0 && externalSources.length === 0) continue;
+    if (sources.length === 0 && externalSources.every((source) => source.kind === "external_coverage")) continue;
     const allowedMedia = new Set(sources.flatMap((source) => byId.get(source.id)?.mediaUrls ?? []));
     const media: ArticleMedia[] = draft.media.flatMap((item) => allowedMedia.has(item.url) ? [{
       type: item.type,
@@ -372,7 +447,8 @@ function resolveArticles(raw: EditorArticle[], records: StoredPullRequest[]): Ar
       caption: nullable(item.caption),
       poster: item.poster && allowedMedia.has(item.poster) ? item.poster : undefined,
     }] : []);
-    const id = draft.id.trim() || `article-${sources.map((source) => source.id).join("-")}`;
+    const allSourceIds = [...sources.map((source) => source.id), ...externalSources.map((source) => source.id)];
+    const id = draft.id.trim() || `article-${allSourceIds.join("-")}`;
     if (seen.has(id)) continue;
     seen.add(id);
     const sourceRecords = sources.flatMap((source) => {
@@ -412,6 +488,7 @@ function resolveArticles(raw: EditorArticle[], records: StoredPullRequest[]): Ar
       topics: [...new Set(draft.topics.map((item) => item.trim()).filter(Boolean))],
       continuity: nullable(draft.continuity),
       pullRequests: sources,
+      externalSources,
       media,
     });
   }
@@ -430,12 +507,15 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
     ai: AiConfig;
     organizations: Array<{ slug: string; name: string }>;
     editorial_tracks?: EditorialTrackConfig[];
+    feed_sources?: FeedSourceConfig[];
     release_cycles: ReleaseCycle[];
   };
   const model = options.modelOverride ?? config.ai.model;
   const edition = JSON.parse(await readFile(options.editionPath, "utf8")) as Edition;
   const history = await readPullRequestStore(resolve(options.root, "data/prs"));
+  const contentHistory = await readContentStore(resolve(options.root, "data/content"));
   const current = queryPullRequests(history, { since: edition.windowStart, before: edition.windowEnd, limit: 10_000 }).filter((record) => !record.isDependency);
+  const currentContent = queryContent(contentHistory, { since: edition.windowStart, before: edition.windowEnd, limit: 10_000 });
   const recentPublishedArticles = await loadRecentPublishedArticles(dirname(options.editionPath), edition.date, 14);
   const releaseContext = {
     landedReleases: edition.landedReleases ?? [],
@@ -451,17 +531,27 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
     kind: "beat" as const,
     name: beat,
     records,
+    contentRecords: currentContent.filter((record) => (config.feed_sources ?? []).some((source) => source.enabled !== false && source.name === record.source && source.desk === beat)),
   }));
+  if (currentContent.length > 0) beats.push({
+    kind: "beat" as const,
+    name: "Official posts and external coverage",
+    records: [],
+    contentRecords: currentContent,
+  });
   const tracks = (config.editorial_tracks ?? []).filter((track) => track.enabled !== false).map((track) => ({
     kind: "track" as const,
     name: track.name,
     track,
     records: current,
+    contentRecords: currentContent,
   }));
   const reporterResults = await mapConcurrent([...beats, ...tracks], config.ai.max_parallel_reporters, async (assignment) => {
     let specificPrompt = "";
     if (assignment.kind === "track") {
       specificPrompt = await readFile(trackPromptPath(options.root, assignment.track.prompt), "utf8");
+    } else if (assignment.name === "Official posts and external coverage") {
+      specificPrompt = await readFile(resolve(options.root, "prompts/beats/external-coverage.md"), "utf8");
     } else {
       const organization = config.organizations.find((item) => item.name === assignment.name);
       if (organization) {
@@ -473,6 +563,7 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
       }
     }
     const pullRequests = assignment.records.map(compactRecord);
+    const contentItems = assignment.contentRecords.map(compactContentRecord);
     return runReporter(
       fetcher,
       options.apiKey,
@@ -486,8 +577,10 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
         recentPublishedArticles,
         releaseContext,
         pullRequests,
+        contentItems,
       },
       history,
+      contentHistory,
       config.ai.max_history_queries_per_reporter,
     );
   });
@@ -509,8 +602,10 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
           recentPublishedArticles,
           releaseContext,
           pullRequests: weeklyRecords.map(compactRecord),
+          contentItems: queryContent(contentHistory, { since: recap.start, before: recap.end, limit: 10_000 }).map(compactContentRecord),
         },
         history,
+        contentHistory,
         config.ai.max_history_queries_per_reporter,
       ));
     }
@@ -533,11 +628,11 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
   });
   if (!editorResponse.output_text) throw new Error("Editor returned no structured newspaper plan.");
   const raw = (JSON.parse(editorResponse.output_text) as { articles: EditorArticle[] }).articles;
-  const articles = resolveArticles(raw, history);
+  const articles = resolveArticles(raw, history, contentHistory);
   edition.articles = articles;
-  edition.notes = [...(edition.notes ?? []), `AI editorial plan generated with ${model} from auditable local prompts and ${history.length} stored pull requests.`];
+  edition.notes = [...(edition.notes ?? []), `AI editorial plan generated with ${model} from auditable local prompts, ${history.length} stored pull requests, and ${contentHistory.length} stored posts or coverage items.`];
   await writeFile(options.editionPath, `${JSON.stringify(edition, null, 2)}\n`);
   return articles;
 }
 
-export const editorialInternals = { monday, daysBefore, recapBounds, resolveArticles, historyQueryFromArguments, compactRecord, loadRecentPublishedArticles, activeBetaWindows };
+export const editorialInternals = { monday, daysBefore, recapBounds, resolveArticles, historyQueryFromArguments, contentQueryFromArguments, compactRecord, compactContentRecord, loadRecentPublishedArticles, activeBetaWindows };

@@ -4,6 +4,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
 import { editorialInternals } from "../src/lib/editorial";
+import type { StoredContent } from "../src/lib/content-store";
 import type { StoredPullRequest } from "../src/lib/pr-store";
 
 const record: StoredPullRequest = {
@@ -34,6 +35,22 @@ const record: StoredPullRequest = {
   approvers: ["human-reviewer", "bluetoothbot"],
   stats: { additions: 100, changedFiles: 4 },
   isDependency: false,
+};
+
+const officialPost: StoredContent = {
+  schemaVersion: 1,
+  revision: 1,
+  firstSeenAt: "2026-08-31T10:00:00Z",
+  storedAt: "2026-08-31T10:00:00Z",
+  id: "home-assistant-blog:official",
+  kind: "official_post",
+  source: "Home Assistant Blog",
+  title: "A public announcement",
+  url: "https://www.home-assistant.io/blog/2026/08/31/public-announcement/",
+  publishedAt: "2026-08-31T08:00:00Z",
+  author: "Home Assistant",
+  body: "The official post explains the program.",
+  mediaUrls: [],
 };
 
 test("identifies Monday editions and seven-day recap bounds", () => {
@@ -102,6 +119,7 @@ test("resolves only locally evidenced PRs and media, including review credit", (
       topics: ["energy"],
       continuity: "This builds on earlier SolarEdge work.",
       pullRequestIds: ["42", "999"],
+      contentSourceIds: [],
       media: [
         { type: "image", url: record.mediaUrls[0], alt: "Screenshot attached to the SolarEdge pull request", caption: null, poster: null },
         { type: "image", url: "https://example.com/invented.png", alt: "Invented", caption: null, poster: null },
@@ -141,12 +159,66 @@ test("derives contributor and human review credit from sources rather than model
     topics: ["testing"],
     continuity: null,
     pullRequestIds: ["42", "43"],
+    contentSourceIds: [],
     media: [],
   }], [record, second]);
 
   assert.deepEqual(articles[0].contributors, ["frenck", "new-author"]);
   assert.deepEqual(articles[0].reviewers, ["human-reviewer"]);
   assert.deepEqual(articles[0].approvers, ["human-reviewer", "Second-Approver"]);
+});
+
+test("resolves official posts beside PR evidence and allows an official-only article", () => {
+  const shared = {
+    title: "An announcement with implementation context",
+    dek: "Official context joins merged work.",
+    body: ["The source ledger keeps both kinds of evidence."],
+    kind: "daily" as const,
+    placement: "feature" as const,
+    score: 80,
+    contributors: [],
+    topics: ["community"],
+    continuity: null,
+    media: [],
+  };
+  const articles = editorialInternals.resolveArticles([{
+    ...shared,
+    id: "mixed-evidence",
+    pullRequestIds: ["42"],
+    contentSourceIds: [officialPost.id],
+  }, {
+    ...shared,
+    id: "official-only",
+    pullRequestIds: [],
+    contentSourceIds: [officialPost.id],
+  }], [record], [officialPost]);
+
+  assert.equal(articles.length, 2);
+  assert.deepEqual(articles[0].pullRequests.map((source) => source.id), ["42"]);
+  assert.deepEqual(articles[0].externalSources?.map((source) => source.id), [officialPost.id]);
+  assert.deepEqual(articles[0].contributors, ["frenck"]);
+  assert.equal(articles[1].pullRequests.length, 0);
+  assert.deepEqual(articles[1].externalSources?.map((source) => source.kind), ["official_post"]);
+});
+
+test("rejects an article supported only by Google Alert coverage", () => {
+  const alert: StoredContent = { ...officialPost, id: "google-alert:lead", kind: "external_coverage", source: "Google Alert" };
+  const articles = editorialInternals.resolveArticles([{
+    id: "alert-only",
+    title: "An uncorroborated mention",
+    dek: "This must not publish.",
+    body: ["Alert snippets are leads, not evidence."],
+    kind: "daily",
+    placement: "feature",
+    score: 70,
+    contributors: [],
+    topics: ["coverage"],
+    continuity: null,
+    pullRequestIds: [],
+    contentSourceIds: [alert.id],
+    media: [],
+  }], [], [alert]);
+  assert.deepEqual(articles, []);
 });
 
 test("parses exact local-history tool filters", () => {
@@ -166,5 +238,23 @@ test("parses exact local-history tool filters", () => {
     since: "2026-08-01",
     before: "2026-08-31",
     limit: 12,
+  });
+});
+
+test("parses exact local content-history filters", () => {
+  assert.deepEqual(editorialInternals.contentQueryFromArguments(JSON.stringify({
+    kind: "official_post",
+    source: "Home Assistant Blog",
+    text: "local voice",
+    since: "2026-08-01",
+    before: null,
+    limit: 100,
+  })), {
+    kind: "official_post",
+    source: "Home Assistant Blog",
+    text: "local voice",
+    since: "2026-08-01",
+    before: undefined,
+    limit: 30,
   });
 });

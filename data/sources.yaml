@@ -7,6 +7,52 @@ front_page_stories: 5
 briefs_limit: 18
 release_horizon_days: 45
 
+# Official editorial feeds are public and auditable. User-owned Google Alert
+# feed URLs are read from GOOGLE_ALERT_FEEDS_JSON and never stored here.
+feed_sources:
+  - id: open-home-foundation-blog
+    name: Open Home Foundation Blog
+    kind: official
+    desk: Open Home Foundation
+    url: https://www.openhomefoundation.org/blog/feed.xml
+    enabled: true
+  - id: open-home-foundation-newsletter
+    name: Open Home Foundation Newsletter
+    kind: official
+    desk: Open Home Foundation
+    url: https://newsletter.openhomefoundation.org/rss/
+    enabled: true
+  - id: home-assistant-blog
+    name: Home Assistant Blog
+    kind: official
+    desk: Home Assistant
+    url: https://www.home-assistant.io/atom.xml
+    enabled: true
+  - id: home-assistant-developer-blog
+    name: Home Assistant Developer Blog
+    kind: official
+    desk: Home Assistant Libraries
+    url: https://developers.home-assistant.io/blog/rss.xml
+    enabled: true
+  - id: esphome-blog
+    name: ESPHome Blog
+    kind: official
+    desk: ESPHome
+    url: https://esphome.io/blog/rss.xml
+    enabled: true
+  - id: music-assistant-blog
+    name: Music Assistant Blog
+    kind: official
+    desk: Music Assistant
+    url: https://www.music-assistant.io/blog/rss.xml
+    enabled: true
+  - id: matter-js-announcements
+    name: Matter.js Announcements
+    kind: official
+    desk: Matter.js
+    url: https://github.com/matter-js/matter.js/discussions/categories/announcements.atom
+    enabled: true
+
 # GitHub Releases are fetched only for these deliberately selected public
 # repositories. Keeping the list explicit controls API cost and release noise.
 release_sources:

@@ -78,6 +78,7 @@ jobs:
         with:
           path: |
             data/cache
+            data/content
             data/prs
           key: github-api-${{ runner.os }}-${{ hashFiles('data/sources.yaml') }}-${{ github.run_id }}
           restore-keys: |
@@ -102,6 +103,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+          GOOGLE_ALERT_FEEDS_JSON: ${{ secrets.GOOGLE_ALERT_FEEDS_JSON }}
           REQUESTED_DATE: ${{ inputs.date }}
           DEMO_EDITION: ${{ inputs.demo }}
           NO_AI: ${{ inputs.no_ai }}

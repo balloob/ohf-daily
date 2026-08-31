@@ -53,6 +53,15 @@ export interface ArticleSource {
   repository: string;
 }
 
+export interface ArticleExternalSource {
+  id: string;
+  title: string;
+  url: string;
+  publisher: string;
+  publishedAt: string;
+  kind: "official_post" | "external_coverage";
+}
+
 export interface ArticleMedia {
   type: "image" | "video";
   url: string;
@@ -94,6 +103,7 @@ export interface Article {
   topics: string[];
   continuity?: string;
   pullRequests: ArticleSource[];
+  externalSources?: ArticleExternalSource[];
   media: ArticleMedia[];
 }
 

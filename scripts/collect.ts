@@ -4,6 +4,7 @@ import process from "node:process";
 import { fileURLToPath } from "node:url";
 import YAML from "yaml";
 import { buildReleaseCalendar, type ReleaseCycle } from "../src/lib/releases";
+import { collectContentFeeds, type FeedSourceConfig } from "../src/lib/feed-collector";
 import { isBotLogin, loadContributorCache, lookupContributorDetails, type ContributorCache } from "../src/lib/contributors";
 import { queryPullRequests, readPullRequestStore, upsertPullRequestStore, type StoredPullRequest, type StoredPullRequestInput } from "../src/lib/pr-store";
 import type { DependencyItem, Edition, LandedRelease, ProjectPulseItem, PullRequestStory, StoryKind } from "../src/lib/types";
@@ -30,6 +31,7 @@ export interface SourcesConfig {
   front_page_stories: number;
   briefs_limit: number;
   release_horizon_days?: number;
+  feed_sources?: FeedSourceConfig[];
   release_sources?: ReleaseSourceConfig[];
   organizations: OrganizationConfig[];
   editorial: {
@@ -922,6 +924,19 @@ export async function collect(): Promise<CollectionResult> {
     return { edition: demo, projectPulse: demo.pulse ?? [] };
   }
 
+  const contentFeedCollection = collectContentFeeds({
+    root,
+    sources: config.feed_sources ?? [],
+    start,
+    end,
+  }).catch((error) => ({
+    current: [],
+    written: 0,
+    unchanged: 0,
+    configured: 0,
+    warnings: [`Official posts and external coverage could not be collected: ${error instanceof Error ? error.message : String(error)}`],
+  }));
+
   const cache = await loadCache();
   const client = new GitHubClient(cache);
   const contributorCache = await loadContributorCache(contributorCachePath);
@@ -1087,6 +1102,10 @@ export async function collect(): Promise<CollectionResult> {
   if (reviewFailures > 0) notes.push(`${reviewFailures} pull request review list${reviewFailures === 1 ? "" : "s"} could not be loaded.`);
   if (contributorLookupFailures > 0) notes.push(`${contributorLookupFailures} first-time contributor lookup${contributorLookupFailures === 1 ? "" : "s"} could not be completed.`);
 
+  const contentFeeds = await contentFeedCollection;
+  notes.push(...contentFeeds.warnings);
+  console.log(`Content feeds: ${contentFeeds.current.length} current, ${contentFeeds.written} archived, ${contentFeeds.configured} configured.`);
+
   const releaseHistories = new Map<string, GitHubRelease[]>();
   const landedReleases: LandedRelease[] = [];
   const releaseSources = config.release_sources ?? [];
@@ -1161,7 +1180,7 @@ export async function collect(): Promise<CollectionResult> {
     saveJsonAtomic(resolve(editionDirectory, `${edition.date}.json`), edition),
     saveJsonAtomic(cachePath, cache),
   ]);
-  console.log(`Wrote ${edition.date}: ${stories.length} stories, ${dependencies.length} dependency updates, and ${storedPullRequestWrites} PR history revisions.`);
+  console.log(`Wrote ${edition.date}: ${stories.length} stories, ${dependencies.length} dependency updates, ${storedPullRequestWrites} PR history revisions, and ${contentFeeds.written} content revisions.`);
   return { edition, projectPulse: pulse };
 }
 

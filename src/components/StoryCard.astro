@@ -1,6 +1,6 @@
 ---
 import type { PullRequestStory } from "../lib/types";
-import type { EditorialArticle, EditorialMedia, EditorialPullRequest } from "./article-types";
+import type { EditorialArticle, EditorialExternalSource, EditorialMedia, EditorialPullRequest } from "./article-types";
 import StoryImage from "./StoryImage.astro";
 
 interface Props {
@@ -16,6 +16,8 @@ const label = story ? (story.kind === "platform" ? "Platform" : `${story.kind[0]
 const articleBody = Array.isArray(article?.body) ? article.body.filter(Boolean) : [];
 const articleMedia = Array.isArray(article?.media) ? article.media.filter((item) => item?.url) : [];
 const articlePullRequests = Array.isArray(article?.pullRequests) ? article.pullRequests.filter((item) => item?.url) : [];
+const articleExternalSources = Array.isArray(article?.externalSources) ? article.externalSources.filter((item) => item?.url) : [];
+const articleSourceCount = articlePullRequests.length + articleExternalSources.length;
 const articleContributors = Array.isArray(article?.contributors) ? article.contributors.filter(Boolean) : [];
 const isRecap = article?.kind === "weekly_recap";
 const isArticlePreview = Boolean(articleHref);
@@ -49,6 +51,11 @@ const imageSizes = variant === "lead" ? "(max-width: 840px) 100vw, 56vw" : varia
 const sourceGroups = articlePullRequests.reduce<Map<string, EditorialPullRequest[]>>((groups, pullRequest) => {
   const repository = pullRequest.repository || "Other projects";
   groups.set(repository, [...(groups.get(repository) ?? []), pullRequest]);
+  return groups;
+}, new Map());
+const externalSourceGroups = articleExternalSources.reduce<Map<string, EditorialExternalSource[]>>((groups, source) => {
+  const publisher = source.publisher || "External coverage";
+  groups.set(publisher, [...(groups.get(publisher) ?? []), source]);
   return groups;
 }, new Map());
 ---
@@ -97,7 +104,7 @@ const sourceGroups = articlePullRequests.reduce<Map<string, EditorialPullRequest
         <h2>{articleHref ? <a href={articleHref}>{article.title}</a> : article.title}</h2>
       )}
       {article.dek && <p class="dek">{article.dek}</p>}
-      {(articleContributors.length > 0 || contributorProfiles.length > 0 || articlePullRequests.length > 0) && (
+      {(articleContributors.length > 0 || contributorProfiles.length > 0 || articleSourceCount > 0) && (
         <div class="byline">
           {(visibleContributorProfiles.length > 0 || visibleUnprofiledContributors.length > 0) && <span>With work by</span>}
           {visibleContributorProfiles.map((profile) => (
@@ -108,7 +115,9 @@ const sourceGroups = articlePullRequests.reduce<Map<string, EditorialPullRequest
           ))}
           {visibleUnprofiledContributors.length > 0 && <span>{visibleUnprofiledContributors.join(", ")}</span>}
           {remainingContributorCount > 0 && <span>+{remainingContributorCount} more {remainingContributorCount === 1 ? "contributor" : "contributors"}</span>}
-          {articlePullRequests.length > 0 && <span>{articlePullRequests.length} linked {articlePullRequests.length === 1 ? "pull request" : "pull requests"}</span>}
+          {articleExternalSources.length > 0
+            ? <span>{articleSourceCount} linked {articleSourceCount === 1 ? "source" : "sources"}</span>
+            : articlePullRequests.length > 0 && <span>{articlePullRequests.length} linked {articlePullRequests.length === 1 ? "pull request" : "pull requests"}</span>}
         </div>
       )}
       {(articleReviewers.length > 0 || articleApprovers.length > 0) && (
@@ -124,7 +133,7 @@ const sourceGroups = articlePullRequests.reduce<Map<string, EditorialPullRequest
       {!isArticlePreview && article.continuity && (
         <aside class="continuity"><strong>The continuing story</strong><span>{article.continuity}</span></aside>
       )}
-      {!isArticlePreview && sourceGroups.size > 0 && (
+      {!isArticlePreview && (sourceGroups.size > 0 || externalSourceGroups.size > 0) && (
         <section class="source-ledger" aria-label={`Pull requests covered by ${article.title}`}>
           <h3>From the source</h3>
           <div class="source-groups">
@@ -134,6 +143,16 @@ const sourceGroups = articlePullRequests.reduce<Map<string, EditorialPullRequest
                 <ul>
                   {pullRequests.map((pullRequest) => (
                     <li><a href={pullRequest.url} target="_blank" rel="noreferrer">{pullRequest.title}<span aria-hidden="true"> ↗</span></a></li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            {[...externalSourceGroups].map(([publisher, sources]) => (
+              <div class="source-group">
+                <h4>{publisher}</h4>
+                <ul>
+                  {sources.map((source) => (
+                    <li><a href={source.url} target="_blank" rel="noreferrer">{source.title}<span aria-hidden="true"> ↗</span></a></li>
                   ))}
                 </ul>
               </div>
