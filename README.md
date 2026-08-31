@@ -132,7 +132,7 @@ Home Assistant releases are calculated for the first Wednesday of each month. ES
 
 ## Site behavior
 
-The newest edition is the home page. Older JSON files feed dated edition routes and the year/month archive. The release rail and all article sources remain available on every edition.
+The newest edition is the home page. Older JSON files feed dated edition routes and the year/month archive. The release rail and all article sources remain available on every edition. Reported articles are also published as an RSS 2.0 feed at `/rss.xml`; the site advertises it through page metadata and a masthead link.
 
 On desktop, supporting material such as dependency details opens in a contained dialog. On narrow mobile screens, dialogs become full-screen, keep their close control visible, and scroll internally so long lists do not move or overflow the newspaper behind them.
 

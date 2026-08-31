@@ -15,7 +15,10 @@ const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
   <div class="utility">
     <p>{date ? formatEditionDate(date) : "Daily open-source intelligence"}</p>
     <p class="edition-mark">Independent · Automated · Open</p>
-    <a href={href("/archive/")}>Edition archive</a>
+    <div class="utility-links">
+      <a href={href("/archive/")}>Edition archive</a>
+      <a href={href("/rss.xml")}>RSS</a>
+    </div>
   </div>
   <div class="nameplate">
     <a href={href("/")} aria-label="OHF Daily home">
@@ -51,7 +54,9 @@ const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
     margin: 0;
   }
 
-  .utility a {
+  .utility-links {
+    display: flex;
+    gap: 0.85rem;
     justify-self: end;
   }
 
