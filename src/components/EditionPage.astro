@@ -164,7 +164,6 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
 
 <footer class="site-footer shell">
   <p class="footer-name">OHF Daily</p>
-  <p>Public work, reported daily. Every story links back to its source.</p>
   <a href="https://www.openhomefoundation.org/" target="_blank" rel="noreferrer">Open Home Foundation ↗</a>
 </footer>
 
@@ -407,7 +406,7 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
 
   .site-footer {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr auto;
     gap: 1rem;
     align-items: baseline;
     padding: 1.5rem 0 3rem;
