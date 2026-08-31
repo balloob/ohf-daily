@@ -69,6 +69,13 @@ interface PullDetail {
   comments: number;
   review_comments: number;
   base: { repo: { full_name: string } };
+  head?: { sha: string };
+}
+
+export interface PullFile {
+  filename: string;
+  status: string;
+  raw_url?: string;
 }
 
 export interface GitHubRelease {
@@ -321,6 +328,43 @@ export function extractMediaUrls(body: string | null): string[] {
   }))];
 }
 
+const committedMediaExtension = /\.(?:avif|gif|jpe?g|png|webp|mp4|mov|webm)$/i;
+const mediaInspectionSignal = /\b(?:screen\s*shots?|screen\s+recordings?|snapshots?|visual\s+(?:changes?|diffs?|tests?)|test\s+artifacts?|artifacts?|media|videos?|animated\s+gifs?)\b/i;
+
+/**
+ * PR file lists cost an additional API request, so inspect them only when the
+ * author explicitly signals that visual evidence exists.
+ */
+export function shouldInspectPullFiles(title: string, body: string | null): boolean {
+  return mediaInspectionSignal.test(`${title}\n${body ?? ""}`);
+}
+
+/** Builds immutable raw URLs for safe, non-deleted media committed in a PR. */
+export function committedMediaUrls(repository: string, headSha: string | null | undefined, files: PullFile[]): string[] {
+  if (!/^[^/]+\/[^/]+$/.test(repository)) return [];
+  const encodedRepository = repository.split("/").map(encodeURIComponent).join("/");
+  return [...new Set(files.flatMap((file) => {
+    if (/^removed$/i.test(file.status) || !committedMediaExtension.test(file.filename)) return [];
+    let pinnedSha = /^[0-9a-f]{40,64}$/i.test(headSha ?? "") ? headSha! : undefined;
+    if (!pinnedSha && file.raw_url) {
+      try {
+        const raw = new URL(file.raw_url);
+        const match = raw.hostname === "github.com" ? raw.pathname.match(/^\/([^/]+)\/([^/]+)\/raw\/([0-9a-f]{40,64})\//i) : null;
+        if (match && `${decodeURIComponent(match[1])}/${decodeURIComponent(match[2])}`.toLowerCase() === repository.toLowerCase()) pinnedSha = match[3];
+      } catch {
+        // Ignore malformed fallback URLs returned by incomplete cache data.
+      }
+    }
+    if (!pinnedSha) return [];
+    const encodedPath = file.filename.split("/").map(encodeURIComponent).join("/");
+    return [`https://raw.githubusercontent.com/${encodedRepository}/${pinnedSha}/${encodedPath}`];
+  }))];
+}
+
+export function mergeMediaUrls(...groups: string[][]): string[] {
+  return [...new Set(groups.flat())];
+}
+
 export function firstImage(body: string | null): string | undefined {
   return extractMediaUrls(body)[0];
 }
@@ -347,6 +391,18 @@ async function fetchPullRequestReviews(client: GitHubClient, pullRequestUrl: str
   }
 }
 
+async function fetchCommittedMediaUrls(client: GitHubClient, pullRequestUrl: string, detail: PullDetail): Promise<string[]> {
+  if (!shouldInspectPullFiles(detail.title, detail.body) || detail.changed_files < 1) return [];
+  const files: PullFile[] = [];
+  const pages = Math.max(1, Math.ceil(detail.changed_files / 100));
+  for (let page = 1; page <= pages; page += 1) {
+    const batch = await client.get<PullFile[]>(`${pullRequestUrl}/files?per_page=100&page=${page}`, { immutable: true });
+    files.push(...batch);
+    if (batch.length < 100) break;
+  }
+  return committedMediaUrls(detail.base.repo.full_name, detail.head?.sha, files);
+}
+
 export function classify(title: string, labels: string[]): StoryKind {
   const haystack = `${title} ${labels.join(" ")}`.toLowerCase();
   if (/\b(doc|docs|documentation|translation|typo)\b/.test(haystack)) return "docs";
@@ -363,7 +419,7 @@ export function unlockLine(title: string, kind: StoryKind): string | undefined {
   return undefined;
 }
 
-function storyScore(detail: PullDetail, organization: OrganizationConfig, config: SourcesConfig): number {
+function storyScore(detail: PullDetail, organization: OrganizationConfig, config: SourcesConfig, hasMedia = false): number {
   const labels = detail.labels.map((label) => label.name.toLowerCase());
   const title = detail.title.toLowerCase();
   const repo = detail.base.repo.full_name.split("/")[1];
@@ -377,7 +433,7 @@ function storyScore(detail: PullDetail, organization: OrganizationConfig, config
   score += Math.min(detail.changed_files ?? 0, 20) * 0.7;
   score += Math.log10(Math.max((detail.additions ?? 0) + (detail.deletions ?? 0), 1)) * 3;
   score += Math.min((detail.comments ?? 0) + (detail.review_comments ?? 0), 20) * 0.5;
-  if (firstImage(detail.body)) score += 4;
+  if (firstImage(detail.body) || hasMedia) score += 4;
   if (classify(detail.title, labels) === "docs") score -= 8;
   if (classify(detail.title, labels) === "maintenance") score -= 10;
   return Math.round(score * 10) / 10;
@@ -611,6 +667,12 @@ async function storeHistoryWindow(
         return;
       }
       const detail = detailResult.value;
+      let committedMedia: string[] = [];
+      try {
+        committedMedia = await fetchCommittedMediaUrls(client, item.pull_request!.url, detail);
+      } catch (error) {
+        console.warn(`Could not read committed media for ${item.html_url}: ${error instanceof Error ? error.message : String(error)}`);
+      }
       inputs.delete(item.id);
       inputs.set(detail.id, {
         id: detail.id,
@@ -625,7 +687,7 @@ async function storeHistoryWindow(
         mergedAt: detail.merged_at,
         githubUpdatedAt: detail.updated_at,
         labels: detail.labels.map((label) => label.name.toLowerCase()),
-        mediaUrls: extractMediaUrls(detail.body),
+        mediaUrls: mergeMediaUrls(extractMediaUrls(detail.body), committedMedia),
         reviewers: credits.reviewers,
         approvers: credits.approvers,
         stats: {
@@ -756,6 +818,7 @@ export async function collect(): Promise<CollectionResult> {
   const seenDependencies = new Set<string>();
   let mergedPullRequestCount = 0;
   let detailFailures = 0;
+  let mediaFailures = 0;
   let reviewFailures = 0;
   let contributorLookupFailures = 0;
   let storedPullRequestWrites = 0;
@@ -830,6 +893,14 @@ export async function collect(): Promise<CollectionResult> {
       try {
         const detail = detailResult.value;
         const labels = detail.labels.map((label) => label.name.toLowerCase());
+        let committedMedia: string[] = [];
+        try {
+          committedMedia = await fetchCommittedMediaUrls(client, item.pull_request!.url, detail);
+        } catch (error) {
+          mediaFailures += 1;
+          console.warn(`Could not read committed media for ${item.html_url}: ${error instanceof Error ? error.message : String(error)}`);
+        }
+        const mediaUrls = mergeMediaUrls(extractMediaUrls(detail.body), committedMedia);
         storeInputs.delete(item.id);
         storeInputs.set(detail.id, {
           id: detail.id,
@@ -844,7 +915,7 @@ export async function collect(): Promise<CollectionResult> {
           mergedAt: detail.merged_at,
           githubUpdatedAt: detail.updated_at,
           labels,
-          mediaUrls: extractMediaUrls(detail.body),
+          mediaUrls,
           reviewers: credits.reviewers,
           approvers: credits.approvers,
           stats: {
@@ -874,11 +945,11 @@ export async function collect(): Promise<CollectionResult> {
           mergedAt: detail.merged_at,
           labels,
           kind,
-          score: storyScore(detail, organization, config),
+          score: storyScore(detail, organization, config, mediaUrls.length > 0),
           additions: detail.additions,
           deletions: detail.deletions,
           changedFiles: detail.changed_files,
-          image: firstImage(detail.body),
+          image: mediaUrls.find((url) => /\.(?:avif|gif|jpe?g|png|webp)(?:[?#]|$)/i.test(url)),
         };
       } catch (error) {
         detailFailures += 1;
@@ -895,6 +966,7 @@ export async function collect(): Promise<CollectionResult> {
   }
 
   if (detailFailures > 0) notes.push(`${detailFailures} pull request detail${detailFailures === 1 ? "" : "s"} could not be loaded.`);
+  if (mediaFailures > 0) notes.push(`${mediaFailures} signaled pull request media list${mediaFailures === 1 ? "" : "s"} could not be loaded.`);
   if (reviewFailures > 0) notes.push(`${reviewFailures} pull request review list${reviewFailures === 1 ? "" : "s"} could not be loaded.`);
   if (contributorLookupFailures > 0) notes.push(`${contributorLookupFailures} first-time contributor lookup${contributorLookupFailures === 1 ? "" : "s"} could not be completed.`);
 

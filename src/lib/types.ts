@@ -46,6 +46,17 @@ export interface ArticleMedia {
   alt: string;
   caption?: string;
   poster?: string;
+  width?: number;
+  height?: number;
+  variants?: ArticleMediaVariant[];
+}
+
+export interface ArticleMediaVariant {
+  url: string;
+  width: number;
+  height: number;
+  bytes: number;
+  type: "image/webp";
 }
 
 export interface ContributorCredit {

@@ -1,0 +1,1085 @@
+{
+  "date": "2026-08-29",
+  "generatedAt": "2026-08-31T08:51:46.237Z",
+  "windowStart": "2026-08-28T21:59:59.999Z",
+  "windowEnd": "2026-08-29T21:59:59.999Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 200,
+    "repositories": 17,
+    "contributors": 40,
+    "dependencyUpdates": 19
+  },
+  "lead": {
+    "id": "4385627968",
+    "title": "Let speakers with guest access play without a setup step",
+    "summary": "What does this implement/fix? A speaker that allows guest access can already play, but Music Assistant still marked it \"setup required\" and made you click through an approval screen first.",
+    "url": "https://github.com/music-assistant/server/pull/6088",
+    "repository": "music-assistant/server",
+    "organization": "Music Assistant",
+    "author": "marcelveldt",
+    "mergedAt": "2026-08-29T00:23:53Z",
+    "labels": [
+      "enhancement",
+      "backport-to-stable"
+    ],
+    "kind": "platform",
+    "score": 60.7,
+    "additions": 538,
+    "deletions": 304,
+    "changedFiles": 12
+  },
+  "highlights": [
+    {
+      "id": "4388577767",
+      "title": "Tidy up the setup flow dialog",
+      "summary": "What does this implement/fix? A few small UI tweaks to the setup flow dialog (adding a provider, setting up a player).",
+      "url": "https://github.com/music-assistant/frontend/pull/2673",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-08-28T23:42:39Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 60.4,
+      "additions": 177,
+      "deletions": 48,
+      "changedFiles": 9
+    },
+    {
+      "id": "4362387697",
+      "title": "Add reconfigure and reauth flows for CentriConnect",
+      "summary": "Add reconfigure and reauth flows for CentriConnect/MyPropane integration.",
+      "unlocks": "Unlocks: Add reconfigure and reauth flows for CentriConnect.",
+      "url": "https://github.com/home-assistant/core/pull/180215",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "gresrun",
+      "mergedAt": "2026-08-29T19:16:34Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality-scale",
+        "quality scale: bronze",
+        "integration: centriconnect"
+      ],
+      "kind": "feature",
+      "score": 57.6,
+      "additions": 356,
+      "deletions": 22,
+      "changedFiles": 6
+    },
+    {
+      "id": "4392507918",
+      "title": "Add battery support to SolarEdge Modbus",
+      "summary": "Breaking change None. Installations without a battery are unaffected.",
+      "unlocks": "Unlocks: Add battery support to SolarEdge Modbus.",
+      "url": "https://github.com/home-assistant/core/pull/180657",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "frenck",
+      "mergedAt": "2026-08-29T19:10:30Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze",
+        "integration: solaredge_modbus"
+      ],
+      "kind": "feature",
+      "score": 57.2,
+      "additions": 2702,
+      "deletions": 36,
+      "changedFiles": 11
+    },
+    {
+      "id": "4359538161",
+      "title": "Add match policy option to playlist import",
+      "summary": "What does this implement/fix? When importing an M3U playlist, you can now choose how strictly its tracks are matched against your library: exact release, same recording (default), or best effort.",
+      "unlocks": "Unlocks: Add match policy option to playlist import.",
+      "url": "https://github.com/music-assistant/frontend/pull/2646",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-08-29T00:31:45Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 55.5,
+      "additions": 401,
+      "deletions": 1,
+      "changedFiles": 6
+    }
+  ],
+  "briefs": [
+    {
+      "id": "4393107980",
+      "title": "Add number entities to SolarEdge Modbus",
+      "summary": "Breaking change None. Proposed change The first settings solaredge modbus writes rather than reads: the backup reserve, the storage charge and discharge limits, the site export limit and its…",
+      "unlocks": "Unlocks: Add number entities to SolarEdge Modbus.",
+      "url": "https://github.com/home-assistant/core/pull/180691",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "frenck",
+      "mergedAt": "2026-08-29T20:17:06Z",
+      "labels": [
+        "new-platform",
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze",
+        "integration: solaredge_modbus"
+      ],
+      "kind": "feature",
+      "score": 55.4,
+      "additions": 1003,
+      "deletions": 22,
+      "changedFiles": 11
+    },
+    {
+      "id": "4329467942",
+      "title": "Add DALI line status diagnostic sensor to lunatone",
+      "summary": "Breaking change Proposed change Add DALI line status diagnostic sensor.",
+      "unlocks": "Unlocks: Add DALI line status diagnostic sensor to lunatone.",
+      "url": "https://github.com/home-assistant/core/pull/179706",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "MoonDevLT",
+      "mergedAt": "2026-08-29T16:24:54Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "by-code-owner",
+        "quality scale: silver",
+        "integration: lunatone"
+      ],
+      "kind": "feature",
+      "score": 55.4,
+      "additions": 247,
+      "deletions": 4,
+      "changedFiles": 5
+    },
+    {
+      "id": "4360574894",
+      "title": "Update browser title with current track and artist",
+      "summary": "What does this implement/fix? Displays the current track and artist as: Track Title Artist Name Uses the branded fallback title when track metadata is incomplete: Music Assistant Your music,…",
+      "unlocks": "Unlocks: Update browser title with current track and artist.",
+      "url": "https://github.com/music-assistant/frontend/pull/2649",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "phiychai",
+      "mergedAt": "2026-08-29T06:49:16Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 52.5,
+      "additions": 128,
+      "deletions": 2,
+      "changedFiles": 6,
+      "image": "https://github.com/user-attachments/assets/64faa959-7316-4c65-8f89-2ea509a721b9"
+    },
+    {
+      "id": "4197414878",
+      "title": "Add Persang Infrared integration",
+      "summary": "Adds a new persang infrared integration for Persang Bluetooth speakers, in the same shape as the existing edifier infrared and marantz infrared speaker integrations: commands are sent…",
+      "unlocks": "Unlocks: Add Persang Infrared integration.",
+      "url": "https://github.com/home-assistant/core/pull/178107",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "Dr-Blank",
+      "mergedAt": "2026-08-29T14:13:22Z",
+      "labels": [
+        "cla-signed",
+        "new-integration",
+        "has-tests",
+        "quality-scale",
+        "integration: persang_infrared"
+      ],
+      "kind": "feature",
+      "score": 51.8,
+      "additions": 789,
+      "deletions": 0,
+      "changedFiles": 17
+    },
+    {
+      "id": "4392983902",
+      "title": "Add binary sensors to SolarEdge Modbus",
+      "summary": "Breaking change None. Proposed change Adds the binary sensor platform to solaredge modbus , after the inverter (#180508), meters (#180572) and batteries (#180657).",
+      "unlocks": "Unlocks: Add binary sensors to SolarEdge Modbus.",
+      "url": "https://github.com/home-assistant/core/pull/180687",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "frenck",
+      "mergedAt": "2026-08-29T19:44:59Z",
+      "labels": [
+        "new-platform",
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze",
+        "integration: solaredge_modbus"
+      ],
+      "kind": "feature",
+      "score": 51.4,
+      "additions": 476,
+      "deletions": 1,
+      "changedFiles": 6
+    },
+    {
+      "id": "4391014664",
+      "title": "fix(protocol): a device that answers commissioning with unreadable certificate data gets a real error",
+      "summary": "Two devices fail commissioning against matter.js with the same unhelpful message, Offset is outside the bounds of the DataView : A Meross MSS315 answers the request for its PAI certificate —…",
+      "unlocks": "Improves reliability around a device that answers commissioning with unreadable certificate data gets a real error.",
+      "url": "https://github.com/matter-js/matter.js/pull/4354",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-08-29T11:50:43Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "fix",
+      "score": 50.6,
+      "additions": 500,
+      "deletions": 38,
+      "changedFiles": 16
+    },
+    {
+      "id": "4380484021",
+      "title": "Add serial number to Roborock devices",
+      "summary": "The Roborock cloud already reports a serial number per device.",
+      "unlocks": "Unlocks: Add serial number to Roborock devices.",
+      "url": "https://github.com/home-assistant/core/pull/180465",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "ximex",
+      "mergedAt": "2026-08-29T15:39:25Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "new-feature",
+        "has-tests",
+        "quality scale: silver",
+        "integration: roborock",
+        "top 200",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 49.5,
+      "additions": 29,
+      "deletions": 0,
+      "changedFiles": 2
+    },
+    {
+      "id": "4374771018",
+      "title": "[Backport to stable] 2.10.1",
+      "summary": "Automated backport PR for stable release 2.10.1 with cherry picked commits: 02569ac ⬆️ Update music assistant frontend to 2.17.295 (#6046) 8a7fb38 Keep a live source on its player when…",
+      "url": "https://github.com/music-assistant/server/pull/6049",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "github-actions[bot]",
+      "mergedAt": "2026-08-29T00:28:25Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 49.4,
+      "additions": 7897,
+      "deletions": 1183,
+      "changedFiles": 102
+    },
+    {
+      "id": "4391309049",
+      "title": "Cert tests can ask for a TCP session, and TC-SC-8.1",
+      "summary": "Opens the TCP block: the framework change that lets a certification test run over TCP, and the first case that uses it.",
+      "url": "https://github.com/matter-js/matter.js/pull/4355",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-08-29T16:23:05Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "platform",
+      "score": 48.1,
+      "additions": 364,
+      "deletions": 21,
+      "changedFiles": 13
+    },
+    {
+      "id": "4376068747",
+      "title": "Stop the CLAP weights download from timing out sonic_analysis setup",
+      "summary": "What does this implement/fix? sonic analysis fails to set up with Provider sonic analysis did not initialize within 300 seconds .",
+      "url": "https://github.com/music-assistant/server/pull/6053",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "chrisuthe",
+      "mergedAt": "2026-08-28T22:38:29Z",
+      "labels": [
+        "bugfix",
+        "backport-to-stable"
+      ],
+      "kind": "platform",
+      "score": 46.4,
+      "additions": 395,
+      "deletions": 277,
+      "changedFiles": 7
+    },
+    {
+      "id": "4372255996",
+      "title": "[mipi_rgb] Add Elecrow Crowpanel Advance 7",
+      "summary": "What does this implement/fix? Types of changes Bugfix (non breaking change which fixes an issue) New feature (non breaking change which adds functionality) New developer facing feature (adds…",
+      "unlocks": "Unlocks: [mipi_rgb] Add Elecrow Crowpanel Advance 7.",
+      "url": "https://github.com/esphome/esphome/pull/18810",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "clydebarrow",
+      "mergedAt": "2026-08-29T02:02:28Z",
+      "labels": [
+        "new-feature",
+        "needs-tests",
+        "small-pr",
+        "component: mipi_rgb"
+      ],
+      "kind": "feature",
+      "score": 45,
+      "additions": 28,
+      "deletions": 0,
+      "changedFiles": 1
+    },
+    {
+      "id": "4392673727",
+      "title": "TC-SC-8.5 (a command invoked over a TCP-based CASE session)",
+      "summary": "Adds the certification case TC SC 8.5: a test harness establishes a CASE session that runs over TCP with the device under test, sends one command over that session, and confirms the command response comes back.",
+      "url": "https://github.com/matter-js/matter.js/pull/4357",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-08-29T21:30:37Z",
+      "labels": [
+        "automerge",
+        "automated-chip-image-release"
+      ],
+      "kind": "platform",
+      "score": 44.7,
+      "additions": 922,
+      "deletions": 65,
+      "changedFiles": 10
+    },
+    {
+      "id": "4375939042",
+      "title": "Add bluetooth audio constants",
+      "summary": "What does this implement/fix? This pull request makes a small update to the list of supported input types in the EXTERNAL SOURCES constant.",
+      "unlocks": "Unlocks: Add bluetooth audio constants.",
+      "url": "https://github.com/music-assistant/server/pull/6052",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "mzellho",
+      "mergedAt": "2026-08-28T23:55:21Z",
+      "labels": [
+        "enhancement",
+        "backport-to-stable"
+      ],
+      "kind": "feature",
+      "score": 44.1,
+      "additions": 2,
+      "deletions": 0,
+      "changedFiles": 1
+    },
+    {
+      "id": "4390638425",
+      "title": "Fix deviceinfo missing mac and s/n for Midea",
+      "summary": "Fix deviceinfo missing mac and s/n for Midea Type of change Dependency upgrade Bugfix (non breaking change which fixes an issue) New integration (thank you!) New feature (which adds…",
+      "unlocks": "Improves reliability around fix deviceinfo missing mac and s/n for Midea.",
+      "url": "https://github.com/home-assistant/core/pull/180594",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "chemelli74",
+      "mergedAt": "2026-08-29T11:01:47Z",
+      "labels": [
+        "cla-signed",
+        "cherry-picked",
+        "has-tests",
+        "by-code-owner",
+        "bugfix",
+        "quality scale: bronze",
+        "integration: midea"
+      ],
+      "kind": "fix",
+      "score": 41.9,
+      "additions": 189,
+      "deletions": 14,
+      "changedFiles": 9
+    },
+    {
+      "id": "4388174684",
+      "title": "TC-G-3.2 (Groups commands, DUT as client), and the chip-tool value typing it uncovered",
+      "summary": "Opens the cluster level client block with TC G 3.2 , and fixes an adapter defect the test exposed.",
+      "url": "https://github.com/matter-js/matter.js/pull/4347",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-08-29T08:11:37Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "platform",
+      "score": 41,
+      "additions": 1262,
+      "deletions": 20,
+      "changedFiles": 10
+    },
+    {
+      "id": "4390665985",
+      "title": "TC-SC-6.1 (adding a member to a group, DUT as admin)",
+      "summary": "Stacked on #4347 (it uses the string command field check and the shared response status helpers).",
+      "url": "https://github.com/matter-js/matter.js/pull/4353",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-08-29T10:52:28Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "platform",
+      "score": 39.6,
+      "additions": 609,
+      "deletions": 0,
+      "changedFiles": 5
+    },
+    {
+      "id": "4377530020",
+      "title": "[core] Hash downloaded file paths at the default data dir location",
+      "summary": "What does this implement/fix? esphome config hash still differs between the CLI and the HA add on when the config references downloaded files (image or font URLs, micro wake word models, git packages).",
+      "url": "https://github.com/esphome/esphome/pull/18824",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-08-29T02:08:15Z",
+      "labels": [
+        "has-tests",
+        "core",
+        "bugfix",
+        "medium-pr"
+      ],
+      "kind": "platform",
+      "score": 39.4,
+      "additions": 102,
+      "deletions": 4,
+      "changedFiles": 4,
+      "image": "https://github.com/esphome/wake-word-voice-assistants/raw/main/error_box_illustrations/error-no-ha.png"
+    },
+    {
+      "id": "4381288827",
+      "title": "[light] Fix gamma table dead zone collapsing to 0",
+      "summary": "What does this implement/fix? Fixes a low brightness dead zone in addressable light gamma correction.",
+      "unlocks": "Improves reliability around [light] Fix gamma table dead zone collapsing to 0.",
+      "url": "https://github.com/esphome/esphome/pull/18845",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "clydebarrow",
+      "mergedAt": "2026-08-28T22:37:21Z",
+      "labels": [
+        "component: light",
+        "has-tests",
+        "small-pr",
+        "bugfix"
+      ],
+      "kind": "fix",
+      "score": 39.3,
+      "additions": 112,
+      "deletions": 3,
+      "changedFiles": 3
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Bump midea-local to 10.1.0",
+      "url": "https://github.com/home-assistant/core/pull/180694",
+      "repository": "home-assistant/core",
+      "author": "rokam"
+    },
+    {
+      "title": "Bump peblar to 1.0.1",
+      "url": "https://github.com/home-assistant/core/pull/180577",
+      "repository": "home-assistant/core",
+      "author": "frenck"
+    },
+    {
+      "title": "Bump probatio to 0.11.4",
+      "url": "https://github.com/home-assistant/core/pull/180655",
+      "repository": "home-assistant/core",
+      "author": "frenck"
+    },
+    {
+      "title": "Bump uiprotect to 16.6.1",
+      "url": "https://github.com/home-assistant/core/pull/180670",
+      "repository": "home-assistant/core",
+      "author": "RaHehl"
+    },
+    {
+      "title": "Bump google cloud dependencies",
+      "url": "https://github.com/home-assistant/core/pull/180625",
+      "repository": "home-assistant/core",
+      "author": "silamon"
+    },
+    {
+      "title": "⬆️ Update dependency pylint to v4.0.8",
+      "url": "https://github.com/home-assistant-libs/python-go2rtc-client/pull/373",
+      "repository": "home-assistant-libs/python-go2rtc-client",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency pylint to v4.0.8",
+      "url": "https://github.com/home-assistant-libs/python-webrtc-models/pull/264",
+      "repository": "home-assistant-libs/python-webrtc-models",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency pylint to v4.0.8",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/509",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency pylint to v4.0.8",
+      "url": "https://github.com/home-assistant-libs/aioecowitt/pull/427",
+      "repository": "home-assistant-libs/aioecowitt",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency coverage to v7.16.0",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/508",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update anchore/sbom-action action to v0.24.2",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/507",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump ya-passport-auth to 2.0.1",
+      "url": "https://github.com/music-assistant/server/pull/6090",
+      "repository": "music-assistant/server",
+      "author": "trudenboy"
+    },
+    {
+      "title": "Bump sendspin-cli to v0.1.5 and offer its native PulseAudio and PipeWire outputs",
+      "url": "https://github.com/music-assistant/local-audio-addon/pull/25",
+      "repository": "music-assistant/local-audio-addon",
+      "author": "chrisuthe"
+    },
+    {
+      "title": "fix(build): declare the dependencies every package actually imports",
+      "url": "https://github.com/matter-js/matter.js/pull/4352",
+      "repository": "matter-js/matter.js",
+      "author": "Apollon77"
+    },
+    {
+      "title": "chore(deps-dev): bump oxlint from 1.78.0 to 1.80.0",
+      "url": "https://github.com/matter-js/matterjs-server/pull/1010",
+      "repository": "matter-js/matterjs-server",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): bump @matter/dcl-data from 2026.8.15 to 2026.8.22",
+      "url": "https://github.com/matter-js/matterjs-server/pull/1011",
+      "repository": "matter-js/matterjs-server",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps-dev): bump rollup from 4.62.4 to 4.62.5",
+      "url": "https://github.com/matter-js/matterjs-server/pull/1012",
+      "repository": "matter-js/matterjs-server",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): bump vis-network from 10.1.1 to 10.1.2",
+      "url": "https://github.com/matter-js/matterjs-server/pull/1009",
+      "repository": "matter-js/matterjs-server",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps-dev): bump oxfmt from 0.63.0 to 0.64.0",
+      "url": "https://github.com/matter-js/matterjs-server/pull/1008",
+      "repository": "matter-js/matterjs-server",
+      "author": "dependabot[bot]"
+    }
+  ],
+  "articles": [
+    {
+      "id": "solaredge-modbus-arrives",
+      "title": "SolarEdge goes local, and brings the whole energy system",
+      "dek": "A new local Modbus integration landed with discovery, meters, batteries, diagnostics, controls, and detailed inverter telemetry in one day.",
+      "body": [
+        "Home Assistant can now read a SolarEdge inverter directly over its local Modbus interface, avoiding dependence on the cloud API while exposing production, energy, electrical, temperature, and status data.",
+        "The initial integration was followed by mDNS discovery, attached meters and batteries as sub-devices, serial support, diagnostics, fault and charging states, and writable limits and setpoints. The implementation shares the inverter’s limited Modbus connections and guards long-term energy statistics against transient zero or lower readings.",
+        "Companion documentation was referenced by several pull requests but was not present as a canonical merge in this edition’s reporting window."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 96,
+      "contributors": [
+        "frenck"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "reviewers": [
+        "balloob",
+        "bdraco",
+        "joostlek",
+        "WillCodeForCats"
+      ],
+      "approvers": [
+        "balloob",
+        "bdraco",
+        "joostlek"
+      ],
+      "topics": [
+        "Energy",
+        "Local control",
+        "Home Assistant"
+      ],
+      "continuity": "The work progressed from a new inverter integration through discovery and attached hardware to diagnostics, automations, and writable controls within this edition.",
+      "pullRequests": [
+        {
+          "id": "4384624076",
+          "title": "Add SolarEdge Modbus integration",
+          "url": "https://github.com/home-assistant/core/pull/180508",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4388424160",
+          "title": "Add zeroconf discovery to SolarEdge Modbus",
+          "url": "https://github.com/home-assistant/core/pull/180569",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4388525851",
+          "title": "Add meter support to SolarEdge Modbus",
+          "url": "https://github.com/home-assistant/core/pull/180572",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4388863700",
+          "title": "Add serial support to SolarEdge Modbus",
+          "url": "https://github.com/home-assistant/core/pull/180580",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4390775371",
+          "title": "Add diagnostics to SolarEdge Modbus",
+          "url": "https://github.com/home-assistant/core/pull/180599",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4391220856",
+          "title": "Remove the vendor status sensor from SolarEdge Modbus",
+          "url": "https://github.com/home-assistant/core/pull/180607",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4392507918",
+          "title": "Add battery support to SolarEdge Modbus",
+          "url": "https://github.com/home-assistant/core/pull/180657",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4392983902",
+          "title": "Add binary sensors to SolarEdge Modbus",
+          "url": "https://github.com/home-assistant/core/pull/180687",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4393107980",
+          "title": "Add number entities to SolarEdge Modbus",
+          "url": "https://github.com/home-assistant/core/pull/180691",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-08-29/solaredge-modbus-arrives-8586e20b9e88-1600w.webp",
+          "alt": "Screenshot supplied with the new SolarEdge Modbus integration",
+          "caption": "The initial integration PR includes a Home Assistant screenshot of the locally sourced SolarEdge data.",
+          "width": 1600,
+          "height": 1297,
+          "variants": [
+            {
+              "url": "/media/2026-08-29/solaredge-modbus-arrives-8586e20b9e88-480w.webp",
+              "width": 480,
+              "height": 389,
+              "bytes": 7048,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-08-29/solaredge-modbus-arrives-8586e20b9e88-960w.webp",
+              "width": 960,
+              "height": 778,
+              "bytes": 21942,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-08-29/solaredge-modbus-arrives-8586e20b9e88-1600w.webp",
+              "width": 1600,
+              "height": 1297,
+              "bytes": 44956,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 73946
+        }
+      ]
+    },
+    {
+      "id": "mcp-app-discovery",
+      "title": "Home Assistant apps can announce their own MCP servers",
+      "dek": "Supervisor-managed apps now have a discovery route into Home Assistant’s Model Context Protocol integration.",
+      "body": [
+        "An app hosting an MCP server can declare the `mcp` discovery service and send Home Assistant its server URL. Home Assistant validates the address and asks the user to confirm before connecting, continuing through OAuth when authentication is required.",
+        "Supervisor’s discovery identifier ties the resulting entry to the app, allowing uninstall cleanup and URL updates when ports change. The app slug also gives its LLM API a readable, stable identity across reinstalls.",
+        "User and app-author documentation was described as follow-up work, but no companion documentation merge appears in this edition’s canonical evidence."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 84,
+      "contributors": [
+        "balloob"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "balloob",
+          "name": "Paulus Schoutsen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1444314?v=4",
+          "profileUrl": "https://github.com/balloob"
+        }
+      ],
+      "reviewers": [
+        "agners"
+      ],
+      "approvers": [
+        "agners"
+      ],
+      "topics": [
+        "Model Context Protocol",
+        "Apps",
+        "Discovery"
+      ],
+      "continuity": "This connects Supervisor’s existing app-discovery mechanism to the MCP integration rather than introducing a separate provisioning path.",
+      "pullRequests": [
+        {
+          "id": "4373857303",
+          "title": "Add app discovery to Model Context Protocol",
+          "url": "https://github.com/home-assistant/core/pull/180378",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "media": []
+    },
+    {
+      "id": "persang-infrared",
+      "title": "Persang speakers join Home Assistant by way of infrared",
+      "dek": "A new integration turns captured commands from a physical Persang remote into media-player controls sent through an existing infrared emitter.",
+      "body": [
+        "The integration supports power, volume, mute, playback, and track controls for Persang Bluetooth speakers that also accept infrared commands. Its initial command set was captured twice from an Octane 9 remote and checked against standard NEC encoding.",
+        "Protocol support landed earlier in `infrared-protocols`; this edition brings the Home Assistant integration and its brand assets. The current pull request intentionally leaves mode, equalizer, scan, repeat, numeric keys, and persisted mute state to later work.",
+        "Dr.Blank’s brand-assets merge is their first recorded contribution to `home-assistant/brands`. Welcome, Dr.Blank. The referenced user documentation was not present as a canonical merge in this reporting window."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 79,
+      "contributors": [
+        "Dr-Blank"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "Dr-Blank",
+          "name": "Dr.Blank",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/64108942?v=4",
+          "profileUrl": "https://github.com/Dr-Blank"
+        }
+      ],
+      "reviewers": [
+        "abmantis",
+        "joostlek"
+      ],
+      "approvers": [
+        "abmantis",
+        "joostlek"
+      ],
+      "topics": [
+        "New integration",
+        "Infrared",
+        "Speakers"
+      ],
+      "continuity": "The integration consumes Persang command codes merged into the shared infrared protocol library earlier in August.",
+      "pullRequests": [
+        {
+          "id": "4197432961",
+          "title": "Add Persang speaker IR command codes",
+          "url": "https://github.com/home-assistant-libs/infrared-protocols/pull/120",
+          "repository": "home-assistant-libs/infrared-protocols"
+        },
+        {
+          "id": "4197414878",
+          "title": "Add Persang Infrared integration",
+          "url": "https://github.com/home-assistant/core/pull/178107",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4201225408",
+          "title": "Add Persang Infrared icon and logo",
+          "url": "https://github.com/home-assistant/brands/pull/10912",
+          "repository": "home-assistant/brands"
+        }
+      ],
+      "media": []
+    },
+    {
+      "id": "sonic-analysis-download-recovery",
+      "title": "Sonic analysis stops multiplying a slow model download",
+      "dek": "Music Assistant now lets one CLAP model setup continue in the background and makes later attempts join it instead of starting another memory-heavy download.",
+      "body": [
+        "Sonic analysis setup downloads an approximately 690 MB CLAP checkpoint. On a slow connection or busy host, the work could exceed the five-minute provider timeout while continuing in the background.",
+        "Each retry previously started another download and model build, with attempts serializing on a file lock and potentially consuming substantial memory. The fix shares the in-flight work, retries transient transport failures, and ensures only one download and build runs at a time."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 75,
+      "contributors": [
+        "chrisuthe"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "chrisuthe",
+          "name": "Chris",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/26907395?v=4",
+          "profileUrl": "https://github.com/chrisuthe"
+        }
+      ],
+      "reviewers": [
+        "marcelveldt"
+      ],
+      "approvers": [
+        "marcelveldt"
+      ],
+      "topics": [
+        "Reliability",
+        "Music Assistant",
+        "Sonic analysis"
+      ],
+      "pullRequests": [
+        {
+          "id": "4376068747",
+          "title": "Stop the CLAP weights download from timing out sonic_analysis setup",
+          "url": "https://github.com/music-assistant/server/pull/6053",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "media": []
+    },
+    {
+      "id": "crowpanel-advance-7",
+      "title": "ESPHome adds the seven-inch CrowPanel Advance",
+      "dek": "The MIPI RGB component now recognizes Elecrow’s CrowPanel Advance 7, with its configuration documented alongside the implementation.",
+      "body": [
+        "Support was tested with the ESP32-IDF environment and landed together with its ESPHome documentation. The documentation pull request is companion material for the device implementation, not an independent story."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 68,
+      "contributors": [
+        "clydebarrow"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "clydebarrow",
+          "name": "Clyde Stubbs",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2366188?v=4",
+          "profileUrl": "https://github.com/clydebarrow"
+        }
+      ],
+      "reviewers": [
+        "swoboda1337"
+      ],
+      "approvers": [
+        "swoboda1337"
+      ],
+      "topics": [
+        "ESPHome",
+        "Displays",
+        "New devices"
+      ],
+      "pullRequests": [
+        {
+          "id": "4372255996",
+          "title": "[mipi_rgb] Add Elecrow Crowpanel Advance 7",
+          "url": "https://github.com/esphome/esphome/pull/18810",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "4372251442",
+          "title": "[mipi_rgb] Add Crowpanel Advance 7",
+          "url": "https://github.com/esphome/esphome.io/pull/7281",
+          "repository": "esphome/esphome.io"
+        }
+      ],
+      "media": []
+    },
+    {
+      "id": "music-browser-now-playing",
+      "title": "A first contribution puts the current song in the browser tab",
+      "dek": "Music Assistant’s page title now follows the playing track and artist, making the right tab easier to find.",
+      "body": [
+        "When complete metadata is available, the title becomes “Track Title – Artist Name”; otherwise the interface retains its branded fallback.",
+        "Welcome, Chai (`phiychai`), whose change is their first recorded merge in the Music Assistant frontend."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 62,
+      "contributors": [
+        "phiychai"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "phiychai",
+          "name": "Chai",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/3500928?v=4",
+          "profileUrl": "https://github.com/phiychai"
+        }
+      ],
+      "reviewers": [
+        "marcelveldt"
+      ],
+      "approvers": [
+        "marcelveldt"
+      ],
+      "topics": [
+        "Music Assistant",
+        "Now playing",
+        "First contribution"
+      ],
+      "pullRequests": [
+        {
+          "id": "4360574894",
+          "title": "Update browser title with current track and artist",
+          "url": "https://github.com/music-assistant/frontend/pull/2649",
+          "repository": "music-assistant/frontend"
+        }
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-08-29/music-browser-now-playing-b5c6186b1d55-264w.webp",
+          "alt": "Screenshot of a Music Assistant browser tab showing the current track and artist",
+          "caption": "The browser title now follows the currently playing music.",
+          "width": 264,
+          "height": 49,
+          "variants": [
+            {
+              "url": "/media/2026-08-29/music-browser-now-playing-b5c6186b1d55-264w.webp",
+              "width": 264,
+              "height": 49,
+              "bytes": 1440,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 1440
+        }
+      ]
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 143,
+      "thisWeek": 1077,
+      "sinceRelease": 1619,
+      "lastReleaseDate": "2026-08-05"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 24,
+      "thisWeek": 332,
+      "sinceRelease": 10,
+      "lastReleaseDate": "2026-08-29"
+    },
+    {
+      "product": "ESPHome",
+      "today": 9,
+      "thisWeek": 222,
+      "sinceRelease": 222,
+      "lastReleaseDate": "2026-08-19"
+    }
+  ],
+  "releases": [
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-09-02",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-09-09",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-09-16",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-09-30",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-10-07",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-10-14",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-10-21",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-10-28",
+      "accent": "blue"
+    }
+  ],
+  "notes": [
+    "Home Assistant had 143 merged pull requests; the configured limit included 60.",
+    "This edition was reported from the local public-PR archive."
+  ]
+}

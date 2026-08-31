@@ -55,7 +55,7 @@ interface GitHubUserResponse {
 }
 
 export function isBotLogin(login: string): boolean {
-  return /(?:\[bot\]|bot$|^dependabot|^renovate|^github-actions|^pre-commit-ci)/i.test(login);
+  return /(?:\[bot\]|bot$|^copilot$|^dependabot|^renovate|^github-actions|^pre-commit-ci)/i.test(login);
 }
 
 export async function loadContributorCache(path: string): Promise<ContributorCache> {

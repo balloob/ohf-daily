@@ -11,6 +11,15 @@ export interface EditorialMedia {
   alt: string;
   caption?: string;
   poster?: string;
+  width?: number;
+  height?: number;
+  variants?: Array<{
+    url: string;
+    width: number;
+    height: number;
+    bytes: number;
+    type: "image/webp";
+  }>;
 }
 
 export interface EditorialContributor {

@@ -53,12 +53,12 @@ jobs:
 
     steps:
       - name: Check out the default branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 22
 
@@ -74,7 +74,7 @@ jobs:
       - name: Restore API response cache
         if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.skip_update != true)
         id: github-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             data/cache
@@ -160,6 +160,7 @@ jobs:
         run: |
           edition_date="${REQUESTED_DATE:-$(TZ=Europe/Amsterdam date +%F)}"
           edition_path="data/editions/${edition_date}.json"
+          media_path="public/media/${edition_date}"
           if [[ ! -f "$edition_path" ]]; then
             echo "Editorial pipeline did not create ${edition_path}." >&2
             exit 1
@@ -169,6 +170,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -- "$edition_path"
+          if [[ -d "$media_path" ]]; then
+            git add -- "$media_path"
+          fi
 
           if git diff --cached --quiet; then
             echo "No publication data changed."
@@ -182,7 +186,7 @@ jobs:
 
       - name: Configure GitHub Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Build the Astro site
         env:
@@ -191,7 +195,7 @@ jobs:
         run: npm run build
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
@@ -206,4 +210,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

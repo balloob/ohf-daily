@@ -11,6 +11,7 @@ test("recognizes common GitHub bot login forms", () => {
   assert.equal(isBotLogin("github-actions"), true);
   assert.equal(isBotLogin("esphbot"), true);
   assert.equal(isBotLogin("bluetoothbot"), true);
+  assert.equal(isBotLogin("Copilot"), true);
   assert.equal(isBotLogin("human-builder"), false);
 });
 

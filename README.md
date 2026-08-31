@@ -19,7 +19,8 @@ GH_TOKEN=github_pat_… OPENAI_API_KEY=sk-… npm run update
 3. asks parallel reporter agents to investigate high-signal changes and relevant history;
 4. produces a seven-day recap for Monday editions;
 5. asks the editor agent to choose placement, combine related PRs, and write source-linked articles;
-6. writes `data/editions/YYYY-MM-DD.json`, ready for Astro to build.
+6. downloads selected GitHub images with strict size, host, and timeout limits and writes responsive WebP variants;
+7. writes `data/editions/YYYY-MM-DD.json`, ready for Astro to build.
 
 The reporter and editor may use text and media already present in public PRs. Every published article retains links to its underlying pull requests. Routine bumps stay available through the dependency dialog rather than taking over the front page.
 
@@ -45,6 +46,15 @@ npm run dev
 ```
 
 Demo mode implies no AI and does not query GitHub.
+
+Media optimization also runs for no-AI editions and can be repeated independently after manually editing an edition:
+
+```sh
+npm run optimize:media -- --date 2026-08-31
+npm run optimize:media -- --edition data/editions/2026-08-31.json
+```
+
+Existing optimized media, videos, and unsupported URLs are left untouched. Selected remote images are accepted only from GitHub-owned media hosts, capped before and during download, decoded with a pixel limit, and emitted at mobile and desktop widths under `public/media/YYYY-MM-DD/`. The edition stores those variants for browser `srcset` selection, so phones do not download the desktop-sized image.
 
 ## AI configuration and prompts
 

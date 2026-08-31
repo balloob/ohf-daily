@@ -5,6 +5,7 @@ import {
   GitHubClient,
   buildProjectPulse,
   classify,
+  committedMediaUrls,
   dateInTimeZone,
   endOfEditionDate,
   extractMediaUrls,
@@ -13,6 +14,7 @@ import {
   reportingWindow,
   reviewCredits,
   sentenceSummary,
+  shouldInspectPullFiles,
   type CacheFile,
 } from "../scripts/collect";
 import type { StoredPullRequest } from "../src/lib/pr-store";
@@ -54,6 +56,41 @@ test("extracts safe HTTPS images from Markdown and HTML", () => {
   assert.deepEqual(
     extractMediaUrls("![One](https://example.com/one.png)\n<video src=\"https://example.com/two.mp4\"></video>"),
     ["https://example.com/one.png", "https://example.com/two.mp4"],
+  );
+});
+
+test("only inspects PR file lists when the author signals visual media", () => {
+  assert.equal(shouldInspectPullFiles("Add an energy widget", "## Screenshots\nSnapshot tests are attached."), true);
+  assert.equal(shouldInspectPullFiles("Update snapshots", null), true);
+  assert.equal(shouldInspectPullFiles("Fix an energy sensor", "Includes tests and documentation."), false);
+});
+
+test("builds SHA-pinned raw URLs for safe committed media", () => {
+  const sha = "91bda3bd3a9df4281af6bf430207a6fe586cd0b7";
+  assert.deepEqual(
+    committedMediaUrls("home-assistant/iOS", sha, [
+      { filename: "Tests/Widgets/__Snapshots__/energy light.png", status: "modified" },
+      { filename: "Tests/Widgets/__Snapshots__/preview.webm", status: "added" },
+      { filename: "Tests/Widgets/__Snapshots__/unsafe.svg", status: "added" },
+      { filename: "Tests/Widgets/__Snapshots__/deleted.png", status: "removed" },
+      { filename: "Tests/Widgets/__Snapshots__/energy light.png", status: "modified" },
+    ]),
+    [
+      `https://raw.githubusercontent.com/home-assistant/iOS/${sha}/Tests/Widgets/__Snapshots__/energy%20light.png`,
+      `https://raw.githubusercontent.com/home-assistant/iOS/${sha}/Tests/Widgets/__Snapshots__/preview.webm`,
+    ],
+  );
+});
+
+test("recovers the pinned head SHA from GitHub file metadata when old detail cache entries lack it", () => {
+  const sha = "91bda3bd3a9df4281af6bf430207a6fe586cd0b7";
+  assert.deepEqual(
+    committedMediaUrls("home-assistant/iOS", undefined, [{
+      filename: "Tests/Widgets/__Snapshots__/preview.png",
+      status: "modified",
+      raw_url: `https://github.com/home-assistant/iOS/raw/${sha}/Tests/Widgets/__Snapshots__/preview.png`,
+    }]),
+    [`https://raw.githubusercontent.com/home-assistant/iOS/${sha}/Tests/Widgets/__Snapshots__/preview.png`],
   );
 });
 

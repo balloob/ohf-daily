@@ -28,8 +28,14 @@ const articleTopics = Array.isArray(article?.topics) ? article.topics.filter(Boo
 const isRecap = article?.kind === "weekly_recap";
 const isArticlePreview = Boolean(articleHref);
 const isSafeMediaUrl = (url: string) => url.startsWith("https://") || url.startsWith("/");
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
+const mediaUrl = (url: string) => url.startsWith("/") ? `${base}${url.replace(/^\/+/, "")}` : url;
 const media = articleMedia.filter((item) => isSafeMediaUrl(item.url));
 const visibleMedia = isArticlePreview ? media.slice(0, 1) : media;
+const imageVariants = (item: EditorialMedia) => (item.variants ?? [])
+  .filter((candidate) => candidate.type === "image/webp" && candidate.width > 0 && isSafeMediaUrl(candidate.url))
+  .sort((a, b) => a.width - b.width);
+const imageSizes = variant === "lead" ? "(max-width: 840px) 100vw, 56vw" : variant === "detail" ? "(max-width: 1050px) 100vw, 1050px" : "(max-width: 760px) 100vw, 45vw";
 const sourceGroups = articlePullRequests.reduce<Map<string, EditorialPullRequest[]>>((groups, pullRequest) => {
   const repository = pullRequest.repository || "Other projects";
   groups.set(repository, [...(groups.get(repository) ?? []), pullRequest]);
@@ -44,12 +50,29 @@ const sourceGroups = articlePullRequests.reduce<Map<string, EditorialPullRequest
         {visibleMedia.map((item: EditorialMedia, index) => (
           <figure>
             {item.type === "video" ? (
-              <video controls playsinline preload="metadata" poster={item.poster && isSafeMediaUrl(item.poster) ? item.poster : undefined} aria-label={item.alt || `Video for ${article.title}`}>
-                <source src={item.url} />
+              <video controls playsinline preload="metadata" poster={item.poster && isSafeMediaUrl(item.poster) ? mediaUrl(item.poster) : undefined} aria-label={item.alt || `Video for ${article.title}`}>
+                <source src={mediaUrl(item.url)} />
                 Your browser does not support embedded video. <a href={item.url}>Open the video</a>.
               </video>
             ) : (
-              <img src={item.url} alt={item.alt || ""} loading={variant === "lead" && index === 0 ? "eager" : "lazy"} fetchpriority={variant === "lead" && index === 0 ? "high" : "auto"} />
+              <picture>
+                {imageVariants(item).length > 0 && (
+                  <source
+                    type="image/webp"
+                    srcset={imageVariants(item).map((candidate) => `${mediaUrl(candidate.url)} ${candidate.width}w`).join(", ")}
+                    sizes={imageSizes}
+                  />
+                )}
+                <img
+                  src={mediaUrl(item.url)}
+                  alt={item.alt || ""}
+                  width={item.width}
+                  height={item.height}
+                  loading={variant === "lead" && index === 0 ? "eager" : "lazy"}
+                  fetchpriority={variant === "lead" && index === 0 ? "high" : "auto"}
+                  decoding="async"
+                />
+              </picture>
             )}
             {item.caption && <figcaption>{item.caption}</figcaption>}
           </figure>
@@ -332,6 +355,10 @@ const sourceGroups = articlePullRequests.reduce<Map<string, EditorialPullRequest
     border: 0;
     background: #151512;
     object-fit: cover;
+  }
+
+  .article-media picture {
+    display: block;
   }
 
   .article-media figcaption {
