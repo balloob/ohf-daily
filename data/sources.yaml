@@ -46,6 +46,16 @@ feed_sources:
     desk: Music Assistant
     url: https://www.music-assistant.io/blog/rss.xml
     enabled: true
+  # Nabu Casa does not publish RSS/Atom. Its official sitemap is filtered to
+  # news articles, whose canonical metadata is then collected from each page.
+  - id: nabu-casa-news
+    name: Nabu Casa News
+    kind: official
+    format: sitemap
+    path_prefix: /news/
+    desk: Nabu Casa libraries
+    url: https://www.nabucasa.com/sitemap.xml
+    enabled: true
   - id: matter-js-announcements
     name: Matter.js Announcements
     kind: official

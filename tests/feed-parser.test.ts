@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { feedParserInternals, parseFeed } from "../src/lib/feed-parser";
+import { feedParserInternals, parseFeed, parseSitemap } from "../src/lib/feed-parser";
 
 test("normalizes RSS 2.0 CDATA, namespaces, enclosures, and canonical URLs", () => {
   const entries = parseFeed(`<?xml version="1.0" encoding="UTF-8"?>
@@ -155,4 +155,59 @@ test("skips entries without a safe URL, valid date, or title", () => {
     <item><guid>c</guid><title><![CDATA[<script>empty</script>]]></title><link>https://example.com/c</link><pubDate>2026-08-31T00:00:00Z</pubDate></item>
   </channel></rss>`);
   assert.deepEqual(entries, []);
+});
+
+test("normalizes safe sitemap URLs and last modification timestamps", () => {
+  const entries = parseSitemap(`<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url>
+        <loc>https://WWW.NABUCASA.com/news/one/?utm_source=sitemap&amp;b=2&amp;a=1#details</loc>
+        <lastmod>2026-03-31</lastmod>
+      </url>
+      <url>
+        <loc>https://www.nabucasa.com/news/two/</loc>
+        <lastmod>2026-08-31T12:30:00+02:00</lastmod>
+      </url>
+    </urlset>`);
+
+  assert.deepEqual(entries, [
+    {
+      loc: "https://www.nabucasa.com/news/one/?a=1&b=2",
+      lastmod: "2026-03-31T00:00:00.000Z",
+    },
+    {
+      loc: "https://www.nabucasa.com/news/two/",
+      lastmod: "2026-08-31T10:30:00.000Z",
+    },
+  ]);
+});
+
+test("accepts prefixed sitemap elements and skips unsafe or incomplete entries", () => {
+  const entries = parseSitemap(`<sm:urlset xmlns:sm="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sm:url><sm:loc>https://example.com/news/safe</sm:loc><sm:lastmod>2026-08-31</sm:lastmod></sm:url>
+    <sm:url><sm:loc>http://example.com/news/http</sm:loc><sm:lastmod>2026-08-31</sm:lastmod></sm:url>
+    <sm:url><sm:loc>https://user:secret@example.com/private</sm:loc><sm:lastmod>2026-08-31</sm:lastmod></sm:url>
+    <sm:url><sm:loc>https://example.com/news/no-date</sm:loc></sm:url>
+    <sm:url><sm:loc>https://example.com/news/bad-date</sm:loc><sm:lastmod>not-a-date</sm:lastmod></sm:url>
+  </sm:urlset>`);
+
+  assert.deepEqual(entries, [{
+    loc: "https://example.com/news/safe",
+    lastmod: "2026-08-31T00:00:00.000Z",
+  }]);
+});
+
+test("rejects unsafe, malformed, oversized, non-UTF-8, and excessive sitemap input", () => {
+  assert.throws(
+    () => parseSitemap(`<!DOCTYPE urlset [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><urlset />`),
+    /DOCTYPE/,
+  );
+  assert.throws(() => parseSitemap("<urlset><url></urlset>"), /Malformed sitemap XML/);
+  assert.throws(() => parseSitemap("<urlset />", { maxBytes: 5 }), /byte limit/);
+  assert.throws(() => parseSitemap(Uint8Array.from([0xc3, 0x28])), /valid UTF-8/);
+  assert.throws(
+    () => parseSitemap(`<urlset><url /><url /></urlset>`, { maxEntries: 1 }),
+    /entry limit/,
+  );
+  assert.throws(() => parseSitemap("<sitemapindex />"), /URL set/);
 });

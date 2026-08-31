@@ -22,6 +22,16 @@ export interface FeedParserOptions {
   maxContentLength?: number;
 }
 
+export interface SitemapEntryInput {
+  loc: string;
+  lastmod: string;
+}
+
+export interface SitemapParserOptions {
+  maxBytes?: number;
+  maxEntries?: number;
+}
+
 const DEFAULT_MAX_BYTES = 2 * 1024 * 1024;
 const DEFAULT_MAX_ENTRIES = 1_000;
 const DEFAULT_MAX_TITLE_LENGTH = 500;
@@ -280,14 +290,14 @@ function requiredOptions(options: FeedParserOptions): Required<FeedParserOptions
   };
 }
 
-function sourceText(input: string | Uint8Array, maxBytes: number): string {
+function sourceText(input: string | Uint8Array, maxBytes: number, documentName = "Feed"): string {
   const bytes = typeof input === "string" ? Buffer.byteLength(input, "utf8") : input.byteLength;
-  if (bytes > maxBytes) throw new Error(`Feed XML exceeds the ${maxBytes}-byte limit.`);
+  if (bytes > maxBytes) throw new Error(`${documentName} XML exceeds the ${maxBytes}-byte limit.`);
   if (typeof input === "string") return input;
   try {
     return new TextDecoder("utf-8", { fatal: true }).decode(input);
   } catch {
-    throw new Error("Feed XML is not valid UTF-8.");
+    throw new Error(`${documentName} XML is not valid UTF-8.`);
   }
 }
 
@@ -338,6 +348,46 @@ export function parseFeed(input: string | Uint8Array, parserOptions: FeedParserO
   return records.flatMap((record) => {
     const normalized = normalizeEntry(record, format, options);
     return normalized ? [normalized] : [];
+  });
+}
+
+export function parseSitemap(input: string | Uint8Array, parserOptions: SitemapParserOptions = {}): SitemapEntryInput[] {
+  const maxBytes = positiveInteger(parserOptions.maxBytes, DEFAULT_MAX_BYTES, "maxBytes");
+  const maxEntries = positiveInteger(parserOptions.maxEntries, DEFAULT_MAX_ENTRIES, "maxEntries");
+  const xml = sourceText(input, maxBytes, "Sitemap");
+  if (/<!DOCTYPE\b/i.test(xml)) throw new Error("Sitemap XML must not contain a DOCTYPE declaration.");
+
+  try {
+    SyntaxValidator.validate(xml, { allowBooleanAttributes: false });
+  } catch (error) {
+    throw new Error(`Malformed sitemap XML: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  let parsed: unknown;
+  try {
+    parsed = new XMLParser({
+      allowBooleanAttributes: false,
+      attributeNamePrefix: "@_",
+      ignoreAttributes: false,
+      parseAttributeValue: false,
+      parseTagValue: false,
+      processEntities: true,
+      trimValues: false,
+    }).parse(xml);
+  } catch (error) {
+    throw new Error(`Malformed sitemap XML: ${error instanceof Error ? error.message : String(error)}`);
+  }
+  if (!isRecord(parsed)) throw new Error("Sitemap XML does not contain a URL set.");
+
+  const urlset = child(parsed, "urlset");
+  if (!isRecord(urlset)) throw new Error("Sitemap XML does not contain a URL set.");
+  const rawRecords = asArray(child(urlset, "url"));
+  if (rawRecords.length > maxEntries) throw new Error(`Sitemap XML exceeds the ${maxEntries}-entry limit.`);
+
+  return rawRecords.filter(isRecord).flatMap((record) => {
+    const loc = safeHttpsUrl(child(record, "loc"), true);
+    const lastmod = normalizedDate(child(record, "lastmod"));
+    return loc && lastmod ? [{ loc, lastmod }] : [];
   });
 }
 

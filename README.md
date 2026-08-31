@@ -106,9 +106,9 @@ The monthly shards and `data/cache/` are local working data and are never commit
 
 ## Official blogs and Google Alerts
 
-Official RSS and Atom feeds are configured in `data/sources.yaml`. The initial set covers the Open Home Foundation blog and newsletter, Home Assistant's main and developer blogs, ESPHome, Music Assistant, and Matter.js maintainer announcements. Projects without a genuine editorial feed remain covered through GitHub and the umbrella OHF/Home Assistant publications; release feeds are not mislabeled as blogs.
+Official publication sources are configured in `data/sources.yaml`. The initial set covers the Open Home Foundation blog and newsletter, Home Assistant's main and developer blogs, ESPHome, Music Assistant, Nabu Casa News, and Matter.js maintainer announcements. Nabu Casa does not publish RSS or Atom, so its official sitemap is filtered to `/news/` and each article's canonical metadata is collected directly. Projects without a genuine editorial source remain covered through GitHub and the umbrella OHF/Home Assistant publications; release feeds are not mislabeled as blogs.
 
-Feed entries are stored as append-only monthly revisions under `data/content/`. This database is ignored by Git and cached privately in Actions, just like PR history. Only the source ledger of a selected article is written into the published edition. RSS can preserve everything observed from now onward, but it cannot guarantee history older than the entries a publisher still exposes in its current feed.
+Publication entries are stored as append-only monthly revisions under `data/content/`. This database is ignored by Git and cached privately in Actions, just like PR history. Only the source ledger of a selected article is written into the published edition. Feed collection preserves everything observed from now onward but cannot guarantee history older than a publisher still exposes; sitemap-backed sources can bootstrap the articles that remain listed.
 
 Google Alerts are optional and private. In [Google Alerts](https://www.google.com/alerts), create the searches you want and, when the interface offers it, choose **Deliver to → RSS Feed**. Copy the generated feed URLs into one JSON array in `GOOGLE_ALERT_FEEDS_JSON`; never put those capability URLs in YAML, prompts, or edition data:
 
@@ -144,7 +144,7 @@ For the actual bootstrap, the manual GitHub Actions workflow is also available. 
 - reporting-window and front-page limits;
 - Home Assistant and ESPHome release cycles;
 - the 45-day upcoming-release horizon and explicit GitHub Release sources used by Release Radar;
-- official blog and announcement feeds, their editorial desks, and enablement;
+- official blog and announcement feeds or sitemaps, their editorial desks, and enablement;
 - AI model, reasoning, concurrency, and history-query limits.
 
 Every enabled organization costs at least one GitHub Search request per edition. Add or disable organizations in YAML; no collector change is necessary. Project Pulse reuses the primary organizations' daily totals and performs three additional lightweight searches for authoritative seven-day totals, so its counts do not depend on local backfill completeness or the editorial detail limit. If collection approaches rate limits, reduce `max_prs_per_organization`, disable low-signal sources, and preserve the API cache.

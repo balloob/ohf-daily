@@ -1,13 +1,15 @@
 import { createHash } from "node:crypto";
 import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
-import { parseFeed } from "./feed-parser";
+import { htmlToBoundedText, parseFeed, parseSitemap } from "./feed-parser";
 import { queryContent, readContentStore, upsertContentStore, type StoredContent, type StoredContentInput } from "./content-store";
 
 export interface FeedSourceConfig {
   id: string;
   name: string;
   kind: "official" | "google_alert";
+  format?: "feed" | "sitemap";
+  path_prefix?: string;
   desk?: string;
   url?: string;
   url_env?: string;
@@ -61,10 +63,16 @@ function normalizedSource(source: FeedSourceConfig, environment: NodeJS.ProcessE
   const name = source.name.trim();
   if (!/^[a-z0-9][a-z0-9-]*$/.test(id) || !name) throw new TypeError("Feed sources need a lowercase kebab-case id and display name.");
   if (source.kind !== "official" && source.kind !== "google_alert") throw new TypeError(`Feed source ${id} has an unsupported kind.`);
+  const format = source.format ?? "feed";
+  if (format !== "feed" && format !== "sitemap") throw new TypeError(`Feed source ${id} has an unsupported format.`);
+  if (format === "sitemap" && source.kind !== "official") throw new TypeError(`Sitemap source ${id} must be official.`);
+  const pathPrefix = source.path_prefix?.trim();
+  if (format === "sitemap" && (!pathPrefix || !pathPrefix.startsWith("/"))) throw new TypeError(`Sitemap source ${id} requires an absolute path_prefix.`);
+  if (format === "feed" && pathPrefix) throw new TypeError(`Feed source ${id} cannot set path_prefix.`);
   if (Boolean(source.url) === Boolean(source.url_env)) throw new TypeError(`Feed source ${id} must set exactly one of url or url_env.`);
   const value = source.url ?? environment[source.url_env!];
   if (!value) throw new Error(`Feed source ${id} requires the ${source.url_env} environment variable.`);
-  return { ...source, id, name, url: safeFeedUrl(value.trim(), source.kind).toString() };
+  return { ...source, id, name, format, path_prefix: pathPrefix, url: safeFeedUrl(value.trim(), source.kind).toString() };
 }
 
 export function googleAlertSources(value: string | undefined, warnings?: string[]): FeedSourceConfig[] {
@@ -98,7 +106,7 @@ function stableContentId(sourceId: string, guid: string, url: string): string {
 }
 
 function sourceFingerprint(source: FeedSourceConfig & { url: string }): string {
-  return createHash("sha256").update(`${source.kind}\0${source.url}`).digest("hex");
+  return createHash("sha256").update(`${source.kind}\0${source.format ?? "feed"}\0${source.path_prefix ?? ""}\0${source.url}`).digest("hex");
 }
 
 function googleAlertTarget(value: string): string {
@@ -135,16 +143,21 @@ async function responseTextWithinLimit(response: Response): Promise<string> {
   return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
 }
 
-async function fetchFeed(
+async function fetchDocument(
   source: FeedSourceConfig & { url: string },
   cache: FeedCache,
   fetcher: typeof fetch,
   now: Date,
+  documentKind: "xml" | "html" = "xml",
 ): Promise<{ body: string; warning?: string }> {
   const fingerprint = sourceFingerprint(source);
   const entry = cache.entries[source.id];
   const cached = entry?.sourceFingerprint === fingerprint ? entry : undefined;
-  const headers: Record<string, string> = { Accept: "application/atom+xml, application/rss+xml, application/xml, text/xml;q=0.9" };
+  const headers: Record<string, string> = {
+    Accept: documentKind === "html"
+      ? "text/html, application/xhtml+xml;q=0.9"
+      : "application/atom+xml, application/rss+xml, application/xml, text/xml;q=0.9",
+  };
   if (cached?.etag) headers["If-None-Match"] = cached.etag;
   if (cached?.lastModified) headers["If-Modified-Since"] = cached.lastModified;
   try {
@@ -156,7 +169,8 @@ async function fetchFeed(
     }
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const contentType = (response.headers.get("content-type") ?? "").toLowerCase();
-    if (contentType && !/(?:atom|rss|xml|text\/plain)/.test(contentType)) throw new Error(`unexpected content type ${contentType}`);
+    const accepted = documentKind === "html" ? /(?:html|text\/plain)/ : /(?:atom|rss|xml|text\/plain)/;
+    if (contentType && !accepted.test(contentType)) throw new Error(`unexpected content type ${contentType}`);
     const body = await responseTextWithinLimit(response);
     cache.entries[source.id] = {
       fetchedAt: now.toISOString(),
@@ -170,6 +184,59 @@ async function fetchFeed(
     if (cached) return { body: cached.body, warning: `${source.name} could not be refreshed; cached feed data was used.` };
     throw error;
   }
+}
+
+function htmlAttribute(tag: string, name: string): string | undefined {
+  const quoted = tag.match(new RegExp(`(?:^|\\s)${name}\\s*=\\s*(["'])([\\s\\S]*?)\\1`, "i"));
+  if (quoted) return quoted[2];
+  return tag.match(new RegExp(`(?:^|\\s)${name}\\s*=\\s*([^\\s>]+)`, "i"))?.[1];
+}
+
+function metadataValue(html: string, keys: string[]): string | undefined {
+  for (const tag of html.match(/<meta\b[^>]*>/gi) ?? []) {
+    const key = (htmlAttribute(tag, "property") ?? htmlAttribute(tag, "name"))?.toLowerCase();
+    if (key && keys.includes(key)) {
+      const content = htmlAttribute(tag, "content");
+      if (content) return content;
+    }
+  }
+  return undefined;
+}
+
+function articleDateFromUrl(url: string, fallback: string): string {
+  const match = new URL(url).pathname.match(/\/(\d{4}-\d{2}-\d{2})(?:-|\/)/);
+  const value = match?.[1] ?? fallback.slice(0, 10);
+  const timestamp = Date.parse(`${value}T00:00:00Z`);
+  if (Number.isNaN(timestamp)) throw new Error(`Could not determine publication date for ${url}.`);
+  return new Date(timestamp).toISOString();
+}
+
+function articleMetadata(html: string, url: string, lastModified: string): Omit<StoredContentInput, "id" | "kind" | "source"> {
+  const titleHtml = metadataValue(html, ["og:title", "twitter:title"])
+    ?? html.match(/<title\b[^>]*>([\s\S]*?)<\/title\s*>/i)?.[1]
+    ?? new URL(url).pathname.split("/").filter(Boolean).at(-1)?.replace(/[-_]+/g, " ")
+    ?? "Nabu Casa news";
+  const description = metadataValue(html, ["description", "og:description", "twitter:description"]);
+  const published = metadataValue(html, ["article:published_time", "datepublished"]);
+  const image = metadataValue(html, ["og:image", "twitter:image"]);
+  let mediaUrl: string | undefined;
+  if (image) {
+    try {
+      mediaUrl = safeFeedUrl(new URL(image, url).toString(), "official").toString();
+    } catch {
+      // Unsafe or malformed metadata should not suppress an otherwise useful article.
+    }
+  }
+  const title = htmlToBoundedText(titleHtml, 500) || "Nabu Casa news";
+  return {
+    title,
+    url,
+    publishedAt: published && !Number.isNaN(Date.parse(published)) ? new Date(published).toISOString() : articleDateFromUrl(url, lastModified),
+    updatedAt: lastModified,
+    author: null,
+    body: description ? htmlToBoundedText(description, 12_000) : null,
+    mediaUrls: mediaUrl ? [mediaUrl] : [],
+  };
 }
 
 export async function collectContentFeeds(options: FeedCollectionOptions): Promise<FeedCollectionResult> {
@@ -206,8 +273,36 @@ export async function collectContentFeeds(options: FeedCollectionOptions): Promi
   const observedAt = (options.now ?? (() => new Date()))();
   const batches = await Promise.all(sources.map(async (source): Promise<StoredContentInput[]> => {
     try {
-      const fetched = await fetchFeed(source, cache, fetcher, observedAt);
+      const fetched = await fetchDocument(source, cache, fetcher, observedAt);
       if (fetched.warning) warnings.push(fetched.warning);
+      if (source.format === "sitemap") {
+        const articlePrefix = source.path_prefix!;
+        const sitemapEntries = parseSitemap(fetched.body, { maxBytes: maximumFeedBytes })
+          .filter((entry) => {
+            const pathname = new URL(entry.loc).pathname;
+            return pathname.startsWith(articlePrefix) && pathname !== articlePrefix;
+          });
+        return (await Promise.all(sitemapEntries.map(async (entry): Promise<StoredContentInput | undefined> => {
+          const pageSource: FeedSourceConfig & { url: string } = {
+            ...source,
+            id: `${source.id}-page-${createHash("sha256").update(entry.loc).digest("hex").slice(0, 16)}`,
+            url: entry.loc,
+          };
+          try {
+            const page = await fetchDocument(pageSource, cache, fetcher, observedAt, "html");
+            if (page.warning) warnings.push(page.warning);
+            return {
+              id: stableContentId(source.id, entry.loc, entry.loc),
+              kind: "official_post",
+              source: source.name,
+              ...articleMetadata(page.body, entry.loc, entry.lastmod),
+            };
+          } catch (error) {
+            warnings.push(`${source.name} article ${entry.loc} could not be collected: ${error instanceof Error ? error.message : String(error)}`);
+            return undefined;
+          }
+        }))).filter((entry): entry is StoredContentInput => entry !== undefined);
+      }
       return parseFeed(fetched.body, { maxBytes: maximumFeedBytes }).map((entry) => {
         const url = source.kind === "google_alert" ? googleAlertTarget(entry.url) : entry.url;
         return {
@@ -239,4 +334,13 @@ export async function collectContentFeeds(options: FeedCollectionOptions): Promi
   return { current, ...store, warnings, configured: sources.length };
 }
 
-export const feedCollectorInternals = { safeFeedUrl, stableContentId, sourceFingerprint, googleAlertTarget, normalizedSource, responseTextWithinLimit };
+export const feedCollectorInternals = {
+  safeFeedUrl,
+  stableContentId,
+  sourceFingerprint,
+  googleAlertTarget,
+  normalizedSource,
+  responseTextWithinLimit,
+  articleDateFromUrl,
+  articleMetadata,
+};

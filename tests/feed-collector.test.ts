@@ -36,6 +36,53 @@ test("collects, caches, archives, and selects official feed entries in the repor
   assert.equal(cache.entries["official-news"].etag, '"v1"');
 });
 
+test("collects official news pages discovered through a filtered sitemap", async (context) => {
+  const root = await temporaryRoot();
+  context.after(() => rm(root, { recursive: true, force: true }));
+  const sitemap = `<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url><loc>https://www.nabucasa.com/news/</loc><lastmod>2026-08-31</lastmod></url>
+    <url><loc>https://www.nabucasa.com/news/2026-08-31-new-thing/</loc><lastmod>2026-08-31</lastmod></url>
+    <url><loc>https://www.nabucasa.com/about/</loc><lastmod>2026-08-31</lastmod></url>
+  </urlset>`;
+  const article = `<!doctype html><html><head>
+    <meta property="og:title" content="A useful Nabu Casa announcement">
+    <meta name="description" content="Canonical details from the official news page.">
+    <meta property="article:published_time" content="2026-08-31T09:30:00Z">
+    <meta property="og:image" content="/images/announcement.jpg">
+  </head><body></body></html>`;
+  const fetched: string[] = [];
+  const result = await collectContentFeeds({
+    root,
+    sources: [{
+      id: "nabu-casa-news",
+      name: "Nabu Casa News",
+      kind: "official",
+      format: "sitemap",
+      path_prefix: "/news/",
+      url: "https://www.nabucasa.com/sitemap.xml",
+    }],
+    start: new Date("2026-08-31T00:00:00Z"),
+    end: new Date("2026-09-01T00:00:00Z"),
+    fetcher: (async (input) => {
+      const url = String(input);
+      fetched.push(url);
+      return url.endsWith("sitemap.xml")
+        ? new Response(sitemap, { status: 200, headers: { "content-type": "application/xml" } })
+        : new Response(article, { status: 200, headers: { "content-type": "text/html" } });
+    }) as typeof fetch,
+  });
+  assert.deepEqual(fetched, [
+    "https://www.nabucasa.com/sitemap.xml",
+    "https://www.nabucasa.com/news/2026-08-31-new-thing/",
+  ]);
+  assert.equal(result.current.length, 1);
+  assert.equal(result.current[0].kind, "official_post");
+  assert.equal(result.current[0].source, "Nabu Casa News");
+  assert.equal(result.current[0].title, "A useful Nabu Casa announcement");
+  assert.equal(result.current[0].body, "Canonical details from the official news page.");
+  assert.deepEqual(result.current[0].mediaUrls, ["https://www.nabucasa.com/images/announcement.jpg"]);
+});
+
 test("revalidates with ETag and reuses cached XML after a 304", async (context) => {
   const root = await temporaryRoot();
   context.after(() => rm(root, { recursive: true, force: true }));
