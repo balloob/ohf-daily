@@ -6,6 +6,10 @@ import { editions, formatEditionDate } from "../../lib/editions";
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
 const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
 const monthName = (yearMonth: string) => new Intl.DateTimeFormat("en", { month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${yearMonth}-15T12:00:00Z`));
+const editionTitle = (edition: (typeof editions)[number]) => {
+  const articles = edition.articles ?? [];
+  return articles.find((article) => article.placement === "lead")?.title ?? articles[0]?.title ?? edition.lead?.title ?? "A quiet news day";
+};
 const grouped = editions.reduce<Record<string, typeof editions>>((months, edition) => {
   const key = edition.date.slice(0, 7);
   (months[key] ??= []).push(edition);
@@ -41,7 +45,7 @@ const byYear = Object.entries(grouped).reduce<Record<string, Array<[string, type
                       <li>
                         <a href={href(`/edition/${edition.date}/`)}>
                           <time datetime={edition.date}>{formatEditionDate(edition.date)}</time>
-                          <span>{edition.lead?.title ?? "A quiet news day"}</span>
+                          <span>{editionTitle(edition)}</span>
                           <small>{edition.stats.mergedPullRequests} merged PRs · {edition.stats.repositories} repositories</small>
                         </a>
                       </li>
