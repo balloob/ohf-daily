@@ -11,6 +11,7 @@ import {
   extractMediaUrls,
   firstImage,
   latestScheduledReleaseDate,
+  landedReleasesFromHistory,
   reportingWindow,
   reviewCredits,
   sentenceSummary,
@@ -152,6 +153,46 @@ test("computes release-aware Project Pulse windows", () => {
     { product: "Music Assistant", today: 0, thisWeek: 0, sinceRelease: 1, lastReleaseDate: "2026-08-20" },
     { product: "ESPHome", today: 0, thisWeek: 0, sinceRelease: 1, lastReleaseDate: "2026-08-19" },
   ]);
+});
+
+test("builds Release Radar items from GitHub releases inside the reporting window", () => {
+  const releases = landedReleasesFromHistory(
+    { repository: "esphome/esphome", product: "ESPHome", accent: "green", include_prereleases: false },
+    [
+      { id: 10, name: "2026.8.2", body: null, published_at: "2026-08-31T02:22:48Z", html_url: "https://github.com/esphome/esphome/releases/tag/2026.8.2", tag_name: "2026.8.2" },
+      { id: 11, name: "2026.9.0b1", body: null, published_at: "2026-08-31T03:00:00Z", html_url: "https://github.com/esphome/esphome/releases/tag/2026.9.0b1", tag_name: "2026.9.0b1", prerelease: true },
+      { id: 12, name: "Draft", body: null, published_at: "2026-08-31T04:00:00Z", html_url: "https://github.com/esphome/esphome/releases/tag/draft", tag_name: "draft", draft: true },
+      { id: 13, name: "Too old", body: null, published_at: "2026-08-30T20:00:00Z", html_url: "https://github.com/esphome/esphome/releases/tag/old", tag_name: "old" },
+    ],
+    new Date("2026-08-30T21:59:59Z"),
+    new Date("2026-08-31T21:59:59Z"),
+    [{
+      id: "99",
+      title: "2026.8.2",
+      summary: "Release merge",
+      url: "https://github.com/esphome/esphome/pull/99",
+      repository: "esphome/esphome",
+      organization: "ESPHome",
+      author: "release-manager",
+      mergedAt: "2026-08-31T02:22:43Z",
+      labels: ["merging-to-release"],
+      kind: "platform",
+      score: 40,
+    }],
+  );
+
+  assert.deepEqual(releases, [{
+    id: "esphome/esphome:10",
+    product: "ESPHome",
+    repository: "esphome/esphome",
+    name: "2026.8.2",
+    tag: "2026.8.2",
+    url: "https://github.com/esphome/esphome/releases/tag/2026.8.2",
+    publishedAt: "2026-08-31T02:22:48Z",
+    channel: "stable",
+    accent: "green",
+    sourcePullRequestIds: ["99"],
+  }]);
 });
 
 test("parses inclusive history-only backfill bounds", () => {

@@ -2,7 +2,6 @@
 import type { Edition } from "../lib/types";
 import type { EditorialArticle } from "./article-types";
 import { formatEditionDate } from "../lib/editions";
-import DependencyDialog from "./DependencyDialog.astro";
 import Masthead from "./Masthead.astro";
 import ReleaseRail from "./ReleaseRail.astro";
 import ProjectPulse from "./ProjectPulse.astro";
@@ -33,22 +32,36 @@ const signatureArticleIds = new Set(signatureArticles.map((article) => article.i
 const columnFeatures = deskArticles.filter((article) => !signatureArticleIds.has(article.id) && article.placement !== "brief");
 const columnBriefs = deskArticles.filter((article) => !signatureArticleIds.has(article.id) && article.placement === "brief");
 const coveredPullRequests = new Set(editorialArticles.flatMap((article) => Array.isArray(article.pullRequests) ? article.pullRequests.map((pullRequest) => pullRequest.id) : []));
-const visibleHighlights = edition.highlights.filter((story) => story.id !== edition.lead?.id && !coveredPullRequests.has(story.id));
-const uniqueBriefs = edition.briefs.filter((story) => story.id !== edition.lead?.id && !coveredPullRequests.has(story.id) && !visibleHighlights.some((feature) => feature.id === story.id));
-const windowLabel = `${new Intl.DateTimeFormat("en", { hour: "numeric", minute: "2-digit", timeZone: edition.timezone, timeZoneName: "short" }).format(new Date(edition.windowStart))}–${new Intl.DateTimeFormat("en", { hour: "numeric", minute: "2-digit", timeZone: edition.timezone, timeZoneName: "short" }).format(new Date(edition.windowEnd))}`;
+const releaseSourcePullRequests = new Set((edition.landedReleases ?? []).flatMap((release) => release.sourcePullRequestIds ?? []));
+const hasEditorial = editorialArticles.length > 0;
+const visibleHighlights = hasEditorial ? [] : edition.highlights.filter(
+  (story) => story.id !== edition.lead?.id && !coveredPullRequests.has(story.id) && !releaseSourcePullRequests.has(story.id),
+);
+const uniqueBriefs = hasEditorial ? [] : edition.briefs.filter(
+  (story) => story.id !== edition.lead?.id
+    && !coveredPullRequests.has(story.id)
+    && !releaseSourcePullRequests.has(story.id)
+    && !visibleHighlights.some((feature) => feature.id === story.id),
+);
+const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => item?.product);
 ---
 
 <Masthead date={edition.date} />
 
 <main id="main-content" class="shell">
-  <div class="edition-summary">
-    <p><strong>{edition.stats.mergedPullRequests}</strong> PRs merged</p>
-    <p><strong>{edition.stats.repositories}</strong> repositories</p>
-    <p><strong>{edition.stats.contributors}</strong> contributors</p>
-    <p class="window">Reporting window: {windowLabel}</p>
-  </div>
-
-  <ProjectPulse items={edition.pulse} />
+  <section class:list={["edition-dashboard", { "has-pulse": hasPulse }]} aria-label="Edition activity">
+    <div class="edition-summary">
+      <div class="summary-label">
+        <p>In this edition</p>
+      </div>
+      <dl>
+        <div><dd>{edition.stats.mergedPullRequests}</dd><dt>PRs merged</dt></div>
+        <div><dd>{edition.stats.repositories}</dd><dt>repositories</dt></div>
+        <div><dd>{edition.stats.contributors}</dd><dt>contributors</dt></div>
+      </dl>
+    </div>
+    <ProjectPulse items={edition.pulse} />
+  </section>
 
   {edition.isDemo && (
     <div class="demo-note" role="note">
@@ -137,17 +150,9 @@ const windowLabel = `${new Intl.DateTimeFormat("en", { hour: "numeric", minute: 
         </section>
       )}
 
-      <DependencyDialog items={edition.dependencies} />
-
-      {edition.notes && edition.notes.length > 0 && (
-        <aside class="editors-notes" aria-labelledby="notes-heading">
-          <h2 id="notes-heading">Editor’s notes</h2>
-          <ul>{edition.notes.map((note) => <li>{note}</li>)}</ul>
-        </aside>
-      )}
     </div>
 
-    <ReleaseRail releases={edition.releases} today={edition.date} />
+    <ReleaseRail releases={edition.releases} landedReleases={edition.landedReleases} today={edition.date} />
   </div>
 
   <nav class="edition-nav" aria-label="Edition navigation">
@@ -168,26 +173,72 @@ const windowLabel = `${new Intl.DateTimeFormat("en", { hour: "numeric", minute: 
     padding-bottom: 2rem;
   }
 
-  .edition-summary {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem clamp(0.9rem, 3vw, 2.6rem);
-    padding: 0.8rem 0;
-    border-bottom: 1px solid var(--rule);
-    font: 500 0.7rem/1.35 var(--sans);
+  .edition-dashboard {
+    border-bottom: 3px double var(--rule-dark);
   }
 
-  .edition-summary p {
+  .edition-dashboard.has-pulse {
+    display: grid;
+    grid-template-columns: minmax(380px, 0.9fr) minmax(0, 2.1fr);
+    gap: 1rem;
+  }
+
+  .edition-dashboard :global(.pulse) {
+    border-bottom: 0;
+  }
+
+  .edition-dashboard:not(.has-pulse) .edition-summary {
+    border-right: 0;
+  }
+
+  .edition-summary {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.7rem 1rem 0.7rem 0;
+    border-right: 1px solid var(--rule-dark);
+  }
+
+  .summary-label {
+    display: flex;
+    align-items: center;
+    padding-right: 0.75rem;
+    border-right: 1px solid var(--rule);
+  }
+
+  .summary-label p {
+    margin: 0;
+    color: var(--accent);
+    font: 700 0.55rem/1 var(--label);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .edition-summary dl {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    align-items: center;
     margin: 0;
   }
 
-  .edition-summary strong {
-    font-size: 0.86rem;
+  .edition-summary dt {
+    color: var(--muted);
+    font: 500 0.52rem/1.2 var(--sans);
+    white-space: nowrap;
   }
 
-  .edition-summary .window {
-    margin-left: auto;
-    color: var(--muted);
+  .edition-summary dl > div {
+    display: flex;
+    gap: 0.28rem;
+    align-items: baseline;
+    min-width: 0;
+  }
+
+  .edition-summary dd {
+    margin: 0;
+    font: 700 0.8rem/1.2 var(--label);
   }
 
   .demo-note {
@@ -334,27 +385,6 @@ const windowLabel = `${new Intl.DateTimeFormat("en", { hour: "numeric", minute: 
     border-left: 1px solid var(--rule);
   }
 
-  .editors-notes {
-    margin-top: 2rem;
-    padding: 1rem;
-    border: 1px solid var(--rule);
-    color: var(--muted);
-    font: 400 0.75rem/1.5 var(--sans);
-  }
-
-  .editors-notes h2 {
-    margin: 0 0 0.5rem;
-    color: var(--ink);
-    font: 700 0.68rem/1.3 var(--label);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .editors-notes ul {
-    margin: 0;
-    padding-left: 1.2rem;
-  }
-
   .edition-nav {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -433,9 +463,15 @@ const windowLabel = `${new Intl.DateTimeFormat("en", { hour: "numeric", minute: 
   }
 
   @media (max-width: 760px) {
-    .edition-summary .window {
-      flex-basis: 100%;
-      margin: 0.3rem 0 0;
+    .edition-dashboard.has-pulse {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .edition-summary {
+      padding-right: 0;
+      border-right: 0;
+      border-bottom: 1px solid var(--rule-dark);
     }
 
     .quiet-edition,

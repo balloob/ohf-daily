@@ -33,6 +33,19 @@ export interface ReleaseEvent {
   accent: string;
 }
 
+export interface LandedRelease {
+  id: string;
+  product: string;
+  repository: string;
+  name: string;
+  tag: string;
+  url: string;
+  publishedAt: string;
+  channel: "stable" | "prerelease";
+  accent: string;
+  sourcePullRequestIds?: string[];
+}
+
 export interface ArticleSource {
   id: string;
   title: string;
@@ -111,6 +124,7 @@ export interface Edition {
   dependencies: DependencyItem[];
   articles?: Article[];
   pulse?: ProjectPulseItem[];
+  landedReleases?: LandedRelease[];
   releases: ReleaseEvent[];
   notes?: string[];
 }

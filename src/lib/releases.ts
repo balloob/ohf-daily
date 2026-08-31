@@ -44,10 +44,12 @@ export function buildReleaseCalendar(
   from: Date | string,
   cycles: ReleaseCycle[],
   monthsAhead = 4,
+  horizonDays = 45,
 ): ReleaseEvent[] {
-  if (!Number.isInteger(monthsAhead) || monthsAhead < 1) return [];
+  if (!Number.isInteger(monthsAhead) || monthsAhead < 1 || !Number.isInteger(horizonDays) || horizonDays < 0) return [];
 
   const start = calendarDate(from);
+  const horizon = dateOnly(addDays(start, horizonDays));
   const events: ReleaseEvent[] = [];
   for (let index = 0; index < monthsAhead; index += 1) {
     const cursor = new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth() + index, 1, 12));
@@ -64,7 +66,7 @@ export function buildReleaseCalendar(
 
   const today = dateOnly(start);
   return events
-    .filter((event, index, all) => event.date >= today && all.findIndex((item) => item.product === event.product && item.kind === event.kind && item.date === event.date) === index)
+    .filter((event, index, all) => event.date >= today && event.date <= horizon && all.findIndex((item) => item.product === event.product && item.kind === event.kind && item.date === event.date) === index)
     .sort((a, b) => a.date.localeCompare(b.date))
     .slice(0, 8);
 }

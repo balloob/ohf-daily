@@ -6,7 +6,7 @@ import YAML from "yaml";
 import { buildReleaseCalendar, type ReleaseCycle } from "../src/lib/releases";
 import { isBotLogin, loadContributorCache, lookupContributorDetails, type ContributorCache } from "../src/lib/contributors";
 import { queryPullRequests, readPullRequestStore, upsertPullRequestStore, type StoredPullRequest, type StoredPullRequestInput } from "../src/lib/pr-store";
-import type { DependencyItem, Edition, ProjectPulseItem, PullRequestStory, StoryKind } from "../src/lib/types";
+import type { DependencyItem, Edition, LandedRelease, ProjectPulseItem, PullRequestStory, StoryKind } from "../src/lib/types";
 
 interface OrganizationConfig {
   slug: string;
@@ -16,12 +16,21 @@ interface OrganizationConfig {
   featured_repositories: string[];
 }
 
+interface ReleaseSourceConfig {
+  repository: string;
+  product: string;
+  accent: string;
+  include_prereleases?: boolean;
+}
+
 export interface SourcesConfig {
   window_hours: number;
   timezone: string;
   max_prs_per_organization: number;
   front_page_stories: number;
   briefs_limit: number;
+  release_horizon_days?: number;
+  release_sources?: ReleaseSourceConfig[];
   organizations: OrganizationConfig[];
   editorial: {
     ignore_labels: string[];
@@ -79,7 +88,10 @@ export interface PullFile {
 }
 
 export interface GitHubRelease {
-  published_at: string;
+  id?: number;
+  name?: string | null;
+  body?: string | null;
+  published_at: string | null;
   html_url: string;
   tag_name: string;
   draft?: boolean;
@@ -535,7 +547,8 @@ function makeDemoEdition(date: Date, editionDate: string, config: SourcesConfig)
       { product: "Music Assistant", today: 3, thisWeek: 19, sinceRelease: 28, lastReleaseDate: "2026-08-18" },
       { product: "ESPHome", today: 3, thisWeek: 31, sinceRelease: 42, lastReleaseDate: "2026-08-19" },
     ],
-    releases: buildReleaseCalendar(editionDate, config.release_cycles),
+    landedReleases: [],
+    releases: buildReleaseCalendar(editionDate, config.release_cycles, 4, config.release_horizon_days ?? 45),
     notes: ["This is a seeded preview edition. Run npm run collect with a GitHub token to replace it with live reporting."],
   };
 }
@@ -583,6 +596,56 @@ async function mapWithConcurrency<T, U>(values: T[], concurrency: number, mapper
   }
   await Promise.all(Array.from({ length: Math.min(concurrency, values.length) }, () => worker()));
   return output;
+}
+
+function normalizedReleaseName(value: string): string {
+  return value.trim().toLowerCase().replace(/^release\s+/, "").replace(/^v(?=\d)/, "");
+}
+
+export function landedReleasesFromHistory(
+  source: ReleaseSourceConfig,
+  history: GitHubRelease[],
+  start: Date,
+  end: Date,
+  stories: PullRequestStory[] = [],
+): LandedRelease[] {
+  return history.flatMap((release) => {
+    const publishedAt = release.published_at ? Date.parse(release.published_at) : Number.NaN;
+    if (release.draft || !Number.isFinite(publishedAt) || publishedAt < start.getTime() || publishedAt > end.getTime()) return [];
+    if (release.prerelease && !source.include_prereleases) return [];
+    const names = new Set([release.tag_name, release.name ?? ""].map(normalizedReleaseName).filter(Boolean));
+    const sourcePullRequestIds = stories.filter((story) => {
+      if (story.repository.toLowerCase() !== source.repository.toLowerCase()) return false;
+      const exactName = names.has(normalizedReleaseName(story.title));
+      const releaseLabelNearPublication = story.labels.includes("merging-to-release")
+        && Math.abs(Date.parse(story.mergedAt) - publishedAt) <= 6 * 3_600_000;
+      return exactName || releaseLabelNearPublication;
+    }).map((story) => story.id);
+    return [{
+      id: `${source.repository.toLowerCase()}:${release.id ?? release.tag_name}`,
+      product: source.product,
+      repository: source.repository,
+      name: release.name?.trim() || release.tag_name,
+      tag: release.tag_name,
+      url: release.html_url,
+      publishedAt: release.published_at!,
+      channel: release.prerelease ? "prerelease" as const : "stable" as const,
+      accent: source.accent,
+      sourcePullRequestIds: sourcePullRequestIds.length > 0 ? sourcePullRequestIds : undefined,
+    }];
+  }).sort((left, right) => right.publishedAt.localeCompare(left.publishedAt));
+}
+
+async function fetchReleaseHistory(client: GitHubClient, source: ReleaseSourceConfig, start: Date): Promise<GitHubRelease[]> {
+  const history: GitHubRelease[] = [];
+  for (let page = 1; page <= 10; page += 1) {
+    const url = `https://api.github.com/repos/${source.repository}/releases?per_page=100&page=${page}`;
+    const batch = await client.get<GitHubRelease[]>(url, { maxAgeMinutes: 30 });
+    history.push(...batch);
+    const dated = batch.flatMap((release) => release.published_at ? [Date.parse(release.published_at)] : []).filter(Number.isFinite);
+    if (batch.length < 100 || (dated.length > 0 && Math.min(...dated) < start.getTime())) break;
+  }
+  return history;
 }
 
 async function enrichFirstContributions(
@@ -970,17 +1033,32 @@ export async function collect(): Promise<CollectionResult> {
   if (reviewFailures > 0) notes.push(`${reviewFailures} pull request review list${reviewFailures === 1 ? "" : "s"} could not be loaded.`);
   if (contributorLookupFailures > 0) notes.push(`${contributorLookupFailures} first-time contributor lookup${contributorLookupFailures === 1 ? "" : "s"} could not be completed.`);
 
-  let musicAssistantRelease: GitHubRelease | null = null;
-  try {
-    const releases = await client.get<GitHubRelease[]>("https://api.github.com/repos/music-assistant/server/releases?per_page=100", { maxAgeMinutes: 360 });
-    musicAssistantRelease = releases
-      .filter((release) => !release.draft && !release.prerelease && Date.parse(release.published_at) <= end.getTime())
-      .sort((left, right) => right.published_at.localeCompare(left.published_at))[0] ?? null;
-    if (!musicAssistantRelease) notes.push("No Music Assistant release baseline was available on or before this edition.");
-  } catch (error) {
-    console.warn(`Could not load the latest Music Assistant release: ${error instanceof Error ? error.message : String(error)}`);
-    notes.push("The Music Assistant release baseline could not be refreshed for Project Pulse.");
+  const releaseHistories = new Map<string, GitHubRelease[]>();
+  const landedReleases: LandedRelease[] = [];
+  const releaseSources = config.release_sources ?? [];
+  const releaseResults = await mapWithConcurrency(releaseSources, 4, async (source) => {
+    try {
+      const history = await fetchReleaseHistory(client, source, start);
+      return { source, history, error: null as string | null };
+    } catch (error) {
+      return { source, history: [] as GitHubRelease[], error: error instanceof Error ? error.message : String(error) };
+    }
+  });
+  for (const result of releaseResults) {
+    releaseHistories.set(result.source.repository.toLowerCase(), result.history);
+    if (result.error) {
+      console.warn(`Could not load releases for ${result.source.repository}: ${result.error}`);
+      notes.push(`${result.source.product} releases could not be refreshed for Release Radar.`);
+      continue;
+    }
+    landedReleases.push(...landedReleasesFromHistory(result.source, result.history, start, end, stories));
   }
+  landedReleases.sort((left, right) => right.publishedAt.localeCompare(left.publishedAt));
+
+  const musicAssistantRelease = (releaseHistories.get("music-assistant/server") ?? [])
+    .filter((release): release is GitHubRelease & { published_at: string } => Boolean(release.published_at) && !release.draft && !release.prerelease && Date.parse(release.published_at!) <= end.getTime())
+    .sort((left, right) => right.published_at.localeCompare(left.published_at))[0] ?? null;
+  if (!musicAssistantRelease) notes.push("No Music Assistant release baseline was available on or before this edition.");
   const pulse = buildProjectPulse(await readPullRequestStore(pullRequestDirectory), end, editionDate, config.timezone, config.release_cycles, musicAssistantRelease);
 
   const ranked = stories.sort((a, b) => b.score - a.score || b.mergedAt.localeCompare(a.mergedAt));
@@ -1006,7 +1084,8 @@ export async function collect(): Promise<CollectionResult> {
     briefs,
     dependencies,
     pulse,
-    releases: buildReleaseCalendar(editionDate, config.release_cycles),
+    landedReleases,
+    releases: buildReleaseCalendar(editionDate, config.release_cycles, 4, config.release_horizon_days ?? 45),
     notes: editionNotes.length > 0 ? editionNotes : undefined,
   };
 

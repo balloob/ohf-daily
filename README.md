@@ -124,6 +124,7 @@ For the actual bootstrap, the manual GitHub Actions workflow is also available. 
 - known dependency-update authors;
 - reporting-window and front-page limits;
 - Home Assistant and ESPHome release cycles;
+- the 45-day upcoming-release horizon and explicit GitHub Release sources used by Release Radar;
 - AI model, reasoning, concurrency, and history-query limits.
 
 Every enabled organization costs at least one GitHub Search request per edition. Add or disable organizations in YAML; no collector change is necessary. If collection approaches rate limits, reduce `max_prs_per_organization`, disable low-signal sources, and preserve the API cache.
@@ -132,7 +133,9 @@ Home Assistant releases are calculated for the first Wednesday of each month. ES
 
 ## Site behavior
 
-The newest edition is the home page. Older JSON files feed dated edition routes and the year/month archive. The release rail and all article sources remain available on every edition. Reported articles are also published as an RSS 2.0 feed at `/rss.xml`; the site advertises it through page metadata and a masthead link.
+The newest edition is the home page. Older JSON files feed dated edition routes and the year/month archive. The release rail shows actual releases published during the reporting window above a compact calendar capped at 45 days. Reported articles are also published as an RSS 2.0 feed at `/rss.xml`; the site advertises it through page metadata and a masthead link.
+
+Dependency updates, editor diagnostics, and deterministic raw PR rankings do not appear on an AI-produced front page. If AI is unavailable, the raw ranked sections remain available as a fallback; scheduled production runs require AI.
 
 On desktop, supporting material such as dependency details opens in a contained dialog. On narrow mobile screens, dialogs become full-screen, keep their close control visible, and scroll internally so long lists do not move or overflow the newspaper behind them.
 
@@ -155,6 +158,12 @@ To test a GitHub project-site path locally:
 
 ```sh
 SITE_URL=https://your-name.github.io BASE_PATH=/ohf-daily npm run build
+```
+
+To re-run only the editorial agents against the existing local PR database—without collecting GitHub again—set `OPENAI_API_KEY` and run dates chronologically:
+
+```sh
+npm run regenerate:editorial -- --from 2026-08-29 --to 2026-08-31
 ```
 
 ## GitHub tokens and cache

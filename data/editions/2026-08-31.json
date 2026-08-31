@@ -737,16 +737,16 @@
   "articles": [
     {
       "id": "vrt-max-arrives-in-music-assistant",
-      "title": "VRT MAX arrives in Music Assistant",
-      "dek": "A first contribution brings Flemish public radio, podcasts, favourites and listening progress into Music Assistant.",
+      "title": "VRT MAX support lands in Music Assistant",
+      "dek": "A first contribution adds Flemish public radio, podcasts, favourites and listening progress to the server.",
       "body": [
-        "Merged provider support will let Music Assistant connect directly to VRT MAX, the streaming service of the Flemish public broadcaster. Bram Goolaerts’ contribution covers live stations including Radio 1, Radio 2, Studio Brussel, MNM and Klara, alongside listen-back programmes, podcasts and search. Live radio will work without signing in.",
-        "Connecting an account adds on-demand playback, Mijn lijst library syncing and resume positions that carry across devices. The provider supports multiple instances, so people in one household can keep separate accounts, and listen-back episodes can expose played songs as chapters in Now Playing.",
+        "Bram Goolaerts’ newly merged provider connects Music Assistant with VRT MAX, the streaming service of the Flemish public broadcaster. It covers live stations including Radio 1, Radio 2, Studio Brussel, MNM and Klara, alongside listen-back programmes, podcasts and search. Live radio does not require an account.",
+        "Signing in enables on-demand playback, Mijn lijst library syncing and resume positions that carry across devices. Separate provider instances let people in one household keep their own accounts, while listen-back episodes can show played songs as chapters in Now Playing.",
         "This is Goolaerts’ first merged contribution to the Music Assistant server. Welcome, Bram—and congratulations on landing an unusually complete first PR."
       ],
       "kind": "daily",
-      "placement": "lead",
-      "score": 96,
+      "placement": "feature",
+      "score": 93,
       "contributors": [
         "bollewolle"
       ],
@@ -780,16 +780,16 @@
     },
     {
       "id": "ios-energy-widget-gas-and-batteries",
-      "title": "The iOS energy widget makes room for gas and batteries",
-      "dek": "Home Assistant’s glanceable energy view now carries four parts of a household’s energy picture, including two-way battery flow.",
+      "title": "Gas and batteries land in Home Assistant’s iOS energy widget",
+      "dek": "Merged iOS work expands the glanceable energy view from grid and solar to four parts of a household’s energy picture.",
       "body": [
-        "Bruno Pantaleão Gonçalves expanded the Home Assistant iOS energy widget beyond grid and solar. Battery discharge is stacked above the chart axis, charging below it, while gas appears as a separate figure because its statistics may be measured in volume rather than energy.",
-        "The merged widget update uses the same consumption math as the energy dashboard, so energy used to charge a battery is not counted as household demand. Cost combines electricity and gas, and all four sources still fit on the small widget and Lock Screen accessories.",
+        "Bruno Pantaleão Gonçalves expanded the Home Assistant iOS energy widget beyond grid and solar. The merged design stacks battery discharge above the chart axis and charging below it; gas appears as a separate figure because homes may measure it by volume rather than energy.",
+        "The merged widget code uses the same consumption math as the energy dashboard, so charging a battery is not also counted as household demand. It combines electricity and gas costs, and all four sources still fit on the small widget and Lock Screen accessories.",
         "The work continues Gonçalves’s August run on the widget, after Lock Screen sizing, a reload action for missing data and clearer period and refresh-time information landed earlier in the month."
       ],
       "kind": "daily",
-      "placement": "feature",
-      "score": 92,
+      "placement": "lead",
+      "score": 97,
       "contributors": [
         "bgoncal"
       ],
@@ -852,60 +852,17 @@
       ]
     },
     {
-      "id": "esphome-improv-beyond-wifi",
-      "title": "ESPHome’s serial tools recognize devices beyond Wi‑Fi",
-      "dek": "A merged ESPHome change lets devices connected by Ethernet, Thread or a modem tell compatible serial tools how they are online and where to open their local web page.",
-      "body": [
-        "ESPHome’s Improv Serial protocol lets a setup tool talk to a device over USB or another serial connection. Keith Burzinski’s change allows that protocol to run on devices without Wi‑Fi, including Ethernet-only boards, and report whether they are online and which network interfaces they have.",
-        "Compatible tools can also receive the device’s local web address. Wi‑Fi provisioning remains Wi‑Fi-only; the new support reports Ethernet, Thread and modem connections rather than configuring them. The same work stops tools from showing stale success while a device is still leaving its previous Wi‑Fi network."
-      ],
-      "kind": "daily",
-      "placement": "brief",
-      "score": 76,
-      "contributors": [
-        "kbx81"
-      ],
-      "contributorProfiles": [
-        {
-          "login": "kbx81",
-          "name": "Keith Burzinski",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/21233191?v=4",
-          "profileUrl": "https://github.com/kbx81"
-        }
-      ],
-      "reviewers": [
-        "bdraco"
-      ],
-      "approvers": [
-        "bdraco"
-      ],
-      "topics": [
-        "New capabilities",
-        "ESPHome"
-      ],
-      "continuity": "Builds on August work making ESPHome’s network stack more deliberate about multiple active interfaces.",
-      "pullRequests": [
-        {
-          "id": "4065614450",
-          "title": "[improv_serial] Support non-Wi-Fi network interfaces",
-          "url": "https://github.com/esphome/esphome/pull/17598",
-          "repository": "esphome/esphome"
-        }
-      ],
-      "media": []
-    },
-    {
       "id": "bluetooth-adapters-release-connections",
-      "title": "Bluetooth fix clears connections left by removed adapters",
-      "dek": "The merged repair drops connections that depended on a disabled or removed adapter, allowing devices to reconnect cleanly.",
+      "title": "Bluetooth repair clears connections left by removed adapters",
+      "dek": "A merged library fix drops links that depended on a disabled or removed adapter, allowing devices to reconnect cleanly.",
       "body": [
         "Radek Podgorny traced a stubborn Bluetooth state mismatch to scanner removal. Home Assistant cleared its bookkeeping when an adapter disappeared, but connections made through that adapter could remain alive, continuing to deliver notifications while occupying a slot the system believed was free.",
-        "The fix disconnects clients that still depend on an adapter when that adapter is removed, while leaving alone any device that has already found another route. It covers local adapters and ESPHome Bluetooth proxies.",
+        "The repair disconnects clients that still depend on an adapter when that adapter is removed, while leaving alone any device that has already found another route. It covers local adapters and ESPHome Bluetooth proxies.",
         "Podgorny verified the local path on real BlueZ hardware: disabling the adapter dropped the kernel link, and enabling it again allowed a clean reconnect. The remote-proxy path has automated coverage but was not part of that hardware test."
       ],
       "kind": "daily",
       "placement": "feature",
-      "score": 89,
+      "score": 90,
       "contributors": [
         "rpodgorny"
       ],
@@ -938,105 +895,60 @@
       "media": []
     },
     {
-      "id": "konyks-indicator-always-on",
-      "title": "Konyks socket indicator setting lands",
-      "dek": "Merged library and Core changes expose an LED mode supported by two Konyks sockets even though Tuya’s published device information leaves it out.",
+      "id": "youtube-music-collaboration-tracks",
+      "title": "A Music Assistant fix keeps collaboration tracks in YouTube Music albums",
+      "dek": "Merged server work stops songs from silently disappearing when YouTube Music returns a collaborator without an artist ID.",
       "body": [
-        "New contributor minimicro34 added device definitions for the Konyks Priska Max 3 FR and Priska Duo FR. Both sockets support four indicator modes—including always on—even though Tuya’s metadata lists only relay, position and off.",
-        "A companion Home Assistant change supplies the readable translation for Tuya’s light-mode selector. Together, the three PRs carry the capability from device knowledge in the shared library through to a label users can understand in Home Assistant.",
-        "These are minimicro34’s first merged contributions to both tuya-device-handlers and Home Assistant Core. Welcome to both projects."
+        "Some YouTube Music collaboration tracks arrive without an artist ID. Music Assistant treated that missing identifier as invalid and quietly left the song out of its album listing; the reported album lost four tracks this way.",
+        "Marvin Schenkel’s merged repair follows YouTube Music’s own fallback: when none of a track’s credited artists can be matched, Music Assistant uses the album artist instead of dropping the track."
       ],
       "kind": "daily",
       "placement": "brief",
-      "score": 80,
+      "score": 82,
       "contributors": [
-        "minimicro34"
+        "MarvinSchenkel"
       ],
       "contributorProfiles": [
         {
-          "login": "minimicro34",
-          "name": "minimicro34",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/299944266?v=4",
-          "profileUrl": "https://github.com/minimicro34"
+          "login": "MarvinSchenkel",
+          "name": "Marvin Schenkel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
+          "profileUrl": "https://github.com/MarvinSchenkel"
         }
       ],
-      "reviewers": [
-        "epenet"
-      ],
-      "approvers": [
-        "epenet"
-      ],
+      "reviewers": [],
+      "approvers": [],
       "topics": [
-        "New devices",
-        "Home Assistant"
+        "Playback reliability",
+        "Music Assistant"
       ],
       "pullRequests": [
         {
-          "id": "4396933079",
-          "title": "Add quirk for Konyks Priska Max 3 FR socket",
-          "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/511",
-          "repository": "home-assistant-libs/tuya-device-handlers"
-        },
-        {
-          "id": "4400222561",
-          "title": "Add quirk for Konyks Priska Duo FR",
-          "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/514",
-          "repository": "home-assistant-libs/tuya-device-handlers"
-        },
-        {
-          "id": "4397373832",
-          "title": "Add Tuya indicator light on translation",
-          "url": "https://github.com/home-assistant/core/pull/180865",
-          "repository": "home-assistant/core"
+          "id": "4399674613",
+          "title": "Fix missing tracks on albums for collaboration tracks in YouTube Music",
+          "url": "https://github.com/music-assistant/server/pull/6115",
+          "repository": "music-assistant/server"
         }
       ],
       "media": []
     },
     {
-      "id": "weekly-beta-hardening-and-energy-control",
-      "title": "Beta week protects the homes people already configured",
-      "dek": "From August 24–30, repairs across Home Assistant Core and the frontend preserved automations, replacement devices and compatibility with existing systems.",
+      "id": "weekly-beta-protects-existing-setups",
+      "title": "Two beta-period fixes protect work in Home Assistant’s editors",
+      "dek": "Merged frontend repairs keep one editor’s state out of another and preserve automation configuration when a device is replaced.",
       "body": [
-        "From Monday, August 24 through Sunday, August 30, Home Assistant moved into beta with a clear theme: protect configurations and compatibility people already rely on. The work was spread across Core and the frontend, but each repair reduced the chance that an update would undo earlier setup or make established hardware behave differently.",
-        "Core reverted a NumPy update that broke Proxmox environments, validated stored KNX interface data before loading it, restored follow-up voice commands and corrected temperature-offset conversion for Matter thermostats. These fixes preserve compatibility rather than adding something new to configure.",
-        "In the frontend, one repair stopped editor state leaking when people switched between automations, scripts or scenes. Another kept the existing automation configuration when a device is replaced. Together, they protect work people have already put into their homes—the strongest common thread in the week’s beta fixes."
+        "Home Assistant entered its September beta period last week with two closely related frontend repairs aimed at preserving work in its editors.",
+        "One merged fix stops editor state from leaking when people switch between automations, scripts or scenes. Another keeps an automation’s existing configuration when one of its devices is replaced, instead of making that carefully built setup collateral damage.",
+        "Together, the changes tighten the boundary between editing one configuration and altering another. They are merged groundwork for a safer editing experience as the September release approaches."
       ],
       "kind": "weekly_recap",
       "placement": "feature",
-      "score": 94,
+      "score": 92,
       "contributors": [
-        "erwindouna",
-        "farmio",
-        "synesthesiam",
-        "lboue",
         "MindFreeze",
         "piitaya"
       ],
       "contributorProfiles": [
-        {
-          "login": "erwindouna",
-          "name": "Erwin Douna",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/5011203?v=4",
-          "profileUrl": "https://github.com/erwindouna"
-        },
-        {
-          "login": "farmio",
-          "name": "Matthias Alphart",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/12422879?v=4",
-          "profileUrl": "https://github.com/farmio"
-        },
-        {
-          "login": "synesthesiam",
-          "name": "Michael Hansen",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/2743976?v=4",
-          "profileUrl": "https://github.com/synesthesiam"
-        },
-        {
-          "login": "lboue",
-          "name": "Ludovic BOUÉ",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/938089?v=4",
-          "profileUrl": "https://github.com/lboue"
-        },
         {
           "login": "MindFreeze",
           "name": "Petar Petrov",
@@ -1051,14 +963,10 @@
         }
       ],
       "reviewers": [
-        "frenck",
-        "silamon",
         "TheJulianJES",
         "bramkragten"
       ],
       "approvers": [
-        "frenck",
-        "silamon",
         "TheJulianJES",
         "bramkragten"
       ],
@@ -1067,41 +975,17 @@
         "Beta",
         "Reliability"
       ],
-      "continuity": "The recap narrows the week to one reader outcome: preserving existing Home Assistant configuration and compatibility during beta.",
+      "continuity": "The recap follows two frontend fixes with one reader outcome: preserving existing Home Assistant editor work during beta.",
       "pullRequests": [
         {
-          "id": "4376244004",
-          "title": "Revert NumPy update for Proxmox compatibility",
-          "url": "https://github.com/home-assistant/core/pull/180411",
-          "repository": "home-assistant/core"
-        },
-        {
-          "id": "4352583399",
-          "title": "Validate stored KNX UI data",
-          "url": "https://github.com/home-assistant/core/pull/180067",
-          "repository": "home-assistant/core"
-        },
-        {
-          "id": "4379652634",
-          "title": "Follow up on voice regressions",
-          "url": "https://github.com/home-assistant/core/pull/180457",
-          "repository": "home-assistant/core"
-        },
-        {
-          "id": "4359093980",
-          "title": "Correct Matter thermostat offset",
-          "url": "https://github.com/home-assistant/core/pull/180172",
-          "repository": "home-assistant/core"
-        },
-        {
           "id": "4374501522",
-          "title": "Stop automation editor state leaking between steps",
+          "title": "Fix editor state leaking when switching automations, scripts, or scenes",
           "url": "https://github.com/home-assistant/frontend/pull/53826",
           "repository": "home-assistant/frontend"
         },
         {
           "id": "4367740854",
-          "title": "Preserve details when replacing devices",
+          "title": "Keep the automation config when replacing a device in device automations",
           "url": "https://github.com/home-assistant/frontend/pull/53805",
           "repository": "home-assistant/frontend"
         }
@@ -1130,6 +1014,22 @@
       "thisWeek": 22,
       "sinceRelease": 22,
       "lastReleaseDate": "2026-08-19"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "esphome/esphome:379471065",
+      "product": "ESPHome",
+      "repository": "esphome/esphome",
+      "name": "2026.8.2",
+      "tag": "2026.8.2",
+      "url": "https://github.com/esphome/esphome/releases/tag/2026.8.2",
+      "publishedAt": "2026-08-31T02:22:48Z",
+      "channel": "stable",
+      "accent": "green",
+      "sourcePullRequestIds": [
+        "4398058488"
+      ]
     }
   ],
   "releases": [
@@ -1168,22 +1068,6 @@
       "kind": "Beta",
       "date": "2026-10-14",
       "accent": "green"
-    },
-    {
-      "product": "ESPHome",
-      "kind": "Release",
-      "date": "2026-10-21",
-      "accent": "green"
-    },
-    {
-      "product": "Home Assistant",
-      "kind": "Beta",
-      "date": "2026-10-28",
-      "accent": "blue"
     }
-  ],
-  "notes": [
-    "Feedback edition drafted from the local public-PR archive by parallel reporter desks.",
-    "An independent post-publication review tightened human relevance, corrected the scope of the ESPHome serial story, and narrowed the weekly recap to one supported thesis."
   ]
 }

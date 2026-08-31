@@ -5,6 +5,35 @@ timezone: Europe/Amsterdam
 max_prs_per_organization: 60
 front_page_stories: 5
 briefs_limit: 18
+release_horizon_days: 45
+
+# GitHub Releases are fetched only for these deliberately selected public
+# repositories. Keeping the list explicit controls API cost and release noise.
+release_sources:
+  - repository: home-assistant/core
+    product: Home Assistant
+    accent: blue
+    include_prereleases: true
+  - repository: esphome/esphome
+    product: ESPHome
+    accent: green
+    include_prereleases: true
+  - repository: music-assistant/server
+    product: Music Assistant
+    accent: rust
+    include_prereleases: false
+  - repository: zwave-js/zwave-js
+    product: Z-Wave JS
+    accent: blue
+    include_prereleases: false
+  - repository: matter-js/matter.js
+    product: Matter.js
+    accent: rust
+    include_prereleases: false
+  - repository: zigpy/zigpy
+    product: Zigpy
+    accent: green
+    include_prereleases: false
 
 organizations:
   - slug: home-assistant

@@ -618,12 +618,12 @@
   "articles": [
     {
       "id": "solaredge-modbus-arrives",
-      "title": "SolarEdge goes local, and brings the whole energy system",
-      "dek": "A new local Modbus integration landed with discovery, meters, batteries, diagnostics, controls, and detailed inverter telemetry in one day.",
+      "title": "SolarEdge energy moves onto the local network",
+      "dek": "Newly merged Home Assistant support reads inverters, meters, and batteries directly—and adds discovery, diagnostics, and controls without relying on the cloud API.",
       "body": [
-        "Home Assistant can now read a SolarEdge inverter directly over its local Modbus interface, avoiding dependence on the cloud API while exposing production, energy, electrical, temperature, and status data.",
-        "The initial integration was followed by mDNS discovery, attached meters and batteries as sub-devices, serial support, diagnostics, fault and charging states, and writable limits and setpoints. The implementation shares the inverter’s limited Modbus connections and guards long-term energy statistics against transient zero or lower readings.",
-        "Companion documentation was referenced by several pull requests but was not present as a canonical merge in this edition’s reporting window."
+        "Once released, the newly merged integration will give SolarEdge owners a local route to their energy data. It reads production, energy, voltage, current, temperature, and operating state from an inverter over Modbus TCP instead of waiting on a cloud service.",
+        "The work landed as a connected nine-PR sequence. Network discovery can find the inverter, while attached meters and batteries appear as their own devices. Diagnostics, RS485 serial connections, fault and charging states, and writable power and storage settings round out the integration.",
+        "The implementation also accounts for two practical hazards: SolarEdge equipment permits only a small number of simultaneous Modbus connections, and transient zero or lower energy readings must not corrupt long-term statistics."
       ],
       "kind": "daily",
       "placement": "lead",
@@ -749,18 +749,19 @@
     },
     {
       "id": "mcp-app-discovery",
-      "title": "Home Assistant apps can announce their own MCP servers",
-      "dek": "Supervisor-managed apps now have a discovery route into Home Assistant’s Model Context Protocol integration.",
+      "title": "Merged work lets apps bring their own AI tools into Home Assistant",
+      "dek": "Supervisor-managed apps will be able to announce Model Context Protocol servers, while an OAuth fix keeps Google-hosted connections signed in.",
       "body": [
-        "An app hosting an MCP server can declare the `mcp` discovery service and send Home Assistant its server URL. Home Assistant validates the address and asks the user to confirm before connecting, continuing through OAuth when authentication is required.",
-        "Supervisor’s discovery identifier ties the resulting entry to the app, allowing uninstall cleanup and URL updates when ports change. The app slug also gives its LLM API a readable, stable identity across reinstalls.",
-        "User and app-author documentation was described as follow-up work, but no companion documentation merge appears in this edition’s canonical evidence."
+        "Once released, the newly merged work will give Home Assistant app users a guided route to tools exposed through the Model Context Protocol. An app can announce its server URL; Home Assistant validates it and asks the user to confirm before connecting, continuing through OAuth when authentication is required.",
+        "Supervisor’s discovery identity lets Home Assistant update a connection when the app moves ports and remove it when the app is uninstalled. A readable app-based identifier also survives reinstalls.",
+        "A companion repair addresses Google-hosted servers that worked for about an hour and then demanded authentication repeatedly: the authorization request now asks for the refresh token needed to renew access."
       ],
       "kind": "daily",
       "placement": "feature",
-      "score": 84,
+      "score": 86,
       "contributors": [
-        "balloob"
+        "balloob",
+        "frenck"
       ],
       "contributorProfiles": [
         {
@@ -768,127 +769,131 @@
           "name": "Paulus Schoutsen",
           "avatarUrl": "https://avatars.githubusercontent.com/u/1444314?v=4",
           "profileUrl": "https://github.com/balloob"
+        },
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
         }
       ],
       "reviewers": [
-        "agners"
+        "agners",
+        "balloob"
       ],
       "approvers": [
-        "agners"
+        "agners",
+        "balloob"
       ],
       "topics": [
-        "Model Context Protocol",
         "Apps",
-        "Discovery"
+        "Model Context Protocol",
+        "Reliability"
       ],
-      "continuity": "This connects Supervisor’s existing app-discovery mechanism to the MCP integration rather than introducing a separate provisioning path.",
+      "continuity": "Supervisor discovery now carries app-hosted MCP servers into Home Assistant, while the related OAuth repair makes those discovered tools usable beyond the first access-token lifetime.",
       "pullRequests": [
         {
           "id": "4373857303",
           "title": "Add app discovery to Model Context Protocol",
           "url": "https://github.com/home-assistant/core/pull/180378",
           "repository": "home-assistant/core"
-        }
-      ],
-      "media": []
-    },
-    {
-      "id": "persang-infrared",
-      "title": "Persang speakers join Home Assistant by way of infrared",
-      "dek": "A new integration turns captured commands from a physical Persang remote into media-player controls sent through an existing infrared emitter.",
-      "body": [
-        "The integration supports power, volume, mute, playback, and track controls for Persang Bluetooth speakers that also accept infrared commands. Its initial command set was captured twice from an Octane 9 remote and checked against standard NEC encoding.",
-        "Protocol support landed earlier in `infrared-protocols`; this edition brings the Home Assistant integration and its brand assets. The current pull request intentionally leaves mode, equalizer, scan, repeat, numeric keys, and persisted mute state to later work.",
-        "Dr.Blank’s brand-assets merge is their first recorded contribution to `home-assistant/brands`. Welcome, Dr.Blank. The referenced user documentation was not present as a canonical merge in this reporting window."
-      ],
-      "kind": "daily",
-      "placement": "feature",
-      "score": 79,
-      "contributors": [
-        "Dr-Blank"
-      ],
-      "contributorProfiles": [
-        {
-          "login": "Dr-Blank",
-          "name": "Dr.Blank",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/64108942?v=4",
-          "profileUrl": "https://github.com/Dr-Blank"
-        }
-      ],
-      "reviewers": [
-        "abmantis",
-        "joostlek"
-      ],
-      "approvers": [
-        "abmantis",
-        "joostlek"
-      ],
-      "topics": [
-        "New integration",
-        "Infrared",
-        "Speakers"
-      ],
-      "continuity": "The integration consumes Persang command codes merged into the shared infrared protocol library earlier in August.",
-      "pullRequests": [
-        {
-          "id": "4197432961",
-          "title": "Add Persang speaker IR command codes",
-          "url": "https://github.com/home-assistant-libs/infrared-protocols/pull/120",
-          "repository": "home-assistant-libs/infrared-protocols"
         },
         {
-          "id": "4197414878",
-          "title": "Add Persang Infrared integration",
-          "url": "https://github.com/home-assistant/core/pull/178107",
+          "id": "4391035749",
+          "title": "Ask MCP authorization servers for a refresh token",
+          "url": "https://github.com/home-assistant/core/pull/180604",
           "repository": "home-assistant/core"
-        },
-        {
-          "id": "4201225408",
-          "title": "Add Persang Infrared icon and logo",
-          "url": "https://github.com/home-assistant/brands/pull/10912",
-          "repository": "home-assistant/brands"
         }
       ],
       "media": []
     },
     {
-      "id": "sonic-analysis-download-recovery",
-      "title": "Sonic analysis stops multiplying a slow model download",
-      "dek": "Music Assistant now lets one CLAP model setup continue in the background and makes later attempts join it instead of starting another memory-heavy download.",
+      "id": "apple-quick-controls",
+      "title": "Merged work improves Home Assistant’s Apple quick surfaces",
+      "dek": "Widgets and app-icon shortcuts gain more actions, Lock Screen circles render correctly, and Assist gets live listening feedback on Apple Watch.",
       "body": [
-        "Sonic analysis setup downloads an approximately 690 MB CLAP checkpoint. On a slow connection or busy host, the work could exceed the five-minute provider timeout while continuing in the background.",
-        "Each retry previously started another download and model build, with attempts serializing on a file lock and potentially consuming substantial memory. The fix shares the in-flight work, retries transient transport failures, and ensures only one download and build runs at a time."
+        "Merged companion-app work will make Home Assistant’s smaller Apple surfaces more capable. “Magic items” will be able to toggle an entity, open a URL, or perform a Home Assistant action, bringing widget and app-icon behavior in line with the web interface.",
+        "Circular Lock Screen widgets now draw their icons as images, avoiding missing glyphs when iOS renders them outside the extension process. Their monochrome layout and picker previews were corrected at the same time.",
+        "On Apple Watch, Assist now shows the same responsive voice orb as the phone, driven by microphone level and kept active through the silence countdown that ends a recording."
       ],
       "kind": "daily",
       "placement": "feature",
-      "score": 75,
+      "score": 84,
       "contributors": [
-        "chrisuthe"
+        "bgoncal"
       ],
       "contributorProfiles": [
         {
-          "login": "chrisuthe",
-          "name": "Chris",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/26907395?v=4",
-          "profileUrl": "https://github.com/chrisuthe"
+          "login": "bgoncal",
+          "name": "Bruno Pantaleão Gonçalves",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5808343?v=4",
+          "profileUrl": "https://github.com/bgoncal"
         }
       ],
-      "reviewers": [
-        "marcelveldt"
-      ],
-      "approvers": [
-        "marcelveldt"
-      ],
+      "reviewers": [],
+      "approvers": [],
       "topics": [
-        "Reliability",
+        "Home Assistant Companion",
+        "Apple Watch",
+        "Widgets"
+      ],
+      "continuity": "Three companion-app changes improve the quick surfaces people use when opening the full Home Assistant interface would be too slow or distracting.",
+      "pullRequests": [
+        {
+          "id": "4386838952",
+          "title": "Support all frontend tap actions on magic items",
+          "url": "https://github.com/home-assistant/iOS/pull/5558",
+          "repository": "home-assistant/iOS"
+        },
+        {
+          "id": "4390593443",
+          "title": "Fix lock screen circular widgets",
+          "url": "https://github.com/home-assistant/iOS/pull/5561",
+          "repository": "home-assistant/iOS"
+        },
+        {
+          "id": "4388511642",
+          "title": "Show the Assist voice orb on Apple Watch",
+          "url": "https://github.com/home-assistant/iOS/pull/5559",
+          "repository": "home-assistant/iOS"
+        }
+      ],
+      "media": []
+    },
+    {
+      "id": "music-assistant-guest-speakers",
+      "title": "Guest-ready speakers can play without an approval detour",
+      "dek": "Music Assistant now recognizes when a speaker already permits guest playback, so it can appear ready to use while optional pairing remains available.",
+      "body": [
+        "Listeners no longer have to click through a setup screen for a speaker that already advertises guest access. Music Assistant approves the device when it connects and makes it available for playback immediately.",
+        "Pairing remains an optional upgrade through Reconfigure, while speakers with an audio input still ask for approval once because that input choice is part of setup. The change shipped in Music Assistant 2.10.1, published during this edition’s window."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 88,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
         "Music Assistant",
-        "Sonic analysis"
+        "Player setup",
+        "Playback"
       ],
       "pullRequests": [
         {
-          "id": "4376068747",
-          "title": "Stop the CLAP weights download from timing out sonic_analysis setup",
-          "url": "https://github.com/music-assistant/server/pull/6053",
+          "id": "4385627968",
+          "title": "Let speakers with guest access play without a setup step",
+          "url": "https://github.com/music-assistant/server/pull/6088",
           "repository": "music-assistant/server"
         }
       ],
@@ -896,10 +901,10 @@
     },
     {
       "id": "crowpanel-advance-7",
-      "title": "ESPHome adds the seven-inch CrowPanel Advance",
-      "dek": "The MIPI RGB component now recognizes Elecrow’s CrowPanel Advance 7, with its configuration documented alongside the implementation.",
+      "title": "ESPHome adds a ready-made path for the seven-inch CrowPanel",
+      "dek": "Makers can target Elecrow’s CrowPanel Advance 7 through the MIPI RGB display component, with matching configuration documented alongside the code.",
       "body": [
-        "Support was tested with the ESP32-IDF environment and landed together with its ESPHome documentation. The documentation pull request is companion material for the device implementation, not an independent story."
+        "Support was tested with the ESP32-IDF environment and landed together with a documented starting configuration, giving makers a practical path from the display component to a working device setup."
       ],
       "kind": "daily",
       "placement": "brief",
@@ -943,66 +948,46 @@
       "media": []
     },
     {
-      "id": "music-browser-now-playing",
-      "title": "A first contribution puts the current song in the browser tab",
-      "dek": "Music Assistant’s page title now follows the playing track and artist, making the right tab easier to find.",
+      "id": "hue-motionaware-zone-switches",
+      "title": "Merged support adds an automation switch for Hue MotionAware zones",
+      "dek": "Home Assistant will be able to turn each MotionAware zone on or off, matching a control that previously lived only in the Hue app.",
       "body": [
-        "When complete metadata is available, the title becomes “Track Title – Artist Name”; otherwise the interface retains its branded fallback.",
-        "Welcome, Chai (`phiychai`), whose change is their first recorded merge in the Music Assistant frontend."
+        "Home Assistant previously exposed this toggle for physical Hue motion sensors but not MotionAware zones. The merged change adds a switch for each zone that can be placed on a dashboard or used in an automation once released."
       ],
       "kind": "daily",
       "placement": "brief",
-      "score": 62,
+      "score": 72,
       "contributors": [
-        "phiychai"
+        "marcelveldt"
       ],
       "contributorProfiles": [
         {
-          "login": "phiychai",
-          "name": "Chai",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/3500928?v=4",
-          "profileUrl": "https://github.com/phiychai"
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
         }
       ],
       "reviewers": [
-        "marcelveldt"
+        "silamon"
       ],
       "approvers": [
-        "marcelveldt"
+        "silamon"
       ],
       "topics": [
-        "Music Assistant",
-        "Now playing",
-        "First contribution"
+        "Home Assistant",
+        "Hue",
+        "Automations"
       ],
       "pullRequests": [
         {
-          "id": "4360574894",
-          "title": "Update browser title with current track and artist",
-          "url": "https://github.com/music-assistant/frontend/pull/2649",
-          "repository": "music-assistant/frontend"
+          "id": "4145569449",
+          "title": "Add switch to enable/disable Hue MotionAware zones",
+          "url": "https://github.com/home-assistant/core/pull/177415",
+          "repository": "home-assistant/core"
         }
       ],
-      "media": [
-        {
-          "type": "image",
-          "url": "/media/2026-08-29/music-browser-now-playing-b5c6186b1d55-264w.webp",
-          "alt": "Screenshot of a Music Assistant browser tab showing the current track and artist",
-          "caption": "The browser title now follows the currently playing music.",
-          "width": 264,
-          "height": 49,
-          "variants": [
-            {
-              "url": "/media/2026-08-29/music-browser-now-playing-b5c6186b1d55-264w.webp",
-              "width": 264,
-              "height": 49,
-              "bytes": 1440,
-              "type": "image/webp"
-            }
-          ],
-          "bytes": 1440
-        }
-      ]
+      "media": []
     }
   ],
   "pulse": [
@@ -1026,6 +1011,44 @@
       "thisWeek": 222,
       "sinceRelease": 222,
       "lastReleaseDate": "2026-08-19"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "home-assistant/core:379099231",
+      "product": "Home Assistant",
+      "repository": "home-assistant/core",
+      "name": "2026.9.0b4",
+      "tag": "2026.9.0b4",
+      "url": "https://github.com/home-assistant/core/releases/tag/2026.9.0b4",
+      "publishedAt": "2026-08-29T20:55:06Z",
+      "channel": "prerelease",
+      "accent": "blue"
+    },
+    {
+      "id": "home-assistant/core:378926829",
+      "product": "Home Assistant",
+      "repository": "home-assistant/core",
+      "name": "2026.9.0b3",
+      "tag": "2026.9.0b3",
+      "url": "https://github.com/home-assistant/core/releases/tag/2026.9.0b3",
+      "publishedAt": "2026-08-29T08:46:22Z",
+      "channel": "prerelease",
+      "accent": "blue"
+    },
+    {
+      "id": "music-assistant/server:378829882",
+      "product": "Music Assistant",
+      "repository": "music-assistant/server",
+      "name": "2.10.1",
+      "tag": "2.10.1",
+      "url": "https://github.com/music-assistant/server/releases/tag/2.10.1",
+    "publishedAt": "2026-08-29T01:10:56Z",
+    "channel": "stable",
+    "accent": "rust",
+    "sourcePullRequestIds": [
+      "4374771018"
+    ]
     }
   ],
   "releases": [
@@ -1058,28 +1081,6 @@
       "kind": "Release",
       "date": "2026-10-07",
       "accent": "blue"
-    },
-    {
-      "product": "ESPHome",
-      "kind": "Beta",
-      "date": "2026-10-14",
-      "accent": "green"
-    },
-    {
-      "product": "ESPHome",
-      "kind": "Release",
-      "date": "2026-10-21",
-      "accent": "green"
-    },
-    {
-      "product": "Home Assistant",
-      "kind": "Beta",
-      "date": "2026-10-28",
-      "accent": "blue"
     }
-  ],
-  "notes": [
-    "Home Assistant had 143 merged pull requests; the configured limit included 60.",
-    "This edition was reported from the local public-PR archive."
   ]
 }

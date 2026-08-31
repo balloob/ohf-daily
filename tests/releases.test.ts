@@ -44,3 +44,11 @@ test("rejects malformed calendar dates", () => {
   assert.throws(() => buildReleaseCalendar("2026-02-30", cycles), /valid calendar date/);
   assert.throws(() => buildReleaseCalendar("31-08-2026", cycles), /YYYY-MM-DD/);
 });
+
+test("never shows scheduled events more than 45 days ahead", () => {
+  const events = buildReleaseCalendar("2026-08-31", cycles, 4, 45);
+  assert.ok(events.length > 0);
+  assert.equal(events.at(-1)?.date, "2026-10-14");
+  assert.ok(events.every((event) => event.date <= "2026-10-15"));
+  assert.deepEqual(buildReleaseCalendar("2026-08-31", cycles, 4, 0), []);
+});

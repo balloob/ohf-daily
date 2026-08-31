@@ -675,11 +675,11 @@
     {
       "id": "sofar-control-support-and-recovery",
       "title": "Sofar gains control, safer recovery and better support",
-      "dek": "Five connected changes turn the solar integration into a more manageable system without sacrificing its recorded energy history.",
+      "dek": "Four connected changes make the solar integration easier to manage without sacrificing its recorded energy history.",
       "body": [
-        "Home Assistant’s Sofar integration can now switch an inverter’s remote on/off control, capture privacy-redacted diagnostics and be pointed to a new network address without deleting the integration. The reconfigure flow preserves entity customizations and history, then verifies the inverter serial number so an entry cannot silently move to a different device.",
+        "A merged series for Home Assistant’s Sofar integration adds an inverter remote on/off control, privacy-redacted diagnostics and a way to change its network address without deleting the integration. The reconfigure flow preserves entity customizations and history, then verifies the inverter serial number so an entry cannot silently move to a different device.",
         "The same work protects cumulative energy totals during startup. Sofar now restores each total sensor’s prior high-water mark before the first poll, closing a gap in which a torn first read could permanently step a total backward. Diagnostics include the raw register blocks and polled components needed to investigate missing or incorrect readings, while explicitly removing the serial number from both named and raw data.",
-        "The series also brought the integration under Home Assistant’s strict-typing checks. Its diagnostics documentation supports the implementation rather than standing as a separate story."
+        "The diagnostics documentation supports the implementation rather than standing as a separate story. Together, the changes make setup recovery and fault reports safer while keeping local control independent of a cloud service."
       ],
       "kind": "daily",
       "placement": "lead",
@@ -716,37 +716,31 @@
       "pullRequests": [
         {
           "id": "4397188050",
-          "title": "Add remote control to Sofar",
+          "title": "Add a reconfigure flow to the Sofar integration",
           "url": "https://github.com/home-assistant/core/pull/180856",
           "repository": "home-assistant/core"
         },
         {
-          "id": "4397198552",
-          "title": "Add diagnostics to Sofar",
-          "url": "https://github.com/home-assistant/core/pull/180857",
-          "repository": "home-assistant/core"
-        },
-        {
           "id": "4397083640",
-          "title": "Add reconfigure flow to Sofar",
+          "title": "Add diagnostics support for Sofar",
           "url": "https://github.com/home-assistant/core/pull/180854",
           "repository": "home-assistant/core"
         },
         {
           "id": "4374436351",
-          "title": "Restore Sofar total sensors before first poll",
+          "title": "Add a switch entity for the Sofar remote on/off control",
           "url": "https://github.com/home-assistant/core/pull/180383",
           "repository": "home-assistant/core"
         },
         {
           "id": "4391768226",
-          "title": "Enable strict typing for Sofar",
+          "title": "Seed Sofar total sensors' high-water marks before the first poll",
           "url": "https://github.com/home-assistant/core/pull/180624",
           "repository": "home-assistant/core"
         },
         {
           "id": "4397088677",
-          "title": "Document Sofar diagnostics",
+          "title": "Document Sofar diagnostics support",
           "url": "https://github.com/home-assistant/home-assistant.io/pull/47754",
           "repository": "home-assistant/home-assistant.io"
         }
@@ -754,13 +748,72 @@
       "media": []
     },
     {
-      "id": "esphome-actions-explain-themselves",
-      "title": "ESPHome actions can finally explain their inputs",
-      "dek": "Descriptions and examples now travel from device YAML to Home Assistant, replacing bare fields with forms that tell people what to enter.",
+      "id": "solaredge-controls-and-live-hardware",
+      "title": "SolarEdge controls fill out, and new hardware no longer waits for a reload",
+      "dek": "The local Modbus integration adds storage and export choices, protects simultaneous writes, and notices meters or batteries wired in later.",
       "body": [
-        "ESPHome user-defined API actions previously reached Home Assistant as a name and a set of typed inputs. Brandon Harvey added optional descriptions for actions and descriptions plus examples for each variable, while keeping the existing shorthand configuration valid.",
-        "The firmware cost is opt-in: unchanged configurations compile identically, while metadata is included only when declared. The implementation also accounts for the tighter ESP8266 memory model, and was tested on physical ESP8266 and ESP32-C3 hardware.",
-        "A companion aioesphomeapi change carries the new fields into Python clients and defaults them to empty strings for older devices. It is Harvey’s first merged contribution to aioesphomeapi—welcome, Brandon."
+        "A day after Home Assistant’s new local SolarEdge integration merged with support for inverters, meters and batteries, Franck Nijhof completed its choice and toggle controls. Six new selections cover storage behavior and export policy; two disabled-by-default installer switches describe external production and allow an export limit to become a minimum-import target.",
+        "Those controls can share a packed device register, so every write now passes through one lock. Without it, a select and switch changed at nearly the same time could each start from an older value and the second write could undo the first.",
+        "The integration also rechecks attached hardware every fifteen minutes. When the inverter reports that a meter or battery was added or removed, Home Assistant reloads the entry so the corresponding devices and entities follow automatically. A silent block or failed probe does not trigger removal, protecting device history from a transient timeout."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 94,
+      "contributors": [
+        "frenck"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "reviewers": [
+        "balloob",
+        "joostlek"
+      ],
+      "approvers": [
+        "balloob",
+        "joostlek"
+      ],
+      "topics": [
+        "Energy",
+        "Local control",
+        "Home Assistant"
+      ],
+      "continuity": "Saturday introduced local SolarEdge monitoring, discovery and attached hardware; Sunday completed more of the control surface and made hardware changes self-refreshing.",
+      "pullRequests": [
+        {
+          "id": "4393308489",
+          "title": "Add select entities to SolarEdge Modbus",
+          "url": "https://github.com/home-assistant/core/pull/180698",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4396366833",
+          "title": "Add switch entities to SolarEdge Modbus",
+          "url": "https://github.com/home-assistant/core/pull/180826",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4396492196",
+          "title": "Pick up SolarEdge Modbus meters and batteries wired in or out later",
+          "url": "https://github.com/home-assistant/core/pull/180830",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "media": []
+    },
+    {
+      "id": "esphome-actions-explain-themselves",
+      "title": "ESPHome lays the groundwork for better-described actions",
+      "dek": "Merged firmware and Python-client support can carry descriptions and examples, ready for a future Home Assistant change to turn them into clearer forms.",
+      "body": [
+        "A merged ESPHome and Python-client pair creates the path for user-defined API actions to carry more than a name and typed inputs. Brandon Harvey added optional descriptions for actions and descriptions plus examples for each variable, while keeping the existing shorthand configuration available.",
+        "The metadata is opt-in, but there is one compatibility edge: on ESP8266, the strings belonging to a single action must total no more than 384 bytes. An unusually long existing action can therefore fail validation until its names are shortened or the action is split; other platforms have no such limit.",
+        "A companion aioesphomeapi change carries the new fields into Python clients and defaults them to empty strings for older devices. Home Assistant still needs its follow-up integration change before people see the richer forms shown in the prototype. This is Harvey’s first merged contribution to aioesphomeapi—welcome, Brandon."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -787,17 +840,17 @@
         "Developer tools",
         "Usability"
       ],
-      "continuity": "The firmware and Python client changes carry the same descriptive metadata end to end.",
+      "continuity": "The firmware and Python client changes carry the same descriptive metadata to the point where a future Home Assistant consumer can use it.",
       "pullRequests": [
         {
           "id": "4393703435",
-          "title": "Add description and example metadata to user-defined actions",
+          "title": "[api] Add description and example metadata to user-defined actions",
           "url": "https://github.com/esphome/esphome/pull/18881",
           "repository": "esphome/esphome"
         },
         {
           "id": "4393704101",
-          "title": "Carry ESPHome action descriptions and examples",
+          "title": "Add description and example metadata to user service args",
           "url": "https://github.com/esphome/aioesphomeapi/pull/1890",
           "repository": "esphome/aioesphomeapi"
         }
@@ -807,7 +860,7 @@
           "type": "image",
           "url": "/media/2026-08-30/esphome-actions-explain-themselves-885b7dad6145-1236w.webp",
           "alt": "Home Assistant Developer Tools action form before ESPHome metadata",
-          "caption": "Before: user-defined action inputs without descriptions or examples.",
+          "caption": "Current Home Assistant form: user-defined action inputs without descriptions or examples.",
           "width": 1236,
           "height": 326,
           "variants": [
@@ -839,7 +892,7 @@
           "type": "image",
           "url": "/media/2026-08-30/esphome-actions-explain-themselves-07b8657e85cd-1251w.webp",
           "alt": "Home Assistant Developer Tools action form after ESPHome metadata",
-          "caption": "After: the action and its variables include descriptive guidance and an example.",
+          "caption": "Prototype of the future Home Assistant form once the remaining integration change lands.",
           "width": 1251,
           "height": 454,
           "variants": [
@@ -874,13 +927,13 @@
       "title": "Bluetooth devices stop disappearing between scan modes",
       "dek": "A cross-library repair preserves discoveries during active/passive transitions and closes two failure paths that could make devices unreachable.",
       "body": [
-        "Bluetooth scanning in Home Assistant’s shared libraries now restores known discoveries immediately after an adapter flips between active and passive mode. Bleak 3 clears its seen-device map on every start; the in-place mode switch had not restored it, leaving connection attempts blind until each device happened to advertise again.",
+        "A merged set of repairs in Home Assistant’s shared Bluetooth libraries restores known discoveries immediately after an adapter flips between active and passive mode. Bleak 3 clears its seen-device map on every start; the in-place mode switch had not restored it, leaving connection attempts blind until each device happened to advertise again.",
         "Passive scans also recognize more real-world discoverability flag values, and diagnostics now distinguish a device remembered in history from one currently cached by a scanner. A separate fix stops the final retry from selecting passive mode on Linux adapters that do not support it.",
         "That last repair is Radek Podgorny’s first merge in Bluetooth-Devices/habluetooth. Welcome, Radek."
       ],
       "kind": "daily",
-      "placement": "feature",
-      "score": 89,
+      "placement": "brief",
+      "score": 87,
       "contributors": [
         "bdraco",
         "rpodgorny"
@@ -914,31 +967,31 @@
       "pullRequests": [
         {
           "id": "4396945358",
-          "title": "Restore Bluetooth discoveries after scanner mode switches",
+          "title": "fix: restore discoveries after an active window flip",
           "url": "https://github.com/Bluetooth-Devices/habluetooth/pull/624",
           "repository": "Bluetooth-Devices/habluetooth"
         },
         {
           "id": "4396740983",
-          "title": "Recognize additional discoverability flags",
+          "title": "fix: say when a device is in history but cached by no scanner",
           "url": "https://github.com/Bluetooth-Devices/habluetooth/pull/622",
           "repository": "Bluetooth-Devices/habluetooth"
         },
         {
           "id": "4396644567",
-          "title": "Clarify Bluetooth scanner diagnostics",
+          "title": "fix: passive scanning misses devices whose flags are not general discoverable",
           "url": "https://github.com/Bluetooth-Devices/habluetooth/pull/619",
           "repository": "Bluetooth-Devices/habluetooth"
         },
         {
           "id": "4271900036",
-          "title": "Avoid unsupported passive mode on final retry",
+          "title": "fix(scanner): only fall back to passive when the adapter supports it",
           "url": "https://github.com/Bluetooth-Devices/habluetooth/pull/605",
           "repository": "Bluetooth-Devices/habluetooth"
         },
         {
           "id": "4396778491",
-          "title": "Add synchronous Bluetooth discovery restore",
+          "title": "feat: add restore_discoveries_sync",
           "url": "https://github.com/Bluetooth-Devices/bleak-retry-connector/pull/320",
           "repository": "Bluetooth-Devices/bleak-retry-connector"
         }
@@ -950,13 +1003,13 @@
       "title": "Elgato lights put power-up behavior and firmware in Home Assistant",
       "dek": "New controls decide how lights return after an outage, expose signal health and install firmware without making local control depend on Elgato’s servers.",
       "body": [
-        "Home Assistant can now choose whether a supported Elgato light restores its last state or uses configured defaults after power returns. Franck Nijhof added controls for default brightness and color temperature, using each device’s own range, plus diagnostic Wi-Fi signal sensors.",
+        "A merged Home Assistant series adds a choice between restoring an Elgato light’s last state or using configured defaults after power returns. Franck Nijhof added controls for default brightness and color temperature, using each device’s own range, plus diagnostic Wi-Fi signal sensors.",
         "A new update entity can find, install and report progress for firmware images distributed inside Elgato Control Center archives. The remote catalog has its own twice-daily coordinator; if Elgato’s server is unavailable, every locally controlled light entity continues to load and operate.",
         "The underlying color-temperature refactor and companion documentation complete a coordinated expansion rather than separate stories."
       ],
       "kind": "daily",
       "placement": "feature",
-      "score": 86,
+      "score": 85,
       "contributors": [
         "frenck"
       ],
@@ -988,205 +1041,48 @@
       "pullRequests": [
         {
           "id": "4395507293",
-          "title": "Add Elgato power-on behavior controls",
+          "title": "Add an Elgato firmware update entity",
           "url": "https://github.com/home-assistant/core/pull/180786",
           "repository": "home-assistant/core"
         },
         {
           "id": "4395381116",
-          "title": "Add Elgato firmware updates",
+          "title": "Add Elgato Wi-Fi signal sensors",
           "url": "https://github.com/home-assistant/core/pull/180758",
           "repository": "home-assistant/core"
         },
         {
           "id": "4395115934",
-          "title": "Add Elgato signal diagnostics",
+          "title": "Add Elgato power-on number entities",
           "url": "https://github.com/home-assistant/core/pull/180720",
           "repository": "home-assistant/core"
         },
         {
           "id": "4395116010",
-          "title": "Add Elgato default brightness and color temperature",
+          "title": "Add Elgato power-on behavior select",
           "url": "https://github.com/home-assistant/core/pull/180721",
           "repository": "home-assistant/core"
         },
         {
           "id": "4395115812",
-          "title": "Refactor Elgato color temperature handling",
+          "title": "Move the Elgato color temperature range out of the light entity",
           "url": "https://github.com/home-assistant/core/pull/180719",
           "repository": "home-assistant/core"
         },
         {
           "id": "4395117844",
-          "title": "Document Elgato power-on behavior",
+          "title": "Add Elgato power-on behavior select",
           "url": "https://github.com/home-assistant/home-assistant.io/pull/47735",
           "repository": "home-assistant/home-assistant.io"
         },
         {
           "id": "4395117722",
-          "title": "Document Elgato updates",
+          "title": "Add Elgato power-on number entities",
           "url": "https://github.com/home-assistant/home-assistant.io/pull/47734",
           "repository": "home-assistant/home-assistant.io"
         }
       ],
       "media": []
-    },
-    {
-      "id": "modern-forms-gen4-comes-into-focus",
-      "title": "Modern Forms Gen4 fans expose the fixtures they actually have",
-      "dek": "Home Assistant now handles separate uplights and downlights, adds color-temperature control and offers a software restart when a fan wedges.",
-      "body": [
-        "Modern Forms Gen4 fans can carry several independently addressable light fixtures, but Home Assistant previously created one light entity and silently left the others unreachable. Brian Towles changed the integration to create one entity per fixture while preserving established identifiers for earlier fan generations.",
-        "Gen4 fixtures now advertise their individual color-temperature ranges. Unsupported sleep-timer and adaptive-learning entities no longer appear as inert controls, and actions a Gen4 fan cannot perform return an error instead of false success.",
-        "A restart button gives every supported generation a lower-friction recovery step before cutting mains power; the documentation includes that troubleshooting path."
-      ],
-      "kind": "daily",
-      "placement": "feature",
-      "score": 81,
-      "contributors": [
-        "wonderslug"
-      ],
-      "contributorProfiles": [
-        {
-          "login": "wonderslug",
-          "name": "Brian Towles",
-          "avatarUrl": "https://avatars.githubusercontent.com/u/482787?v=4",
-          "profileUrl": "https://github.com/wonderslug"
-        }
-      ],
-      "reviewers": [
-        "joostlek",
-        "frenck"
-      ],
-      "approvers": [
-        "joostlek",
-        "frenck"
-      ],
-      "topics": [
-        "Fans",
-        "Lighting",
-        "Device support"
-      ],
-      "continuity": "A four-part Gen4 series makes multiple fixtures and recovery controls reflect the physical fan.",
-      "pullRequests": [
-        {
-          "id": "4386121282",
-          "title": "Expose every Modern Forms Gen4 light fixture",
-          "url": "https://github.com/home-assistant/core/pull/180524",
-          "repository": "home-assistant/core"
-        },
-        {
-          "id": "4386131093",
-          "title": "Add Gen4 color temperature controls",
-          "url": "https://github.com/home-assistant/core/pull/180525",
-          "repository": "home-assistant/core"
-        },
-        {
-          "id": "4386137837",
-          "title": "Remove unsupported Gen4 controls",
-          "url": "https://github.com/home-assistant/core/pull/180526",
-          "repository": "home-assistant/core"
-        },
-        {
-          "id": "4386144548",
-          "title": "Add Modern Forms restart button",
-          "url": "https://github.com/home-assistant/core/pull/180527",
-          "repository": "home-assistant/core"
-        },
-        {
-          "id": "4386146958",
-          "title": "Document Modern Forms restart",
-          "url": "https://github.com/home-assistant/home-assistant.io/pull/47694",
-          "repository": "home-assistant/home-assistant.io"
-        }
-      ],
-      "media": []
-    },
-    {
-      "id": "shelly-security-without-forced-https",
-      "title": "Shelly enhanced security no longer forces HTTPS",
-      "dek": "A first-time contributor fixes a setup assumption for older devices upgraded to Shelly firmware 2.0.",
-      "body": [
-        "Home Assistant had treated Shelly’s enhanced-security setting as proof that HTTPS was enabled and replaced the configured port with the default HTTPS port. That holds for newer factory-provisioned products, but not for every older device updated over the air.",
-        "A fix from burmistrzak now respects the supplied port, supporting stricter certificate validation over an explicitly configured connection instead of making the device unreachable. The companion documentation clarifies the distinction between enhanced security and HTTPS.",
-        "This is burmistrzak’s first merged contribution to both home-assistant/core and home-assistant.io. Welcome!"
-      ],
-      "kind": "daily",
-      "placement": "brief",
-      "score": 74,
-      "contributors": [
-        "burmistrzak"
-      ],
-      "contributorProfiles": [
-        {
-          "login": "burmistrzak",
-          "name": null,
-          "avatarUrl": "https://avatars.githubusercontent.com/u/61958704?v=4",
-          "profileUrl": "https://github.com/burmistrzak"
-        }
-      ],
-      "reviewers": [
-        "bieniu",
-        "thecode"
-      ],
-      "approvers": [
-        "bieniu",
-        "thecode"
-      ],
-      "topics": [
-        "Shelly",
-        "Compatibility",
-        "First contribution"
-      ],
-      "continuity": null,
-      "pullRequests": [
-        {
-          "id": "4378581837",
-          "title": "Respect Shelly ports with enhanced security",
-          "url": "https://github.com/home-assistant/core/pull/180438",
-          "repository": "home-assistant/core"
-        },
-        {
-          "id": "4392320538",
-          "title": "Clarify Shelly enhanced security and HTTPS",
-          "url": "https://github.com/home-assistant/home-assistant.io/pull/47720",
-          "repository": "home-assistant/home-assistant.io"
-        }
-      ],
-      "media": [
-        {
-          "type": "image",
-          "url": "/media/2026-08-30/shelly-security-without-forced-https-2c156b93e4e1-1408w.webp",
-          "alt": "Screenshot attached to the Shelly enhanced-security and HTTP compatibility fix",
-          "caption": "The contribution documents a Shelly setup where enhanced security is used without forcing HTTPS.",
-          "width": 1408,
-          "height": 1160,
-          "variants": [
-            {
-              "url": "/media/2026-08-30/shelly-security-without-forced-https-2c156b93e4e1-480w.webp",
-              "width": 480,
-              "height": 395,
-              "bytes": 21090,
-              "type": "image/webp"
-            },
-            {
-              "url": "/media/2026-08-30/shelly-security-without-forced-https-2c156b93e4e1-960w.webp",
-              "width": 960,
-              "height": 791,
-              "bytes": 51722,
-              "type": "image/webp"
-            },
-            {
-              "url": "/media/2026-08-30/shelly-security-without-forced-https-2c156b93e4e1-1408w.webp",
-              "width": 1408,
-              "height": 1160,
-              "bytes": 81220,
-              "type": "image/webp"
-            }
-          ],
-          "bytes": 154032
-        }
-      ]
     }
   ],
   "pulse": [
@@ -1212,6 +1108,7 @@
       "lastReleaseDate": "2026-08-19"
     }
   ],
+  "landedReleases": [],
   "releases": [
     {
       "product": "Home Assistant",
@@ -1248,22 +1145,6 @@
       "kind": "Beta",
       "date": "2026-10-14",
       "accent": "green"
-    },
-    {
-      "product": "ESPHome",
-      "kind": "Release",
-      "date": "2026-10-21",
-      "accent": "green"
-    },
-    {
-      "product": "Home Assistant",
-      "kind": "Beta",
-      "date": "2026-10-28",
-      "accent": "blue"
     }
-  ],
-  "notes": [
-    "Home Assistant had 211 merged pull requests; the configured limit included 60.",
-    "Articles were reported from the local pull request archive; remaining changes are shown as direct sources."
   ]
 }

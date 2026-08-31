@@ -1,47 +1,73 @@
 ---
-import type { ReleaseEvent } from "../lib/types";
+import type { LandedRelease, ReleaseEvent } from "../lib/types";
 
 interface Props {
   releases: ReleaseEvent[];
+  landedReleases?: LandedRelease[];
   today?: string;
 }
 
-const { releases, today = new Date().toISOString().slice(0, 10) } = Astro.props;
+const { releases, landedReleases = [], today = new Date().toISOString().slice(0, 10) } = Astro.props;
 const day = 86_400_000;
 const daysUntil = (date: string) => Math.ceil((Date.parse(`${date}T12:00:00Z`) - Date.parse(`${today}T12:00:00Z`)) / day);
 const formatShort = (date: string) => new Intl.DateTimeFormat("en", { day: "numeric", month: "short", timeZone: "UTC" }).format(new Date(`${date}T12:00:00Z`));
+const formatPublished = (date: string) => new Intl.DateTimeFormat("en", { day: "numeric", month: "short", timeZone: "UTC" }).format(new Date(date));
+const shipped = [...landedReleases]
+  .filter((release) => release?.url && Number.isFinite(Date.parse(release.publishedAt)))
+  .sort((left, right) => right.publishedAt.localeCompare(left.publishedAt));
+const visibleShipped = shipped.slice(0, 6);
+const shippedOverflow = shipped.length - visibleShipped.length;
+const upcoming = releases
+  .map((release) => ({ ...release, remaining: daysUntil(release.date) }))
+  .filter((release) => Number.isFinite(release.remaining) && release.remaining >= 0 && release.remaining <= 45)
+  .sort((left, right) => left.date.localeCompare(right.date));
 ---
 
-<aside class="release-rail" aria-labelledby="release-heading">
-  <div class="heading">
-    <p class="eyebrow">On the horizon</p>
-    <h2 id="release-heading">Release desk</h2>
-  </div>
-  {releases.length ? (
-    <ol>
-      {releases.map((release) => {
-        const remaining = daysUntil(release.date);
-        return (
+<aside class="release-rail" aria-label="Release radar">
+  {visibleShipped.length > 0 && (
+    <section class="shipped" aria-labelledby="shipped-heading">
+      <div class="heading">
+        <p class="eyebrow">Release radar</p>
+        <h2 id="shipped-heading">Just shipped</h2>
+      </div>
+      <ul class="shipped-list">
+        {visibleShipped.map((release) => (
+          <li style={`--event-accent: var(--${release.accent}, var(--accent))`}>
+            <a href={release.url} target="_blank" rel="noreferrer">
+              <span class="release-name"><strong>{release.product}</strong><small>{release.tag}</small></span>
+              <span class="release-meta"><time datetime={release.publishedAt}>{formatPublished(release.publishedAt)}</time><small>{release.channel}</small></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      {shippedOverflow > 0 && <p class="overflow">+{shippedOverflow} more landed {shippedOverflow === 1 ? "release" : "releases"}</p>}
+    </section>
+  )}
+
+  <section class:list={["horizon", { "with-shipped": visibleShipped.length > 0 }]} aria-labelledby="horizon-heading">
+    <div class="horizon-heading">
+      <p class="eyebrow">On the horizon</p>
+      <h2 id="horizon-heading">Upcoming</h2>
+    </div>
+    {upcoming.length ? (
+      <ol class="upcoming-list">
+        {upcoming.map((release) => (
           <li style={`--event-accent: var(--${release.accent}, var(--accent))`}>
             <time datetime={release.date}>
               <span>{formatShort(release.date)}</span>
-              <small>{remaining === 0 ? "Today" : remaining === 1 ? "Tomorrow" : `In ${remaining} days`}</small>
+              <small>{release.remaining === 0 ? "Today" : release.remaining === 1 ? "Tomorrow" : `${release.remaining}d`}</small>
             </time>
-            <div>
-              <strong>{release.product}</strong>
-              <span>{release.kind}</span>
-            </div>
+            <span class="upcoming-name"><strong>{release.product}</strong><small>{release.kind}</small></span>
           </li>
-        );
-      })}
-    </ol>
-  ) : <p class="empty">The next release dates will appear after the first collection run.</p>}
-  <p class="cadence">Home Assistant ships on the first Wednesday of each month. ESPHome follows two weeks later; both enter beta one week before release.</p>
+        ))}
+      </ol>
+    ) : <p class="empty">Nothing scheduled in the next 45 days.</p>}
+  </section>
 </aside>
 
 <style>
   .release-rail {
-    padding: 1rem;
+    padding: 0.9rem;
     border: 1px solid var(--rule-dark);
     background: rgb(255 255 255 / 20%);
   }
@@ -53,54 +79,118 @@ const formatShort = (date: string) => new Intl.DateTimeFormat("en", { day: "nume
 
   .heading h2 {
     margin: 0;
-    font: 400 1.7rem/1 var(--display);
+    font: 400 1.55rem/1 var(--display);
   }
 
+  ul,
   ol {
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  li {
-    display: grid;
-    grid-template-columns: 5.3rem 1fr;
-    gap: 0.9rem;
-    padding: 0.9rem 0;
+  .shipped-list li {
     border-bottom: 1px solid var(--rule);
   }
 
-  time {
+  .shipped-list a {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.5rem;
+    align-items: baseline;
+    padding: 0.65rem 0.25rem 0.65rem 0.55rem;
+    border-left: 3px solid var(--event-accent);
+    text-decoration: none;
+  }
+
+  .release-name,
+  .release-meta,
+  .upcoming-name {
     display: flex;
     flex-direction: column;
-    padding-left: 0.55rem;
-    border-left: 4px solid var(--event-accent);
-    font: 700 0.78rem/1.2 var(--label);
+    min-width: 0;
+  }
+
+  .release-name strong,
+  .upcoming-name strong {
+    overflow: hidden;
+    font: 700 0.68rem/1.2 var(--label);
+    letter-spacing: 0.035em;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .release-name small,
+  .release-meta,
+  .upcoming-name small {
+    color: var(--muted);
+    font: 500 0.61rem/1.2 var(--sans);
+  }
+
+  .release-meta {
+    align-items: end;
+    text-align: right;
+  }
+
+  .release-meta small {
+    text-transform: capitalize;
+  }
+
+  .overflow,
+  .empty {
+    margin: 0;
+    padding-top: 0.7rem;
+    color: var(--muted);
+    font: 600 0.62rem/1.35 var(--sans);
+  }
+
+  .horizon.with-shipped {
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+    border-top: 3px double var(--rule-dark);
+  }
+
+  .horizon-heading {
+    display: flex;
+    gap: 0.45rem;
+    align-items: baseline;
+  }
+
+  .horizon-heading .eyebrow {
+    margin: 0;
+  }
+
+  .horizon-heading h2 {
+    margin: 0;
+    font: 400 1.15rem/1 var(--display);
+  }
+
+  .upcoming-list {
+    margin-top: 0.45rem;
+  }
+
+  .upcoming-list li {
+    display: grid;
+    grid-template-columns: 4.35rem minmax(0, 1fr);
+    gap: 0.65rem;
+    padding: 0.55rem 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .upcoming-list time {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.25rem;
+    padding-left: 0.4rem;
+    border-left: 3px solid var(--event-accent);
+    font: 700 0.65rem/1.2 var(--label);
     text-transform: uppercase;
   }
 
-  time small {
-    margin-top: 0.2rem;
+  .upcoming-list time small {
     color: var(--muted);
-    font: 500 0.61rem/1.2 var(--sans);
+    font: 500 0.57rem/1.2 var(--sans);
     text-transform: none;
-  }
-
-  li div {
-    display: flex;
-    flex-direction: column;
-    font: 500 0.8rem/1.3 var(--sans);
-  }
-
-  li div span {
-    color: var(--muted);
-  }
-
-  .cadence,
-  .empty {
-    margin: 0;
-    padding-top: 0.9rem;
-    color: var(--muted);
-    font: 500 0.7rem/1.45 var(--sans);
   }
 </style>

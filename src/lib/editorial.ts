@@ -402,6 +402,7 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
   const current = queryPullRequests(history, { since: edition.windowStart, before: edition.windowEnd, limit: 10_000 }).filter((record) => !record.isDependency);
   const recentPublishedArticles = await loadRecentPublishedArticles(dirname(options.editionPath), edition.date, 14);
   const releaseContext = {
+    landedReleases: edition.landedReleases ?? [],
     upcomingEvents: edition.releases,
     activeBetas: activeBetaWindows(edition.date, edition.releases, config.release_cycles),
     cycles: config.release_cycles,
