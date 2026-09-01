@@ -158,6 +158,35 @@ test("resolves only locally evidenced PRs and media, including review credit", (
   assert.deepEqual(articles[0].contributorProfiles, [record.authorProfile]);
 });
 
+test("never resolves HACS default-index additions into articles", () => {
+  const indexAddition: StoredPullRequest = {
+    ...record,
+    id: 100,
+    number: 100,
+    repository: "hacs/default",
+    organization: "HACS",
+    title: "Adds new integration [example/example]",
+    labels: ["new default repository"],
+  };
+  const articles = editorialInternals.resolveArticles([{
+    id: "hacs-index-addition",
+    title: "A new HACS integration",
+    dek: "This registry transaction must not become an article.",
+    body: ["Excluded."],
+    kind: "daily",
+    placement: "feature",
+    score: 99,
+    contributors: [],
+    topics: ["HACS"],
+    continuity: null,
+    pullRequestIds: ["100"],
+    contentSourceIds: [],
+    media: [],
+  }], [indexAddition]);
+
+  assert.deepEqual(articles, []);
+});
+
 test("derives contributor and human review credit from sources rather than model output", () => {
   const second: StoredPullRequest = {
     ...record,

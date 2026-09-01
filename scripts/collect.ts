@@ -7,6 +7,7 @@ import { buildReleaseCalendar, type ReleaseCycle } from "../src/lib/releases";
 import { collectContentFeeds, type FeedSourceConfig } from "../src/lib/feed-collector";
 import { collectReleasePreviews, type ActiveReleaseTarget, type ReleasePreviewSourceConfig } from "../src/lib/release-previews";
 import { isBotLogin, loadContributorCache, lookupContributorDetails, type ContributorCache } from "../src/lib/contributors";
+import { hacsNewIntegrationSearchQuery, isHacsIndexAddition } from "../src/lib/hacs";
 import { queryPullRequests, readPullRequestStore, upsertPullRequestStore, type StoredPullRequest, type StoredPullRequestInput } from "../src/lib/pr-store";
 import type { DependencyItem, Edition, LandedRelease, ProjectPulseItem, PullRequestStory, ReleasePreview, StoryKind } from "../src/lib/types";
 
@@ -58,6 +59,17 @@ export interface SearchItem {
   updated_at: string;
   comments: number;
   pull_request?: { url: string; merged_at?: string | null };
+}
+
+async function countHacsNewIntegrations(client: GitHubClient, start: Date, end: Date): Promise<number> {
+  const parameters = new URLSearchParams({
+    q: hacsNewIntegrationSearchQuery(start, end),
+    per_page: "1",
+    page: "1",
+  });
+  const result = await client.get<SearchResponse>(`https://api.github.com/search/issues?${parameters}`);
+  if (result.incomplete_results) throw new Error("GitHub marked the HACS new-integration count as incomplete.");
+  return result.total_count;
 }
 
 interface SearchResponse {
@@ -671,7 +683,7 @@ async function enrichFirstContributions(
 ): Promise<string[]> {
   const failures: string[] = [];
   for (const [id, input] of inputs) {
-    if (input.author === "ghost" || isBotLogin(input.author)) continue;
+    if (input.author === "ghost" || isBotLogin(input.author) || isHacsIndexAddition(input)) continue;
     try {
       const { firstContribution, profile } = await lookupContributorDetails(client, contributorCachePath, contributorCache, input.repository, input.author);
       inputs.set(id, {
@@ -732,7 +744,14 @@ async function storeHistoryWindow(
       });
     }
 
-    await mapWithConcurrency(search.items.filter((item) => item.pull_request?.url), 6, async (item) => {
+    await mapWithConcurrency(search.items.filter((item) => {
+      if (!item.pull_request?.url) return false;
+      return !isHacsIndexAddition({
+        repository: repositoryFromApiUrl(item.repository_url),
+        title: item.title,
+        labels: item.labels.map((label) => label.name),
+      });
+    }), 6, async (item) => {
       const [detailResult, reviewsResult] = await Promise.allSettled([
         client.get<PullDetail>(item.pull_request!.url, { immutable: true }),
         fetchPullRequestReviews(client, item.pull_request!.url),
@@ -1025,6 +1044,15 @@ export async function collect(): Promise<CollectionResult> {
   let contributorLookupFailures = 0;
   let storedPullRequestWrites = 0;
   const authoritativeDailyTotals = new Map<string, number>();
+  let hacsNewIntegrations: number | undefined;
+
+  if (config.organizations.some((item) => item.enabled && item.slug.toLowerCase() === "hacs")) {
+    try {
+      hacsNewIntegrations = await countHacsNewIntegrations(client, start, end);
+    } catch (error) {
+      notes.push(`HACS new integrations could not be counted: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
 
   for (const organization of config.organizations.filter((item) => item.enabled)) {
     console.log(`Scanning ${organization.name}…`);
@@ -1049,6 +1077,7 @@ export async function collect(): Promise<CollectionResult> {
       const labels = item.labels.map((label) => label.name.toLowerCase());
       const repository = repositoryFromApiUrl(item.repository_url);
       const dependency = isDependency(item, config);
+      const hacsIndexAddition = isHacsIndexAddition({ repository, title: item.title, labels });
       storeInputs.set(item.id, {
         id: item.id,
         number: item.number,
@@ -1074,7 +1103,7 @@ export async function collect(): Promise<CollectionResult> {
           dependencies.push({ title: item.title, url: item.html_url, repository, author: item.user?.login ?? "ghost" });
         }
       }
-      if (item.pull_request?.url) detailItems.push(item);
+      if (item.pull_request?.url && !hacsIndexAddition) detailItems.push(item);
     }
 
     const results = await mapWithConcurrency(detailItems, 6, async (item): Promise<PullRequestStory | null> => {
@@ -1131,6 +1160,7 @@ export async function collect(): Promise<CollectionResult> {
           },
           isDependency: isDependency(item, config),
         });
+        if (isHacsIndexAddition({ repository: detail.base.repo.full_name, title: detail.title, labels })) return null;
         if (!detail.merged_at || seenPullRequests.has(detail.id) || isDependency(item, config)) return null;
         const mergedAt = new Date(detail.merged_at).getTime();
         if (!Number.isFinite(mergedAt) || mergedAt < start.getTime() || mergedAt > end.getTime()) return null;
@@ -1246,6 +1276,7 @@ export async function collect(): Promise<CollectionResult> {
       repositories: new Set(allItems.map((item) => item.repository)).size,
       contributors: new Set(allItems.map((item) => item.author)).size,
       dependencyUpdates: dependencies.length,
+      ...(hacsNewIntegrations !== undefined ? { hacsNewIntegrations } : {}),
     },
     lead,
     highlights,

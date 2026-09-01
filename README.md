@@ -2,7 +2,7 @@
 
 OHF Daily is a newspaper-style account of the previous 24 hours across the Open Home Foundation ecosystem. It reports the changes that matter across public code, official blogs, and corroborated outside coverage; groups routine dependency updates; tracks upcoming releases; and preserves every edition in a year/month archive.
 
-The static site is built with [Astro](https://astro.build/) for desktop and mobile and published through GitHub Pages. Coverage is configured for Home Assistant, **Home Assistant Libraries**, ESPHome, Music Assistant, Sendspin, Improv Wi-Fi, the Open Home Foundation, OHF Voice, Matter.js, Z-Wave JS, Zigpy, and related public organizations.
+The static site is built with [Astro](https://astro.build/) for desktop and mobile and published through GitHub Pages. Coverage is configured for Home Assistant, **Home Assistant Libraries**, HACS, ESPHome, Music Assistant, Sendspin, Improv Wi-Fi, the Open Home Foundation, OHF Voice, Matter.js, Z-Wave JS, Zigpy, and related public organizations.
 
 ## One-command editorial pipeline
 
@@ -166,6 +166,8 @@ On a configured stable release day, the preview is ingested even when it was fir
 The newest edition is the home page. Older JSON files feed dated edition routes and the year/month archive. The release rail shows actual releases published during the reporting window above a compact calendar capped at 45 days. Reported articles are also published as an RSS 2.0 feed at `/rss.xml`; the site advertises it through page metadata and a masthead link.
 
 Dependency updates, editor diagnostics, and deterministic raw PR rankings do not appear on an AI-produced front page. If AI is unavailable, the raw ranked sections remain available as a fallback; scheduled production runs require AI.
+
+HACS default-index additions are stored in local history but are never eligible article sources, including through AI history queries and weekly recaps. Each edition records an authoritative `stats.hacsNewIntegrations` total from a dedicated GitHub search; it is intentionally not rendered until the newsroom settles on the right recurring placement.
 
 To work on the site without collecting again:
 

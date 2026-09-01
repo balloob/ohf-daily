@@ -70,6 +70,10 @@ release_sources:
     product: Home Assistant
     accent: blue
     include_prereleases: true
+  - repository: hacs/integration
+    product: HACS
+    accent: blue
+    include_prereleases: false
   - repository: esphome/esphome
     product: ESPHome
     accent: green
@@ -122,6 +126,11 @@ organizations:
     enabled: true
     weight: 1.1
     featured_repositories: []
+  - slug: hacs
+    name: HACS
+    enabled: true
+    weight: 1.1
+    featured_repositories: [integration, frontend, documentation]
   - slug: OHF-Device-Database
     name: OHF Device Database
     enabled: true

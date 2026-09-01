@@ -5,6 +5,7 @@ import { isBotLogin } from "./contributors";
 import { queryContent, readContentStore, type ContentQuery, type StoredContent } from "./content-store";
 import type { Article, ArticleExternalSource, ArticleMedia, ArticleSource, Edition, ReleasePreview } from "./types";
 import { queryPullRequests, readPullRequestStore, type PullRequestQuery, type StoredPullRequest } from "./pr-store";
+import { isHacsIndexAddition } from "./hacs";
 import type { ReleaseCycle } from "./releases";
 
 interface AiConfig {
@@ -422,7 +423,7 @@ function resolveArticles(
   contentRecords: StoredContent[] = [],
   mandatoryLeadSourceIds: string[] = [],
 ): Article[] {
-  const byId = new Map(records.map((record) => [String(record.id), record]));
+  const byId = new Map(records.filter((record) => !isHacsIndexAddition(record)).map((record) => [String(record.id), record]));
   const contentById = new Map(contentRecords.map((record) => [record.id, record]));
   const seen = new Set<string>();
   const articles: Article[] = [];
@@ -562,6 +563,7 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
   const model = options.modelOverride ?? config.ai.model;
   const edition = JSON.parse(await readFile(options.editionPath, "utf8")) as Edition;
   const history = await readPullRequestStore(resolve(options.root, "data/prs"));
+  const editorialHistory = history.filter((record) => !isHacsIndexAddition(record));
   const contentHistory = await readContentStore(resolve(options.root, "data/content"));
   const scheduledReleaseProducts = edition.releases
     .filter((event) => event.kind === "Release" && event.date === edition.date)
@@ -577,7 +579,7 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
   }
   const releaseContent = releasePreviews.map(releasePreviewContent);
   const allContentHistory = [...contentHistory, ...releaseContent];
-  const current = queryPullRequests(history, { since: edition.windowStart, before: edition.windowEnd, limit: 10_000 }).filter((record) => !record.isDependency);
+  const current = queryPullRequests(editorialHistory, { since: edition.windowStart, before: edition.windowEnd, limit: 10_000 }).filter((record) => !record.isDependency);
   const currentContent = queryContent(contentHistory, { since: edition.windowStart, before: edition.windowEnd, limit: 10_000 });
   const recentPublishedArticles = await loadRecentPublishedArticles(dirname(options.editionPath), edition.date, 14);
   const releaseDay = releasePreviews.map((preview, index) => ({
@@ -652,7 +654,7 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
         pullRequests,
         contentItems,
       },
-      history,
+      editorialHistory,
       allContentHistory,
       config.ai.max_history_queries_per_reporter,
     );
@@ -672,7 +674,7 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
       pullRequests: current.map(compactRecord),
       contentItems: releaseContent.map((record) => compactContentRecord(record, 12_000)),
     },
-    history,
+    editorialHistory,
     allContentHistory,
     config.ai.max_history_queries_per_reporter,
   ) : Promise.resolve([]);
@@ -682,7 +684,7 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
 
   if (monday(edition.date)) {
     const recap = recapBounds(edition.date, edition.timezone);
-    const weeklyRecords = queryPullRequests(history, { since: recap.start, before: recap.end, limit: 10_000 }).filter((record) => !record.isDependency);
+    const weeklyRecords = queryPullRequests(editorialHistory, { since: recap.start, before: recap.end, limit: 10_000 }).filter((record) => !record.isDependency);
     if (weeklyRecords.length > 0) {
       proposals.push(...await runReporter(
         fetcher,
@@ -698,7 +700,7 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
           pullRequests: weeklyRecords.map(compactRecord),
           contentItems: queryContent(contentHistory, { since: recap.start, before: recap.end, limit: 10_000 }).map(compactContentRecord),
         },
-        history,
+        editorialHistory,
         allContentHistory,
         config.ai.max_history_queries_per_reporter,
       ));
@@ -725,9 +727,9 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
   });
   if (!editorResponse.output_text) throw new Error("Editor returned no structured newspaper plan.");
   const raw = (JSON.parse(editorResponse.output_text) as { articles: EditorArticle[] }).articles;
-  const articles = resolveArticles(raw, history, allContentHistory, releaseDay.map((release) => release.sourceId));
+  const articles = resolveArticles(raw, editorialHistory, allContentHistory, releaseDay.map((release) => release.sourceId));
   edition.articles = articles;
-  edition.notes = [...(edition.notes ?? []), `AI editorial plan generated with ${model} from auditable local prompts, ${history.length} stored pull requests, ${contentHistory.length} stored posts or coverage items, and ${releaseContent.length} release-day preview${releaseContent.length === 1 ? "" : "s"}.`];
+  edition.notes = [...(edition.notes ?? []), `AI editorial plan generated with ${model} from auditable local prompts, ${editorialHistory.length} editorially eligible stored pull requests, ${contentHistory.length} stored posts or coverage items, and ${releaseContent.length} release-day preview${releaseContent.length === 1 ? "" : "s"}.`];
   await writeFile(options.editionPath, `${JSON.stringify(edition, null, 2)}\n`);
   return articles;
 }

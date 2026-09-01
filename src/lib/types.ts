@@ -140,6 +140,7 @@ export interface Edition {
     repositories: number;
     contributors: number;
     dependencyUpdates: number;
+    hacsNewIntegrations?: number;
   };
   lead: PullRequestStory | null;
   highlights: PullRequestStory[];
