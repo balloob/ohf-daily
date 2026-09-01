@@ -90,6 +90,10 @@ release_sources:
     product: Zigpy
     accent: green
     include_prereleases: false
+  - repository: improv-wifi/sdk-cpp
+    product: Improv Wi-Fi SDK
+    accent: green
+    include_prereleases: false
 
 # On a scheduled stable release day, these official preview sources seed the
 # mandatory headline. Preview text is cached locally and may still change
@@ -168,6 +172,11 @@ organizations:
     enabled: true
     weight: 1.0
     featured_repositories: []
+  - slug: improv-wifi
+    name: Improv Wi-Fi
+    enabled: true
+    weight: 1.1
+    featured_repositories: [website, sdk-cpp, sdk-serial-js, sdk-ble-js]
   - slug: NabuCasa
     name: Nabu Casa libraries
     enabled: true

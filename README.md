@@ -2,7 +2,7 @@
 
 OHF Daily is a newspaper-style account of the previous 24 hours across the Open Home Foundation ecosystem. It reports the changes that matter across public code, official blogs, and corroborated outside coverage; groups routine dependency updates; tracks upcoming releases; and preserves every edition in a year/month archive.
 
-The static site is built with [Astro](https://astro.build/) for desktop and mobile and published through GitHub Pages. Coverage is configured for Home Assistant, **Home Assistant Libraries**, ESPHome, Music Assistant, Sendspin, the Open Home Foundation, OHF Voice, Matter.js, Z-Wave JS, Zigpy, and related public organizations.
+The static site is built with [Astro](https://astro.build/) for desktop and mobile and published through GitHub Pages. Coverage is configured for Home Assistant, **Home Assistant Libraries**, ESPHome, Music Assistant, Sendspin, Improv Wi-Fi, the Open Home Foundation, OHF Voice, Matter.js, Z-Wave JS, Zigpy, and related public organizations.
 
 ## One-command editorial pipeline
 
