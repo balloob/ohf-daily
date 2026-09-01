@@ -1,0 +1,1248 @@
+{
+  "date": "2026-09-01",
+  "generatedAt": "2026-09-01T05:18:29.260Z",
+  "windowStart": "2026-08-31T05:17:57.255Z",
+  "windowEnd": "2026-09-01T05:17:57.255Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 243,
+    "repositories": 38,
+    "contributors": 72,
+    "dependencyUpdates": 56
+  },
+  "lead": {
+    "id": "4359420268",
+    "title": "Use systemd automount units for network mounts",
+    "summary": "Pair every network mount with a systemd .automount unit and let the kernel's autofs machinery handle activation and recovery, instead of Supervisor orchestrating mount health itself.",
+    "unlocks": "Unlocks: Use systemd automount units for network mounts.",
+    "url": "https://github.com/home-assistant/supervisor/pull/7167",
+    "repository": "home-assistant/supervisor",
+    "organization": "Home Assistant",
+    "author": "agners",
+    "mergedAt": "2026-08-31T18:30:24Z",
+    "labels": [
+      "cla-signed",
+      "new-feature"
+    ],
+    "kind": "feature",
+    "score": 72.6,
+    "additions": 1794,
+    "deletions": 1222,
+    "changedFiles": 23
+  },
+  "highlights": [
+    {
+      "id": "4243157505",
+      "title": "Serve Pandora stations as dynamic radio stations",
+      "summary": "What does this implement/fix? Pandora stations become dynamic radio stations instead of one endless stream: upcoming tracks are visible and skippable, played tracks land in history, and…",
+      "url": "https://github.com/music-assistant/server/pull/5557",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "chrisuthe",
+      "mergedAt": "2026-08-31T13:26:07Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 65.4,
+      "additions": 1709,
+      "deletions": 443,
+      "changedFiles": 12
+    },
+    {
+      "id": "4372802901",
+      "title": "Add one-shot mode and docker-given totals to stats API",
+      "summary": "Updates the /stats API for Home Assistant Core, Apps, Supervisor, and plugins (Audio, Cli, DNS, Multicast, Observer) to return docker given totals and adds a one shot mode.",
+      "url": "https://github.com/home-assistant/supervisor/pull/7168",
+      "repository": "home-assistant/supervisor",
+      "organization": "Home Assistant",
+      "author": "mdegat01",
+      "mergedAt": "2026-08-31T15:11:38Z",
+      "labels": [
+        "cla-signed",
+        "missing-documentation",
+        "new-feature",
+        "needs-cli",
+        "needs-client-library",
+        "api-v2"
+      ],
+      "kind": "docs",
+      "score": 61,
+      "additions": 1506,
+      "deletions": 280,
+      "changedFiles": 39
+    },
+    {
+      "id": "3997893287",
+      "title": "Add support for transcoding plex streams before playback",
+      "summary": "What does this implement/fix? Add support into the plex provider to let the server transcode audio before sending it to MA to reduce streaming bandwidth limits.",
+      "unlocks": "Unlocks: Add support for transcoding plex streams before playback.",
+      "url": "https://github.com/music-assistant/server/pull/4615",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "chicco-carone",
+      "mergedAt": "2026-08-31T13:11:01Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "feature",
+      "score": 60.9,
+      "additions": 559,
+      "deletions": 13,
+      "changedFiles": 8
+    },
+    {
+      "id": "4400160413",
+      "title": "Align smart playlists similar music with Endless Mixes",
+      "summary": "What does this implement/fix? Smart playlists with seeds (the \"similar music\" mode) played almost exclusively similar tracks: only 1 in 25 tracks came from the seed collection itself,…",
+      "url": "https://github.com/music-assistant/server/pull/6121",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "MarvinSchenkel",
+      "mergedAt": "2026-08-31T12:34:09Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 59.9,
+      "additions": 252,
+      "deletions": 62,
+      "changedFiles": 2
+    }
+  ],
+  "briefs": [
+    {
+      "id": "4402408820",
+      "title": "Use reactive power device class for iotawatt VAR sensors",
+      "summary": "Breaking change IoTaWatt reactive power sensors now use Home Assistant's reactive power device class, which changes their unit of measurement from VAR to var .",
+      "unlocks": "Unlocks: Use reactive power device class for iotawatt VAR sensors.",
+      "url": "https://github.com/home-assistant/core/pull/180913",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "agners",
+      "mergedAt": "2026-08-31T13:44:16Z",
+      "labels": [
+        "breaking-change",
+        "cla-signed",
+        "small-pr",
+        "has-tests",
+        "by-code-owner",
+        "integration: iotawatt",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 58.9,
+      "additions": 37,
+      "deletions": 5,
+      "changedFiles": 4
+    },
+    {
+      "id": "4395125608",
+      "title": "Add Zonneplan integration",
+      "summary": "Breaking change Proposed change Adds the Zonneplan integration.",
+      "unlocks": "Unlocks: Add Zonneplan integration.",
+      "url": "https://github.com/home-assistant/core/pull/180722",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "erwindouna",
+      "mergedAt": "2026-08-31T18:16:56Z",
+      "labels": [
+        "cla-signed",
+        "new-integration",
+        "has-tests",
+        "quality-scale",
+        "integration: zonneplan"
+      ],
+      "kind": "feature",
+      "score": 57.8,
+      "additions": 3481,
+      "deletions": 0,
+      "changedFiles": 25
+    },
+    {
+      "id": "4404390921",
+      "title": "Add player reports for Nintendo Parental Controls",
+      "summary": "Adds two new services to Nintendo Parental Controls to retrieve the current days player report.",
+      "unlocks": "Unlocks: Add player reports for Nintendo Parental Controls.",
+      "url": "https://github.com/home-assistant/core/pull/180937",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "pantherale0",
+      "mergedAt": "2026-08-31T17:59:35Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze",
+        "integration: nintendo_parental_controls"
+      ],
+      "kind": "feature",
+      "score": 57.8,
+      "additions": 309,
+      "deletions": 13,
+      "changedFiles": 8
+    },
+    {
+      "id": "4126649304",
+      "title": "Add swing mode support to LG Infrared AC climate",
+      "summary": "Adds vertical and horizontal swing support to the LG AC climate entity.",
+      "unlocks": "Unlocks: Add swing mode support to LG Infrared AC climate.",
+      "url": "https://github.com/home-assistant/core/pull/177191",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "Dr-Blank",
+      "mergedAt": "2026-08-31T13:24:39Z",
+      "labels": [
+        "new-platform",
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "quality scale: silver",
+        "quality-scale",
+        "integration: lg_infrared"
+      ],
+      "kind": "feature",
+      "score": 56.6,
+      "additions": 343,
+      "deletions": 15,
+      "changedFiles": 6
+    },
+    {
+      "id": "4056126055",
+      "title": "[epaper_spi] Add UC8179 mono driver and Seeed reTerminal E1001 model",
+      "summary": "What does this implement/fix? Adds support for monochrome UC8179 based 800x480 e paper panels to the epaper spi component, ported from the waveshare epaper classes WaveshareEPaper7P5InV2…",
+      "unlocks": "Unlocks: [epaper_spi] Add UC8179 mono driver and Seeed reTerminal E1001 model.",
+      "url": "https://github.com/esphome/esphome/pull/17568",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "jesserockz",
+      "mergedAt": "2026-09-01T02:17:53Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "component: epaper_spi"
+      ],
+      "kind": "feature",
+      "score": 56.4,
+      "additions": 358,
+      "deletions": 0,
+      "changedFiles": 6
+    },
+    {
+      "id": "4398584216",
+      "title": "[core] Keep conditional log string literals in flash on ESP8266",
+      "summary": "What does this implement/fix? On ESP8266 the log macros move the format string to flash, but bare string literals passed as %s arguments stay in RAM.",
+      "url": "https://github.com/esphome/esphome/pull/18907",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-08-31T09:08:06Z",
+      "labels": [
+        "code-quality",
+        "platform: host",
+        "mega-pr",
+        "deprecated-component"
+      ],
+      "kind": "platform",
+      "score": 54.7,
+      "additions": 214,
+      "deletions": 165,
+      "changedFiles": 58
+    },
+    {
+      "id": "4363689603",
+      "title": "[sen6x] Add VOC/NOx algorithm tuning",
+      "summary": "What does this implement/fix? Adds an optional algorithm tuning block to the voc index and nox index sensors, writing the Sensirion VOC/NOx algorithm tuning parameters (commands 0x60D0/0x60E1) during setup.",
+      "unlocks": "Unlocks: [sen6x] Add VOC/NOx algorithm tuning.",
+      "url": "https://github.com/esphome/esphome/pull/18779",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bharvey88",
+      "mergedAt": "2026-08-31T17:45:39Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "component: sen6x"
+      ],
+      "kind": "feature",
+      "score": 54.6,
+      "additions": 208,
+      "deletions": 20,
+      "changedFiles": 5
+    },
+    {
+      "id": "4346492077",
+      "title": "Update pylint rule for async_get_device_diagnostics",
+      "summary": "Update pylint rule for async get device diagnostics Deferred from https://github.com/home assistant/core/pull/179570 Type of change Dependency upgrade Bugfix (non breaking change which fixes…",
+      "url": "https://github.com/home-assistant/core/pull/179966",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "emontnemery",
+      "mergedAt": "2026-08-31T14:46:38Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "code-quality"
+      ],
+      "kind": "platform",
+      "score": 53.8,
+      "additions": 96,
+      "deletions": 66,
+      "changedFiles": 31
+    },
+    {
+      "id": "4378719754",
+      "title": "Add map tiles integration to proxy the OpenStreetMap base map",
+      "summary": "For https://github.com/home assistant/frontend/pull/53845 The frontend's base map moves from CARTO raster tiles to the OpenStreetMap Foundation's vector tiles, and this new map tiles system integration serves them.",
+      "unlocks": "Unlocks: Add map tiles integration to proxy the OpenStreetMap base map.",
+      "url": "https://github.com/home-assistant/core/pull/180441",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "bramkragten",
+      "mergedAt": "2026-08-31T14:57:55Z",
+      "labels": [
+        "core",
+        "cla-signed",
+        "new-integration",
+        "has-tests",
+        "integration: map_tiles"
+      ],
+      "kind": "feature",
+      "score": 52.9,
+      "additions": 1533,
+      "deletions": 0,
+      "changedFiles": 13
+    },
+    {
+      "id": "4396738065",
+      "title": "Add switch platform to LG Infrared",
+      "summary": "Adds a switch platform for the LG AC ion generator and auto clean.",
+      "unlocks": "Unlocks: Add switch platform to LG Infrared.",
+      "url": "https://github.com/home-assistant/core/pull/180843",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "Dr-Blank",
+      "mergedAt": "2026-08-31T13:40:32Z",
+      "labels": [
+        "new-platform",
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "quality scale: silver",
+        "integration: lg_infrared"
+      ],
+      "kind": "feature",
+      "score": 51.6,
+      "additions": 369,
+      "deletions": 1,
+      "changedFiles": 6
+    },
+    {
+      "id": "3398306739",
+      "title": "Add kPa as a valid unit of measurement for pressure in weather entity",
+      "summary": "Add kPa as a valid unit of pressure in weather (most meteorological organizations in Canada use kPa as their default unit of measurement) Type of change Dependency upgrade Bugfix (non…",
+      "unlocks": "Unlocks: Add kPa as a valid unit of measurement for pressure in weather entity.",
+      "url": "https://github.com/home-assistant/core/pull/165519",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "RussellAult",
+      "mergedAt": "2026-08-31T15:21:57Z",
+      "labels": [
+        "core",
+        "cla-signed",
+        "integration: weather",
+        "small-pr",
+        "new-feature",
+        "has-tests",
+        "quality scale: internal"
+      ],
+      "kind": "feature",
+      "score": 51.5,
+      "additions": 20,
+      "deletions": 1,
+      "changedFiles": 4
+    },
+    {
+      "id": "4349597294",
+      "title": "[core] Lint: require braces around single ESP_LOG control-statement bodies",
+      "summary": "What does this implement/fix? Adds a ci custom lint rule that flags an if / else / for / while whose only body is a single ESP LOG () call left unbraced , and braces the existing occurrences across the tree.",
+      "url": "https://github.com/esphome/esphome/pull/18727",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "exciton",
+      "mergedAt": "2026-08-31T23:53:40Z",
+      "labels": [
+        "has-tests",
+        "code-quality",
+        "bugfix",
+        "mega-pr",
+        "deprecated-component"
+      ],
+      "kind": "platform",
+      "score": 51.1,
+      "additions": 437,
+      "deletions": 71,
+      "changedFiles": 38
+    },
+    {
+      "id": "4250993755",
+      "title": "Add Yoto provider",
+      "summary": "What does this implement/fix? This allows the streaming of cards (purchased, free, or make your own) but not Yoto radio streams.",
+      "unlocks": "Unlocks: Add Yoto provider.",
+      "url": "https://github.com/music-assistant/server/pull/5584",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "pantsman0",
+      "mergedAt": "2026-08-31T23:51:49Z",
+      "labels": [
+        "new-provider",
+        "dependencies-reviewed"
+      ],
+      "kind": "feature",
+      "score": 51,
+      "additions": 928,
+      "deletions": 2,
+      "changedFiles": 13
+    },
+    {
+      "id": "4397278393",
+      "title": "[ci] Balance integration test buckets by recorded durations",
+      "summary": "What does this implement/fix? Integration test buckets were split by sorted filename, which put all the uart mock files in one bucket.",
+      "unlocks": "Unlocks: [ci] Balance integration test buckets by recorded durations.",
+      "url": "https://github.com/esphome/esphome/pull/18895",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-08-31T18:20:47Z",
+      "labels": [
+        "has-tests",
+        "github-actions"
+      ],
+      "kind": "feature",
+      "score": 48.7,
+      "additions": 755,
+      "deletions": 51,
+      "changedFiles": 10
+    },
+    {
+      "id": "4164972044",
+      "title": "Document the entity base classes and multi-entity config patterns",
+      "summary": "The twenty two pages under the Entity base classes section of the navigation tree were stubs containing only frontmatter.",
+      "url": "https://github.com/esphome/developers.esphome.io/pull/167",
+      "repository": "esphome/developers.esphome.io",
+      "organization": "ESPHome",
+      "author": "jesserockz",
+      "mergedAt": "2026-09-01T02:10:36Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 48.5,
+      "additions": 4755,
+      "deletions": 0,
+      "changedFiles": 23
+    },
+    {
+      "id": "4215535207",
+      "title": "Improve code quality of hr_energy_qube",
+      "summary": "Code quality pass over the hr energy qube integration, no functional changes (all 122 snapshot fixtures are unchanged): Import the status code mapping from python qube heatpump instead of…",
+      "unlocks": "Unlocks: Improve code quality of hr_energy_qube.",
+      "url": "https://github.com/home-assistant/core/pull/178280",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "MattieGit",
+      "mergedAt": "2026-08-31T19:46:40Z",
+      "labels": [
+        "cla-signed",
+        "has-tests",
+        "by-code-owner",
+        "code-quality",
+        "quality-scale",
+        "quality scale: bronze",
+        "integration: hr_energy_qube"
+      ],
+      "kind": "feature",
+      "score": 48.5,
+      "additions": 107,
+      "deletions": 296,
+      "changedFiles": 15
+    },
+    {
+      "id": "4395617083",
+      "title": "Make the balance slider work on mono tracks",
+      "summary": "What does this implement/fix? The balance slider did nothing at all on mono tracks.",
+      "url": "https://github.com/music-assistant/server/pull/6104",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "OzGav",
+      "mergedAt": "2026-08-31T10:58:27Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 45.9,
+      "additions": 58,
+      "deletions": 9,
+      "changedFiles": 2
+    },
+    {
+      "id": "4399762865",
+      "title": "Sonos speakers now play tracks you add to the queue",
+      "summary": "What does this implement/fix? Adding a track to the queue of a Sonos speaker often did nothing: the speaker played straight past it and left it sitting in the queue unplayed.",
+      "unlocks": "Unlocks: Sonos speakers now play tracks you add to the queue.",
+      "url": "https://github.com/music-assistant/server/pull/6116",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-08-31T09:20:13Z",
+      "labels": [
+        "bugfix",
+        "backport-to-stable"
+      ],
+      "kind": "feature",
+      "score": 45.2,
+      "additions": 654,
+      "deletions": 114,
+      "changedFiles": 5
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Bump python-duco-connectivity to 0.14.0",
+      "url": "https://github.com/home-assistant/core/pull/180964",
+      "repository": "home-assistant/core",
+      "author": "ronaldvdmeer"
+    },
+    {
+      "title": "Update pnpm to 11.24.0",
+      "url": "https://github.com/home-assistant/core/pull/180974",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump PySwitchbot to 2.7.0",
+      "url": "https://github.com/home-assistant/core/pull/180978",
+      "repository": "home-assistant/core",
+      "author": "Onero-testdev"
+    },
+    {
+      "title": "Bump ha-iotawattpy to 0.3.0",
+      "url": "https://github.com/home-assistant/core/pull/180969",
+      "repository": "home-assistant/core",
+      "author": "agners"
+    },
+    {
+      "title": "Bump satel_integra to 1.4.0",
+      "url": "https://github.com/home-assistant/core/pull/180960",
+      "repository": "home-assistant/core",
+      "author": "Tommatheussen"
+    },
+    {
+      "title": "Bump grpcio to 1.83.1 and protobuf to v7",
+      "url": "https://github.com/home-assistant/core/pull/180614",
+      "repository": "home-assistant/core",
+      "author": "silamon"
+    },
+    {
+      "title": "Bump tesla-fleet-api to 1.12.1",
+      "url": "https://github.com/home-assistant/core/pull/180911",
+      "repository": "home-assistant/core",
+      "author": "Bre77"
+    },
+    {
+      "title": "Bump sofar-modbus to 0.8.0",
+      "url": "https://github.com/home-assistant/core/pull/180935",
+      "repository": "home-assistant/core",
+      "author": "darkrain-nl"
+    },
+    {
+      "title": "Bump mikepenz/action-junit-report from 6.4.2 to 6.5.0",
+      "url": "https://github.com/home-assistant/operating-system/pull/4992",
+      "repository": "home-assistant/operating-system",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump hadolint/hadolint-action from 3.4.0 to 3.5.0",
+      "url": "https://github.com/home-assistant/operating-system/pull/4991",
+      "repository": "home-assistant/operating-system",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump pyprobeplus to 2.1.0",
+      "url": "https://github.com/home-assistant/core/pull/180921",
+      "repository": "home-assistant/core",
+      "author": "pantherale0"
+    },
+    {
+      "title": "Bump neopool-modbus to 4.6.2",
+      "url": "https://github.com/home-assistant/core/pull/180908",
+      "repository": "home-assistant/core",
+      "author": "svasek"
+    },
+    {
+      "title": "Bump sofar-modbus to 0.7.1",
+      "url": "https://github.com/home-assistant/core/pull/180907",
+      "repository": "home-assistant/core",
+      "author": "darkrain-nl"
+    },
+    {
+      "title": "⬆️ Update dependency ty to v0.0.77",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/522",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency ty to v0.0.76",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/521",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump ruff from 0.16.4 to 0.16.5",
+      "url": "https://github.com/home-assistant-libs/aiohue/pull/673",
+      "repository": "home-assistant-libs/aiohue",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump tox from 4.60.0 to 4.60.1",
+      "url": "https://github.com/home-assistant-libs/zwave-js-server-python/pull/1496",
+      "repository": "home-assistant-libs/zwave-js-server-python",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump pydantic from 2.13.4 to 2.13.5",
+      "url": "https://github.com/home-assistant-libs/zwave-js-server-python/pull/1498",
+      "repository": "home-assistant-libs/zwave-js-server-python",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump ruff from 0.16.4 to 0.16.5",
+      "url": "https://github.com/home-assistant-libs/zwave-js-server-python/pull/1497",
+      "repository": "home-assistant-libs/zwave-js-server-python",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Update zizmor",
+      "url": "https://github.com/home-assistant-libs/infrared-protocols/pull/137",
+      "repository": "home-assistant-libs/infrared-protocols",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump ruff from 0.16.3 to 0.16.5",
+      "url": "https://github.com/home-assistant-libs/pychromecast/pull/1266",
+      "repository": "home-assistant-libs/pychromecast",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump mypy from 2.3.0 to 2.3.1",
+      "url": "https://github.com/home-assistant-libs/pychromecast/pull/1267",
+      "repository": "home-assistant-libs/pychromecast",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps): Bump ruff from 0.16.4 to 0.16.5",
+      "url": "https://github.com/home-assistant-libs/aiowebostv/pull/726",
+      "repository": "home-assistant-libs/aiowebostv",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump tox from 4.60.0 to 4.60.1",
+      "url": "https://github.com/home-assistant-libs/aiowebostv/pull/727",
+      "repository": "home-assistant-libs/aiowebostv",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump ty from 0.0.73 to 0.0.75",
+      "url": "https://github.com/home-assistant-libs/forecast_solar/pull/418",
+      "repository": "home-assistant-libs/forecast_solar",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump prek from 0.4.14 to 0.5.0",
+      "url": "https://github.com/home-assistant-libs/forecast_solar/pull/419",
+      "repository": "home-assistant-libs/forecast_solar",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump ruff from 0.16.4 to 0.16.5",
+      "url": "https://github.com/home-assistant-libs/forecast_solar/pull/416",
+      "repository": "home-assistant-libs/forecast_solar",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump isort from 8.0.1 to 9.0.1",
+      "url": "https://github.com/home-assistant-libs/pyprusalink/pull/193",
+      "repository": "home-assistant-libs/pyprusalink",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump ruff from 0.16.4 to 0.16.5",
+      "url": "https://github.com/home-assistant-libs/python-supervisor-client/pull/402",
+      "repository": "home-assistant-libs/python-supervisor-client",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump prek from 0.4.14 to 0.5.0",
+      "url": "https://github.com/esphome/esphome/pull/18921",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump cryptography from 48.0.1 to 50.0.1",
+      "url": "https://github.com/esphome/esphome/pull/18922",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump platformdirs from 4.11.4 to 4.11.5",
+      "url": "https://github.com/esphome/esphome/pull/18923",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump github/codeql-action/init from 4.37.8 to 4.37.9",
+      "url": "https://github.com/esphome/esphome/pull/18927",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump github/codeql-action/analyze from 4.37.8 to 4.37.9",
+      "url": "https://github.com/esphome/esphome/pull/18926",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump ruff from 0.16.4 to 0.16.5",
+      "url": "https://github.com/esphome/esphome/pull/18920",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump zeroconf from 0.150.0 to 0.150.4",
+      "url": "https://github.com/esphome/esphome/pull/18924",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump actions/stale from 10.3.0 to 11.0.0",
+      "url": "https://github.com/esphome/esphome.io/pull/7062",
+      "repository": "esphome/esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump typescript-eslint from 8.66.0 to 8.67.0",
+      "url": "https://github.com/esphome/esphome.io/pull/7205",
+      "repository": "esphome/esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump katex from 0.18.3 to 0.18.4",
+      "url": "https://github.com/esphome/esphome.io/pull/7206",
+      "repository": "esphome/esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump astro-swiper from 2.9.0 to 2.10.0",
+      "url": "https://github.com/esphome/esphome.io/pull/7204",
+      "repository": "esphome/esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump globals from 17.7.0 to 17.11.0",
+      "url": "https://github.com/esphome/esphome.io/pull/7203",
+      "repository": "esphome/esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "[pre-commit.ci] pre-commit autoupdate",
+      "url": "https://github.com/esphome/aioesphomeapi/pull/1892",
+      "repository": "esphome/aioesphomeapi",
+      "author": "pre-commit-ci[bot]"
+    },
+    {
+      "title": "[pre-commit.ci] pre-commit autoupdate",
+      "url": "https://github.com/esphome/esphome-desktop/pull/457",
+      "repository": "esphome/esphome-desktop",
+      "author": "pre-commit-ci[bot]"
+    },
+    {
+      "title": "Bump ruff from 0.15.22 to 0.16.5",
+      "url": "https://github.com/music-assistant/server/pull/6107",
+      "repository": "music-assistant/server",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump pylast from 7.0.2 to 7.1.0",
+      "url": "https://github.com/music-assistant/server/pull/6105",
+      "repository": "music-assistant/server",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): update node.js to e67514e",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/64",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update pnpm to v11.23.0",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/65",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update docker/setup-buildx-action action to v4.3.0",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/61",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore: bump oxlint from 1.71.0 to 1.80.0",
+      "url": "https://github.com/zwave-js/zwave-js/pull/9171",
+      "repository": "zwave-js/zwave-js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore: bump github/codeql-action from 4.37.3 to 4.37.8",
+      "url": "https://github.com/zwave-js/zwave-js/pull/9170",
+      "repository": "zwave-js/zwave-js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore: bump @modelcontextprotocol/sdk from 1.29.0 to 1.30.0",
+      "url": "https://github.com/zwave-js/zwave-js/pull/9164",
+      "repository": "zwave-js/zwave-js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump hassil from 3.11.0 to 3.12.0",
+      "url": "https://github.com/OHF-Voice/intents/pull/4148",
+      "repository": "OHF-Voice/intents",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(ci): bump python-semantic-release/python-semantic-release from 10.6.1 to 10.6.2 in the github-actions group",
+      "url": "https://github.com/Bluetooth-Devices/aiodiscover/pull/290",
+      "repository": "Bluetooth-Devices/aiodiscover",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(ci): bump the github-actions group with 5 updates",
+      "url": "https://github.com/Bluetooth-Devices/habluetooth/pull/627",
+      "repository": "Bluetooth-Devices/habluetooth",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps-dev): bump pytest-benchmark from 5.2.3 to 5.3.0",
+      "url": "https://github.com/Bluetooth-Devices/bluetooth-data-tools/pull/321",
+      "repository": "Bluetooth-Devices/bluetooth-data-tools",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): bump cryptography from 50.0.0 to 50.0.1",
+      "url": "https://github.com/Bluetooth-Devices/bluetooth-data-tools/pull/320",
+      "repository": "Bluetooth-Devices/bluetooth-data-tools",
+      "author": "dependabot[bot]"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 118,
+      "thisWeek": 1165,
+      "sinceRelease": 1943,
+      "lastReleaseDate": "2026-08-05"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 27,
+      "thisWeek": 276,
+      "sinceRelease": 49,
+      "lastReleaseDate": "2026-08-29"
+    },
+    {
+      "product": "ESPHome",
+      "today": 39,
+      "thisWeek": 207,
+      "sinceRelease": 294,
+      "lastReleaseDate": "2026-08-19"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "home-assistant/core:379786614",
+      "product": "Home Assistant",
+      "repository": "home-assistant/core",
+      "name": "2026.9.0b5",
+      "tag": "2026.9.0b5",
+      "url": "https://github.com/home-assistant/core/releases/tag/2026.9.0b5",
+      "publishedAt": "2026-08-31T13:42:24Z",
+      "channel": "prerelease",
+      "accent": "blue"
+    }
+  ],
+  "releases": [
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-09-02",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-09-09",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-09-16",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-09-30",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-10-07",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-10-14",
+      "accent": "green"
+    }
+  ],
+  "notes": [
+    "Home Assistant had 118 merged pull requests; the configured limit included 60.",
+    "Codex editorial plan generated from auditable local prompts by parallel beat reporters, a separate editor, and independent writing and factual reviews."
+  ],
+  "articles": [
+    {
+      "id": "network-shares-recover-without-local-spillover",
+      "title": "Home Assistant makes network-share outages safer",
+      "dek": "Merged Supervisor work lets NFS and CIFS shares recover when servers return, while keeping dead mounts from hanging the system or spilling writes onto local storage.",
+      "body": [
+        "People who keep media, shared files or backups on a network server face more than a missing folder when that server goes offline: a dead share could freeze low-level system services, trigger watchdog resets or leave a local directory accepting data meant for the server. Stefan Agner’s merged Supervisor redesign closes all three failure paths.",
+        "The new design puts an automatic mount trigger in front of each share. NFS and CIFS can reconnect an existing mount, while a torn-down mount is tried again on the next access after the server returns. Supervisor still checks status and dismisses the repair notice after recovery.",
+        "During an outage, the automount keeps the path covered, so writes fail instead of silently filling local storage. The redesign retains special handling for backups and restores, and mdegat01 reviewed and approved the substantial change."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 92,
+      "contributors": [
+        "agners"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "agners",
+          "name": "Stefan Agner",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/34061?v=4",
+          "profileUrl": "https://github.com/agners"
+        }
+      ],
+      "reviewers": [
+        "mdegat01"
+      ],
+      "approvers": [
+        "mdegat01"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Supervisor",
+        "reliability",
+        "network storage"
+      ],
+      "continuity": "The redesign addresses a connected run of network-mount hangs, teardown failures and local-data spillover rather than another isolated recovery patch.",
+      "pullRequests": [
+        {
+          "id": "4359420268",
+          "title": "Use systemd automount units for network mounts",
+          "url": "https://github.com/home-assistant/supervisor/pull/7167",
+          "repository": "home-assistant/supervisor"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "spotify-crossfades-keep-their-momentum",
+      "title": "Music Assistant merges a fix for shrinking Spotify crossfades",
+      "dek": "A merged Music Assistant fix carries spare playback time from one track to the next, so smart fades can grow instead of restarting from zero.",
+      "body": [
+        "Music Assistant’s smart crossfades could be barely audible on Spotify—and disappear entirely on short tracks—because each song had to build its playback cushion from zero. On a tested Sonos group, Spotify provided 8.4 seconds for a fade where the same speakers provided 44.5 seconds from a local file.",
+        "The merged fix carries that cushion into the next song. In the submitted hardware test, the available fade window grew from 8.4 to 36.7 to 44.5 seconds across three tracks instead of resetting at every boundary.",
+        "This builds on earlier merged work that moved Spotify and other real-time-source crossfades into Music Assistant itself. The new fix is marked for a stable backport."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 88,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant",
+        "Playback",
+        "Spotify",
+        "Reliability"
+      ],
+      "continuity": "Today’s fix builds on the earlier merge that moved real-time-source crossfades into Music Assistant.",
+      "pullRequests": [
+        {
+          "id": "4402377265",
+          "title": "Crossfades no longer shrink to a few seconds on slower sources",
+          "url": "https://github.com/music-assistant/server/pull/6128",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4351342125",
+          "title": "Let Music Assistant mix crossfades for Spotify and other realtime sources",
+          "url": "https://github.com/music-assistant/server/pull/5960",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-libraries-stop-losing-and-mislabeling-tracks",
+      "title": "Four Music Assistant fixes tackle missing and wrongly playable tracks",
+      "dek": "Merged work prevents provider syncs from dropping or misfiling tracks, and stops unavailable Apple Music songs from appearing playable.",
+      "body": [
+        "People syncing provider libraries into Music Assistant should see fewer missing or misleading entries. Spotify album sync now skips empty provider results instead of aborting the job, while YouTube Music collaboration tracks without a usable artist ID fall back to the album artist instead of silently disappearing.",
+        "Qobuz and YouTube Music album imports now retain their parent album, preventing tracks from landing unfiled with disc and track number zero; existing affected tracks are repaired on the next import. Apple Music also stops labelling withdrawn or purchase-only songs as playable when it cannot serve them.",
+        "In one real Apple Music library, that availability correction reclassified 27 of 1,423 songs—three withdrawn and 24 purchase-only—without changing any item in the other direction. The fixes came from Marvin Schenkel, OzGav and first-time server contributor anthonws; Marvin also reviewed and approved that first contribution. Welcome, anthonws."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 85,
+      "contributors": [
+        "anthonws",
+        "MarvinSchenkel",
+        "OzGav"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "anthonws",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/181357?v=4",
+          "profileUrl": "https://github.com/anthonws"
+        },
+        {
+          "login": "MarvinSchenkel",
+          "name": "Marvin Schenkel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
+          "profileUrl": "https://github.com/MarvinSchenkel"
+        },
+        {
+          "login": "OzGav",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/19848947?v=4",
+          "profileUrl": "https://github.com/OzGav"
+        }
+      ],
+      "reviewers": [
+        "MarvinSchenkel"
+      ],
+      "approvers": [
+        "MarvinSchenkel"
+      ],
+      "topics": [
+        "Music Assistant",
+        "Libraries",
+        "Apple Music",
+        "Spotify",
+        "Qobuz",
+        "YouTube Music",
+        "Reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4401620432",
+          "title": "Apple Music: don't report purchase-only library items as available",
+          "url": "https://github.com/music-assistant/server/pull/6123",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4399671093",
+          "title": "Spotify: skip empty entries when syncing library albums",
+          "url": "https://github.com/music-assistant/server/pull/6114",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4397871611",
+          "title": "Attach the parent album to imported album tracks",
+          "url": "https://github.com/music-assistant/server/pull/6111",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4399674613",
+          "title": "Fix missing tracks on albums for collaboration tracks in YouTube Music",
+          "url": "https://github.com/music-assistant/server/pull/6115",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "yoto-cards-join-music-assistant",
+      "title": "Yoto cards get a route into Music Assistant",
+      "dek": "A merged provider can stream purchased, free and make-your-own cards, with clear limits around radio and shared libraries.",
+      "body": [
+        "Families using Yoto cards have a new Music Assistant provider in merged code. It can stream purchased, free and make-your-own cards from a listener’s library alongside other sources managed by Music Assistant; Yoto Radio is not part of the implementation.",
+        "The provider does not cache card audio. If a card is scanned into another family’s library, playback can fail when Music Assistant requests the next stream, including at chapter or track boundaries.",
+        "This is Philip Woolford’s first merged contribution to the Music Assistant server. Welcome, Philip—and thanks to OzGav, who reviewed and approved it."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 84,
+      "contributors": [
+        "pantsman0"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "pantsman0",
+          "name": "Philip Woolford",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/10139336?v=4",
+          "profileUrl": "https://github.com/pantsman0"
+        }
+      ],
+      "reviewers": [
+        "OzGav"
+      ],
+      "approvers": [
+        "OzGav"
+      ],
+      "topics": [
+        "Music Assistant",
+        "Yoto",
+        "New providers",
+        "Community"
+      ],
+      "pullRequests": [
+        {
+          "id": "4250993755",
+          "title": "Add Yoto provider",
+          "url": "https://github.com/music-assistant/server/pull/5584",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "zonneplan-dynamic-prices-arrive",
+      "title": "A new Zonneplan integration starts with dynamic prices",
+      "dek": "The first merged version will bring Zonneplan sensors and dynamic energy prices into Home Assistant, while delivered-energy readings remain follow-up work.",
+      "body": [
+        "Zonneplan customers have a new Home Assistant integration in merged code. Once released, its first version will bring provider sensors and dynamic energy prices into dashboards and automations.",
+        "Delivered-energy readings are explicitly outside this first merge and remain future work. Erwin Douna added the integration and its matching branding. joostlek approved the Core change, and both joostlek and frenck approved the branding."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 82,
+      "contributors": [
+        "erwindouna"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "erwindouna",
+          "name": "Erwin Douna",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5011203?v=4",
+          "profileUrl": "https://github.com/erwindouna"
+        }
+      ],
+      "reviewers": [
+        "frenck",
+        "joostlek"
+      ],
+      "approvers": [
+        "joostlek",
+        "frenck"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Zonneplan",
+        "energy",
+        "new integration"
+      ],
+      "pullRequests": [
+        {
+          "id": "4395125608",
+          "title": "Add Zonneplan integration",
+          "url": "https://github.com/home-assistant/core/pull/180722",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4395149167",
+          "title": "Add Zonneplan branding",
+          "url": "https://github.com/home-assistant/brands/pull/11068",
+          "repository": "home-assistant/brands"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "reterminal-e1001-epaper",
+      "title": "Merged ESPHome work adds the reTerminal E1001 display",
+      "dek": "A new driver lets makers target its 800×480 monochrome e-paper panel, with full, fast and partial refresh modes.",
+      "body": [
+        "Makers using Seeed’s reTerminal E1001 now have merged ESPHome support for its e-paper display, including the board’s default wiring. The same driver covers Waveshare’s 7.5-inch V2 panel and a bare-controller option for custom hardware.",
+        "The driver offers ordinary full refreshes, faster full refreshes and partial updates that compare against the display controller’s previous image. Matching documentation supplies supported-model tables and a partial-refresh example."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 79,
+      "contributors": [
+        "jesserockz"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "jesserockz",
+          "name": "Jesse Hills",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/3060199?v=4",
+          "profileUrl": "https://github.com/jesserockz"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "ESPHome",
+        "New devices",
+        "Displays"
+      ],
+      "pullRequests": [
+        {
+          "id": "4056126055",
+          "title": "[epaper_spi] Add UC8179 mono driver and Seeed reTerminal E1001 model",
+          "url": "https://github.com/esphome/esphome/pull/17568",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "4056158426",
+          "title": "[epaper_spi] Add UC8179 driver and 7.5in V2 / reTerminal E1001 models",
+          "url": "https://github.com/esphome/esphome.io/pull/6987",
+          "repository": "esphome/esphome.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ]
+}
