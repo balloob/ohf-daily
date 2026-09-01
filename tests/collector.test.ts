@@ -284,6 +284,10 @@ test("warms release previews throughout beta week without treating beta day as r
 
 test("parses inclusive history-only backfill bounds", () => {
   assert.deepEqual(parseBackfillArguments(["--from", "2026-08-01", "--to", "2026-08-31"]), { from: "2026-08-01", to: "2026-08-31" });
+  assert.deepEqual(
+    parseBackfillArguments(["--from", "2026-08-01", "--to", "2026-08-31", "--organization", "Sendspin"]),
+    { from: "2026-08-01", to: "2026-08-31", organization: "Sendspin" },
+  );
   assert.throws(() => parseBackfillArguments(["--from", "2026-08-01"]), /Both --from and --to/);
 });
 

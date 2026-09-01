@@ -2,7 +2,7 @@
 
 OHF Daily is a newspaper-style account of the previous 24 hours across the Open Home Foundation ecosystem. It reports the changes that matter across public code, official blogs, and corroborated outside coverage; groups routine dependency updates; tracks upcoming releases; and preserves every edition in a year/month archive.
 
-The static site is built with [Astro](https://astro.build/) for desktop and mobile and published through GitHub Pages. Coverage is configured for Home Assistant, **Home Assistant Libraries**, ESPHome, Music Assistant, the Open Home Foundation, OHF Voice, Matter.js, Z-Wave JS, Zigpy, and related public organizations.
+The static site is built with [Astro](https://astro.build/) for desktop and mobile and published through GitHub Pages. Coverage is configured for Home Assistant, **Home Assistant Libraries**, ESPHome, Music Assistant, Sendspin, the Open Home Foundation, OHF Voice, Matter.js, Z-Wave JS, Zigpy, and related public organizations.
 
 ## One-command editorial pipeline
 
@@ -131,6 +131,12 @@ GH_TOKEN=github_pat_… npm run backfill -- --from 2026-08-01 --to 2026-08-31
 ```
 
 Both endpoints are inclusive. Backfill starts with the newest date so recent material reaches the newsroom first, then works backward in bounded daily requests. It updates only `data/prs/YYYY-MM.ndjson` and the disposable GitHub cache, and never creates retroactive editions or invokes AI. Re-running the same range is safe: unchanged PRs are semantically deduplicated and do not create duplicate history records.
+
+To backfill one newly added organization without rescanning every configured source, pass its configured slug or display name:
+
+```sh
+GH_TOKEN=github_pat_… npm run backfill -- --from 2026-08-01 --to 2026-08-31 --organization Sendspin
+```
 
 For the actual bootstrap, the manual GitHub Actions workflow is also available. Enter `2026-08-01` in `backfill_from` and `2026-08-31` in `backfill_to`. The workflow uses its built-in GitHub token and saves the database only in the private Actions cache. A failed run can be dispatched again with the same range.
 

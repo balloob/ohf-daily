@@ -3,13 +3,13 @@ import process from "node:process";
 import { fileURLToPath } from "node:url";
 import { collectRange } from "./collect";
 
-export const backfillUsage = "Usage: node --import tsx scripts/backfill.ts --from YYYY-MM-DD --to YYYY-MM-DD";
+export const backfillUsage = "Usage: node --import tsx scripts/backfill.ts --from YYYY-MM-DD --to YYYY-MM-DD [--organization SLUG]";
 
-export function parseBackfillArguments(args: string[]): { from: string; to: string } {
+export function parseBackfillArguments(args: string[]): { from: string; to: string; organization?: string } {
   const values = new Map<string, string>();
   for (let index = 0; index < args.length; index += 1) {
     const argument = args[index];
-    if (argument !== "--from" && argument !== "--to") throw new TypeError(`Unknown option: ${argument}\n${backfillUsage}`);
+    if (argument !== "--from" && argument !== "--to" && argument !== "--organization") throw new TypeError(`Unknown option: ${argument}\n${backfillUsage}`);
     const value = args[index + 1];
     if (!value || value.startsWith("--")) throw new TypeError(`Missing value for ${argument}.\n${backfillUsage}`);
     values.set(argument, value);
@@ -19,7 +19,7 @@ export function parseBackfillArguments(args: string[]): { from: string; to: stri
   const to = values.get("--to");
   if (!from || !to) throw new TypeError(`Both --from and --to are required.\n${backfillUsage}`);
   // collectRange performs calendar and ordering validation using the configured timezone.
-  return { from, to };
+  return { from, to, ...(values.has("--organization") ? { organization: values.get("--organization") } : {}) };
 }
 
 async function main(): Promise<void> {

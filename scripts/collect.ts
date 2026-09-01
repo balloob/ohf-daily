@@ -788,6 +788,7 @@ async function storeHistoryWindow(
 export interface CollectRangeOptions {
   from: string;
   to: string;
+  organization?: string;
 }
 
 export function backfillDatesNewestFirst(from: string, to: string, timeZone: string): string[] {
@@ -807,6 +808,14 @@ export function backfillDatesNewestFirst(from: string, to: string, timeZone: str
 
 export async function collectRange(options: CollectRangeOptions): Promise<{ written: number; days: number }> {
   const config = await loadYaml<SourcesConfig>(configPath);
+  const backfillConfig = options.organization ? (() => {
+    const requested = options.organization!.toLowerCase();
+    const organization = config.organizations.find((item) =>
+      item.slug.toLowerCase() === requested || item.name.toLowerCase() === requested,
+    );
+    if (!organization) throw new TypeError(`Unknown backfill organization: ${options.organization}`);
+    return { ...config, organizations: [organization] };
+  })() : config;
   const dates = backfillDatesNewestFirst(options.from, options.to, config.timezone);
   const cache = await loadCache();
   const client = new GitHubClient(cache);
@@ -814,7 +823,7 @@ export async function collectRange(options: CollectRangeOptions): Promise<{ writ
   let written = 0;
   let days = 0;
   for (const date of dates) {
-    const result = await storeHistoryWindow(config, client, contributorCache, startOfEditionDate(date, config.timezone), endOfEditionDate(date, config.timezone));
+    const result = await storeHistoryWindow(backfillConfig, client, contributorCache, startOfEditionDate(date, config.timezone), endOfEditionDate(date, config.timezone));
     written += result.written;
     days += 1;
     await saveJsonAtomic(cachePath, cache);
