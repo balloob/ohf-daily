@@ -1,0 +1,1046 @@
+{
+  "date": "2026-09-02",
+  "generatedAt": "2026-09-02T05:04:24.054Z",
+  "windowStart": "2026-09-01T05:02:20.662Z",
+  "windowEnd": "2026-09-02T05:02:20.662Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 171,
+    "repositories": 36,
+    "contributors": 67,
+    "dependencyUpdates": 21,
+    "hacsNewIntegrations": 0
+  },
+  "lead": {
+    "id": "4306178795",
+    "title": "[ota] Add Noise encryption to the OTA platform",
+    "summary": "What does this implement/fix? Adds Noise (ChaCha20 Poly1305) encryption to the esphome OTA platform, using the same protocol the API already uses.",
+    "unlocks": "Unlocks: [ota] Add Noise encryption to the OTA platform.",
+    "url": "https://github.com/esphome/esphome/pull/18489",
+    "repository": "esphome/esphome",
+    "organization": "ESPHome",
+    "author": "bdraco",
+    "mergedAt": "2026-09-01T20:11:57Z",
+    "labels": [
+      "new-feature",
+      "component: ota",
+      "has-tests",
+      "core",
+      "component: esphome",
+      "component: noise"
+    ],
+    "kind": "feature",
+    "score": 70.8,
+    "additions": 1772,
+    "deletions": 46,
+    "changedFiles": 22
+  },
+  "highlights": [
+    {
+      "id": "4290377565",
+      "title": "Add event status to calendar events",
+      "summary": "Add CalendarEventStatus for the RFC 5545 STATUS property, expose it on CalendarEvent, and populate it from caldav, local calendar and google.",
+      "unlocks": "Unlocks: Add event status to calendar events.",
+      "url": "https://github.com/home-assistant/core/pull/179312",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "1358",
+      "mergedAt": "2026-09-01T19:48:02Z",
+      "labels": [
+        "core",
+        "cla-signed",
+        "new-feature",
+        "has-tests"
+      ],
+      "kind": "feature",
+      "score": 65.6,
+      "additions": 313,
+      "deletions": 28,
+      "changedFiles": 14
+    },
+    {
+      "id": "4266721197",
+      "title": "Add message field to Music Assistant play announcement action",
+      "summary": "The music assistant.play announcement action only accepted a URL, so announcing spoken text meant using the tts.speak action instead, which loses the fine grained options this action offers…",
+      "unlocks": "Unlocks: Add message field to Music Assistant play announcement action.",
+      "url": "https://github.com/home-assistant/core/pull/179034",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-01T22:02:07Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "integration: music_assistant",
+        "quality scale: bronze",
+        "top 200",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 62.3,
+      "additions": 234,
+      "deletions": 14,
+      "changedFiles": 7
+    },
+    {
+      "id": "4403072021",
+      "title": "Set a global default for the Autoplay and Crossfade switches",
+      "summary": "What does this implement/fix? The per player Autoplay and Crossfade switches always started out the same way (Autoplay on, crossfade off) and there was no place to change that.",
+      "url": "https://github.com/music-assistant/server/pull/6130",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "MarvinSchenkel",
+      "mergedAt": "2026-09-01T07:20:04Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 60.9,
+      "additions": 404,
+      "deletions": 40,
+      "changedFiles": 10
+    },
+    {
+      "id": "4409431794",
+      "title": "Fix crossfade on enqueue-capable speakers (like Sonos) when audio source is Spotify through Soloist",
+      "summary": "What does this implement/fix? Crossfades between Spotify tracks barely worked on players like Sonos that play track by track (gapless): most transitions were hard cuts, sometimes with dead…",
+      "unlocks": "Improves reliability around fix crossfade on enqueue-capable speakers (like Sonos) when audio source is Spotify through Soloist.",
+      "url": "https://github.com/music-assistant/server/pull/6141",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-01T23:51:09Z",
+      "labels": [
+        "bugfix",
+        "backport-to-stable"
+      ],
+      "kind": "fix",
+      "score": 58.7,
+      "additions": 1725,
+      "deletions": 6178,
+      "changedFiles": 24
+    }
+  ],
+  "briefs": [
+    {
+      "id": "3162741125",
+      "title": "[ds1603l] New sensor DS1603L V1.0 ",
+      "summary": "What does this implement/fix? New ultrasonic distance sensor ds1603l read over uart includes ds1603l component Types of changes Bugfix (non breaking change which fixes an issue) New feature…",
+      "unlocks": "Unlocks: [ds1603l] New sensor DS1603L V1.0 .",
+      "url": "https://github.com/esphome/esphome/pull/13133",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "JakeLC15",
+      "mergedAt": "2026-09-01T22:05:56Z",
+      "labels": [
+        "new-component",
+        "new-feature",
+        "has-tests",
+        "new-platform",
+        "component: ds1603l"
+      ],
+      "kind": "feature",
+      "score": 58.7,
+      "additions": 159,
+      "deletions": 0,
+      "changedFiles": 8
+    },
+    {
+      "id": "4111321955",
+      "title": "[d01] add D01 pm2.5 sensor support",
+      "summary": "What does this implement/fix? Adds support for the D01 pm2.5 particulate sensor.",
+      "unlocks": "Unlocks: [d01] add D01 pm2.5 sensor support.",
+      "url": "https://github.com/esphome/esphome/pull/17788",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "ch604",
+      "mergedAt": "2026-09-01T19:33:36Z",
+      "labels": [
+        "new-component",
+        "new-feature",
+        "has-tests",
+        "new-platform",
+        "component: d01"
+      ],
+      "kind": "feature",
+      "score": 57.1,
+      "additions": 129,
+      "deletions": 0,
+      "changedFiles": 9
+    },
+    {
+      "id": "4411108421",
+      "title": "Add device_trackers state attribute to zone entity states",
+      "summary": "Add device trackers state attribute to zone entity states Background in https://github.com/home assistant/architecture/discussions/1402 Type of change Dependency upgrade Bugfix (non breaking…",
+      "unlocks": "Unlocks: Add device_trackers state attribute to zone entity states.",
+      "url": "https://github.com/home-assistant/core/pull/181001",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "emontnemery",
+      "mergedAt": "2026-09-01T13:53:19Z",
+      "labels": [
+        "core",
+        "cla-signed",
+        "new-feature",
+        "integration: zone",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: internal",
+        "integration: kitchen_sink"
+      ],
+      "kind": "feature",
+      "score": 54.9,
+      "additions": 173,
+      "deletions": 88,
+      "changedFiles": 5
+    },
+    {
+      "id": "4405325552",
+      "title": "Add Flexit binary sensors and change default baud rate",
+      "summary": "Add coordinator backed binary sensor entities to the Flexit integration.",
+      "unlocks": "Unlocks: Add Flexit binary sensors and change default baud rate.",
+      "url": "https://github.com/home-assistant/core/pull/180952",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "troelde",
+      "mergedAt": "2026-09-01T17:56:09Z",
+      "labels": [
+        "new-platform",
+        "cla-signed",
+        "new-feature",
+        "integration: flexit",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: legacy"
+      ],
+      "kind": "feature",
+      "score": 52.5,
+      "additions": 254,
+      "deletions": 5,
+      "changedFiles": 8
+    },
+    {
+      "id": "4409030365",
+      "title": "[esp32][mipi_rgb] Add ESP32-S31 support for execute_from_psram",
+      "summary": "What does this implement/fix? Unify the execute from psram sdkconfig handling to a single CONFIG SPIRAM XIP FROM PSRAM option shared by S3, P4, and now S31, and add test coverage for all three variants.",
+      "unlocks": "Unlocks: [esp32][mipi_rgb] Add ESP32-S31 support for execute_from_psram.",
+      "url": "https://github.com/esphome/esphome/pull/18929",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "clydebarrow",
+      "mergedAt": "2026-09-01T12:56:03Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "code-quality",
+        "bugfix",
+        "by-code-owner",
+        "component: esp32",
+        "platform: esp32",
+        "component: mipi_rgb",
+        "medium-pr"
+      ],
+      "kind": "feature",
+      "score": 52.2,
+      "additions": 58,
+      "deletions": 20,
+      "changedFiles": 5
+    },
+    {
+      "id": "4396738530",
+      "title": "Add select platform to LG Infrared",
+      "summary": "Adds a select platform for the LG AC energy limit, with the off, 40%, 60% and 80% steps the remote offers.",
+      "unlocks": "Unlocks: Add select platform to LG Infrared.",
+      "url": "https://github.com/home-assistant/core/pull/180844",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "Dr-Blank",
+      "mergedAt": "2026-09-01T10:48:34Z",
+      "labels": [
+        "new-platform",
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "quality scale: silver",
+        "integration: lg_infrared"
+      ],
+      "kind": "feature",
+      "score": 51.7,
+      "additions": 281,
+      "deletions": 0,
+      "changedFiles": 6
+    },
+    {
+      "id": "4414833114",
+      "title": "Bandcamp Song Lyrics support",
+      "summary": "What does this implement/fix? Introduces song lyrics support for the Bandcamp Provider.",
+      "unlocks": "Unlocks: Bandcamp Song Lyrics support.",
+      "url": "https://github.com/music-assistant/server/pull/6152",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "ALERTua",
+      "mergedAt": "2026-09-02T03:46:01Z",
+      "labels": [
+        "enhancement",
+        "dependencies-reviewed"
+      ],
+      "kind": "feature",
+      "score": 50.7,
+      "additions": 376,
+      "deletions": 11,
+      "changedFiles": 7
+    },
+    {
+      "id": "4409885304",
+      "title": "Add panel information to diagnostics for Satel Integra",
+      "summary": "https://github.com/home assistant/core/pull/169668 Added the ability to read some information (like model and firmware) from the alarm panel.",
+      "unlocks": "Unlocks: Add panel information to diagnostics for Satel Integra.",
+      "url": "https://github.com/home-assistant/core/pull/180987",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "Tommatheussen",
+      "mergedAt": "2026-09-01T08:19:22Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "new-feature",
+        "integration: satel_integra",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze"
+      ],
+      "kind": "feature",
+      "score": 50.5,
+      "additions": 66,
+      "deletions": 17,
+      "changedFiles": 5
+    },
+    {
+      "id": "4403666106",
+      "title": "Fix various issues with enqueuing the next track",
+      "summary": "What does this implement/fix? Music Assistant hands the next track to the speaker before it starts playing, so playback stays gapless.",
+      "unlocks": "Improves reliability around fix various issues with enqueuing the next track.",
+      "url": "https://github.com/music-assistant/server/pull/6132",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-01T22:06:59Z",
+      "labels": [
+        "bugfix",
+        "backport-to-stable"
+      ],
+      "kind": "fix",
+      "score": 50.4,
+      "additions": 525,
+      "deletions": 69,
+      "changedFiles": 13
+    },
+    {
+      "id": "4416117271",
+      "title": "Add App Labs",
+      "summary": "AI Policy I have read the Open Home Foundation AI Policy.",
+      "unlocks": "Unlocks: Add App Labs.",
+      "url": "https://github.com/home-assistant/iOS/pull/5596",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "bgoncal",
+      "mergedAt": "2026-09-01T23:44:25Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "feature",
+      "score": 50.3,
+      "additions": 2088,
+      "deletions": 214,
+      "changedFiles": 45
+    },
+    {
+      "id": "4404942812",
+      "title": "Deduplicate entity trigger and condition tests",
+      "summary": "Deduplicate entity trigger and condition tests Integrations declare in their test if their conditions and triggers reuse the base class functionality, and we do a best effort check to validate that.",
+      "url": "https://github.com/home-assistant/core/pull/180943",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "emontnemery",
+      "mergedAt": "2026-09-01T17:18:12Z",
+      "labels": [
+        "core",
+        "cla-signed",
+        "small-pr",
+        "has-tests",
+        "code-quality"
+      ],
+      "kind": "platform",
+      "score": 48.6,
+      "additions": 1968,
+      "deletions": 13,
+      "changedFiles": 82
+    },
+    {
+      "id": "4414231842",
+      "title": "Give up on an undo that can never finish, and say why a request was refused",
+      "summary": "Step 4 of the node manager task layer redesign, on top of node manager .",
+      "url": "https://github.com/matter-js/matter.js/pull/4384",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-09-01T22:55:39Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 47.9,
+      "additions": 1812,
+      "deletions": 144,
+      "changedFiles": 14
+    },
+    {
+      "id": "4390490445",
+      "title": "Continue central error handling for OAuth",
+      "summary": "Breaking change Proposed change Follow up to #180394 Additional error handling, so that OAuth2TokenRequestError starts a retry and that ClientErrors are handled centrally.",
+      "url": "https://github.com/home-assistant/core/pull/180588",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "zweckj",
+      "mergedAt": "2026-09-01T20:35:33Z",
+      "labels": [
+        "core",
+        "cla-signed",
+        "code-quality"
+      ],
+      "kind": "platform",
+      "score": 46.7,
+      "additions": 519,
+      "deletions": 58,
+      "changedFiles": 6
+    },
+    {
+      "id": "4397609438",
+      "title": "Keep a run in one place, and record a change before adopting it",
+      "summary": "A run had two shapes and lived in one of three tables.",
+      "url": "https://github.com/matter-js/matter.js/pull/4373",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-09-01T14:39:23Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 44,
+      "additions": 877,
+      "deletions": 718,
+      "changedFiles": 16
+    },
+    {
+      "id": "4402019817",
+      "title": "Fix AriaCast receiver fetching artwork from arbitrary hosts",
+      "summary": "What does this implement/fix? The AriaCast receiver's /metadata endpoints are unauthenticated and bound to the LAN.",
+      "unlocks": "Improves reliability around fix AriaCast receiver fetching artwork from arbitrary hosts.",
+      "url": "https://github.com/music-assistant/server/pull/6127",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "MarvinSchenkel",
+      "mergedAt": "2026-09-01T15:07:15Z",
+      "labels": [
+        "bugfix"
+      ],
+      "kind": "fix",
+      "score": 43.1,
+      "additions": 438,
+      "deletions": 29,
+      "changedFiles": 3
+    },
+    {
+      "id": "4366844661",
+      "title": "Handle no_devices_found centrally",
+      "summary": "Breaking change Proposed change Handle no devices found centrally Type of change Dependency upgrade Bugfix (non breaking change which fixes an issue) New integration (thank you!) New feature…",
+      "url": "https://github.com/home-assistant/core/pull/180268",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "zweckj",
+      "mergedAt": "2026-09-01T11:31:55Z",
+      "labels": [
+        "core",
+        "cla-signed",
+        "small-pr",
+        "code-quality"
+      ],
+      "kind": "platform",
+      "score": 43,
+      "additions": 6,
+      "deletions": 11,
+      "changedFiles": 13
+    },
+    {
+      "id": "4403627436",
+      "title": "Add home_assistant_light_color_mode pylint checker",
+      "summary": "Add home assistant light color mode pylint checker This comes up in reviews sometimes and is easy to miss if the code is not tested (two such case were found when working on this checker:…",
+      "unlocks": "Unlocks: Add home_assistant_light_color_mode pylint checker.",
+      "url": "https://github.com/home-assistant/core/pull/180922",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "emontnemery",
+      "mergedAt": "2026-09-01T10:58:56Z",
+      "labels": [
+        "core",
+        "cla-signed",
+        "code-quality",
+        "workflow"
+      ],
+      "kind": "feature",
+      "score": 41.2,
+      "additions": 784,
+      "deletions": 0,
+      "changedFiles": 4
+    },
+    {
+      "id": "4413874041",
+      "title": "TC-SWTCH-3.2, urgent event subscriptions, and operable chip test devices",
+      "summary": "Adds the certification test TC SWTCH 3.2, and the two pieces of harness work it needed.",
+      "url": "https://github.com/matter-js/matter.js/pull/4383",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-09-01T21:43:50Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "maintenance",
+      "score": 40.9,
+      "additions": 1458,
+      "deletions": 7,
+      "changedFiles": 11
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Update uv to 0.12.6",
+      "url": "https://github.com/home-assistant/core/pull/181047",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump androidtvremote2 to 0.3.2",
+      "url": "https://github.com/home-assistant/core/pull/181017",
+      "repository": "home-assistant/core",
+      "author": "tronikos"
+    },
+    {
+      "title": "Bump python-duco-connectivity to 0.15.0",
+      "url": "https://github.com/home-assistant/core/pull/181013",
+      "repository": "home-assistant/core",
+      "author": "ronaldvdmeer"
+    },
+    {
+      "title": "Update androidx.compose.*",
+      "url": "https://github.com/home-assistant/android/pull/7336",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump brother to 6.1.2",
+      "url": "https://github.com/home-assistant/core/pull/180998",
+      "repository": "home-assistant/core",
+      "author": "bieniu"
+    },
+    {
+      "title": "Bump hdfury to 1.6.1",
+      "url": "https://github.com/home-assistant/core/pull/180990",
+      "repository": "home-assistant/core",
+      "author": "glenndehaan"
+    },
+    {
+      "title": "Bump mypy from 2.3.0 to 2.3.1",
+      "url": "https://github.com/home-assistant-libs/voluptuous-serialize/pull/226",
+      "repository": "home-assistant-libs/voluptuous-serialize",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump ruff from 0.16.0 to 0.16.5",
+      "url": "https://github.com/home-assistant-libs/voluptuous-serialize/pull/227",
+      "repository": "home-assistant-libs/voluptuous-serialize",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency prek to v0.5.1",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/526",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump coverage from 7.15.4 to 7.16.0",
+      "url": "https://github.com/home-assistant-libs/python-supervisor-client/pull/404",
+      "repository": "home-assistant-libs/python-supervisor-client",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump pylint from 4.0.7 to 4.0.8",
+      "url": "https://github.com/esphome/esphome/pull/18935",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump zeroconf from 0.150.4 to 0.151.2",
+      "url": "https://github.com/esphome/esphome/pull/18934",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Refine the schema-bump and PR-description review instructions",
+      "url": "https://github.com/music-assistant/server/pull/6149",
+      "repository": "music-assistant/server",
+      "author": "chrisuthe"
+    },
+    {
+      "title": "chore(deps): update dependency eslint to v10.9.1",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/63",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update nest monorepo to v11.2.3",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/70",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update pnpm to v11.24.0",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/69",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update dependency typescript-eslint to v8.68.0",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/68",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "feat: bump zwave-js@15.28.0",
+      "url": "https://github.com/zwave-js/zwave-js-ui/pull/4804",
+      "repository": "zwave-js/zwave-js-ui",
+      "author": "zwave-js-bot"
+    },
+    {
+      "title": "chore(deps-ci): bump the github-actions group with 3 updates",
+      "url": "https://github.com/Bluetooth-Devices/oralb-ble/pull/199",
+      "repository": "Bluetooth-Devices/oralb-ble",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(ci): bump the github-actions group with 3 updates",
+      "url": "https://github.com/Bluetooth-Devices/thermopro-ble/pull/202",
+      "repository": "Bluetooth-Devices/thermopro-ble",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(ci): bump the github-actions group with 5 updates",
+      "url": "https://github.com/Bluetooth-Devices/bluetooth-data-tools/pull/323",
+      "repository": "Bluetooth-Devices/bluetooth-data-tools",
+      "author": "dependabot[bot]"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 90,
+      "thisWeek": 1024,
+      "sinceRelease": 3,
+      "lastReleaseDate": "2026-09-02"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 27,
+      "thisWeek": 252,
+      "sinceRelease": 75,
+      "lastReleaseDate": "2026-08-29"
+    },
+    {
+      "product": "ESPHome",
+      "today": 17,
+      "thisWeek": 193,
+      "sinceRelease": 311,
+      "lastReleaseDate": "2026-08-19"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "home-assistant/core:380372944",
+      "product": "Home Assistant",
+      "repository": "home-assistant/core",
+      "name": "2026.9.0b6",
+      "tag": "2026.9.0b6",
+      "url": "https://github.com/home-assistant/core/releases/tag/2026.9.0b6",
+      "publishedAt": "2026-09-01T09:35:02Z",
+      "channel": "prerelease",
+      "accent": "blue"
+    }
+  ],
+  "releasePreviews": [
+    {
+      "id": "Home Assistant/2026.9",
+      "product": "Home Assistant",
+      "version": "2026.9",
+      "title": "2026.9 Beta: A betta title",
+      "url": "https://rc.home-assistant.io/blog/2026/08/26/release-20269/",
+      "body": "Note\n\nWelcome to the beta release notes for Home Assistant 2026.9 🎉\n\nPlease note that these release notes are a work in progress. 👷‍♀️ We will be\ncompleting them over the next couple of days. Not all features might be final\nyet, and some features may not make it into the final release.\n\nWant to help test the beta? Awesome! ❤️ We have documented how you\ncan join our beta channel and install the beta here.\n\nWhile running the beta, we highly recommend joining our #beta channel on\nthe Home Assistant Discord chat! 💬 Most developers and beta\ntesters are in this channel during the beta period to share experiences, ideas,\nand iterate over new features, fine-tuning them before the final release.\nIt’s a really fun place to hang out. 😎\n\nReporting issues: As this is a beta test, you might encounter unexpected\nbehavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.\nYou can find our issue trackers and the reported issues during beta here:\n\nReport(ed) beta dashboards/UI/frontend issues\n\nReport(ed) beta integrations/automations/backend/core issues\n\nReport(ed) beta documentation issues\n\n🙏 When reporting issues, make sure to mention the exact beta version you are\nrunning in the issue description. This will help us identify and track the\nissue correctly. Read more about reporting issues here.\n\nIssues introduced in the beta are processed with priority. 🔝\n\nTip\n\nDon’t forget to join our release party live stream on YouTube on September 2, 2026, at 20:00 GMT / 12:00 PT / 21:00 CET!\n\nHome Assistant 2026.9! 🎉\n\nEnjoy the (beta) release!\n\n../Frenck\n\nSign up for Home Assistant Cloud, and you’re already signed in\n\nActive alerts & favorites for the Security dashboard\n\nA new Sources pane for History and Activity\n\nFrom what changed to why it changed\n\nInsights into your Matter world\n\nNew tile card features\n\nModernizing Modbus\n\nIntegrations\n\nNew integrations\n\nNoteworthy improvements to existing integrations\n\nIntegration quality scale achievements\n\nNow available to set up from the UI\n\nFarewell to the following\n\nOther noteworthy changes\n\nGolden hour, blue hour, and polar sun automations\n\nAccessibility for charts!\n\nSerial and MQTT panels\n\nHow full is your network storage?\n\nNeed help? Join the community\n\nBackward-incompatible changes\n\nAll changes\n\nA huge thank you to all the contributors who made this release possible! And a special shout-out to @frenck and @frenck who helped write these release notes. Also, @frenck, @frenck, @frenck, @frenck, and @frenck for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️\n\nSign up for Home Assistant Cloud, and you’re already signed in\n\nSigning up for Home Assistant Cloud now begins on a clearer start page: one obvious button to Start your free trial, and a link to Sign in if you already have an account. It also finally shows what you would actually be getting. The old page left you to guess what was behind that button, which, fair enough, didn’t help anyone. Now the features are listed right there, before you even start the trial.\n\nCreating an account used to end with a trip back to the sign-in page after you confirmed your email address. Now, as soon as you select the confirmation link in that email, Home Assistant logs you in automatically, so you can go straight to setting up remote access, voice, and backups Home Assistant has built-in functionality to create files containing a copy of your configuration. This can be used to restore your Home Assistant as well as migrate to a new system. The backup feature is available for all installation types. [Learn more]. The trial runs for a full month, and you don’t need to enter any payment details to start it.\n\nHome Assistant Cloud is built and run by Nabu Casa, a commercial partner of the Open Home Foundation. Every subscription funds the foundation directly, and with it, the full-time development of Home Assistant, this release included. 😊\n\nIn return, you get secure remote access with no port forwarding or VPN, encrypted off-site backups ready to restore your whole system the moment you need them, faster and more accurate speech-to-text and text-to-speech for your own voice assistant, native Amazon Alexa and Google Assistant support, and more. It’s all built with the same respect for your privacy as Home Assistant itself: no ads, no data harvesting, just a service that keeps Home Assistant independent.\n\nIf you have been thinking about a subscription, there has never been an easier moment to try it.\n\nActive alerts & favorites for the Security dashboard\n\nThe built-in Security dashboard is getting more love, and this release adds two things people kept asking for, both managed from the same editor.\n\nThe new Active alerts section only shows up when something actually needs your attention, like a door left open or a smoke detector going off. You choose which entities An entity represents a sensor, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An entity is usually part of a device or a service. [Learn more] can trigger it, and how serious each one is, as an Alert or a Warning, so a window left open doesn’t get the same red treatment as an actual smoke alarm. Nothing going on? The section stays out of the way entirely.\n\nRight alongside it, a new Favorites section lets you pin the entities you check most, so your most important doors, locks, or sensors Sensors return information about a thing, for instance the level of water in a tank. [Learn more] sit at the top of the dashboard instead of wherever they happen to fall.\n\nThis started as a community-designed concept from @ricardoantoniocm, right down to the severity colors and the pulsing animation for anything that needs attention. It’s part of an Open Home Foundation roadmap opportunity to bring severity to the Security dashboard, and there’s more to come: surfacing these same alerts on the Home dashboard is still on the list for a future release.\n\nA new Sources pane for History and Activity\n\nBrowsing and finding what you’re looking for in History and Activity can be daunting, so… we made it better! Both pages now share a single Sources panel on the left side that merges target picking ( floors A floor in Home Assistant is a logical grouping of areas that are meant to match the physical floors in your home. Devices & entities are not assigned to floors but to areas. Floors can be used in automations and scripts as a target for actions. For example, to turn off all the lights on the downstairs floor when you go to bed. [Learn more], areas An area in Home Assistant is a logical grouping of devices and entities that represents a room or space in your home, such as the living room, kitchen, or garage. [Learn more], devices A device is a model representing a physical or logical unit that contains entities., and entities An entity represents a sensor, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An entity is usually part of a device or a service. [Learn more] ) with filtering by domain Each integration in Home Assistant has a unique identifier: The domain. It is often shown as the first part (before the dot) of entity IDs., device class, and integration Integrations connect and integrate Home Assistant with your devices, services, and more. [Learn more], so you can narrow a whole area down to, say, just its motion sensors. The panel docks to the side and opens automatically on wider screens, and tucks away as a pull-up sheet on narrower ones. Whatever you filter on is remembered the next time you come back.\n\nThe two pages still behave the way they always have, on purpose: History waits for you to pick something before it draws a chart, since showing everything at once wouldn’t be very useful (or fast in that regard 😅). Activity keeps showing everything by default, and you can narrow it down with filters alone, no target required.\n\nA couple of smaller improvements come along for the ride: the date range picker is now a single pill with previous and next arrows, and long entity names on the History timeline draw above their bar and truncate to fit, instead of being cut off. Always nice to see the attention to detail.\n\nThis follows an Open Home Foundation design discussion on giving History and Activity a shared layout.\n\nFrom what changed to why it changed\n\nOpen Activity and you can see exactly what changed: a light turned on, a door unlocked, a blind closed. What you couldn’t see was why. Figuring that out meant guessing which automation Automations in Home Assistant allow you to automatically respond to things that happen in and around your home. [Learn more] was responsible, opening it, digging into its trace, and working backward to the entity An entity represents a sensor, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An entity is usually part of a device or a service. [Learn more] that actually triggered it. It got harder still after a recent redesign of the log rows, which traded the sentence that used to explain where an entry came from for showing an entity’s area and device instead, so even that small hint disappeared.\n\nSelecting any row in Activity now opens a details dialog that lays out the full story, read top to bottom: what started it (a person, a state change, a schedule, an integration Integrations connect and integrate Home Assistant with your devices, services, and more. [Learn more], or a restart), the automations or scripts Scripts are components that allow you to specify a sequence of actions to be executed by Home Assistant when turned on. [Learn more] it passed through, and finally the entity’s own change. Every step in that chain is clickable, opening the entity behind it or, for automations, its trace directly. Timestamps go down to the millisecond, so even events that landed in the same second keep their correct order.\n\nInsights into your Matter world\n\nZigbee (through ZHA), Z-Wave, and Bluetooth have shown you a map of how their devices connect to each other for a while now. 🗺️ Matter Matter is an open-source standard that defines how to control smart home devices on a Wi-Fi or Thread network. [Learn more] never got the same treatment in Home Assistant, even though the data existed all along, just not here: the Matter Server has its own working network map, tucked away in a separate web interface most people never open.\n\nThe Matter panel now has a Show map button that brings that same picture right into Home Assistant, using the same graph experience you already know from the other protocols. It shows the full picture: which devices talk over Thread Thread is a low-power mesh networking standard that is specifically designed for smart home applications. It is a protocol that defines how devices communicate. [Learn more] and which over Wi-Fi, which ones are routers or “border routers” A Thread border router forwards data packets between your local network and the Thread network. This enables smart home devices within a Thread network to communicate with IPv6-capable devices in your local network. A Thread border router is connected to your network either via Wi-Fi or Ethernet and uses its radio frequency (RF) radio to communicate with the Thread mesh network. In case of Matter, the data that is forwarded is encrypted. Examples of Thread border routers are the Nest Hub (2nd gen), the HomePod mini, and the Home Assistant Connect ZBT-2 together with the OpenThread Border Router app. [Learn more] versus battery-powered end devices, and the path from Home Assistant to each one. Border routers and access points are named from things you’d actually recognize, like their network host name or Wi-Fi network name, instead of a serial number. Link color tells you the transport, Thread or Wi-Fi, and the thickness and direction reflect the signal strength on each side of the connection.\n\nIf you…",
+      "mediaUrls": [
+        "https://rc.home-assistant.io/images/blog/2026-09/beta-social.png",
+        "https://avatars.githubusercontent.com/frenck?size=64",
+        "https://rc.home-assistant.io/images/blog/2026-09/cloud-signup.png",
+        "https://rc.home-assistant.io/images/blog/2026-09/security-dashboard-favorites.png",
+        "https://rc.home-assistant.io/images/blog/2026-09/history-filtering.png",
+        "https://rc.home-assistant.io/images/blog/2026-09/activity-filtering.png",
+        "https://rc.home-assistant.io/images/blog/2026-09/activity-details.png",
+        "https://rc.home-assistant.io/images/blog/2026-09/matter-network-graph.png",
+        "https://rc.home-assistant.io/images/blog/2026-09/tile-card-feature-light-effect.png",
+        "https://rc.home-assistant.io/images/blog/2026-09/tile-card-feature-vacuum-fan-speed.png",
+        "https://rc.home-assistant.io/images/blog/2026-09/tile-card-feature-humidity-target.png",
+        "https://rc.home-assistant.io/images/blog/2026-09/tile-card-inline-features.png",
+        "https://rc.home-assistant.io/images/blog/2026-09/serial-panel.png",
+        "https://rc.home-assistant.io/images/blog/2026-09/network-storage-space.png"
+      ],
+      "contentHash": "a3b0ab69157d42f2468be53f4da29bb088bd79604a8c468b2c7b08c023b23fd1",
+      "fetchedAt": "2026-09-02T05:02:20.695Z",
+      "releaseDate": "2026-09-02T00:00:00.000Z"
+    }
+  ],
+  "releases": [
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-09-02",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-09-09",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-09-16",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-09-30",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-10-07",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-10-14",
+      "accent": "green"
+    }
+  ],
+  "articles": [
+    {
+      "id": "home-assistant-2026-9-due-today",
+      "title": "Home Assistant 2026.9 is due today; its preview spotlights security, history and Matter",
+      "dek": "Work-in-progress preview notes highlight active alerts, explanations for what changed and an in-app Matter map; no matching stable build had landed at collection time.",
+      "body": [
+        "Home Assistant 2026.9 is scheduled for today, but at collection time GitHub showed only the 2026.9.0b6 prerelease—not the stable release. The work-in-progress preview focuses on making a home’s state easier to understand and important alerts easier to find.",
+        "The preview describes a Security dashboard that can separate alerts from warnings and keep favorite locks, doors and sensors close at hand. History and Activity gain a shared source panel for filtering by floor, area, device or integration, while a new Activity details view traces a change from its trigger through automations or scripts to the affected entity.",
+        "The preview also shows an in-app Matter network map with Wi-Fi and Thread paths, routers and border routers instead of requiring the Matter Server’s separate interface. The notes also describe a clearer Home Assistant Cloud trial flow that signs new subscribers in after email confirmation. These remain previewed contents until the stable release lands."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 100,
+      "contributors": [],
+      "contributorProfiles": [],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Home Assistant",
+        "2026.9",
+        "Security dashboard",
+        "History and Activity",
+        "Matter"
+      ],
+      "pullRequests": [],
+      "externalSources": [
+        {
+          "id": "release-preview:Home Assistant/2026.9",
+          "title": "2026.9 Beta: A betta title",
+          "url": "https://rc.home-assistant.io/blog/2026/08/26/release-20269/",
+          "publisher": "Home Assistant release preview",
+          "publishedAt": "2026-08-26T00:00:00.000Z",
+          "kind": "official_post"
+        }
+      ],
+      "media": [
+        {
+          "type": "image",
+        "url": "/media/2026-09-02/home-assistant-2026-9-due-today-d521317b26f8-1032w.webp",
+        "alt": "Home Assistant 2026.9 preview image of the Activity details view tracing why a state changed",
+        "caption": "The work-in-progress 2026.9 preview illustrates the new Activity details view.",
+        "width": 1032,
+        "height": 772,
+        "variants": [
+          {
+            "url": "/media/2026-09-02/home-assistant-2026-9-due-today-d521317b26f8-480w.webp",
+            "width": 480,
+            "height": 359,
+            "bytes": 12846,
+            "type": "image/webp"
+          },
+          {
+            "url": "/media/2026-09-02/home-assistant-2026-9-due-today-d521317b26f8-960w.webp",
+            "width": 960,
+            "height": 718,
+            "bytes": 48498,
+            "type": "image/webp"
+          },
+          {
+            "url": "/media/2026-09-02/home-assistant-2026-9-due-today-d521317b26f8-1032w.webp",
+            "width": 1032,
+            "height": 772,
+            "bytes": 34962,
+            "type": "image/webp"
+          }
+        ]
+      }
+      ]
+    },
+    {
+      "id": "esphome-encrypted-wireless-updates",
+      "title": "ESPHome merges encrypted wireless firmware updates",
+      "dek": "Once released, an opt-in encrypted transfer will stop firmware images—and the secrets inside them—from crossing a local network in plaintext.",
+      "body": [
+        "J. Nick Koston’s merged ESPHome work addresses a gap in wireless updates: the existing password authenticated the uploader, but the firmware image itself still travelled in plaintext. Someone listening on the local network could capture the Wi-Fi credentials and API encryption key embedded in that image.",
+        "A new encryption option uses the same encrypted session protocol as ESPHome’s API and makes both device and command-line client fail closed rather than accepting a downgraded plaintext upload. It is opt-in, adds nothing to builds that do not configure it, and can inherit the device’s existing API encryption key.",
+        "The matching documentation recommends encryption instead of relying on an upload password for confidentiality. jesserockz reviewed and approved both the implementation and its documentation."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 91,
+      "contributors": [
+        "bdraco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "reviewers": [
+        "jesserockz"
+      ],
+      "approvers": [
+        "jesserockz"
+      ],
+      "topics": [
+        "ESPHome",
+        "security",
+        "firmware updates",
+        "local networks"
+      ],
+      "pullRequests": [
+        {
+          "id": "4306178795",
+          "title": "[ota] Add Noise encryption to the OTA platform",
+          "url": "https://github.com/esphome/esphome/pull/18489",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "4306197101",
+          "title": "Document OTA encryption on the esphome platform",
+          "url": "https://github.com/esphome/esphome.io/pull/7215",
+          "repository": "esphome/esphome.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "ios-wifi-handoffs-stop-reloads",
+      "title": "Home Assistant’s iOS app merges a fix for reloads during Wi-Fi handoffs",
+      "dek": "Merged Companion app work keeps the last known network route during an access-point handoff, avoiding a jump to the external URL and a second reload when Wi-Fi returns.",
+      "body": [
+        "An iPhone moving between access points on the same Wi-Fi network can briefly report no current network. The Home Assistant app treated that gap as leaving the internal network, switched to its external address and reloaded the whole interface—then reloaded it again seconds later when Wi-Fi reappeared.",
+        "The merged fix keeps the last known network state through that short gap. An empty reading is accepted immediately on cellular, or after 60 seconds without a valid Wi-Fi result, so a transient handoff no longer causes the connection to bounce while a genuinely lost network is still recognized."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 86,
+      "contributors": [
+        "bgoncal"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bgoncal",
+          "name": "Bruno Pantaleão Gonçalves",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5808343?v=4",
+          "profileUrl": "https://github.com/bgoncal"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Home Assistant Companion",
+        "iOS",
+        "Wi-Fi",
+        "reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4409888919",
+          "title": "Keep last-known network state when Wi-Fi info is unreadable",
+          "url": "https://github.com/home-assistant/iOS/pull/5591",
+          "repository": "home-assistant/iOS"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "calendar-events-gain-status",
+      "title": "Merged calendar work lets automations distinguish tentative events",
+      "dek": "Home Assistant code now carries confirmed or tentative status from CalDAV, local calendars and Google Calendar into trigger data; cancelled-event filtering remains separate.",
+      "body": [
+        "Tom Mittelstädt’s first merged contribution to Home Assistant Core adds an optional status to calendar events. CalDAV, Local Calendar and Google Calendar can now mark an event as confirmed or tentative, and automations receive that value in the calendar trigger payload.",
+        "The boundary matters: this merge does not yet filter cancelled CalDAV or local events, which remain follow-up work. An unset value means the source supplied no supported status rather than implying confirmation, and existing calendar state attributes are unchanged.",
+        "Welcome, Tom. allenporter and MartinHjelmare reviewed and approved the Core work, while allenporter also reviewed and approved the accompanying developer documentation."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 82,
+      "contributors": [
+        "1358"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "1358",
+          "name": "Tom Mittelstädt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1583407?v=4",
+          "profileUrl": "https://github.com/1358"
+        }
+      ],
+      "reviewers": [
+        "allenporter",
+        "MartinHjelmare"
+      ],
+      "approvers": [
+        "allenporter",
+        "MartinHjelmare"
+      ],
+      "topics": [
+        "Home Assistant",
+        "calendars",
+        "automations",
+        "community"
+      ],
+      "pullRequests": [
+        {
+          "id": "4290377565",
+          "title": "Add event status to calendar events",
+          "url": "https://github.com/home-assistant/core/pull/179312",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4290068523",
+          "title": "Document status on CalendarEvent",
+          "url": "https://github.com/home-assistant/developers.home-assistant/pull/3300",
+          "repository": "home-assistant/developers.home-assistant"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "local-speech-prioritizes-likely-names",
+      "title": "Local speech recognition puts likely spoken device names first",
+      "dek": "Merged Wyoming Faster Whisper work favors areas, floors and controllable devices, so lights, scenes and their spoken aliases are less likely to be crowded out in large homes.",
+      "body": [
+        "A large Home Assistant installation can have hundreds of names, while the local speech-recognition prompt fits roughly 50. The previous ordering spent space on every area before considering devices, allowing long lists of sensors to crowd out lights and scenes people were more likely to name aloud.",
+        "The merged ranking now starts with areas and floors that contain exposed devices, followed by commonly spoken targets such as lights, switches, fans, media players, climate controls and scenes. Aliases stay beside the name they replace, so a spoken name such as ‘standing light’ is less likely to be cut off. Covers and locks are not yet in the priority group, a limitation the contribution explicitly flags for further evaluation."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 78,
+      "contributors": [
+        "synesthesiam"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "synesthesiam",
+          "name": "Michael Hansen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2743976?v=4",
+          "profileUrl": "https://github.com/synesthesiam"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "OHF Voice",
+        "local speech recognition",
+        "Home Assistant",
+        "usability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4412872649",
+          "title": "Rank Home Assistant names by what a speaker is likely to say",
+          "url": "https://github.com/OHF-Voice/wyoming-faster-whisper/pull/113",
+          "repository": "OHF-Voice/wyoming-faster-whisper"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "ariacast-artwork-fetch-security",
+      "title": "Music Assistant blocks arbitrary LAN artwork requests",
+      "dek": "Merged AriaCast work prevents an unauthenticated metadata request from making Music Assistant contact arbitrary internal or localhost services.",
+      "body": [
+        "Two AriaCast metadata handlers accepted an artwork address from any host on the local network and passed it directly into an HTTP request. That meant a LAN client could make Music Assistant contact an internal-only service or even its own localhost API; the handlers also returned raw exception text.",
+        "The merged fix limits artwork requests to the peer that supplied the address, disables redirects, caps the response at 4 MB and permits only one artwork fetch at a time. Failed requests now return a generic error while details stay in the debug log. The flaw was identified by automated code scanning."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 77,
+      "contributors": [
+        "MarvinSchenkel"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "MarvinSchenkel",
+          "name": "Marvin Schenkel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
+          "profileUrl": "https://github.com/MarvinSchenkel"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant",
+        "AriaCast",
+        "security",
+        "local networks"
+      ],
+      "pullRequests": [
+        {
+          "id": "4402019817",
+          "title": "Fix AriaCast receiver fetching artwork from arbitrary hosts",
+          "url": "https://github.com/music-assistant/server/pull/6127",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ],
+  "notes": [
+    "Home Assistant had 90 merged pull requests; the configured limit included 60."
+  ]
+}
