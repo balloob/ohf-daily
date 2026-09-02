@@ -12,7 +12,6 @@ const { releases, landedReleases = [], hacsNewIntegrations, today = new Date().t
 const day = 86_400_000;
 const daysUntil = (date: string) => Math.ceil((Date.parse(`${date}T12:00:00Z`) - Date.parse(`${today}T12:00:00Z`)) / day);
 const formatShort = (date: string) => new Intl.DateTimeFormat("en", { day: "numeric", month: "short", timeZone: "UTC" }).format(new Date(`${date}T12:00:00Z`));
-const formatPublished = (date: string) => new Intl.DateTimeFormat("en", { day: "numeric", month: "short", timeZone: "UTC" }).format(new Date(date));
 const dateVersion = (date: string) => {
   const [year, month] = date.split("-").map(Number);
   return `${year}.${month}`;
@@ -27,7 +26,7 @@ const shipped = [...landedReleases]
   .sort((left, right) => right.publishedAt.localeCompare(left.publishedAt));
 const visibleShipped = shipped.slice(0, 6);
 const shippedOverflow = shipped.length - visibleShipped.length;
-const hacsCount = typeof hacsNewIntegrations === "number" && Number.isSafeInteger(hacsNewIntegrations) && hacsNewIntegrations >= 0
+const hacsCount = typeof hacsNewIntegrations === "number" && Number.isSafeInteger(hacsNewIntegrations) && hacsNewIntegrations > 0
   ? hacsNewIntegrations
   : undefined;
 const hasShippedItems = visibleShipped.length > 0 || hacsCount !== undefined;
@@ -49,14 +48,14 @@ const upcoming = releases
           <li style={`--event-accent: var(--${release.accent}, var(--accent))`}>
             <a href={release.url} target="_blank" rel="noreferrer">
               <span class="release-name"><strong>{release.product}</strong><small>{release.tag}</small></span>
-              <span class="release-meta"><time datetime={release.publishedAt}>{formatPublished(release.publishedAt)}</time><small>{release.channel}</small></span>
+              <span class="release-meta"><small>{release.channel}</small></span>
             </a>
           </li>
         ))}
         {hacsCount !== undefined && (
           <li class="hacs-summary" style="--event-accent: var(--blue, var(--accent))">
             <span class="release-name"><strong>HACS</strong><small>{hacsCount} new {hacsCount === 1 ? "integration" : "integrations"}</small></span>
-            <span class="release-meta"><time datetime={today}>{formatShort(today)}</time><small>index</small></span>
+            <span class="release-meta"><small>index</small></span>
           </li>
         )}
       </ul>
