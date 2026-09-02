@@ -4,10 +4,11 @@ import type { LandedRelease, ReleaseEvent } from "../lib/types";
 interface Props {
   releases: ReleaseEvent[];
   landedReleases?: LandedRelease[];
+  hacsNewIntegrations?: number;
   today?: string;
 }
 
-const { releases, landedReleases = [], today = new Date().toISOString().slice(0, 10) } = Astro.props;
+const { releases, landedReleases = [], hacsNewIntegrations, today = new Date().toISOString().slice(0, 10) } = Astro.props;
 const day = 86_400_000;
 const daysUntil = (date: string) => Math.ceil((Date.parse(`${date}T12:00:00Z`) - Date.parse(`${today}T12:00:00Z`)) / day);
 const formatShort = (date: string) => new Intl.DateTimeFormat("en", { day: "numeric", month: "short", timeZone: "UTC" }).format(new Date(`${date}T12:00:00Z`));
@@ -26,6 +27,10 @@ const shipped = [...landedReleases]
   .sort((left, right) => right.publishedAt.localeCompare(left.publishedAt));
 const visibleShipped = shipped.slice(0, 6);
 const shippedOverflow = shipped.length - visibleShipped.length;
+const hacsCount = typeof hacsNewIntegrations === "number" && Number.isSafeInteger(hacsNewIntegrations) && hacsNewIntegrations >= 0
+  ? hacsNewIntegrations
+  : undefined;
+const hasShippedItems = visibleShipped.length > 0 || hacsCount !== undefined;
 const upcoming = releases
   .map((release) => ({ ...release, remaining: daysUntil(release.date) }))
   .filter((release) => Number.isFinite(release.remaining) && release.remaining >= 0 && release.remaining <= 45)
@@ -33,7 +38,7 @@ const upcoming = releases
 ---
 
 <aside class="release-rail" aria-label="Release radar">
-  {visibleShipped.length > 0 && (
+  {hasShippedItems && (
     <section class="shipped" aria-labelledby="shipped-heading">
       <div class="heading">
         <p class="eyebrow">Release radar</p>
@@ -48,12 +53,18 @@ const upcoming = releases
             </a>
           </li>
         ))}
+        {hacsCount !== undefined && (
+          <li class="hacs-summary" style="--event-accent: var(--blue, var(--accent))">
+            <span class="release-name"><strong>HACS</strong><small>{hacsCount} new {hacsCount === 1 ? "integration" : "integrations"}</small></span>
+            <span class="release-meta"><time datetime={today}>{formatShort(today)}</time><small>index</small></span>
+          </li>
+        )}
       </ul>
       {shippedOverflow > 0 && <p class="overflow">+{shippedOverflow} more landed {shippedOverflow === 1 ? "release" : "releases"}</p>}
     </section>
   )}
 
-  <section class:list={["horizon", { "with-shipped": visibleShipped.length > 0 }]} aria-labelledby="horizon-heading">
+  <section class:list={["horizon", { "with-shipped": hasShippedItems }]} aria-labelledby="horizon-heading">
     <div class="horizon-heading">
       <p class="eyebrow">On the horizon</p>
       <h2 id="horizon-heading">Upcoming</h2>
@@ -102,7 +113,8 @@ const upcoming = releases
     border-bottom: 1px solid var(--rule);
   }
 
-  .shipped-list a {
+  .shipped-list a,
+  .hacs-summary {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 0.5rem;

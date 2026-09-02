@@ -152,7 +152,12 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
 
     </div>
 
-    <ReleaseRail releases={edition.releases} landedReleases={edition.landedReleases} today={edition.date} />
+    <ReleaseRail
+      releases={edition.releases}
+      landedReleases={edition.landedReleases}
+      hacsNewIntegrations={edition.stats.hacsNewIntegrations}
+      today={edition.date}
+    />
   </div>
 
   <nav class="edition-nav" aria-label="Edition navigation">
