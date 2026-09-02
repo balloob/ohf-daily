@@ -30,6 +30,7 @@ export interface ReleaseEvent {
   product: string;
   kind: "Beta" | "Release";
   date: string;
+  version?: string;
   accent: string;
 }
 

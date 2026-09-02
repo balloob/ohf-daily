@@ -9,11 +9,11 @@ const cycles = [
 
 test("calculates first-Wednesday releases with product-specific beta periods", () => {
   const events = buildReleaseCalendar(new Date("2026-08-01T12:00:00Z"), cycles);
-  assert.deepEqual(events.slice(0, 4).map(({ product, kind, date }) => ({ product, kind, date })), [
-    { product: "Home Assistant", kind: "Release", date: "2026-08-05" },
-    { product: "ESPHome", kind: "Beta", date: "2026-08-05" },
-    { product: "ESPHome", kind: "Release", date: "2026-08-19" },
-    { product: "Home Assistant", kind: "Beta", date: "2026-08-26" },
+  assert.deepEqual(events.slice(0, 4).map(({ product, kind, date, version }) => ({ product, kind, date, version })), [
+    { product: "Home Assistant", kind: "Release", date: "2026-08-05", version: "2026.8" },
+    { product: "ESPHome", kind: "Beta", date: "2026-08-05", version: "2026.8" },
+    { product: "ESPHome", kind: "Release", date: "2026-08-19", version: "2026.8" },
+    { product: "Home Assistant", kind: "Beta", date: "2026-08-26", version: "2026.9" },
   ]);
 });
 
@@ -33,10 +33,10 @@ test("includes a beta that falls in the previous month", () => {
 
 test("rolls release schedules across a year boundary", () => {
   const events = buildReleaseCalendar("2026-12-30", cycles, 2);
-  assert.deepEqual(events.slice(0, 3).map(({ product, kind, date }) => ({ product, kind, date })), [
-    { product: "Home Assistant", kind: "Beta", date: "2026-12-30" },
-    { product: "Home Assistant", kind: "Release", date: "2027-01-06" },
-    { product: "ESPHome", kind: "Beta", date: "2027-01-06" },
+  assert.deepEqual(events.slice(0, 3).map(({ product, kind, date, version }) => ({ product, kind, date, version })), [
+    { product: "Home Assistant", kind: "Beta", date: "2026-12-30", version: "2027.1" },
+    { product: "Home Assistant", kind: "Release", date: "2027-01-06", version: "2027.1" },
+    { product: "ESPHome", kind: "Beta", date: "2027-01-06", version: "2027.1" },
   ]);
 });
 

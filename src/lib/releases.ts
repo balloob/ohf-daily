@@ -57,9 +57,11 @@ export function buildReleaseCalendar(
     for (const cycle of cycles) {
       const release = addDays(base, cycle.release_offset_days);
       const beta = addDays(release, -cycle.beta_days_before);
+      const [releaseYear, releaseMonth] = dateOnly(release).split("-").map(Number);
+      const version = `${releaseYear}.${releaseMonth}`;
       events.push(
-        { product: cycle.product, kind: "Beta", date: dateOnly(beta), accent: cycle.accent },
-        { product: cycle.product, kind: "Release", date: dateOnly(release), accent: cycle.accent },
+        { product: cycle.product, kind: "Beta", date: dateOnly(beta), version, accent: cycle.accent },
+        { product: cycle.product, kind: "Release", date: dateOnly(release), version, accent: cycle.accent },
       );
     }
   }

@@ -12,6 +12,15 @@ const day = 86_400_000;
 const daysUntil = (date: string) => Math.ceil((Date.parse(`${date}T12:00:00Z`) - Date.parse(`${today}T12:00:00Z`)) / day);
 const formatShort = (date: string) => new Intl.DateTimeFormat("en", { day: "numeric", month: "short", timeZone: "UTC" }).format(new Date(`${date}T12:00:00Z`));
 const formatPublished = (date: string) => new Intl.DateTimeFormat("en", { day: "numeric", month: "short", timeZone: "UTC" }).format(new Date(date));
+const dateVersion = (date: string) => {
+  const [year, month] = date.split("-").map(Number);
+  return `${year}.${month}`;
+};
+const versionFor = (event: ReleaseEvent) => event.version ?? dateVersion(
+  event.kind === "Beta"
+    ? releases.find((candidate) => candidate.product === event.product && candidate.kind === "Release" && candidate.date >= event.date)?.date ?? event.date
+    : event.date,
+);
 const shipped = [...landedReleases]
   .filter((release) => release?.url && Number.isFinite(Date.parse(release.publishedAt)))
   .sort((left, right) => right.publishedAt.localeCompare(left.publishedAt));
@@ -57,7 +66,7 @@ const upcoming = releases
               <span>{formatShort(release.date)}</span>
               <small>{release.remaining === 0 ? "Today" : release.remaining === 1 ? "Tomorrow" : `${release.remaining}d`}</small>
             </time>
-            <span class="upcoming-name"><strong>{release.product}</strong><small>{release.kind}</small></span>
+            <span class="upcoming-name"><strong>{release.product}</strong><small>{versionFor(release)} {release.kind}</small></span>
           </li>
         ))}
       </ol>
