@@ -528,7 +528,7 @@ function releasePreviewContent(preview: ReleasePreview): StoredContent {
     storedAt: preview.fetchedAt,
     id: sourceId,
     kind: "official_post",
-    source: `${preview.product} release preview`,
+    source: `${preview.product} release notes`,
     title: preview.title,
     url: preview.url,
     publishedAt: new Date(`${preview.releaseDate.slice(0, 10)}T00:00:00Z`).toISOString(),

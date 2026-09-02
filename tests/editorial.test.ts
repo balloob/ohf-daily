@@ -84,13 +84,23 @@ test("identifies Monday editions and seven-day recap bounds", () => {
 test("derives active beta windows from configured release cycles", () => {
   assert.deepEqual(editorialInternals.activeBetaWindows("2026-08-31", [
     { product: "Home Assistant", kind: "Release", date: "2026-09-02", accent: "blue" },
-    { product: "ESPHome", kind: "Beta", date: "2026-09-09", accent: "green" },
+    { product: "ESPHome", kind: "Beta", date: "2026-09-02", accent: "green" },
     { product: "ESPHome", kind: "Release", date: "2026-09-16", accent: "green" },
   ], [
     { product: "Home Assistant", rule: "first-wednesday", beta_days_before: 7, release_offset_days: 0, accent: "blue" },
-    { product: "ESPHome", rule: "first-wednesday", beta_days_before: 7, release_offset_days: 14, accent: "green" },
+    { product: "ESPHome", rule: "first-wednesday", beta_days_before: 14, release_offset_days: 14, accent: "green" },
   ]), [
     { product: "Home Assistant", betaStart: "2026-08-26", releaseDate: "2026-09-02" },
+  ]);
+  assert.deepEqual(editorialInternals.activeBetaWindows("2026-09-02", [
+    { product: "Home Assistant", kind: "Release", date: "2026-09-02", accent: "blue" },
+    { product: "ESPHome", kind: "Beta", date: "2026-09-02", accent: "green" },
+    { product: "ESPHome", kind: "Release", date: "2026-09-16", accent: "green" },
+  ], [
+    { product: "Home Assistant", rule: "first-wednesday", beta_days_before: 7, release_offset_days: 0, accent: "blue" },
+    { product: "ESPHome", rule: "first-wednesday", beta_days_before: 14, release_offset_days: 14, accent: "green" },
+  ]), [
+    { product: "ESPHome", betaStart: "2026-09-02", releaseDate: "2026-09-16" },
   ]);
 });
 
@@ -125,6 +135,7 @@ test("can provide the release reporter with the full bounded preview body", () =
   const release = editorialInternals.compactContentRecord(content, 12_000) as { description: string };
   assert.equal(ordinary.description.length, 4_000);
   assert.equal(release.description.length, 10_000);
+  assert.equal(content.source, "Home Assistant release notes");
 });
 
 test("resolves only locally evidenced PRs and media, including review credit", () => {

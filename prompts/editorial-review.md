@@ -11,7 +11,7 @@ Review every article for:
 - grouping around one reader outcome rather than author, repository, date, or chronology;
 - factual scope: merged versus released, reporting versus provisioning, and groundwork versus an available downstream capability;
 - release-day compliance: a configured scheduled stable release must be the headline lead, while a beta, prerelease, release candidate, or patch release needs independent news value to earn article space;
-- release evidence: preview notes must be treated as mutable work in progress, and `released`, `available`, or shipped language requires matching landed stable-release metadata;
+- release evidence: on a configured stable release day, official release-source features should be described as release contents without draft boilerplate, collection-time prerelease status, missing-build commentary, or `until stable lands` disclaimers; exact `available now` or artifact claims still require supporting metadata;
 - continuity and recap quality, including repetition of recent editions;
 - accurate first-contributor recognition and source-supported human review credit.
 

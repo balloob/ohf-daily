@@ -152,7 +152,7 @@ test("computes release-aware Project Pulse windows", () => {
   ];
   const cycles = [
     { product: "Home Assistant", rule: "first-wednesday" as const, beta_days_before: 7, release_offset_days: 0, accent: "blue" },
-    { product: "ESPHome", rule: "first-wednesday" as const, beta_days_before: 7, release_offset_days: 14, accent: "green" },
+    { product: "ESPHome", rule: "first-wednesday" as const, beta_days_before: 14, release_offset_days: 14, accent: "green" },
   ];
   assert.equal(latestScheduledReleaseDate("2026-08-31", cycles[0]), "2026-08-05");
   const pulse = buildProjectPulse(
@@ -190,7 +190,7 @@ test("uses authoritative GitHub totals for Project Pulse activity", async () => 
   ]);
   const cycles = [
     { product: "Home Assistant", rule: "first-wednesday" as const, beta_days_before: 7, release_offset_days: 0, accent: "blue" },
-    { product: "ESPHome", rule: "first-wednesday" as const, beta_days_before: 7, release_offset_days: 14, accent: "green" },
+    { product: "ESPHome", rule: "first-wednesday" as const, beta_days_before: 14, release_offset_days: 14, accent: "green" },
   ];
 
   const pulse = await buildAuthoritativeProjectPulse(
@@ -269,14 +269,19 @@ test("warms release previews throughout beta week without treating beta day as r
   const releases = [
     { product: "Home Assistant", kind: "Beta" as const, date: "2026-08-26", accent: "blue" },
     { product: "Home Assistant", kind: "Release" as const, date: "2026-09-02", accent: "blue" },
+    { product: "ESPHome", kind: "Beta" as const, date: "2026-09-02", accent: "green" },
     { product: "ESPHome", kind: "Release" as const, date: "2026-09-16", accent: "green" },
   ];
   const cycles = [
     { product: "Home Assistant", rule: "first-wednesday" as const, beta_days_before: 7, release_offset_days: 0, accent: "blue" },
-    { product: "ESPHome", rule: "first-wednesday" as const, beta_days_before: 7, release_offset_days: 14, accent: "green" },
+    { product: "ESPHome", rule: "first-wednesday" as const, beta_days_before: 14, release_offset_days: 14, accent: "green" },
   ];
   assert.deepEqual(releasePreviewTargetsForDate("2026-08-31", releases, cycles), [
     { product: "Home Assistant", version: "2026.9", releaseDate: "2026-09-02" },
+  ]);
+  assert.deepEqual(releasePreviewTargetsForDate("2026-09-02", releases, cycles), [
+    { product: "Home Assistant", version: "2026.9", releaseDate: "2026-09-02" },
+    { product: "ESPHome", version: "2026.9", releaseDate: "2026-09-16" },
   ]);
   assert.deepEqual(releaseTargetsForDate("2026-08-31", releases), []);
   assert.deepEqual(releasePreviewTargetsForDate("2026-08-25", releases, cycles), []);

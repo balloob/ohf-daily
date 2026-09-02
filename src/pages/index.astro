@@ -8,7 +8,7 @@ import { buildReleaseCalendar } from "../lib/releases";
 const latest = getLatestEdition();
 const releases = buildReleaseCalendar(new Date(), [
   { product: "Home Assistant", rule: "first-wednesday", beta_days_before: 7, release_offset_days: 0, accent: "blue" },
-  { product: "ESPHome", rule: "first-wednesday", beta_days_before: 7, release_offset_days: 14, accent: "green" },
+  { product: "ESPHome", rule: "first-wednesday", beta_days_before: 14, release_offset_days: 14, accent: "green" },
 ]);
 const title = latest ? `OHF Daily · ${formatEditionDate(latest.date)}` : "OHF Daily · The Open Home news desk";
 const previousDate = editions[1]?.date;

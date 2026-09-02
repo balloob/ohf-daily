@@ -99,9 +99,8 @@ release_sources:
     accent: green
     include_prereleases: false
 
-# On a scheduled stable release day, these official preview sources seed the
-# mandatory headline. Preview text is cached locally and may still change
-# before the final release is published.
+# These official release sources are warmed during beta and seed the mandatory
+# headline on a scheduled stable release day.
 release_preview_sources:
   - product: Home Assistant
     strategy: home_assistant_rc
@@ -244,7 +243,7 @@ release_cycles:
     accent: blue
   - product: ESPHome
     rule: first-wednesday
-    beta_days_before: 7
+    beta_days_before: 14
     release_offset_days: 14
     accent: green
 
