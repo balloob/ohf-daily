@@ -1,0 +1,1040 @@
+{
+  "date": "2026-09-03",
+  "generatedAt": "2026-09-03T05:04:44.100Z",
+  "windowStart": "2026-09-02T05:02:55.253Z",
+  "windowEnd": "2026-09-03T05:02:55.253Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 215,
+    "repositories": 25,
+    "contributors": 69,
+    "dependencyUpdates": 17,
+    "hacsNewIntegrations": 15
+  },
+  "lead": {
+    "id": "4156534076",
+    "title": "[snapshot][SDL] Display headless mode and snapshots",
+    "summary": "What does this implement/fix? Adds a snapshot component: a display that draws into memory and can write what it drew to a BMP file, plus the shared code behind that.",
+    "unlocks": "Unlocks: [snapshot][SDL] Display headless mode and snapshots.",
+    "url": "https://github.com/esphome/esphome/pull/17917",
+    "repository": "esphome/esphome",
+    "organization": "ESPHome",
+    "author": "clydebarrow",
+    "mergedAt": "2026-09-02T21:39:33Z",
+    "labels": [
+      "new-component",
+      "new-feature",
+      "has-tests",
+      "core",
+      "bugfix",
+      "by-code-owner",
+      "new-platform",
+      "github-actions",
+      "component: sdl",
+      "component: snapshot"
+    ],
+    "kind": "feature",
+    "score": 71,
+    "additions": 1874,
+    "deletions": 305,
+    "changedFiles": 29
+  },
+  "highlights": [
+    {
+      "id": "4411369801",
+      "title": "Add Smart Fades-aware Smart Shuffle ordering",
+      "summary": "What does this implement/fix? Adds an optional Smart Fades aware ordering pass to Smart Shuffle.",
+      "unlocks": "Unlocks: Add Smart Fades-aware Smart Shuffle ordering.",
+      "url": "https://github.com/music-assistant/server/pull/6144",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "leonkdk",
+      "mergedAt": "2026-09-02T09:23:08Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "feature",
+      "score": 66.8,
+      "additions": 1125,
+      "deletions": 18,
+      "changedFiles": 18
+    },
+    {
+      "id": "4401696610",
+      "title": "Add `/time` API for setting NTP servers on HAOS",
+      "summary": "Add API for customizing NTP servers, using fixed DBus methods available since OS 18.3.",
+      "unlocks": "Unlocks: Add `/time` API for setting NTP servers on HAOS.",
+      "url": "https://github.com/home-assistant/supervisor/pull/7181",
+      "repository": "home-assistant/supervisor",
+      "organization": "Home Assistant",
+      "author": "sairon",
+      "mergedAt": "2026-09-02T15:22:20Z",
+      "labels": [
+        "cla-signed",
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 65.7,
+      "additions": 516,
+      "deletions": 15,
+      "changedFiles": 19
+    },
+    {
+      "id": "4420942879",
+      "title": "Smart Fades: no more hard cuts or inaudible crossfades on tricky transitions",
+      "summary": "What does this implement/fix? Live listening sessions surfaced three Smart Fades problems that all end the same way for the listener: a transition that sounds like a hard cut, or no audible crossfade at all.",
+      "url": "https://github.com/music-assistant/server/pull/6163",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-02T13:22:06Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 56.3,
+      "additions": 502,
+      "deletions": 78,
+      "changedFiles": 10
+    },
+    {
+      "id": "4423084984",
+      "title": "2026.9.0",
+      "summary": "Do not merge Home Assistant 2026.9.0 release pull request.",
+      "unlocks": "Unlocks: 2026.9.0.",
+      "url": "https://github.com/home-assistant/core/pull/181088",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "frenck",
+      "mergedAt": "2026-09-02T15:50:09Z",
+      "labels": [
+        "core",
+        "new-platform",
+        "cla-needed",
+        "merging-to-master",
+        "integration: abode",
+        "quality scale: no score",
+        "quality scale: silver",
+        "integration: actron_air"
+      ],
+      "kind": "feature",
+      "score": 56,
+      "additions": 241123,
+      "deletions": 38672,
+      "changedFiles": 3632
+    }
+  ],
+  "briefs": [
+    {
+      "id": "4379449052",
+      "title": "Media selector to retain metadata for presentation",
+      "summary": "Media selector used in config flow discards all frontend metadata before returning it to the integration.",
+      "unlocks": "Unlocks: Media selector to retain metadata for presentation.",
+      "url": "https://github.com/home-assistant/core/pull/180454",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "karwosts",
+      "mergedAt": "2026-09-02T09:19:38Z",
+      "labels": [
+        "core",
+        "cla-signed",
+        "new-feature",
+        "by-code-owner",
+        "quality scale: bronze",
+        "integration: collection_image"
+      ],
+      "kind": "feature",
+      "score": 55.3,
+      "additions": 25,
+      "deletions": 23,
+      "changedFiles": 3
+    },
+    {
+      "id": "4405563921",
+      "title": "Use dhcp discovery to update midea device IP",
+      "summary": "Use dhcp discovery to update midea device IP Type of change Dependency upgrade Bugfix (non breaking change which fixes an issue) New integration (thank you!) New feature (which adds…",
+      "unlocks": "Unlocks: Use dhcp discovery to update midea device IP.",
+      "url": "https://github.com/home-assistant/core/pull/180955",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "rokam",
+      "mergedAt": "2026-09-02T14:57:56Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze",
+        "integration: midea"
+      ],
+      "kind": "feature",
+      "score": 54.9,
+      "additions": 126,
+      "deletions": 3,
+      "changedFiles": 7
+    },
+    {
+      "id": "4426242961",
+      "title": "Add Entities widget",
+      "summary": "AI Policy I have read the Open Home Foundation AI Policy.",
+      "unlocks": "Unlocks: Add Entities widget.",
+      "url": "https://github.com/home-assistant/iOS/pull/5612",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "bgoncal",
+      "mergedAt": "2026-09-02T23:47:16Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "feature",
+      "score": 52.9,
+      "additions": 1174,
+      "deletions": 12,
+      "changedFiles": 40,
+      "image": "https://raw.githubusercontent.com/home-assistant/iOS/feature/entities-widget/Tests/Widgets/__Snapshots__/WidgetEntitiesSnapshot.test/systemMediumSnapshot.light.png"
+    },
+    {
+      "id": "4428088096",
+      "title": "2026.9.0b1",
+      "summary": "Do not merge, release script will automatically merge https://beta.esphome.io/changelog/2026.9.0.html Metadata @coderabbitai ignore",
+      "url": "https://github.com/esphome/esphome/pull/18957",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "jesserockz",
+      "mergedAt": "2026-09-03T02:07:19Z",
+      "labels": [
+        "merging-to-beta"
+      ],
+      "kind": "platform",
+      "score": 52.6,
+      "additions": 51773,
+      "deletions": 19554,
+      "changedFiles": 1788
+    },
+    {
+      "id": "4412911084",
+      "title": "Prepare the core for AI Radio shows as playable radio stations",
+      "summary": "What does this implement/fix? Groundwork for making AI Radio shows playable as regular radio stations (favorites, shortcuts, automations).",
+      "url": "https://github.com/music-assistant/server/pull/6148",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "MarvinSchenkel",
+      "mergedAt": "2026-09-02T13:02:16Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 52.6,
+      "additions": 199,
+      "deletions": 11,
+      "changedFiles": 8
+    },
+    {
+      "id": "4374947142",
+      "title": "feat: add framework to deduplicate transactions",
+      "summary": "Implements the framework for command aware transaction deduplication.",
+      "unlocks": "Unlocks: Add framework to deduplicate transactions.",
+      "url": "https://github.com/zwave-js/zwave-js/pull/9136",
+      "repository": "zwave-js/zwave-js",
+      "organization": "Z-Wave JS",
+      "author": "AlCalzone",
+      "mergedAt": "2026-09-02T13:07:59Z",
+      "labels": [],
+      "kind": "feature",
+      "score": 50.3,
+      "additions": 2035,
+      "deletions": 98,
+      "changedFiles": 13
+    },
+    {
+      "id": "4424036581",
+      "title": "Add end-to-end onboarding test",
+      "summary": "AI Policy I have read the Open Home Foundation AI Policy.",
+      "unlocks": "Unlocks: Add end-to-end onboarding test.",
+      "url": "https://github.com/home-assistant/iOS/pull/5609",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "bgoncal",
+      "mergedAt": "2026-09-02T18:35:17Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "feature",
+      "score": 49.5,
+      "additions": 1236,
+      "deletions": 26,
+      "changedFiles": 44
+    },
+    {
+      "id": "4422627928",
+      "title": "Make every sensor opt-in",
+      "summary": "AI Policy I have read the Open Home Foundation AI Policy.",
+      "url": "https://github.com/home-assistant/iOS/pull/5606",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "bgoncal",
+      "mergedAt": "2026-09-02T15:57:19Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "platform",
+      "score": 49.2,
+      "additions": 699,
+      "deletions": 289,
+      "changedFiles": 34
+    },
+    {
+      "id": "4419298740",
+      "title": "Update Localized Strings",
+      "summary": "Automatically created by zacwest.",
+      "url": "https://github.com/home-assistant/iOS/pull/5601",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "github-actions[bot]",
+      "mergedAt": "2026-09-02T11:52:13Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "platform",
+      "score": 49.2,
+      "additions": 1088,
+      "deletions": 428,
+      "changedFiles": 33
+    },
+    {
+      "id": "4374987284",
+      "title": "feat: implement command relations for several CCs",
+      "summary": "fixes: https://github.com/zwave js/zwave js/issues/1482 This implements the actual command relation logic for encapsulation CCs, as well as Basic, Binary Switch, Multilevel Switch, and Thermostat Setpoint CC.",
+      "url": "https://github.com/zwave-js/zwave-js/pull/9137",
+      "repository": "zwave-js/zwave-js",
+      "organization": "Z-Wave JS",
+      "author": "AlCalzone",
+      "mergedAt": "2026-09-02T13:20:06Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 48.7,
+      "additions": 1129,
+      "deletions": 18,
+      "changedFiles": 14
+    },
+    {
+      "id": "4382274725",
+      "title": "Auto-Enable AirPlay when required for Sendspin",
+      "summary": "What does this implement/fix? It's not actually AirPlay specific, it works with any two dependent player protocols.",
+      "url": "https://github.com/music-assistant/server/pull/6079",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "teancom",
+      "mergedAt": "2026-09-02T12:28:55Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 48.4,
+      "additions": 141,
+      "deletions": 3,
+      "changedFiles": 2
+    },
+    {
+      "id": "4419037027",
+      "title": "[uart] Migrate check_uart_settings to final validation",
+      "summary": "What does this implement/fix? UARTDevice::check uart settings() checks the bus baud rate, parity, data bits and stop bits at runtime and logs an error when they do not match what the integration needs.",
+      "url": "https://github.com/esphome/esphome/pull/18940",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "jesserockz",
+      "mergedAt": "2026-09-02T19:25:09Z",
+      "labels": [
+        "has-tests",
+        "code-quality",
+        "mega-pr",
+        "developer-breaking-change"
+      ],
+      "kind": "platform",
+      "score": 47.8,
+      "additions": 324,
+      "deletions": 70,
+      "changedFiles": 72
+    },
+    {
+      "id": "4400049150",
+      "title": "Retry a failed provider load sooner, with jitter",
+      "summary": "What does this implement/fix? A provider whose load failed was retried after a flat 120 seconds, forever.",
+      "url": "https://github.com/music-assistant/server/pull/6119",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "balloob",
+      "mergedAt": "2026-09-02T07:21:18Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 46.3,
+      "additions": 73,
+      "deletions": 19,
+      "changedFiles": 2
+    },
+    {
+      "id": "4417403601",
+      "title": "Seeking within a track on Sonos now takes effect right away",
+      "summary": "What does this implement/fix? Seeking within the playing track on a Sonos speaker took 10+ seconds, for two reasons found on the device: the speaker reuses its cached cloud queue item when…",
+      "url": "https://github.com/music-assistant/server/pull/6158",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-02T12:12:51Z",
+      "labels": [
+        "bugfix",
+        "backport-to-stable"
+      ],
+      "kind": "platform",
+      "score": 46,
+      "additions": 463,
+      "deletions": 51,
+      "changedFiles": 7
+    },
+    {
+      "id": "4384109924",
+      "title": "Remove the management namespace",
+      "summary": "Fixes #182. Removes the entire management/ namespace and replaces it with a fixed pairing record model.",
+      "url": "https://github.com/Sendspin/spec/pull/183",
+      "repository": "Sendspin/spec",
+      "organization": "Sendspin",
+      "author": "balloobbot",
+      "mergedAt": "2026-09-02T13:08:00Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 44.7,
+      "additions": 73,
+      "deletions": 393,
+      "changedFiles": 7
+    },
+    {
+      "id": "4421274949",
+      "title": "A device type states how it composes its endpoint's PartsList",
+      "summary": "A PartsList means one of two things depending on the device type reporting it.",
+      "unlocks": "Unlocks: A device type states how it composes its endpoint's PartsList.",
+      "url": "https://github.com/matter-js/matter.js/pull/4394",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-09-02T14:36:45Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "feature",
+      "score": 44.4,
+      "additions": 234,
+      "deletions": 7,
+      "changedFiles": 13
+    },
+    {
+      "id": "4428088707",
+      "title": "2026.9.0b1",
+      "summary": "Do not merge, release script will automatically merge [mitsubishi cn105] Add Fahrenheit support docs#6405 [online image] Document auto format detection docs#6595 [modbus client] Document the…",
+      "url": "https://github.com/esphome/esphome.io/pull/7317",
+      "repository": "esphome/esphome.io",
+      "organization": "ESPHome",
+      "author": "jesserockz",
+      "mergedAt": "2026-09-03T02:07:33Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 43.9,
+      "additions": 2852,
+      "deletions": 180,
+      "changedFiles": 53,
+      "image": "https://raw.githubusercontent.com/esphome/esphome.io/9413b379b5572f8c3af8d6b4842a939cb7b1d771/public/images/d01.jpg"
+    },
+    {
+      "id": "4426972087",
+      "title": "Add offline devices count to Matter",
+      "summary": "The ZHA page has had the offline devices count for a while now, this adds it to the Matter page Screenshots Type of change Dependency upgrade Bugfix (non breaking change which fixes an…",
+      "unlocks": "Unlocks: Add offline devices count to Matter.",
+      "url": "https://github.com/home-assistant/frontend/pull/53949",
+      "repository": "home-assistant/frontend",
+      "organization": "Home Assistant",
+      "author": "Jump-333",
+      "mergedAt": "2026-09-03T04:22:27Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "feature",
+      "score": 43.6,
+      "additions": 45,
+      "deletions": 0,
+      "changedFiles": 2
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Bump fast-uri from 3.1.5 to 3.1.6",
+      "url": "https://github.com/home-assistant/frontend/pull/53946",
+      "repository": "home-assistant/frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Update tsparticles to v4.4.0 - autoclosed",
+      "url": "https://github.com/home-assistant/frontend/pull/53951",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency @octokit/auth-oauth-device to v8.0.5",
+      "url": "https://github.com/home-assistant/frontend/pull/53950",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump wyoming version",
+      "url": "https://github.com/home-assistant/core/pull/181112",
+      "repository": "home-assistant/core",
+      "author": "synesthesiam"
+    },
+    {
+      "title": "Bump uiprotect to 16.7.0",
+      "url": "https://github.com/home-assistant/core/pull/181114",
+      "repository": "home-assistant/core",
+      "author": "RaHehl"
+    },
+    {
+      "title": "Bump github/codeql-action from 4.37.8 to 4.37.9",
+      "url": "https://github.com/home-assistant/core/pull/181053",
+      "repository": "home-assistant/core",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Upgrade homelink package version to remove pyOpenSSL dep",
+      "url": "https://github.com/home-assistant/core/pull/181092",
+      "repository": "home-assistant/core",
+      "author": "rjones-gentex"
+    },
+    {
+      "title": "Update dependency @formatjs/intl-datetimeformat to v7.6.1",
+      "url": "https://github.com/home-assistant/frontend/pull/53945",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update aboutlibraries to v15.2.0",
+      "url": "https://github.com/home-assistant/android/pull/7396",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency ty to v0.0.78",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/533",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency prek to v0.5.2",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/532",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Pin mcr.microsoft.com/devcontainers/python Docker tag to 97152d7",
+      "url": "https://github.com/home-assistant-libs/infrared-protocols/pull/138",
+      "repository": "home-assistant-libs/infrared-protocols",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump zeroconf from 0.151.2 to 0.151.3",
+      "url": "https://github.com/esphome/esphome/pull/18951",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump ninja from 1.13.0 to 1.13.2",
+      "url": "https://github.com/esphome/esphome/pull/18952",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump frontend to 0.1.319",
+      "url": "https://github.com/esphome/device-builder/pull/2641",
+      "repository": "esphome/device-builder",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "[pre-commit.ci] pre-commit autoupdate",
+      "url": "https://github.com/esphome/device-builder/pull/2649",
+      "repository": "esphome/device-builder",
+      "author": "pre-commit-ci[bot]"
+    },
+    {
+      "title": "ci: bump `zwave-js` automatically after each `zwave-js` release",
+      "url": "https://github.com/zwave-js/zwave-js-ui/pull/4806",
+      "repository": "zwave-js/zwave-js-ui",
+      "author": "zwave-js-bot"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 93,
+      "thisWeek": 883,
+      "sinceRelease": 63,
+      "lastReleaseDate": "2026-09-02"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 36,
+      "thisWeek": 193,
+      "sinceRelease": 111,
+      "lastReleaseDate": "2026-08-29"
+    },
+    {
+      "product": "ESPHome",
+      "today": 19,
+      "thisWeek": 167,
+      "sinceRelease": 330,
+      "lastReleaseDate": "2026-08-19"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "esphome/esphome:381679810",
+      "product": "ESPHome",
+      "repository": "esphome/esphome",
+      "name": "2026.9.0b1",
+      "tag": "2026.9.0b1",
+      "url": "https://github.com/esphome/esphome/releases/tag/2026.9.0b1",
+      "publishedAt": "2026-09-03T02:07:24Z",
+      "channel": "prerelease",
+      "accent": "green",
+      "sourcePullRequestIds": [
+        "4428088096"
+      ]
+    },
+    {
+      "id": "home-assistant/core:381400901",
+      "product": "Home Assistant",
+      "repository": "home-assistant/core",
+      "name": "2026.9.0",
+      "tag": "2026.9.0",
+      "url": "https://github.com/home-assistant/core/releases/tag/2026.9.0",
+      "publishedAt": "2026-09-02T16:08:56Z",
+      "channel": "stable",
+      "accent": "blue",
+      "sourcePullRequestIds": [
+        "4423084984"
+      ]
+    }
+  ],
+  "releases": [
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-09-16",
+      "version": "2026.9",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-09-30",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "green"
+    }
+  ],
+  "notes": [
+    "Home Assistant had 93 merged pull requests; the configured limit included 60."
+  ],
+  "articles": [
+    {
+      "id": "haos-protects-new-images-from-power-cuts",
+      "title": "Home Assistant OS merges protection against image corruption after power cuts",
+      "dek": "A merged storage safeguard keeps newly downloaded containers from being recorded as healthy before their files are safely on disk.",
+      "body": [
+        "Home Assistant OS has merged a safeguard for systems that lose power shortly after downloading a container image. After each image layer is unpacked, the merged change forces its data to disk instead of allowing the container database to record the layer as complete while some files remain only in memory.",
+        "That mismatch can leave executables empty or truncated while the image still appears valid. Because the damaged shared layer is considered complete, deleting and downloading the image again may not repair it; affected installations can require a reset of their container storage. The change is especially relevant to Home Assistant systems running from SD cards without an uninterruptible power supply.",
+        "In verification, two ordinary power cuts corrupted two baseline downloads. A more severe controlled test left 1,215 zero-byte files without the safeguard and an intact image with it. The measured cost was 0.6 seconds on a fast 2 GB image load and about four seconds, or 1.9%, on throttled storage. Stefan Agner contributed the change, which sairon reviewed and approved."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 97,
+      "contributors": [
+        "agners"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "agners",
+          "name": "Stefan Agner",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/34061?v=4",
+          "profileUrl": "https://github.com/agners"
+        }
+      ],
+      "reviewers": [
+        "sairon"
+      ],
+      "approvers": [
+        "sairon"
+      ],
+      "topics": [
+        "Home Assistant OS",
+        "reliability",
+        "power loss",
+        "storage"
+      ],
+      "continuity": "No recent edition covered Home Assistant OS image corruption or this power-loss failure.",
+      "pullRequests": [
+        {
+          "id": "4411182605",
+          "title": "Force filesystem sync when unpacking container image layers",
+          "url": "https://github.com/home-assistant/operating-system/pull/4994",
+          "repository": "home-assistant/operating-system"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "ios-entities-widget",
+      "title": "Home Assistant’s iOS app merges a widget for the entities you choose",
+      "dek": "Merged work creates a Home Screen widget that shows current states, offers quick actions and opens any selected entity for more detail.",
+      "body": [
+        "Home Assistant’s iOS app has merged a general-purpose Entities widget. People choose a Home Assistant server and the entities they want to see, and the widget presents them as tiles with their current states.",
+        "Tapping an icon runs the entity’s main action when the app supports it, while tapping elsewhere on the tile opens that entity in the app. Last-update times are shown by default and can be hidden.",
+        "The widget builds on earlier merged work that saves entities from every domain in the app’s local database, allowing search and pickers to find types that were previously omitted. Bruno Pantaleão Gonçalves contributed both parts of the work."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 91,
+      "contributors": [
+        "bgoncal"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bgoncal",
+          "name": "Bruno Pantaleão Gonçalves",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5808343?v=4",
+          "profileUrl": "https://github.com/bgoncal"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Home Assistant Companion",
+        "iOS",
+        "widgets",
+        "quick controls"
+      ],
+      "continuity": "The August 31 edition covered the dedicated iOS energy widget. This is a separate, general-purpose widget with a different reader outcome.",
+      "pullRequests": [
+        {
+          "id": "4426242961",
+          "title": "Add Entities widget",
+          "url": "https://github.com/home-assistant/iOS/pull/5612",
+          "repository": "home-assistant/iOS"
+        },
+        {
+          "id": "4412259131",
+          "title": "Persist entities from every domain",
+          "url": "https://github.com/home-assistant/iOS/pull/5593",
+          "repository": "home-assistant/iOS"
+        }
+      ],
+      "externalSources": [],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-09-03/ios-entities-widget-029727218a07-1050w.webp",
+          "alt": "Home Assistant Entities widget showing several entity tiles on iOS",
+          "caption": "The Entities widget presents selected Home Assistant entities as tiles with their current states.",
+          "width": 1050,
+          "height": 480,
+          "variants": [
+            {
+              "url": "/media/2026-09-03/ios-entities-widget-029727218a07-480w.webp",
+              "width": 480,
+              "height": 219,
+              "bytes": 5914,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-09-03/ios-entities-widget-029727218a07-960w.webp",
+              "width": 960,
+              "height": 439,
+              "bytes": 12364,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-09-03/ios-entities-widget-029727218a07-1050w.webp",
+              "width": 1050,
+              "height": 480,
+              "bytes": 14080,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 32358
+        }
+      ]
+    },
+    {
+      "id": "music-assistant-smart-shuffle-fades",
+      "title": "Music Assistant’s Smart Shuffle now plans for smoother fades",
+      "dek": "Track order can now account for tempo, key and energy, while difficult fades fall back to audible blends instead of abrupt cuts.",
+      "body": [
+        "Music Assistant has merged an optional way for Smart Shuffle and Smart Fades to work together. When both are enabled, upcoming tracks can be reordered using their tempo, key and change in energy, while the existing recency rules and candidate selection remain in charge.",
+        "Related work improves what listeners hear when the vocal-collision guard cannot find a suitable transition. It now falls back to an approximately eight-second volume crossfade; only severe vocal overlap keeps the short emergency handoff. Quick fades no longer bury an incoming track under the full equalizer handoff, and unreliable wall-to-wall vocal detections no longer block every usable blend.",
+        "Crossfade setting changes on continuous streams also take effect from the next track rather than waiting for a new listening session. Leon’s Smart Shuffle ordering is his first merged Music Assistant contribution; Marvin Schenkel reviewed and approved it. Marcel van der Veldt and Schenkel contributed the accompanying transition and settings improvements."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 89,
+      "contributors": [
+        "leonkdk",
+        "marcelveldt",
+        "MarvinSchenkel"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "leonkdk",
+          "name": "Leon",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/34554431?v=4",
+          "profileUrl": "https://github.com/leonkdk"
+        },
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        },
+        {
+          "login": "MarvinSchenkel",
+          "name": "Marvin Schenkel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
+          "profileUrl": "https://github.com/MarvinSchenkel"
+        }
+      ],
+      "reviewers": [
+        "MarvinSchenkel"
+      ],
+      "approvers": [
+        "MarvinSchenkel"
+      ],
+      "topics": [
+        "Music Assistant",
+        "Smart Shuffle",
+        "Smart Fades",
+        "playback"
+      ],
+      "continuity": "The September 1 edition covered a Spotify-specific bug that shortened crossfades. These merges advance system-wide ordering and transition behavior.",
+      "pullRequests": [
+        {
+          "id": "4411369801",
+          "title": "Add Smart Fades-aware Smart Shuffle ordering",
+          "url": "https://github.com/music-assistant/server/pull/6144",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4420942879",
+          "title": "Smart Fades: no more hard cuts or inaudible crossfades on tricky transitions",
+          "url": "https://github.com/music-assistant/server/pull/6163",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4409784531",
+          "title": "Crossfade setting changes now apply at the next track on flow mode players",
+          "url": "https://github.com/music-assistant/server/pull/6143",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "zooz-800lr-firmware-wave",
+      "title": "Eleven Zooz firmware releases enter the Z-Wave JS catalog",
+      "dek": "The coordinated 800LR update wave also gives the ZEN12 readable controls and adds new scene and relay settings across the range.",
+      "body": [
+        "Z-Wave JS merged manufacturer-supplied firmware entries for eleven Zooz devices, covering switches, relays, sensors, a dimmer and a range extender. The entries allow compatible downstream software to identify the new versions when the connected device matches.",
+        "The accompanying configuration work makes several upgrades more useful. The ZEN12 800LR Motion Dimmer gains a complete profile for all 46 of its settings instead of showing them unlabeled, and ZEN37 firmware 2.40 exposes its new multi-tap scene control. Firmware-gated controls also landed for the ZEN17, ZSE11, ZEN34 and ZEN04.",
+        "ZOOZ Smart Home supplied the firmware definitions. AlCalzone reviewed and approved every catalog and configuration merge in the group."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 88,
+      "contributors": [
+        "zooz-git"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "zooz-git",
+          "name": "ZOOZ Smart Home",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/210401350?v=4",
+          "profileUrl": "https://github.com/zooz-git"
+        }
+      ],
+      "reviewers": [
+        "AlCalzone"
+      ],
+      "approvers": [
+        "AlCalzone"
+      ],
+      "topics": [
+        "Z-Wave JS",
+        "Zooz",
+        "firmware",
+        "device support",
+        "800LR"
+      ],
+      "continuity": "No Z-Wave JS or Zooz story appeared in the five prior editions.",
+      "pullRequests": [
+        {
+          "id": "4417917041",
+          "title": "Add Zooz ZEN17-V02-800-LR, US and EU, firmware 2.30",
+          "url": "https://github.com/zwave-js/firmware-updates/pull/373",
+          "repository": "zwave-js/firmware-updates"
+        },
+        {
+          "id": "4417974354",
+          "title": "Add Zooz ZSE11-V02-800-LR, US and EU, firmware 2.30",
+          "url": "https://github.com/zwave-js/firmware-updates/pull/374",
+          "repository": "zwave-js/firmware-updates"
+        },
+        {
+          "id": "4418080394",
+          "title": "Add Zooz ZEN56-V01-800-LR, US and EU, firmware 1.20",
+          "url": "https://github.com/zwave-js/firmware-updates/pull/375",
+          "repository": "zwave-js/firmware-updates"
+        },
+        {
+          "id": "4418163716",
+          "title": "Add Zooz ZEN32-V03-800-LR, firmware 3.30",
+          "url": "https://github.com/zwave-js/firmware-updates/pull/376",
+          "repository": "zwave-js/firmware-updates"
+        },
+        {
+          "id": "4423694491",
+          "title": "Add Zooz ZEN77-V04-800-LR, firmware 4.80",
+          "url": "https://github.com/zwave-js/firmware-updates/pull/379",
+          "repository": "zwave-js/firmware-updates"
+        },
+        {
+          "id": "4423774321",
+          "title": "Add Zooz ZEN76-V03-800-LR, firmware 3.70",
+          "url": "https://github.com/zwave-js/firmware-updates/pull/380",
+          "repository": "zwave-js/firmware-updates"
+        },
+        {
+          "id": "4423968896",
+          "title": "Add Zooz ZEN30-V04-800-LR, firmware 4.50",
+          "url": "https://github.com/zwave-js/firmware-updates/pull/381",
+          "repository": "zwave-js/firmware-updates"
+        },
+        {
+          "id": "4424030352",
+          "title": "Add Zooz ZEN16-V03-800-LR, firmware 3.30",
+          "url": "https://github.com/zwave-js/firmware-updates/pull/382",
+          "repository": "zwave-js/firmware-updates"
+        },
+        {
+          "id": "4424722039",
+          "title": "Add Zooz ZEN12-V01-800-LR, firmware 1.0.1",
+          "url": "https://github.com/zwave-js/firmware-updates/pull/383",
+          "repository": "zwave-js/firmware-updates"
+        },
+        {
+          "id": "4424755434",
+          "title": "Add Zooz ZAC93-V02, US and EU, firmware 2.30",
+          "url": "https://github.com/zwave-js/firmware-updates/pull/384",
+          "repository": "zwave-js/firmware-updates"
+        },
+        {
+          "id": "4424842614",
+          "title": "Add Zooz ZEN37-V02-800-LR, US and EU, firmware 2.40",
+          "url": "https://github.com/zwave-js/firmware-updates/pull/385",
+          "repository": "zwave-js/firmware-updates"
+        },
+        {
+          "id": "4420097738",
+          "title": "feat(config): update Zooz configs for new firmware parameters",
+          "url": "https://github.com/zwave-js/zwave-js/pull/9175",
+          "repository": "zwave-js/zwave-js"
+        },
+        {
+          "id": "4425331337",
+          "title": "feat(config): add Zooz ZEN37 parameter 10 for firmware 2.40",
+          "url": "https://github.com/zwave-js/zwave-js/pull/9180",
+          "repository": "zwave-js/zwave-js"
+        },
+        {
+          "id": "4425433986",
+          "title": "feat(config): add Zooz ZEN12 800LR Motion Dimmer",
+          "url": "https://github.com/zwave-js/zwave-js/pull/9181",
+          "repository": "zwave-js/zwave-js"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "select-tiles-gain-slider",
+      "title": "A first contribution merges a slider for select tiles",
+      "dek": "Home Assistant dashboards gain a compact way to move through a list of choices without opening another control.",
+      "body": [
+        "Merged tile-card work lets people change a select or input-select entity with a slider directly on a Home Assistant dashboard. The matching documentation landed alongside the frontend work.",
+        "The feature is Jump-333’s first merged contribution to both the Home Assistant frontend and documentation repositories. MindFreeze reviewed and approved both changes, with tsvovan also reviewing the frontend work."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 80,
+      "contributors": [
+        "Jump-333"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "Jump-333",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/206314279?v=4",
+          "profileUrl": "https://github.com/Jump-333"
+        }
+      ],
+      "reviewers": [
+        "MindFreeze",
+        "tsvovan"
+      ],
+      "approvers": [
+        "MindFreeze"
+      ],
+      "topics": [
+        "Home Assistant",
+        "dashboards",
+        "tile cards",
+        "community"
+      ],
+      "pullRequests": [
+        {
+          "id": "4391349829",
+          "title": "Add select-slider card feature for select/input_select tile control",
+          "url": "https://github.com/home-assistant/frontend/pull/53876",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "4395664855",
+          "title": "Add documentation for new select-options card style",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/47744",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ]
+}
