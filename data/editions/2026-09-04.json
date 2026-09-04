@@ -1,0 +1,975 @@
+{
+  "date": "2026-09-04",
+  "generatedAt": "2026-09-04T05:04:20.113Z",
+  "windowStart": "2026-09-03T05:02:24.274Z",
+  "windowEnd": "2026-09-04T05:02:24.274Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 202,
+    "repositories": 49,
+    "contributors": 70,
+    "dependencyUpdates": 39,
+    "hacsNewIntegrations": 0
+  },
+  "lead": {
+    "id": "4359734822",
+    "title": "Match imported playlist tracks against other providers when their source is gone",
+    "summary": "What does this implement/fix? When you import a playlist and some of its tracks are no longer available because their source provider isn't configured anymore, Music Assistant now looks them…",
+    "url": "https://github.com/music-assistant/server/pull/5986",
+    "repository": "music-assistant/server",
+    "organization": "Music Assistant",
+    "author": "marcelveldt",
+    "mergedAt": "2026-09-03T16:39:06Z",
+    "labels": [
+      "enhancement"
+    ],
+    "kind": "platform",
+    "score": 70.9,
+    "additions": 9452,
+    "deletions": 732,
+    "changedFiles": 17
+  },
+  "highlights": [
+    {
+      "id": "4405260317",
+      "title": "[esp8266] Drop Arduino framework versions before 3.0.0",
+      "summary": "What does this implement/fix? ESPHome switched to C++20 in 2025.7 (#9135), and the Arduino ESP8266 cores before 3.0.0 ship with platformio platforms whose GCC 4.8 does not know std=gnu++20 ,…",
+      "url": "https://github.com/esphome/esphome/pull/18917",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-03T19:16:37Z",
+      "labels": [
+        "breaking-change",
+        "component: climate",
+        "component: debug",
+        "component: nextion",
+        "component: wifi",
+        "has-tests",
+        "core",
+        "component: esp8266",
+        "platform: esp8266"
+      ],
+      "kind": "platform",
+      "score": 68.1,
+      "additions": 62,
+      "deletions": 121,
+      "changedFiles": 14
+    },
+    {
+      "id": "4268057157",
+      "title": "Add Dyson AM09 (Hot+Cool) IR protocol support",
+      "summary": "Breaking change The payload argument in DysonCoolCommand is now code and the DysonCoolCode enum values changed from being the full frame to the code part (excluding the fixed preamble).",
+      "unlocks": "Unlocks: Add Dyson AM09 (Hot+Cool) IR protocol support.",
+      "url": "https://github.com/home-assistant-libs/infrared-protocols/pull/125",
+      "repository": "home-assistant-libs/infrared-protocols",
+      "organization": "Home Assistant Libraries",
+      "author": "kktrum",
+      "mergedAt": "2026-09-03T10:27:22Z",
+      "labels": [
+        "breaking-change",
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 65.1,
+      "additions": 156,
+      "deletions": 128,
+      "changedFiles": 5
+    },
+    {
+      "id": "4360179227",
+      "title": "Add playlist migration between providers",
+      "summary": "What does this implement/fix? Adds the ability to copy a playlist to another provider, or into Music Assistant itself.",
+      "unlocks": "Unlocks: Add playlist migration between providers.",
+      "url": "https://github.com/music-assistant/server/pull/5989",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-03T22:06:53Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 64.8,
+      "additions": 1967,
+      "deletions": 21,
+      "changedFiles": 12
+    },
+    {
+      "id": "4359725551",
+      "title": "Migrate playlists between providers",
+      "summary": "What does this implement/fix? Copying a playlist to a different music provider today means recreating it by hand, track by track.",
+      "unlocks": "Unlocks: Migrate playlists between providers.",
+      "url": "https://github.com/music-assistant/frontend/pull/2647",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-03T16:38:32Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 63.6,
+      "additions": 895,
+      "deletions": 2,
+      "changedFiles": 11
+    }
+  ],
+  "briefs": [
+    {
+      "id": "4405226291",
+      "title": "Add receiver connect-back for cross-subnet pairing endpoint recovery",
+      "summary": "What does this implement/fix? When a paired build server's IP changes across subnets with no mDNS, the device builder dials the stale endpoint forever; the only recovery was the manual endpoint edit.",
+      "unlocks": "Unlocks: Add receiver connect-back for cross-subnet pairing endpoint recovery.",
+      "url": "https://github.com/esphome/device-builder/pull/2650",
+      "repository": "esphome/device-builder",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-03T08:45:21Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 63.2,
+      "additions": 2301,
+      "deletions": 189,
+      "changedFiles": 36
+    },
+    {
+      "id": "4399839089",
+      "title": "Add Sofar service actions for the paired-register controls",
+      "summary": "Adds four admin actions for the paired register controls on the Sofar inverter: feed in limit, active power limit, and the two passive mode setpoints (timeout/action, power).",
+      "unlocks": "Unlocks: Add Sofar service actions for the paired-register controls.",
+      "url": "https://github.com/home-assistant/core/pull/180892",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "darkrain-nl",
+      "mergedAt": "2026-09-03T17:52:13Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: silver",
+        "quality-scale",
+        "integration: sofar"
+      ],
+      "kind": "feature",
+      "score": 61.7,
+      "additions": 727,
+      "deletions": 9,
+      "changedFiles": 7
+    },
+    {
+      "id": "4430796303",
+      "title": "Prefer loudness metadata from music providers over the built-in measurement",
+      "summary": "What does this implement/fix? Loudness values supplied by music providers (ReplayGain file tags, subsonic gain) were stored under the built in loudness analyzer's own domain.",
+      "url": "https://github.com/music-assistant/server/pull/6188",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "MarvinSchenkel",
+      "mergedAt": "2026-09-03T13:40:31Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 61.2,
+      "additions": 202,
+      "deletions": 18,
+      "changedFiles": 6
+    },
+    {
+      "id": "4083976439",
+      "title": "Add Detekt static analysis",
+      "summary": "Adds Detekt static analysis across the main Gradle build and the included build logic.",
+      "unlocks": "Unlocks: Add Detekt static analysis.",
+      "url": "https://github.com/home-assistant/android/pull/7209",
+      "repository": "home-assistant/android",
+      "organization": "Home Assistant",
+      "author": "loganrosen",
+      "mergedAt": "2026-09-03T12:24:10Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "feature",
+      "score": 58.3,
+      "additions": 2296,
+      "deletions": 97,
+      "changedFiles": 25
+    },
+    {
+      "id": "4417641598",
+      "title": "TC-BR-4, a controller handling a bridge, and chip apps operated through standard input",
+      "summary": "TC BR 4 is the bridge test case for a device under test acting as a client.",
+      "url": "https://github.com/matter-js/matter.js/pull/4388",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-09-03T09:08:48Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 52.7,
+      "additions": 2147,
+      "deletions": 64,
+      "changedFiles": 20
+    },
+    {
+      "id": "4433757262",
+      "title": "Add What's New for 2026.9.1",
+      "summary": "AI Policy I have read the Open Home Foundation AI Policy.",
+      "unlocks": "Unlocks: Add What's New for 2026.9.1.",
+      "url": "https://github.com/home-assistant/iOS/pull/5630",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "bgoncal",
+      "mergedAt": "2026-09-03T19:17:15Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "feature",
+      "score": 52.6,
+      "additions": 436,
+      "deletions": 175,
+      "changedFiles": 20,
+      "image": "https://raw.githubusercontent.com/home-assistant/iOS/1f42eb745908c6bcb5f5f729ab0795260c1246e3/Tests/App/WhatsNew/__Snapshots__/WhatsNewViewSnapshot.test/catalogArticles.energy-widget-mac-2026-9-1-energy-widget-dark.png"
+    },
+    {
+      "id": "4383913529",
+      "title": "Fake Sendspin devices for testing the pairing screens",
+      "summary": "What does this implement/fix? Testing the Sendspin pairing screens needs devices that offer different pairing methods, and we don't have hardware for most of them.",
+      "url": "https://github.com/music-assistant/server/pull/6085",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-03T12:20:18Z",
+      "labels": [
+        "maintenance"
+      ],
+      "kind": "platform",
+      "score": 52.4,
+      "additions": 1063,
+      "deletions": 0,
+      "changedFiles": 9
+    },
+    {
+      "id": "4433700413",
+      "title": "Add Sofar settings sensors for the paired-register controls",
+      "summary": "Adds eight read only diagnostic sensors, all disabled by default, for the same paired register settings #180892 writes: the current feed in limit, active power limit, and passive mode setpoints.",
+      "unlocks": "Unlocks: Add Sofar settings sensors for the paired-register controls.",
+      "url": "https://github.com/home-assistant/core/pull/181197",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "darkrain-nl",
+      "mergedAt": "2026-09-03T18:16:44Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: silver",
+        "quality-scale",
+        "integration: sofar"
+      ],
+      "kind": "feature",
+      "score": 50.7,
+      "additions": 555,
+      "deletions": 2,
+      "changedFiles": 4
+    },
+    {
+      "id": "4428751681",
+      "title": "Add Imou diagnostics for config entries",
+      "summary": "Breaking change Proposed change Add config entry diagnostics for Imou.",
+      "unlocks": "Unlocks: Add Imou diagnostics for config entries.",
+      "url": "https://github.com/home-assistant/core/pull/181132",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "Imou-OpenPlatform",
+      "mergedAt": "2026-09-03T12:15:07Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality-scale",
+        "quality scale: bronze",
+        "integration: imou"
+      ],
+      "kind": "feature",
+      "score": 50.4,
+      "additions": 91,
+      "deletions": 1,
+      "changedFiles": 4
+    },
+    {
+      "id": "4433719479",
+      "title": "Add the Sofar active power limit binary sensor",
+      "summary": "Split off #180892 per erwindouna's review comment that it was getting too large.",
+      "unlocks": "Unlocks: Add the Sofar active power limit binary sensor.",
+      "url": "https://github.com/home-assistant/core/pull/181198",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "darkrain-nl",
+      "mergedAt": "2026-09-03T18:34:01Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: silver",
+        "quality-scale",
+        "integration: sofar"
+      ],
+      "kind": "feature",
+      "score": 49.9,
+      "additions": 138,
+      "deletions": 1,
+      "changedFiles": 4
+    },
+    {
+      "id": "4432932885",
+      "title": "Add lock switch to Midea",
+      "summary": "Add lock switch to Midea Type of change Dependency upgrade Bugfix (non breaking change which fixes an issue) New integration (thank you!) New feature (which adds functionality to an existing…",
+      "unlocks": "Unlocks: Add lock switch to Midea.",
+      "url": "https://github.com/home-assistant/core/pull/181184",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "chemelli74",
+      "mergedAt": "2026-09-03T12:42:35Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze",
+        "integration: midea"
+      ],
+      "kind": "feature",
+      "score": 49.4,
+      "additions": 120,
+      "deletions": 0,
+      "changedFiles": 5
+    },
+    {
+      "id": "4422279846",
+      "title": "Check if failed import is from us, or from user, and check if chunck 404's",
+      "summary": "Every failed import (also from users config or integrations add imports) would trigger the failed import check, and cause a reload.",
+      "url": "https://github.com/home-assistant/frontend/pull/53940",
+      "repository": "home-assistant/frontend",
+      "organization": "Home Assistant",
+      "author": "bramkragten",
+      "mergedAt": "2026-09-03T13:15:47Z",
+      "labels": [
+        "cla-signed",
+        "tests: unit"
+      ],
+      "kind": "platform",
+      "score": 48.9,
+      "additions": 988,
+      "deletions": 89,
+      "changedFiles": 8
+    },
+    {
+      "id": "4426460452",
+      "title": "feat(node-manager): stop keeping a finished task's parameters, and only cancel work still in flight",
+      "summary": "Fifth step of the task layer redesign, on top of node manager .",
+      "url": "https://github.com/matter-js/matter.js/pull/4400",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-09-03T09:35:32Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 48.7,
+      "additions": 1076,
+      "deletions": 257,
+      "changedFiles": 18
+    },
+    {
+      "id": "4431897545",
+      "title": "Improve expanded Dynamic Island layout for Live Activities",
+      "summary": "AI Policy I have read the Open Home Foundation AI Policy.",
+      "url": "https://github.com/home-assistant/iOS/pull/5621",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "bgoncal",
+      "mergedAt": "2026-09-03T16:58:02Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "platform",
+      "score": 47.5,
+      "additions": 270,
+      "deletions": 68,
+      "changedFiles": 16,
+      "image": "https://raw.githubusercontent.com/home-assistant/iOS/6f46c7a77740af537d4abcecb06bc6ffed2249e6/Tests/Widgets/__Snapshots__/HADynamicIslandSnapshot.test/expandedSnapshots.chronometer.png"
+    },
+    {
+      "id": "4392713663",
+      "title": "Add reusable state class selector",
+      "summary": "Add reusable state class selector Backend PR: https://github.com/home assistant/core/pull/180667 Screenshots Type of change Dependency upgrade Bugfix (non breaking change which fixes an…",
+      "unlocks": "Unlocks: Add reusable state class selector.",
+      "url": "https://github.com/home-assistant/frontend/pull/53880",
+      "repository": "home-assistant/frontend",
+      "organization": "Home Assistant",
+      "author": "jbouwh",
+      "mergedAt": "2026-09-03T13:42:39Z",
+      "labels": [
+        "cla-signed",
+        "build"
+      ],
+      "kind": "feature",
+      "score": 47.4,
+      "additions": 296,
+      "deletions": 1,
+      "changedFiles": 9
+    },
+    {
+      "id": "4423332702",
+      "title": "Add ARTIST_TRACKS support to the Tidal provider",
+      "summary": "What does this implement/fix? Adds ARTIST TRACKS support to the Tidal provider.",
+      "unlocks": "Unlocks: Add ARTIST_TRACKS support to the Tidal provider.",
+      "url": "https://github.com/music-assistant/server/pull/6167",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "jozefKruszynski",
+      "mergedAt": "2026-09-03T08:02:06Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 46.6,
+      "additions": 57,
+      "deletions": 0,
+      "changedFiles": 4
+    },
+    {
+      "id": "4430319630",
+      "title": "Handle single_instance_allowed centrally",
+      "summary": "Breaking change Proposed change Translate single instance allowed centrally Related PRs: https://github.com/home assistant/core/pull/180265 https://github.com/home assistant/core/pull/180268…",
+      "url": "https://github.com/home-assistant/core/pull/181143",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "zweckj",
+      "mergedAt": "2026-09-03T14:22:10Z",
+      "labels": [
+        "core",
+        "cla-signed",
+        "small-pr",
+        "code-quality"
+      ],
+      "kind": "platform",
+      "score": 46.5,
+      "additions": 137,
+      "deletions": 136,
+      "changedFiles": 60
+    },
+    {
+      "id": "4430837379",
+      "title": "Handle already_in_progress centrally",
+      "summary": "Breaking change Proposed change handle the already in progress abort centrally Related PRs: https://github.com/home assistant/core/pull/180265 https://github.com/home…",
+      "url": "https://github.com/home-assistant/core/pull/181147",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "zweckj",
+      "mergedAt": "2026-09-03T12:47:28Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "code-quality"
+      ],
+      "kind": "platform",
+      "score": 46.3,
+      "additions": 17,
+      "deletions": 139,
+      "changedFiles": 132
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "package/go: bump to version 1.26.8",
+      "url": "https://github.com/home-assistant/buildroot/pull/148",
+      "repository": "home-assistant/buildroot",
+      "author": "sairon"
+    },
+    {
+      "title": "Bump hdate to 1.2.2",
+      "url": "https://github.com/home-assistant/core/pull/181189",
+      "repository": "home-assistant/core",
+      "author": "amitfin"
+    },
+    {
+      "title": "Bump pydaikin to 2.19.1 (hotfix)",
+      "url": "https://github.com/home-assistant/core/pull/181219",
+      "repository": "home-assistant/core",
+      "author": "GhislainC"
+    },
+    {
+      "title": "Update dependency typescript-eslint to v8.69.0",
+      "url": "https://github.com/home-assistant/frontend/pull/53961",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update CodeMirror",
+      "url": "https://github.com/home-assistant/frontend/pull/53960",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump Buildroot to 2025.02.17",
+      "url": "https://github.com/home-assistant/operating-system/pull/4997",
+      "repository": "home-assistant/operating-system",
+      "author": "sairon"
+    },
+    {
+      "title": "⬆️ Update pre-commit hook astral-sh/ruff-pre-commit to v0.16.6",
+      "url": "https://github.com/home-assistant-libs/python-go2rtc-client/pull/375",
+      "repository": "home-assistant-libs/python-go2rtc-client",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update pre-commit hook astral-sh/ruff-pre-commit to v0.16.6",
+      "url": "https://github.com/home-assistant-libs/aioecowitt/pull/429",
+      "repository": "home-assistant-libs/aioecowitt",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update pre-commit hooks",
+      "url": "https://github.com/home-assistant-libs/annotatedyaml/pull/160",
+      "repository": "home-assistant-libs/annotatedyaml",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency ruff to v0.16.6",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/535",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump version from 2.11.0 to 3.0.0",
+      "url": "https://github.com/home-assistant-libs/python-otbr-api/pull/277",
+      "repository": "home-assistant-libs/python-otbr-api",
+      "author": "agners"
+    },
+    {
+      "title": "Bump version from 2.10.0 to 2.11.0",
+      "url": "https://github.com/home-assistant-libs/python-otbr-api/pull/276",
+      "repository": "home-assistant-libs/python-otbr-api",
+      "author": "agners"
+    },
+    {
+      "title": "Bump coverage from 7.15.4 to 7.16.0",
+      "url": "https://github.com/home-assistant-libs/pytradfri/pull/1218",
+      "repository": "home-assistant-libs/pytradfri",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump syrupy from 5.5.3 to 6.0.0",
+      "url": "https://github.com/home-assistant-libs/forecast_solar/pull/417",
+      "repository": "home-assistant-libs/forecast_solar",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump the \"ruff\" group with 2 updates across multiple ecosystems",
+      "url": "https://github.com/home-assistant-libs/pytradfri/pull/1220",
+      "repository": "home-assistant-libs/pytradfri",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump pylint from 4.0.7 to 4.0.8",
+      "url": "https://github.com/home-assistant-libs/pytradfri/pull/1219",
+      "repository": "home-assistant-libs/pytradfri",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "deps: bump ruff from 0.16.4 to 0.16.5",
+      "url": "https://github.com/esphome/device-builder/pull/2656",
+      "repository": "esphome/device-builder",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump filelock from 3.32.4 to 3.32.5",
+      "url": "https://github.com/esphome/esphome/pull/18963",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump bundled esphome-device-builder to 1.14.0",
+      "url": "https://github.com/esphome/esphome/pull/18960",
+      "repository": "esphome/esphome",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump frontend to 0.1.320",
+      "url": "https://github.com/esphome/device-builder/pull/2654",
+      "repository": "esphome/device-builder",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump auntie-sounds to 2.0.9",
+      "url": "https://github.com/music-assistant/server/pull/6192",
+      "repository": "music-assistant/server",
+      "author": "kieranhogg"
+    },
+    {
+      "title": "chore: bump iOS build to 51",
+      "url": "https://github.com/music-assistant/mobile-app/pull/961",
+      "repository": "music-assistant/mobile-app",
+      "author": "github-actions[bot]"
+    },
+    {
+      "title": "chore: bump Android version to 0.14.0 (15)",
+      "url": "https://github.com/music-assistant/mobile-app/pull/960",
+      "repository": "music-assistant/mobile-app",
+      "author": "github-actions[bot]"
+    },
+    {
+      "title": "chore(deps): update node.js to v24",
+      "url": "https://github.com/zwave-js/zwave-js-ui/pull/4812",
+      "repository": "zwave-js/zwave-js-ui",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update dependency multer to v2.2.0",
+      "url": "https://github.com/zwave-js/zwave-js-ui/pull/4813",
+      "repository": "zwave-js/zwave-js-ui",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update node.js",
+      "url": "https://github.com/zwave-js/zwave-js-ui/pull/4811",
+      "repository": "zwave-js/zwave-js-ui",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "fix(deps): update dependency morgan to ~1.11.0",
+      "url": "https://github.com/zwave-js/zwave-js-ui/pull/4814",
+      "repository": "zwave-js/zwave-js-ui",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore: replace the stale Renovate config and drop the disabled Dependabot config",
+      "url": "https://github.com/zwave-js/zwave-js-ui/pull/4810",
+      "repository": "zwave-js/zwave-js-ui",
+      "author": "zwave-js-bot"
+    },
+    {
+      "title": "chore(deps): update dependency piscina to v5.2.0",
+      "url": "https://github.com/zwave-js/zwave-js/pull/9186",
+      "repository": "zwave-js/zwave-js",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore: switch dependency updates to Renovate",
+      "url": "https://github.com/zwave-js/fmt/pull/6",
+      "repository": "zwave-js/fmt",
+      "author": "AlCalzone"
+    },
+    {
+      "title": "chore: switch dependency updates to Renovate",
+      "url": "https://github.com/zwave-js/firmware-updates/pull/386",
+      "repository": "zwave-js/firmware-updates",
+      "author": "AlCalzone"
+    },
+    {
+      "title": "chore(deps): update dependency esbuild to ^0.25.0 [security]",
+      "url": "https://github.com/zwave-js/log-transports/pull/200",
+      "repository": "zwave-js/log-transports",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore: switch from Dependabot to Renovate",
+      "url": "https://github.com/zwave-js/zwave-js/pull/9185",
+      "repository": "zwave-js/zwave-js",
+      "author": "zwave-js-bot"
+    },
+    {
+      "title": "chore: switch from Dependabot to Renovate",
+      "url": "https://github.com/zwave-js/zwave-js-server/pull/1588",
+      "repository": "zwave-js/zwave-js-server",
+      "author": "zwave-js-bot"
+    },
+    {
+      "title": "chore: switch dependency updates to Renovate",
+      "url": "https://github.com/zwave-js/log-transports/pull/199",
+      "repository": "zwave-js/log-transports",
+      "author": "AlCalzone"
+    },
+    {
+      "title": "chore: switch dependency updates to Renovate",
+      "url": "https://github.com/zwave-js/log-analyzer/pull/57",
+      "repository": "zwave-js/log-analyzer",
+      "author": "AlCalzone"
+    },
+    {
+      "title": "chore: switch dependency updates to Renovate",
+      "url": "https://github.com/zwave-js/bot-workflows/pull/9",
+      "repository": "zwave-js/bot-workflows",
+      "author": "AlCalzone"
+    },
+    {
+      "title": "chore: switch dependency updates to Renovate",
+      "url": "https://github.com/zwave-js/waddle/pull/33",
+      "repository": "zwave-js/waddle",
+      "author": "AlCalzone"
+    },
+    {
+      "title": "chore(deps-dev): bump eslint from 10.7.0 to 10.8.1",
+      "url": "https://github.com/zwave-js/zwave-js-server/pull/1583",
+      "repository": "zwave-js/zwave-js-server",
+      "author": "dependabot[bot]"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 113,
+      "thisWeek": 891,
+      "sinceRelease": 123,
+      "lastReleaseDate": "2026-09-02"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 29,
+      "thisWeek": 176,
+      "sinceRelease": 140,
+      "lastReleaseDate": "2026-08-29"
+    },
+    {
+      "product": "ESPHome",
+      "today": 12,
+      "thisWeek": 152,
+      "sinceRelease": 342,
+      "lastReleaseDate": "2026-08-19"
+    }
+  ],
+  "landedReleases": [],
+  "releases": [
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-09-16",
+      "version": "2026.9",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-09-30",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "green"
+    }
+  ],
+  "notes": [
+    "Home Assistant had 113 merged pull requests; the configured limit included 60."
+  ],
+  "articles": [
+    {
+      "id": "playlist-portability-across-providers",
+      "title": "Music Assistant merges tools for moving playlists between providers",
+      "dek": "Three connected changes match tracks at the destination, preserve playlist order and report gaps.",
+      "body": [
+        "Music Assistant has merged the pieces needed to copy an eligible static playlist into Music Assistant itself or another connected provider that supports playlist creation and editing.",
+        "The flow offers three match policies: exact release, same recording or best effort. It runs in the background, reports progress, verifies the destination, retries when needed and lists tracks it could not copy. Duplicate tracks are preserved where the destination supports them; the flow also accounts for services that reject duplicates.",
+        "The same matching work can replace confirmed-dead tracks during playlist import when their original provider is no longer configured, using matches from the user’s other connected services. A provider that is temporarily unavailable is left alone, and the original order and duplicate tracks are preserved."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 97,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant",
+        "playlists",
+        "music providers",
+        "portability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4359725551",
+          "title": "Migrate playlists between providers",
+          "url": "https://github.com/music-assistant/frontend/pull/2647",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "4359734822",
+          "title": "Match imported playlist tracks against other providers when their source is gone",
+          "url": "https://github.com/music-assistant/server/pull/5986",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4360179227",
+          "title": "Add playlist migration between providers",
+          "url": "https://github.com/music-assistant/server/pull/5989",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "speech-to-phrase-home-assistant-app",
+      "title": "Speech-to-Phrase is packaged as a Home Assistant app",
+      "dek": "Merged OHF Voice work builds command grammars from a home’s entities, areas and custom commands, then connects the recognizer through the Wyoming voice protocol.",
+      "body": [
+        "The app narrows recognition to phrases a home is expected to need. It builds its grammar from Home Assistant entities, areas, floors, intents, custom commands and sentence overrides rather than treating every utterance as open-ended dictation.",
+        "The package includes multilingual recognition models, configuration and debugging controls, intent handling, and a Wyoming connection to Home Assistant. It keeps its last usable Home Assistant language data when a refresh fails and verifies the helper downloads used to build that data. Michael Hansen contributed the app."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 94,
+      "contributors": [
+        "synesthesiam"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "synesthesiam",
+          "name": "Michael Hansen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2743976?v=4",
+          "profileUrl": "https://github.com/synesthesiam"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "OHF Voice",
+        "Speech-to-Phrase",
+        "local voice",
+        "Home Assistant",
+        "Wyoming"
+      ],
+      "pullRequests": [
+        {
+          "id": "4437076902",
+          "title": "Add speech-to-phrase Home Assistant app",
+          "url": "https://github.com/OHF-Voice/apps/pull/21",
+          "repository": "OHF-Voice/apps"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-app-uninstall-warnings",
+      "title": "Home Assistant clarifies what app removal deletes",
+      "dek": "Merged changes to the app page and three repair prompts distinguish permanent app-data deletion from the separate public configuration folder.",
+      "body": [
+        "Home Assistant’s app-removal screens did not always explain what would disappear. The uninstall dialog mislabeled an optional public configuration folder as app data, while three repair prompts warned only that the app would be removed—even though uninstall always deletes its private data folder. The merged work cites a user who lost an InfluxDB database after uninstalling from one of those repair prompts.",
+        "Two merged changes correct both places. The app page labels the optional deletion as the public configuration folder and warns that the app’s databases and other files are permanently deleted. Repair prompts repeat the warning and link to backups before offering uninstall. The underlying deletion behavior is unchanged, and those repair paths still leave the public configuration folder in place."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 93,
+      "contributors": [
+        "agners"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "agners",
+          "name": "Stefan Agner",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/34061?v=4",
+          "profileUrl": "https://github.com/agners"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [
+        "piitaya",
+        "silamon"
+      ],
+      "topics": [
+        "Home Assistant",
+        "apps",
+        "data loss",
+        "backups",
+        "reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4412444674",
+          "title": "Clarify what uninstalling an app deletes",
+          "url": "https://github.com/home-assistant/frontend/pull/53923",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "4412494690",
+          "title": "Warn that removing an app deletes its data in repair flows",
+          "url": "https://github.com/home-assistant/core/pull/181009",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "recorder-zero-value-statistics-fix",
+      "title": "Merged fix stops one zero-valued EV sensor from halting statistics",
+      "dek": "A divide-by-zero failure in reciprocal efficiency units could break graphs and repeatedly abort the statistics job for every entity.",
+      "body": [
+        "A zero stored by an electric-vehicle efficiency sensor could affect far more than its own graph when Home Assistant converted between inverse units such as kilowatt-hours per 100 kilometres and kilometres per kilowatt-hour. One such value could stop the entire five-minute statistics job for every entity and fail again on the next run. A second path could break period-statistics queries and their graphs.",
+        "The merged fix routes both recorder paths through a converter that treats zero as unavailable when the conversion would divide by it. Statistics retrieval returns no value for that point, while compilation skips it as it would a non-numeric state. The change is limited to recorder statistics; the live entity-display path remains outside this fix."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 88,
+      "contributors": [
+        "TowyTowy"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "TowyTowy",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/85077986?v=4",
+          "profileUrl": "https://github.com/TowyTowy"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [
+        "Markus98"
+      ],
+      "topics": [
+        "Home Assistant",
+        "recorder",
+        "statistics",
+        "electric vehicles",
+        "reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4038558613",
+          "title": "Fix ZeroDivisionError for inverse unit conversions in recorder statistics",
+          "url": "https://github.com/home-assistant/core/pull/176320",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ]
+}
