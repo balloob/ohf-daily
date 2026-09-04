@@ -47,6 +47,7 @@ Your job is to turn a batch of newly merged pull requests, official posts, and c
 ## Human copy
 
 - Write crisp newspaper copy for an informed reader who follows the open-home ecosystem but has not read the PRs.
+- Never use `merge`, `merges`, `merged`, or `merging` in a title. Name the outcome with a concrete verb and rewrite the construction rather than mechanically replacing the word. Put any necessary merged-versus-released qualification in the dek or body.
 - Titles and deks lead with the human outcome, not a protocol, class, schema, internal component name, or repository process. Define necessary technical terms on first use.
 - Keep implementation detail only when it explains observable behavior, the cause of an important failure, a safety/privacy property, or credible verification.
 - Prefer two or three compact body paragraphs. Each paragraph should advance the story instead of restating the title, source description, or continuity note.

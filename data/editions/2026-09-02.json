@@ -812,7 +812,7 @@
     },
     {
       "id": "esphome-encrypted-wireless-updates",
-      "title": "ESPHome merges encrypted wireless firmware updates",
+      "title": "ESPHome encrypts wireless firmware updates",
       "dek": "Once released, an opt-in encrypted transfer will stop firmware images—and the secrets inside them—from crossing a local network in plaintext.",
       "body": [
         "J. Nick Koston’s merged ESPHome work addresses a gap in wireless updates: the existing password authenticated the uploader, but the firmware image itself still travelled in plaintext. Someone listening on the local network could capture the Wi-Fi credentials and API encryption key embedded in that image.",
@@ -864,7 +864,7 @@
     },
     {
       "id": "ios-wifi-handoffs-stop-reloads",
-      "title": "Home Assistant’s iOS app merges a fix for reloads during Wi-Fi handoffs",
+      "title": "Home Assistant’s iOS app prevents reloads during Wi-Fi handoffs",
       "dek": "Merged Companion app work keeps the last known network route during an access-point handoff, avoiding a jump to the external URL and a second reload when Wi-Fi returns.",
       "body": [
         "An iPhone moving between access points on the same Wi-Fi network can briefly report no current network. The Home Assistant app treated that gap as leaving the internal network, switched to its external address and reloaded the whole interface—then reloaded it again seconds later when Wi-Fi reappeared.",
@@ -905,7 +905,7 @@
     },
     {
       "id": "calendar-events-gain-status",
-      "title": "Merged calendar work lets automations distinguish tentative events",
+      "title": "Home Assistant adds tentative status to calendar events",
       "dek": "Home Assistant code now carries confirmed or tentative status from CalDAV, local calendars and Google Calendar into trigger data; cancelled-event filtering remains separate.",
       "body": [
         "Tom Mittelstädt’s first merged contribution to Home Assistant Core adds an optional status to calendar events. CalDAV, Local Calendar and Google Calendar can now mark an event as confirmed or tentative, and automations receive that value in the calendar trigger payload.",

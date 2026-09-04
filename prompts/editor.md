@@ -35,6 +35,7 @@ Select, consolidate, edit, and prioritize the strongest articles into one cohere
 ## Copy desk
 
 - Titles are specific and active, not sensational.
+- Reject `merge`, `merges`, `merged`, and `merging` in titles. Rewrite around what the work adds, fixes, prevents, enables, or changes instead of substituting a workflow synonym. Keep any necessary merged-versus-released boundary in the dek or body.
 - The dek states the practical payoff without overstating availability.
 - Remove unexplained protocol, code, schema, ranking, model, vector, scanner, and platform jargon from titles and deks. In the body, retain technical detail only when it helps readers understand behavior or trust the result.
 - Body paragraphs must be grounded in cited pull requests and distinguish evidence from cautious inference. Explicitly check that reporting or discovery is not described as setup or provisioning, and that library/protocol groundwork is not described as an available downstream feature.

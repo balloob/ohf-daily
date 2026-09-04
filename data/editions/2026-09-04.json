@@ -782,7 +782,7 @@
   "articles": [
     {
       "id": "playlist-portability-across-providers",
-      "title": "Music Assistant merges tools for moving playlists between providers",
+      "title": "Music Assistant makes playlists portable across providers",
       "dek": "Three connected changes match tracks at the destination, preserve playlist order and report gaps.",
       "body": [
         "Music Assistant has merged the pieces needed to copy an eligible static playlist into Music Assistant itself or another connected provider that supports playlist creation and editing.",
@@ -929,7 +929,7 @@
     },
     {
       "id": "recorder-zero-value-statistics-fix",
-      "title": "Merged fix stops one zero-valued EV sensor from halting statistics",
+      "title": "Home Assistant keeps one zero-valued EV sensor from halting statistics",
       "dek": "A divide-by-zero failure in reciprocal efficiency units could break graphs and repeatedly abort the statistics job for every entity.",
       "body": [
         "A zero stored by an electric-vehicle efficiency sensor could affect far more than its own graph when Home Assistant converted between inverse units such as kilowatt-hours per 100 kilometres and kilometres per kilowatt-hour. One such value could stop the entire five-minute statistics job for every entity and fail again on the next run. A second path could break period-statistics queries and their graphs.",

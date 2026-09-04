@@ -8,6 +8,7 @@ Review every article for:
 - selection and placement: whether it merits lead, feature, brief, wire, or omission;
 - clarity without PR context, including unexplained jargon and implementation-detail overload;
 - headline, dek, first paragraph, structure, repetition, and newspaper tone;
+- headline outcome language: titles must not use `merge`, `merges`, `merged`, or `merging`, and should instead use a concrete verb that explains what changed;
 - grouping around one reader outcome rather than author, repository, date, or chronology;
 - factual scope: merged versus released, reporting versus provisioning, and groundwork versus an available downstream capability;
 - release-day compliance: a configured scheduled stable release must be the headline lead, while a beta, prerelease, release candidate, or patch release needs independent news value to earn article space;
