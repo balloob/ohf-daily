@@ -56,6 +56,7 @@ const upcoming = releases
             <a href={release.url} target="_blank" rel="noreferrer">
               <span class="release-name"><strong>{release.product}</strong><small>{release.tag}</small></span>
               <span class="release-meta"><small>{release.channel}</small></span>
+              <span class="more-information" aria-hidden="true">›</span>
             </a>
           </li>
         ))}
@@ -84,7 +85,9 @@ const upcoming = releases
               <small>{release.remaining === 0 ? "Today" : release.remaining === 1 ? "Tomorrow" : `${release.remaining}d`}</small>
             </time>
             {release.url ? (
-              <a class="upcoming-name" href={release.url} target="_blank" rel="noreferrer"><strong>{release.product}</strong><small>{detailFor(release)}</small></a>
+              <a class="upcoming-name" href={release.url} target="_blank" rel="noreferrer">
+                <strong>{release.product}</strong><small>{detailFor(release)}</small><span class="more-information" aria-hidden="true">›</span>
+              </a>
             ) : (
               <span class="upcoming-name"><strong>{release.product}</strong><small>{detailFor(release)}</small></span>
             )}
@@ -134,6 +137,10 @@ const upcoming = releases
     text-decoration: none;
   }
 
+  .shipped-list a {
+    grid-template-columns: minmax(0, 1fr) auto 0.7rem;
+  }
+
   .release-name,
   .release-meta,
   .upcoming-name {
@@ -159,6 +166,39 @@ const upcoming = releases
   .upcoming-name small {
     color: var(--muted);
     font: 500 0.61rem/1.2 var(--sans);
+  }
+
+  a.upcoming-name {
+    position: relative;
+    padding-right: 1rem;
+  }
+
+  a.upcoming-name .more-information {
+    position: absolute;
+    top: 50%;
+    right: 0.1rem;
+    transform: translateY(-50%);
+  }
+
+  .more-information {
+    color: var(--muted);
+    font: 700 1.05rem/1 var(--sans);
+    transition: color 120ms ease, transform 120ms ease;
+  }
+
+  a:hover .more-information,
+  a:focus-visible .more-information {
+    color: var(--ink);
+  }
+
+  a.upcoming-name:hover .more-information,
+  a.upcoming-name:focus-visible .more-information {
+    transform: translate(0.12rem, -50%);
+  }
+
+  .shipped-list a:hover .more-information,
+  .shipped-list a:focus-visible .more-information {
+    transform: translateX(0.12rem);
   }
 
   .release-meta {
