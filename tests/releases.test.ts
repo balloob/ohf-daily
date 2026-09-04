@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { buildReleaseCalendar } from "../src/lib/releases";
+import { buildReleaseCalendar, releasesForRadar } from "../src/lib/releases";
+import type { LandedRelease } from "../src/lib/types";
 
 const cycles = [
   { product: "Home Assistant", rule: "first-wednesday" as const, beta_days_before: 7, release_offset_days: 0, accent: "blue" },
@@ -51,4 +52,30 @@ test("never shows scheduled events more than 45 days ahead", () => {
   assert.equal(events.at(-1)?.date, "2026-10-07");
   assert.ok(events.every((event) => event.date <= "2026-10-15"));
   assert.deepEqual(buildReleaseCalendar("2026-08-31", cycles, 4, 0), []);
+});
+
+test("hides prereleases superseded by a matching stable release in the radar", () => {
+  const release = (tag: string, channel: LandedRelease["channel"], product = "Home Assistant"): LandedRelease => ({
+    id: `${product}:${tag}`,
+    product,
+    repository: "owner/repository",
+    name: tag,
+    tag,
+    url: `https://github.com/owner/repository/releases/tag/${tag}`,
+    publishedAt: "2026-09-02T12:00:00Z",
+    channel,
+    accent: "blue",
+  });
+  const releases = [
+    release("2026.9.0b9", "prerelease"),
+    release("2026.9.0", "stable"),
+    release("2026.10.0b1", "prerelease"),
+    release("2026.9.0b1", "prerelease", "ESPHome"),
+  ];
+
+  assert.deepEqual(releasesForRadar(releases).map(({ product, tag }) => `${product}:${tag}`), [
+    "Home Assistant:2026.9.0",
+    "Home Assistant:2026.10.0b1",
+    "ESPHome:2026.9.0b1",
+  ]);
 });

@@ -1,4 +1,4 @@
-import type { ReleaseEvent } from "./types";
+import type { LandedRelease, ReleaseEvent } from "./types";
 
 export interface ReleaseCycle {
   product: string;
@@ -6,6 +6,24 @@ export interface ReleaseCycle {
   beta_days_before: number;
   release_offset_days: number;
   accent: string;
+}
+
+function majorMinorVersion(value: string): string | undefined {
+  const match = value.match(/(?:^|[^0-9])(\d{4})\.(\d{1,2})(?:\.|[^0-9]|$)/);
+  return match ? `${Number(match[1])}.${Number(match[2])}` : undefined;
+}
+
+export function releasesForRadar(releases: LandedRelease[]): LandedRelease[] {
+  const stableVersions = new Set(releases.flatMap((release) => {
+    if (release.channel !== "stable") return [];
+    const version = majorMinorVersion(`${release.tag} ${release.name}`);
+    return version ? [`${release.product}:${version}`] : [];
+  }));
+  return releases.filter((release) => {
+    if (release.channel !== "prerelease") return true;
+    const version = majorMinorVersion(`${release.tag} ${release.name}`);
+    return !version || !stableVersions.has(`${release.product}:${version}`);
+  });
 }
 
 function dateOnly(date: Date): string {

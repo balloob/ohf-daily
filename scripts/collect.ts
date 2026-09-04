@@ -139,6 +139,7 @@ const pullRequestDirectory = resolve(root, "data/prs");
 const contributorCachePath = resolve(root, "data/cache/contributors.json");
 const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 const apiVersion = "2022-11-28";
+const githubSearchResultLimit = 1_000;
 
 function getArgument(name: string): string | undefined {
   const index = process.argv.indexOf(name);
@@ -481,6 +482,23 @@ export function isDependency(item: SearchItem, config: SourcesConfig): boolean {
   return config.editorial.dependency_authors.map((name) => name.toLowerCase()).includes(author) || /\b(bump|deps?|dependencies|renovate)\b/i.test(item.title);
 }
 
+export function summarizeSearchItems(
+  items: SearchItem[],
+  config: SourcesConfig,
+): { repositories: number; contributors: number; dependencyUpdates: number } {
+  const uniqueItems = [...new Map(items.map((item) => [item.id, item])).values()];
+  return {
+    repositories: new Set(uniqueItems.map((item) => repositoryFromApiUrl(item.repository_url).toLowerCase())).size,
+    contributors: new Set(uniqueItems.map((item) => (item.user?.login ?? "ghost").toLowerCase())).size,
+    dependencyUpdates: uniqueItems.filter((item) => isDependency(item, config)).length,
+  };
+}
+
+export function detailSearchItems(items: SearchItem[], maximum: number): SearchItem[] {
+  if (!Number.isFinite(maximum) || maximum < 1) throw new TypeError("max_prs_per_organization must be a positive number.");
+  return items.slice(0, Math.floor(maximum));
+}
+
 function makeDemoEdition(date: Date, editionDate: string, config: SourcesConfig): Edition {
   const stories: PullRequestStory[] = [
     {
@@ -680,9 +698,11 @@ async function enrichFirstContributions(
   client: GitHubClient,
   contributorCache: ContributorCache,
   inputs: Map<number, StoredPullRequestInput>,
+  eligibleIds?: ReadonlySet<number>,
 ): Promise<string[]> {
   const failures: string[] = [];
   for (const [id, input] of inputs) {
+    if (eligibleIds && !eligibleIds.has(id)) continue;
     if (input.author === "ghost" || isBotLogin(input.author) || isHacsIndexAddition(input)) continue;
     try {
       const { firstContribution, profile } = await lookupContributorDetails(client, contributorCachePath, contributorCache, input.repository, input.author);
@@ -1037,6 +1057,7 @@ export async function collect(): Promise<CollectionResult> {
   const ignoredLabels = normalizedSet(config.editorial.ignore_labels);
   const seenPullRequests = new Set<number>();
   const seenDependencies = new Set<string>();
+  const allSearchItems: SearchItem[] = [];
   let mergedPullRequestCount = 0;
   let detailFailures = 0;
   let mediaFailures = 0;
@@ -1058,19 +1079,26 @@ export async function collect(): Promise<CollectionResult> {
     console.log(`Scanning ${organization.name}…`);
     let search: Awaited<ReturnType<typeof searchMergedPullRequests>>;
     try {
-      search = await searchMergedPullRequests(client, organization, start, end, config.max_prs_per_organization);
+      search = await searchMergedPullRequests(client, organization, start, end, githubSearchResultLimit);
     } catch (error) {
       console.warn(`Could not scan ${organization.name}: ${error instanceof Error ? error.message : String(error)}`);
       notes.push(`${organization.name} could not be scanned for this edition.`);
       continue;
     }
     mergedPullRequestCount += search.total;
+    allSearchItems.push(...search.items);
     if (search.incomplete) notes.push(`GitHub marked the ${organization.name} search results as incomplete.`);
     if (!search.incomplete) authoritativeDailyTotals.set(organization.slug.toLowerCase(), search.total);
-    if (search.total > search.items.length) {
-      notes.push(`${organization.name} had ${search.total} merged pull requests; the configured limit included ${search.items.length}.`);
+    if (search.total > githubSearchResultLimit) {
+      notes.push(`${organization.name} had ${search.total} merged pull requests; GitHub Search exposed the first ${search.items.length} basic records.`);
     }
 
+    const itemsForDetail = detailSearchItems(search.items, config.max_prs_per_organization);
+    if (search.total > itemsForDetail.length) {
+      notes.push(`${organization.name} had ${search.total} merged pull requests; the configured detail limit included ${itemsForDetail.length}.`);
+    }
+    const detailIds = new Set(itemsForDetail.map((item) => item.id));
+    const enrichmentIds = new Set(detailIds);
     const detailItems: SearchItem[] = [];
     const storeInputs = new Map<number, StoredPullRequestInput>();
     for (const item of search.items) {
@@ -1097,13 +1125,13 @@ export async function collect(): Promise<CollectionResult> {
         stats: { comments: item.comments },
         isDependency: dependency,
       });
-      if (!labels.some((label) => ignoredLabels.has(label)) && dependency) {
+      if (dependency) {
         if (!seenDependencies.has(item.html_url)) {
           seenDependencies.add(item.html_url);
           dependencies.push({ title: item.title, url: item.html_url, repository, author: item.user?.login ?? "ghost" });
         }
       }
-      if (item.pull_request?.url && !hacsIndexAddition) detailItems.push(item);
+      if (detailIds.has(item.id) && item.pull_request?.url && !hacsIndexAddition) detailItems.push(item);
     }
 
     const results = await mapWithConcurrency(detailItems, 6, async (item): Promise<PullRequestStory | null> => {
@@ -1160,6 +1188,8 @@ export async function collect(): Promise<CollectionResult> {
           },
           isDependency: isDependency(item, config),
         });
+        // Search results and pull details can use different GitHub database ids.
+        enrichmentIds.add(detail.id);
         if (isHacsIndexAddition({ repository: detail.base.repo.full_name, title: detail.title, labels })) return null;
         if (!detail.merged_at || seenPullRequests.has(detail.id) || isDependency(item, config)) return null;
         const mergedAt = new Date(detail.merged_at).getTime();
@@ -1191,7 +1221,7 @@ export async function collect(): Promise<CollectionResult> {
         return null;
       }
     });
-    const contributionFailures = await enrichFirstContributions(client, contributorCache, storeInputs);
+    const contributionFailures = await enrichFirstContributions(client, contributorCache, storeInputs, enrichmentIds);
     contributorLookupFailures += contributionFailures.length;
     for (const failure of contributionFailures) console.warn(`Could not establish first contribution for ${failure}`);
     const storeResult = await upsertPullRequestStore(pullRequestDirectory, [...storeInputs.values()]);
@@ -1263,7 +1293,7 @@ export async function collect(): Promise<CollectionResult> {
   const lead = ranked[0] ?? null;
   const highlights = ranked.slice(1, config.front_page_stories);
   const briefs = ranked.slice(config.front_page_stories, config.front_page_stories + config.briefs_limit);
-  const allItems = [...stories, ...dependencies];
+  const searchSummary = summarizeSearchItems(allSearchItems, config);
   const editionNotes = [...notes, ...(ranked.length === 0 ? ["No editorial stories were found in this reporting window."] : [])];
   const edition: Edition = {
     date: editionDate,
@@ -1273,9 +1303,9 @@ export async function collect(): Promise<CollectionResult> {
     timezone: config.timezone,
     stats: {
       mergedPullRequests: mergedPullRequestCount,
-      repositories: new Set(allItems.map((item) => item.repository)).size,
-      contributors: new Set(allItems.map((item) => item.author)).size,
-      dependencyUpdates: dependencies.length,
+      repositories: searchSummary.repositories,
+      contributors: searchSummary.contributors,
+      dependencyUpdates: searchSummary.dependencyUpdates,
       ...(hacsNewIntegrations !== undefined ? { hacsNewIntegrations } : {}),
     },
     lead,

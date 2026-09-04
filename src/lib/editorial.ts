@@ -6,6 +6,7 @@ import { queryContent, readContentStore, type ContentQuery, type StoredContent }
 import type { Article, ArticleExternalSource, ArticleMedia, ArticleSource, Edition, ReleasePreview } from "./types";
 import { queryPullRequests, readPullRequestStore, type PullRequestQuery, type StoredPullRequest } from "./pr-store";
 import { isHacsIndexAddition } from "./hacs";
+import { calendarEventCandidates, resolveEditorialEvents, type EditorialEventPlan } from "./events";
 import type { ReleaseCycle } from "./releases";
 
 interface AiConfig {
@@ -133,7 +134,7 @@ const proposalSchema = {
 const editorSchema = {
   type: "object",
   additionalProperties: false,
-  required: ["articles"],
+  required: ["articles", "events"],
   properties: {
     articles: {
       type: "array",
@@ -144,6 +145,22 @@ const editorSchema = {
         properties: {
           ...proposalSchema.properties.proposals.items.properties,
           placement: { type: "string", enum: ["lead", "feature", "brief"] },
+        },
+      },
+    },
+    events: {
+      type: "array",
+      maxItems: 8,
+      items: {
+        type: "object",
+        additionalProperties: false,
+        required: ["name", "date", "endDate", "accent", "contentSourceId"],
+        properties: {
+          name: { type: "string" },
+          date: { type: "string" },
+          endDate: { type: ["string", "null"] },
+          accent: { type: "string", enum: ["blue", "green", "rust"] },
+          contentSourceId: { type: "string" },
         },
       },
     },
@@ -559,6 +576,7 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
     editorial_tracks?: EditorialTrackConfig[];
     feed_sources?: FeedSourceConfig[];
     release_cycles: ReleaseCycle[];
+    event_horizon_days?: number;
   };
   const model = options.modelOverride ?? config.ai.model;
   const edition = JSON.parse(await readFile(options.editionPath, "utf8")) as Edition;
@@ -597,11 +615,17 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
     cycles: config.release_cycles,
     releaseDay,
   };
+  const eventHorizonDays = config.event_horizon_days ?? 90;
+  const officialCalendarSources = calendarEventCandidates(contentHistory, edition.date, eventHorizonDays).map(({ source, dates }) => ({
+    ...compactContentRecord(source, 6_000),
+    evidencedDates: dates,
+  }));
 
-  const reporterPrompt = await readFile(resolve(options.root, "prompts/reporter.md"), "utf8");
+  const tonePrompt = await readFile(resolve(options.root, "prompts/tone.md"), "utf8");
+  const reporterPrompt = `${tonePrompt}\n\n${await readFile(resolve(options.root, "prompts/reporter.md"), "utf8")}`;
   const weeklyPrompt = await readFile(resolve(options.root, "prompts/weekly-recap.md"), "utf8");
   const releaseDayPrompt = releaseDay.length > 0 ? await readFile(resolve(options.root, "prompts/release-day.md"), "utf8") : "";
-  const editorPrompt = await readFile(resolve(options.root, "prompts/editor.md"), "utf8");
+  const editorPrompt = `${tonePrompt}\n\n${await readFile(resolve(options.root, "prompts/editor.md"), "utf8")}`;
   const beats = [...Map.groupBy(current, (record) => record.organization).entries()].map(([beat, records]) => ({
     kind: "beat" as const,
     name: beat,
@@ -707,8 +731,10 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
     }
   }
 
-  if (proposals.length === 0) {
-    if (releaseDay.length > 0) throw new Error("Release-day reporter returned no headline proposal.");
+  if (proposals.length === 0 && releaseDay.length > 0) {
+    throw new Error("Release-day reporter returned no headline proposal.");
+  }
+  if (proposals.length === 0 && officialCalendarSources.length === 0) {
     return [];
   }
 
@@ -719,6 +745,7 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
       edition: { date: edition.date, stats: edition.stats, isMonday: monday(edition.date) },
       recentPublishedArticles,
       releaseContext,
+      officialCalendarSources,
       proposals,
     }),
     reasoning: { effort: config.ai.reasoning_effort },
@@ -726,12 +753,15 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
     metadata: { publication: "ohf-daily", stage: "editor" },
   });
   if (!editorResponse.output_text) throw new Error("Editor returned no structured newspaper plan.");
-  const raw = (JSON.parse(editorResponse.output_text) as { articles: EditorArticle[] }).articles;
-  const articles = resolveArticles(raw, editorialHistory, allContentHistory, releaseDay.map((release) => release.sourceId));
+  const raw = JSON.parse(editorResponse.output_text) as { articles: EditorArticle[]; events: EditorialEventPlan[] };
+  const articles = resolveArticles(raw.articles, editorialHistory, allContentHistory, releaseDay.map((release) => release.sourceId));
+  const events = resolveEditorialEvents(raw.events, contentHistory, edition.date, eventHorizonDays);
   edition.articles = articles;
+  edition.releases = [...edition.releases.filter((event) => event.kind !== "Event"), ...events]
+    .sort((left, right) => left.date.localeCompare(right.date));
   edition.notes = [...(edition.notes ?? []), `AI editorial plan generated with ${model} from auditable local prompts, ${editorialHistory.length} editorially eligible stored pull requests, ${contentHistory.length} stored posts or coverage items, and ${releaseContent.length} release-day preview${releaseContent.length === 1 ? "" : "s"}.`];
   await writeFile(options.editionPath, `${JSON.stringify(edition, null, 2)}\n`);
   return articles;
 }
 
-export const editorialInternals = { monday, daysBefore, recapBounds, resolveArticles, releasePreviewContent, releasePreviewStatus, historyQueryFromArguments, contentQueryFromArguments, compactRecord, compactContentRecord, loadRecentPublishedArticles, activeBetaWindows };
+export const editorialInternals = { monday, daysBefore, recapBounds, resolveArticles, resolveEditorialEvents, calendarEventCandidates, releasePreviewContent, releasePreviewStatus, historyQueryFromArguments, contentQueryFromArguments, compactRecord, compactContentRecord, loadRecentPublishedArticles, activeBetaWindows };

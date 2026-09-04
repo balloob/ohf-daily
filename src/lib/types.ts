@@ -28,10 +28,13 @@ export interface DependencyItem {
 
 export interface ReleaseEvent {
   product: string;
-  kind: "Beta" | "Release";
+  kind: "Beta" | "Release" | "Event";
   date: string;
+  endDate?: string;
   version?: string;
   accent: string;
+  url?: string;
+  sourceId?: string;
 }
 
 export interface LandedRelease {

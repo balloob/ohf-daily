@@ -8,6 +8,7 @@ import {
   classify,
   committedMediaUrls,
   dateInTimeZone,
+  detailSearchItems,
   endOfEditionDate,
   extractMediaUrls,
   firstImage,
@@ -19,7 +20,10 @@ import {
   reviewCredits,
   sentenceSummary,
   shouldInspectPullFiles,
+  summarizeSearchItems,
   type CacheFile,
+  type SearchItem,
+  type SourcesConfig,
 } from "../scripts/collect";
 import type { StoredPullRequest } from "../src/lib/pr-store";
 import { parseBackfillArguments } from "../scripts/backfill";
@@ -120,6 +124,38 @@ test("credits human reviewers and approvers while excluding bots", () => {
     ]),
     { reviewers: ["Approver", "ReviewerOne"], approvers: ["Approver"] },
   );
+});
+
+test("summarizes every basic search result independently of the detail cap", () => {
+  const item = (id: number, repository: string, author: string | null, title: string): SearchItem => ({
+    id,
+    number: id,
+    title,
+    html_url: `https://github.com/${repository}/pull/${id}`,
+    body: null,
+    user: author ? { login: author } : null,
+    repository_url: `https://api.github.com/repos/${repository}`,
+    labels: [],
+    updated_at: "2026-09-04T00:00:00Z",
+    comments: 0,
+    pull_request: { url: `https://api.github.com/repos/${repository}/pulls/${id}`, merged_at: "2026-09-04T00:00:00Z" },
+  });
+  const items = [
+    item(1, "home-assistant/core", "Alice", "Add a feature"),
+    item(2, "home-assistant/frontend", "Bob", "Bump a dependency"),
+    item(3, "home-assistant-libs/example", "renovate[bot]", "Refresh package lock"),
+    item(4, "music-assistant/server", null, "Fix playback"),
+  ];
+  const config = {
+    editorial: { dependency_authors: ["renovate[bot]"] },
+  } as SourcesConfig;
+
+  assert.equal(detailSearchItems(items, 2).length, 2);
+  assert.deepEqual(summarizeSearchItems(items, config), {
+    repositories: 4,
+    contributors: 4,
+    dependencyUpdates: 2,
+  });
 });
 
 test("computes release-aware Project Pulse windows", () => {

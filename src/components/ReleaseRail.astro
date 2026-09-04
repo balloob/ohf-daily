@@ -1,5 +1,6 @@
 ---
 import type { LandedRelease, ReleaseEvent } from "../lib/types";
+import { releasesForRadar } from "../lib/releases";
 
 interface Props {
   releases: ReleaseEvent[];
@@ -21,7 +22,10 @@ const versionFor = (event: ReleaseEvent) => event.version ?? dateVersion(
     ? releases.find((candidate) => candidate.product === event.product && candidate.kind === "Release" && candidate.date >= event.date)?.date ?? event.date
     : event.date,
 );
-const shipped = [...landedReleases]
+const detailFor = (event: ReleaseEvent) => event.kind === "Event"
+  ? event.endDate && event.endDate !== event.date ? `Event · through ${formatShort(event.endDate)}` : "Event"
+  : `${versionFor(event)} ${event.kind}`;
+const shipped = releasesForRadar(landedReleases)
   .filter((release) => release?.url && Number.isFinite(Date.parse(release.publishedAt)))
   .sort((left, right) => right.publishedAt.localeCompare(left.publishedAt));
 const visibleShipped = shipped.slice(0, 6);
@@ -31,8 +35,11 @@ const hacsCount = typeof hacsNewIntegrations === "number" && Number.isSafeIntege
   : undefined;
 const hasShippedItems = visibleShipped.length > 0 || hacsCount !== undefined;
 const upcoming = releases
-  .map((release) => ({ ...release, remaining: daysUntil(release.date) }))
-  .filter((release) => Number.isFinite(release.remaining) && release.remaining >= 0 && release.remaining <= 45)
+  .map((release) => ({
+    ...release,
+    remaining: release.kind === "Event" && release.date < today && (release.endDate ?? release.date) >= today ? 0 : daysUntil(release.date),
+  }))
+  .filter((release) => Number.isFinite(release.remaining) && release.remaining >= 0 && release.remaining <= (release.kind === "Event" ? 90 : 45))
   .sort((left, right) => left.date.localeCompare(right.date));
 ---
 
@@ -76,7 +83,11 @@ const upcoming = releases
               <span>{formatShort(release.date)}</span>
               <small>{release.remaining === 0 ? "Today" : release.remaining === 1 ? "Tomorrow" : `${release.remaining}d`}</small>
             </time>
-            <span class="upcoming-name"><strong>{release.product}</strong><small>{versionFor(release)} {release.kind}</small></span>
+            {release.url ? (
+              <a class="upcoming-name" href={release.url} target="_blank" rel="noreferrer"><strong>{release.product}</strong><small>{detailFor(release)}</small></a>
+            ) : (
+              <span class="upcoming-name"><strong>{release.product}</strong><small>{detailFor(release)}</small></span>
+            )}
           </li>
         ))}
       </ol>
@@ -129,6 +140,8 @@ const upcoming = releases
     display: flex;
     flex-direction: column;
     min-width: 0;
+    color: inherit;
+    text-decoration: none;
   }
 
   .release-name strong,

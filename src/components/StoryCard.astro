@@ -134,7 +134,7 @@ const externalSourceGroups = articleExternalSources.reduce<Map<string, Editorial
         <aside class="continuity"><strong>The continuing story</strong><span>{article.continuity}</span></aside>
       )}
       {!isArticlePreview && (sourceGroups.size > 0 || externalSourceGroups.size > 0) && (
-        <section class="source-ledger" aria-label={`Pull requests covered by ${article.title}`}>
+        <section class="source-ledger" aria-label={`Sources for ${article.title}`}>
           <h3>From the source</h3>
           <div class="source-groups">
             {[...sourceGroups].map(([repository, pullRequests]) => (

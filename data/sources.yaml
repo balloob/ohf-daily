@@ -6,6 +6,10 @@ max_prs_per_organization: 60
 front_page_stories: 5
 briefs_limit: 18
 release_horizon_days: 45
+# Official-post events are selected by the editor, not by a code relevance
+# score. A separate horizon keeps distant releases out while allowing major
+# community dates such as Community Day to appear in time for planning.
+event_horizon_days: 90
 
 # Official editorial feeds are public and auditable. User-owned Google Alert
 # feed URLs are read from GOOGLE_ALERT_FEEDS_JSON and never stored here.
@@ -46,15 +50,12 @@ feed_sources:
     desk: Music Assistant
     url: https://www.music-assistant.io/blog/rss.xml
     enabled: true
-  # Nabu Casa does not publish RSS/Atom. Its official sitemap is filtered to
-  # news articles, whose canonical metadata is then collected from each page.
+  # Nabu Casa publishes a first-party Atom feed with full news article bodies.
   - id: nabu-casa-news
     name: Nabu Casa News
     kind: official
-    format: sitemap
-    path_prefix: /news/
     desk: Nabu Casa libraries
-    url: https://www.nabucasa.com/sitemap.xml
+    url: https://www.nabucasa.com/news/feed.xml
     enabled: true
   - id: matter-js-announcements
     name: Matter.js Announcements

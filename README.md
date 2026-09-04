@@ -1,18 +1,38 @@
 # OHF Daily
 
-OHF Daily is a newspaper-style account of the previous 24 hours across the Open Home Foundation ecosystem. It reports the changes that matter across public code, official blogs, and corroborated outside coverage; groups routine dependency updates; tracks upcoming releases; and preserves every edition in a year/month archive.
+OHF Daily is a newspaper-style account of the previous 24 hours across the Open Home Foundation ecosystem. It reports the changes that matter across public code, official blogs, and corroborated outside coverage; tracks upcoming releases; and preserves every edition in a year/month archive. Routine dependency updates remain in local reporting data but never surface in the publication.
 
 The static site is built with [Astro](https://astro.build/) for desktop and mobile and published through GitHub Pages. Coverage is configured for Home Assistant, **Home Assistant Libraries**, HACS, ESPHome, Music Assistant, Sendspin, Improv Wi-Fi, the Open Home Foundation, OHF Voice, Matter.js, Z-Wave JS, Zigpy, and related public organizations.
 
-## One-command editorial pipeline
+For a coding agent arriving with no conversation history, [`AGENTS.md`](AGENTS.md) is the complete newsroom runbook. It records the editorial contract, Codex-native multi-agent sequence, local-evidence resolver, safety boundaries, verification, and deployment checks. The publication voice is centralized in [`prompts/tone.md`](prompts/tone.md) and is loaded into both the API reporter and editor prompts.
 
-The complete local pipeline is:
+## Codex-native newsroom (no OpenAI API key)
+
+The normal local scheduled task uses Codex itself as the newsroom. It does not need `OPENAI_API_KEY`: Codex collects once, assigns parallel beat reporters, uses a separate editor, resolves the editor's plan against local evidence, optimizes selected media, and asks an independent subagent to review the finished edition before publication.
+
+The data and build commands used by that workflow are:
+
+```sh
+node --env-file-if-exists=.env --import tsx scripts/collect.ts --date YYYY-MM-DD
+npm run apply:editorial -- --date YYYY-MM-DD --plan /absolute/path/to/editor-plan.json
+npm run optimize:media -- --date YYYY-MM-DD
+npm test
+npm run build
+```
+
+The plan resolver accepts the structured `{ "articles": [...], "events": [...] }` result described by the reporter/editor prompts. It derives pull-request links, official sources, contributor profiles, reviewer/approver credit, allowed media, and public event dates only from ignored local evidence stores. It rejects partial plans and missing release-day leads. Always run media optimization after the final resolve, because resolving a revised plan restores its verified remote media URLs before the optimizer writes local responsive variants.
+
+The exact agent choreography and publish checklist live in `AGENTS.md`; keep that file current whenever editorial or operational policy changes.
+
+## Optional one-command API pipeline
+
+The repository also has a standalone software pipeline that calls the OpenAI API:
 
 ```sh
 GH_TOKEN=github_pat_… OPENAI_API_KEY=sk-… npm run update
 ```
 
-`npm run update` performs the whole newsroom run:
+`npm run update` performs the whole API-backed newsroom run:
 
 1. downloads merged pull requests plus configured official RSS/Atom feeds and optional Google Alert feeds for the edition's 24-hour window;
 2. updates the local, queryable histories in `data/prs/YYYY-MM.ndjson` and `data/content/YYYY-MM.ndjson` (both kept out of Git);
@@ -32,13 +52,13 @@ GH_TOKEN=github_pat_… OPENAI_API_KEY=sk-… npm run update -- --date 2026-08-3
 
 A requested date matching the current Amsterdam date uses the current instant as the end of its rolling 24-hour window. Past dates end at local midnight; future dates are rejected.
 
-For an entirely local deterministic edition, explicitly disable AI:
+For a deterministic development edition, explicitly disable AI:
 
 ```sh
 GH_TOKEN=github_pat_… npm run update -- --no-ai
 ```
 
-The no-AI path keeps the collector's ranked lead/highlights/briefs layout and adds an editor's note explaining the fallback. Without `--require-ai`, a missing key or failed AI call also falls back to that deterministic edition with a note. `--require-ai` instead makes either condition fatal; scheduled production uses this mode so a silently degraded edition is never published.
+The no-AI path keeps the collector's ranked lead/highlights/briefs layout and adds an editor's note explaining the fallback. It is for development only and must not be published as a finished edition. Without `--require-ai`, a missing key or failed API call also falls back to that deterministic edition with a note. `--require-ai` instead makes either condition fatal. This OpenAI API key is unrelated to the Codex-native newsroom above.
 
 For a network-free visual preview:
 
@@ -60,7 +80,7 @@ Existing optimized media, videos, and unsupported URLs are left untouched. Selec
 
 ## AI configuration and prompts
 
-Set `OPENAI_API_KEY` in the environment. The default model is `ai.model` in `data/sources.yaml`; set `OPENAI_MODEL` to override it for one run without editing tracked configuration:
+For the optional API pipeline, set `OPENAI_API_KEY` in the environment. The default model is `ai.model` in `data/sources.yaml`; set `OPENAI_MODEL` to override it for one run without editing tracked configuration:
 
 ```sh
 OPENAI_API_KEY=sk-… OPENAI_MODEL=gpt-5-mini npm run update
@@ -70,11 +90,12 @@ OPENAI_API_KEY=sk-… OPENAI_MODEL=gpt-5-mini npm run update
 
 The newsroom instructions are normal, reviewable Markdown files:
 
+- `prompts/tone.md` defines the shared publication voice and is prepended to both reporter and editor instructions;
 - `prompts/reporter.md` tells each daily beat reporter how to investigate and cite candidate PRs;
 - `prompts/release-day.md` guides the mandatory headline article for a configured product's scheduled stable release day;
 - `prompts/weekly-recap.md` guides the Monday look-back across the preceding week;
 - `prompts/editor.md` controls selection, grouping, placement, tone, and final article structure.
-- `prompts/editorial-review.md` gives an independent post-publication critic a repeatable human-relevance, writing, evidence, and placement rubric;
+- `prompts/editorial-review.md` gives an independent pre-publication reviewer a repeatable human-relevance, writing, evidence, and placement rubric;
 - `prompts/beats/*.md` adds organization-specific guidance without duplicating the shared evidence and tone rules.
 - `prompts/tracks/*.md` defines cross-organization editorial lenses such as new devices, reliability, community, documentation, and releases.
 
@@ -107,9 +128,9 @@ The monthly shards and `data/cache/` are local working data and are never commit
 
 ## Official blogs and Google Alerts
 
-Official publication sources are configured in `data/sources.yaml`. The initial set covers the Open Home Foundation blog and newsletter, Home Assistant's main and developer blogs, ESPHome, Music Assistant, Nabu Casa News, and Matter.js maintainer announcements. Nabu Casa does not publish RSS or Atom, so its official sitemap is filtered to `/news/` and each article's canonical metadata is collected directly. Projects without a genuine editorial source remain covered through GitHub and the umbrella OHF/Home Assistant publications; release feeds are not mislabeled as blogs.
+Official publication sources are configured in `data/sources.yaml`. The initial set covers the Open Home Foundation blog and newsletter, Home Assistant's main and developer blogs, ESPHome, Music Assistant, the official Nabu Casa News Atom feed, and Matter.js maintainer announcements. Projects without a genuine editorial source remain covered through GitHub and the umbrella OHF/Home Assistant publications; release feeds are not mislabeled as blogs.
 
-Publication entries are stored as append-only monthly revisions under `data/content/`. This database is ignored by Git and cached privately in Actions, just like PR history. Only the source ledger of a selected article is written into the published edition. Feed collection preserves everything observed from now onward but cannot guarantee history older than a publisher still exposes; sitemap-backed sources can bootstrap the articles that remain listed.
+Publication entries are stored as append-only monthly revisions under `data/content/`. This database is ignored by Git and cached privately in Actions, just like PR history. Only the source ledger of a selected article is written into the published edition. Feed collection preserves everything the publisher exposes—including historical entries still present in a feed—but cannot recover entries a publisher no longer lists. Sitemap-backed sources can likewise bootstrap articles that remain listed.
 
 Google Alerts are optional and private. In [Google Alerts](https://www.google.com/alerts), create the searches you want and, when the interface offers it, choose **Deliver to → RSS Feed**. Copy the generated feed URLs into one JSON array in `GOOGLE_ALERT_FEEDS_JSON`; never put those capability URLs in YAML, prompts, or edition data:
 
@@ -163,11 +184,11 @@ On a configured stable release day, the official release source is ingested even
 
 ## Site behavior
 
-The newest edition is the home page. Older JSON files feed dated edition routes and the year/month archive. The release rail shows actual releases published during the reporting window above a compact calendar capped at 45 days. Reported articles are also published as an RSS 2.0 feed at `/rss.xml`; the site advertises it through page metadata and a masthead link.
+The live publication is [paulusschoutsen.nl/ohf-daily](https://paulusschoutsen.nl/ohf-daily/). The newest edition is the home page. Older JSON files feed dated edition routes and the year/month archive. The release rail shows actual releases published during the reporting window above a compact release calendar capped at 45 days; source-backed major public events may appear up to 90 days ahead. Reported articles are also published as an RSS 2.0 feed at `/rss.xml`; the site advertises it through page metadata and a masthead link.
 
-Dependency updates, editor diagnostics, and deterministic raw PR rankings do not appear on an AI-produced front page. If AI is unavailable, the raw ranked sections remain available as a fallback; scheduled production runs require AI.
+Dependency updates, editor diagnostics, and deterministic raw PR rankings do not appear on an AI-produced front page. The raw ranked sections are a local development fallback only; scheduled publication requires a fully written, independently reviewed edition.
 
-HACS default-index additions are stored in local history but are never eligible article sources, including through AI history queries and weekly recaps. Each edition records an authoritative `stats.hacsNewIntegrations` total from a dedicated GitHub search; it is intentionally not rendered until the newsroom settles on the right recurring placement.
+HACS default-index additions are stored in local history but are never eligible article sources, including through AI history queries and weekly recaps. Each edition records an authoritative `stats.hacsNewIntegrations` total from a dedicated GitHub search. A positive count appears in `Just shipped`; zero is omitted.
 
 To work on the site without collecting again:
 
@@ -208,16 +229,17 @@ Never put a GitHub/OpenAI token or Google Alert feed URL in YAML, prompts, an ed
 
 The local Codex task **Generate daily OHF edition** runs at `07:00` in `Europe/Amsterdam`. It owns daily collection and publication so daylight-saving changes do not shift the newsroom and a second cloud schedule cannot overwrite the same edition.
 
-Scheduled production runs:
+Codex-native scheduled production runs:
 
 1. reuse `data/cache/` plus the local PR and content history stores;
-2. run the full `npm run update` newsroom with AI required for publication;
-3. commit only dated publication data (the final edition and selected media); never commit either local database or the API/feed cache;
-4. push to `main`, where `.github/workflows/pages.yml` builds Astro and deploys the static Pages artifact.
+2. follow `AGENTS.md`: collect once, run parallel reporters, a separate editor, local evidence resolution, media optimization, and independent final review—without an OpenAI API key;
+3. require the complete tests and production Astro build to pass;
+4. commit only dated publication data (the final edition and selected media); never commit either local database or the API/feed cache;
+5. push to `main`, follow the matching Pages run through deployment, and verify the live homepage, archive, RSS, articles, and media.
 
 Pushes to `main` only build and deploy. The workflow can still be dispatched manually to regenerate an edition or backfill ignored local history using the private Actions cache. If the repository uses another default branch, update `push.branches` in the workflow.
 
-In the GitHub repository:
+For the optional manually dispatched API pipeline in the GitHub repository:
 
 1. Open **Settings → Secrets and variables → Actions** and add a repository secret named `OPENAI_API_KEY`.
 2. Optionally add a secret named `GOOGLE_ALERT_FEEDS_JSON` containing the compact JSON array described above.
@@ -232,4 +254,4 @@ The same form exposes `backfill_from` and `backfill_to`. Supplying either select
 
 ## Dependabot
 
-Dependabot checks npm packages and GitHub Actions weekly and groups each ecosystem's updates into one pull request. These maintenance PRs for OHF Daily are separate from the ecosystem dependency updates summarized in the newspaper.
+Dependabot checks npm packages and GitHub Actions weekly and groups each ecosystem's updates into one pull request. These maintenance PRs for OHF Daily are separate from ecosystem dependency updates, which the collector may retain locally but the newspaper never surfaces.
