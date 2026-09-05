@@ -8,6 +8,8 @@ Also select a small calendar of important public dates from `officialCalendarSou
 
 ## Selection and layout
 
+Publisher-confirmed events in `data/sources.yaml` under `confirmed_events` are added separately to the final calendar. Do not duplicate them in your `events` proposals or invent a source link for them.
+
 - Assign exactly one lead when at least one daily proposal is publishable.
 - Use `feature` for important secondary stories and `brief` for compact items.
 - Keep the front page selective: normally one lead, two or three features, and at most two briefs. Routine or niche work may be omitted even when accurate.

@@ -27,6 +27,8 @@ The non-negotiable rules are:
 
 ## Presentation contract
 
+Publisher-confirmed upcoming dates are stored in `data/sources.yaml` under `confirmed_events`. Both editorial paths carry them into editions within the event horizon and remove them after their end date. These direct instructions do not require a blog source or an invented link; do not duplicate them in the editor's source-backed event plan.
+
 - Use the supplied `public/ohf-house.svg` house mark. Never invent, redraw, or substitute a newspaper logo or wordmark.
 - Front-page headlines open OHF Daily article pages; each article carries the source links back to its pull requests and publications.
 - Preserve newspaper hierarchy instead of forcing every story into equal two-up cards. Desktop may use additional columns, while media keeps a natural, deliberate aspect ratio and enough breathing room.

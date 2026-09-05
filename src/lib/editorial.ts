@@ -3,7 +3,7 @@ import { dirname, resolve } from "node:path";
 import YAML from "yaml";
 import { isBotLogin } from "./contributors";
 import { queryContent, readContentStore, type ContentQuery, type StoredContent } from "./content-store";
-import type { Article, ArticleExternalSource, ArticleMedia, ArticleSource, Edition, ReleasePreview } from "./types";
+import type { Article, ArticleExternalSource, ArticleMedia, ArticleSource, Edition, ReleaseEvent, ReleasePreview } from "./types";
 import { queryPullRequests, readPullRequestStore, type PullRequestQuery, type StoredPullRequest } from "./pr-store";
 import { isHacsIndexAddition } from "./hacs";
 import { calendarEventCandidates, resolveEditorialEvents, type EditorialEventPlan } from "./events";
@@ -577,6 +577,7 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
     feed_sources?: FeedSourceConfig[];
     release_cycles: ReleaseCycle[];
     event_horizon_days?: number;
+    confirmed_events?: ReleaseEvent[];
   };
   const model = options.modelOverride ?? config.ai.model;
   const edition = JSON.parse(await readFile(options.editionPath, "utf8")) as Edition;
@@ -755,7 +756,7 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
   if (!editorResponse.output_text) throw new Error("Editor returned no structured newspaper plan.");
   const raw = JSON.parse(editorResponse.output_text) as { articles: EditorArticle[]; events: EditorialEventPlan[] };
   const articles = resolveArticles(raw.articles, editorialHistory, allContentHistory, releaseDay.map((release) => release.sourceId));
-  const events = resolveEditorialEvents(raw.events, contentHistory, edition.date, eventHorizonDays);
+  const events = resolveEditorialEvents(raw.events, contentHistory, edition.date, eventHorizonDays, config.confirmed_events);
   edition.articles = articles;
   edition.releases = [...edition.releases.filter((event) => event.kind !== "Event"), ...events]
     .sort((left, right) => left.date.localeCompare(right.date));

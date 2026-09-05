@@ -72,10 +72,13 @@ export function resolveEditorialEvents(
   content: StoredContent[],
   editionDate: string,
   horizonDays = 90,
+  confirmedEvents: ReleaseEvent[] = [],
 ): ReleaseEvent[] {
   const horizon = addDays(editionDate, horizonDays);
   const sources = new Map(content.map((source) => [source.id, source]));
-  const resolved: ReleaseEvent[] = [];
+  const resolved: ReleaseEvent[] = confirmedEvents.filter((event) =>
+    (event.endDate ?? event.date) >= editionDate && event.date <= horizon,
+  );
 
   for (const plan of plans) {
     const name = plan.name?.trim();

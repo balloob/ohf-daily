@@ -6,7 +6,7 @@ import YAML from "yaml";
 import { readContentStore } from "../src/lib/content-store";
 import { editorialInternals } from "../src/lib/editorial";
 import { readPullRequestStore } from "../src/lib/pr-store";
-import type { Edition } from "../src/lib/types";
+import type { Edition, ReleaseEvent } from "../src/lib/types";
 
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 
@@ -35,7 +35,7 @@ async function main(): Promise<void> {
   const plan = JSON.parse(await readFile(planPath, "utf8")) as { articles?: unknown; events?: unknown };
   if (!Array.isArray(plan.articles)) throw new TypeError("Editorial plan must contain an articles array.");
   if (plan.events !== undefined && !Array.isArray(plan.events)) throw new TypeError("Editorial plan events must be an array when supplied.");
-  const config = YAML.parse(await readFile(resolve(root, "data/sources.yaml"), "utf8")) as { event_horizon_days?: number };
+  const config = YAML.parse(await readFile(resolve(root, "data/sources.yaml"), "utf8")) as { event_horizon_days?: number; confirmed_events?: ReleaseEvent[] };
 
   const pullRequests = await readPullRequestStore(resolve(root, "data/prs"));
   const storedContent = await readContentStore(resolve(root, "data/content"));
@@ -70,6 +70,7 @@ async function main(): Promise<void> {
     storedContent,
     edition.date,
     config.event_horizon_days ?? 90,
+    config.confirmed_events,
   );
 
   edition.articles = articles;
