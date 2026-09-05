@@ -165,9 +165,9 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
   </div>
 
   <nav class="edition-nav" aria-label="Edition navigation">
-    <span>{nextDate ? <a href={href(`/edition/${nextDate}/`)}>← Newer edition</a> : "You’re reading the latest"}</span>
+    <span>{previousDate && <a href={href(`/edition/${previousDate}/`)}>← {previousLabel}</a>}</span>
     <a class="all" href={href("/archive/")}>All editions</a>
-    <span>{previousDate && <a href={href(`/edition/${previousDate}/`)}>{previousLabel} →</a>}</span>
+    <span>{nextDate ? <a href={href(`/edition/${nextDate}/`)}>Newer edition →</a> : "You’re reading the latest"}</span>
   </nav>
 </main>
 
