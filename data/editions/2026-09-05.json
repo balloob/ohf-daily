@@ -1,0 +1,1062 @@
+{
+  "date": "2026-09-05",
+  "generatedAt": "2026-09-05T05:02:34.333Z",
+  "windowStart": "2026-09-04T05:01:24.616Z",
+  "windowEnd": "2026-09-05T05:01:24.616Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 88,
+    "repositories": 23,
+    "contributors": 43,
+    "dependencyUpdates": 26,
+    "hacsNewIntegrations": 0
+  },
+  "lead": {
+    "id": "4097274321",
+    "title": "Add local Powerwall control for Teslemetry energy sites",
+    "summary": "Adds local network control for Teslemetry Powerwall energy sites, for lower latency and more direct control: a config subentry pairs Home Assistant's RSA key with the gateway so…",
+    "unlocks": "Unlocks: Add local Powerwall control for Teslemetry energy sites.",
+    "url": "https://github.com/home-assistant/core/pull/176969",
+    "repository": "home-assistant/core",
+    "organization": "Home Assistant",
+    "author": "Bre77",
+    "mergedAt": "2026-09-04T16:56:33Z",
+    "labels": [
+      "cla-signed",
+      "new-feature",
+      "has-tests",
+      "by-code-owner",
+      "quality scale: platinum",
+      "integration: teslemetry"
+    ],
+    "kind": "feature",
+    "score": 69.7,
+    "additions": 1867,
+    "deletions": 33,
+    "changedFiles": 11
+  },
+  "highlights": [
+    {
+      "id": "4436931024",
+      "title": "Add Bluetooth to the demo",
+      "summary": "The Connectivity section of the demo's settings panel is empty, because none of the integrations it links to are loaded.",
+      "unlocks": "Unlocks: Add Bluetooth to the demo.",
+      "url": "https://github.com/home-assistant/frontend/pull/53967",
+      "repository": "home-assistant/frontend",
+      "organization": "Home Assistant",
+      "author": "balloob",
+      "mergedAt": "2026-09-04T10:30:34Z",
+      "labels": [
+        "demo",
+        "design",
+        "tests: app",
+        "tests: demo",
+        "tests: e2e"
+      ],
+      "kind": "feature",
+      "score": 55.7,
+      "additions": 650,
+      "deletions": 32,
+      "changedFiles": 20
+    },
+    {
+      "id": "4436222890",
+      "title": "Render Jewish Calendar events with the library translations",
+      "summary": "Breaking change Proposed change The calendar platform builds every event summary and description from hardcoded English strings in const.py , so the three calendars always read in English no…",
+      "unlocks": "Unlocks: Render Jewish Calendar events with the library translations.",
+      "url": "https://github.com/home-assistant/core/pull/181226",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "amitfin",
+      "mergedAt": "2026-09-04T07:52:09Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "integration: jewish_calendar",
+        "has-tests",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 54.3,
+      "additions": 198,
+      "deletions": 161,
+      "changedFiles": 7
+    },
+    {
+      "id": "4439643937",
+      "title": "Add the air outlet, DHW and indoor unit sensors to WeHeat",
+      "summary": "Breaking change Proposed change The heat pump reports four values the integration did not turn into entities: the air outlet temperature, the DHW target and control method, and the…",
+      "unlocks": "Unlocks: Add the air outlet, DHW and indoor unit sensors to WeHeat.",
+      "url": "https://github.com/home-assistant/core/pull/181265",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "barryvdh",
+      "mergedAt": "2026-09-04T07:29:16Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: no score",
+        "integration: weheat",
+        "quality-scale"
+      ],
+      "kind": "feature",
+      "score": 54.3,
+      "additions": 358,
+      "deletions": 7,
+      "changedFiles": 7
+    },
+    {
+      "id": "4225832232",
+      "title": "Add Tuya two-channel energy meter sensors and numbers",
+      "summary": "Breaking change Proposed change I recently bought a Tuya capable smart sensor (2 Channel DIN Rail CT Energy Meter) for monitoring power consumption, however it was 'unsupported' in Home Assistant.",
+      "unlocks": "Unlocks: Add Tuya two-channel energy meter sensors and numbers.",
+      "url": "https://github.com/home-assistant/core/pull/178415",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "keranm",
+      "mergedAt": "2026-09-04T16:48:28Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "integration: tuya",
+        "quality scale: no score",
+        "top 200",
+        "top 50",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 54.2,
+      "additions": 165,
+      "deletions": 2,
+      "changedFiles": 4
+    }
+  ],
+  "briefs": [
+    {
+      "id": "4438677866",
+      "title": "Add Imou collection point select entity",
+      "summary": "Breaking change Proposed change Adds a Go to collection point select entity for Imou PTZ cameras that expose collection points through pyimouapi.",
+      "unlocks": "Unlocks: Add Imou collection point select entity.",
+      "url": "https://github.com/home-assistant/core/pull/181251",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "Imou-OpenPlatform",
+      "mergedAt": "2026-09-04T07:58:04Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze",
+        "integration: imou"
+      ],
+      "kind": "feature",
+      "score": 54.1,
+      "additions": 113,
+      "deletions": 7,
+      "changedFiles": 6
+    },
+    {
+      "id": "4439562850",
+      "title": "WeHeat - Diagnostics",
+      "summary": "The heat pump reports far more than the integration turns into entities, so a diagnostics download gives everything the cloud returned for both coordinators, with the heat pump id redacted.",
+      "unlocks": "Unlocks: WeHeat - Diagnostics.",
+      "url": "https://github.com/home-assistant/core/pull/181262",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "barryvdh",
+      "mergedAt": "2026-09-04T06:50:20Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: no score",
+        "integration: weheat",
+        "quality-scale"
+      ],
+      "kind": "feature",
+      "score": 51.4,
+      "additions": 113,
+      "deletions": 1,
+      "changedFiles": 5
+    },
+    {
+      "id": "4436932432",
+      "title": "Add Matter to the demo",
+      "summary": "Loads the matter integration and mocks its network topology, node diagnostics and device actions, so the Matter panel and its network map render in the demo.",
+      "unlocks": "Unlocks: Add Matter to the demo.",
+      "url": "https://github.com/home-assistant/frontend/pull/53968",
+      "repository": "home-assistant/frontend",
+      "organization": "Home Assistant",
+      "author": "balloob",
+      "mergedAt": "2026-09-04T15:34:09Z",
+      "labels": [
+        "demo",
+        "tests: demo",
+        "tests: e2e"
+      ],
+      "kind": "feature",
+      "score": 50.7,
+      "additions": 600,
+      "deletions": 2,
+      "changedFiles": 6
+    },
+    {
+      "id": "4440607231",
+      "title": "Add zeroconf discovery to Velux integration",
+      "summary": "This PR adds zeroconf discovery to the Velux integration.",
+      "unlocks": "Unlocks: Add zeroconf discovery to Velux integration.",
+      "url": "https://github.com/home-assistant/core/pull/181284",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "wollew",
+      "mergedAt": "2026-09-04T16:37:24Z",
+      "labels": [
+        "cla-signed",
+        "integration: velux",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: silver",
+        "quality-scale"
+      ],
+      "kind": "feature",
+      "score": 50.2,
+      "additions": 199,
+      "deletions": 15,
+      "changedFiles": 5
+    },
+    {
+      "id": "4399809376",
+      "title": "[Backport to stable] 2.10.2",
+      "summary": "Automated backport PR for stable release 2.10.2 with cherry picked commits: 9517a22 Default the Fully Kiosk output codec to AAC (#6112) f4a6389 Fix missing tracks on albums for collaboration…",
+      "url": "https://github.com/music-assistant/server/pull/6118",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "github-actions[bot]",
+      "mergedAt": "2026-09-04T07:55:32Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 50,
+      "additions": 8033,
+      "deletions": 6648,
+      "changedFiles": 118
+    },
+    {
+      "id": "3956213793",
+      "title": "Allow non-admins to subscribe to conditions over the websocket",
+      "summary": "Breaking change Proposed change Drop @require admin from the subscribe condition websocket command.",
+      "unlocks": "Unlocks: Allow non-admins to subscribe to conditions over the websocket.",
+      "url": "https://github.com/home-assistant/core/pull/175123",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "MindFreeze",
+      "mergedAt": "2026-09-04T16:50:14Z",
+      "labels": [
+        "core",
+        "cla-signed",
+        "integration: websocket_api",
+        "small-pr",
+        "new-feature",
+        "has-tests",
+        "quality scale: internal"
+      ],
+      "kind": "feature",
+      "score": 48.4,
+      "additions": 56,
+      "deletions": 1,
+      "changedFiles": 2
+    },
+    {
+      "id": "4439725862",
+      "title": "Update Localized Strings",
+      "summary": "Automatically created by zacwest.",
+      "url": "https://github.com/home-assistant/iOS/pull/5637",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "github-actions[bot]",
+      "mergedAt": "2026-09-04T14:00:14Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "platform",
+      "score": 48.3,
+      "additions": 1432,
+      "deletions": 211,
+      "changedFiles": 36
+    },
+    {
+      "id": "4423230369",
+      "title": "Add support to use loudness data from plex",
+      "summary": "What does this implement/fix? Add support to the plex provider to use the calculated loudness data from the plex server during playback.",
+      "unlocks": "Unlocks: Add support to use loudness data from plex.",
+      "url": "https://github.com/music-assistant/server/pull/6166",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "chicco-carone",
+      "mergedAt": "2026-09-04T06:07:01Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "feature",
+      "score": 48.2,
+      "additions": 82,
+      "deletions": 1,
+      "changedFiles": 2
+    },
+    {
+      "id": "4420347574",
+      "title": "[esp32_ble] Reference count BLE advertising",
+      "summary": "What does this implement/fix? BLE advertising was started once the BLE server came up and was never stopped again.",
+      "url": "https://github.com/esphome/esphome/pull/18943",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "jesserockz",
+      "mergedAt": "2026-09-04T20:38:56Z",
+      "labels": [
+        "component: esp32_ble_beacon",
+        "has-tests",
+        "bugfix",
+        "by-code-owner",
+        "component: esp32_ble_server",
+        "component: esp32_improv",
+        "component: esp32_ble",
+        "developer-breaking-change"
+      ],
+      "kind": "platform",
+      "score": 43.2,
+      "additions": 171,
+      "deletions": 10,
+      "changedFiles": 12
+    },
+    {
+      "id": "4436938610",
+      "title": "Add MQTT to the demo",
+      "summary": "Loads the mqtt integration and mocks topic subscriptions and device debug info, so the MQTT panel renders in the demo and its listen card streams messages on whichever topic you subscribe to.",
+      "unlocks": "Unlocks: Add MQTT to the demo.",
+      "url": "https://github.com/home-assistant/frontend/pull/53973",
+      "repository": "home-assistant/frontend",
+      "organization": "Home Assistant",
+      "author": "balloob",
+      "mergedAt": "2026-09-04T15:55:22Z",
+      "labels": [
+        "cla-signed",
+        "demo"
+      ],
+      "kind": "feature",
+      "score": 42.3,
+      "additions": 292,
+      "deletions": 3,
+      "changedFiles": 6
+    },
+    {
+      "id": "3986941289",
+      "title": "Resolve StrEnum, IntEnum, and IntFlag members in template container output",
+      "summary": "Breaking change Templates that output a dictionary or list containing enum members now render those members as their underlying value, and the container is returned as a dictionary or list instead of a string.",
+      "url": "https://github.com/home-assistant/core/pull/175529",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "Markus98",
+      "mergedAt": "2026-09-04T16:51:55Z",
+      "labels": [
+        "core",
+        "cla-signed",
+        "bugfix"
+      ],
+      "kind": "platform",
+      "score": 38.6,
+      "additions": 214,
+      "deletions": 2,
+      "changedFiles": 2
+    },
+    {
+      "id": "4434405116",
+      "title": "Restructure README around what/how-to-run/how-to-contribute",
+      "summary": "What changed Restructures the documentation around three end user questions: what is it, how do I run it, and how do I contribute.",
+      "url": "https://github.com/Sendspin/sendspin-cpp-cli/pull/52",
+      "repository": "Sendspin/sendspin-cpp-cli",
+      "organization": "Sendspin",
+      "author": "chrisuthe",
+      "mergedAt": "2026-09-04T12:09:36Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 37.7,
+      "additions": 337,
+      "deletions": 1590,
+      "changedFiles": 23
+    },
+    {
+      "id": "4436937234",
+      "title": "Add Z-Wave to the demo",
+      "summary": "Loads the zwave js integration and mocks its network status, provisioning entries and node and controller statistics, so the Z Wave panel and its options, statistics, network info,…",
+      "unlocks": "Unlocks: Add Z-Wave to the demo.",
+      "url": "https://github.com/home-assistant/frontend/pull/53972",
+      "repository": "home-assistant/frontend",
+      "organization": "Home Assistant",
+      "author": "balloob",
+      "mergedAt": "2026-09-04T16:20:53Z",
+      "labels": [
+        "demo"
+      ],
+      "kind": "feature",
+      "score": 35.4,
+      "additions": 434,
+      "deletions": 1,
+      "changedFiles": 4
+    },
+    {
+      "id": "4440293661",
+      "title": "Handle Tradfri devices without a firmware version",
+      "summary": "One remote that reported no firmware version took down the whole sensor platform.",
+      "unlocks": "Unlocks: Handle Tradfri devices without a firmware version.",
+      "url": "https://github.com/home-assistant/core/pull/181276",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "frenck",
+      "mergedAt": "2026-09-04T07:43:58Z",
+      "labels": [
+        "cla-signed",
+        "integration: tradfri",
+        "small-pr",
+        "has-tests",
+        "bugfix",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 34.8,
+      "additions": 34,
+      "deletions": 2,
+      "changedFiles": 2
+    },
+    {
+      "id": "4432308352",
+      "title": "Document cover trigger behavior defaults",
+      "summary": "Document the default behavior for cover triggers.",
+      "unlocks": "Unlocks: Document cover trigger behavior defaults.",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/47845",
+      "repository": "home-assistant/home-assistant.io",
+      "organization": "Home Assistant",
+      "author": "fdmarcin",
+      "mergedAt": "2026-09-04T15:11:25Z",
+      "labels": [
+        "current",
+        "integration: cover"
+      ],
+      "kind": "feature",
+      "score": 34,
+      "additions": 20,
+      "deletions": 20,
+      "changedFiles": 10
+    },
+    {
+      "id": "4416759312",
+      "title": "Fix websocket hang in picture card",
+      "summary": "Manually disconnect streaming images when picture card is disconnected, otherwise they can pile up and choke the websocket, causing total hang of the app.",
+      "unlocks": "Improves reliability around fix websocket hang in picture card.",
+      "url": "https://github.com/home-assistant/frontend/pull/53930",
+      "repository": "home-assistant/frontend",
+      "organization": "Home Assistant",
+      "author": "karwosts",
+      "mergedAt": "2026-09-04T10:23:16Z",
+      "labels": [
+        "cla-signed",
+        "cherry-picked"
+      ],
+      "kind": "fix",
+      "score": 33.7,
+      "additions": 32,
+      "deletions": 3,
+      "changedFiles": 2
+    },
+    {
+      "id": "4436940159",
+      "title": "Add Serial to the demo",
+      "summary": "Loads the usb integration and mocks the serial port listing, so the Serial panel renders in the demo with all three of its sections: ports in use by an integration, ports that are free, and…",
+      "unlocks": "Unlocks: Add Serial to the demo.",
+      "url": "https://github.com/home-assistant/frontend/pull/53974",
+      "repository": "home-assistant/frontend",
+      "organization": "Home Assistant",
+      "author": "balloob",
+      "mergedAt": "2026-09-04T11:19:36Z",
+      "labels": [
+        "demo"
+      ],
+      "kind": "feature",
+      "score": 33.3,
+      "additions": 120,
+      "deletions": 2,
+      "changedFiles": 4
+    },
+    {
+      "id": "4436941532",
+      "title": "Add Infrared to the demo",
+      "summary": "Loads the infrared integration and adds the emitter and receiver proxy entities it reads, so the Infrared panel and its device list render in the demo.",
+      "unlocks": "Unlocks: Add Infrared to the demo.",
+      "url": "https://github.com/home-assistant/frontend/pull/53975",
+      "repository": "home-assistant/frontend",
+      "organization": "Home Assistant",
+      "author": "balloob",
+      "mergedAt": "2026-09-04T15:48:40Z",
+      "labels": [
+        "demo"
+      ],
+      "kind": "feature",
+      "score": 33.2,
+      "additions": 109,
+      "deletions": 0,
+      "changedFiles": 2
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Bump pyHik to 0.4.6",
+      "url": "https://github.com/home-assistant/core/pull/181330",
+      "repository": "home-assistant/core",
+      "author": "ptarjan"
+    },
+    {
+      "title": "Bump pycoolmasternet-async to 0.2.6",
+      "url": "https://github.com/home-assistant/core/pull/181290",
+      "repository": "home-assistant/core",
+      "author": "jameskoziol"
+    },
+    {
+      "title": "Bump aioflo to 2026.9.3 and scope Flo consumption by device",
+      "url": "https://github.com/home-assistant/core/pull/181246",
+      "repository": "home-assistant/core",
+      "author": "BradKollmyer"
+    },
+    {
+      "title": "Update dependency @rspack/core to v2.2.2",
+      "url": "https://github.com/home-assistant/frontend/pull/53982",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump reolink_aio to 0.21.15",
+      "url": "https://github.com/home-assistant/core/pull/181300",
+      "repository": "home-assistant/core",
+      "author": "starkillerOG"
+    },
+    {
+      "title": "Update dependency globals to v17.12.0",
+      "url": "https://github.com/home-assistant/frontend/pull/53981",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump hatasmota to 0.10.2",
+      "url": "https://github.com/home-assistant/core/pull/181236",
+      "repository": "home-assistant/core",
+      "author": "jziolkowski"
+    },
+    {
+      "title": "Bump opower to 0.21.0",
+      "url": "https://github.com/home-assistant/core/pull/181277",
+      "repository": "home-assistant/core",
+      "author": "tronikos"
+    },
+    {
+      "title": "Bump sofar-modbus to 0.9.1",
+      "url": "https://github.com/home-assistant/core/pull/181274",
+      "repository": "home-assistant/core",
+      "author": "darkrain-nl"
+    },
+    {
+      "title": "Bump google-protobuf from 4.36.0 to 4.36.1",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/47882",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump env-canada to 0.19.2",
+      "url": "https://github.com/home-assistant/core/pull/181250",
+      "repository": "home-assistant/core",
+      "author": "michaeldavie"
+    },
+    {
+      "title": "Bump samsung-exlink to 1.1.1",
+      "url": "https://github.com/home-assistant/core/pull/181260",
+      "repository": "home-assistant/core",
+      "author": "balloob"
+    },
+    {
+      "title": "Bump astro from 7.2.6 to 7.2.10",
+      "url": "https://github.com/home-assistant/works-with.home-assistant.io/pull/107",
+      "repository": "home-assistant/works-with.home-assistant.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump serialx to 1.10.0",
+      "url": "https://github.com/home-assistant/core/pull/181249",
+      "repository": "home-assistant/core",
+      "author": "puddly"
+    },
+    {
+      "title": "Update uv to 0.12.7",
+      "url": "https://github.com/home-assistant/core/pull/181253",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update ruff",
+      "url": "https://github.com/home-assistant/core/pull/181252",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump python-hotspring to 2.1.0 (hotfix)",
+      "url": "https://github.com/home-assistant/core/pull/181256",
+      "repository": "home-assistant/core",
+      "author": "Moustachauve"
+    },
+    {
+      "title": "chore(deps): lock file maintenance",
+      "url": "https://github.com/home-assistant-libs/annotatedyaml/pull/155",
+      "repository": "home-assistant-libs/annotatedyaml",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump prek from 0.5.0 to 0.5.1",
+      "url": "https://github.com/esphome/esphome/pull/18977",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump platformdirs from 4.11.5 to 4.11.7",
+      "url": "https://github.com/esphome/esphome/pull/18976",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore: bump mypy from 2.1.0 to 2.3.1",
+      "url": "https://github.com/music-assistant/deezer-python-gql/pull/50",
+      "repository": "music-assistant/deezer-python-gql",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore: bump codespell from 2.4.2 to 2.4.3",
+      "url": "https://github.com/music-assistant/deezer-python-gql/pull/43",
+      "repository": "music-assistant/deezer-python-gql",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "ci: bump actions/setup-python from 6 to 7",
+      "url": "https://github.com/music-assistant/deezer-python-gql/pull/44",
+      "repository": "music-assistant/deezer-python-gql",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore: bump pre-commit from 4.6.0 to 4.6.2",
+      "url": "https://github.com/music-assistant/deezer-python-gql/pull/51",
+      "repository": "music-assistant/deezer-python-gql",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore: bump ruff from 0.15.20 to 0.16.5",
+      "url": "https://github.com/music-assistant/deezer-python-gql/pull/54",
+      "repository": "music-assistant/deezer-python-gql",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "ci(renovate): give each docker base image its own full-ref ARG",
+      "url": "https://github.com/zwave-js/zwave-js-ui/pull/4817",
+      "repository": "zwave-js/zwave-js-ui",
+      "author": "robertsLando"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 52,
+      "thisWeek": 803,
+      "sinceRelease": 175,
+      "lastReleaseDate": "2026-09-02"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 19,
+      "thisWeek": 155,
+      "sinceRelease": 13,
+      "lastReleaseDate": "2026-09-04"
+    },
+    {
+      "product": "ESPHome",
+      "today": 4,
+      "thisWeek": 124,
+      "sinceRelease": 346,
+      "lastReleaseDate": "2026-08-19"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "music-assistant/server:382573502",
+      "product": "Music Assistant",
+      "repository": "music-assistant/server",
+      "name": "2.10.2",
+      "tag": "2.10.2",
+      "url": "https://github.com/music-assistant/server/releases/tag/2.10.2",
+      "publishedAt": "2026-09-04T08:40:43Z",
+      "channel": "stable",
+      "accent": "rust"
+    }
+  ],
+  "releases": [
+    {
+      "product": "IFA Berlin",
+      "kind": "Event",
+      "date": "2026-09-04",
+      "endDate": "2026-09-08",
+      "accent": "blue",
+      "url": "https://www.openhomefoundation.org/blog/ifa-berlin-2026-save-the-date/",
+      "sourceId": "open-home-foundation-blog:eb2b2755230664aa3bcd93cf"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-09-16",
+      "version": "2026.9",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-09-30",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "green"
+    },
+    {
+      "product": "Community Day",
+      "kind": "Event",
+      "date": "2026-11-07",
+      "accent": "green",
+      "url": "https://www.openhomefoundation.org/blog/community-day-2026-save-the-date/",
+      "sourceId": "open-home-foundation-blog:e0b42a309ae0aef53aba29ac"
+    }
+  ],
+  "articles": [
+    {
+      "id": "powerwall-commands-local-route",
+      "title": "Powerwall commands take a local route through Teslemetry",
+      "dek": "Merged Home Assistant work sends supported charge, discharge and reserve commands over the LAN first, while status data still depends on the cloud.",
+      "body": [
+        "Powerwall owners using Teslemetry are a step closer to lower-latency control. Home Assistant has merged a path that pairs its RSA key with the gateway, then sends supported energy-site commands over the local network before falling back to Tesla’s cloud when the gateway cannot be reached.",
+        "This is not an offline mode. Teslemetry’s entities still rely on cloud-polled data and become unavailable during a cloud outage; sites that have not been paired continue to use the existing cloud path.",
+        "Brett Adams builds on August work that moved live status, site information and tariff updates from repeated REST polling to Teslemetry’s account stream. That earlier change reduced polling, while today’s work gives supported control commands a direct local route. silamon reviewed and approved the new step."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 97,
+      "contributors": [
+        "Bre77"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "Bre77",
+          "name": "Brett Adams",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2647914?v=4",
+          "profileUrl": "https://github.com/Bre77"
+        }
+      ],
+      "reviewers": [
+        "silamon",
+        "joostlek"
+      ],
+      "approvers": [
+        "silamon",
+        "joostlek"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Teslemetry",
+        "Tesla Powerwall",
+        "local control",
+        "energy"
+      ],
+      "continuity": "On August 26, Teslemetry energy data moved from recurring REST polls to the account event stream; today’s work adds a local-first route for supported commands.",
+      "pullRequests": [
+        {
+          "id": "4097274321",
+          "title": "Add local Powerwall control for Teslemetry energy sites",
+          "url": "https://github.com/home-assistant/core/pull/176969",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4252901131",
+          "title": "Stream Teslemetry energy live status, site info and tariff over SSE",
+          "url": "https://github.com/home-assistant/core/pull/178735",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "thai-local-voice-training-path",
+      "title": "Thai gains a training path for local Piper voices",
+      "dek": "Merged OHF Voice work preserves word boundaries, vowel order and five tones, replacing phoneme output that could not reliably distinguish Thai words.",
+      "body": [
+        "People building private, local Thai voices now have a phonemization path designed for the language. The existing espeak-ng route did not segment unspaced Thai, placed leading vowels in writing order and omitted tones; measured against the TSync2 corpus, about 11% of its returned tokens contained no vowel.",
+        "The new Piper training path uses dictionary-based segmentation and syllabified pronunciation, with an explicit digit for each of Thai’s five tones. It also handles mixed text, numbers and alternate Unicode composition that could otherwise lose an entire utterance.",
+        "Across all 1,823 TSync2 utterances, the submitted verification produced no empty results and 34,405 syllables using symbols already present in Piper’s default phoneme map. The contribution also reports an intelligible single-speaker test voice. This is a foundation for training Thai voices, not a finished Thai voice release."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 95,
+      "contributors": [
+        "synesthesiam"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "synesthesiam",
+          "name": "Michael Hansen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2743976?v=4",
+          "profileUrl": "https://github.com/synesthesiam"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "OHF Voice",
+        "Piper",
+        "Thai",
+        "local voice",
+        "language support"
+      ],
+      "continuity": "The September 4 edition covered local speech recognition; this is a distinct text-to-speech training path for Thai voices.",
+      "pullRequests": [
+        {
+          "id": "4444259588",
+          "title": "Add Thai phonemizer (TLTK segmentation + G2P -> IPA + tone digits)",
+          "url": "https://github.com/OHF-Voice/piper1-gpl/pull/293",
+          "repository": "OHF-Voice/piper1-gpl"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "samsung-exlink-recovers-after-proxy-restart",
+      "title": "Samsung TV control recovers after a serial proxy restart",
+      "dek": "A Home Assistant library fix clears dead streams so EX-Link connections through an ESPHome proxy can reconnect instead of repeatedly writing to a broken transport.",
+      "body": [
+        "A restarted ESPHome serial proxy could leave Samsung EX-Link control stuck in a half-closed state. The library then tried the dead stream again on every five-second poll, producing repeated tracebacks and never reconnecting; the contributor reports that a separate serial-library bug made those tracebacks grow until Home Assistant became unusable.",
+        "The repair clears the reader, writer and read task before waiting for a broken connection to close, catches close errors and refuses new writes once the connection is no longer active. Tests cover write failure, read failure and reconnecting after the link returns. Home Assistant Core’s dependency declaration now points to version 1.1.1 of the library, carrying the repair into its development branch.",
+        "This is Jon Harris’s first contribution to the samsung-exlink repository. Paulus Schoutsen reviewed and approved the library fix, and erwindouna approved its adoption in Home Assistant Core."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 90,
+      "contributors": [
+        "jharris4",
+        "balloob"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "jharris4",
+          "name": "Jon Harris",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/7042043?v=4",
+          "profileUrl": "https://github.com/jharris4"
+        },
+        {
+          "login": "balloob",
+          "name": "Paulus Schoutsen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1444314?v=4",
+          "profileUrl": "https://github.com/balloob"
+        }
+      ],
+      "reviewers": [
+        "balloob",
+        "erwindouna"
+      ],
+      "approvers": [
+        "balloob",
+        "erwindouna"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Home Assistant Libraries",
+        "Samsung TV",
+        "ESPHome",
+        "reliability",
+        "community"
+      ],
+      "pullRequests": [
+        {
+          "id": "4436410136",
+          "title": "Make _teardown() robust to a broken transport",
+          "url": "https://github.com/home-assistant-libs/samsung-exlink/pull/3",
+          "repository": "home-assistant-libs/samsung-exlink"
+        },
+        {
+          "id": "4439462577",
+          "title": "Bump samsung-exlink to 1.1.1",
+          "url": "https://github.com/home-assistant/core/pull/181260",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-stops-stale-improv-advertising",
+      "title": "ESPHome stops inactive setup broadcasts from lingering",
+      "dek": "Merged ESPHome work ties Bluetooth advertising to active provisioning, so configured devices no longer look available for setup when the Improv service is off.",
+      "body": [
+        "ESP32 devices using only Bluetooth Improv could advertise from boot indefinitely, even after Wi-Fi was connected or the provisioning window ended. They remained visible in a phone’s Bluetooth list while the Improv website could not find an active setup service.",
+        "ESPHome now tracks which components still need to advertise. Improv releases its request after successful provisioning, when its setup window closes or when its server stops; beacons and intentionally configured Bluetooth servers can continue broadcasting.",
+        "The change requires no end-user configuration update. External components that relied on advertising setters to start broadcasting must now request advertising explicitly. Jesse Hills authored the work, which clydebarrow reviewed and approved."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 87,
+      "contributors": [
+        "jesserockz"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "jesserockz",
+          "name": "Jesse Hills",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/3060199?v=4",
+          "profileUrl": "https://github.com/jesserockz"
+        }
+      ],
+      "reviewers": [
+        "clydebarrow"
+      ],
+      "approvers": [
+        "clydebarrow"
+      ],
+      "topics": [
+        "ESPHome",
+        "Improv Wi-Fi",
+        "Bluetooth",
+        "provisioning",
+        "reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4420347574",
+          "title": "[esp32_ble] Reference count BLE advertising",
+          "url": "https://github.com/esphome/esphome/pull/18943",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "picture-cards-release-abandoned-streams",
+      "title": "Picture cards stop abandoned streams from freezing Home Assistant",
+      "dek": "A merged frontend fix closes streaming-image connections when a picture card leaves the page, preventing them from piling up until the app’s websocket hangs.",
+      "body": [
+        "Moving between dashboards or otherwise removing picture cards could leave their streaming-image connections alive. Enough abandoned streams could choke Home Assistant’s websocket and freeze the interface.",
+        "The frontend now disconnects a picture card’s stream when the card is removed. The scope is deliberately narrow: related image-card variants can still exhibit the same leak and need separate work. karwosts authored the fix; bramkragten reviewed and approved it."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 82,
+      "contributors": [
+        "karwosts"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "karwosts",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/32912880?v=4",
+          "profileUrl": "https://github.com/karwosts"
+        }
+      ],
+      "reviewers": [
+        "bramkragten",
+        "MindFreeze"
+      ],
+      "approvers": [
+        "bramkragten"
+      ],
+      "topics": [
+        "Home Assistant",
+        "dashboards",
+        "picture cards",
+        "websocket",
+        "reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4416759312",
+          "title": "Fix websocket hang in picture card",
+          "url": "https://github.com/home-assistant/frontend/pull/53930",
+          "repository": "home-assistant/frontend"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "jewish-calendar-follows-language",
+      "title": "Jewish Calendar events follow the configured language",
+      "dek": "Merged Home Assistant work replaces hard-coded English event text with the calendar library’s translations for English, French and Hebrew.",
+      "body": [
+        "People using Home Assistant’s Jewish Calendar integration can have event summaries and descriptions follow their configured language. The calendar platform previously assembled that text from English strings even though the underlying library already translated Hebrew dates, holidays, the weekly Torah portion, the Omer count, Daf Yomi and prayer times.",
+        "The change uses those translated names and reapplies the selected language while serving calendar requests, avoiding a task-local setting that could otherwise fall back to Hebrew. Existing English wording changes in a few places to match the library’s terminology. Amit Finkelstein authored the work; gjohansson-ST and tsvi reviewed and approved it."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 80,
+      "contributors": [
+        "amitfin"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "amitfin",
+          "name": "Amit Finkelstein",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/19599059?v=4",
+          "profileUrl": "https://github.com/amitfin"
+        }
+      ],
+      "reviewers": [
+        "gjohansson-ST",
+        "tsvi"
+      ],
+      "approvers": [
+        "gjohansson-ST",
+        "tsvi"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Jewish Calendar",
+        "localization",
+        "accessibility"
+      ],
+      "continuity": "The September 2 edition covered calendar-event status; this separate change concerns readable localized event text in one integration.",
+      "pullRequests": [
+        {
+          "id": "4436222890",
+          "title": "Render Jewish Calendar events with the library translations",
+          "url": "https://github.com/home-assistant/core/pull/181226",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ]
+}
