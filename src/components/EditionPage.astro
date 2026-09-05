@@ -59,7 +59,7 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
         <p>In this edition</p>
       </div>
       <dl>
-        <div><dd>{edition.stats.mergedPullRequests}</dd><dt>PRs merged</dt></div>
+        <div><dd>{edition.stats.mergedPullRequests}</dd><dt>PRs</dt></div>
         <div><dd>{edition.stats.repositories}</dd><dt>repositories</dt></div>
         <div><dd>{edition.stats.contributors}</dd><dt>contributors</dt></div>
       </dl>
@@ -87,7 +87,7 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
     <section class="quiet-edition">
       <div>
         <p class="eyebrow">A quiet news day</p>
-        <h1>No front-page merges in this edition</h1>
+        <h1>No front-page stories in this edition</h1>
         <p>The wire was checked for the full reporting window. Release dates and the archive remain available below.</p>
       </div>
       <StoryImage alt="The Open Home morning edition" priority={true} />
@@ -131,7 +131,7 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
       {visibleHighlights.length > 0 && (
         <section class="highlights" aria-labelledby="highlights-heading">
           <div class="rule-heading">
-            <h2 id="highlights-heading" class="section-title">{editorialArticles.length ? "Also merged" : "Merge desk"}</h2>
+            <h2 id="highlights-heading" class="section-title">{editorialArticles.length ? "More stories" : "Development desk"}</h2>
             <span>{visibleHighlights.length} direct {visibleHighlights.length === 1 ? "source" : "sources"}</span>
           </div>
           <div class="highlight-grid">

@@ -813,9 +813,9 @@
     {
       "id": "esphome-encrypted-wireless-updates",
       "title": "ESPHome encrypts wireless firmware updates",
-      "dek": "Once released, an opt-in encrypted transfer will stop firmware images—and the secrets inside them—from crossing a local network in plaintext.",
+      "dek": "An opt-in encrypted transfer stops firmware images—and the secrets inside them—from crossing a local network in plaintext.",
       "body": [
-        "J. Nick Koston’s merged ESPHome work addresses a gap in wireless updates: the existing password authenticated the uploader, but the firmware image itself still travelled in plaintext. Someone listening on the local network could capture the Wi-Fi credentials and API encryption key embedded in that image.",
+        "J. Nick Koston’s ESPHome work addresses a gap in wireless updates: the existing password authenticated the uploader, but the firmware image itself still travelled in plaintext. Someone listening on the local network could capture the Wi-Fi credentials and API encryption key embedded in that image.",
         "A new encryption option uses the same encrypted session protocol as ESPHome’s API and makes both device and command-line client fail closed rather than accepting a downgraded plaintext upload. It is opt-in, adds nothing to builds that do not configure it, and can inherit the device’s existing API encryption key.",
         "The matching documentation recommends encryption instead of relying on an upload password for confidentiality. jesserockz reviewed and approved both the implementation and its documentation."
       ],
@@ -865,10 +865,10 @@
     {
       "id": "ios-wifi-handoffs-stop-reloads",
       "title": "Home Assistant’s iOS app prevents reloads during Wi-Fi handoffs",
-      "dek": "Merged Companion app work keeps the last known network route during an access-point handoff, avoiding a jump to the external URL and a second reload when Wi-Fi returns.",
+      "dek": "The app keeps the last known network route during an access-point handoff, avoiding a jump to the external URL and a second reload when Wi-Fi returns.",
       "body": [
         "An iPhone moving between access points on the same Wi-Fi network can briefly report no current network. The Home Assistant app treated that gap as leaving the internal network, switched to its external address and reloaded the whole interface—then reloaded it again seconds later when Wi-Fi reappeared.",
-        "The merged fix keeps the last known network state through that short gap. An empty reading is accepted immediately on cellular, or after 60 seconds without a valid Wi-Fi result, so a transient handoff no longer causes the connection to bounce while a genuinely lost network is still recognized."
+        "The fix keeps the last known network state through that short gap. An empty reading is accepted immediately on cellular, or after 60 seconds without a valid Wi-Fi result, so a transient handoff no longer causes the connection to bounce while a genuinely lost network is still recognized."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -908,8 +908,8 @@
       "title": "Home Assistant adds tentative status to calendar events",
       "dek": "Home Assistant code now carries confirmed or tentative status from CalDAV, local calendars and Google Calendar into trigger data; cancelled-event filtering remains separate.",
       "body": [
-        "Tom Mittelstädt’s first merged contribution to Home Assistant Core adds an optional status to calendar events. CalDAV, Local Calendar and Google Calendar can now mark an event as confirmed or tentative, and automations receive that value in the calendar trigger payload.",
-        "The boundary matters: this merge does not yet filter cancelled CalDAV or local events, which remain follow-up work. An unset value means the source supplied no supported status rather than implying confirmation, and existing calendar state attributes are unchanged.",
+        "Tom Mittelstädt’s first Home Assistant Core contribution adds an optional status to calendar events. CalDAV, Local Calendar and Google Calendar can mark an event as confirmed or tentative, and automations receive that value in the calendar trigger payload.",
+        "The boundary matters: the code does not yet filter cancelled CalDAV or local events, which remain follow-up work. An unset value means the source supplied no supported status rather than implying confirmation, and existing calendar state attributes are unchanged.",
         "Welcome, Tom. allenporter and MartinHjelmare reviewed and approved the Core work, while allenporter also reviewed and approved the accompanying developer documentation."
       ],
       "kind": "daily",
@@ -960,10 +960,10 @@
     {
       "id": "local-speech-prioritizes-likely-names",
       "title": "Local speech recognition puts likely spoken device names first",
-      "dek": "Merged Wyoming Faster Whisper work favors areas, floors and controllable devices, so lights, scenes and their spoken aliases are less likely to be crowded out in large homes.",
+      "dek": "A new Faster Whisper ranking favors areas, floors and controllable devices, so likely spoken names are less easily crowded out in large homes.",
       "body": [
         "A large Home Assistant installation can have hundreds of names, while the local speech-recognition prompt fits roughly 50. The previous ordering spent space on every area before considering devices, allowing long lists of sensors to crowd out lights and scenes people were more likely to name aloud.",
-        "The merged ranking now starts with areas and floors that contain exposed devices, followed by commonly spoken targets such as lights, switches, fans, media players, climate controls and scenes. Aliases stay beside the name they replace, so a spoken name such as ‘standing light’ is less likely to be cut off. Covers and locks are not yet in the priority group, a limitation the contribution explicitly flags for further evaluation."
+        "The new ranking starts with areas and floors that contain exposed devices, followed by commonly spoken targets such as lights, switches, fans, media players, climate controls and scenes. Aliases stay beside the name they replace, so a spoken name such as ‘standing light’ is less likely to be cut off. Covers and locks are not yet in the priority group, a limitation the contribution explicitly flags for further evaluation."
       ],
       "kind": "daily",
       "placement": "brief",
@@ -1001,10 +1001,10 @@
     {
       "id": "ariacast-artwork-fetch-security",
       "title": "Music Assistant blocks arbitrary LAN artwork requests",
-      "dek": "Merged AriaCast work prevents an unauthenticated metadata request from making Music Assistant contact arbitrary internal or localhost services.",
+      "dek": "AriaCast blocks unauthenticated metadata requests from making Music Assistant contact arbitrary internal or localhost services.",
       "body": [
         "Two AriaCast metadata handlers accepted an artwork address from any host on the local network and passed it directly into an HTTP request. That meant a LAN client could make Music Assistant contact an internal-only service or even its own localhost API; the handlers also returned raw exception text.",
-        "The merged fix limits artwork requests to the peer that supplied the address, disables redirects, caps the response at 4 MB and permits only one artwork fetch at a time. Failed requests now return a generic error while details stay in the debug log. The flaw was identified by automated code scanning."
+        "The fix limits artwork requests to the peer that supplied the address, disables redirects, caps the response at 4 MB and permits only one artwork fetch at a time. Failed requests now return a generic error while details stay in the debug log. The flaw was identified by automated code scanning."
       ],
       "kind": "daily",
       "placement": "brief",

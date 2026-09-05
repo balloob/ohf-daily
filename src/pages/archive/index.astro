@@ -46,7 +46,7 @@ const byYear = Object.entries(grouped).reduce<Record<string, Array<[string, type
                         <a href={href(`/edition/${edition.date}/`)}>
                           <time datetime={edition.date}>{formatEditionDate(edition.date)}</time>
                           <span>{editionTitle(edition)}</span>
-                          <small>{edition.stats.mergedPullRequests} merged PRs · {edition.stats.repositories} repositories</small>
+                          <small>{edition.stats.mergedPullRequests} PRs · {edition.stats.repositories} repositories</small>
                         </a>
                       </li>
                     ))}

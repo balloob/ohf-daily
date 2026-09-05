@@ -6,19 +6,19 @@ OHF Daily is a concise newspaper for people who care about the open-home ecosyst
 
 - Calm, informed, specific, and plainspoken. Sound curious about useful work without sounding promotional.
 - Human first. Lead with the person helped, the task made possible, or the failure avoided; explain the implementation only as far as it earns understanding or trust.
-- Confident about verified facts and candid about boundaries. Distinguish merged work, released software, preview material, library groundwork, and downstream availability every time that distinction matters.
+- Confident about verified facts and candid about boundaries. Distinguish implementation, released software, preview material, library groundwork, and downstream availability every time that distinction matters.
 - Warm about community. Celebrate a verified first contribution in one natural sentence and credit meaningful human review without turning the story into ceremony.
 - Aligned with the Open Home Foundation world—privacy, local control, interoperability, openness, sustainability, user choice, and healthy communities—without claiming those values as benefits unless the evidence supports the connection.
 
 ## Headlines and deks
 
 - Use sentence case and concrete, active verbs. Prefer roughly 6–14 words when the story permits it.
-- Never use `merge`, `merges`, `merged`, or `merging` in a headline. Repository workflow is not the reader outcome. Rewrite the headline around what the work does: `adds`, `fixes`, `protects`, `opens`, `supports`, `updates`, or a more specific verb. Prefer a natural outcome-led construction such as “X joins Music Assistant as a new provider” over “Music Assistant merges a new provider for X.”
+- Never use `merge`, `merges`, `merged`, or `merging` in reader-facing article copy: not in a headline, dek, front-page summary, body, continuity note, caption, alt text, contributor welcome, or review credit. Repository workflow is not the reader outcome. Rewrite around what the work does: `adds`, `fixes`, `protects`, `opens`, `supports`, `updates`, or a more specific verb. Prefer a natural outcome-led construction such as “X joins Music Assistant as a new provider.”
 - State the reader outcome before the component, protocol, repository, class, or schema. Project and product names are useful when they orient the reader.
 - Avoid sensationalism, clickbait, puns that obscure meaning, and stock launch language such as “game-changing,” “revolutionary,” “exciting,” “supercharges,” or “takes X to the next level.”
 - Avoid `PR`, `pull request`, repository names, code identifiers, and unexplained acronyms in headlines and deks unless the development process itself is the news.
 - Use the dek to add the practical payoff or important boundary, not to restate the headline.
-- For work that has merged but is not evidenced in a release, preserve that status in the dek or body with honest constructions such as “merged work adds…” or “the project has merged…”. Do not put merge status in the headline, and do not imply that the change is already installed or available to users.
+- For work that is not evidenced in a release, describe what the change does in simple present without claiming that people already have it installed. Do not mechanically replace forbidden workflow terminology with `landed`, `accepted`, `development branch`, `PR`, `once released`, or another status disclaimer. Reserve `available now`, `users can now`, and equivalent availability claims for source-backed releases.
 
 ## Article shape
 
@@ -32,7 +32,8 @@ OHF Daily is a concise newspaper for people who care about the open-home ecosyst
 
 ## Things OHF Daily does not say
 
-- No unsupported “users can now” language for merged-but-unreleased work.
+- No unsupported “users can now” language for development-only work.
+- No stock “merged work adds…”, “the project has merged…”, “this PR…”, or similar repository-workflow constructions in published copy.
 - No “just,” “simply,” or “obviously” when they minimize real complexity or user difficulty.
 - No editorial process commentary, confidence scores, selection rationale, missing-source complaints, or source-draft boilerplate in published copy.
 - No vague praise such as “important improvement” when the concrete effect can be named.

@@ -851,12 +851,12 @@
   "articles": [
     {
       "id": "ios-energy-widget-gas-and-batteries",
-      "title": "Gas and batteries land in Home Assistant’s iOS energy widget",
-      "dek": "Merged iOS work expands the glanceable energy view from grid and solar to four parts of a household’s energy picture.",
+      "title": "Home Assistant’s iOS energy widget adds gas and batteries",
+      "dek": "The next iOS energy widget expands its glanceable view from grid and solar to four parts of a household’s energy picture.",
       "body": [
-        "Bruno Pantaleão Gonçalves expanded the Home Assistant iOS energy widget beyond grid and solar. The merged design stacks battery discharge above the chart axis and charging below it; gas appears as a separate figure because homes may measure it by volume rather than energy.",
+        "Bruno Pantaleão Gonçalves expanded the Home Assistant iOS energy widget beyond grid and solar. The design stacks battery discharge above the chart axis and charging below it; gas appears as a separate figure because homes may measure it by volume rather than energy.",
         "The widget uses the same consumption math as the energy dashboard, so charging a battery is not also counted as household demand. It combines electricity and gas costs, and all four sources still fit on the small widget and Lock Screen accessories.",
-        "The work continues Gonçalves’s August run on the widget, after Lock Screen sizing, a reload action for missing data and clearer period and refresh-time information landed earlier in the month."
+        "The work continues Gonçalves’s August run on the widget, after earlier improvements to Lock Screen sizing, missing-data reloads, and period and refresh-time information."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -925,10 +925,10 @@
     {
       "id": "timer-controls-and-presets",
       "title": "Home Assistant timers gain one-tap presets and clearer controls",
-      "dek": "Merged frontend work puts start, pause, cancel and finish actions beside configurable duration presets.",
+      "dek": "The redesigned timer dialog puts start, pause, cancel and finish actions beside configurable duration presets.",
       "body": [
         "Maarten Lakerveld redesigned Home Assistant’s timer dialog around the actions people use most. Start, pause and cancel controls are joined by an optional finish button, so routine timer changes no longer depend on a separate action call.",
-        "People can also define preset durations that start a timer with one tap. Short lists appear as a row of buttons, while longer lists can use a dropdown; the same merged work modernizes the detail dialog and adds an animation when time runs out."
+        "People can also define preset durations that start a timer with one tap. Short lists appear as a row of buttons, while longer lists can use a dropdown; the same work modernizes the detail dialog and adds an animation when time runs out."
       ],
       "kind": "daily",
       "placement": "lead",
@@ -992,12 +992,12 @@
     },
     {
       "id": "vrt-max-arrives-in-music-assistant",
-      "title": "VRT MAX support lands in Music Assistant",
+      "title": "VRT MAX joins Music Assistant",
       "dek": "A first contribution adds Flemish public radio, podcasts, favourites and listening progress to the server.",
       "body": [
-        "Bram Goolaerts’ newly merged provider connects Music Assistant with VRT MAX, the streaming service of the Flemish public broadcaster. It covers live stations including Radio 1, Radio 2, Studio Brussel, MNM and Klara, alongside listen-back programmes, podcasts and search. Live radio does not require an account.",
+        "Bram Goolaerts’ new provider connects Music Assistant with VRT MAX, the streaming service of the Flemish public broadcaster. It covers live stations including Radio 1, Radio 2, Studio Brussel, MNM and Klara, alongside listen-back programmes, podcasts and search. Live radio does not require an account.",
         "Signing in enables on-demand playback, Mijn lijst library syncing and resume positions that carry across devices. Separate provider instances let people in one household keep their own accounts, while listen-back episodes can show played songs as chapters in Now Playing.",
-        "This is Goolaerts’ first merged contribution to the Music Assistant server. Welcome, Bram—and congratulations on landing an unusually complete first PR."
+        "This is Goolaerts’ first contribution to the Music Assistant server. Welcome, Bram—and congratulations on an unusually complete debut."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -1036,14 +1036,14 @@
     {
       "id": "weekly-local-energy-voice-listening-cloud",
       "title": "Local energy, broader voice and better listening shaped the week",
-      "dek": "From inverter data to seven more voice languages, long-form playback and a smoother Cloud signup path, the week’s merged work moved several parts of the open home forward.",
+      "dek": "From inverter data to seven more voice languages, long-form playback and a smoother Cloud signup path, the week moved several parts of the open home forward.",
       "body": [
         "From Monday, August 24 through Sunday, August 30, four substantial threads stood above the maintenance stream: local energy hardware, multilingual voice, long-form listening and the path into Home Assistant Cloud.",
-        "Local inverter support became a wave rather than a one-off. Merged Home Assistant work added Modbus paths for Sofar, Fronius and KACO, while SolarEdge grew from its initial local integration into attached meters, batteries and writable select and switch controls. The implementations start at different depths, but together they move more solar data and control onto the local network.",
-        "Local voice broadened at the same time. OHF Voice gained lean Speech-to-Phrase grammar blocks for German, Italian, Dutch, Catalan, Spanish, French and Czech. A companion Hassil change replaced its regular-expression prefilter; benchmarks supplied with that PR measured matching improvements from 6.5× to 323× depending on language and entity count, rather than promising one universal speedup.",
+        "Local inverter support became a wave rather than a one-off. Home Assistant added Modbus paths for Sofar, Fronius and KACO, while SolarEdge grew from its initial local integration into attached meters, batteries and writable select and switch controls. The implementations start at different depths, but together they move more solar data and control onto the local network.",
+        "Local voice broadened at the same time. OHF Voice gained lean Speech-to-Phrase grammar blocks for German, Italian, Dutch, Catalan, Spanish, French and Czech. A companion Hassil change replaced its regular-expression prefilter; submitted benchmarks measured matching improvements from 6.5× to 323× depending on language and entity count, rather than promising one universal speedup.",
         "Music Assistant’s week concentrated on long-form listening. Mobile progress can follow audiobook and podcast chapters, CarPlay gained previous and next chapter controls, podcast ordering and played state were corrected across server and frontend, and seeking across Spotify audiobook chapters no longer stops playback.",
-        "Home Assistant Cloud’s signup journey also advanced across the Nabu Casa library, Core and frontend. The merged pieces redesign the login and signup pages, expose confirmation state and prepare background login after someone confirms their email, closing a gap that previously sent people back through the flow manually.",
-        "These changes are merged work, not a claim that every feature has reached a stable release. Taken together, they show a week that improved both the open home’s everyday surfaces and the local systems underneath them."
+        "Home Assistant Cloud’s signup journey also advanced across the Nabu Casa library, Core and frontend. The pieces redesign the login and signup pages, expose confirmation state and prepare background login after someone confirms their email, closing a gap that previously sent people back through the flow manually.",
+        "Taken together, they show a week that improved both the open home’s everyday surfaces and the local systems underneath them."
       ],
       "kind": "weekly_recap",
       "placement": "feature",
@@ -1312,7 +1312,7 @@
         {
           "type": "image",
           "url": "/media/2026-08-31/weekly-local-energy-voice-listening-cloud-348f8bf7baaa-1600w.webp",
-          "alt": "Redesigned Home Assistant Cloud signup page from the merged frontend work.",
+          "alt": "Redesigned Home Assistant Cloud signup page from the frontend work.",
           "caption": "The Cloud signup work connected a redesigned frontend with confirmation and auto-login state across Core and hass-nabucasa. Screenshot from home-assistant/frontend #53790.",
           "width": 1600,
           "height": 1540,
@@ -1345,11 +1345,11 @@
     },
     {
       "id": "icloud-calendars-in-home-assistant",
-      "title": "iCloud calendar support lands in Home Assistant",
-      "dek": "Merged Core work turns each Apple calendar into a read-only entity without another login or configuration step.",
+      "title": "iCloud calendars join Home Assistant",
+      "dek": "Apple calendars become read-only Home Assistant entities without another login or configuration step.",
       "body": [
         "Federico Zivolo added a calendar platform to Home Assistant’s existing Apple iCloud integration. Each iCloud calendar becomes a read-only calendar entity that shows the event in progress or the next one due, using the account and session already configured in Home Assistant.",
-        "The platform keeps a local window from the previous day through the coming month for quick current-event lookups, while broader calendar queries still go directly to iCloud. Creating and editing events is deliberately outside this merged work; companion documentation makes that read-only scope explicit."
+        "The platform keeps a local window from the previous day through the coming month for quick current-event lookups, while broader calendar queries still go directly to iCloud. Creating and editing events is deliberately outside this work; companion documentation makes that read-only scope explicit."
       ],
       "kind": "daily",
       "placement": "brief",

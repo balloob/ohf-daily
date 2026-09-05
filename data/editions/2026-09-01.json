@@ -925,9 +925,9 @@
     {
       "id": "network-shares-recover-without-local-spillover",
       "title": "Home Assistant makes network-share outages safer",
-      "dek": "Merged Supervisor work lets NFS and CIFS shares recover when servers return, while keeping dead mounts from hanging the system or spilling writes onto local storage.",
+      "dek": "A Supervisor redesign lets NFS and CIFS shares recover when servers return while keeping dead mounts from hanging the system or spilling writes onto local storage.",
       "body": [
-        "People who keep media, shared files or backups on a network server face more than a missing folder when that server goes offline: a dead share could freeze low-level system services, trigger watchdog resets or leave a local directory accepting data meant for the server. Stefan Agner’s merged Supervisor redesign closes all three failure paths.",
+        "People who keep media, shared files or backups on a network server face more than a missing folder when that server goes offline: a dead share could freeze low-level system services, trigger watchdog resets or leave a local directory accepting data meant for the server. Stefan Agner’s Supervisor redesign closes all three failure paths.",
         "The new design puts an automatic mount trigger in front of each share. NFS and CIFS can reconnect an existing mount, while a torn-down mount is tried again on the next access after the server returns. Supervisor still checks status and dismisses the repair notice after recovery.",
         "During an outage, the automount keeps the path covered, so writes fail instead of silently filling local storage. The redesign retains special handling for backups and restores, and mdegat01 reviewed and approved the substantial change."
       ],
@@ -972,11 +972,11 @@
     {
       "id": "spotify-crossfades-keep-their-momentum",
       "title": "Music Assistant keeps Spotify crossfades from shrinking",
-      "dek": "A merged Music Assistant fix carries spare playback time from one track to the next, so smart fades can grow instead of restarting from zero.",
+      "dek": "A Music Assistant fix carries spare playback time from one track to the next, so smart fades can grow instead of restarting from zero.",
       "body": [
         "Music Assistant’s smart crossfades could be barely audible on Spotify—and disappear entirely on short tracks—because each song had to build its playback cushion from zero. On a tested Sonos group, Spotify provided 8.4 seconds for a fade where the same speakers provided 44.5 seconds from a local file.",
-        "The merged fix carries that cushion into the next song. In the submitted hardware test, the available fade window grew from 8.4 to 36.7 to 44.5 seconds across three tracks instead of resetting at every boundary.",
-        "This builds on earlier merged work that moved Spotify and other real-time-source crossfades into Music Assistant itself. The new fix is marked for a stable backport."
+        "The fix carries that cushion into the next song. In the submitted hardware test, the available fade window grew from 8.4 to 36.7 to 44.5 seconds across three tracks instead of resetting at every boundary.",
+        "This builds on earlier work that moved Spotify and other real-time-source crossfades into Music Assistant itself. The new fix is marked for a stable backport."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -1000,7 +1000,7 @@
         "Spotify",
         "Reliability"
       ],
-      "continuity": "Today’s fix builds on the earlier merge that moved real-time-source crossfades into Music Assistant.",
+      "continuity": "Today’s fix builds on the earlier work that moved real-time-source crossfades into Music Assistant.",
       "pullRequests": [
         {
           "id": "4402377265",
@@ -1021,7 +1021,7 @@
     {
       "id": "music-libraries-stop-losing-and-mislabeling-tracks",
       "title": "Four Music Assistant fixes tackle missing and wrongly playable tracks",
-      "dek": "Merged work prevents provider syncs from dropping or misfiling tracks, and stops unavailable Apple Music songs from appearing playable.",
+      "dek": "Four provider fixes prevent syncs from dropping or misfiling tracks and stop unavailable Apple Music songs from appearing playable.",
       "body": [
         "People syncing provider libraries into Music Assistant should see fewer missing or misleading entries. Spotify album sync now skips empty provider results instead of aborting the job, while YouTube Music collaboration tracks without a usable artist ID fall back to the album artist instead of silently disappearing.",
         "Qobuz and YouTube Music album imports now retain their parent album, preventing tracks from landing unfiled with disc and track number zero; existing affected tracks are repaired on the next import. Apple Music also stops labelling withdrawn or purchase-only songs as playable when it cannot serve them.",
@@ -1102,11 +1102,11 @@
     {
       "id": "yoto-cards-join-music-assistant",
       "title": "Yoto cards get a route into Music Assistant",
-      "dek": "A merged provider can stream purchased, free and make-your-own cards, with clear limits around radio and shared libraries.",
+      "dek": "A new Music Assistant provider can stream purchased, free and make-your-own cards, with clear limits around radio and shared libraries.",
       "body": [
-        "Families using Yoto cards have a new Music Assistant provider in merged code. It can stream purchased, free and make-your-own cards from a listener’s library alongside other sources managed by Music Assistant; Yoto Radio is not part of the implementation.",
+        "A new Music Assistant provider can stream purchased, free and make-your-own Yoto cards from a listener’s library alongside other sources; Yoto Radio is not part of the implementation.",
         "The provider does not cache card audio. If a card is scanned into another family’s library, playback can fail when Music Assistant requests the next stream, including at chapter or track boundaries.",
-        "This is Philip Woolford’s first merged contribution to the Music Assistant server. Welcome, Philip—and thanks to OzGav, who reviewed and approved it."
+        "This is Philip Woolford’s first contribution to the Music Assistant server. Welcome, Philip—and thanks to OzGav, who reviewed and approved it."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -1148,10 +1148,10 @@
     {
       "id": "zonneplan-dynamic-prices-arrive",
       "title": "A new Zonneplan integration starts with dynamic prices",
-      "dek": "The first merged version will bring Zonneplan sensors and dynamic energy prices into Home Assistant, while delivered-energy readings remain follow-up work.",
+      "dek": "The first version brings Zonneplan sensors and dynamic energy prices into Home Assistant, while delivered-energy readings remain follow-up work.",
       "body": [
-        "Zonneplan customers have a new Home Assistant integration in merged code. Once released, its first version will bring provider sensors and dynamic energy prices into dashboards and automations.",
-        "Delivered-energy readings are explicitly outside this first merge and remain future work. Erwin Douna added the integration and its matching branding. joostlek approved the Core change, and both joostlek and frenck approved the branding."
+        "Zonneplan’s new Home Assistant integration brings provider sensors and dynamic energy prices into dashboards and automations.",
+        "Delivered-energy readings are explicitly outside this first version and remain future work. Erwin Douna added the integration and its matching branding. joostlek approved the Core change, and both joostlek and frenck approved the branding."
       ],
       "kind": "daily",
       "placement": "brief",
@@ -1203,7 +1203,7 @@
       "title": "ESPHome adds the reTerminal E1001 display",
       "dek": "A new driver lets makers target its 800×480 monochrome e-paper panel, with full, fast and partial refresh modes.",
       "body": [
-        "Makers using Seeed’s reTerminal E1001 now have merged ESPHome support for its e-paper display, including the board’s default wiring. The same driver covers Waveshare’s 7.5-inch V2 panel and a bare-controller option for custom hardware.",
+        "ESPHome is adding support for the Seeed reTerminal E1001’s e-paper display, including the board’s default wiring. The same driver covers Waveshare’s 7.5-inch V2 panel and a bare-controller option for custom hardware.",
         "The driver offers ordinary full refreshes, faster full refreshes and partial updates that compare against the display controller’s previous image. Matching documentation supplies supported-model tables and a partial-refresh example."
       ],
       "kind": "daily",

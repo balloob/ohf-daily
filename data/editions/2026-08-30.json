@@ -677,7 +677,7 @@
       "title": "Sofar gains control, safer recovery and better support",
       "dek": "Four connected changes make the solar integration easier to manage without sacrificing its recorded energy history.",
       "body": [
-        "A merged series for Home Assistant’s Sofar integration adds an inverter remote on/off control, privacy-redacted diagnostics and a way to change its network address without deleting the integration. The reconfigure flow preserves entity customizations and history, then verifies the inverter serial number so an entry cannot silently move to a different device.",
+        "Home Assistant’s Sofar integration is gaining an inverter remote on/off control, privacy-redacted diagnostics and a way to change its network address without deleting it. The reconfigure flow preserves entity customizations and history, then verifies the inverter serial number so an entry cannot silently move to a different device.",
         "The same work protects cumulative energy totals during startup. Sofar now restores each total sensor’s prior high-water mark before the first poll, closing a gap in which a torn first read could permanently step a total backward. Diagnostics include the raw register blocks and polled components needed to investigate missing or incorrect readings, while explicitly removing the serial number from both named and raw data.",
         "The diagnostics documentation supports the implementation rather than standing as a separate story. Together, the changes make setup recovery and fault reports safer while keeping local control independent of a cloud service."
       ],
@@ -752,7 +752,7 @@
       "title": "SolarEdge controls fill out, and new hardware no longer waits for a reload",
       "dek": "The local Modbus integration adds storage and export choices, protects simultaneous writes, and notices meters or batteries wired in later.",
       "body": [
-        "A day after Home Assistant’s new local SolarEdge integration merged with support for inverters, meters and batteries, Franck Nijhof completed its choice and toggle controls. Six new selections cover storage behavior and export policy; two disabled-by-default installer switches describe external production and allow an export limit to become a minimum-import target.",
+        "Franck Nijhof followed the new local SolarEdge integration with its choice and toggle controls. Six new selections cover storage behavior and export policy; two disabled-by-default installer switches describe external production and allow an export limit to become a minimum-import target.",
         "Those controls can share a packed device register, so every write now passes through one lock. Without it, a select and switch changed at nearly the same time could each start from an older value and the second write could undo the first.",
         "The integration also rechecks attached hardware every fifteen minutes. When the inverter reports that a meter or battery was added or removed, Home Assistant reloads the entry so the corresponding devices and entities follow automatically. A silent block or failed probe does not trigger removal, protecting device history from a transient timeout."
       ],
@@ -809,11 +809,11 @@
     {
       "id": "esphome-actions-explain-themselves",
       "title": "ESPHome lays the groundwork for better-described actions",
-      "dek": "Merged firmware and Python-client support can carry descriptions and examples, ready for a future Home Assistant change to turn them into clearer forms.",
+      "dek": "ESPHome firmware and Python-client changes carry descriptions and examples, ready for a future Home Assistant change to turn them into clearer forms.",
       "body": [
-        "A merged ESPHome and Python-client pair creates the path for user-defined API actions to carry more than a name and typed inputs. Brandon Harvey added optional descriptions for actions and descriptions plus examples for each variable, while keeping the existing shorthand configuration available.",
+        "The ESPHome and Python-client pair creates the path for user-defined API actions to carry more than a name and typed inputs. Brandon Harvey added optional descriptions for actions and descriptions plus examples for each variable, while keeping the existing shorthand configuration available.",
         "The metadata is opt-in, but there is one compatibility edge: on ESP8266, the strings belonging to a single action must total no more than 384 bytes. An unusually long existing action can therefore fail validation until its names are shortened or the action is split; other platforms have no such limit.",
-        "A companion aioesphomeapi change carries the new fields into Python clients and defaults them to empty strings for older devices. Home Assistant still needs its follow-up integration change before people see the richer forms shown in the prototype. This is Harvey’s first merged contribution to aioesphomeapi—welcome, Brandon."
+        "A companion aioesphomeapi change carries the new fields into Python clients and defaults them to empty strings for older devices. Home Assistant still needs its follow-up integration change before people see the richer forms shown in the prototype. This is Harvey’s first contribution to aioesphomeapi—welcome, Brandon."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -892,7 +892,7 @@
           "type": "image",
           "url": "/media/2026-08-30/esphome-actions-explain-themselves-07b8657e85cd-1251w.webp",
           "alt": "Home Assistant Developer Tools action form after ESPHome metadata",
-          "caption": "Prototype of the future Home Assistant form once the remaining integration change lands.",
+          "caption": "Prototype of the future Home Assistant form, which still needs the remaining integration work.",
           "width": 1251,
           "height": 454,
           "variants": [
@@ -927,9 +927,9 @@
       "title": "Bluetooth devices stop disappearing between scan modes",
       "dek": "A cross-library repair preserves discoveries during active/passive transitions and closes two failure paths that could make devices unreachable.",
       "body": [
-        "A merged set of repairs in Home Assistant’s shared Bluetooth libraries restores known discoveries immediately after an adapter flips between active and passive mode. Bleak 3 clears its seen-device map on every start; the in-place mode switch had not restored it, leaving connection attempts blind until each device happened to advertise again.",
+        "A set of repairs in Home Assistant’s shared Bluetooth libraries restores known discoveries immediately after an adapter flips between active and passive mode. Bleak 3 clears its seen-device map on every start; the in-place mode switch had not restored it, leaving connection attempts blind until each device happened to advertise again.",
         "Passive scans also recognize more real-world discoverability flag values, and diagnostics now distinguish a device remembered in history from one currently cached by a scanner. A separate fix stops the final retry from selecting passive mode on Linux adapters that do not support it.",
-        "That last repair is Radek Podgorny’s first merge in Bluetooth-Devices/habluetooth. Welcome, Radek."
+        "That last repair is Radek Podgorny’s first contribution to Bluetooth-Devices/habluetooth. Welcome, Radek."
       ],
       "kind": "daily",
       "placement": "brief",
@@ -1003,7 +1003,7 @@
       "title": "Elgato lights put power-up behavior and firmware in Home Assistant",
       "dek": "New controls decide how lights return after an outage, expose signal health and install firmware without making local control depend on Elgato’s servers.",
       "body": [
-        "A merged Home Assistant series adds a choice between restoring an Elgato light’s last state or using configured defaults after power returns. Franck Nijhof added controls for default brightness and color temperature, using each device’s own range, plus diagnostic Wi-Fi signal sensors.",
+        "Home Assistant is adding a choice between restoring an Elgato light’s last state or using configured defaults after power returns. Franck Nijhof added controls for default brightness and color temperature, using each device’s own range, plus diagnostic Wi-Fi signal sensors.",
         "A new update entity can find, install and report progress for firmware images distributed inside Elgato Control Center archives. The remote catalog has its own twice-daily coordinator; if Elgato’s server is unavailable, every locally controlled light entity continues to load and operate.",
         "The underlying color-temperature refactor and companion documentation complete a coordinated expansion rather than separate stories."
       ],

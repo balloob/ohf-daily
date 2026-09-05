@@ -619,10 +619,10 @@
     {
       "id": "solaredge-modbus-arrives",
       "title": "SolarEdge energy moves onto the local network",
-      "dek": "Newly merged Home Assistant support reads inverters, meters, and batteries directly—and adds discovery, diagnostics, and controls without relying on the cloud API.",
+      "dek": "Home Assistant support reads inverters, meters, and batteries directly—and adds discovery, diagnostics, and controls without relying on the cloud API.",
       "body": [
-        "Once released, the newly merged integration will give SolarEdge owners a local route to their energy data. It reads production, energy, voltage, current, temperature, and operating state from an inverter over Modbus TCP instead of waiting on a cloud service.",
-        "The work landed as a connected nine-PR sequence. Network discovery can find the inverter, while attached meters and batteries appear as their own devices. Diagnostics, RS485 serial connections, fault and charging states, and writable power and storage settings round out the integration.",
+        "The integration gives SolarEdge owners a local route to their energy data. It reads production, energy, voltage, current, temperature, and operating state from an inverter over Modbus TCP instead of waiting on a cloud service.",
+        "Nine connected changes complete the first version. Network discovery can find the inverter, while attached meters and batteries appear as their own devices. Diagnostics, RS485 serial connections, fault and charging states, and writable power and storage settings round out the integration.",
         "The implementation also accounts for two practical hazards: SolarEdge equipment permits only a small number of simultaneous Modbus connections, and transient zero or lower energy readings must not corrupt long-term statistics."
       ],
       "kind": "daily",
@@ -717,7 +717,7 @@
           "type": "image",
           "url": "/media/2026-08-29/solaredge-modbus-arrives-8586e20b9e88-1600w.webp",
           "alt": "Screenshot supplied with the new SolarEdge Modbus integration",
-          "caption": "The initial integration PR includes a Home Assistant screenshot of the locally sourced SolarEdge data.",
+          "caption": "The initial integration includes a Home Assistant screenshot of the locally sourced SolarEdge data.",
           "width": 1600,
           "height": 1297,
           "variants": [
@@ -752,7 +752,7 @@
       "title": "Home Assistant opens a path for apps to bring their own AI tools",
       "dek": "Supervisor-managed apps will be able to announce Model Context Protocol servers, while an OAuth fix keeps Google-hosted connections signed in.",
       "body": [
-        "Once released, the newly merged work will give Home Assistant app users a guided route to tools exposed through the Model Context Protocol. An app can announce its server URL; Home Assistant validates it and asks the user to confirm before connecting, continuing through OAuth when authentication is required.",
+        "The work gives Home Assistant app users a guided route to tools exposed through the Model Context Protocol. An app can announce its server URL; Home Assistant validates it and asks the user to confirm before connecting, continuing through OAuth when authentication is required.",
         "Supervisor’s discovery identity lets Home Assistant update a connection when the app moves ports and remove it when the app is uninstalled. A readable app-based identifier also survives reinstalls.",
         "A companion repair addresses Google-hosted servers that worked for about an hour and then demanded authentication repeatedly: the authorization request now asks for the refresh token needed to renew access."
       ],
@@ -812,7 +812,7 @@
       "title": "Home Assistant expands its Apple quick controls",
       "dek": "Widgets and app-icon shortcuts gain more actions, Lock Screen circles render correctly, and Assist gets live listening feedback on Apple Watch.",
       "body": [
-        "Merged companion-app work will make Home Assistant’s smaller Apple surfaces more capable. “Magic items” will be able to toggle an entity, open a URL, or perform a Home Assistant action, bringing widget and app-icon behavior in line with the web interface.",
+        "Home Assistant’s smaller Apple surfaces are becoming more capable. “Magic items” will be able to toggle an entity, open a URL, or perform a Home Assistant action, bringing widget and app-icon behavior in line with the web interface.",
         "Circular Lock Screen widgets now draw their icons as images, avoiding missing glyphs when iOS renders them outside the extension process. Their monochrome layout and picker previews were corrected at the same time.",
         "On Apple Watch, Assist now shows the same responsive voice orb as the phone, driven by microphone level and kept active through the silence countdown that ends a recording."
       ],
@@ -904,7 +904,7 @@
       "title": "ESPHome adds a ready-made path for the seven-inch CrowPanel",
       "dek": "Makers can target Elecrow’s CrowPanel Advance 7 through the MIPI RGB display component, with matching configuration documented alongside the code.",
       "body": [
-        "Support was tested with the ESP32-IDF environment and landed together with a documented starting configuration, giving makers a practical path from the display component to a working device setup."
+        "Support was tested with the ESP32-IDF environment and includes a documented starting configuration, giving makers a practical path from the display component to a working device setup."
       ],
       "kind": "daily",
       "placement": "brief",
@@ -952,7 +952,7 @@
       "title": "Hue MotionAware zones gain an automation switch",
       "dek": "Home Assistant will be able to turn each MotionAware zone on or off, matching a control that previously lived only in the Hue app.",
       "body": [
-        "Home Assistant previously exposed this toggle for physical Hue motion sensors but not MotionAware zones. The merged change adds a switch for each zone that can be placed on a dashboard or used in an automation once released."
+        "Home Assistant previously exposed this toggle for physical Hue motion sensors but not MotionAware zones. A new switch for each zone can be placed on a dashboard or used in an automation."
       ],
       "kind": "daily",
       "placement": "brief",

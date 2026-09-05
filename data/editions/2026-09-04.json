@@ -865,7 +865,7 @@
       "title": "Music Assistant makes playlists portable across providers",
       "dek": "Three connected changes match tracks at the destination, preserve playlist order and report gaps.",
       "body": [
-        "Music Assistant has merged the pieces needed to copy an eligible static playlist into Music Assistant itself or another connected provider that supports playlist creation and editing.",
+        "Three connected changes let people copy an eligible static playlist into Music Assistant itself or another connected provider that supports playlist creation and editing.",
         "The flow offers three match policies: exact release, same recording or best effort. It runs in the background, reports progress, verifies the destination, retries when needed and lists tracks it could not copy. Duplicate tracks are preserved where the destination supports them; the flow also accounts for services that reject duplicates.",
         "The same matching work can replace confirmed-dead tracks during playlist import when their original provider is no longer configured, using matches from the user’s other connected services. A provider that is temporarily unavailable is left alone, and the original order and duplicate tracks are preserved."
       ],
@@ -917,7 +917,7 @@
     {
       "id": "speech-to-phrase-home-assistant-app",
       "title": "Speech-to-Phrase is packaged as a Home Assistant app",
-      "dek": "Merged OHF Voice work builds command grammars from a home’s entities, areas and custom commands, then connects the recognizer through the Wyoming voice protocol.",
+      "dek": "Speech-to-Phrase builds command grammars from a home’s entities, areas and custom commands, then connects through the Wyoming voice protocol.",
       "body": [
         "The app narrows recognition to phrases a home is expected to need. It builds its grammar from Home Assistant entities, areas, floors, intents, custom commands and sentence overrides rather than treating every utterance as open-ended dictation.",
         "The package includes multilingual recognition models, configuration and debugging controls, intent handling, and a Wyoming connection to Home Assistant. It keeps its last usable Home Assistant language data when a refresh fails and verifies the helper downloads used to build that data. Michael Hansen contributed the app."
@@ -959,10 +959,10 @@
     {
       "id": "home-assistant-app-uninstall-warnings",
       "title": "Home Assistant clarifies what app removal deletes",
-      "dek": "Merged changes to the app page and three repair prompts distinguish permanent app-data deletion from the separate public configuration folder.",
+      "dek": "The app page and three repair prompts distinguish permanent app-data deletion from the separate public configuration folder.",
       "body": [
-        "Home Assistant’s app-removal screens did not always explain what would disappear. The uninstall dialog mislabeled an optional public configuration folder as app data, while three repair prompts warned only that the app would be removed—even though uninstall always deletes its private data folder. The merged work cites a user who lost an InfluxDB database after uninstalling from one of those repair prompts.",
-        "Two merged changes correct both places. The app page labels the optional deletion as the public configuration folder and warns that the app’s databases and other files are permanently deleted. Repair prompts repeat the warning and link to backups before offering uninstall. The underlying deletion behavior is unchanged, and those repair paths still leave the public configuration folder in place."
+        "Home Assistant’s app-removal screens did not always explain what would disappear. The uninstall dialog mislabeled an optional public configuration folder as app data, while three repair prompts warned only that the app would be removed—even though uninstall always deletes its private data folder. The work cites a user who lost an InfluxDB database after uninstalling from one of those repair prompts.",
+        "Two changes correct both places. The app page labels the optional deletion as the public configuration folder and warns that the app’s databases and other files are permanently deleted. Repair prompts repeat the warning and link to backups before offering uninstall. The underlying deletion behavior is unchanged, and those repair paths still leave the public configuration folder in place."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -1010,10 +1010,10 @@
     {
       "id": "recorder-zero-value-statistics-fix",
       "title": "Home Assistant keeps one zero-valued EV sensor from halting statistics",
-      "dek": "A divide-by-zero failure in reciprocal efficiency units could break graphs and repeatedly abort the statistics job for every entity.",
+      "dek": "A recorder fix keeps one zero-valued efficiency sensor from breaking graphs and repeatedly aborting the statistics job for every entity.",
       "body": [
         "A zero stored by an electric-vehicle efficiency sensor could affect far more than its own graph when Home Assistant converted between inverse units such as kilowatt-hours per 100 kilometres and kilometres per kilowatt-hour. One such value could stop the entire five-minute statistics job for every entity and fail again on the next run. A second path could break period-statistics queries and their graphs.",
-        "The merged fix routes both recorder paths through a converter that treats zero as unavailable when the conversion would divide by it. Statistics retrieval returns no value for that point, while compilation skips it as it would a non-numeric state. The change is limited to recorder statistics; the live entity-display path remains outside this fix."
+        "The fix routes both recorder paths through a converter that treats zero as unavailable when the conversion would divide by it. Statistics retrieval returns no value for that point, while compilation skips it as it would a non-numeric state. The change is limited to recorder statistics; the live entity-display path remains outside this fix."
       ],
       "kind": "daily",
       "placement": "brief",

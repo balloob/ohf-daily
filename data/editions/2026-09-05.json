@@ -756,9 +756,9 @@
     {
       "id": "powerwall-commands-local-route",
       "title": "Powerwall commands take a local route through Teslemetry",
-      "dek": "Merged Home Assistant work sends supported charge, discharge and reserve commands over the LAN first, while status data still depends on the cloud.",
+      "dek": "Teslemetry sends supported charge, discharge and reserve commands over the LAN first, while status data still depends on the cloud.",
       "body": [
-        "Powerwall owners using Teslemetry are a step closer to lower-latency control. Home Assistant has merged a path that pairs its RSA key with the gateway, then sends supported energy-site commands over the local network before falling back to Tesla’s cloud when the gateway cannot be reached.",
+        "Powerwall owners using Teslemetry are a step closer to lower-latency control. The new code pairs Home Assistant’s RSA key with the gateway, then sends supported energy-site commands over the local network before falling back to Tesla’s cloud when the gateway cannot be reached.",
         "This is not an offline mode. Teslemetry’s entities still rely on cloud-polled data and become unavailable during a cloud outage; sites that have not been paired continue to use the existing cloud path.",
         "Brett Adams builds on August work that moved live status, site information and tariff updates from repeated REST polling to Teslemetry’s account stream. That earlier change reduced polling, while today’s work gives supported control commands a direct local route. silamon reviewed and approved the new step."
       ],
@@ -812,7 +812,7 @@
     {
       "id": "thai-local-voice-training-path",
       "title": "Thai gains a training path for local Piper voices",
-      "dek": "Merged OHF Voice work preserves word boundaries, vowel order and five tones, replacing phoneme output that could not reliably distinguish Thai words.",
+      "dek": "OHF Voice’s Piper training code gains a Thai phonemizer that preserves word boundaries, vowel order and five tones, replacing output that could not reliably distinguish Thai words.",
       "body": [
         "People building private, local Thai voices now have a phonemization path designed for the language. The existing espeak-ng route did not segment unspaced Thai, placed leading vowels in writing order and omitted tones; measured against the TSync2 corpus, about 11% of its returned tokens contained no vowel.",
         "The new Piper training path uses dictionary-based segmentation and syllabified pronunciation, with an explicit digit for each of Thai’s five tones. It also handles mixed text, numbers and alternate Unicode composition that could otherwise lose an entire utterance.",
@@ -859,7 +859,7 @@
       "dek": "A Home Assistant library fix clears dead streams so EX-Link connections through an ESPHome proxy can reconnect instead of repeatedly writing to a broken transport.",
       "body": [
         "A restarted ESPHome serial proxy could leave Samsung EX-Link control stuck in a half-closed state. The library then tried the dead stream again on every five-second poll, producing repeated tracebacks and never reconnecting; the contributor reports that a separate serial-library bug made those tracebacks grow until Home Assistant became unusable.",
-        "The repair clears the reader, writer and read task before waiting for a broken connection to close, catches close errors and refuses new writes once the connection is no longer active. Tests cover write failure, read failure and reconnecting after the link returns. Home Assistant Core’s dependency declaration now points to version 1.1.1 of the library, carrying the repair into its development branch.",
+        "The repair clears the reader, writer and read task before waiting for a broken connection to close, catches close errors and refuses new writes once the connection is no longer active. Tests cover write failure, read failure and reconnecting after the link returns. Home Assistant Core’s dependency declaration now points to version 1.1.1 of the library, carrying the repair into Core.",
         "This is Jon Harris’s first contribution to the samsung-exlink repository. Paulus Schoutsen reviewed and approved the library fix, and erwindouna approved its adoption in Home Assistant Core."
       ],
       "kind": "daily",
@@ -919,7 +919,7 @@
     {
       "id": "esphome-stops-stale-improv-advertising",
       "title": "ESPHome stops inactive setup broadcasts from lingering",
-      "dek": "Merged ESPHome work ties Bluetooth advertising to active provisioning, so configured devices no longer look available for setup when the Improv service is off.",
+      "dek": "ESPHome ties Bluetooth advertising to active provisioning, so configured devices no longer look available for setup when Improv is off.",
       "body": [
         "ESP32 devices using only Bluetooth Improv could advertise from boot indefinitely, even after Wi-Fi was connected or the provisioning window ended. They remained visible in a phone’s Bluetooth list while the Improv website could not find an active setup service.",
         "ESPHome now tracks which components still need to advertise. Improv releases its request after successful provisioning, when its setup window closes or when its server stops; beacons and intentionally configured Bluetooth servers can continue broadcasting.",
@@ -966,7 +966,7 @@
     {
       "id": "picture-cards-release-abandoned-streams",
       "title": "Picture cards stop abandoned streams from freezing Home Assistant",
-      "dek": "A merged frontend fix closes streaming-image connections when a picture card leaves the page, preventing them from piling up until the app’s websocket hangs.",
+      "dek": "A frontend fix closes streaming-image connections when a picture card leaves the page, preventing them from freezing the interface.",
       "body": [
         "Moving between dashboards or otherwise removing picture cards could leave their streaming-image connections alive. Enough abandoned streams could choke Home Assistant’s websocket and freeze the interface.",
         "The frontend now disconnects a picture card’s stream when the card is removed. The scope is deliberately narrow: related image-card variants can still exhibit the same leak and need separate work. karwosts authored the fix; bramkragten reviewed and approved it."
@@ -1013,7 +1013,7 @@
     {
       "id": "jewish-calendar-follows-language",
       "title": "Jewish Calendar events follow the configured language",
-      "dek": "Merged Home Assistant work replaces hard-coded English event text with the calendar library’s translations for English, French and Hebrew.",
+      "dek": "Jewish Calendar event text follows the calendar library’s English, French and Hebrew translations.",
       "body": [
         "People using Home Assistant’s Jewish Calendar integration can have event summaries and descriptions follow their configured language. The calendar platform previously assembled that text from English strings even though the underlying library already translated Hebrew dates, holidays, the weekly Torah portion, the Omer count, Daf Yomi and prayer times.",
         "The change uses those translated names and reapplies the selected language while serving calendar requests, avoiding a task-local setting that could otherwise fall back to Hebrew. Existing English wording changes in a few places to match the library’s terminology. Amit Finkelstein authored the work; gjohansson-ST and tsvi reviewed and approved it."

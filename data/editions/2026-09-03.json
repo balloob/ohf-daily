@@ -659,9 +659,9 @@
     {
       "id": "haos-protects-new-images-from-power-cuts",
       "title": "Home Assistant OS protects new images from power cuts",
-      "dek": "A merged storage safeguard keeps newly downloaded containers from being recorded as healthy before their files are safely on disk.",
+      "dek": "A storage safeguard keeps newly downloaded containers from being recorded as healthy before their files are safely on disk.",
       "body": [
-        "Home Assistant OS has merged a safeguard for systems that lose power shortly after downloading a container image. After each image layer is unpacked, the merged change forces its data to disk instead of allowing the container database to record the layer as complete while some files remain only in memory.",
+        "Home Assistant OS has added a safeguard for systems that lose power shortly after downloading a container image. After each image layer is unpacked, the change forces its data to disk instead of allowing the container database to record the layer as complete while some files remain only in memory.",
         "That mismatch can leave executables empty or truncated while the image still appears valid. Because the damaged shared layer is considered complete, deleting and downloading the image again may not repair it; affected installations can require a reset of their container storage. The change is especially relevant to Home Assistant systems running from SD cards without an uninterruptible power supply.",
         "In verification, two ordinary power cuts corrupted two baseline downloads. A more severe controlled test left 1,215 zero-byte files without the safeguard and an intact image with it. The measured cost was 0.6 seconds on a fast 2 GB image load and about four seconds, or 1.9%, on throttled storage. Stefan Agner contributed the change, which sairon reviewed and approved."
       ],
@@ -706,11 +706,11 @@
     {
       "id": "ios-entities-widget",
       "title": "Home Assistant’s iOS app adds a widget for chosen entities",
-      "dek": "Merged work creates a Home Screen widget that shows current states, offers quick actions and opens any selected entity for more detail.",
+      "dek": "A Home Screen widget shows current states, offers quick actions and opens any selected entity for more detail.",
       "body": [
-        "Home Assistant’s iOS app has merged a general-purpose Entities widget. People choose a Home Assistant server and the entities they want to see, and the widget presents them as tiles with their current states.",
+        "A general-purpose Entities widget lets people choose a Home Assistant server and the entities they want to see, then presents them as tiles with their current states.",
         "Tapping an icon runs the entity’s main action when the app supports it, while tapping elsewhere on the tile opens that entity in the app. Last-update times are shown by default and can be hidden.",
-        "The widget builds on earlier merged work that saves entities from every domain in the app’s local database, allowing search and pickers to find types that were previously omitted. Bruno Pantaleão Gonçalves contributed both parts of the work."
+        "The widget builds on earlier work that saves entities from every domain in the app’s local database, allowing search and pickers to find types that were previously omitted. Bruno Pantaleão Gonçalves contributed both parts of the work."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -790,9 +790,9 @@
       "title": "Music Assistant’s Smart Shuffle now plans for smoother fades",
       "dek": "Track order can now account for tempo, key and energy, while difficult fades fall back to audible blends instead of abrupt cuts.",
       "body": [
-        "Music Assistant has merged an optional way for Smart Shuffle and Smart Fades to work together. When both are enabled, upcoming tracks can be reordered using their tempo, key and change in energy, while the existing recency rules and candidate selection remain in charge.",
+        "Music Assistant gives Smart Shuffle and Smart Fades an optional way to work together. When both are enabled, upcoming tracks can be reordered using their tempo, key and change in energy, while the existing recency rules and candidate selection remain in charge.",
         "Related work improves what listeners hear when the vocal-collision guard cannot find a suitable transition. It now falls back to an approximately eight-second volume crossfade; only severe vocal overlap keeps the short emergency handoff. Quick fades no longer bury an incoming track under the full equalizer handoff, and unreliable wall-to-wall vocal detections no longer block every usable blend.",
-        "Crossfade setting changes on continuous streams also take effect from the next track rather than waiting for a new listening session. Leon’s Smart Shuffle ordering is his first merged Music Assistant contribution; Marvin Schenkel reviewed and approved it. Marcel van der Veldt and Schenkel contributed the accompanying transition and settings improvements."
+        "Crossfade setting changes on continuous streams take effect from the next track rather than waiting for a new listening session. Leon’s Smart Shuffle ordering is his first Music Assistant contribution; Marvin Schenkel reviewed and approved it. Marcel van der Veldt and Schenkel contributed the accompanying transition and settings improvements."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -834,7 +834,7 @@
         "Smart Fades",
         "playback"
       ],
-      "continuity": "The September 1 edition covered a Spotify-specific bug that shortened crossfades. These merges advance system-wide ordering and transition behavior.",
+      "continuity": "The September 1 edition covered a Spotify-specific bug that shortened crossfades. These changes advance system-wide ordering and transition behavior.",
       "pullRequests": [
         {
           "id": "4411369801",
@@ -863,9 +863,9 @@
       "title": "Eleven Zooz firmware releases enter the Z-Wave JS catalog",
       "dek": "The coordinated 800LR update wave also gives the ZEN12 readable controls and adds new scene and relay settings across the range.",
       "body": [
-        "Z-Wave JS merged manufacturer-supplied firmware entries for eleven Zooz devices, covering switches, relays, sensors, a dimmer and a range extender. The entries allow compatible downstream software to identify the new versions when the connected device matches.",
-        "The accompanying configuration work makes several upgrades more useful. The ZEN12 800LR Motion Dimmer gains a complete profile for all 46 of its settings instead of showing them unlabeled, and ZEN37 firmware 2.40 exposes its new multi-tap scene control. Firmware-gated controls also landed for the ZEN17, ZSE11, ZEN34 and ZEN04.",
-        "ZOOZ Smart Home supplied the firmware definitions. AlCalzone reviewed and approved every catalog and configuration merge in the group."
+        "The Z-Wave JS catalog now contains manufacturer-supplied firmware entries for eleven Zooz devices, covering switches, relays, sensors, a dimmer and a range extender. The entries allow compatible downstream software to identify the new versions when the connected device matches.",
+        "The accompanying configuration work makes several upgrades more useful. The ZEN12 800LR Motion Dimmer gains a complete profile for all 46 of its settings instead of showing them unlabeled, and ZEN37 firmware 2.40 exposes its new multi-tap scene control. Firmware-gated controls also cover the ZEN17, ZSE11, ZEN34 and ZEN04.",
+        "ZOOZ Smart Home supplied the firmware definitions. AlCalzone reviewed and approved every catalog entry and configuration change in the group."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -989,8 +989,8 @@
       "title": "A first-time contributor adds sliders to select tiles",
       "dek": "Home Assistant dashboards gain a compact way to move through a list of choices without opening another control.",
       "body": [
-        "Merged tile-card work lets people change a select or input-select entity with a slider directly on a Home Assistant dashboard. The matching documentation landed alongside the frontend work.",
-        "The feature is Jump-333’s first merged contribution to both the Home Assistant frontend and documentation repositories. MindFreeze reviewed and approved both changes, with tsvovan also reviewing the frontend work."
+        "A tile-card change lets people adjust a select or input-select entity with a slider directly on a Home Assistant dashboard. Matching documentation accompanies the frontend work.",
+        "The feature is Jump-333’s first contribution to both the Home Assistant frontend and documentation repositories. MindFreeze reviewed and approved both changes, with tsvovan also reviewing the frontend work."
       ],
       "kind": "daily",
       "placement": "brief",

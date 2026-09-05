@@ -144,7 +144,7 @@ test("resolves only locally evidenced PRs and media, including review credit", (
       id: "solaredge-progress",
       title: "SolarEdge setup grows around its sensors",
       dek: "Discovery follows the earlier sensor work.",
-      body: ["The related merged work now forms one product story."],
+      body: ["The related work now forms one product story."],
       kind: "daily",
       placement: "feature",
       score: 90,
@@ -167,6 +167,46 @@ test("resolves only locally evidenced PRs and media, including review credit", (
   assert.deepEqual(articles[0].approvers, ["human-reviewer"]);
   assert.deepEqual(articles[0].contributors, ["frenck"]);
   assert.deepEqual(articles[0].contributorProfiles, [record.authorProfile]);
+});
+
+test("rejects repository workflow language anywhere in reader-facing article copy", () => {
+  const draft = {
+    id: "workflow-jargon",
+    title: "A clear reader outcome",
+    dek: "The practical consequence is clear.",
+    body: ["The project has merged the implementation."],
+    kind: "daily" as const,
+    placement: "feature" as const,
+    score: 80,
+    contributors: ["frenck"],
+    topics: ["energy"],
+    continuity: null,
+    pullRequestIds: ["42"],
+    contentSourceIds: [],
+    media: [],
+  };
+  assert.throws(() => editorialInternals.resolveArticles([draft], [record]), /workflow-jargon uses repository workflow language in body\[0\]/);
+  assert.throws(() => editorialInternals.resolveArticles([{
+    ...draft,
+    body: ["The implementation changes the reader outcome."],
+    topics: ["merged work"],
+  }], [record]), /workflow-jargon uses repository workflow language in topics\[0\]/);
+  assert.throws(() => editorialInternals.resolveArticles([{
+    ...draft,
+    dek: "Once released, the feature will help people.",
+    body: ["The implementation changes the reader outcome."],
+  }], [record]), /workflow-jargon uses repository workflow language in dek/);
+  for (const body of [
+    "The change is in development.",
+    "The feature is awaiting release.",
+    "This accepted PR adds support.",
+    "The work landed yesterday.",
+  ]) {
+    assert.throws(() => editorialInternals.resolveArticles([{
+      ...draft,
+      body: [body],
+    }], [record]), /workflow-jargon uses repository workflow language in body\[0\]/);
+  }
 });
 
 test("never resolves HACS default-index additions into articles", () => {
@@ -233,7 +273,7 @@ test("derives contributor and human review credit from sources rather than model
 test("resolves official posts beside PR evidence and allows an official-only article", () => {
   const shared = {
     title: "An announcement with implementation context",
-    dek: "Official context joins merged work.",
+    dek: "Official context joins implementation detail.",
     body: ["The source ledger keeps both kinds of evidence."],
     kind: "daily" as const,
     placement: "feature" as const,

@@ -8,9 +8,9 @@ Review every article for:
 - selection and placement: whether it merits lead, feature, brief, wire, or omission;
 - clarity without PR context, including unexplained jargon and implementation-detail overload;
 - headline, dek, first paragraph, structure, repetition, and newspaper tone;
-- headline outcome language: titles must not use `merge`, `merges`, `merged`, or `merging`, and should instead use a concrete verb that explains what changed;
+- reader-facing workflow language: titles, deks, front-page summaries, bodies, continuity notes, captions, alt text, contributor welcomes, and review credit must not use `merge`, `merges`, `merged`, `merging`, `development branch`, or `once released`; rewrite around the concrete outcome in simple present without replacing one status disclaimer with another;
 - grouping around one reader outcome rather than author, repository, date, or chronology;
-- factual scope: merged versus released, reporting versus provisioning, and groundwork versus an available downstream capability;
+- factual scope: development versus released, reporting versus provisioning, and groundwork versus an available downstream capability;
 - release-day compliance: a configured scheduled stable release must be the headline lead, while a beta, prerelease, release candidate, or patch release needs independent news value to earn article space;
 - release evidence: on a configured stable release day, official release-source features should be described as release contents without draft boilerplate, collection-time prerelease status, missing-build commentary, or `until stable lands` disclaimers; exact `available now` or artifact claims still require supporting metadata;
 - upcoming events: each listed date is important enough to help readers plan, is supported by the cited official post, has not expired, and does not turn routine promotional programming into calendar clutter;
@@ -24,4 +24,4 @@ Return:
 3. prioritized, reusable changes to the shared or beat-specific prompts;
 4. any factual wording that should be corrected immediately.
 
-End with an explicit `publish`, `publish after corrections`, or `do not publish` verdict. Do not edit files. Do not reward technical complexity by itself. Judge the edition as a newspaper for humans who follow the open-home ecosystem but have not read the underlying PRs.
+Any merge terminology or stock status disclaimer such as `once released` in reader-facing article copy is an immediate blocking finding. End with an explicit `publish`, `publish after corrections`, or `do not publish` verdict. Do not edit files. Do not reward technical complexity by itself. Judge the edition as a newspaper for humans who follow the open-home ecosystem but have not read the underlying PRs.

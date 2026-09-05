@@ -4,16 +4,16 @@ These instructions are the portable operating manual for any coding agent asked 
 
 ## Mission and editorial contract
 
-OHF Daily is a selective, newspaper-style account of meaningful public work across the Open Home Foundation ecosystem. It is for humans, not a reformatted merge log. Read `prompts/tone.md`, `prompts/reporter.md`, `prompts/editor.md`, and the applicable beat and track prompts before making editorial decisions.
+OHF Daily is a selective, newspaper-style account of meaningful public work across the Open Home Foundation ecosystem. It is for humans, not a reformatted development log. Read `prompts/tone.md`, `prompts/reporter.md`, `prompts/editor.md`, and the applicable beat and track prompts before making editorial decisions.
 
 The non-negotiable rules are:
 
 - Group related work into one article when it creates one reader outcome. Do not publish one article per PR.
-- Never use `merge`, `merges`, `merged`, or `merging` in article headlines. Rewrite around the concrete outcome with an active verb; keep merge-versus-release qualification in the dek or body.
+- Never use `merge`, `merges`, `merged`, or `merging` in reader-facing article copy. Rewrite around the concrete outcome with an active verb. Do not mechanically substitute `landed`, `accepted`, `development branch`, `PR`, or `once released`. Describe what the change does in simple present; reserve `available now` or `users can now` for source-backed releases.
 - Lead with human consequence. Omit routine, weak, test-only, generated, formatting, and dependency-update work from articles.
 - Never surface a dependency update on the front page.
 - Documentation that merely accompanies a backend feature supports that feature; independently useful documentation can be news.
-- Clearly distinguish merged code from released or installed functionality, and library/protocol groundwork from downstream product support.
+- Clearly distinguish code in development from released or installed functionality, and library/protocol groundwork from downstream product support.
 - Use exact source IDs from the local stores. Never invent facts, people, links, media, measurements, release contents, or availability.
 - Query local history when labels, links, authors, or descriptions suggest continuity. For Home Assistant integrations, start with the exact label, such as `integration: solaredge_modbus`.
 - Celebrate a first contribution only when the cached authoritative repository lookup says it is first. Use the cached public profile name and avatar when available.
