@@ -440,36 +440,11 @@ function resolveArticles(
   contentRecords: StoredContent[] = [],
   mandatoryLeadSourceIds: string[] = [],
 ): Article[] {
-  const forbiddenWorkflowLanguage = /\b(?:merge|merges|merged|merging|PR|PRs)\b|\bdevelopment[- ]branch\b|\bin development\b|\bawaiting release\b|\bnot (?:yet )?released\b|\bnot been released(?: yet)?\b|\bonce released\b|\baccepted (?:PR|change|work|code|implementation|feature|support)\b|\b(?:PR|change|work|code|implementation|feature|support) (?:was |were |has been |have been )?accepted\b/i;
-  const landingLanguage = /\b(?:land|lands|landed|landing)\b/i;
-  const workflowLandingLanguage = /\b(?:PR|PRs|work|change|fix|support|feature|code|implementation) (?:has |have |was |were )?(?:landed|lands|landing)\b/i;
-  const assertReaderFacingLanguage = (draft: EditorArticle): void => {
-    const fields: Array<[string, string | null | undefined]> = [
-      ["title", draft.title],
-      ["dek", draft.dek],
-      ...draft.body.map((paragraph, index) => [`body[${index}]`, paragraph] as [string, string]),
-      ["continuity", draft.continuity],
-      ...draft.topics.map((topic, index) => [`topics[${index}]`, topic] as [string, string]),
-      ...draft.media.flatMap((item, index) => [
-        [`media[${index}].alt`, item.alt] as [string, string],
-        [`media[${index}].caption`, item.caption] as [string, string | null | undefined],
-      ]),
-    ];
-    const violation = fields.find(([field, value]) => value && (
-      forbiddenWorkflowLanguage.test(value)
-      || workflowLandingLanguage.test(value)
-      || (["title", "dek"].includes(field) && landingLanguage.test(value))
-    ));
-    if (violation) {
-      throw new Error(`Article ${draft.id || "(untitled)"} uses repository workflow language in ${violation[0]}; rewrite it around the reader outcome.`);
-    }
-  };
   const byId = new Map(records.filter((record) => !isHacsIndexAddition(record)).map((record) => [String(record.id), record]));
   const contentById = new Map(contentRecords.map((record) => [record.id, record]));
   const seen = new Set<string>();
   const articles: Article[] = [];
   for (const draft of raw) {
-    assertReaderFacingLanguage(draft);
     const sources: ArticleSource[] = [...new Set(draft.pullRequestIds)].flatMap((id) => {
       const record = byId.get(String(id));
       return record ? [{ id: String(record.id), title: record.title, url: record.url, repository: record.repository }] : [];
