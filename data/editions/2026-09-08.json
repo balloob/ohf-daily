@@ -1,0 +1,1384 @@
+{
+  "date": "2026-09-08",
+  "generatedAt": "2026-09-08T04:04:07.590Z",
+  "windowStart": "2026-09-07T04:01:53.623Z",
+  "windowEnd": "2026-09-08T04:01:53.623Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 310,
+    "repositories": 57,
+    "contributors": 95,
+    "dependencyUpdates": 80,
+    "hacsNewIntegrations": 0
+  },
+  "lead": {
+    "id": "4374919954",
+    "title": "Add binary_sensor platform to NeoPool",
+    "summary": "Add the binary sensor platform to the NeoPool integration.",
+    "unlocks": "Unlocks: Add binary_sensor platform to NeoPool.",
+    "url": "https://github.com/home-assistant/core/pull/180393",
+    "repository": "home-assistant/core",
+    "organization": "Home Assistant",
+    "author": "svasek",
+    "mergedAt": "2026-09-07T15:21:03Z",
+    "labels": [
+      "new-platform",
+      "cla-signed",
+      "new-feature",
+      "has-tests",
+      "by-code-owner",
+      "quality scale: silver",
+      "integration: neopool"
+    ],
+    "kind": "feature",
+    "score": 63.4,
+    "additions": 2638,
+    "deletions": 0,
+    "changedFiles": 7
+  },
+  "highlights": [
+    {
+      "id": "4440373299",
+      "title": "Add cooling status/information sensors to Weheat",
+      "summary": "Breaking change Proposed change The heat pump reports a cooling cycle in some detail: what it is doing, what is holding the next cycle off, when the wait after the last cycle runs out, and…",
+      "unlocks": "Unlocks: Add cooling status/information sensors to Weheat.",
+      "url": "https://github.com/home-assistant/core/pull/181278",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "barryvdh",
+      "mergedAt": "2026-09-07T13:38:48Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: no score",
+        "integration: weheat",
+        "quality-scale"
+      ],
+      "kind": "feature",
+      "score": 61.2,
+      "additions": 866,
+      "deletions": 4,
+      "changedFiles": 6
+    },
+    {
+      "id": "3565066819",
+      "title": "Add unit_of_measurement to climate and water_heater in ESPHome integration",
+      "summary": "Breaking change Proposed change Exposes temperature unit for climate and water heater, to enable native Fahrenheit measurements on those entities.",
+      "unlocks": "Unlocks: Add unit_of_measurement to climate and water_heater in ESPHome integration.",
+      "url": "https://github.com/home-assistant/core/pull/168747",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "jhenkens",
+      "mergedAt": "2026-09-07T20:18:11Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "new-feature",
+        "integration: esphome",
+        "quality scale: platinum",
+        "code-owner-approved",
+        "top 200",
+        "top 50",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 60.5,
+      "additions": 294,
+      "deletions": 7,
+      "changedFiles": 7
+    },
+    {
+      "id": "4402004456",
+      "title": "Sign in to Overcast with a QR code instead of a password",
+      "summary": "What does this implement/fix? Setting up Overcast only accepted an email address and a password.",
+      "url": "https://github.com/music-assistant/server/pull/6126",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "OzGav",
+      "mergedAt": "2026-09-07T13:37:30Z",
+      "labels": [
+        "enhancement",
+        "dependencies-reviewed"
+      ],
+      "kind": "platform",
+      "score": 58.8,
+      "additions": 512,
+      "deletions": 13,
+      "changedFiles": 8
+    },
+    {
+      "id": "4453427724",
+      "title": "Prefill the AmpliPi host from mDNS during setup",
+      "summary": "What does this implement/fix? Setting up the AmpliPi provider starts with an empty Host box, so you have to go find the controller's address yourself.",
+      "url": "https://github.com/music-assistant/server/pull/6206",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "mcaulifn",
+      "mergedAt": "2026-09-07T12:37:28Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 58.6,
+      "additions": 270,
+      "deletions": 17,
+      "changedFiles": 6
+    }
+  ],
+  "briefs": [
+    {
+      "id": "4463121825",
+      "title": "Add configurable EnergyZero electricity price interval",
+      "summary": "Add an Electricity price interval option with Hourly (the default) and Quarter hourly choices.",
+      "unlocks": "Unlocks: Add configurable EnergyZero electricity price interval.",
+      "url": "https://github.com/home-assistant/core/pull/181530",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "klaasnicolaas",
+      "mergedAt": "2026-09-07T19:13:32Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: no score",
+        "integration: energyzero"
+      ],
+      "kind": "feature",
+      "score": 57.3,
+      "additions": 312,
+      "deletions": 30,
+      "changedFiles": 10
+    },
+    {
+      "id": "4154451980",
+      "title": "Add external ID lookup infrastructure",
+      "summary": "What does this implement/fix? Implements core infrastructure for external ID lookup, enabling providers to find tracks/albums/artists by identifiers like ISRC, MusicBrainz IDs, Discogs IDs, etc.",
+      "unlocks": "Unlocks: Add external ID lookup infrastructure.",
+      "url": "https://github.com/music-assistant/server/pull/5110",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "dmoo500",
+      "mergedAt": "2026-09-07T14:15:41Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 56.1,
+      "additions": 125,
+      "deletions": 4,
+      "changedFiles": 4
+    },
+    {
+      "id": "4428493032",
+      "title": "Describe Z-Wave JS triggers for the automation editor",
+      "summary": "Adds triggers.yaml , trigger strings, and trigger icons for zwave js.event and zwave js.value updated , so the automation editor can offer both triggers with real selectors instead of falling back to YAML editing.",
+      "unlocks": "Unlocks: Describe Z-Wave JS triggers for the automation editor.",
+      "url": "https://github.com/home-assistant/core/pull/181129",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "raman325",
+      "mergedAt": "2026-09-07T17:49:40Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "integration: zwave_js",
+        "quality scale: no score",
+        "top 200",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 55.9,
+      "additions": 578,
+      "deletions": 13,
+      "changedFiles": 7
+    },
+    {
+      "id": "4440956582",
+      "title": "Report the Weheat cooling start conditions",
+      "summary": "Breaking change Proposed change The heat pump checks eleven conditions before it starts a cooling cycle and reports which of them are met, so each one becomes a binary sensor.",
+      "unlocks": "Unlocks: Report the Weheat cooling start conditions.",
+      "url": "https://github.com/home-assistant/core/pull/181287",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "barryvdh",
+      "mergedAt": "2026-09-07T15:31:35Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: no score",
+        "integration: weheat",
+        "quality-scale"
+      ],
+      "kind": "feature",
+      "score": 53.6,
+      "additions": 648,
+      "deletions": 1,
+      "changedFiles": 5
+    },
+    {
+      "id": "4466265434",
+      "title": "Add a Create deeplink gesture action",
+      "summary": "AI Policy I have read the Open Home Foundation AI Policy.",
+      "unlocks": "Unlocks: Add a Create deeplink gesture action.",
+      "url": "https://github.com/home-assistant/iOS/pull/5684",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "bgoncal",
+      "mergedAt": "2026-09-07T18:21:29Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "feature",
+      "score": 53.2,
+      "additions": 432,
+      "deletions": 40,
+      "changedFiles": 24,
+      "image": "https://raw.githubusercontent.com/home-assistant/iOS/c1cd5b596ca92693e30fb0f2eba86219065208a7/Tests/App/Settings/__Snapshots__/GesturesSetupView.test/testActionsPickerUI.dark.png"
+    },
+    {
+      "id": "4254421649",
+      "title": "Add ScorpionTrack last reported sensor",
+      "summary": "I am continuing to build out the ScorpionTrack integration in small, focused changes.",
+      "unlocks": "Unlocks: Add ScorpionTrack last reported sensor.",
+      "url": "https://github.com/home-assistant/core/pull/178755",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "Herbertmt978",
+      "mergedAt": "2026-09-07T17:45:13Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: silver",
+        "integration: scorpiontrack"
+      ],
+      "kind": "feature",
+      "score": 50.4,
+      "additions": 174,
+      "deletions": 32,
+      "changedFiles": 4
+    },
+    {
+      "id": "4395155562",
+      "title": "Handle reconfigure_successful centrally",
+      "summary": "Breaking change Proposed change Each integration no longer needs to set this string themselves.",
+      "url": "https://github.com/home-assistant/core/pull/180723",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "zweckj",
+      "mergedAt": "2026-09-07T12:52:19Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "code-quality"
+      ],
+      "kind": "platform",
+      "score": 50.3,
+      "additions": 189,
+      "deletions": 297,
+      "changedFiles": 187
+    },
+    {
+      "id": "4428846950",
+      "title": "Show the year a track was originally released",
+      "summary": "What does this implement/fix? Tracks in the local library carried no release date at all, so there was no way to tell what year a song was originally released.",
+      "url": "https://github.com/music-assistant/server/pull/6182",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "OzGav",
+      "mergedAt": "2026-09-07T10:08:27Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 50.3,
+      "additions": 157,
+      "deletions": 8,
+      "changedFiles": 3
+    },
+    {
+      "id": "3247508251",
+      "title": "chore: format with oxfmt",
+      "summary": "Replace dprint with oxfmt 0.66.0 for repository formatting, config formatting, editor integration, bot scripts, and generated source/docs Preserve operator first wrapping with…",
+      "url": "https://github.com/zwave-js/zwave-js/pull/8596",
+      "repository": "zwave-js/zwave-js",
+      "organization": "Z-Wave JS",
+      "author": "AlCalzone",
+      "mergedAt": "2026-09-07T17:42:28Z",
+      "labels": [],
+      "kind": "maintenance",
+      "score": 49.7,
+      "additions": 32461,
+      "deletions": 35783,
+      "changedFiles": 1055
+    },
+    {
+      "id": "4421049106",
+      "title": "A peer's endpoint tree follows the PartsList of the endpoint that owns each part",
+      "summary": "An aggregator's PartsList names every descendant rather than its own children — Matter Core § 9.2.3's full family pattern, \"a list of all descendant endpoints, with no imposed hierarchy\" —…",
+      "url": "https://github.com/matter-js/matter.js/pull/4393",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-09-07T22:03:06Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "platform",
+      "score": 49.2,
+      "additions": 3116,
+      "deletions": 121,
+      "changedFiles": 24
+    },
+    {
+      "id": "4458522245",
+      "title": "Let a server opt out of Siri",
+      "summary": "AI Policy I have read the Open Home Foundation AI Policy.",
+      "url": "https://github.com/home-assistant/iOS/pull/5674",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "bgoncal",
+      "mergedAt": "2026-09-07T14:22:03Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "platform",
+      "score": 49.2,
+      "additions": 672,
+      "deletions": 19,
+      "changedFiles": 27
+    },
+    {
+      "id": "4453587127",
+      "title": "Handle the iOS Local Network permission on first server connect",
+      "summary": "Closes #956 Is there anything about the code changes here that should be highlighted?",
+      "url": "https://github.com/music-assistant/mobile-app/pull/973",
+      "repository": "music-assistant/mobile-app",
+      "organization": "Music Assistant",
+      "author": "teancom",
+      "mergedAt": "2026-09-07T06:09:26Z",
+      "labels": [
+        "enhancement",
+        "direct connection"
+      ],
+      "kind": "platform",
+      "score": 48.4,
+      "additions": 606,
+      "deletions": 39,
+      "changedFiles": 15
+    },
+    {
+      "id": "4395424460",
+      "title": "Extract artist specific code from item details screen",
+      "summary": "Work towards #801 Is there anything about the code changes here that should be highlighted?",
+      "url": "https://github.com/music-assistant/mobile-app/pull/946",
+      "repository": "music-assistant/mobile-app",
+      "organization": "Music Assistant",
+      "author": "seadowg",
+      "mergedAt": "2026-09-07T15:32:10Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 47.6,
+      "additions": 669,
+      "deletions": 580,
+      "changedFiles": 19
+    },
+    {
+      "id": "4431255820",
+      "title": "Handle reauth_successful centrally",
+      "summary": "Breaking change Proposed change Get rid of that string and define it centrally.",
+      "url": "https://github.com/home-assistant/core/pull/181154",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "zweckj",
+      "mergedAt": "2026-09-07T14:23:51Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "code-quality"
+      ],
+      "kind": "platform",
+      "score": 47.6,
+      "additions": 168,
+      "deletions": 449,
+      "changedFiles": 278
+    },
+    {
+      "id": "4425174627",
+      "title": "fix(model): state the value a constraint names, and report a name that resolves to nothing",
+      "summary": "What was wrong A constraint may bound a value to the named values of its own enumerated type.",
+      "unlocks": "Improves reliability around state the value a constraint names, and report a name that resolves to nothing.",
+      "url": "https://github.com/matter-js/matter.js/pull/4399",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-09-07T21:30:25Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "fix",
+      "score": 47.2,
+      "additions": 633,
+      "deletions": 37,
+      "changedFiles": 21
+    },
+    {
+      "id": "4459495575",
+      "title": "Play hi-res radio stations at their original bit depth",
+      "summary": "What does this implement/fix? Internet radio was always converted to 16 bit before being sent to the player, even when the station itself was 24 bit.",
+      "url": "https://github.com/music-assistant/server/pull/6214",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "OzGav",
+      "mergedAt": "2026-09-07T07:08:37Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 46.6,
+      "additions": 96,
+      "deletions": 3,
+      "changedFiles": 3
+    },
+    {
+      "id": "4467790712",
+      "title": "Derive bare trigger keys from platform-scoped catalog ids",
+      "summary": "What does this implement/fix? Platform scoped trigger ids ( rotary encoder.sensor.on clockwise , nextion.display.on page , the touchscreen drivers, ezo , ltr501 , speaker , sendspin ) are .",
+      "url": "https://github.com/esphome/device-builder-frontend/pull/1719",
+      "repository": "esphome/device-builder-frontend",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-08T01:04:21Z",
+      "labels": [
+        "bugfix"
+      ],
+      "kind": "platform",
+      "score": 46.5,
+      "additions": 447,
+      "deletions": 105,
+      "changedFiles": 19
+    },
+    {
+      "id": "4462228940",
+      "title": "Add more automation row details",
+      "summary": "Automation editor: add time indicators sun offset option triggers, conditions for and behavior option actions wait template , wait for trigger : timeout option Add helper function…",
+      "unlocks": "Unlocks: Add more automation row details.",
+      "url": "https://github.com/home-assistant/frontend/pull/54018",
+      "repository": "home-assistant/frontend",
+      "organization": "Home Assistant",
+      "author": "wendevlin",
+      "mergedAt": "2026-09-07T18:31:24Z",
+      "labels": [
+        "cla-signed",
+        "tests: unit"
+      ],
+      "kind": "feature",
+      "score": 45.9,
+      "additions": 295,
+      "deletions": 4,
+      "changedFiles": 9
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Update dependency fastlane to v2.239.0",
+      "url": "https://github.com/home-assistant/android/pull/7433",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update coil to v3.6.2",
+      "url": "https://github.com/home-assistant/android/pull/7428",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump energyzero to 5.1.0",
+      "url": "https://github.com/home-assistant/core/pull/181597",
+      "repository": "home-assistant/core",
+      "author": "klaasnicolaas"
+    },
+    {
+      "title": "Bump nhc to 0.8.1 for Niko Home Control",
+      "url": "https://github.com/home-assistant/core/pull/181584",
+      "repository": "home-assistant/core",
+      "author": "VandeurenGlenn"
+    },
+    {
+      "title": "Bump aioskybell to 23.12.0",
+      "url": "https://github.com/home-assistant/core/pull/181587",
+      "repository": "home-assistant/core",
+      "author": "JamieMagee"
+    },
+    {
+      "title": "Update dependency @codemirror/state to v6.7.4",
+      "url": "https://github.com/home-assistant/frontend/pull/54045",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency eslint to v10.10.0",
+      "url": "https://github.com/home-assistant/frontend/pull/54044",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency browserslist to v4.28.9",
+      "url": "https://github.com/home-assistant/frontend/pull/54043",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump vizaio to 0.7.0",
+      "url": "https://github.com/home-assistant/core/pull/181568",
+      "repository": "home-assistant/core",
+      "author": "raman325"
+    },
+    {
+      "title": "Bump pyblackbird to 0.10",
+      "url": "https://github.com/home-assistant/core/pull/181565",
+      "repository": "home-assistant/core",
+      "author": "koolsb"
+    },
+    {
+      "title": "Bump vizaio to 0.6.2",
+      "url": "https://github.com/home-assistant/core/pull/181562",
+      "repository": "home-assistant/core",
+      "author": "raman325"
+    },
+    {
+      "title": "Bump satel-integra to 1.5.0",
+      "url": "https://github.com/home-assistant/core/pull/181523",
+      "repository": "home-assistant/core",
+      "author": "Tommatheussen"
+    },
+    {
+      "title": "Update zizmor",
+      "url": "https://github.com/home-assistant/core/pull/181494",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency org.jetbrains.kotlin:kotlin-gradle-plugin to v2.4.20 [SECURITY]",
+      "url": "https://github.com/home-assistant/android/pull/7427",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update com.android.*",
+      "url": "https://github.com/home-assistant/android/pull/7418",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump modbus-connection to 4.11.1",
+      "url": "https://github.com/home-assistant/core/pull/181544",
+      "repository": "home-assistant/core",
+      "author": "balloob"
+    },
+    {
+      "title": "Bump tuya-device-handlers to 0.0.28",
+      "url": "https://github.com/home-assistant/core/pull/181525",
+      "repository": "home-assistant/core",
+      "author": "huangrenwei79"
+    },
+    {
+      "title": "Bump modbus-connection to 4.11.0",
+      "url": "https://github.com/home-assistant/core/pull/181533",
+      "repository": "home-assistant/core",
+      "author": "balloob"
+    },
+    {
+      "title": "build(deps): bump prek from 0.5.1 to 0.5.2",
+      "url": "https://github.com/home-assistant/wheels/pull/1137",
+      "repository": "home-assistant/wheels",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Update dependency @codemirror/state to v6.7.3",
+      "url": "https://github.com/home-assistant/frontend/pull/54020",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency com.google.protobuf:protobuf-javalite to v4.36.1",
+      "url": "https://github.com/home-assistant/android/pull/7412",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump aiortm to 0.20.1",
+      "url": "https://github.com/home-assistant/core/pull/181524",
+      "repository": "home-assistant/core",
+      "author": "MartinHjelmare"
+    },
+    {
+      "title": "Bump golang.org/x/crypto from 0.55.0 to 0.56.0",
+      "url": "https://github.com/home-assistant/os-agent/pull/289",
+      "repository": "home-assistant/os-agent",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps): Bump the npm_and_yarn group across 1 directory with 2 updates",
+      "url": "https://github.com/home-assistant/installer/pull/88",
+      "repository": "home-assistant/installer",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Update coil to v3.6.1",
+      "url": "https://github.com/home-assistant/android/pull/7416",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency mobile-dev-inc/Maestro to v2.10.0",
+      "url": "https://github.com/home-assistant/android/pull/7413",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency io.sentry:sentry-android-core to v8.55.0",
+      "url": "https://github.com/home-assistant/android/pull/7424",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Lock file maintenance",
+      "url": "https://github.com/home-assistant/android/pull/7426",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump python-google-weather-api to 0.0.7",
+      "url": "https://github.com/home-assistant/core/pull/181482",
+      "repository": "home-assistant/core",
+      "author": "tronikos"
+    },
+    {
+      "title": "Bump python-google-drive-api to 0.2.0",
+      "url": "https://github.com/home-assistant/core/pull/181477",
+      "repository": "home-assistant/core",
+      "author": "tronikos"
+    },
+    {
+      "title": "Update dependency @codemirror/view to v6.43.11",
+      "url": "https://github.com/home-assistant/frontend/pull/54010",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update github-actions",
+      "url": "https://github.com/home-assistant/installer/pull/86",
+      "repository": "home-assistant/installer",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update dependency rust to v1.98.1",
+      "url": "https://github.com/home-assistant/installer/pull/87",
+      "repository": "home-assistant/installer",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump pysenz to 1.1.2",
+      "url": "https://github.com/home-assistant/core/pull/181435",
+      "repository": "home-assistant/core",
+      "author": "astrandb"
+    },
+    {
+      "title": "Bump gcal-sync to 9.1.1",
+      "url": "https://github.com/home-assistant/core/pull/181499",
+      "repository": "home-assistant/core",
+      "author": "allenporter"
+    },
+    {
+      "title": "Bump deepmerge from 3.0 to 3.0.1",
+      "url": "https://github.com/home-assistant/supervisor/pull/7198",
+      "repository": "home-assistant/supervisor",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump ruff from 0.16.5 to 0.16.6",
+      "url": "https://github.com/home-assistant/supervisor/pull/7199",
+      "repository": "home-assistant/supervisor",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump sass-embedded from 1.103.1 to 1.104.0",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/47951",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump Dropbox to platinum quality",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/47802",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "bdr99"
+    },
+    {
+      "title": "⬆️ Lock file maintenance",
+      "url": "https://github.com/home-assistant-libs/python-webrtc-models/pull/266",
+      "repository": "home-assistant-libs/python-webrtc-models",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Lock file maintenance",
+      "url": "https://github.com/home-assistant-libs/python-go2rtc-client/pull/376",
+      "repository": "home-assistant-libs/python-go2rtc-client",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump pylint from 4.0.7 to 4.0.8",
+      "url": "https://github.com/home-assistant-libs/pychromecast/pull/1271",
+      "repository": "home-assistant-libs/pychromecast",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump ruff from 0.16.5 to 0.16.6",
+      "url": "https://github.com/home-assistant-libs/pychromecast/pull/1270",
+      "repository": "home-assistant-libs/pychromecast",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps): Bump ruff from 0.16.5 to 0.16.6",
+      "url": "https://github.com/home-assistant-libs/aiowebostv/pull/732",
+      "repository": "home-assistant-libs/aiowebostv",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump tox from 4.60.1 to 4.61.2",
+      "url": "https://github.com/home-assistant-libs/aiowebostv/pull/731",
+      "repository": "home-assistant-libs/aiowebostv",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump pylint from 4.0.7 to 4.0.8",
+      "url": "https://github.com/home-assistant-libs/pydroid-ipcam/pull/358",
+      "repository": "home-assistant-libs/pydroid-ipcam",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump tox from 4.60.1 to 4.61.2",
+      "url": "https://github.com/home-assistant-libs/ha-ffmpeg/pull/253",
+      "repository": "home-assistant-libs/ha-ffmpeg",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump pylint from 4.0.7 to 4.0.8",
+      "url": "https://github.com/home-assistant-libs/ha-ffmpeg/pull/252",
+      "repository": "home-assistant-libs/ha-ffmpeg",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump aiointercept from 0.1.9 to 0.1.10",
+      "url": "https://github.com/home-assistant-libs/python-supervisor-client/pull/405",
+      "repository": "home-assistant-libs/python-supervisor-client",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump ruff from 0.16.5 to 0.16.6",
+      "url": "https://github.com/home-assistant-libs/python-supervisor-client/pull/406",
+      "repository": "home-assistant-libs/python-supervisor-client",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump frontend to 0.1.326",
+      "url": "https://github.com/esphome/device-builder/pull/2674",
+      "repository": "esphome/device-builder",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump frontend to 0.1.325",
+      "url": "https://github.com/esphome/device-builder/pull/2673",
+      "repository": "esphome/device-builder",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "[pre-commit.ci] pre-commit autoupdate",
+      "url": "https://github.com/esphome/device-builder/pull/2670",
+      "repository": "esphome/device-builder",
+      "author": "pre-commit-ci[bot]"
+    },
+    {
+      "title": "Bump prek from 0.5.1 to 0.5.2",
+      "url": "https://github.com/esphome/esphome/pull/19021",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump ruff from 0.16.5 to 0.16.6",
+      "url": "https://github.com/esphome/esphome/pull/19022",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump huggingface-hub from 1.26.1 to 1.30.0",
+      "url": "https://github.com/music-assistant/server/pull/6211",
+      "repository": "music-assistant/server",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump bidict from 0.23.1 to 0.24.1",
+      "url": "https://github.com/music-assistant/server/pull/6210",
+      "repository": "music-assistant/server",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump deno from 2.9.5 to 2.9.6",
+      "url": "https://github.com/music-assistant/server/pull/6209",
+      "repository": "music-assistant/server",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): update pnpm to v11.25.0",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/75",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump zigpy to 2.2.0 and update dependencies",
+      "url": "https://github.com/zigpy/zha-device-handlers/pull/5308",
+      "repository": "zigpy/zha-device-handlers",
+      "author": "TheJulianJES"
+    },
+    {
+      "title": "Bump zigpy from 2.1.0 to 2.2.0",
+      "url": "https://github.com/zigpy/zha/pull/890",
+      "repository": "zigpy/zha",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps): Bump @types/node from 26.4.0 to 26.4.1",
+      "url": "https://github.com/matter-js/matter.js/pull/4420",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps): Bump mocha from 11.8.0 to 12.0.0",
+      "url": "https://github.com/matter-js/matter.js/pull/4417",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump oxlint from 1.80.0 to 1.81.0",
+      "url": "https://github.com/matter-js/matter.js/pull/4419",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump oxfmt from 0.65.0 to 0.66.0",
+      "url": "https://github.com/matter-js/matter.js/pull/4415",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps): Bump memlab from 2.0.4 to 2.0.5",
+      "url": "https://github.com/matter-js/matter.js/pull/4418",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump @memlab/heap-analysis from 2.0.4 to 2.0.5",
+      "url": "https://github.com/matter-js/matter.js/pull/4414",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(pre-commit.ci): pre-commit autoupdate",
+      "url": "https://github.com/Bluetooth-Devices/ulid-transform/pull/237",
+      "repository": "Bluetooth-Devices/ulid-transform",
+      "author": "pre-commit-ci[bot]"
+    },
+    {
+      "title": "chore(deps-dev): bump pytest-benchmark from 5.2.3 to 5.3.0",
+      "url": "https://github.com/Bluetooth-Devices/ulid-transform/pull/242",
+      "repository": "Bluetooth-Devices/ulid-transform",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(ci): bump the github-actions group across 1 directory with 10 updates",
+      "url": "https://github.com/Bluetooth-Devices/ulid-transform/pull/243",
+      "repository": "Bluetooth-Devices/ulid-transform",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(pre-commit.ci): pre-commit autoupdate",
+      "url": "https://github.com/Bluetooth-Devices/fnv-hash-fast/pull/140",
+      "repository": "Bluetooth-Devices/fnv-hash-fast",
+      "author": "pre-commit-ci[bot]"
+    },
+    {
+      "title": "chore(ci): bump the github-actions group across 1 directory with 10 updates",
+      "url": "https://github.com/Bluetooth-Devices/fnv-hash-fast/pull/149",
+      "repository": "Bluetooth-Devices/fnv-hash-fast",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps-dev): bump pytest from 9.0.3 to 9.1.1",
+      "url": "https://github.com/Bluetooth-Devices/fnv-hash-fast/pull/141",
+      "repository": "Bluetooth-Devices/fnv-hash-fast",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): bump bleak-retry-connector from 4.6.3 to 4.7.0",
+      "url": "https://github.com/Bluetooth-Devices/oralb-ble/pull/201",
+      "repository": "Bluetooth-Devices/oralb-ble",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): bump bluetooth-data-tools from 1.29.21 to 1.29.24",
+      "url": "https://github.com/Bluetooth-Devices/oralb-ble/pull/200",
+      "repository": "Bluetooth-Devices/oralb-ble",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(pre-commit.ci): pre-commit autoupdate",
+      "url": "https://github.com/Bluetooth-Devices/habluetooth/pull/626",
+      "repository": "Bluetooth-Devices/habluetooth",
+      "author": "pre-commit-ci[bot]"
+    },
+    {
+      "title": "chore(deps): bump cryptography from 50.0.0 to 50.0.1",
+      "url": "https://github.com/Bluetooth-Devices/bthome-ble/pull/414",
+      "repository": "Bluetooth-Devices/bthome-ble",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): bump habluetooth from 6.26.5 to 6.26.11",
+      "url": "https://github.com/Bluetooth-Devices/bthome-ble/pull/412",
+      "repository": "Bluetooth-Devices/bthome-ble",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): bump bluetooth-data-tools from 1.29.21 to 1.29.24",
+      "url": "https://github.com/Bluetooth-Devices/bthome-ble/pull/416",
+      "repository": "Bluetooth-Devices/bthome-ble",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): bump bluetooth-data-tools from 1.29.21 to 1.29.24",
+      "url": "https://github.com/Bluetooth-Devices/thermopro-ble/pull/203",
+      "repository": "Bluetooth-Devices/thermopro-ble",
+      "author": "dependabot[bot]"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 170,
+      "thisWeek": 599,
+      "sinceRelease": 426,
+      "lastReleaseDate": "2026-09-02"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 26,
+      "thisWeek": 148,
+      "sinceRelease": 49,
+      "lastReleaseDate": "2026-09-04"
+    },
+    {
+      "product": "ESPHome",
+      "today": 26,
+      "thisWeek": 130,
+      "sinceRelease": 424,
+      "lastReleaseDate": "2026-08-19"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "zigpy/zigpy:384290845",
+      "product": "Zigpy",
+      "repository": "zigpy/zigpy",
+      "name": "2.2.0",
+      "tag": "2.2.0",
+      "url": "https://github.com/zigpy/zigpy/releases/tag/2.2.0",
+      "publishedAt": "2026-09-07T19:51:59Z",
+      "channel": "stable",
+      "accent": "green"
+    }
+  ],
+  "releases": [
+    {
+      "product": "IFA Berlin",
+      "kind": "Event",
+      "date": "2026-09-04",
+      "endDate": "2026-09-08",
+      "accent": "blue",
+      "url": "https://www.openhomefoundation.org/blog/ifa-berlin-2026-save-the-date/",
+      "sourceId": "open-home-foundation-blog:eb2b2755230664aa3bcd93cf"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-09-16",
+      "version": "2026.9",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant’s 13th birthday",
+      "kind": "Event",
+      "date": "2026-09-17",
+      "accent": "blue"
+    },
+    {
+      "product": "OHF Summit · Lisbon",
+      "kind": "Event",
+      "date": "2026-09-22",
+      "endDate": "2026-09-24",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-09-30",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-10-21",
+      "version": "2026.10",
+      "accent": "green"
+    },
+    {
+      "product": "Community Day",
+      "kind": "Event",
+      "date": "2026-11-07",
+      "accent": "blue",
+      "url": "https://www.openhomefoundation.org/blog/community-day-2026-save-the-date/",
+      "sourceId": "open-home-foundation-blog:e0b42a309ae0aef53aba29ac"
+    }
+  ],
+  "articles": [
+    {
+      "id": "home-assistant-protects-edits-on-back-navigation",
+      "title": "Home Assistant protects unfinished edits when you go back",
+      "dek": "Back gestures ask before discarding an automation, while leaving a live scene restores the devices it changed.",
+      "body": [
+        "An accidental swipe back no longer has to mean rebuilding an automation. Home Assistant’s automation, script and scene editors ask before abandoning unsaved changes when someone uses Android’s back gesture, the browser Back button or Alt+Left. Declining keeps the editor open; confirming leaves in the same step.",
+        "Leaving the scene editor also restores the devices’ earlier states after live editing. Previously, using the sidebar or switching scenes could leave the home in the temporary preview. Putting the browser tab in the background does not end live mode.",
+        "Petar Petrov extends the safeguards he added in August for navigation through the quick bar, editor links and companion-app commands. The raw dashboard YAML editor gains the same unsaved-changes protection, closing another route to losing work."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 93,
+      "contributors": [
+        "MindFreeze"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "MindFreeze",
+          "name": "Petar Petrov",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5219205?v=4",
+          "profileUrl": "https://github.com/MindFreeze"
+        }
+      ],
+      "reviewers": [
+        "tsvovan",
+        "wendevlin",
+        "bramkragten",
+        "maartenla",
+        "piitaya",
+        "timmo001"
+      ],
+      "approvers": [
+        "tsvovan",
+        "wendevlin",
+        "bramkragten",
+        "timmo001"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Automations",
+        "Reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4411752297",
+          "title": "Prompt for unsaved changes on history back navigation",
+          "url": "https://github.com/home-assistant/frontend/pull/53919",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "4375970822",
+          "title": "Exit scene live mode when leaving the editor",
+          "url": "https://github.com/home-assistant/frontend/pull/53837",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "4367724978",
+          "title": "Prompt for unsaved changes on programmatic navigation",
+          "url": "https://github.com/home-assistant/frontend/pull/53804",
+          "repository": "home-assistant/frontend"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "overcast-connects-with-a-qr-code",
+      "title": "Overcast connects to Music Assistant without a password",
+      "dek": "A QR code opens setup to listeners whose Overcast accounts exist only in the app.",
+      "body": [
+        "Overcast listeners who never created a password get a way to connect their existing account to Music Assistant. Setup displays a QR code to scan with an iPhone camera; approving the request in Overcast lets Music Assistant pick up the session.",
+        "The original setup required an email address and password, excluding accounts created only in the app. Those credentials remain an alternative for people who have them. If an app-authorized session expires, the error points back to setup instead of asking for a password the account never had.",
+        "OzGav adds the sign-in flow, with approval from Marvin Schenkel. Subscriptions and listening progress still flow one way into Music Assistant: playback there does not update the Overcast account."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 89,
+      "contributors": [
+        "OzGav"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "OzGav",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/19848947?v=4",
+          "profileUrl": "https://github.com/OzGav"
+        }
+      ],
+      "reviewers": [
+        "MarvinSchenkel",
+        "teancom"
+      ],
+      "approvers": [
+        "MarvinSchenkel"
+      ],
+      "topics": [
+        "Music Assistant",
+        "Podcasts",
+        "Setup"
+      ],
+      "pullRequests": [
+        {
+          "id": "4402004456",
+          "title": "Sign in to Overcast with a QR code instead of a password",
+          "url": "https://github.com/music-assistant/server/pull/6126",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4165676844",
+          "title": "Add Overcast podcast provider",
+          "url": "https://github.com/music-assistant/server/pull/5151",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "energyzero-quarter-hour-electricity-prices",
+      "title": "EnergyZero adds quarter-hour electricity prices to Home Assistant",
+      "dek": "Existing price sensors gain 15-minute detail, with hourly readings remaining the default.",
+      "body": [
+        "Households following EnergyZero electricity prices get a choice between hourly and quarter-hourly readings in Home Assistant. The setting applies to today’s and tomorrow’s price data and the existing electricity sensors; the next-price reading follows the selected one-hour or 15-minute interval.",
+        "Changing the option reloads the integration automatically and preserves existing entity IDs. A related correction renames the sensor that counts cheaper or equally priced periods and removes its misleading hours unit. Templates or cards that depend on that unit need adjustment; comparisons using only the number do not.",
+        "This changes the detail of the price data, not how frequently Home Assistant checks for updates. Gas readings are unaffected, and the separate action for fetching energy prices still returns hourly values. Klaas Schoute contributes the feature, with approval from silamon."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 86,
+      "contributors": [
+        "klaasnicolaas"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "klaasnicolaas",
+          "name": "Klaas Schoute",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/20448157?v=4",
+          "profileUrl": "https://github.com/klaasnicolaas"
+        }
+      ],
+      "reviewers": [
+        "silamon",
+        "MartinHjelmare",
+        "c0ffeeca7"
+      ],
+      "approvers": [
+        "silamon",
+        "MartinHjelmare",
+        "c0ffeeca7"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Energy",
+        "EnergyZero"
+      ],
+      "pullRequests": [
+        {
+          "id": "4463121825",
+          "title": "Add configurable EnergyZero electricity price interval",
+          "url": "https://github.com/home-assistant/core/pull/181530",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4459188285",
+          "title": "Make EnergyZero electricity sensor semantics interval-neutral",
+          "url": "https://github.com/home-assistant/core/pull/181492",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4463439434",
+          "title": "Document EnergyZero electricity price interval option",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/47973",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-restores-scene-light-brightness",
+      "title": "ESPHome fixes brightness commands that change a light’s color",
+      "dek": "Lights connected through MQTT keep their white level separate from overall brightness when a scene sets both.",
+      "body": [
+        "A lighting scene can look wrong when a command changes color and brightness together. ESPHome restores the information Home Assistant needs to dim compatible lights independently of their color channels when they communicate through MQTT, a messaging protocol used to connect devices.",
+        "Missing brightness information made Home Assistant scale the color values instead of sending a separate brightness setting. On lights with red, green, blue and white channels, that could change the white level while leaving overall brightness untouched. Ryan Ronnander reports verifying the correction on 17 BK7231T-based lights.",
+        "This is Ronnander’s first contribution to ESPHome, with review and approval from Jesse Hills."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 85,
+      "contributors": [
+        "ryan-ronnander"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "ryan-ronnander",
+          "name": "Ryan Ronnander",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/61520?v=4",
+          "profileUrl": "https://github.com/ryan-ronnander"
+        }
+      ],
+      "reviewers": [
+        "jesserockz"
+      ],
+      "approvers": [
+        "jesserockz"
+      ],
+      "topics": [
+        "ESPHome",
+        "Lighting",
+        "Reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4423655599",
+          "title": "[mqtt] Restore brightness flag in light discovery",
+          "url": "https://github.com/esphome/esphome/pull/18950",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "google-drive-backups-survive-unreadable-descriptions",
+      "title": "Home Assistant keeps Google Drive backups visible after a bad description",
+      "dek": "One edited file no longer breaks the entire backup list and its sensors.",
+      "body": [
+        "Editing or clearing a backup file’s description in Google Drive could take down Home Assistant’s backup listing and every associated sensor. The integration skips unreadable records with a warning, keeping the rest of the collection visible. It does not repair the description of a skipped backup.",
+        "The change also keeps files in Drive’s trash out of backup lookups and stops upload progress from moving backwards after a retry. tronikos contributes the fixes, with approval from zweckj."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 80,
+      "contributors": [
+        "tronikos"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "tronikos",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/9987465?v=4",
+          "profileUrl": "https://github.com/tronikos"
+        }
+      ],
+      "reviewers": [
+        "zweckj"
+      ],
+      "approvers": [
+        "zweckj"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Backups",
+        "Reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4458105942",
+          "title": "Make Google Drive backup listing resilient to unreadable metadata",
+          "url": "https://github.com/home-assistant/core/pull/181478",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-restores-speaker-groups-after-announcements",
+      "title": "Music Assistant brings speakers back after an announcement",
+      "dek": "A grouping fix stops an interrupted speaker from getting stranded outside the music it was playing with others.",
+      "body": [
+        "An announcement on a synchronized Music Assistant speaker could detach it from its group and leave it unable to rejoin, even manually. The grouping check no longer mistakes a speaker playing on its own for the leader of another active group.",
+        "Marvin Schenkel reproduced the failure with two Sendspin clients and verified that the group restores automatically after the announcement with the fix."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 79,
+      "contributors": [
+        "MarvinSchenkel"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "MarvinSchenkel",
+          "name": "Marvin Schenkel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
+          "profileUrl": "https://github.com/MarvinSchenkel"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant",
+        "Sendspin",
+        "Reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4464012822",
+          "title": "Fix players not regrouping after an announcement on a synced player",
+          "url": "https://github.com/music-assistant/server/pull/6220",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ]
+}
