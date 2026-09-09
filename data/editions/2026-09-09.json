@@ -4,7 +4,7 @@
     {
       "id": "home-assistant-explores-forecast-driven-automations",
       "title": "Forecasts for smarter automations",
-      "summary": "A new proposal would bring future sensor values into charts and automations, including choosing cheaper electricity hours.",
+      "summary": "Markus Tuominen opened an opportunity to bring sensor forecasts into charts and automations, including choosing cheaper electricity hours.",
       "sources": [
         {
           "id": "roadmap:PVTI_lADOCX3lqc4BTbD7zg5-Gr8",
@@ -21,7 +21,7 @@
     {
       "id": "home-assistant-approves-clearer-automation-trigger-choices",
       "title": "Clearer automation trigger choices",
-      "summary": "An approved plan would let people select the trigger itself, without inventing and remembering an identifier.",
+      "summary": "Franck Nijhof approved a plan to let people select the trigger itself, without inventing and remembering an identifier, after discussing it with Niels.",
       "sources": [
         {
           "id": "roadmap:PVTI_lADOCX3lqc4BTbD7zgo6NY8",
@@ -38,7 +38,7 @@
     {
       "id": "home-assistant-separates-matter-setup-decisions",
       "title": "A choice for uncertified Matter devices",
-      "summary": "The revised proposal focuses on per-device confirmation when certification cannot be verified. Revoked certificates would remain blocked.",
+      "summary": "Matthias Kerstner narrowed the proposal to per-device choices when certification cannot be verified. Revoked certificates would remain blocked.",
       "sources": [
         {
           "id": "roadmap:PVTI_lADOCX3lqc4BTbD7zguE_3U",
@@ -55,7 +55,7 @@
     {
       "id": "foundation-plans-ios-app-ownership-transition",
       "title": "Planning the iOS app handover",
-      "summary": "A transition plan explores preserving home setups and notifications if transferring the existing App Store listing is not possible.",
+      "summary": "Matthias de Baat drafted a handover plan aimed at preserving home setups and notifications if transferring the existing App Store listing is not possible.",
       "sources": [
         {
           "id": "roadmap:PVTI_lADOCX3lqc4BTbD7zg4RJVk",
@@ -1183,7 +1183,7 @@
       "title": "Home Assistant explores automations that act on forecasts",
       "dek": "A new proposal would put future prices and sensor readings on their own charts and make them usable without custom templates.",
       "body": [
-        "Home Assistant is shaping a common way to use predictions from sensors, starting with needs such as finding cheap electricity hours or preparing for a cold night. A proposal opened on September 8 would give integrations a standard way to supply future readings and extend a sensor's chart beyond the present, with the forecast's source clearly identified.",
+        "Home Assistant is shaping a common way to use predictions from sensors, starting with needs such as finding cheap electricity hours or preparing for a cold night. Markus Tuominen opened the opportunity on September 8. The proposal would give integrations a standard way to supply future readings and extend a sensor's chart beyond the present, with the forecast's source clearly identified.",
         "The proposed automation controls include reacting to a newly published forecast, an expected threshold crossing, or the start of the cheapest or most expensive period of a chosen length. Conditions could check whether the forecast stays above a limit or whether the current hour belongs to a set of low-price hours.",
         "The first scope allows one forecast per numeric sensor from its own integration. The architecture and the behavior of triggers when predictions change still need agreement."
       ],
@@ -1272,7 +1272,7 @@
       "body": [
         "People connecting energy meters, solar inverters or heating equipment through Modbus gain a clearer view of their shared connections in Home Assistant. A new panel in Connectivity lists each physical endpoint once and shows the integrations using it, making a shared serial bus or gateway visible in one place.",
         "The panel builds on Home Assistant's shared Modbus connection service and a new connection inventory. Its open-or-closed indicator describes the current link state: devices can close an idle connection and reopen it when an integration next polls. Serial ports carrying Modbus traffic also link through to the panel.",
-        "The work advances the Open Home Foundation's approved roadmap opportunity for a Modbus entry point in Settings. The planned scope is viewing connections and navigating between them; adding, editing and removing connections remain outside this first iteration."
+        "The work advances a roadmap opportunity opened by Matthias Kerstner and approved by Franck Nijhof for a Modbus entry point in Settings. The planned scope is viewing connections and navigating between them; adding, editing and removing connections remain outside this first iteration."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -1374,7 +1374,7 @@
       "title": "Home Assistant explores a way back after an automation goes wrong",
       "dek": "A rewritten proposal focuses on readable version history and restoring an earlier automation while keeping later changes recoverable.",
       "body": [
-        "Home Assistant is shaping a way to recover a working automation after a saved edit breaks it. The proposal would let people inspect earlier versions and restore one from the automation editor, without rolling back a whole installation to recover a single automation. In a September 9 comment, Niels says he has rewritten the opportunity and moved it into Shaping.",
+        "Home Assistant is shaping a way to recover a working automation after a saved edit breaks it. Niels rewrote the opportunity around a usable history and restore interface, moving it into Shaping on September 9. The proposal would let people inspect earlier versions and restore one from the automation editor, without rolling back a whole installation to recover a single automation.",
         "The proposed history would show when each version was saved, who or what changed it—including an AI assistant—and a readable explanation of the differences. Restoring an older version would create another history entry, keeping the version it replaced recoverable. The initial scope covers automations held in Home Assistant's storage; automations defined in YAML files are excluded.",
         "The design still needs decisions on how long to keep versions, how to explain changes without requiring people to read configuration code, and what happens when a restored automation refers to a device that no longer exists."
       ],
@@ -1459,7 +1459,7 @@
       "title": "Home Assistant approves a clearer way to choose automation triggers",
       "dek": "The proposed editor would identify what started an automation without asking users to invent and remember trigger names.",
       "body": [
-        "Home Assistant has approved a plan to make it easier to choose which event should lead to which action in an automation. Instead of asking people to assign an identifier and recognize it later, the editor would show the trigger itself in the condition picker and create a stable identifier in the background. Franck Nijhof recorded the approval on September 8 after a discussion at IFA.",
+        "Home Assistant has approved a plan to make it easier to choose which event should lead to which action in an automation. Instead of asking people to assign an identifier and recognize it later, the editor would show the trigger itself in the condition picker and create a stable identifier in the background. Franck Nijhof recorded the approval on September 8 after discussing the design with Niels at IFA.",
         "The proposal keeps existing manually assigned identifiers compatible, with future manual editing handled through YAML. It would also clean up references when an automatically identified trigger is removed through the interface, and flag missing or duplicate references."
       ],
       "kind": "daily",
@@ -1494,7 +1494,7 @@
       "title": "The foundation plans an iOS app handover that preserves home setups",
       "dek": "A transition proposal aims to preserve registrations and notification automations if an App Store transfer cannot be arranged.",
       "body": [
-        "The Open Home Foundation is planning how to move ownership of Home Assistant's iOS app while limiting disruption to people who already use it. A September 8 update introduces a migration proposal covering existing installations, fresh installs, notification automations, managed devices and beta users.",
+        "The Open Home Foundation is planning how to move ownership of Home Assistant's iOS app while limiting disruption to people who already use it. Matthias de Baat drafted a migration plan, shared on September 8, covering existing installations, fresh installs, notification automations, managed devices and beta users.",
         "The roadmap pursues another attempt to transfer the existing App Store listing and develops a fallback if that fails. Under the proposed fallback, a successor app would take over the existing Home Assistant registration, with the aim of preserving device and entity identities and notification targets. The old app would guide people through the handover.",
         "The plan also needs to account for people who never reopen the old app. The public roadmap identifies interrupted notifications and confusion between two App Store listings as risks the handover must address."
       ],
@@ -1530,7 +1530,7 @@
       "title": "Home Assistant shapes clearer warnings for uncertified Matter devices",
       "dek": "The revised plan focuses on explaining recoverable certification problems and letting the person adding a device decide.",
       "body": [
-        "Home Assistant is shaping a more specific response when a Matter device cannot prove its certification during setup. A September 8 update separates that decision from the work on how devices connect, giving the warning and confirmation experience its own scope.",
+        "Home Assistant is shaping a more specific response when a Matter device cannot prove its certification during setup. Matthias Kerstner separated that decision from the wider connection-setup work on September 8, giving the warning and confirmation experience its own scope.",
         "The proposal would explain which vendor or product information could not be verified and offer a per-device choice for recoverable cases, such as test credentials. A revoked certificate would continue to prevent setup. Devices added without verified certification would retain a visible indication afterward."
       ],
       "kind": "daily",

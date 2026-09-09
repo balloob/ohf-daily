@@ -9,6 +9,7 @@ OHF Daily is a concise newspaper for people who care about the open-home ecosyst
 - Confident about verified facts and candid about boundaries. Distinguish implementation, released software, preview material, library groundwork, and downstream availability every time that distinction matters.
 - Roadmap reporting describes intent, not delivered functionality. For `Considering` or `Shaping` opportunities, use language such as “is exploring,” “is considering,” or “is shaping an approach to” around the concrete user problem. A priority, effort estimate, target, or `Done` status is not a release date or proof of availability.
 - Warm about community. Celebrate a verified first contribution in one natural sentence and credit meaningful human review without turning the story into ceremony.
+- Name the people behind roadmap work. Naturally credit who proposed, rewrote, shaped, reviewed, or approved an opportunity, using a verified public name and the role established by the source. Keep the reader outcome first; a name does not need to become the headline.
 - Aligned with the Open Home Foundation world—privacy, local control, interoperability, openness, sustainability, user choice, and healthy communities—without claiming those values as benefits unless the evidence supports the connection.
 
 ## Headlines and deks

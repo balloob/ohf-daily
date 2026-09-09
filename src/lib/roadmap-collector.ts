@@ -68,7 +68,8 @@ const boardQuery = `query($projectId: ID!, $after: String) {
 }`;
 const issueQuery = `query($ids: [ID!]!) { nodes(ids: $ids) { ... on Issue {
   id title body url number createdAt updatedAt repository { nameWithOwner isPrivate }
-  comments(last: 20) { totalCount nodes { id url body createdAt updatedAt author { login } } }
+  author { login ... on User { name } }
+  comments(last: 20) { totalCount nodes { id url body createdAt updatedAt author { login ... on User { name } } } }
 } } }`;
 
 interface BoardItem {
@@ -79,8 +80,9 @@ interface BoardItem {
 interface BoardPage { node: null | { id: string; public: boolean; url: string; items: { pageInfo: { hasNextPage: boolean; endCursor: string | null }; nodes: BoardItem[] } } }
 interface IssueDetail {
   id: string; title: string; body: string; url: string; number: number; createdAt: string; updatedAt: string;
+  author: { login: string; name?: string | null } | null;
   repository: { nameWithOwner: string; isPrivate: boolean };
-  comments: { totalCount: number; nodes: Array<Omit<RoadmapComment, "author"> & { author: { login: string } | null }> };
+  comments: { totalCount: number; nodes: Array<Omit<RoadmapComment, "author" | "authorName"> & { author: { login: string; name?: string | null } | null }> };
 }
 
 export async function fetchRoadmapItems(source: RoadmapSourceConfig, graphql: RoadmapGraphQL = createRoadmapGraphQL()): Promise<RoadmapItem[]> {
@@ -116,12 +118,13 @@ export async function fetchRoadmapItems(source: RoadmapSourceConfig, graphql: Ro
     return [{ id: `roadmap:${item.id}`, itemId: item.id, projectId: source.project_id, projectUrl: source.url,
       type: issue ? "Issue" : "DraftIssue", title: issue?.title ?? content.title!, body: issue?.body ?? content.body!,
       url: issue?.url ?? source.url,
+      author: issue?.author ? { login: issue.author.login, name: issue.author.name ?? null } : undefined,
       repository: issue?.repository.nameWithOwner ?? null, number: issue?.number ?? null,
       status: fields.get("Status") ?? null, mainProject: fields.get("Main Project") ?? null, area: fields.get("Area") ?? null,
       priority: fields.get("Priority") ?? null, deliveryStatus: fields.get("Delivery Status") ?? fields.get("DeliveryStatus") ?? null,
       itemCreatedAt: item.createdAt, itemUpdatedAt: item.updatedAt, contentCreatedAt: issue?.createdAt ?? content.createdAt!, contentUpdatedAt: issue?.updatedAt ?? content.updatedAt!,
       commentCount: issue?.comments.totalCount ?? 0,
-      comments: issue?.comments.nodes.map((comment) => ({ ...comment, author: comment.author?.login ?? null })).sort((a, b) => a.id.localeCompare(b.id)) ?? [],
+      comments: issue?.comments.nodes.map((comment) => ({ ...comment, author: comment.author?.login ?? null, authorName: comment.author?.name ?? null })).sort((a, b) => a.id.localeCompare(b.id)) ?? [],
     }];
   });
 }

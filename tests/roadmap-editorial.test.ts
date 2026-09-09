@@ -10,6 +10,7 @@ import type { Edition } from "../src/lib/types";
 const roadmap: RoadmapSnapshot = {
   schemaVersion: 1, id: "roadmap:item", itemId: "item", projectId: "project", projectUrl: "https://github.com/orgs/OpenHomeFoundation/projects/8",
   type: "Issue", title: "Explore clearer device connections", body: "Consider grouping shared connections. ![Mockup](https://github.com/user-attachments/assets/mockup)",
+  author: { login: "proposer", name: "Example Proposer" },
   url: "https://github.com/OpenHomeFoundation/roadmap/issues/235", repository: "OpenHomeFoundation/roadmap", number: 235,
   status: "Considering", mainProject: "Home Assistant", area: "Devices", priority: null, deliveryStatus: null,
   contentCreatedAt: "2026-08-01T10:00:00Z", contentUpdatedAt: "2026-09-09T03:00:00Z", itemCreatedAt: "2026-08-01T10:00:00Z", itemUpdatedAt: "2026-09-09T03:00:00Z",
@@ -123,6 +124,7 @@ test("API newsroom supplies roadmap context and local history and publishes a ro
       assert.equal(input.roadmapBaselineOnly, true);
       assert.equal(input.roadmapChanges.length, 0);
       assert.equal(input.roadmapContext[0].id, roadmap.id);
+      assert.deepEqual(input.roadmapContext[0].author, roadmap.author);
       assert.equal(input.roadmapContext[0].body, undefined);
       assert.equal(input.roadmapContext[0].latestComment.id, "comment");
       assert.equal(input.roadmapRecentDiscussion[0].comments[0].body, roadmap.comments[0].body);

@@ -21,7 +21,7 @@ function boardItem(id: string, kind = "Issue", isPrivate = false) {
     content: kind === "Issue" ? { __typename: kind, id: `issue-${id}`, repository: { isPrivate } } : kind === "DraftIssue" ? { __typename: kind, title: "Draft planning note", body: "Draft body", createdAt: first.toISOString(), updatedAt: first.toISOString() } : null };
 }
 function detail(id: string) {
-  return { id, title: "Public issue", body: "Public body", url: "https://github.com/home-assistant/architecture/issues/235", number: 235, createdAt: first.toISOString(), updatedAt: first.toISOString(), repository: { isPrivate: false, nameWithOwner: "home-assistant/architecture" }, comments: { totalCount: 30, nodes: [{ id: "comment1", body: "Public follow-up", author: { login: "author" }, url: "https://github.com/home-assistant/architecture/issues/235#issuecomment-1", createdAt: first.toISOString(), updatedAt: first.toISOString() }] } };
+  return { id, title: "Public issue", body: "Public body", url: "https://github.com/home-assistant/architecture/issues/235", author: { login: "planner", name: "Public Planner" }, number: 235, createdAt: first.toISOString(), updatedAt: first.toISOString(), repository: { isPrivate: false, nameWithOwner: "home-assistant/architecture" }, comments: { totalCount: 30, nodes: [{ id: "comment1", body: "Public follow-up", author: { login: "author", name: "Public Commenter" }, url: "https://github.com/home-assistant/architecture/issues/235#issuecomment-1", createdAt: first.toISOString(), updatedAt: first.toISOString() }] } };
 }
 
 test("roadmap paginates complete board and fetches only public issue details", async () => {
@@ -30,7 +30,10 @@ test("roadmap paginates complete board and fetches only public issue details", a
     calls.push(variables);
     if (variables.ids) {
       assert.deepEqual(variables.ids, ["issue-public1", "issue-public2"]);
-      return { nodes: (variables.ids as string[]).map(detail) } as T;
+      return { nodes: (variables.ids as string[]).map((id, index) => {
+        const issue = detail(id);
+        return index === 0 ? issue : { ...issue, author: null, comments: { ...issue.comments, nodes: issue.comments.nodes.map((comment) => ({ ...comment, author: { login: "helper[bot]" } })) } };
+      }) } as T;
     }
     return { node: { id: source.project_id, public: true, url: source.url, items: variables.after ? { nodes: [boardItem("public2"), boardItem("draft", "DraftIssue")], pageInfo: { hasNextPage: false, endCursor: "end" } } : { nodes: [boardItem("public1"), boardItem("private", "Issue", true), boardItem("redacted", "REDACTED")], pageInfo: { hasNextPage: true, endCursor: "next" } } } } as T;
   };
@@ -42,8 +45,31 @@ test("roadmap paginates complete board and fetches only public issue details", a
   assert.equal(records[0].deliveryStatus, "On track");
   assert.equal(records[0].commentCount, 30);
   assert.equal(records[0].comments[0].author, "author");
+  assert.equal(records[0].comments[0].authorName, "Public Commenter");
+  assert.deepEqual(records[0].author, { login: "planner", name: "Public Planner" });
+  assert.equal(records[1].author, undefined);
+  assert.equal(records[1].comments[0].author, "helper[bot]");
+  assert.equal(records[1].comments[0].authorName, null);
   assert.equal(records[2].type, "DraftIssue");
   assert.ok(!JSON.stringify(records).includes("private"));
+});
+
+test("roadmap author enrichment stays backward compatible and does not create news deltas", async (t) => {
+  const directory = await mkdtemp(resolve(tmpdir(), "roadmap-authors-"));
+  t.after(() => rm(directory, { recursive: true, force: true }));
+  const previous: RoadmapItem = { ...item(), commentCount: 1, comments: [{ id: "comment1", url: `${item().url}#issuecomment-1`, author: "commenter", body: "Public comment", createdAt: first.toISOString(), updatedAt: first.toISOString() }] };
+  await recordRoadmapObservation(directory, source.project_id, [previous], first);
+  assert.equal((await readRoadmapStore(directory))[0].author, undefined);
+  const enriched: RoadmapItem = { ...previous, author: { login: "planner", name: "Public Planner" }, comments: previous.comments.map((comment) => ({ ...comment, authorName: "Public Commenter" })) };
+  assert.deepEqual(await recordRoadmapObservation(directory, source.project_id, [enriched], second), { baseline: false, written: 1, changed: 0 });
+  const latest = (await readRoadmapStore(directory))[0];
+  assert.deepEqual(latest.author, enriched.author);
+  assert.equal(latest.comments[0].authorName, "Public Commenter");
+  assert.deepEqual(latest.changedFields, []);
+  assert.equal(latest.lastChangedAt, null);
+  assert.equal(queryRoadmap([latest], { changedSince: first.toISOString() }).length, 0);
+  const renamed = { ...enriched, author: { ...enriched.author!, name: "Updated Public Name" }, comments: enriched.comments.map((comment) => ({ ...comment, authorName: "Updated Commenter Name" })) };
+  assert.equal((await recordRoadmapObservation(directory, source.project_id, [renamed], new Date("2026-09-11T10:00:00Z"))).changed, 0);
 });
 
 test("baseline does not become a flood of additions; real changes and metadata are separate", async (t) => {

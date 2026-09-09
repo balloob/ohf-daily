@@ -292,11 +292,13 @@ function roadmapContextSummary(record: RoadmapSnapshot): object {
   return {
     id: record.id, title: record.title, url: record.url, repository: record.repository, number: record.number,
     status: record.status, mainProject: record.mainProject, area: record.area,
+    author: record.author ?? null,
     problem: record.body.slice(0, 360), contentCreatedAt: record.contentCreatedAt,
     contentUpdatedAt: record.contentUpdatedAt, observedAt: record.observedAt,
     changeKind: record.changeKind, revision: record.revision, present: record.present,
     latestComment: latestComment ? {
       id: latestComment.id, url: latestComment.url, author: latestComment.author,
+      authorName: latestComment.authorName ?? null,
       createdAt: latestComment.createdAt, updatedAt: latestComment.updatedAt,
       excerpt: latestComment.body.slice(0, 500),
     } : null,

@@ -5,6 +5,7 @@ export interface RoadmapComment {
   id: string;
   url: string;
   author: string | null;
+  authorName?: string | null;
   body: string;
   createdAt: string;
   updatedAt: string;
@@ -19,6 +20,7 @@ export interface RoadmapItem {
   title: string;
   body: string;
   url: string;
+  author?: { login: string; name: string | null };
   repository: string | null;
   number: number | null;
   status: string | null;
@@ -111,7 +113,7 @@ export async function recordRoadmapObservation(directory: string, projectId: str
     const before = previous.get(item.id);
     const changedFields = before ? changedRoadmapFields(before, item) : [];
     if (before && !before.present) changedFields.push("present");
-    const metadataChanged = before && (before.itemUpdatedAt !== item.itemUpdatedAt || before.contentUpdatedAt !== item.contentUpdatedAt || JSON.stringify(before.comments) !== JSON.stringify(item.comments));
+    const metadataChanged = before && (before.itemUpdatedAt !== item.itemUpdatedAt || before.contentUpdatedAt !== item.contentUpdatedAt || JSON.stringify(before.comments) !== JSON.stringify(item.comments) || JSON.stringify(before.author) !== JSON.stringify(item.author));
     if (before && before.present && changedFields.length === 0 && !metadataChanged) continue;
     const changeKind = baseline ? "baseline" : !before ? "added" : "updated";
     records.push({ ...item, schemaVersion: 1, revision: (before?.revision ?? 0) + 1, previousRevision: before?.revision ?? null,

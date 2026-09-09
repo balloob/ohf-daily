@@ -50,6 +50,7 @@ Publisher-confirmed events in `data/sources.yaml` under `confirmed_events` are a
 - Body paragraphs must be grounded in cited pull requests and distinguish evidence from cautious inference. Explicitly check that reporting or discovery is not described as setup or provisioning, and that library/protocol groundwork is not described as an available downstream feature.
 - Prefer concise articles whose paragraphs each add a new fact. Cut implementation tours, repeated continuity, and PR-description phrasing.
 - Retain contributor credit when multiple PRs form a story.
+- Retain natural, source-backed human attribution in roadmap articles and, where useful, sidebar summaries. Name the proposer, shaper, rewriter, or approver using a verified public name (or exact handle when unavailable), without conflating those roles or implying sole authorship. Do not edit people out merely to make the story sound institutional.
 - Preserve factual first-contributor recognition from reporter evidence. A brief welcome is encouraged; never infer personal details.
 - Retain only media URLs supplied by reporters. Videos must have `type: video`; screenshots and still images use `type: image`.
 - Never fabricate a quotation, roadmap promise, release date, benchmark, user impact, contributor identity, PR, image, or video.
