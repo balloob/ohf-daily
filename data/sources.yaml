@@ -11,6 +11,13 @@ release_horizon_days: 45
 # community dates such as Community Day to appear in time for planning.
 event_horizon_days: 90
 
+# Public plans are collected as observations; initial collection establishes a
+# baseline, and editorial selection remains with the newsroom.
+roadmap_source:
+  enabled: true
+  project_id: PVT_kwDOCX3lqc4BTbD7
+  url: https://github.com/orgs/OpenHomeFoundation/projects/8
+
 # Dates supplied directly by the publisher; carried into upcoming editions.
 confirmed_events:
   # Home Assistant was founded September 17, 2013; update the age each year.
@@ -228,6 +235,10 @@ editorial:
 # enabled track; the editor decides whether the evidence and recent cadence
 # justify publishing it in a particular edition.
 editorial_tracks:
+  - slug: roadmap
+    name: Public plans and implementation
+    prompt: prompts/tracks/roadmap.md
+    enabled: true
   - slug: new-devices
     name: New devices and capabilities
     prompt: prompts/tracks/new-devices.md

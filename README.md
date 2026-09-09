@@ -1,6 +1,6 @@
 # OHF Daily
 
-OHF Daily is a newspaper-style account of the previous 24 hours across the Open Home Foundation ecosystem. It reports the changes that matter across public code, official blogs, and corroborated outside coverage; tracks upcoming releases; and preserves every edition in a year/month archive. Routine dependency updates remain in local reporting data but never surface in the publication.
+OHF Daily is a newspaper-style account of the previous 24 hours across the Open Home Foundation ecosystem. It reports the changes that matter across public code, public roadmap opportunities, official blogs, and corroborated outside coverage; tracks upcoming releases; and preserves every edition in a year/month archive. Routine dependency updates remain in local reporting data but never surface in the publication.
 
 The static site is built with [Astro](https://astro.build/) for desktop and mobile and published through GitHub Pages. Coverage is configured for Home Assistant, **Home Assistant Libraries**, HACS, ESPHome, Music Assistant, Sendspin, Improv Wi-Fi, the Open Home Foundation, OHF Voice, Matter.js, Z-Wave JS, Zigpy, and related public organizations.
 
@@ -23,6 +23,8 @@ npm run build
 The plan resolver accepts the structured `{ "articles": [...], "events": [...] }` result described by the reporter/editor prompts. It derives pull-request links, official sources, contributor profiles, reviewer/approver credit, allowed media, and public event dates only from ignored local evidence stores. It rejects partial plans and missing release-day leads. Always run media optimization after the final resolve, because resolving a revised plan restores its verified remote media URLs before the optimizer writes local responsive variants.
 
 The exact agent choreography and publish checklist live in `AGENTS.md`; keep that file current whenever editorial or operational policy changes.
+
+Plans may also contain `roadmapSourceIds` on an article. These resolve against the ignored roadmap store into public issue links with their observed status. A roadmap opportunity can support a standalone article; implementation stories can cite both the roadmap opportunity and their supporting pull requests. Existing plans without that field remain valid, and applying a plan preserves the edition's original reporting window.
 
 ## Optional one-command API pipeline
 
@@ -99,7 +101,7 @@ The newsroom instructions are normal, reviewable Markdown files:
 - `prompts/beats/*.md` adds organization-specific guidance without duplicating the shared evidence and tone rules.
 - `prompts/tracks/*.md` defines cross-organization editorial lenses such as new devices, reliability, community, documentation, and releases.
 
-Organizations answer **where to look**; editorial tracks answer **what story might be forming**. Tracks are never daily quotas. Reporter agents receive recent published-article context and may return no proposal when a track lacks evidence or ran too recently. A configured scheduled stable release day is the deliberate exception: its release article is the headline lead. Beta, prerelease, release-candidate, and patch coverage remains optional and must add enough human value beyond the release rail.
+Organizations answer **where to look**; editorial tracks answer **what story might be forming**. Tracks are never filler quotas. Reporter agents receive recent published-article context and may return no proposal when an ordinary track lacks evidence or ran too recently. Public roadmap changes are the coverage exception: every eligible actual opportunity change is covered, grouped where useful. A configured scheduled stable release day also requires its release article as the headline lead. Beta, prerelease, release-candidate, and patch coverage remains optional and must add enough human value beyond the release rail.
 
 The collector performs a one-time GitHub lookup for each repository/author pair to identify a genuinely first merged contribution. It also fetches each contributor's public display name, avatar, and profile URL once, then keeps both results in the ignored local contributor cache. Those contributors receive a concise welcome in the article; the milestone is never guessed from the partial local PR history or by the model.
 
@@ -125,6 +127,18 @@ node --import tsx scripts/query-prs.ts --repo home-assistant/core --label "integ
 ```
 
 The monthly shards and `data/cache/` are local working data and are never committed. GitHub Actions persists them together through `actions/cache`; local runs keep them directly on disk.
+
+## Public roadmap
+
+Configured public GitHub Projects are collected by the same downloader into ignored, append-only monthly snapshots under `data/roadmap/`. Each snapshot keeps the issue text, comments, project fields, source timestamps, and factual changed fields. The initial snapshot is a **baseline**, not a claim that every existing opportunity was announced today. Later revisions let reporters compare changes locally without repeatedly querying GitHub.
+
+Use `scripts/query-roadmap.ts` to find an opportunity by repository and issue number, project, status, or text, and to inspect its history. Draft cards and Draft-stage items are excluded by default. `Considering` and `Shaping` opportunities are eligible for coverage, but prompts keep their exploratory status clear: a priority, effort estimate, delivery status, or `Done` label is not a release promise.
+
+[`prompts/tracks/roadmap.md`](prompts/tracks/roadmap.md) steers this beat. Every actual change to an eligible public opportunity receives coverage. Agents choose grouping, wording, and placement; code only collects and compares facts. Related changes or coherent batches can share an ordinary article, and opportunities can provide context for implementation. There is no roadmap sidebar or requirement for one article per card, and no fixed article-count cap. Reporters, editor, and reviewer account for every eligible change. Transport-only timestamps do not count; initial bootstrap does not make the backlog new, but fresh substantive issue/comment statements can independently establish changes that need coverage.
+
+Both editorial paths use the store. Codex reporters query it locally and cite `roadmapSourceIds`; API reporters receive current deltas and baseline context plus a `query_roadmap_history` tool. Only the selected source ledger belongs in the published edition; the roadmap database stays local with the other caches.
+
+Roadmap collection uses the installed `gh` CLI and needs read access to the public GitHub Project. Locally it can use the configured GitHub account when the environment's read-only token cannot read Projects; it never exports that account's token. For a hosted manual API run, configure the optional repository secret `OHF_READ_TOKEN` with appropriate public-repository and Projects read access (`read:project` for a classic token). The workflow uses that secret when present and otherwise tries its built-in token; a repository token is not guaranteed access to an organization Project. An unavailable roadmap read produces a collection warning, not a fabricated empty board or deletions.
 
 ## Official blogs and Google Alerts
 

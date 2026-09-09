@@ -65,7 +65,7 @@ const externalSourceGroups = articleExternalSources.reduce<Map<string, Editorial
     {visibleMedia.length > 0 && (
       <div class="article-media" aria-label="Article media">
         {visibleMedia.map((item: EditorialMedia, index) => (
-          <figure>
+          <figure class:list={{ portrait: item.type === "image" && Boolean(item.width && item.height && item.height > item.width) }}>
             {item.type === "video" ? (
               <video controls playsinline preload="metadata" poster={item.poster && isSafeMediaUrl(item.poster) ? mediaUrl(item.poster) : undefined} aria-label={item.alt || `Video for ${article.title}`}>
                 <source src={mediaUrl(item.url)} />
@@ -152,7 +152,7 @@ const externalSourceGroups = articleExternalSources.reduce<Map<string, Editorial
                 <h4>{publisher}</h4>
                 <ul>
                   {sources.map((source) => (
-                    <li><a href={source.url} target="_blank" rel="noreferrer">{source.title}<span aria-hidden="true"> ↗</span></a></li>
+                    <li><a href={source.url} target="_blank" rel="noreferrer">{source.title}<span aria-hidden="true"> ↗</span></a>{source.kind === "roadmap" && source.status && <span class="roadmap-status">Roadmap · {source.status}</span>}</li>
                   ))}
                 </ul>
               </div>
@@ -426,6 +426,25 @@ const externalSourceGroups = articleExternalSources.reduce<Map<string, Editorial
     margin-top: 0.4rem;
     color: var(--muted);
     font: 500 0.65rem/1.4 var(--sans);
+  }
+
+  .article-media .portrait picture {
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .article-media .portrait img {
+    width: auto;
+    max-height: min(70svh, 680px);
+    margin-inline: auto;
+  }
+
+  .roadmap-status {
+    display: block;
+    margin-top: 0.25rem;
+    color: var(--muted);
+    font: 500 0.7rem/1.4 var(--sans);
   }
 
   .continuity {

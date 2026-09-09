@@ -18,7 +18,8 @@ The non-negotiable rules are:
 - Query local history when labels, links, authors, or descriptions suggest continuity. For Home Assistant integrations, start with the exact label, such as `integration: solaredge_modbus`.
 - Celebrate a first contribution only when the cached authoritative repository lookup says it is first. Use the cached public profile name and avatar when available.
 - Credit human reviewers and approvers; exclude bots and self-review.
-- Use editorial beats as recurring lenses, not daily quotas. A beat should disappear on a thin or repetitive day.
+- Use editorial beats as recurring lenses, not filler quotas. Public roadmap changes have a specific coverage requirement: every eligible actual opportunity change is covered, grouped where useful. Other beats can disappear on a thin or repetitive day.
+- Follow the public roadmap through `prompts/tracks/roadmap.md`: cover all actual public opportunity changes in ordinary articles or alongside related implementation, never a new sidebar or one forced article per card. Exclude draft cards and Draft-stage items by default. `Considering` and `Shaping` require exploratory language; priority, effort, delivery status, and `Done` do not establish a release date or availability. Code records factual changes; agents decide grouping, wording, and placement. Collection timestamps are not changes; initial baseline is not a new backlog announcement. Reporters, editor, and reviewer must account for every eligible change, including fresh substantive source statements on bootstrap.
 - HACS default-index additions never become individual articles. A positive daily count of new HACS integrations appears in `Just shipped`; zero does not appear.
 - On Monday, consider one substantive recap of the previous Monday through Sunday. Omit it unless it meets `prompts/weekly-recap.md`.
 - On a configured stable release day, the release is the sole lead and uses the official preview source. Follow `prompts/release-day.md`; never publish draft boilerplate or missing-artifact disclaimers.
@@ -50,15 +51,17 @@ Use the current `Europe/Amsterdam` calendar date unless the request names anothe
    node --env-file-if-exists=.env --import tsx scripts/collect.ts --date YYYY-MM-DD
    ```
 
-   This updates the ignored API/feed cache, contributor cache, PR history, and content history, then writes the deterministic dated edition shell. `GH_TOKEN` from `.env` may be used for public read-only collection. Never commit `.env`, tokens, Google Alert URLs, caches, or local history databases.
+   This updates the ignored API/feed cache, contributor cache, PR history, content history, and configured public-roadmap snapshots, then writes the deterministic dated edition shell. `GH_TOKEN` from `.env` may be used for public read-only collection. Never commit `.env`, tokens, Google Alert URLs, caches, or local history databases.
 3. Use parallel subagents when available. Split reporters into concrete, non-overlapping desks, for example:
    - Home Assistant, mobile, frontend, Supervisor, and OS;
    - ESPHome, devices, Z-Wave JS, Matter.js, Zigpy, Bluetooth, Improv Wi-Fi, and the device database;
    - Music Assistant, Sendspin, OHF Voice, Open Home Foundation, HACS, official posts, and external coverage;
    - release/calendar verification when the day contains a beta or release.
+   - public roadmap opportunities and their connections to implementation, when evidence warrants a separate assignment.
 4. Every reporter reads the shared tone and reporter prompts plus relevant `prompts/beats/*.md` and `prompts/tracks/*.md`, inspects current records, and compares recent editions. Reporters return evidence-backed proposals with exact local PR/content IDs and exact supplied media URLs. They do not edit publication files.
-5. After reporting finishes, use a separate chief-editor subagent. The editor reads `prompts/tone.md` and `prompts/editor.md`, recent editions, release context, and all proposals, then returns one structured plan with exactly one lead when articles exist, normally two or three features, and at most two briefs. It should reject filler even if the page becomes shorter.
-   Each plan article contains `id`, `title`, `dek`, `body` (paragraph array), `kind` (`daily` or `weekly_recap`), `placement` (`lead`, `feature`, or `brief`), numeric `score`, `contributors` (login array), `topics`, nullable `continuity`, `pullRequestIds`, `contentSourceIds`, and `media`. Each media item contains `type` (`image` or `video`), the exact evidenced `url`, factual `alt`, nullable `caption`, and nullable `poster`. The same plan contains an `events` array. Each event contains `name`, `date`, nullable `endDate`, `accent`, and one exact official `contentSourceId`; dates must be present in that source.
+   Roadmap reporters also inspect the dedicated local snapshots with `scripts/query-roadmap.ts`. Separate current observed deltas from baseline context, query older revisions before claiming a transition, and connect related implementation through exact source IDs. Initial collection is not evidence that every card is new: account for actual recent issue creation and substantive dated statements, not the whole baseline. Ordinary outside feedback, reference-link maintenance, and transport timestamps do not by themselves change an opportunity; every actual change in its meaning, scope, direction, or status still needs coverage, however small. Preserve the edition's original date and reporting window when applying a revised plan.
+5. After reporting finishes, use a separate chief-editor subagent. The editor reads `prompts/tone.md` and `prompts/editor.md`, recent editions, release context, and all proposals, then returns one structured plan with exactly one lead when articles exist. The number of features and briefs follows the meaningful material; no fixed cap should suppress coverage as sources grow. Reject filler, but cover every eligible actual roadmap opportunity change, grouping related changes or coherent batches where useful.
+   Each plan article contains `id`, `title`, `dek`, `body` (paragraph array), `kind` (`daily` or `weekly_recap`), `placement` (`lead`, `feature`, or `brief`), numeric `score`, `contributors` (login array), `topics`, nullable `continuity`, `pullRequestIds`, `contentSourceIds`, optional `roadmapSourceIds` (exact local IDs; empty or omitted when unused), and `media`. A public roadmap issue can support a standalone article without a PR or blog post; include both kinds of IDs when it contextualizes implementation. Each media item contains `type` (`image` or `video`), the exact evidenced `url`, factual `alt`, nullable `caption`, and nullable `poster`. The same plan contains an `events` array. Each event contains `name`, `date`, nullable `endDate`, `accent`, and one exact official `contentSourceId`; dates must be present in that source.
 6. Save the editor's structured `{ "articles": [...] }` plan to a temporary JSON file and resolve it only against local evidence:
 
    ```sh
@@ -95,6 +98,7 @@ Use all available subagent slots for independent work, but keep sequencing hones
 
 - `data/sources.yaml`: organizations, feeds, releases, calendar, limits, and AI API settings.
 - `data/prs/` and `data/content/`: ignored, append-only local evidence stores.
+- `data/roadmap/`: ignored, append-only public-roadmap snapshots and factual revisions; baseline context is not new daily activity.
 - `data/cache/`: ignored API, feed, release-preview, and contributor caches.
 - `data/editions/`: publishable dated edition JSON.
 - `public/media/YYYY-MM-DD/`: publishable optimized media selected for that edition.
@@ -103,6 +107,7 @@ Use all available subagent slots for independent work, but keep sequencing hones
 - `prompts/editor.md`: selection, grouping, and placement.
 - `prompts/editorial-review.md`: independent pre-publication review.
 - `scripts/query-prs.ts`: local historical PR lookup without a GitHub request.
+- `scripts/query-roadmap.ts`: local roadmap lookup and revision comparison without a GitHub request.
 - `scripts/apply-editorial-plan.ts`: evidence-safe resolver for Codex-produced plans.
 
 If local history is missing in a new clone, collect current data and use `npm run backfill` for the needed historical period before writing continuity. Never infer that ignored local databases are present merely because the framework was cloned.

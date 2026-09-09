@@ -6,6 +6,7 @@ import YAML from "yaml";
 import { readContentStore } from "../src/lib/content-store";
 import { editorialInternals } from "../src/lib/editorial";
 import { readPullRequestStore } from "../src/lib/pr-store";
+import { readRoadmapStore } from "../src/lib/roadmap-store";
 import type { Edition, ReleaseEvent } from "../src/lib/types";
 
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
@@ -39,6 +40,9 @@ async function main(): Promise<void> {
 
   const pullRequests = await readPullRequestStore(resolve(root, "data/prs"));
   const storedContent = await readContentStore(resolve(root, "data/content"));
+  const roadmap = editorialInternals.roadmapEditorialContext(
+    await readRoadmapStore(resolve(root, "data/roadmap"), { history: true }), edition,
+  ).context;
   const scheduledReleaseProducts = edition.releases
     .filter((event) => event.kind === "Release" && event.date === edition.date)
     .map((event) => event.product);
@@ -58,6 +62,7 @@ async function main(): Promise<void> {
     pullRequests,
     [...storedContent, ...releaseContent],
     releaseContent.map((source) => source.id),
+    roadmap,
   );
   if (articles.length !== plan.articles.length) {
     throw new Error(`Editorial resolver accepted ${articles.length} of ${plan.articles.length} articles; refusing a partial edition.`);

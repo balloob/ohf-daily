@@ -75,8 +75,10 @@ export interface ArticleExternalSource {
   title: string;
   url: string;
   publisher: string;
-  publishedAt: string;
-  kind: "official_post" | "external_coverage";
+  publishedAt?: string;
+  kind: "official_post" | "external_coverage" | "roadmap";
+  status?: string | null;
+  observedAt?: string;
 }
 
 export interface ArticleMedia {

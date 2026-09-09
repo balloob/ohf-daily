@@ -8,6 +8,8 @@ import { queryPullRequests, readPullRequestStore, type PullRequestQuery, type St
 import { isHacsIndexAddition } from "./hacs";
 import { calendarEventCandidates, resolveEditorialEvents, type EditorialEventPlan } from "./events";
 import type { ReleaseCycle } from "./releases";
+import { readRoadmapStore, queryRoadmap, type RoadmapSnapshot } from "./roadmap-store";
+import { extractMediaUrls } from "../../scripts/collect";
 
 interface AiConfig {
   model: string;
@@ -57,6 +59,7 @@ interface ReporterProposal {
   continuity: string | null;
   pullRequestIds: string[];
   contentSourceIds: string[];
+  roadmapSourceIds?: string[];
   media: Array<{ type: "image" | "video"; url: string; alt: string; caption: string | null; poster: string | null }>;
 }
 
@@ -93,11 +96,10 @@ const proposalSchema = {
   properties: {
     proposals: {
       type: "array",
-      maxItems: 12,
       items: {
         type: "object",
         additionalProperties: false,
-        required: ["id", "title", "dek", "body", "kind", "score", "contributors", "topics", "continuity", "pullRequestIds", "contentSourceIds", "media"],
+        required: ["id", "title", "dek", "body", "kind", "score", "contributors", "topics", "continuity", "pullRequestIds", "contentSourceIds", "roadmapSourceIds", "media"],
         properties: {
           id: { type: "string" },
           title: { type: "string" },
@@ -110,6 +112,7 @@ const proposalSchema = {
           continuity: { type: ["string", "null"] },
           pullRequestIds: { type: "array", items: { type: "string" } },
           contentSourceIds: { type: "array", items: { type: "string" } },
+          roadmapSourceIds: { type: "array", items: { type: "string" } },
           media: {
             type: "array",
             items: {
@@ -138,7 +141,6 @@ const editorSchema = {
   properties: {
     articles: {
       type: "array",
-      maxItems: 16,
       items: {
         ...(proposalSchema.properties.proposals.items as object),
         required: [...proposalSchema.properties.proposals.items.required, "placement"],
@@ -207,6 +209,89 @@ const contentHistoryTool = {
     },
   },
 } as const;
+
+const roadmapHistoryTool = {
+  type: "function",
+  name: "query_roadmap_history",
+  description: "Query local public roadmap snapshots and their factual revisions. Use an exact repository/issue number or project/text match to connect implementation with an opportunity. Baselines are context, not newly announced work; observed timestamps are not issue or status-change dates. Drafts are excluded.",
+  strict: true,
+  parameters: {
+    type: "object",
+    additionalProperties: false,
+    required: ["repository", "number", "status", "project", "text", "changedSince", "history", "limit"],
+    properties: {
+      repository: { type: ["string", "null"] },
+      number: { type: ["integer", "null"] },
+      status: { type: ["string", "null"] },
+      project: { type: ["string", "null"] },
+      text: { type: ["string", "null"] },
+      changedSince: { type: ["string", "null"] },
+      history: { type: "boolean", description: "Include older revisions to inspect evidenced changes." },
+      limit: { type: "integer", minimum: 1, maximum: 30 },
+    },
+  },
+} as const;
+
+function compactRoadmapRecord(record: RoadmapSnapshot): object {
+  return {
+    ...record,
+    body: (record.body ?? "").slice(0, 6_000),
+    comments: [...record.comments].sort((a, b) => a.createdAt.localeCompare(b.createdAt)).slice(-20)
+      .map((comment) => ({ ...comment, body: comment.body.slice(0, 1_200) })),
+    mediaUrls: roadmapMediaUrls(record),
+  };
+}
+
+function roadmapMediaUrls(record: RoadmapSnapshot): string[] {
+  return extractMediaUrls([record.body, ...record.comments.map((comment) => comment.body)].join("\n"));
+}
+
+function roadmapEditorialContext(records: RoadmapSnapshot[], edition: Edition, now = new Date()) {
+  const today = new Intl.DateTimeFormat("en-CA", { timeZone: edition.timezone, year: "numeric", month: "2-digit", day: "2-digit" }).format(now);
+  // Collection finishes after the rolling PR window ends. Keep that observation
+  // time honest, without shifting the edition's date or PR reporting window.
+  const cutoff = edition.date === today ? now.toISOString() : edition.generatedAt;
+  const observed = records.filter((record) => record.observedAt <= cutoff);
+  const latest = new Map<string, RoadmapSnapshot>();
+  for (const record of [...observed].sort((a, b) => a.observedAt.localeCompare(b.observedAt) || a.revision - b.revision)) latest.set(record.id, record);
+  return {
+    cutoff,
+    context: queryRoadmap([...latest.values()], { includeBaseline: true, includeRemoved: true, limit: Number.MAX_SAFE_INTEGER }),
+    changes: queryRoadmap(observed, { changedSince: edition.windowStart, history: true, includeRemoved: true, limit: Number.MAX_SAFE_INTEGER }),
+    baselineOnly: observed.length > 0 && observed.every((record) => record.changeKind === "baseline"),
+  };
+}
+
+function roadmapContextSummary(record: RoadmapSnapshot): object {
+  const latestComment = [...record.comments].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0];
+  return {
+    id: record.id, title: record.title, url: record.url, repository: record.repository, number: record.number,
+    status: record.status, mainProject: record.mainProject, area: record.area,
+    problem: record.body.slice(0, 360), contentCreatedAt: record.contentCreatedAt,
+    contentUpdatedAt: record.contentUpdatedAt, observedAt: record.observedAt,
+    changeKind: record.changeKind, revision: record.revision, present: record.present,
+    latestComment: latestComment ? {
+      id: latestComment.id, url: latestComment.url, author: latestComment.author,
+      createdAt: latestComment.createdAt, updatedAt: latestComment.updatedAt,
+      excerpt: latestComment.body.slice(0, 500),
+    } : null,
+  };
+}
+
+function roadmapQueryFromArguments(value: string | undefined): Parameters<typeof queryRoadmap>[1] {
+  const parsed = JSON.parse(value ?? "{}") as Record<string, unknown>;
+  return {
+    repository: nullable(parsed.repository),
+    number: typeof parsed.number === "number" ? parsed.number : undefined,
+    status: nullable(parsed.status),
+    project: nullable(parsed.project),
+    text: nullable(parsed.text),
+    changedSince: nullable(parsed.changedSince),
+    history: parsed.history === true,
+    includeBaseline: true,
+    includeRemoved: true,
+  };
+}
 
 function compactRecord(record: StoredPullRequest): object {
   return {
@@ -296,6 +381,7 @@ async function runReporter(
   history: StoredPullRequest[],
   contentHistory: StoredContent[],
   maximumQueries: number,
+  roadmapHistory: RoadmapSnapshot[] = [],
 ): Promise<ReporterProposal[]> {
   let previousResponseId: string | undefined;
   let nextInput: unknown = JSON.stringify(input);
@@ -308,12 +394,12 @@ async function runReporter(
       input: nextInput,
       previous_response_id: previousResponseId,
       reasoning: { effort },
-      tools: [historyTool, contentHistoryTool],
+      tools: [historyTool, contentHistoryTool, roadmapHistoryTool],
       parallel_tool_calls: true,
       text: { format: { type: "json_schema", name: "ohf_reporter_proposals", strict: true, schema: proposalSchema } },
       metadata: { publication: "ohf-daily", stage: "reporter" },
     });
-    const calls = (response.output ?? []).filter((item) => item.type === "function_call" && (item.name === "query_pr_history" || item.name === "query_content_history"));
+    const calls = (response.output ?? []).filter((item) => item.type === "function_call" && ["query_pr_history", "query_content_history", "query_roadmap_history"].includes(item.name ?? ""));
     if (calls.length === 0) {
       if (!response.output_text) throw new Error("Reporter returned neither tool calls nor structured output.");
       return (JSON.parse(response.output_text) as { proposals: ReporterProposal[] }).proposals;
@@ -321,7 +407,11 @@ async function runReporter(
     if (queryCount + calls.length > maximumQueries) throw new Error(`Reporter exceeded its ${maximumQueries}-query local-history budget.`);
     queryCount += calls.length;
     nextInput = calls.map((call) => {
-      const results = call.name === "query_content_history"
+      const results = call.name === "query_roadmap_history"
+        ? queryRoadmap(roadmapHistory, roadmapQueryFromArguments(call.arguments))
+          .slice(0, Math.max(1, Math.min(30, Number(JSON.parse(call.arguments ?? "{}").limit) || 10)))
+          .map(compactRoadmapRecord)
+        : call.name === "query_content_history"
         ? queryContent(contentHistory, contentQueryFromArguments(call.arguments)).map(compactContentRecord)
         : queryPullRequests(history, historyQueryFromArguments(call.arguments)).map(compactRecord);
       return { type: "function_call_output", call_id: call.call_id, output: JSON.stringify({ results }) };
@@ -439,9 +529,11 @@ function resolveArticles(
   records: StoredPullRequest[],
   contentRecords: StoredContent[] = [],
   mandatoryLeadSourceIds: string[] = [],
+  roadmapRecords: RoadmapSnapshot[] = [],
 ): Article[] {
   const byId = new Map(records.filter((record) => !isHacsIndexAddition(record)).map((record) => [String(record.id), record]));
   const contentById = new Map(contentRecords.map((record) => [record.id, record]));
+  const roadmapById = new Map(queryRoadmap(roadmapRecords, { includeBaseline: true, includeRemoved: true, limit: Number.MAX_SAFE_INTEGER }).map((record) => [record.id, record]));
   const seen = new Set<string>();
   const articles: Article[] = [];
   for (const draft of raw) {
@@ -460,11 +552,31 @@ function resolveArticles(
         kind: record.kind,
       }] : [];
     });
+    for (const id of new Set(draft.roadmapSourceIds ?? [])) {
+      const record = roadmapById.get(id);
+      if (!record || record.type !== "Issue" || !record.url || !/^https:\/\/github\.com\/[^/]+\/[^/]+\/issues\/\d+$/.test(record.url)) {
+        throw new Error(`Roadmap source ${id} is missing, draft, or lacks a public issue URL.`);
+      }
+      externalSources.push({
+        id: record.id,
+        title: record.title,
+        url: record.url,
+        publisher: "Open Home Foundation Roadmap",
+        publishedAt: record.contentCreatedAt ?? undefined,
+        kind: "roadmap",
+        status: record.status,
+        observedAt: record.observedAt,
+      });
+    }
     if (sources.length === 0 && externalSources.length === 0) continue;
     if (sources.length === 0 && externalSources.every((source) => source.kind === "external_coverage")) continue;
     const allowedMedia = new Set([
       ...sources.flatMap((source) => byId.get(source.id)?.mediaUrls ?? []),
       ...externalSources.flatMap((source) => contentById.get(source.id)?.mediaUrls ?? []),
+      ...externalSources.flatMap((source) => {
+        const record = roadmapById.get(source.id);
+        return record ? roadmapMediaUrls(record) : [];
+      }),
     ]);
     const media: ArticleMedia[] = draft.media.flatMap((item) => allowedMedia.has(item.url) ? [{
       type: item.type,
@@ -584,6 +696,21 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
   const history = await readPullRequestStore(resolve(options.root, "data/prs"));
   const editorialHistory = history.filter((record) => !isHacsIndexAddition(record));
   const contentHistory = await readContentStore(resolve(options.root, "data/content"));
+  const roadmapHistory = await readRoadmapStore(resolve(options.root, "data/roadmap"), { history: true });
+  const roadmap = roadmapEditorialContext(roadmapHistory, edition);
+  const roadmapInput = {
+    roadmapChanges: roadmap.changes.map(compactRoadmapRecord),
+    roadmapContext: roadmap.context.map(roadmapContextSummary),
+    roadmapBaselineOnly: roadmap.baselineOnly,
+    roadmapObservedThrough: roadmap.cutoff,
+    roadmapRecentOpportunities: roadmap.context
+      .filter((record) => record.contentCreatedAt >= edition.windowStart && record.contentCreatedAt <= roadmap.cutoff)
+      .map(compactRoadmapRecord),
+    roadmapRecentDiscussion: roadmap.context.flatMap((record) => {
+      const comments = record.comments.filter((comment) => comment.updatedAt >= edition.windowStart && comment.updatedAt <= roadmap.cutoff);
+      return comments.length ? [{ id: record.id, title: record.title, status: record.status, comments: comments.map((comment) => ({ ...comment, body: comment.body.slice(0, 1_200) })) }] : [];
+    }),
+  };
   const scheduledReleaseProducts = edition.releases
     .filter((event) => event.kind === "Release" && event.date === edition.date)
     .map((event) => event.product);
@@ -678,10 +805,12 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
         releaseContext,
         pullRequests,
         contentItems,
+        ...roadmapInput,
       },
       editorialHistory,
       allContentHistory,
       config.ai.max_history_queries_per_reporter,
+      roadmapHistory.filter((record) => record.observedAt <= roadmap.cutoff),
     );
   });
   const releaseWork = releaseDay.length > 0 ? runReporter(
@@ -698,10 +827,12 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
       releaseContext,
       pullRequests: current.map(compactRecord),
       contentItems: releaseContent.map((record) => compactContentRecord(record, 12_000)),
+      ...roadmapInput,
     },
     editorialHistory,
     allContentHistory,
     config.ai.max_history_queries_per_reporter,
+    roadmapHistory.filter((record) => record.observedAt <= roadmap.cutoff),
   ) : Promise.resolve([]);
   const [reporterResults, releaseProposals] = await Promise.all([reporterWork, releaseWork]);
   const proposals = reporterResults.flat();
@@ -724,10 +855,12 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
           releaseContext,
           pullRequests: weeklyRecords.map(compactRecord),
           contentItems: queryContent(contentHistory, { since: recap.start, before: recap.end, limit: 10_000 }).map(compactContentRecord),
+          ...roadmapInput,
         },
         editorialHistory,
         allContentHistory,
         config.ai.max_history_queries_per_reporter,
+        roadmapHistory.filter((record) => record.observedAt <= roadmap.cutoff),
       ));
     }
   }
@@ -747,6 +880,7 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
       recentPublishedArticles,
       releaseContext,
       officialCalendarSources,
+      ...roadmapInput,
       proposals,
     }),
     reasoning: { effort: config.ai.reasoning_effort },
@@ -755,7 +889,7 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
   });
   if (!editorResponse.output_text) throw new Error("Editor returned no structured newspaper plan.");
   const raw = JSON.parse(editorResponse.output_text) as { articles: EditorArticle[]; events: EditorialEventPlan[] };
-  const articles = resolveArticles(raw.articles, editorialHistory, allContentHistory, releaseDay.map((release) => release.sourceId));
+  const articles = resolveArticles(raw.articles, editorialHistory, allContentHistory, releaseDay.map((release) => release.sourceId), roadmap.context);
   const events = resolveEditorialEvents(raw.events, contentHistory, edition.date, eventHorizonDays, config.confirmed_events);
   edition.articles = articles;
   edition.releases = [...edition.releases.filter((event) => event.kind !== "Event"), ...events]
@@ -765,4 +899,4 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
   return articles;
 }
 
-export const editorialInternals = { monday, daysBefore, recapBounds, resolveArticles, resolveEditorialEvents, calendarEventCandidates, releasePreviewContent, releasePreviewStatus, historyQueryFromArguments, contentQueryFromArguments, compactRecord, compactContentRecord, loadRecentPublishedArticles, activeBetaWindows };
+export const editorialInternals = { monday, daysBefore, recapBounds, resolveArticles, resolveEditorialEvents, calendarEventCandidates, releasePreviewContent, releasePreviewStatus, historyQueryFromArguments, contentQueryFromArguments, roadmapQueryFromArguments, compactRecord, compactContentRecord, compactRoadmapRecord, roadmapEditorialContext, loadRecentPublishedArticles, activeBetaWindows };

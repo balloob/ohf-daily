@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import YAML from "yaml";
 import { buildReleaseCalendar, type ReleaseCycle } from "../src/lib/releases";
 import { collectContentFeeds, type FeedSourceConfig } from "../src/lib/feed-collector";
+import { collectRoadmap, type RoadmapSourceConfig } from "../src/lib/roadmap-collector";
 import { collectReleasePreviews, type ActiveReleaseTarget, type ReleasePreviewSourceConfig } from "../src/lib/release-previews";
 import { isBotLogin, loadContributorCache, lookupContributorDetails, type ContributorCache } from "../src/lib/contributors";
 import { hacsNewIntegrationSearchQuery, isHacsIndexAddition } from "../src/lib/hacs";
@@ -34,6 +35,7 @@ export interface SourcesConfig {
   briefs_limit: number;
   release_horizon_days?: number;
   feed_sources?: FeedSourceConfig[];
+  roadmap_source?: RoadmapSourceConfig;
   release_sources?: ReleaseSourceConfig[];
   release_preview_sources?: ReleasePreviewSourceConfig[];
   organizations: OrganizationConfig[];
@@ -1025,6 +1027,14 @@ export async function collect(): Promise<CollectionResult> {
     configured: 0,
     warnings: [`Official posts and external coverage could not be collected: ${error instanceof Error ? error.message : String(error)}`],
   }));
+  // Roadmap observations describe collection time, never a reconstructed past
+  // board state. Historical edition runs must not relabel today's plans.
+  const roadmapCollection = editionDate === dateInTimeZone(new Date(), config.timezone)
+    ? collectRoadmap({ root, source: config.roadmap_source }).then((result) => ({ ...result, warnings: [] as string[] })).catch(() => ({
+      items: 0, written: 0, changed: 0, baseline: false,
+      warnings: ["The public OHF roadmap could not be refreshed; no roadmap observation was recorded. Check GitHub CLI authentication and read:project access."],
+    }))
+    : Promise.resolve({ items: 0, written: 0, changed: 0, baseline: false, warnings: [] as string[] });
   const releaseTargets = releaseTargetsForDate(editionDate, releaseCalendar);
   const previewTargets = releasePreviewTargetsForDate(editionDate, releaseCalendar, config.release_cycles);
   const previousReleasePreviews = releaseTargets.length > 0 ? await storedReleasePreviews(editionDate) : [];
@@ -1237,6 +1247,9 @@ export async function collect(): Promise<CollectionResult> {
   const contentFeeds = await contentFeedCollection;
   notes.push(...contentFeeds.warnings);
   console.log(`Content feeds: ${contentFeeds.current.length} current, ${contentFeeds.written} archived, ${contentFeeds.configured} configured.`);
+  const roadmap = await roadmapCollection;
+  notes.push(...roadmap.warnings);
+  if (config.roadmap_source?.enabled) console.log(`Roadmap: ${roadmap.items} public items, ${roadmap.written} stored revisions, ${roadmap.changed} observed changes${roadmap.baseline ? " (initial baseline)" : ""}.`);
 
   const releasePreviews = await releasePreviewCollection;
   notes.push(...releasePreviews.warnings);
