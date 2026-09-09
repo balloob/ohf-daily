@@ -51,6 +51,37 @@ test("resolver rejects unknown, draft-stage and draft-card roadmap references", 
   }
 });
 
+test("roadmap sidebar summaries resolve exact sources without requiring a full article", () => {
+  const [update] = editorialInternals.resolveRoadmapUpdates([{
+    id: "connection-plan", title: "Clearer connections", summary: "A proposal explores a clearer connection view.", roadmapSourceIds: [roadmap.id],
+  }], [roadmap]);
+  assert.equal(update.sources[0].url, roadmap.url);
+  assert.equal(update.sources[0].status, "Considering");
+  assert.equal(update.sources[0].kind, "roadmap");
+  assert.equal(update.articleId, undefined);
+});
+
+test("sidebar article links require an existing related article and public evidence", () => {
+  const articles = editorialInternals.resolveArticles([proposal], [], [], [], [roadmap]);
+  const update = { id: "connection-plan", title: "Clearer connections", summary: "An exploratory proposal.", roadmapSourceIds: [roadmap.id], articleId: proposal.id };
+  assert.equal(editorialInternals.resolveRoadmapUpdates([update], [roadmap], articles)[0].articleId, proposal.id);
+  assert.throws(() => editorialInternals.resolveRoadmapUpdates([{ ...update, articleId: "invented" }], [roadmap], articles), /missing or unrelated/);
+  assert.throws(() => editorialInternals.resolveRoadmapUpdates([{ ...update, roadmapSourceIds: ["missing"] }], [roadmap], articles), /Roadmap source/);
+  assert.throws(() => editorialInternals.resolveRoadmapUpdates([update], [{ ...roadmap, status: "Draft" }], articles), /Roadmap source/);
+  assert.throws(() => editorialInternals.resolveRoadmapUpdates([{ ...update, roadmapSourceIds: [] }], [roadmap], articles), /needs public roadmap evidence/);
+});
+
+test("articles can retain their URLs without competing for the front-page lead", () => {
+  const articles = editorialInternals.resolveArticles([
+    { ...proposal, id: "old-published-url", placement: "lead", frontPage: false },
+    { ...proposal, id: "selected-full-story", placement: "feature" },
+  ], [], [], [], [roadmap]);
+  assert.equal(articles.length, 2);
+  assert.equal(articles.find((article) => article.id === "old-published-url")?.frontPage, false);
+  assert.equal(articles.find((article) => article.id === "selected-full-story")?.placement, "lead");
+  assert.equal(articles.filter((article) => article.frontPage !== false && article.placement === "lead").length, 1);
+});
+
 test("resolver has no 100-item cutoff and keeps the newest roadmap status", () => {
   const records = Array.from({ length: 150 }, (_, i) => ({ ...roadmap, id: `roadmap:${i}` }));
   records.push(roadmap, { ...roadmap, revision: 2, status: "Shaping" });
@@ -103,7 +134,7 @@ test("API newsroom supplies roadmap context and local history and publishes a ro
       return Response.json({ id: "report-two", output_text: JSON.stringify({ proposals: [proposal] }) });
     }
     assert.equal(request.metadata.stage, "editor");
-    return Response.json({ id: "editor", output_text: JSON.stringify({ articles: [proposal], events: [] }) });
+    return Response.json({ id: "editor", output_text: JSON.stringify({ articles: [proposal], events: [], roadmapUpdates: [{ id: "connection-plan", title: "Clearer connections", summary: "An exploratory proposal.", roadmapSourceIds: [roadmap.id], articleId: proposal.id }] }) });
   };
   const articles = await runEditorial({ root, editionPath, apiKey: "test-not-a-secret", fetcher });
   assert.equal(calls, 3);
@@ -111,4 +142,6 @@ test("API newsroom supplies roadmap context and local history and publishes a ro
   const updated = JSON.parse(await readFile(editionPath, "utf8"));
   assert.equal(updated.date, edition.date);
   assert.equal(updated.windowEnd, edition.windowEnd);
+  assert.equal(updated.roadmapUpdates[0].articleId, proposal.id);
+  assert.equal(updated.roadmapUpdates[0].sources[0].url, roadmap.url);
 });

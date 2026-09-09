@@ -114,6 +114,8 @@ export interface Article {
   body: string[];
   kind: "daily" | "weekly_recap";
   placement: "lead" | "feature" | "brief";
+  /** Keep published routes while omitting this article from the front page. */
+  frontPage?: boolean;
   score: number;
   contributors: string[];
   contributorProfiles?: ContributorCredit[];
@@ -124,6 +126,14 @@ export interface Article {
   pullRequests: ArticleSource[];
   externalSources?: ArticleExternalSource[];
   media: ArticleMedia[];
+}
+
+export interface RoadmapUpdate {
+  id: string;
+  title: string;
+  summary: string;
+  sources: ArticleExternalSource[];
+  articleId?: string;
 }
 
 export interface ProjectPulseItem {
@@ -153,6 +163,7 @@ export interface Edition {
   briefs: PullRequestStory[];
   dependencies: DependencyItem[];
   articles?: Article[];
+  roadmapUpdates?: RoadmapUpdate[];
   pulse?: ProjectPulseItem[];
   landedReleases?: LandedRelease[];
   releasePreviews?: ReleasePreview[];

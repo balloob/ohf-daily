@@ -47,6 +47,7 @@ export interface EditorialArticle {
   body: string[];
   kind: "daily" | "weekly_recap";
   placement: "lead" | "feature" | "brief";
+  frontPage?: boolean;
   score: number;
   contributors: string[];
   contributorProfiles?: EditorialContributor[];

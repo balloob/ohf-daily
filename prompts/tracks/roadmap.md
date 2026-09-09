@@ -1,14 +1,23 @@
 # Track: public roadmap and product direction
 
-Follow the public Open Home Foundation roadmap as a source of product intent and the problems people want solved across its projects. Cover every actual change to an eligible public opportunity in normal articles. Related changes or coherent batches can share an article, and an opportunity can supply context for its implementation story. Do not add a dedicated sidebar or force one article per change. The number of articles can grow with the material.
+Follow the public Open Home Foundation roadmap as a source of product intent and the problems people want solved across its projects. Cover every actual change to an eligible public opportunity, normally through concise roadmap-sidebar summaries and selected full articles. Related changes can share a summary or article, and an opportunity can supply context for its implementation story. Do not force a full article per change. Agents choose the useful level of detail, not a code heuristic.
 
 ## What qualifies
 
 - Begin with public opportunities in `Considering` or `Shaping`, not draft-stage items or draft cards. A problem under consideration can matter before implementation exists, but the article must say what is being explored and why people would care.
-- Every actual change to an eligible public opportunity requires coverage: additions, changed problem or scope, status, decisions, priorities, substantive discussion, or removal. A change need not carry its own article; group connected developments or a coherent concise batch. A collection timestamp, transport refresh, or other metadata-only observation is not an opportunity change.
+- Every actual change to an eligible public opportunity requires coverage: additions, changed problem or scope, status, decisions, priorities, substantive discussion, or removal. A short sidebar summary is sufficient when a full article adds little; group connected developments or a coherent concise batch. A collection timestamp, transport refresh, or other metadata-only observation is not an opportunity change.
 - Distinguish an actual opportunity change from activity around it. An outside suggestion or routine comment is not a decision or rewritten proposal; repairing a reference link or refreshing a ledger of already-known implementation is not a new direction. Record that distinction in the coverage audit. Do not use it to dismiss a small actual change in scope, meaning, status, or intent: those still require coverage.
 - Code records factual snapshots and changed fields. Agents decide how to explain, group, and place the changes, not whether to omit an eligible change. Do not defer coverage because a change looks small, the beat ran recently, or an article quota is full.
-- Before returning proposals or an editorial plan, account for every eligible changed opportunity against the articles and their exact source IDs. The independent reviewer repeats this check. A thin day may produce a short grouped report; a busy day may need more articles. Do not fabricate a common theme merely to reduce article count.
+- Before returning proposals or an editorial plan, account for every eligible changed opportunity against visible articles and sidebar summaries with their exact source IDs. The independent reviewer repeats this check. A thin day may need only sidebar summaries; a busy day may merit more full articles. Do not fabricate a common theme merely to reduce article count.
+
+## Sidebar and full-article selection
+
+- The editor returns `roadmapUpdates`: each item has a stable `id`, a short outcome-led `title`, a concise `summary`, exact `roadmapSourceIds`, and optional `articleId` pointing to a related full article in the same edition. Without an article link, readers go to the public opportunity source. One or two clear sentences normally suffice; do not paste an issue description or board-field list.
+- Select full articles for developments whose consequence, complexity, context, or user interest earns deeper explanation. Respect a publisher's explicit request for a full article. Keep summaries brief even when a full story exists; use the link for the detail rather than repeating it.
+- Full articles can be spaced across editions after a change has received its summary, when useful new context or analysis makes a deeper account worthwhile. Do not pretend an old opportunity is new, repeat yesterday's article, or use a fixed promotion schedule. Related opportunities can share a deeper article when they form a real reader outcome.
+- Coverage need not appear twice: a selected full article can cover its opportunity without a duplicate sidebar row. Use sidebar-to-article links when they help navigation, not to inflate the amount of news.
+- Preserve all actual-change coverage across the combination of visible articles and summaries, without forcing every change into a headline story. A roadmap-plus-implementation feature can carry one reader outcome with both kinds of evidence.
+- Preserve already published article IDs and routes when simplifying a page. An existing article may use `frontPage: false` to leave the front page while its page remains accessible in the archive. Link sidebar summaries to selected full articles or directly to their public sources. A hidden, unlinked article alone does not satisfy current coverage.
 
 ## Evidence and language
 

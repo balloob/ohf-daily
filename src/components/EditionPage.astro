@@ -4,6 +4,7 @@ import type { EditorialArticle } from "./article-types";
 import { formatEditionDate } from "../lib/editions";
 import Masthead from "./Masthead.astro";
 import ReleaseRail from "./ReleaseRail.astro";
+import RoadmapRail from "./RoadmapRail.astro";
 import ProjectPulse from "./ProjectPulse.astro";
 import type { PulseItem } from "./article-types";
 import { articleSlug } from "./article-path";
@@ -25,7 +26,7 @@ const previousIsYesterday = Boolean(previousDate)
 const previousLabel = previousIsYesterday ? "Yesterday" : "Previous edition";
 const articleHref = (article: EditorialArticle) => href(`/edition/${encodeURIComponent(edition.date)}/article/${articleSlug(article.id)}/`);
 const editorialArticles = (Array.isArray(edition.articles) ? edition.articles : [])
-  .filter((article) => article?.id && article?.title)
+  .filter((article) => article?.id && article?.title && article.frontPage !== false)
   .sort((a, b) => b.score - a.score);
 const leadArticle = editorialArticles.find((article) => article.placement === "lead");
 const deskArticles = editorialArticles.filter((article) => article.id !== leadArticle?.id);
@@ -37,7 +38,7 @@ const columnFeatures = deskArticles.filter((article) => !signatureArticleIds.has
 const columnBriefs = deskArticles.filter((article) => !signatureArticleIds.has(article.id) && article.placement === "brief");
 const coveredPullRequests = new Set(editorialArticles.flatMap((article) => Array.isArray(article.pullRequests) ? article.pullRequests.map((pullRequest) => pullRequest.id) : []));
 const releaseSourcePullRequests = new Set((edition.landedReleases ?? []).flatMap((release) => release.sourcePullRequestIds ?? []));
-const hasEditorial = editorialArticles.length > 0;
+const hasEditorial = Array.isArray(edition.articles) || Boolean(edition.roadmapUpdates?.length);
 const visibleHighlights = hasEditorial ? [] : edition.highlights.filter(
   (story) => story.id !== edition.lead?.id && !coveredPullRequests.has(story.id) && !releaseSourcePullRequests.has(story.id),
 );
@@ -78,7 +79,7 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
       <h1 id="top-story-heading" class="screen-reader-only">Top story for {formatEditionDate(edition.date)}</h1>
       <StoryCard article={leadArticle} variant="lead" articleHref={articleHref(leadArticle)} />
     </section>
-  ) : edition.lead ? (
+  ) : !hasEditorial && edition.lead ? (
     <section class="lead-section" aria-labelledby="top-story-heading">
       <h1 id="top-story-heading" class="screen-reader-only">Top story for {formatEditionDate(edition.date)}</h1>
       <StoryCard story={edition.lead} variant="lead" showImage={true} />
@@ -156,12 +157,15 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
 
     </div>
 
-    <ReleaseRail
-      releases={edition.releases}
-      landedReleases={edition.landedReleases}
-      hacsNewIntegrations={edition.stats.hacsNewIntegrations}
-      today={edition.date}
-    />
+    <div class="edition-sidebar">
+      <RoadmapRail updates={edition.roadmapUpdates} articles={edition.articles} date={edition.date} />
+      <ReleaseRail
+        releases={edition.releases}
+        landedReleases={edition.landedReleases}
+        hacsNewIntegrations={edition.stats.hacsNewIntegrations}
+        today={edition.date}
+      />
+    </div>
   </div>
 
   <nav class="edition-nav" aria-label="Edition navigation">
@@ -292,10 +296,11 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
     padding-top: 2.2rem;
   }
 
-  .release-rail {
+  .edition-sidebar {
+    display: grid;
+    gap: 1.5rem;
+    min-width: 0;
     align-self: start;
-    position: sticky;
-    top: 1rem;
   }
 
   .rule-heading > span {
@@ -490,11 +495,6 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
     }
 
     .quiet-edition :global(.story-image) {
-      grid-row: 1;
-    }
-
-    .release-rail {
-      position: static;
       grid-row: 1;
     }
 

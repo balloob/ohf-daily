@@ -20,11 +20,13 @@ npm test
 npm run build
 ```
 
-The plan resolver accepts the structured `{ "articles": [...], "events": [...] }` result described by the reporter/editor prompts. It derives pull-request links, official sources, contributor profiles, reviewer/approver credit, allowed media, and public event dates only from ignored local evidence stores. It rejects partial plans and missing release-day leads. Always run media optimization after the final resolve, because resolving a revised plan restores its verified remote media URLs before the optimizer writes local responsive variants.
+The plan resolver accepts the structured `{ "articles": [...], "events": [...], "roadmapUpdates": [...] }` result described by the reporter/editor prompts. It derives pull-request links, official sources, contributor profiles, reviewer/approver credit, allowed media, and public event dates only from ignored local evidence stores. It rejects partial plans and missing release-day leads. Always run media optimization after the final resolve, because resolving a revised plan restores its verified remote media URLs before the optimizer writes local responsive variants.
 
 The exact agent choreography and publish checklist live in `AGENTS.md`; keep that file current whenever editorial or operational policy changes.
 
 Plans may also contain `roadmapSourceIds` on an article. These resolve against the ignored roadmap store into public issue links with their observed status. A roadmap opportunity can support a standalone article; implementation stories can cite both the roadmap opportunity and their supporting pull requests. Existing plans without that field remain valid, and applying a plan preserves the edition's original reporting window.
+
+Top-level `roadmapUpdates` carries sidebar summaries: `{ id, title, summary, roadmapSourceIds, articleId? }`. The resolver writes their exact public `sources` and preserves an optional link to a related full article. Older plans may omit the array. An article's optional `frontPage: false` keeps its published page without showing the article on the front page; omitted means visible. Do not delete published article IDs merely to simplify the layout.
 
 ## Optional one-command API pipeline
 
@@ -134,7 +136,7 @@ Configured public GitHub Projects are collected by the same downloader into igno
 
 Use `scripts/query-roadmap.ts` to find an opportunity by repository and issue number, project, status, or text, and to inspect its history. Draft cards and Draft-stage items are excluded by default. `Considering` and `Shaping` opportunities are eligible for coverage, but prompts keep their exploratory status clear: a priority, effort estimate, delivery status, or `Done` label is not a release promise.
 
-[`prompts/tracks/roadmap.md`](prompts/tracks/roadmap.md) steers this beat. Every actual change to an eligible public opportunity receives coverage. Agents choose grouping, wording, and placement; code only collects and compares facts. Related changes or coherent batches can share an ordinary article, and opportunities can provide context for implementation. There is no roadmap sidebar or requirement for one article per card, and no fixed article-count cap. Reporters, editor, and reviewer account for every eligible change. Transport-only timestamps do not count; initial bootstrap does not make the backlog new, but fresh substantive issue/comment statements can independently establish changes that need coverage.
+[`prompts/tracks/roadmap.md`](prompts/tracks/roadmap.md) steers this beat. Every actual change to an eligible public opportunity receives coverage through concise roadmap-sidebar summaries and selected full articles. Agents choose grouping, depth, wording, and placement; code only collects and compares facts. Related changes can share a summary or story, and opportunities can provide context for implementation. There is no requirement for one article per card, duplicate sidebar/article coverage, or a fixed article-count cap. Reporters, editor, and reviewer account for every eligible change across visible articles and summaries. Full articles can be spaced out when useful new context or analysis warrants revisiting an opportunity, without presenting an old proposal as new. Transport-only timestamps do not count; initial bootstrap does not make the backlog new, but fresh substantive issue/comment statements can independently establish changes that need coverage.
 
 Both editorial paths use the store. Codex reporters query it locally and cite `roadmapSourceIds`; API reporters receive current deltas and baseline context plus a `query_roadmap_history` tool. Only the selected source ledger belongs in the published edition; the roadmap database stays local with the other caches.
 

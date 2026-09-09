@@ -14,7 +14,7 @@ function argument(name: string): string | undefined {
 }
 
 function deterministicFields(edition: Record<string, unknown>): Record<string, unknown> {
-  return Object.fromEntries(Object.entries(edition).filter(([key]) => key !== "articles" && key !== "notes"));
+  return Object.fromEntries(Object.entries(edition).filter(([key]) => key !== "articles" && key !== "roadmapUpdates" && key !== "notes"));
 }
 
 async function regenerate(date: string, apiKey: string): Promise<void> {
@@ -23,8 +23,8 @@ async function regenerate(date: string, apiKey: string): Promise<void> {
   const before = JSON.parse(originalText) as Record<string, unknown> & { notes?: string[] };
   try {
     const articles = await runEditorial({ root, editionPath, apiKey, modelOverride: process.env.OPENAI_MODEL });
-    if (articles.length === 0) throw new Error(`Editorial returned no articles for ${date}.`);
-    const after = JSON.parse(await readFile(editionPath, "utf8")) as Record<string, unknown> & { notes?: string[] };
+    const after = JSON.parse(await readFile(editionPath, "utf8")) as Record<string, unknown> & { notes?: string[]; roadmapUpdates?: unknown[] };
+    if (articles.length === 0 && !after.roadmapUpdates?.length) throw new Error(`Editorial returned no articles or roadmap updates for ${date}.`);
     assert.deepEqual(deterministicFields(after), deterministicFields(before), `Editorial changed deterministic edition data for ${date}.`);
     const generatedPrefix = "AI editorial plan generated";
     const preservedNotes = (before.notes ?? []).filter((note) => !note.startsWith(generatedPrefix));

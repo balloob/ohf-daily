@@ -33,9 +33,10 @@ async function main(): Promise<void> {
   const edition = JSON.parse(await readFile(editionPath, "utf8")) as Edition;
   if (edition.date !== date) throw new Error(`Edition date mismatch: expected ${date}, found ${edition.date}.`);
 
-  const plan = JSON.parse(await readFile(planPath, "utf8")) as { articles?: unknown; events?: unknown };
+  const plan = JSON.parse(await readFile(planPath, "utf8")) as { articles?: unknown; events?: unknown; roadmapUpdates?: unknown };
   if (!Array.isArray(plan.articles)) throw new TypeError("Editorial plan must contain an articles array.");
   if (plan.events !== undefined && !Array.isArray(plan.events)) throw new TypeError("Editorial plan events must be an array when supplied.");
+  if (plan.roadmapUpdates !== undefined && !Array.isArray(plan.roadmapUpdates)) throw new TypeError("Editorial plan roadmapUpdates must be an array when supplied.");
   const config = YAML.parse(await readFile(resolve(root, "data/sources.yaml"), "utf8")) as { event_horizon_days?: number; confirmed_events?: ReleaseEvent[] };
 
   const pullRequests = await readPullRequestStore(resolve(root, "data/prs"));
@@ -67,7 +68,8 @@ async function main(): Promise<void> {
   if (articles.length !== plan.articles.length) {
     throw new Error(`Editorial resolver accepted ${articles.length} of ${plan.articles.length} articles; refusing a partial edition.`);
   }
-  if (articles.length > 0 && articles.filter((article) => article.placement === "lead").length !== 1) {
+  const frontPageArticles = articles.filter((article) => article.frontPage !== false);
+  if (frontPageArticles.length > 0 && frontPageArticles.filter((article) => article.placement === "lead").length !== 1) {
     throw new Error("Editorial plan must resolve to exactly one lead article.");
   }
   const events = editorialInternals.resolveEditorialEvents(
@@ -79,6 +81,9 @@ async function main(): Promise<void> {
   );
 
   edition.articles = articles;
+  edition.roadmapUpdates = editorialInternals.resolveRoadmapUpdates(
+    (plan.roadmapUpdates ?? []) as Parameters<typeof editorialInternals.resolveRoadmapUpdates>[0], roadmap, articles,
+  );
   edition.releases = [...edition.releases.filter((event) => event.kind !== "Event"), ...events]
     .sort((left, right) => left.date.localeCompare(right.date));
   const temporaryPath = `${editionPath}.${process.pid}.tmp`;

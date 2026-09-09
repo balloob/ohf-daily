@@ -3,7 +3,7 @@ import { dirname, resolve } from "node:path";
 import YAML from "yaml";
 import { isBotLogin } from "./contributors";
 import { queryContent, readContentStore, type ContentQuery, type StoredContent } from "./content-store";
-import type { Article, ArticleExternalSource, ArticleMedia, ArticleSource, Edition, ReleaseEvent, ReleasePreview } from "./types";
+import type { Article, ArticleExternalSource, ArticleMedia, ArticleSource, Edition, ReleaseEvent, ReleasePreview, RoadmapUpdate } from "./types";
 import { queryPullRequests, readPullRequestStore, type PullRequestQuery, type StoredPullRequest } from "./pr-store";
 import { isHacsIndexAddition } from "./hacs";
 import { calendarEventCandidates, resolveEditorialEvents, type EditorialEventPlan } from "./events";
@@ -65,6 +65,15 @@ interface ReporterProposal {
 
 interface EditorArticle extends ReporterProposal {
   placement: "lead" | "feature" | "brief";
+  frontPage?: boolean;
+}
+
+interface RoadmapUpdatePlan {
+  id: string;
+  title: string;
+  summary: string;
+  roadmapSourceIds: string[];
+  articleId?: string | null;
 }
 
 interface ResponseOutputItem {
@@ -137,16 +146,32 @@ const proposalSchema = {
 const editorSchema = {
   type: "object",
   additionalProperties: false,
-  required: ["articles", "events"],
+  required: ["articles", "events", "roadmapUpdates"],
   properties: {
     articles: {
       type: "array",
       items: {
         ...(proposalSchema.properties.proposals.items as object),
-        required: [...proposalSchema.properties.proposals.items.required, "placement"],
+        required: [...proposalSchema.properties.proposals.items.required, "placement", "frontPage"],
         properties: {
           ...proposalSchema.properties.proposals.items.properties,
           placement: { type: "string", enum: ["lead", "feature", "brief"] },
+          frontPage: { type: "boolean", description: "True for selected front-page articles. False only to preserve an already published article route without front-page placement." },
+        },
+      },
+    },
+    roadmapUpdates: {
+      type: "array",
+      items: {
+        type: "object",
+        additionalProperties: false,
+        required: ["id", "title", "summary", "roadmapSourceIds", "articleId"],
+        properties: {
+          id: { type: "string" },
+          title: { type: "string" },
+          summary: { type: "string" },
+          roadmapSourceIds: { type: "array", minItems: 1, items: { type: "string" } },
+          articleId: { type: ["string", "null"], description: "Optional related full article ID in this edition; otherwise link the public source." },
         },
       },
     },
@@ -554,19 +579,7 @@ function resolveArticles(
     });
     for (const id of new Set(draft.roadmapSourceIds ?? [])) {
       const record = roadmapById.get(id);
-      if (!record || record.type !== "Issue" || !record.url || !/^https:\/\/github\.com\/[^/]+\/[^/]+\/issues\/\d+$/.test(record.url)) {
-        throw new Error(`Roadmap source ${id} is missing, draft, or lacks a public issue URL.`);
-      }
-      externalSources.push({
-        id: record.id,
-        title: record.title,
-        url: record.url,
-        publisher: "Open Home Foundation Roadmap",
-        publishedAt: record.contentCreatedAt ?? undefined,
-        kind: "roadmap",
-        status: record.status,
-        observedAt: record.observedAt,
-      });
+      externalSources.push(resolveRoadmapSource(id, record));
     }
     if (sources.length === 0 && externalSources.length === 0) continue;
     if (sources.length === 0 && externalSources.every((source) => source.kind === "external_coverage")) continue;
@@ -618,6 +631,7 @@ function resolveArticles(
       body: draft.body.map((paragraph) => paragraph.trim()).filter(Boolean),
       kind: draft.kind,
       placement: draft.placement,
+      ...(draft.frontPage === false ? { frontPage: false } : {}),
       score: Math.max(0, Math.min(100, draft.score)),
       contributors,
       contributorProfiles,
@@ -639,13 +653,45 @@ function resolveArticles(
     throw new Error(`Release-day editorial plan omitted mandatory official source${missingMandatoryIds.length === 1 ? "" : "s"}: ${missingMandatoryIds.join(", ")}`);
   }
 
-  const daily = articles.filter((article) => article.kind === "daily").sort((a, b) => b.score - a.score);
+  for (const article of mandatoryArticles) if (article) article.frontPage = true;
+  const daily = articles.filter((article) => article.kind === "daily" && article.frontPage !== false).sort((a, b) => b.score - a.score);
   if (daily.length > 0) {
     const chosenLead = mandatoryArticles[0] ?? daily.find((article) => article.placement === "lead") ?? daily[0];
     for (const article of daily) if (article.placement === "lead" && article !== chosenLead) article.placement = "feature";
     chosenLead.placement = "lead";
   }
   return articles.sort((a, b) => ({ lead: 0, feature: 1, brief: 2 })[a.placement] - ({ lead: 0, feature: 1, brief: 2 })[b.placement] || b.score - a.score);
+}
+
+function resolveRoadmapSource(id: string, record: RoadmapSnapshot | undefined): ArticleExternalSource {
+  if (!record || record.type !== "Issue" || record.status?.toLowerCase() === "draft" || !record.url || !/^https:\/\/github\.com\/[^/]+\/[^/]+\/issues\/\d+$/.test(record.url)) {
+    throw new Error(`Roadmap source ${id} is missing, draft, or lacks a public issue URL.`);
+  }
+  return {
+    id: record.id, title: record.title, url: record.url, publisher: "Open Home Foundation Roadmap",
+    publishedAt: record.contentCreatedAt ?? undefined, kind: "roadmap", status: record.status, observedAt: record.observedAt,
+  };
+}
+
+function resolveRoadmapUpdates(raw: RoadmapUpdatePlan[], records: RoadmapSnapshot[], articles: Article[] = []): RoadmapUpdate[] {
+  const byId = new Map(queryRoadmap(records, { includeBaseline: true, includeRemoved: true, limit: Number.MAX_SAFE_INTEGER }).map((record) => [record.id, record]));
+  const seen = new Set<string>();
+  return raw.map((draft) => {
+    if (!draft.id?.trim() || seen.has(draft.id.trim()) || !draft.title?.trim() || !draft.summary?.trim()) {
+      throw new Error("Roadmap updates require unique IDs, titles, and summaries.");
+    }
+    seen.add(draft.id.trim());
+    if (!Array.isArray(draft.roadmapSourceIds) || draft.roadmapSourceIds.length === 0) throw new Error(`Roadmap update ${draft.id} needs public roadmap evidence.`);
+    const sources = [...new Set(draft.roadmapSourceIds)].map((id) => resolveRoadmapSource(id, byId.get(id)));
+    const articleId = nullable(draft.articleId);
+    if (articleId) {
+      const article = articles.find((item) => item.id === articleId);
+      if (!article || !article.externalSources?.some((source) => sources.some((item) => item.id === source.id))) {
+        throw new Error(`Roadmap update ${draft.id} references a missing or unrelated article ${articleId}.`);
+      }
+    }
+    return { id: draft.id.trim(), title: draft.title.trim(), summary: draft.summary.trim(), sources, ...(articleId ? { articleId } : {}) };
+  });
 }
 
 function releasePreviewContent(preview: ReleasePreview): StoredContent {
@@ -888,10 +934,11 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
     metadata: { publication: "ohf-daily", stage: "editor" },
   });
   if (!editorResponse.output_text) throw new Error("Editor returned no structured newspaper plan.");
-  const raw = JSON.parse(editorResponse.output_text) as { articles: EditorArticle[]; events: EditorialEventPlan[] };
+  const raw = JSON.parse(editorResponse.output_text) as { articles: EditorArticle[]; events: EditorialEventPlan[]; roadmapUpdates?: RoadmapUpdatePlan[] };
   const articles = resolveArticles(raw.articles, editorialHistory, allContentHistory, releaseDay.map((release) => release.sourceId), roadmap.context);
   const events = resolveEditorialEvents(raw.events, contentHistory, edition.date, eventHorizonDays, config.confirmed_events);
   edition.articles = articles;
+  edition.roadmapUpdates = resolveRoadmapUpdates(raw.roadmapUpdates ?? [], roadmap.context, articles);
   edition.releases = [...edition.releases.filter((event) => event.kind !== "Event"), ...events]
     .sort((left, right) => left.date.localeCompare(right.date));
   edition.notes = [...(edition.notes ?? []), `AI editorial plan generated with ${model} from auditable local prompts, ${editorialHistory.length} editorially eligible stored pull requests, ${contentHistory.length} stored posts or coverage items, and ${releaseContent.length} release-day preview${releaseContent.length === 1 ? "" : "s"}.`];
@@ -899,4 +946,4 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
   return articles;
 }
 
-export const editorialInternals = { monday, daysBefore, recapBounds, resolveArticles, resolveEditorialEvents, calendarEventCandidates, releasePreviewContent, releasePreviewStatus, historyQueryFromArguments, contentQueryFromArguments, roadmapQueryFromArguments, compactRecord, compactContentRecord, compactRoadmapRecord, roadmapEditorialContext, loadRecentPublishedArticles, activeBetaWindows };
+export const editorialInternals = { monday, daysBefore, recapBounds, resolveArticles, resolveRoadmapUpdates, resolveEditorialEvents, calendarEventCandidates, releasePreviewContent, releasePreviewStatus, historyQueryFromArguments, contentQueryFromArguments, roadmapQueryFromArguments, compactRecord, compactContentRecord, compactRoadmapRecord, roadmapEditorialContext, loadRecentPublishedArticles, activeBetaWindows };
