@@ -43,6 +43,8 @@ Publisher-confirmed upcoming dates are stored in `data/sources.yaml` under `conf
 
 ## Codex-native daily publication
 
+For scheduled runs, first read `prompts/daily-publication.md`. Re-anchor to the active target date after interruptions or context compaction; an earlier edition or an unrelated conversation response never satisfies the current publication task.
+
 When the user or a scheduled task asks to generate and publish an edition, Codex itself is the AI newsroom. An `OPENAI_API_KEY` is not needed for this path. Do not call the repository's external OpenAI API pipeline merely because the environment contains or lacks that key.
 
 Use the current `Europe/Amsterdam` calendar date unless the request names another date. A normal run is:
