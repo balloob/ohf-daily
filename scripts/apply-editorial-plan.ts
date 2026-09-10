@@ -4,6 +4,7 @@ import process from "node:process";
 import { fileURLToPath } from "node:url";
 import YAML from "yaml";
 import { readContentStore } from "../src/lib/content-store";
+import { loadContributorCache } from "../src/lib/contributors";
 import { editorialInternals } from "../src/lib/editorial";
 import { readPullRequestStore } from "../src/lib/pr-store";
 import { readRoadmapStore } from "../src/lib/roadmap-store";
@@ -58,12 +59,14 @@ async function main(): Promise<void> {
   }
 
   const releaseContent = releasePreviews.map(editorialInternals.releasePreviewContent);
+  const contributorCache = await loadContributorCache(resolve(root, "data/cache/contributors.json"));
   const articles = editorialInternals.resolveArticles(
     plan.articles as Parameters<typeof editorialInternals.resolveArticles>[0],
     pullRequests,
     [...storedContent, ...releaseContent],
     releaseContent.map((source) => source.id),
     roadmap,
+    Object.values(contributorCache.profiles),
   );
   if (articles.length !== plan.articles.length) {
     throw new Error(`Editorial resolver accepted ${articles.length} of ${plan.articles.length} articles; refusing a partial edition.`);

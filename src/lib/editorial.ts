@@ -1,7 +1,7 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import YAML from "yaml";
-import { isBotLogin } from "./contributors";
+import { isBotLogin, loadContributorCache, type ContributorProfile } from "./contributors";
 import { queryContent, readContentStore, type ContentQuery, type StoredContent } from "./content-store";
 import type { Article, ArticleExternalSource, ArticleMedia, ArticleSource, Edition, ReleaseEvent, ReleasePreview, RoadmapUpdate } from "./types";
 import { queryPullRequests, readPullRequestStore, type PullRequestQuery, type StoredPullRequest } from "./pr-store";
@@ -557,10 +557,15 @@ function resolveArticles(
   contentRecords: StoredContent[] = [],
   mandatoryLeadSourceIds: string[] = [],
   roadmapRecords: RoadmapSnapshot[] = [],
+  cachedProfiles: ContributorProfile[] = [],
 ): Article[] {
   const byId = new Map(records.filter((record) => !isHacsIndexAddition(record)).map((record) => [String(record.id), record]));
   const contentById = new Map(contentRecords.map((record) => [record.id, record]));
   const roadmapById = new Map(queryRoadmap(roadmapRecords, { includeBaseline: true, includeRemoved: true, limit: Number.MAX_SAFE_INTEGER }).map((record) => [record.id, record]));
+  const profilesByLogin = new Map([
+    ...records.flatMap((record) => record.authorProfile ? [record.authorProfile] : []),
+    ...cachedProfiles,
+  ].map((profile) => [profile.login.toLowerCase(), profile]));
   const seen = new Set<string>();
   const articles: Article[] = [];
   for (const draft of raw) {
@@ -608,10 +613,6 @@ function resolveArticles(
       const record = byId.get(source.id);
       return record ? [record] : [];
     });
-    const contributorProfiles = [...new Map(sourceRecords.flatMap((record) => {
-      const profile = record.authorProfile;
-      return profile ? [[profile.login.toLowerCase(), profile] as const] : [];
-    })).values()];
     const uniqueLogins = (logins: string[]): string[] => {
       const seenLogins = new Set<string>();
       return logins.filter((login) => {
@@ -621,9 +622,32 @@ function resolveArticles(
         return true;
       });
     };
-    const contributors = uniqueLogins(sourceRecords
-      .map((record) => record.author)
-      .filter((login) => !isBotLogin(login)));
+    const roadmapPeople = new Map((draft.roadmapSourceIds ?? []).flatMap((sourceId) => {
+      const record = roadmapById.get(sourceId);
+      return record ? [
+        ...(record.author ? [record.author] : []),
+        ...record.comments.flatMap((comment) => comment.author ? [{ login: comment.author, name: comment.authorName ?? null }] : []),
+      ] : [];
+    }).map((person) => [person.login.toLowerCase(), person]));
+    // Participation is evidence of identity, not an automatic byline: the editor
+    // selects the people whose work this particular roadmap story describes.
+    const roadmapContributors = (draft.contributors ?? []).flatMap((login) => {
+      const person = roadmapPeople.get(login.toLowerCase());
+      return person ? [person.login] : [];
+    });
+    const contributors = uniqueLogins([
+      ...sourceRecords.map((record) => record.author),
+      ...roadmapContributors,
+    ].filter((login) => login.toLowerCase() !== "ghost" && !isBotLogin(login)));
+    const contributorProfiles = contributors.flatMap((login) => {
+      const profile = profilesByLogin.get(login.toLowerCase());
+      return profile ? [{
+        login: profile.login,
+        name: profile.name ?? roadmapPeople.get(login.toLowerCase())?.name ?? null,
+        avatarUrl: profile.avatarUrl,
+        profileUrl: profile.profileUrl,
+      }] : [];
+    });
     const humanCredits = (field: "reviewers" | "approvers"): string[] => uniqueLogins(sourceRecords.flatMap((record) => record[field]
       .filter((login) => !isBotLogin(login) && login.toLowerCase() !== record.author.toLowerCase())));
     articles.push({
@@ -937,7 +961,8 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
   });
   if (!editorResponse.output_text) throw new Error("Editor returned no structured newspaper plan.");
   const raw = JSON.parse(editorResponse.output_text) as { articles: EditorArticle[]; events: EditorialEventPlan[]; roadmapUpdates?: RoadmapUpdatePlan[] };
-  const articles = resolveArticles(raw.articles, editorialHistory, allContentHistory, releaseDay.map((release) => release.sourceId), roadmap.context);
+  const contributorCache = await loadContributorCache(resolve(options.root, "data/cache/contributors.json"));
+  const articles = resolveArticles(raw.articles, editorialHistory, allContentHistory, releaseDay.map((release) => release.sourceId), roadmap.context, Object.values(contributorCache.profiles));
   const events = resolveEditorialEvents(raw.events, contentHistory, edition.date, eventHorizonDays, config.confirmed_events);
   edition.articles = articles;
   edition.roadmapUpdates = resolveRoadmapUpdates(raw.roadmapUpdates ?? [], roadmap.context, articles);

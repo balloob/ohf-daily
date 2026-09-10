@@ -6,6 +6,7 @@ import test from "node:test";
 import { editorialInternals, runEditorial } from "../src/lib/editorial";
 import { recordRoadmapObservation, type RoadmapSnapshot } from "../src/lib/roadmap-store";
 import type { Edition } from "../src/lib/types";
+import type { StoredPullRequest } from "../src/lib/pr-store";
 
 const roadmap: RoadmapSnapshot = {
   schemaVersion: 1, id: "roadmap:item", itemId: "item", projectId: "project", projectUrl: "https://github.com/orgs/OpenHomeFoundation/projects/8",
@@ -50,6 +51,48 @@ test("resolver rejects unknown, draft-stage and draft-card roadmap references", 
   for (const sources of [[], [{ ...roadmap, status: "Draft" }], [{ ...roadmap, type: "DraftIssue" as const }]]) {
     assert.throws(() => editorialInternals.resolveArticles([proposal], [], [], [], sources), /Roadmap source/);
   }
+});
+
+test("roadmap bylines credit only selected evidenced people with cached profiles", () => {
+  const profile = { login: "maintainer", name: null, avatarUrl: "https://avatars.githubusercontent.com/u/123", profileUrl: "https://github.com/maintainer" };
+  const source = { ...roadmap, comments: [{ ...roadmap.comments[0], authorName: "Example Maintainer" }] };
+  const unrelated = { ...roadmap, id: "roadmap:uncited", author: { login: "unrelated", name: "Another Person" } };
+  const [article] = editorialInternals.resolveArticles([
+    { ...proposal, contributors: ["MAINTAINER", "maintainer", "invented", "unrelated"] },
+  ], [], [], [], [source, unrelated], [profile, { ...profile, login: "unrelated" }]);
+
+  assert.deepEqual(article.contributors, ["maintainer"]);
+  assert.deepEqual(article.contributorProfiles, [{ ...profile, name: "Example Maintainer" }]);
+  assert.deepEqual(article.reviewers, []);
+  assert.deepEqual(article.approvers, []);
+});
+
+test("roadmap bylines allow the selected proposer but exclude bots and deleted users", () => {
+  const source = { ...roadmap, comments: ["helper[bot]", "ghost"].map((author) => ({ ...roadmap.comments[0], author })) };
+  const [article] = editorialInternals.resolveArticles([
+    { ...proposal, contributors: ["proposer", "helper[bot]", "ghost"] },
+  ], [], [], [], [source]);
+
+  assert.deepEqual(article.contributors, ["proposer"]);
+  // Missing profile evidence uses the ordinary handle fallback, never an invented avatar.
+  assert.deepEqual(article.contributorProfiles, []);
+});
+
+test("roadmap credit deduplicates a PR author case-insensitively", () => {
+  const profile = { login: "maintainer", name: "Example Maintainer", avatarUrl: "https://avatars.githubusercontent.com/u/123", profileUrl: "https://github.com/maintainer" };
+  const pullRequest: StoredPullRequest = {
+    schemaVersion: 1, revision: 1, firstSeenAt: "2026-09-09T03:00:00Z", storedAt: "2026-09-09T03:00:00Z",
+    id: 42, number: 42, url: "https://github.com/home-assistant/core/pull/42", apiUrl: "https://api.github.com/repos/home-assistant/core/pulls/42",
+    repository: "home-assistant/core", organization: "Home Assistant", title: "Clarify connections", body: "Implementation context",
+    author: "MAINTAINER", authorProfile: profile, mergedAt: "2026-09-09T03:00:00Z", githubUpdatedAt: "2026-09-09T03:00:00Z",
+    labels: [], mediaUrls: [], reviewers: [], approvers: [], stats: { additions: 1, changedFiles: 1 }, isDependency: false,
+  };
+  const [article] = editorialInternals.resolveArticles([
+    { ...proposal, contributors: ["maintainer"], pullRequestIds: ["42"] },
+  ], [pullRequest], [], [], [roadmap]);
+
+  assert.deepEqual(article.contributors, ["MAINTAINER"]);
+  assert.deepEqual(article.contributorProfiles, [profile]);
 });
 
 test("roadmap sidebar summaries resolve exact sources without requiring a full article", () => {
