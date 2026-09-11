@@ -263,6 +263,44 @@ test("resolves official posts beside PR evidence and allows an official-only art
   assert.deepEqual(articles[1].externalSources?.map((source) => source.kind), ["official_post"]);
 });
 
+test("credits only evidenced authors of cited official posts, alongside existing contributors", () => {
+  const authorProfile = {
+    login: "missyquarry", name: "Missy Quarry",
+    avatarUrl: "https://avatars.githubusercontent.com/u/159956037?v=4",
+    profileUrl: "https://github.com/missyquarry",
+  };
+  const post = { ...officialPost, author: "Missy Quarry", authorProfile };
+  const otherPost = { ...post, id: "uncited", authorProfile: { ...authorProfile, login: "uncited-author" } };
+  const external = { ...post, id: "external", kind: "external_coverage" as const, authorProfile: { ...authorProfile, login: "external-author" } };
+  const draft = {
+    id: "community-day", title: "Community Day", dek: "Meet the community.", body: ["The official post describes the gathering."],
+    kind: "daily" as const, placement: "lead" as const, score: 90, contributors: ["invented", "uncited-author", "external-author"],
+    topics: ["community"], continuity: null, pullRequestIds: ["42"], contentSourceIds: [post.id, external.id], media: [],
+  };
+  const [article] = editorialInternals.resolveArticles([draft], [record], [post, otherPost, external], [], [], [{ ...authorProfile, name: "Missy" }]);
+  assert.deepEqual(article.contributors, ["frenck", "missyquarry"]);
+  assert.deepEqual(article.contributorProfiles, [record.authorProfile, authorProfile]);
+  assert.deepEqual(article.reviewers, ["human-reviewer"]);
+
+  const [legacyArticle] = editorialInternals.resolveArticles([draft], [record], [{ ...post, authorProfile: undefined }, external], [], [], [authorProfile]);
+  assert.deepEqual(legacyArticle.contributors, ["frenck"]);
+  const [officialOnly] = editorialInternals.resolveArticles([{ ...draft, pullRequestIds: [] }], [], [post]);
+  assert.deepEqual(officialOnly.contributors, ["missyquarry"]);
+});
+
+test("deduplicates official author credit against PR authors and excludes bots", () => {
+  const draft = {
+    id: "shared-credit", title: "Shared work", dek: "People behind the work.", body: ["The sources establish who contributed."],
+    kind: "daily" as const, placement: "lead" as const, score: 80, contributors: [],
+    topics: ["community"], continuity: null, pullRequestIds: ["42"], contentSourceIds: [officialPost.id, "bot-post"], media: [],
+  };
+  const post = { ...officialPost, authorProfile: { ...record.authorProfile!, login: "Frenck" } };
+  const botPost = { ...post, id: "bot-post", authorProfile: { ...post.authorProfile, login: "renovate[bot]" } };
+  const [article] = editorialInternals.resolveArticles([draft], [record], [post, botPost]);
+  assert.deepEqual(article.contributors, ["frenck"]);
+  assert.deepEqual(article.contributorProfiles, [post.authorProfile]);
+});
+
 test("rejects an article supported only by Google Alert coverage", () => {
   const alert: StoredContent = { ...officialPost, id: "google-alert:lead", kind: "external_coverage", source: "Google Alert" };
   const articles = editorialInternals.resolveArticles([{

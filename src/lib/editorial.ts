@@ -635,12 +635,17 @@ function resolveArticles(
       const person = roadmapPeople.get(login.toLowerCase());
       return person ? [person.login] : [];
     });
+    const contentAuthorProfiles = new Map(externalSources.flatMap((source) => {
+      const record = contentById.get(source.id);
+      return record?.kind === "official_post" && record.authorProfile ? [record.authorProfile] : [];
+    }).map((profile) => [profile.login.toLowerCase(), profile]));
     const contributors = uniqueLogins([
       ...sourceRecords.map((record) => record.author),
+      ...[...contentAuthorProfiles.values()].map((profile) => profile.login),
       ...roadmapContributors,
     ].filter((login) => login.toLowerCase() !== "ghost" && !isBotLogin(login)));
     const contributorProfiles = contributors.flatMap((login) => {
-      const profile = profilesByLogin.get(login.toLowerCase());
+      const profile = contentAuthorProfiles.get(login.toLowerCase()) ?? profilesByLogin.get(login.toLowerCase());
       return profile ? [{
         login: profile.login,
         name: profile.name ?? roadmapPeople.get(login.toLowerCase())?.name ?? null,

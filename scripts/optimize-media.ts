@@ -41,7 +41,10 @@ export function isExternalImageUrl(value: string): boolean {
       if (a === 10 || a === 127 || a === 0 || (a === 169 && b === 254) || (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168)) return false;
     }
     if (family === 6 && (hostname === "::1" || hostname === "::" || /^(?:fc|fd|fe[89ab])/i.test(hostname))) return false;
-    return hostname === "github.com" || hostname.endsWith(".githubusercontent.com") || hostname === GITHUB_USER_ASSET_HOST;
+    return hostname === "github.com"
+      || hostname.endsWith(".githubusercontent.com")
+      || hostname === GITHUB_USER_ASSET_HOST
+      || hostname === "www.openhomefoundation.org";
   } catch {
     return false;
   }

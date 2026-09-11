@@ -143,6 +143,44 @@ test("rejects unsafe source URLs and invalid timestamps", async (context) => {
   await assert.rejects(upsertContentStore(directory, [content({ publishedAt: "not-a-date" })]), /publishedAt/);
 });
 
+test("preserves evidenced author profiles through recollection and audits profile changes", async (context) => {
+  const directory = await temporaryStore();
+  context.after(() => rm(directory, { recursive: true, force: true }));
+  const authorProfile = {
+    login: "  missyquarry  ", name: "  Missy Quarry  ",
+    avatarUrl: "https://avatars.githubusercontent.com/u/159956037?v=4&amp;s=80",
+    profileUrl: "https://github.com/missyquarry",
+  };
+  await upsertContentStore(directory, [content({ author: "Missy Quarry", authorProfile })]);
+  assert.deepEqual(await upsertContentStore(directory, [content({ author: "Missy Quarry" })]), { written: 0, unchanged: 1 });
+  const [stored] = await readContentStore(directory);
+  assert.deepEqual(stored.authorProfile, {
+    ...authorProfile, login: "missyquarry", name: "Missy Quarry",
+    avatarUrl: "https://avatars.githubusercontent.com/u/159956037?v=4&s=80",
+  });
+  await upsertContentStore(directory, [content({ author: "Missy Quarry", authorProfile: { ...authorProfile, name: "Missy" } })]);
+  assert.equal((await readContentStore(directory))[0].revision, 2);
+  await upsertContentStore(directory, [content({ author: "Another author" })]);
+  assert.equal((await readContentStore(directory))[0].authorProfile, undefined);
+});
+
+test("rejects unsafe author profiles on writes and stored reads", async (context) => {
+  const directory = await temporaryStore();
+  context.after(() => rm(directory, { recursive: true, force: true }));
+  const profile = { login: "author", name: "Author", avatarUrl: "https://example.com/avatar.png", profileUrl: "https://github.com/author" };
+  for (const authorProfile of [
+    { ...profile, avatarUrl: "http://example.com/avatar.png" },
+    { ...profile, profileUrl: "https://user:secret@example.com/author" },
+    { ...profile, login: " " },
+  ]) {
+    await assert.rejects(upsertContentStore(directory, [content({ authorProfile })]), /invalid author profile/);
+  }
+  await upsertContentStore(directory, [content()]);
+  const [stored] = await readContentStore(directory);
+  await writeFile(resolve(directory, "2026-08.ndjson"), JSON.stringify({ ...stored, authorProfile: { ...profile, profileUrl: "javascript:alert(1)" } }));
+  await assert.rejects(readContentStore(directory), /Invalid content record/);
+});
+
 test("reports corrupt NDJSON with a precise shard line", async (context) => {
   const directory = await temporaryStore();
   context.after(() => rm(directory, { recursive: true, force: true }));

@@ -1,5 +1,6 @@
 import { appendFile, mkdir, readdir, readFile } from "node:fs/promises";
 import { resolve } from "node:path";
+import type { ContributorProfile } from "./contributors";
 
 export type ContentKind = "official_post" | "external_coverage";
 
@@ -12,6 +13,8 @@ export interface StoredContentInput {
   publishedAt: string;
   updatedAt?: string;
   author?: string | null;
+  // Only attach a profile when the publication explicitly establishes this identity.
+  authorProfile?: ContributorProfile;
   body: string | null;
   mediaUrls: string[];
 }
@@ -48,6 +51,16 @@ function safeMediaUrls(values: string[]): string[] {
   }))];
 }
 
+function normalizedAuthorProfile(value: unknown): ContributorProfile | undefined {
+  if (!value || typeof value !== "object") return undefined;
+  const profile = value as Partial<ContributorProfile>;
+  const login = typeof profile.login === "string" ? profile.login.trim() : "";
+  const avatarUrl = typeof profile.avatarUrl === "string" ? safeHttpsUrl(profile.avatarUrl) : undefined;
+  const profileUrl = typeof profile.profileUrl === "string" ? safeHttpsUrl(profile.profileUrl) : undefined;
+  if (!login || !avatarUrl || !profileUrl || (profile.name !== null && typeof profile.name !== "string")) return undefined;
+  return { login, name: profile.name?.trim() || null, avatarUrl, profileUrl };
+}
+
 function normalizedKind(value: ContentKind): ContentKind {
   if (value !== "official_post" && value !== "external_coverage") {
     throw new TypeError("Stored content kind must be official_post or external_coverage.");
@@ -68,6 +81,8 @@ function normalizeInput(input: StoredContentInput): StoredContentInput {
   if (!id || !source || !title) throw new TypeError("Stored content is missing required identity fields.");
   const url = safeHttpsUrl(input.url);
   if (!url) throw new TypeError(`Stored content ${id} must have a safe HTTPS URL.`);
+  const authorProfile = normalizedAuthorProfile(input.authorProfile);
+  if (input.authorProfile !== undefined && !authorProfile) throw new TypeError(`Stored content ${id} has an invalid author profile; identity and safe HTTPS URLs are required.`);
   return {
     ...input,
     id,
@@ -78,6 +93,7 @@ function normalizeInput(input: StoredContentInput): StoredContentInput {
     publishedAt: normalizedTimestamp(input.publishedAt, "publishedAt"),
     updatedAt: input.updatedAt ? normalizedTimestamp(input.updatedAt, "updatedAt") : undefined,
     author: typeof input.author === "string" && input.author.trim() ? input.author.trim() : null,
+    authorProfile,
     body: typeof input.body === "string" ? input.body.trim() || null : null,
     mediaUrls: safeMediaUrls(input.mediaUrls),
   };
@@ -93,6 +109,7 @@ function semanticRecord(record: StoredContent | StoredContentInput): string {
     publishedAt: record.publishedAt,
     updatedAt: record.updatedAt,
     author: record.author,
+    authorProfile: record.authorProfile,
     body: record.body,
     mediaUrls: record.mediaUrls,
   });
@@ -117,6 +134,7 @@ function isStoredContent(value: unknown): value is StoredContent {
     && Number.isSafeInteger(record.revision)
     && typeof record.firstSeenAt === "string"
     && typeof record.storedAt === "string"
+    && (record.authorProfile === undefined || normalizedAuthorProfile(record.authorProfile) !== undefined)
     && Array.isArray(record.mediaUrls)
     && record.mediaUrls.every((url) => typeof url === "string" && safeHttpsUrl(url) !== undefined);
 }
@@ -130,7 +148,7 @@ function canonicalContentKey(record: StoredContent): string {
 }
 
 function recordRichness(record: StoredContent): number {
-  return [record.updatedAt, record.author, record.body, ...record.mediaUrls]
+  return [record.updatedAt, record.author, record.authorProfile, record.body, ...record.mediaUrls]
     .filter((value) => value !== undefined && value !== null && value !== "").length;
 }
 
@@ -189,6 +207,9 @@ function mergeContentInputs(previous: StoredContentInput, incoming: StoredConten
     ...incoming,
     updatedAt: incoming.updatedAt ?? previous.updatedAt,
     author: incoming.author ?? previous.author,
+    authorProfile: incoming.authorProfile ?? (
+      incoming.author && previous.author && incoming.author !== previous.author ? undefined : previous.authorProfile
+    ),
     body: incoming.body ?? previous.body,
     mediaUrls: [...previous.mediaUrls, ...incoming.mediaUrls],
   });

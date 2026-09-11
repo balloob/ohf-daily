@@ -7,6 +7,8 @@ test("accepts public HTTPS media and rejects local or non-HTTPS URLs", () => {
   assert.equal(isExternalImageUrl("https://github.com/user-attachments/assets/example"), true);
   assert.equal(isExternalImageUrl("https://user-images.githubusercontent.com/123/example.png"), true);
   assert.equal(isExternalImageUrl("https://github-production-user-asset-6210df.s3.amazonaws.com/123/example.png"), true);
+  assert.equal(isExternalImageUrl("https://www.openhomefoundation.org/assets/images/blog/community-day/card.webp"), true);
+  assert.equal(isExternalImageUrl("https://www.openhomefoundation.org.example.com/image.png"), false);
   assert.equal(isExternalImageUrl("https://unrelated-bucket.s3.amazonaws.com/example.png"), false);
   assert.equal(isExternalImageUrl("https://example.com/image.png"), false);
   assert.equal(isExternalImageUrl("http://example.com/image.png"), false);
