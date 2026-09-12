@@ -20,7 +20,7 @@ Review every article for:
 - release-day compliance: a configured scheduled stable release must be the headline lead, while a beta, prerelease, release candidate, or patch release needs independent news value to earn article space;
 - release evidence: on a configured stable release day, official release-source features should be described as release contents without draft boilerplate, collection-time prerelease status, missing-build commentary, or `until stable lands` disclaimers; exact `available now` or artifact claims still require supporting metadata;
 - upcoming events: each listed date is important enough to help readers plan, is supported by the cited official post, has not expired, and does not turn routine promotional programming into calendar clutter;
-- continuity and recap quality, including repetition of recent editions;
+- continuity and recap quality: independently read the previous seven published editions when available and compare audience, task, symptom and practical outcome for every article and brief. New source IDs, a different root cause or an acknowledgment of earlier coverage do not establish novelty. For each follow-up, identify the closest earlier article by date and title and verify the material new reader consequence claimed in the editorial audit. A distinction that depends chiefly on implementation detail is a blocking selection finding: omit it, do not merely shorten it or move it to briefs. Check required release-day and actual roadmap-change coverage under their dedicated rules; concise roadmap summaries can avoid redundant full articles without losing mandatory coverage;
 - accurate first-contributor recognition and source-supported human review credit.
 
 Return:
