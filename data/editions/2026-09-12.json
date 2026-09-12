@@ -1,0 +1,1195 @@
+{
+  "date": "2026-09-12",
+  "generatedAt": "2026-09-12T12:29:13.836Z",
+  "windowStart": "2026-09-11T12:27:44.105Z",
+  "windowEnd": "2026-09-12T12:27:44.105Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 160,
+    "repositories": 38,
+    "contributors": 71,
+    "dependencyUpdates": 31,
+    "hacsNewIntegrations": 0
+  },
+  "lead": {
+    "id": "4500991113",
+    "title": "Owner and sharing controls for music sources",
+    "summary": "What does this implement/fix? Music sources now belong to the household or to one member and can be shared with nobody, selected members, all members or everyone (server side in music assistant/server#6255).",
+    "url": "https://github.com/music-assistant/frontend/pull/2716",
+    "repository": "music-assistant/frontend",
+    "organization": "Music Assistant",
+    "author": "marcelveldt",
+    "mergedAt": "2026-09-11T20:20:09Z",
+    "labels": [
+      "enhancement"
+    ],
+    "kind": "platform",
+    "score": 79.3,
+    "additions": 2186,
+    "deletions": 457,
+    "changedFiles": 30
+  },
+  "highlights": [
+    {
+      "id": "4036579668",
+      "title": "Add Bluetooth control for Teslemetry vehicles",
+      "summary": "Breaking change Proposed change Teslemetry vehicle commands always go to the cloud today.",
+      "unlocks": "Unlocks: Add Bluetooth control for Teslemetry vehicles.",
+      "url": "https://github.com/home-assistant/core/pull/176296",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "Bre77",
+      "mergedAt": "2026-09-11T13:02:19Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: platinum",
+        "integration: teslemetry"
+      ],
+      "kind": "feature",
+      "score": 75.3,
+      "additions": 1797,
+      "deletions": 111,
+      "changedFiles": 19
+    },
+    {
+      "id": "4509833509",
+      "title": "Personal Music Assistant playlists: private by default, shareable with other members",
+      "summary": "What does this implement/fix? A Music Assistant playlist now belongs to the household member who created it.",
+      "unlocks": "Unlocks: Personal Music Assistant playlists: private by default, shareable with other members.",
+      "url": "https://github.com/music-assistant/server/pull/6285",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-12T11:35:52Z",
+      "labels": [
+        "new-feature",
+        "dependencies-reviewed"
+      ],
+      "kind": "feature",
+      "score": 74.5,
+      "additions": 1422,
+      "deletions": 58,
+      "changedFiles": 30
+    },
+    {
+      "id": "4504907424",
+      "title": "New look for the artist page with customizable rows",
+      "summary": "What does this implement/fix? The artist page is rebuilt after the new mockups: a full bleed hero with the artist's fanart and play, shuffle and artist radio buttons, followed by rows for…",
+      "unlocks": "Unlocks: New look for the artist page with customizable rows.",
+      "url": "https://github.com/music-assistant/frontend/pull/2720",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "stvncode",
+      "mergedAt": "2026-09-12T11:36:34Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "feature",
+      "score": 72.3,
+      "additions": 5045,
+      "deletions": 669,
+      "changedFiles": 30
+    },
+    {
+      "id": "2971630977",
+      "title": "[bridge] New component and `cdc_acm_uart` platform",
+      "summary": "What does this implement/fix? This PR introduces a new bridge component with an associated cdc acm uart platform that enables ESP32 S2, ESP32 S3, and ESP32 P4 devices to function as USB to UART bridges.",
+      "unlocks": "Unlocks: [bridge] New component and `cdc_acm_uart` platform.",
+      "url": "https://github.com/esphome/esphome/pull/11689",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "kbx81",
+      "mergedAt": "2026-09-12T03:08:24Z",
+      "labels": [
+        "new-component",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "component: usb_cdc_acm",
+        "component: bridge",
+        "component: cdc_acm_uart"
+      ],
+      "kind": "feature",
+      "score": 68.6,
+      "additions": 983,
+      "deletions": 29,
+      "changedFiles": 18
+    }
+  ],
+  "briefs": [
+    {
+      "id": "4506841285",
+      "title": "Share one in-process-first config resolve across the devices controller",
+      "summary": "What does this implement/fix? Three places in the devices controller carried their own copy of the esphome config subprocess ladder (CLI guard, path resolve, EsphomeConfigUnavailableError ,…",
+      "url": "https://github.com/esphome/device-builder/pull/2687",
+      "repository": "esphome/device-builder",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-11T16:50:14Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 63.3,
+      "additions": 520,
+      "deletions": 135,
+      "changedFiles": 17
+    },
+    {
+      "id": "4509747913",
+      "title": "[remote_receiver] Size the RMT ring buffer from receive symbols by default",
+      "summary": "What does this implement/fix? The ESP32 default of buffer size: 10kb per receiver dates from the legacy RMT driver, where the number was the size of the driver's own item ring.",
+      "url": "https://github.com/esphome/esphome/pull/19100",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-11T23:20:41Z",
+      "labels": [
+        "breaking-change",
+        "component: remote_receiver",
+        "has-tests",
+        "medium-pr"
+      ],
+      "kind": "platform",
+      "score": 62.8,
+      "additions": 96,
+      "deletions": 23,
+      "changedFiles": 8
+    },
+    {
+      "id": "4370239919",
+      "title": "Allow multiple media directories for collection_image",
+      "summary": "Allow multiple media directories to be specified, instead of just 1.",
+      "unlocks": "Unlocks: Allow multiple media directories for collection_image.",
+      "url": "https://github.com/home-assistant/core/pull/180337",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "karwosts",
+      "mergedAt": "2026-09-12T08:11:16Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze",
+        "integration: collection_image"
+      ],
+      "kind": "feature",
+      "score": 60,
+      "additions": 242,
+      "deletions": 96,
+      "changedFiles": 6
+    },
+    {
+      "id": "3561103072",
+      "title": "Add Smartthings soundmode using networkaudio",
+      "summary": "Soundbars do not directly expose the soundMode capability, but it is possible using the execute command.",
+      "unlocks": "Unlocks: Add Smartthings soundmode using networkaudio.",
+      "url": "https://github.com/home-assistant/core/pull/168698",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "barryvdh",
+      "mergedAt": "2026-09-11T14:22:33Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "integration: smartthings",
+        "has-tests",
+        "quality scale: bronze",
+        "top 200",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 59.2,
+      "additions": 115,
+      "deletions": 2,
+      "changedFiles": 4
+    },
+    {
+      "id": "4500973658",
+      "title": "[remote_base] Make protocol methods non-virtual and size receiver lists from codegen",
+      "summary": "What does this implement/fix? RemoteProtocol declared encode , decode and dump as virtual, but every caller (transmit actions, dumpers, triggers, binary sensors) goes through the concrete…",
+      "url": "https://github.com/esphome/esphome/pull/19084",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-11T19:12:40Z",
+      "labels": [
+        "component: coolix",
+        "component: remote_base",
+        "component: remote_receiver",
+        "component: toshiba",
+        "has-tests",
+        "core",
+        "component: midea",
+        "component: midea_ir",
+        "developer-breaking-change",
+        "component: ir_rf_proxy",
+        "component: infrared",
+        "undocumented-api-change"
+      ],
+      "kind": "platform",
+      "score": 55.7,
+      "additions": 607,
+      "deletions": 202,
+      "changedFiles": 60
+    },
+    {
+      "id": "4506712072",
+      "title": "fix(model): state what a name in a constraint denotes, and judge a bound by what the value holds",
+      "summary": "What this fixes A constraint may name another element — max HoldTimeMax , in SupportedLocales , min Limits.Low , or a value of its own enumerated type as in add, modify .",
+      "unlocks": "Improves reliability around state what a name in a constraint denotes, and judge a bound by what the value holds.",
+      "url": "https://github.com/matter-js/matter.js/pull/4435",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-09-12T08:50:08Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "fix",
+      "score": 54.3,
+      "additions": 1382,
+      "deletions": 155,
+      "changedFiles": 24
+    },
+    {
+      "id": "3911372126",
+      "title": "Migrate SAJ to a coordinator",
+      "summary": "Migrate SAJ to a coordinator Type of change Dependency upgrade Bugfix (non breaking change which fixes an issue) New integration (thank you!) New feature (which adds functionality to an…",
+      "unlocks": "Unlocks: Migrate SAJ to a coordinator.",
+      "url": "https://github.com/home-assistant/core/pull/174437",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "joostlek",
+      "mergedAt": "2026-09-12T08:34:16Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "integration: saj",
+        "smash",
+        "quality scale: legacy"
+      ],
+      "kind": "feature",
+      "score": 53.3,
+      "additions": 110,
+      "deletions": 314,
+      "changedFiles": 6
+    },
+    {
+      "id": "4398915943",
+      "title": "Add Besen status sensors",
+      "summary": "This adds charging status, charging message, error state, plug state, output state, and current state sensors to the Besen integration.",
+      "unlocks": "Unlocks: Add Besen status sensors.",
+      "url": "https://github.com/home-assistant/core/pull/180887",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "moryoav",
+      "mergedAt": "2026-09-12T08:16:37Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze",
+        "integration: besen"
+      ],
+      "kind": "feature",
+      "score": 53,
+      "additions": 1213,
+      "deletions": 3,
+      "changedFiles": 5
+    },
+    {
+      "id": "4369662352",
+      "title": "Add new sensor for fyta",
+      "summary": "Add a new sensor to track when the FYTA sensor has last been updated.",
+      "unlocks": "Unlocks: Add new sensor for fyta.",
+      "url": "https://github.com/home-assistant/core/pull/180328",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "dontinelli",
+      "mergedAt": "2026-09-12T08:10:33Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "new-feature",
+        "by-code-owner",
+        "quality scale: platinum",
+        "integration: fyta"
+      ],
+      "kind": "feature",
+      "score": 53,
+      "additions": 115,
+      "deletions": 0,
+      "changedFiles": 3
+    },
+    {
+      "id": "4509546063",
+      "title": "Let members pick who to share a music source with",
+      "summary": "What does this implement/fix? A member who shares a music source with selected members has nobody to pick from: the user list ( auth/users ) needs a scope only admins and service accounts…",
+      "url": "https://github.com/music-assistant/server/pull/6284",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-12T11:53:32Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 52.7,
+      "additions": 84,
+      "deletions": 8,
+      "changedFiles": 4
+    },
+    {
+      "id": "4507566853",
+      "title": "Share one list row across the magic item configuration screens",
+      "summary": "AI Policy I have read the Open Home Foundation AI Policy.",
+      "url": "https://github.com/home-assistant/iOS/pull/5743",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "bgoncal",
+      "mergedAt": "2026-09-11T18:47:07Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "platform",
+      "score": 52.4,
+      "additions": 545,
+      "deletions": 271,
+      "changedFiles": 40,
+      "image": "https://raw.githubusercontent.com/home-assistant/iOS/ba634880b5ca5dd4dd9ca3e52f18024b7ac76b14/Tests/App/Settings/__Snapshots__/MagicItemConfigurationLists.test/appIconShortcutsListsItsItems.dark.png"
+    },
+    {
+      "id": "4368633852",
+      "title": "Add system sensors to libreNMS",
+      "summary": "This adds the sensor platform and the first bunch of libreNMS system related sensors.",
+      "unlocks": "Unlocks: Add system sensors to libreNMS.",
+      "url": "https://github.com/home-assistant/core/pull/180300",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "mib1185",
+      "mergedAt": "2026-09-12T08:06:11Z",
+      "labels": [
+        "new-platform",
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze",
+        "integration: librenms"
+      ],
+      "kind": "feature",
+      "score": 52.3,
+      "additions": 542,
+      "deletions": 3,
+      "changedFiles": 7
+    },
+    {
+      "id": "4368637946",
+      "title": "Add re-auth and re-configure flow to libreNMS",
+      "summary": "SSIA Type of change Dependency upgrade Bugfix (non breaking change which fixes an issue) New integration (thank you!) New feature (which adds functionality to an existing integration)…",
+      "unlocks": "Unlocks: Add re-auth and re-configure flow to libreNMS.",
+      "url": "https://github.com/home-assistant/core/pull/180301",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "mib1185",
+      "mergedAt": "2026-09-12T08:08:30Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality-scale",
+        "quality scale: bronze",
+        "integration: librenms"
+      ],
+      "kind": "feature",
+      "score": 51.7,
+      "additions": 359,
+      "deletions": 6,
+      "changedFiles": 4
+    },
+    {
+      "id": "4506069138",
+      "title": "Avoid accessing DeviceEntry.config_entries in tests",
+      "summary": "Avoid accessing DeviceEntry.config entries and DeviceEntry.config entries subentries in tests Rationale: DeviceEntry.config entries and DeviceEntry.config entries subentries are remnants…",
+      "url": "https://github.com/home-assistant/core/pull/181945",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "emontnemery",
+      "mergedAt": "2026-09-11T20:50:21Z",
+      "labels": [
+        "core",
+        "cla-signed",
+        "small-pr",
+        "has-tests",
+        "code-quality"
+      ],
+      "kind": "platform",
+      "score": 50.6,
+      "additions": 276,
+      "deletions": 354,
+      "changedFiles": 46
+    },
+    {
+      "id": "4504732493",
+      "title": "Drop the plugin logo on built-in discover rows",
+      "summary": "What does this implement/fix? The discover page rows fed by the built in Library Recommendations plugin (recently played, in progress, recent albums, favourites…) showed the plugin's own…",
+      "url": "https://github.com/music-assistant/frontend/pull/2719",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-11T21:20:13Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 50.4,
+      "additions": 22,
+      "deletions": 6,
+      "changedFiles": 3
+    },
+    {
+      "id": "4443783512",
+      "title": "[Backport to stable] 2.10.3",
+      "summary": "Automated backport PR for stable release 2.10.3 with cherry picked commits: d8dfe4f Rename the DI provider to Digitally Imported (#6197) 66d291a Show ARD Audiothek episodes in the right…",
+      "url": "https://github.com/music-assistant/server/pull/6199",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "github-actions[bot]",
+      "mergedAt": "2026-09-11T20:52:39Z",
+      "labels": [
+        "dependencies-reviewed"
+      ],
+      "kind": "platform",
+      "score": 50.1,
+      "additions": 4492,
+      "deletions": 653,
+      "changedFiles": 104
+    },
+    {
+      "id": "4510287724",
+      "title": "Shuffle and repeat now work for Spotify Connect and other sources playing on Sonos",
+      "summary": "What does this implement/fix? Shuffle and repeat in Music Assistant did nothing for a source the Sonos speaker plays itself, such as Spotify Connect.",
+      "url": "https://github.com/music-assistant/server/pull/6292",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-12T12:20:18Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 49.3,
+      "additions": 217,
+      "deletions": 33,
+      "changedFiles": 3
+    },
+    {
+      "id": "4476370891",
+      "title": "Improve connectivity checks and errors",
+      "summary": "This PR gives more precise error but also avoid showing that the server is not Home Assistant when the issue is that the second call failed see…",
+      "url": "https://github.com/home-assistant/android/pull/7436",
+      "repository": "home-assistant/android",
+      "organization": "Home Assistant",
+      "author": "TimoPtr",
+      "mergedAt": "2026-09-11T19:50:56Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "platform",
+      "score": 49,
+      "additions": 730,
+      "deletions": 163,
+      "changedFiles": 17,
+      "image": "https://raw.githubusercontent.com/home-assistant/android/38df15a364652e35111af87f23231be0ed7b61a2/app/src/screenshotTestFullDebug/reference/io/homeassistant/companion/android/onboarding/connection/ConnectivityChecksSectionScreenshotTest/ConnectivityChecksSection%20running_0.png"
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Bump waterfurnace to 1.9.2",
+      "url": "https://github.com/home-assistant/core/pull/182019",
+      "repository": "home-assistant/core",
+      "author": "sdague"
+    },
+    {
+      "title": "Bump aioesphomeapi to 46.4.1",
+      "url": "https://github.com/home-assistant/core/pull/181996",
+      "repository": "home-assistant/core",
+      "author": "bdraco"
+    },
+    {
+      "title": "Bump python-duco-connectivity to 0.16.0",
+      "url": "https://github.com/home-assistant/core/pull/181934",
+      "repository": "home-assistant/core",
+      "author": "ronaldvdmeer"
+    },
+    {
+      "title": "Bump qingping-ble to 1.1.6",
+      "url": "https://github.com/home-assistant/core/pull/182009",
+      "repository": "home-assistant/core",
+      "author": "cp296944"
+    },
+    {
+      "title": "Update pnpm to 12.3.4",
+      "url": "https://github.com/home-assistant/core/pull/182002",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump mcp from 1.26.0 to 1.28.1",
+      "url": "https://github.com/home-assistant/core/pull/181970",
+      "repository": "home-assistant/core",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump h2 from 4.3.0 to 4.4.1",
+      "url": "https://github.com/home-assistant/core/pull/181968",
+      "repository": "home-assistant/core",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump asyncssh from 2.21.0 to 2.23.1",
+      "url": "https://github.com/home-assistant/core/pull/181967",
+      "repository": "home-assistant/core",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump sqlparse from 0.5.5 to 0.6.0",
+      "url": "https://github.com/home-assistant/core/pull/181966",
+      "repository": "home-assistant/core",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Update uv to 0.12.10",
+      "url": "https://github.com/home-assistant/core/pull/182003",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency jszip to v3.10.2",
+      "url": "https://github.com/home-assistant/frontend/pull/54132",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump demetriek to 1.4.1",
+      "url": "https://github.com/home-assistant/core/pull/181873",
+      "repository": "home-assistant/core",
+      "author": "joostlek"
+    },
+    {
+      "title": "Bump sass from 1.103.1 to 1.104.0",
+      "url": "https://github.com/home-assistant/works-with.home-assistant.io/pull/108",
+      "repository": "home-assistant/works-with.home-assistant.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump astro from 7.2.10 to 7.3.1",
+      "url": "https://github.com/home-assistant/works-with.home-assistant.io/pull/109",
+      "repository": "home-assistant/works-with.home-assistant.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Update androidx.glance and provide preview for to-do widget",
+      "url": "https://github.com/home-assistant/android/pull/7386",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update pre-commit hook astral-sh/ruff-pre-commit to v0.16.7",
+      "url": "https://github.com/home-assistant-libs/infrared-protocols/pull/146",
+      "repository": "home-assistant-libs/infrared-protocols",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update astral-sh/setup-uv action to v10.1.0",
+      "url": "https://github.com/home-assistant-libs/infrared-protocols/pull/147",
+      "repository": "home-assistant-libs/infrared-protocols",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update pre-commit hook DetachHead/basedpyright-prek-mirror to v1.40.1",
+      "url": "https://github.com/home-assistant-libs/infrared-protocols/pull/149",
+      "repository": "home-assistant-libs/infrared-protocols",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update pre-commit hook astral-sh/ruff-pre-commit to v0.16.7",
+      "url": "https://github.com/home-assistant-libs/aioecowitt/pull/430",
+      "repository": "home-assistant-libs/aioecowitt",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update pre-commit hook astral-sh/ruff-pre-commit to v0.16.7",
+      "url": "https://github.com/home-assistant-libs/python-go2rtc-client/pull/377",
+      "repository": "home-assistant-libs/python-go2rtc-client",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump aioesphomeapi from 46.4.0 to 46.4.1",
+      "url": "https://github.com/esphome/esphome/pull/19104",
+      "repository": "esphome/esphome",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump bundled esphome-device-builder to 1.14.7",
+      "url": "https://github.com/esphome/esphome/pull/19096",
+      "repository": "esphome/esphome",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump pre-commit to 4.6.0 and pytest-aiohttp to 1.1.1",
+      "url": "https://github.com/music-assistant/aiosonos/pull/160",
+      "repository": "music-assistant/aiosonos",
+      "author": "marcelveldt"
+    },
+    {
+      "title": "Bump vitest from 4.1.10 to 4.1.11",
+      "url": "https://github.com/music-assistant/frontend/pull/2713",
+      "repository": "music-assistant/frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump mypy from 1.18.2 to 2.1.0",
+      "url": "https://github.com/music-assistant/aiosonos/pull/143",
+      "repository": "music-assistant/aiosonos",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump ruff from 0.15.10 to 0.15.17",
+      "url": "https://github.com/music-assistant/aiosonos/pull/152",
+      "repository": "music-assistant/aiosonos",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump pytest from 9.0.3 to 9.1.0",
+      "url": "https://github.com/music-assistant/aiosonos/pull/153",
+      "repository": "music-assistant/aiosonos",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Build(deps-dev): Bump isort from 8.0.1 to 9.0.1",
+      "url": "https://github.com/music-assistant/models/pull/390",
+      "repository": "music-assistant/models",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): bump bleak-retry-connector from 4.6.3 to 4.7.0",
+      "url": "https://github.com/Bluetooth-Devices/xiaomi-ble/pull/371",
+      "repository": "Bluetooth-Devices/xiaomi-ble",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): bump bluetooth-data-tools from 1.29.21 to 1.29.24",
+      "url": "https://github.com/Bluetooth-Devices/xiaomi-ble/pull/370",
+      "repository": "Bluetooth-Devices/xiaomi-ble",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(pre-commit.ci): pre-commit autoupdate",
+      "url": "https://github.com/Bluetooth-Devices/bleak-esphome/pull/432",
+      "repository": "Bluetooth-Devices/bleak-esphome",
+      "author": "pre-commit-ci[bot]"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 70,
+      "thisWeek": 737,
+      "sinceRelease": 925,
+      "lastReleaseDate": "2026-09-02"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 37,
+      "thisWeek": 171,
+      "sinceRelease": 21,
+      "lastReleaseDate": "2026-09-11"
+    },
+    {
+      "product": "ESPHome",
+      "today": 11,
+      "thisWeek": 158,
+      "sinceRelease": 511,
+      "lastReleaseDate": "2026-08-19"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "music-assistant/server:387336193",
+      "product": "Music Assistant",
+      "repository": "music-assistant/server",
+      "name": "2.10.3",
+      "tag": "2.10.3",
+      "url": "https://github.com/music-assistant/server/releases/tag/2.10.3",
+      "publishedAt": "2026-09-11T21:30:36Z",
+      "channel": "stable",
+      "accent": "rust"
+    },
+    {
+      "id": "home-assistant/core:387291621",
+      "product": "Home Assistant",
+      "repository": "home-assistant/core",
+      "name": "2026.9.2",
+      "tag": "2026.9.2",
+      "url": "https://github.com/home-assistant/core/releases/tag/2026.9.2",
+      "publishedAt": "2026-09-11T19:40:36Z",
+      "channel": "stable",
+      "accent": "blue",
+      "sourcePullRequestIds": [
+        "4508959289"
+      ]
+    }
+  ],
+  "releases": [
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-09-16",
+      "version": "2026.9",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant’s 13th birthday",
+      "kind": "Event",
+      "date": "2026-09-17",
+      "accent": "blue"
+    },
+    {
+      "product": "OHF Summit · Lisbon",
+      "kind": "Event",
+      "date": "2026-09-22",
+      "endDate": "2026-09-24",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-09-30",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-10-21",
+      "version": "2026.10",
+      "accent": "green"
+    },
+    {
+      "product": "Open Home Foundation Community Day",
+      "kind": "Event",
+      "date": "2026-11-07",
+      "accent": "blue",
+      "url": "https://www.openhomefoundation.org/blog/countdown-to-community-day-2026-starts-now/",
+      "sourceId": "open-home-foundation-blog:c10ad4759bc887b20b0fd3a5"
+    }
+  ],
+  "notes": [],
+  "articles": [
+    {
+      "id": "teslemetry-controls-cars-over-bluetooth",
+      "title": "Teslemetry gives Tesla commands a local Bluetooth route",
+      "dek": "Optional pairing lets Home Assistant control a nearby car even when its mobile connection or the cloud is unreachable.",
+      "body": [
+        "Tesla owners using Teslemetry gain a local route for commands from Home Assistant. Optional Bluetooth pairing sends commands directly to a nearby car, keeping control possible when the car’s mobile connection or the cloud is unreachable.",
+        "Brett Adams adds automatic fallback to the cloud for individual commands when Bluetooth cannot handle them. Existing controls stay in their familiar places in Home Assistant, so the new connection works through the vehicle entities people already use.",
+        "A companion correction closes the Bluetooth link if an unexpected error interrupts pairing. A failed authorization attempt therefore does not leave the connection open."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 92,
+      "contributors": [
+        "Bre77"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "Bre77",
+          "name": "Brett Adams",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2647914?v=4",
+          "profileUrl": "https://github.com/Bre77"
+        }
+      ],
+      "reviewers": [
+        "erwindouna",
+        "MartinHjelmare"
+      ],
+      "approvers": [
+        "erwindouna",
+        "MartinHjelmare"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Local control"
+      ],
+      "pullRequests": [
+        {
+          "id": "4036579668",
+          "title": "Add Bluetooth control for Teslemetry vehicles",
+          "url": "https://github.com/home-assistant/core/pull/176296",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4509639022",
+          "title": "Disconnect Bluetooth link on unexpected pairing-task exception in Teslemetry",
+          "url": "https://github.com/home-assistant/core/pull/181989",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-turns-esp32-boards-into-usb-serial-adapters",
+      "title": "ESPHome turns ESP32 boards into USB serial adapters",
+      "dek": "A new bridge connects a computer to serial equipment for debugging, programming and reading data.",
+      "body": [
+        "Makers gain a way to use an ESPHome board as the USB connection to another device’s serial port. A new bridge supports ESP32-S2, ESP32-S3 and ESP32-P4 boards, carrying data in both directions for console access, sensor logging or programming a device with a serial bootloader.",
+        "Keith Burzinski’s component follows the computer’s chosen connection speed and data format, and can carry reset and bootloader signals through optional pins. Multiple bridges can serve separate ports on one board.",
+        "The implementation was tested on an ESP32-S3 development board with a CH340 serial adapter, including a two-way run at 460,800 baud with no dropped data or checksum errors. J. Nick Koston reviewed the work."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 90,
+      "contributors": [
+        "kbx81"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "kbx81",
+          "name": "Keith Burzinski",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/21233191?v=4",
+          "profileUrl": "https://github.com/kbx81"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "topics": [],
+      "pullRequests": [
+        {
+          "id": "2971630977",
+          "title": "[bridge] New component and `cdc_acm_uart` platform",
+          "url": "https://github.com/esphome/esphome/pull/11689",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "4501484551",
+          "title": "[uart] Add apply_settings_live() for in-place ESP-IDF reconfiguration",
+          "url": "https://github.com/esphome/esphome/pull/19087",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-shows-who-can-use-a-music-source",
+      "title": "Music Assistant puts music sharing controls in view",
+      "dek": "Administrators gain an access dialog, while personal playlists acquire their own sharing rules.",
+      "body": [
+        "Music Assistant gives household administrators a visible way to choose who owns a music source and who may use it. The source settings show ownership and sharing together, and an Access dialog edits them. This supplies the interface for the private-account controls reported yesterday.",
+        "Marcel van der Veldt also extends ownership to playlists created in Music Assistant. New personal playlists start private and can be shared with chosen members, all members or everyone, with a separate choice to allow shared editing. Existing playlists keep their household access; playlists supplied by a music service follow that service’s sharing.",
+        "Personal-playlist controls still need their interface, and members’ source-management pages await role permissions. Squeezebox menus and the server’s AI tools continue to list every playlist because those requests carry no user identity. Administrators also get a clear explanation when a member’s music sources must be reassigned before the account can become a guest."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 88,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant",
+        "Privacy",
+        "Households"
+      ],
+      "continuity": "The interface follows yesterday’s server-side source ownership; personal playlists add another layer of household sharing.",
+      "pullRequests": [
+        {
+          "id": "4500991113",
+          "title": "Owner and sharing controls for music sources",
+          "url": "https://github.com/music-assistant/frontend/pull/2716",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "4509833509",
+          "title": "Personal Music Assistant playlists: private by default, shareable with other members",
+          "url": "https://github.com/music-assistant/server/pull/6285",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4509583218",
+          "title": "Add owner and sharing record to playlists",
+          "url": "https://github.com/music-assistant/models/pull/399",
+          "repository": "music-assistant/models"
+        },
+        {
+          "id": "4508443209",
+          "title": "Refuse making a user a guest while it owns music sources",
+          "url": "https://github.com/music-assistant/server/pull/6282",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4512361151",
+          "title": "Show the server's reason when saving a user fails",
+          "url": "https://github.com/music-assistant/frontend/pull/2724",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "4509546063",
+          "title": "Let members pick who to share a music source with",
+          "url": "https://github.com/music-assistant/server/pull/6284",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4509754001",
+          "title": "Add a public summary of a user account",
+          "url": "https://github.com/music-assistant/models/pull/400",
+          "repository": "music-assistant/models"
+        }
+      ],
+      "externalSources": [],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-09-12/music-assistant-shows-who-can-use-a-music-source-f9c309151107-1600w.webp",
+          "alt": "Music Assistant music source cards showing ownership and sharing settings",
+          "width": 1600,
+          "height": 1075,
+          "variants": [
+            {
+              "url": "/media/2026-09-12/music-assistant-shows-who-can-use-a-music-source-f9c309151107-480w.webp",
+              "width": 480,
+              "height": 323,
+              "bytes": 6506,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-09-12/music-assistant-shows-who-can-use-a-music-source-f9c309151107-960w.webp",
+              "width": 960,
+              "height": 645,
+              "bytes": 18406,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-09-12/music-assistant-shows-who-can-use-a-music-source-f9c309151107-1600w.webp",
+              "width": 1600,
+              "height": 1075,
+              "bytes": 34772,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 59684
+        }
+      ]
+    },
+    {
+      "id": "local-speech-recognition-starts-without-internet",
+      "title": "Local speech recognition starts without an internet check",
+      "dek": "Cached models load directly from disk instead of stalling an isolated voice server.",
+      "body": [
+        "A local voice server with its speech model already downloaded should not need the internet to start. OHF Voice’s Wyoming Faster Whisper server tries its cached models first, avoiding a Hugging Face connection that could stall startup and send an isolated container into a restart loop.",
+        "Michael Hansen applies the approach across the supported recognition backends. A missing model can still trigger a download; the explicit local-files-only option instead fails immediately when the model is absent. The correction also makes FunASR respect the chosen model directory."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 87,
+      "contributors": [
+        "synesthesiam"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "synesthesiam",
+          "name": "Michael Hansen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2743976?v=4",
+          "profileUrl": "https://github.com/synesthesiam"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "OHF Voice",
+        "Local control",
+        "Reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4507958470",
+          "title": "Load cached models without contacting the hub",
+          "url": "https://github.com/OHF-Voice/wyoming-faster-whisper/pull/123",
+          "repository": "OHF-Voice/wyoming-faster-whisper"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "watch-assist-opens-from-action-button-and-waits",
+      "title": "Apple Watch gives Assist a button and time to listen",
+      "dek": "A new watch control joins a recording fix that stops quiet pauses from sending unfinished requests.",
+      "body": [
+        "On watchOS 26 and later, Apple Watch owners gain a Control Center shortcut to Home Assistant’s voice assistant, and Apple Watch Ultra owners can also open it with the Action button. The control opens the assistant configured for the watch.",
+        "A companion fix lets the wearer decide when a request is finished. Assist previously stopped recording after three seconds below its silence threshold, sometimes sending an incomplete request even though the screen said to tap to send. Recording instead ends when the wearer taps."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 82,
+      "contributors": [
+        "bgoncal"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bgoncal",
+          "name": "Bruno Pantaleão Gonçalves",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5808343?v=4",
+          "profileUrl": "https://github.com/bgoncal"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4507137998",
+          "title": "Add Assist control for the Apple Watch Ultra Action button",
+          "url": "https://github.com/home-assistant/iOS/pull/5741",
+          "repository": "home-assistant/iOS"
+        },
+        {
+          "id": "4505870378",
+          "title": "Remove silence detection from Apple Watch Assist",
+          "url": "https://github.com/home-assistant/iOS/pull/5740",
+          "repository": "home-assistant/iOS"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "rejseplanen-departures-return-through-new-service",
+      "title": "Danish departure boards reconnect through Rejseplanen’s new service",
+      "dek": "The integration replaces the retired interface and moves setup into Home Assistant, with an API key required.",
+      "body": [
+        "Home Assistant’s Rejseplanen integration reconnects Danish public-transport departures through the service’s newer interface. The overhaul replaces a connection to the old service, which the contributor says closed in December 2024.",
+        "Setup moves from YAML into Home Assistant’s configuration flow, where selected stops provide sensors for their next departures. An API key from Rejseplanen is required, and the integration requests fresh data every five minutes to respect the service’s limits.",
+        "The old sensors’ extra attributes are removed; a proposed action for retrieving richer data is still future work. Jacob Warrer makes his first contribution to Home Assistant Core with the overhaul."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 86,
+      "contributors": [
+        "Jawar19"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "Jawar19",
+          "name": "Jacob Warrer",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/55600239?v=4",
+          "profileUrl": "https://github.com/Jawar19"
+        }
+      ],
+      "reviewers": [
+        "jandahl",
+        "joostlek",
+        "MartinHjelmare"
+      ],
+      "approvers": [
+        "joostlek"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "2824019046",
+          "title": "Rejseplan api 2 0",
+          "url": "https://github.com/home-assistant/core/pull/152200",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "assist-italian-asks-for-music",
+      "title": "Assist understands Italian requests to find and play media",
+      "dek": "Commands can name a track, artist or other media and choose where it should play.",
+      "body": [
+        "Italian speakers gain Assist phrases for searching a media library and playing the result. Francesco Sappa adds requests for songs, artists, albums, playlists, podcasts and other supported media, with an optional player or room.",
+        "The language rules account for Italian articles and connecting words so they do not become part of the search itself. The change works through the existing media-search intent and was reviewed by auanasgheps."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 65,
+      "contributors": [
+        "sappafrancesco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "sappafrancesco",
+          "name": "Francesco Sappa",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/252796783?v=4",
+          "profileUrl": "https://github.com/sappafrancesco"
+        }
+      ],
+      "reviewers": [
+        "auanasgheps"
+      ],
+      "approvers": [
+        "auanasgheps"
+      ],
+      "topics": [
+        "OHF Voice",
+        "Languages"
+      ],
+      "pullRequests": [
+        {
+          "id": "4499619099",
+          "title": "[it] Add HassMediaSearchAndPlay (search and play media)",
+          "url": "https://github.com/OHF-Voice/intents/pull/4189",
+          "repository": "OHF-Voice/intents"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ],
+  "roadmapUpdates": []
+}
