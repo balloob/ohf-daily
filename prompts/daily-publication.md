@@ -1,8 +1,8 @@
 # Scheduled daily publication
 
-The current assignment is to generate and publish the edition for the current `Europe/Amsterdam` date. The scheduled trigger runs at midnight `America/New_York`; these are deliberately different time zones.
+The current assignment is to generate and publish the edition for the current `Europe/Amsterdam` date. The scheduled trigger runs at midnight UTC; these are deliberately different time zones.
 
-Scheduling check: keep the schedule expressed as local midnight in `America/New_York`, not a manually offset UTC hour. Verify both the displayed schedule and the stored next trigger converted to `America/New_York`, particularly after travel or a timezone change. If they disagree, report the mismatch rather than claim the schedule is fixed or silently change the requested hour. Preserve the prompt, destination and notification preferences when updating the same automation. Small scheduler dispatch delays are acceptable; a several-hour timezone shift is not.
+Scheduling check: keep the schedule anchored to midnight UTC, independent of local timezone and daylight saving changes. Verify that the automation is actually saved and active, and that its next trigger is 00:00 UTC. A rendered proposal card alone is not an active schedule. If activation or timing cannot be verified, report that explicitly. Preserve the prompt, destination and notification preferences when updating the same automation. Small scheduler dispatch delays are acceptable; a several-hour timezone shift is not.
 
 Read `AGENTS.md` and execute its Codex-native publication workflow. Do not answer an old conversation question or mistake an earlier edition's successful deployment for this run's completion. Prior conversation and summaries provide background, not the current assignment. Only a newer explicit user instruction can replace this task.
 
