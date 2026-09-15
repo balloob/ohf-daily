@@ -1,0 +1,45 @@
+---
+import { formatEditionDate } from "../lib/editions";
+import { previousEditionLabel } from "../lib/edition-navigation";
+
+interface Props {
+  date?: string;
+  previousDate: string;
+}
+
+const { date, previousDate } = Astro.props;
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
+const label = previousEditionLabel(date, previousDate);
+const formattedDate = formatEditionDate(previousDate);
+---
+
+<a
+  class="previous-edition"
+  href={`${base}edition/${previousDate}/`}
+  data-edition-date={date}
+  data-previous-date={previousDate}
+  data-formatted-date={formattedDate}
+  aria-label={`${label}: ${formattedDate}`}
+>← {label}</a>
+
+<script>
+  import { previousEditionLabel } from "../lib/edition-navigation";
+
+  function refreshLabels() {
+    document.querySelectorAll<HTMLAnchorElement>("a[data-previous-date]").forEach((link) => {
+      const label = previousEditionLabel(link.dataset.editionDate, link.dataset.previousDate!);
+      link.textContent = `← ${label}`;
+      link.setAttribute("aria-label", `${label}: ${link.dataset.formattedDate}`);
+    });
+  }
+
+  refreshLabels();
+  document.addEventListener("visibilitychange", refreshLabels);
+</script>
+
+<style>
+  .previous-edition {
+    color: var(--ink);
+    text-decoration-thickness: 1px;
+  }
+</style>

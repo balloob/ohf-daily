@@ -1,5 +1,6 @@
 ---
 import { formatEditionDate } from "../lib/editions";
+import PreviousEditionLink from "./PreviousEditionLink.astro";
 
 interface Props {
   date?: string;
@@ -10,10 +11,6 @@ interface Props {
 const { date, previousDate, section = "The Open Home Foundation world, one day at a time" } = Astro.props;
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
 const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
-const day = 86_400_000;
-const previousIsYesterday = Boolean(date && previousDate)
-  && (Date.parse(`${date}T12:00:00Z`) - Date.parse(`${previousDate}T12:00:00Z`)) / day === 1;
-const previousLabel = previousIsYesterday ? "Yesterday" : "Previous edition";
 ---
 
 <header class="masthead shell">
@@ -22,11 +19,7 @@ const previousLabel = previousIsYesterday ? "Yesterday" : "Previous edition";
     <p class="edition-mark">Independent · Automated · Open</p>
     <div class="utility-links">
       {previousDate && (
-        <a
-          class="previous-edition"
-          href={href(`/edition/${previousDate}/`)}
-          aria-label={`${previousLabel}: ${formatEditionDate(previousDate)}`}
-        >← {previousLabel}</a>
+        <PreviousEditionLink {date} {previousDate} />
       )}
       <a href={href("/archive/")}>Archive</a>
       <a class="rss-link" href={href("/rss.xml")}>RSS</a>
@@ -71,11 +64,6 @@ const previousLabel = previousIsYesterday ? "Yesterday" : "Previous edition";
     gap: 0.85rem;
     justify-self: end;
     white-space: nowrap;
-  }
-
-  .previous-edition {
-    color: var(--ink);
-    text-decoration-thickness: 1px;
   }
 
   .edition-mark {

@@ -3,6 +3,7 @@ import type { Edition } from "../lib/types";
 import type { EditorialArticle } from "./article-types";
 import { formatEditionDate } from "../lib/editions";
 import Masthead from "./Masthead.astro";
+import PreviousEditionLink from "./PreviousEditionLink.astro";
 import ReleaseRail from "./ReleaseRail.astro";
 import RoadmapRail from "./RoadmapRail.astro";
 import ProjectPulse from "./ProjectPulse.astro";
@@ -20,10 +21,6 @@ interface Props {
 const { edition, previousDate, nextDate } = Astro.props;
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
 const href = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
-const day = 24 * 60 * 60 * 1000;
-const previousIsYesterday = Boolean(previousDate)
-  && (Date.parse(`${edition.date}T12:00:00Z`) - Date.parse(`${previousDate}T12:00:00Z`)) / day === 1;
-const previousLabel = previousIsYesterday ? "Yesterday" : "Previous edition";
 const articleHref = (article: EditorialArticle) => href(`/edition/${encodeURIComponent(edition.date)}/article/${articleSlug(article.id)}/`);
 const editorialArticles = (Array.isArray(edition.articles) ? edition.articles : [])
   .filter((article) => article?.id && article?.title && article.frontPage !== false)
@@ -169,7 +166,7 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
   </div>
 
   <nav class="edition-nav" aria-label="Edition navigation">
-    <span>{previousDate && <a href={href(`/edition/${previousDate}/`)}>← {previousLabel}</a>}</span>
+    <span>{previousDate && <PreviousEditionLink date={edition.date} {previousDate} />}</span>
     <a class="all" href={href("/archive/")}>All editions</a>
     <span>{nextDate ? <a href={href(`/edition/${nextDate}/`)}>Newer edition →</a> : "You’re reading the latest"}</span>
   </nav>
