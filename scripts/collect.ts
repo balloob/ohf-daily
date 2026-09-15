@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import YAML from "yaml";
 import { buildReleaseCalendar, type ReleaseCycle } from "../src/lib/releases";
 import { collectContentFeeds, type FeedSourceConfig } from "../src/lib/feed-collector";
+import { collectCommunityMeetups, type CommunityCalendarSource } from "../src/lib/community-meetups";
 import { collectRoadmap, type RoadmapSourceConfig } from "../src/lib/roadmap-collector";
 import { collectReleasePreviews, type ActiveReleaseTarget, type ReleasePreviewSourceConfig } from "../src/lib/release-previews";
 import { isBotLogin, loadContributorCache, lookupContributorDetails, type ContributorCache } from "../src/lib/contributors";
@@ -35,6 +36,8 @@ export interface SourcesConfig {
   briefs_limit: number;
   release_horizon_days?: number;
   feed_sources?: FeedSourceConfig[];
+  community_calendar_sources?: CommunityCalendarSource[];
+  event_horizon_days?: number;
   roadmap_source?: RoadmapSourceConfig;
   release_sources?: ReleaseSourceConfig[];
   release_preview_sources?: ReleasePreviewSourceConfig[];
@@ -1027,6 +1030,11 @@ export async function collect(): Promise<CollectionResult> {
     configured: 0,
     warnings: [`Official posts and external coverage could not be collected: ${error instanceof Error ? error.message : String(error)}`],
   }));
+  const communityMeetupCollection = collectCommunityMeetups({
+    sources: config.community_calendar_sources ?? [],
+    editionDate, timeZone: config.timezone, horizonDays: config.event_horizon_days ?? 90,
+    cacheDirectory: resolve(root, "data/cache/community-calendars"),
+  }).then((meetups) => ({ meetups, error: null }), (error: Error) => ({ meetups: [], error }));
   // Roadmap observations describe collection time, never a reconstructed past
   // board state. Historical edition runs must not relabel today's plans.
   const roadmapCollection = editionDate === dateInTimeZone(new Date(), config.timezone)
@@ -1307,6 +1315,9 @@ export async function collect(): Promise<CollectionResult> {
   const highlights = ranked.slice(1, config.front_page_stories);
   const briefs = ranked.slice(config.front_page_stories, config.front_page_stories + config.briefs_limit);
   const searchSummary = summarizeSearchItems(allSearchItems, config);
+  const community = await communityMeetupCollection;
+  if (community.error) throw community.error;
+  console.log(`Community calendars: ${community.meetups.length} upcoming meetups.`);
   const editionNotes = [...notes, ...(ranked.length === 0 ? ["No editorial stories were found in this reporting window."] : [])];
   const edition: Edition = {
     date: editionDate,
@@ -1329,6 +1340,7 @@ export async function collect(): Promise<CollectionResult> {
     landedReleases,
     releasePreviews: editionReleasePreviews.length > 0 ? editionReleasePreviews : undefined,
     releases: releaseCalendar,
+    communityMeetups: community.meetups,
     notes: editionNotes.length > 0 ? editionNotes : undefined,
   };
 

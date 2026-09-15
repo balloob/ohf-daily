@@ -11,6 +11,18 @@ release_horizon_days: 45
 # community dates such as Community Day to appear in time for planning.
 event_horizon_days: 90
 
+# Public iCalendar subscriptions linked by OHF. These are calendar listings,
+# not article feeds; the release rail collapses them into one meetup row.
+community_calendar_sources:
+  - id: home-assistant-meetups
+    name: Home Assistant Meetups
+    calendar_url: https://luma.com/homeassistant
+    url: https://api.luma.com/ics/get?entity=calendar&id=cal-6Tm2FkWzoBpLXWr
+  - id: ohf-community-day
+    name: Open Home Foundation Community Day
+    calendar_url: https://luma.com/communityday2026
+    url: https://api.luma.com/ics/get?entity=calendar&id=cal-QXZXEJrvB3UaI63
+
 # Public plans are collected as observations; initial collection establishes a
 # baseline, and editorial selection remains with the newsroom.
 roadmap_source:

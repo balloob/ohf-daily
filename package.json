@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "collect": "node --import tsx scripts/collect.ts",
+    "refresh:meetups": "node --import tsx scripts/refresh-community-meetups.ts",
     "collect:demo": "node --import tsx scripts/collect.ts --demo",
     "update": "node --import tsx scripts/update.ts",
     "optimize:media": "node --import tsx scripts/optimize-media.ts",
@@ -23,6 +24,7 @@
     "astro": "^7.2.9",
     "fast-xml-parser": "5.11.1",
     "fast-xml-validator": "1.4.2",
+    "ical.js": "2.2.1",
     "sharp": "^0.35.4",
     "tsx": "^4.23.13",
     "typescript": "^6.0.3",

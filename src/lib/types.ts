@@ -168,5 +168,19 @@ export interface Edition {
   landedReleases?: LandedRelease[];
   releasePreviews?: ReleasePreview[];
   releases: ReleaseEvent[];
+  communityMeetups?: CommunityMeetup[];
   notes?: string[];
+}
+
+export interface CommunityMeetup {
+  id: string;
+  title: string;
+  url: string;
+  date: string;
+  endDate: string;
+  startAt: string;
+  endAt: string;
+  allDay: boolean;
+  location?: string;
+  calendarUrls: string[];
 }

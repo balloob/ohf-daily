@@ -1,15 +1,20 @@
 ---
-import type { LandedRelease, ReleaseEvent } from "../lib/types";
+import type { CommunityMeetup, LandedRelease, ReleaseEvent } from "../lib/types";
 import { releasesForRadar } from "../lib/releases";
+import CommunityMeetups from "./CommunityMeetups.astro";
+import { upcomingCommunityMeetups } from "../lib/community-meetups";
 
 interface Props {
   releases: ReleaseEvent[];
   landedReleases?: LandedRelease[];
   hacsNewIntegrations?: number;
   today?: string;
+  communityMeetups?: CommunityMeetup[];
+  timeZone?: string;
 }
 
-const { releases, landedReleases = [], hacsNewIntegrations, today = new Date().toISOString().slice(0, 10) } = Astro.props;
+const { releases, landedReleases = [], hacsNewIntegrations, today = new Date().toISOString().slice(0, 10), communityMeetups = [], timeZone = "Europe/Amsterdam" } = Astro.props;
+const meetups = upcomingCommunityMeetups(communityMeetups, today);
 const day = 86_400_000;
 const daysUntil = (date: string) => Math.ceil((Date.parse(`${date}T12:00:00Z`) - Date.parse(`${today}T12:00:00Z`)) / day);
 const formatShort = (date: string) => new Intl.DateTimeFormat("en", { day: "numeric", month: "short", timeZone: "UTC" }).format(new Date(`${date}T12:00:00Z`));
@@ -94,7 +99,8 @@ const upcoming = releases
           </li>
         ))}
       </ol>
-    ) : <p class="empty">Nothing scheduled in the next 45 days.</p>}
+    ) : !meetups.length && <p class="empty">Nothing scheduled in the next 45 days.</p>}
+    <CommunityMeetups meetups={meetups} {today} {timeZone} />
   </section>
 </aside>
 
