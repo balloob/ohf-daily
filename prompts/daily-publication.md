@@ -1,8 +1,10 @@
 # Scheduled daily publication
 
-The current assignment is to generate and publish the edition for the current `Europe/Amsterdam` date. The scheduled trigger runs at midnight UTC; these are deliberately different time zones.
+The current assignment is to generate and publish a new edition for the current `Europe/Amsterdam` date. The scheduled trigger runs at midnight (12 a.m.) `America/New_York`, as authorized by the publisher; these are deliberately different time zones. The trigger follows New York daylight saving time.
 
-Scheduling check: keep the schedule anchored to midnight UTC, independent of local timezone and daylight saving changes. Verify that the automation is actually saved and active, and that its next trigger is 00:00 UTC. A rendered proposal card alone is not an active schedule. If activation or timing cannot be verified, report that explicitly. Preserve the prompt, destination and notification preferences when updating the same automation. Small scheduler dispatch delays are acceptable; a several-hour timezone shift is not.
+Preserve the saved, active daily midnight New York schedule, destination and notification preferences. Do not reinterpret it as midnight UTC, change the schedule during a publication run, or substitute a scheduling confirmation for publication.
+
+Every scheduled trigger starts a new publication assignment, with standing authorization to generate the target edition, commit its edition JSON and selected media, push main, verify deployment, and announce it through the Slack MCP. No new publication confirmation is needed for that scheduled edition. A site correction, navigation fix, meetup-calendar update, previous edition, or conversation reply does not fulfill this assignment. If the target edition is already live, verify it and complete any missing announcement without creating a duplicate. Otherwise continue through the entire newsroom workflow until the new edition is published or a concrete blocking failure is reported.
 
 Read `AGENTS.md` and execute its Codex-native publication workflow. Do not answer an old conversation question or mistake an earlier edition's successful deployment for this run's completion. Prior conversation and summaries provide background, not the current assignment. Only a newer explicit user instruction can replace this task.
 

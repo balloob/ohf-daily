@@ -39,7 +39,7 @@ Publisher-confirmed upcoming dates are stored in `data/sources.yaml` under `conf
 - Preserve newspaper hierarchy instead of forcing every story into equal two-up cards. Desktop may use additional columns, while media keeps a natural, deliberate aspect ratio and enough breathing room.
 - On mobile, dialogs become full-screen panels with a visible back button. Do not rely on a tiny close control or desktop modal dimensions.
 - Keep the edition totals and Project Pulse in one compact responsive band. Project rows show only `Today` and `7 days` beside the project name; never restore `Since last release`.
-- The reporting date appears once as edition context rather than repeating in compact rows. Previous-edition navigation should read `Yesterday` only on today's edition (Europe/Amsterdam) when dates are consecutive; older editions and gaps use `Previous`. Use the same black link treatment as the other masthead links and keep the label short on mobile.
+- The reporting date appears once as edition context rather than repeating in compact rows. Previous-edition navigation should read `Yesterday` only on today's edition in the reader's local timezone when dates are consecutive; older editions and gaps use `Previous`. The browser refreshes this label using its local date; the edition's reporting timezone does not decide what is today for the reader. Use the same black link treatment as the other masthead links and keep the label short on mobile.
 - Do not publish the former strapline “Public work, reported daily. Every story links back to its source.” Do not expose editor notes, confidence scores, selection rationale, raw pull-request descriptions, or other newsroom mechanics.
 
 ## Codex-native daily publication
