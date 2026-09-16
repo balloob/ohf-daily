@@ -3,6 +3,8 @@ import type { CommunityMeetup, LandedRelease, ReleaseEvent } from "../lib/types"
 import { releasesForRadar } from "../lib/releases";
 import CommunityMeetups from "./CommunityMeetups.astro";
 import { upcomingCommunityMeetups } from "../lib/community-meetups";
+import { calendarMeetupRows } from "../lib/calendar-meetups";
+import eventGroups from "../../data/community-event-groups.json";
 
 interface Props {
   releases: ReleaseEvent[];
@@ -10,10 +12,9 @@ interface Props {
   hacsNewIntegrations?: number;
   today?: string;
   communityMeetups?: CommunityMeetup[];
-  timeZone?: string;
 }
 
-const { releases, landedReleases = [], hacsNewIntegrations, today = new Date().toISOString().slice(0, 10), communityMeetups = [], timeZone = "Europe/Amsterdam" } = Astro.props;
+const { releases, landedReleases = [], hacsNewIntegrations, today = new Date().toISOString().slice(0, 10), communityMeetups = [] } = Astro.props;
 const meetups = upcomingCommunityMeetups(communityMeetups, today);
 const day = 86_400_000;
 const daysUntil = (date: string) => Math.ceil((Date.parse(`${date}T12:00:00Z`) - Date.parse(`${today}T12:00:00Z`)) / day);
@@ -50,11 +51,7 @@ const upcoming = releases
   }))
   .filter((release) => Number.isFinite(release.remaining) && release.remaining >= 0 && release.remaining <= (release.kind === "Event" ? 90 : 45))
   .sort((left, right) => left.date.localeCompare(right.date));
-const meetupDates = [...new Set(meetups.map((meetup) => meetup.date))];
-const calendarRows = [
-  ...upcoming.map((release) => ({ date: release.date, release, meetups: [] as CommunityMeetup[] })),
-  ...meetupDates.map((date) => ({ date, release: null, meetups: meetups.filter((meetup) => meetup.date === date) })),
-].sort((left, right) => left.date.localeCompare(right.date));
+const calendarRows = calendarMeetupRows(upcoming, meetups, eventGroups);
 ---
 
 <aside class="release-rail" aria-label="Release radar">
@@ -98,6 +95,7 @@ const calendarRows = [
               <span>{formatShort(release.date)}</span>
               <small>{release.remaining === 0 ? "Today" : release.remaining === 1 ? "Tomorrow" : `${release.remaining}d`}</small>
             </time>
+            <div class="event-content">
             {release.url ? (
               <a class="upcoming-name" href={release.url} target="_blank" rel="noreferrer">
                 <strong>{release.product}</strong><small>{detailFor(release)}</small><span class="more-information" aria-hidden="true">›</span>
@@ -105,6 +103,8 @@ const calendarRows = [
             ) : (
               <span class="upcoming-name"><strong>{release.product}</strong><small>{detailFor(release)}</small></span>
             )}
+            {dateMeetups.length > 0 && <div class="event-meetups"><CommunityMeetups meetups={dateMeetups} /></div>}
+            </div>
           </li>
         ) : (
           <li style="--event-accent: var(--green)">
@@ -118,7 +118,7 @@ const calendarRows = [
                 <small>Community meetup{dateMeetups[0].endDate !== date ? ` · through ${formatShort(dateMeetups[0].endDate)}` : ""}</small>
                 <span class="more-information" aria-hidden="true">›</span>
               </a>
-            ) : <CommunityMeetups meetups={dateMeetups} timeZone={timeZone} />}
+            ) : <CommunityMeetups meetups={dateMeetups} />}
           </li>
         ))}
       </ol>
@@ -127,6 +127,9 @@ const calendarRows = [
 </aside>
 
 <style>
+  .event-content { min-width: 0; }
+  .event-meetups { margin-top: 0.65rem; }
+
   .release-rail {
     padding: 0.9rem;
     border: 1px solid var(--rule-dark);
