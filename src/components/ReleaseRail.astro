@@ -17,6 +17,10 @@ const { releases, landedReleases = [], hacsNewIntegrations, today = new Date().t
 const meetups = upcomingCommunityMeetups(communityMeetups, today);
 const day = 86_400_000;
 const daysUntil = (date: string) => Math.ceil((Date.parse(`${date}T12:00:00Z`) - Date.parse(`${today}T12:00:00Z`)) / day);
+const remainingLabel = (date: string) => {
+  const remaining = Math.max(0, daysUntil(date));
+  return remaining === 0 ? "Today" : remaining === 1 ? "Tomorrow" : `${remaining}d`;
+};
 const formatShort = (date: string) => new Intl.DateTimeFormat("en", { day: "numeric", month: "short", timeZone: "UTC" }).format(new Date(`${date}T12:00:00Z`));
 const dateVersion = (date: string) => {
   const [year, month] = date.split("-").map(Number);
@@ -46,6 +50,11 @@ const upcoming = releases
   }))
   .filter((release) => Number.isFinite(release.remaining) && release.remaining >= 0 && release.remaining <= (release.kind === "Event" ? 90 : 45))
   .sort((left, right) => left.date.localeCompare(right.date));
+const meetupDates = [...new Set(meetups.map((meetup) => meetup.date))];
+const calendarRows = [
+  ...upcoming.map((release) => ({ date: release.date, release, meetups: [] as CommunityMeetup[] })),
+  ...meetupDates.map((date) => ({ date, release: null, meetups: meetups.filter((meetup) => meetup.date === date) })),
+].sort((left, right) => left.date.localeCompare(right.date));
 ---
 
 <aside class="release-rail" aria-label="Release radar">
@@ -81,9 +90,9 @@ const upcoming = releases
       <p class="eyebrow">On the horizon</p>
       <h2 id="horizon-heading">Upcoming</h2>
     </div>
-    {upcoming.length ? (
+    {calendarRows.length ? (
       <ol class="upcoming-list">
-        {upcoming.map((release) => (
+        {calendarRows.map(({ release, date, meetups: dateMeetups }) => release ? (
           <li style={`--event-accent: var(--${release.accent}, var(--accent))`}>
             <time datetime={release.date}>
               <span>{formatShort(release.date)}</span>
@@ -97,10 +106,23 @@ const upcoming = releases
               <span class="upcoming-name"><strong>{release.product}</strong><small>{detailFor(release)}</small></span>
             )}
           </li>
+        ) : (
+          <li style="--event-accent: var(--green)">
+            <time datetime={date}>
+              <span>{formatShort(date)}</span>
+              <small>{remainingLabel(date)}</small>
+            </time>
+            {dateMeetups.length === 1 ? (
+              <a class="upcoming-name" href={dateMeetups[0].url} target="_blank" rel="noreferrer">
+                <strong>{dateMeetups[0].title}</strong>
+                <small>Community meetup{dateMeetups[0].endDate !== date ? ` · through ${formatShort(dateMeetups[0].endDate)}` : ""}</small>
+                <span class="more-information" aria-hidden="true">›</span>
+              </a>
+            ) : <CommunityMeetups meetups={dateMeetups} timeZone={timeZone} />}
+          </li>
         ))}
       </ol>
-    ) : !meetups.length && <p class="empty">Nothing scheduled in the next 45 days.</p>}
-    <CommunityMeetups meetups={meetups} {today} {timeZone} />
+    ) : <p class="empty">Nothing scheduled in the next 45 days.</p>}
   </section>
 </aside>
 
@@ -266,17 +288,23 @@ const upcoming = releases
 
   .upcoming-list time {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 0.25rem;
     padding-left: 0.4rem;
     border-left: 3px solid var(--event-accent);
     font: 700 0.65rem/1.2 var(--label);
     text-transform: uppercase;
+    align-self: start;
   }
 
   .upcoming-list time small {
     color: var(--muted);
     font: 500 0.57rem/1.2 var(--sans);
     text-transform: none;
+  }
+
+  .upcoming-list time span {
+    white-space: nowrap;
   }
 </style>

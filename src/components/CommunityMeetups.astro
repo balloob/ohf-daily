@@ -1,11 +1,8 @@
 ---
 import type { CommunityMeetup } from "../lib/types";
-import { upcomingCommunityMeetups } from "../lib/community-meetups";
 
-interface Props { meetups: CommunityMeetup[]; today: string; timeZone?: string }
-const { meetups, today, timeZone = "Europe/Amsterdam" } = Astro.props;
-const upcoming = upcomingCommunityMeetups(meetups, today);
-const dates = [...new Set(upcoming.map((meetup) => meetup.date))];
+interface Props { meetups: CommunityMeetup[]; timeZone?: string }
+const { meetups, timeZone = "Europe/Amsterdam" } = Astro.props;
 const formatDate = (date: string) => new Intl.DateTimeFormat("en", {
   month: "short", day: "numeric", timeZone: "UTC",
 }).format(new Date(`${date}T12:00:00Z`));
@@ -17,19 +14,16 @@ const timeFor = (meetup: CommunityMeetup) => meetup.allDay
   : `${formatTime(meetup.startAt)} – ${meetup.endDate !== meetup.date ? `${formatDate(meetup.endDate)} · ` : ""}${formatTime(meetup.endAt)}`;
 ---
 
-{upcoming.length > 0 && (
+{meetups.length > 1 && (
   <details class="community-meetups">
     <summary>
-      <span><strong>{upcoming.length} community {upcoming.length === 1 ? "meetup" : "meetups"}</strong><small>Next 90 days · View dates and places</small></span>
+      <span><strong>{meetups.length} community meetups</strong><small>View meetups and places</small></span>
       <span class="arrow" aria-hidden="true">›</span>
     </summary>
     <div class="meetup-list">
       <p class="timezone">Times in {timeZone}</p>
-      {dates.map((date) => (
-        <section aria-label={`Meetups on ${formatDate(date)}`}>
-          <h3><time datetime={date}>{formatDate(date)}</time></h3>
           <ul>
-            {upcoming.filter((meetup) => meetup.date === date).map((meetup) => (
+            {meetups.map((meetup) => (
               <li>
                 <a href={meetup.url} target="_blank" rel="noreferrer">{meetup.title}<span aria-hidden="true"> ↗</span></a>
                 <p><time datetime={meetup.startAt}>{timeFor(meetup)}</time></p>
@@ -37,24 +31,22 @@ const timeFor = (meetup: CommunityMeetup) => meetup.allDay
               </li>
             ))}
           </ul>
-        </section>
-      ))}
     </div>
   </details>
 )}
 
 <style>
-  .community-meetups { border-top: 1px solid var(--rule); }
-  summary { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0.65rem 0.25rem 0.65rem 0.55rem; border-left: 3px solid var(--green); cursor: pointer; list-style: none; }
+  .community-meetups { min-width: 0; }
+  summary { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; cursor: pointer; list-style: none; }
   summary::-webkit-details-marker { display: none; }
-  summary strong { display: block; font: 700 0.68rem/1.3 var(--label); text-transform: uppercase; letter-spacing: 0.035em; }
+  summary strong { display: block; font: 700 0.68rem/1.2 var(--label); text-transform: uppercase; letter-spacing: 0.035em; }
+  summary small { display: block; font-size: 0.61rem; }
   summary small, .timezone, li p { color: var(--muted); font: 500 0.65rem/1.4 var(--sans); }
   summary:focus-visible, a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
   .arrow { font: 700 1.1rem/1 var(--sans); }
   details[open] .arrow { transform: rotate(90deg); }
-  .meetup-list { max-height: min(28rem, 70vh); overflow-y: auto; padding: 0.2rem 0.4rem 0.6rem; }
+  .meetup-list { max-height: min(28rem, 70vh); overflow-y: auto; padding: 0.8rem 0.4rem 0.3rem 0; }
   .timezone { margin: 0 0 0.65rem; }
-  h3 { margin: 0.8rem 0 0.25rem; font: 700 0.72rem/1.3 var(--label); }
   ul { list-style: none; margin: 0; padding: 0; }
   li { padding: 0.5rem 0; border-top: 1px solid var(--rule); overflow-wrap: anywhere; }
   li a { color: var(--ink); font: 600 0.76rem/1.35 var(--sans); }
