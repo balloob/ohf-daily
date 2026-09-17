@@ -1,0 +1,1725 @@
+{
+  "date": "2026-09-17",
+  "generatedAt": "2026-09-17T04:03:26.926Z",
+  "windowStart": "2026-09-16T04:01:48.875Z",
+  "windowEnd": "2026-09-17T04:01:48.875Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 301,
+    "repositories": 27,
+    "contributors": 71,
+    "dependencyUpdates": 35,
+    "hacsNewIntegrations": 0
+  },
+  "lead": {
+    "id": "4548827763",
+    "title": "Add send_ahead to the player audio chunk header",
+    "summary": "Implements spec PR #167 (audit item A1): the player audio chunk header gains a big endian uint32 send ahead after the timestamp (13 byte header, BqI ).",
+    "unlocks": "Unlocks: Add send_ahead to the player audio chunk header.",
+    "url": "https://github.com/Sendspin/aiosendspin/pull/403",
+    "repository": "Sendspin/aiosendspin",
+    "organization": "Sendspin",
+    "author": "chrisuthe",
+    "mergedAt": "2026-09-16T15:34:21Z",
+    "labels": [
+      "breaking-change",
+      "refactor"
+    ],
+    "kind": "feature",
+    "score": 72.2,
+    "additions": 541,
+    "deletions": 105,
+    "changedFiles": 29
+  },
+  "highlights": [
+    {
+      "id": "4551441526",
+      "title": "Run pairing alongside playback and admit mixed activity sets",
+      "summary": "Pairing is a parallel activity (spec #272, #246, #263).",
+      "url": "https://github.com/Sendspin/aiosendspin/pull/418",
+      "repository": "Sendspin/aiosendspin",
+      "organization": "Sendspin",
+      "author": "chrisuthe",
+      "mergedAt": "2026-09-16T20:36:28Z",
+      "labels": [
+        "breaking-change"
+      ],
+      "kind": "platform",
+      "score": 67.9,
+      "additions": 1453,
+      "deletions": 541,
+      "changedFiles": 16
+    },
+    {
+      "id": "4551263976",
+      "title": "Send artwork as announce/part/cancel transfers",
+      "summary": "Implements spec PRs #188 and #266 for the artwork role: each image is sent as an announce followed by parts, and a cancel abandons a transfer.",
+      "url": "https://github.com/Sendspin/aiosendspin/pull/416",
+      "repository": "Sendspin/aiosendspin",
+      "organization": "Sendspin",
+      "author": "chrisuthe",
+      "mergedAt": "2026-09-16T20:57:46Z",
+      "labels": [
+        "breaking-change"
+      ],
+      "kind": "platform",
+      "score": 67.3,
+      "additions": 1364,
+      "deletions": 94,
+      "changedFiles": 21
+    },
+    {
+      "id": "4542800118",
+      "title": "Show onboarding as a pop-up and fix moving between steps",
+      "summary": "What does this implement/fix? The admin setup wizard and the member welcome used to take over the whole screen, and a fresh sign in flashed the app for a moment before the onboarding appeared.",
+      "unlocks": "Improves reliability around show onboarding as a pop-up and fix moving between steps.",
+      "url": "https://github.com/music-assistant/frontend/pull/2782",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-16T14:34:06Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "fix",
+      "score": 67.1,
+      "additions": 970,
+      "deletions": 1415,
+      "changedFiles": 24
+    },
+    {
+      "id": "4550567194",
+      "title": "Move visualizer stream configuration into client/state",
+      "summary": "Implements spec PRs #195, #232 and #282 for the visualizer role.",
+      "url": "https://github.com/Sendspin/aiosendspin/pull/414",
+      "repository": "Sendspin/aiosendspin",
+      "organization": "Sendspin",
+      "author": "chrisuthe",
+      "mergedAt": "2026-09-16T18:48:09Z",
+      "labels": [
+        "breaking-change"
+      ],
+      "kind": "platform",
+      "score": 66.7,
+      "additions": 1399,
+      "deletions": 329,
+      "changedFiles": 16
+    }
+  ],
+  "briefs": [
+    {
+      "id": "4553407375",
+      "title": "Align the server player role with the spec send constraints and buffer accounting",
+      "summary": "Server side player items from the #385 audit, one commit per item.",
+      "url": "https://github.com/Sendspin/aiosendspin/pull/423",
+      "repository": "Sendspin/aiosendspin",
+      "organization": "Sendspin",
+      "author": "chrisuthe",
+      "mergedAt": "2026-09-17T01:14:57Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 66.1,
+      "additions": 992,
+      "deletions": 295,
+      "changedFiles": 22
+    },
+    {
+      "id": "3804599794",
+      "title": "Add climate platform to template integration",
+      "summary": "Breaking change Proposed change Add climate platform to template integration.",
+      "unlocks": "Unlocks: Add climate platform to template integration.",
+      "url": "https://github.com/home-assistant/core/pull/173033",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "Petro31",
+      "mergedAt": "2026-09-16T18:32:00Z",
+      "labels": [
+        "new-platform",
+        "cla-signed",
+        "new-feature",
+        "integration: template",
+        "by-code-owner",
+        "no-stale",
+        "quality scale: internal",
+        "top 200",
+        "top 50",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 65.9,
+      "additions": 3645,
+      "deletions": 4,
+      "changedFiles": 10
+    },
+    {
+      "id": "4550536737",
+      "title": "Configure artwork channels from the client/state artwork object",
+      "summary": "Implements spec PR #195 for the artwork role: channel configuration moves from artwork@v1 support in client/hello to the artwork object in client/state .",
+      "url": "https://github.com/Sendspin/aiosendspin/pull/413",
+      "repository": "Sendspin/aiosendspin",
+      "organization": "Sendspin",
+      "author": "chrisuthe",
+      "mergedAt": "2026-09-16T18:24:26Z",
+      "labels": [
+        "breaking-change"
+      ],
+      "kind": "platform",
+      "score": 65.7,
+      "additions": 1152,
+      "deletions": 333,
+      "changedFiles": 12
+    },
+    {
+      "id": "3604773299",
+      "title": "migrate volkszaehler to config flow",
+      "summary": "Breaking change Use of Config Flow Sensor entries from configuration.yaml are imported.",
+      "unlocks": "Unlocks: Migrate volkszaehler to config flow.",
+      "url": "https://github.com/home-assistant/core/pull/169500",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "StefanSchoof",
+      "mergedAt": "2026-09-16T12:00:30Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "integration: volkszaehler",
+        "has-tests",
+        "config-flow",
+        "quality scale: legacy"
+      ],
+      "kind": "feature",
+      "score": 65.6,
+      "additions": 932,
+      "deletions": 62,
+      "changedFiles": 12
+    },
+    {
+      "id": "4548965858",
+      "title": "Explain and check the server addresses in the setup wizard",
+      "summary": "What does this implement/fix? The \"Check your server settings\" step of the setup wizard used to dump three config entries (server name, internal URL, external URL).",
+      "url": "https://github.com/music-assistant/frontend/pull/2783",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-16T19:19:05Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 65.4,
+      "additions": 1897,
+      "deletions": 258,
+      "changedFiles": 12
+    },
+    {
+      "id": "4550597680",
+      "title": "Run dynamic pairing code in rounds bound into the CPace sid",
+      "summary": "Implements spec PRs #155 and #237 for dynamic pairing code: attempts run in rounds, and each round has its own CPace sid .",
+      "url": "https://github.com/Sendspin/aiosendspin/pull/415",
+      "repository": "Sendspin/aiosendspin",
+      "organization": "Sendspin",
+      "author": "chrisuthe",
+      "mergedAt": "2026-09-16T18:25:20Z",
+      "labels": [
+        "breaking-change"
+      ],
+      "kind": "platform",
+      "score": 65.4,
+      "additions": 1311,
+      "deletions": 373,
+      "changedFiles": 17
+    },
+    {
+      "id": "4553471193",
+      "title": "Add client pairing cancel, unpaired-access toggle, pair-pending message and grouped pairing codes",
+      "summary": "Client SDK half of the D5 pairing items in #389.",
+      "unlocks": "Unlocks: Add client pairing cancel, unpaired-access toggle, pair-pending message and grouped pairing codes.",
+      "url": "https://github.com/Sendspin/aiosendspin/pull/424",
+      "repository": "Sendspin/aiosendspin",
+      "organization": "Sendspin",
+      "author": "chrisuthe",
+      "mergedAt": "2026-09-17T01:23:44Z",
+      "labels": [
+        "breaking-change"
+      ],
+      "kind": "feature",
+      "score": 65.3,
+      "additions": 912,
+      "deletions": 98,
+      "changedFiles": 15
+    },
+    {
+      "id": "4553590780",
+      "title": "Gate source start on client state and accept any source format",
+      "summary": "Part of #386. One commit per item.",
+      "url": "https://github.com/Sendspin/aiosendspin/pull/427",
+      "repository": "Sendspin/aiosendspin",
+      "organization": "Sendspin",
+      "author": "chrisuthe",
+      "mergedAt": "2026-09-17T02:11:54Z",
+      "labels": [
+        "breaking-change"
+      ],
+      "kind": "platform",
+      "score": 64.6,
+      "additions": 814,
+      "deletions": 105,
+      "changedFiles": 17
+    },
+    {
+      "id": "4548059809",
+      "title": "Move player supported_commands from client/hello to client/state",
+      "summary": "Implements spec PR Sendspin/spec#177: player supported commands moves from the client/hello player@v1 support object into the client/state player object, where it may change mid session.",
+      "url": "https://github.com/Sendspin/aiosendspin/pull/400",
+      "repository": "Sendspin/aiosendspin",
+      "organization": "Sendspin",
+      "author": "chrisuthe",
+      "mergedAt": "2026-09-16T14:12:34Z",
+      "labels": [
+        "breaking-change"
+      ],
+      "kind": "platform",
+      "score": 64.3,
+      "additions": 618,
+      "deletions": 77,
+      "changedFiles": 10
+    },
+    {
+      "id": "3627536223",
+      "title": "Add event platform to isy994 integration",
+      "summary": "Adds an event entity per Insteon load / keypad button node so physical button presses are exposed as entities, using the standard ButtonEventType values from architecture#1377 ( press end ,…",
+      "unlocks": "Unlocks: Add event platform to isy994 integration.",
+      "url": "https://github.com/home-assistant/core/pull/169782",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "shbatm",
+      "mergedAt": "2026-09-16T11:00:34Z",
+      "labels": [
+        "new-platform",
+        "cla-signed",
+        "integration: isy994",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 63.4,
+      "additions": 945,
+      "deletions": 3,
+      "changedFiles": 9
+    },
+    {
+      "id": "4553321757",
+      "title": "Send metadata on every seek, clamp relative seeks and validate client group commands",
+      "summary": "MetadataGroupRole.seek(track progress) always sends the new position, even within the 500 ms progress tolerance; update() and set metadata() keep the tolerance for periodic refreshes.",
+      "url": "https://github.com/Sendspin/aiosendspin/pull/420",
+      "repository": "Sendspin/aiosendspin",
+      "organization": "Sendspin",
+      "author": "chrisuthe",
+      "mergedAt": "2026-09-17T00:48:48Z",
+      "labels": [
+        "breaking-change"
+      ],
+      "kind": "platform",
+      "score": 61.9,
+      "additions": 550,
+      "deletions": 61,
+      "changedFiles": 11
+    },
+    {
+      "id": "4551961693",
+      "title": "[sendspin] Add a switch platform to enable and disable the client",
+      "summary": "What does this implement/fix? Adds a sendspin switch platform that enables and disables the Sendspin client.",
+      "unlocks": "Unlocks: [sendspin] Add a switch platform to enable and disable the client.",
+      "url": "https://github.com/esphome/esphome/pull/19361",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "kahrendt",
+      "mergedAt": "2026-09-16T23:35:08Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "core",
+        "by-code-owner",
+        "new-platform",
+        "component: sendspin"
+      ],
+      "kind": "feature",
+      "score": 61.6,
+      "additions": 179,
+      "deletions": 28,
+      "changedFiles": 11
+    },
+    {
+      "id": "3399785533",
+      "title": "Add page count sensors to IPP integration",
+      "summary": "Add page count sensors to the IPP integration.",
+      "unlocks": "Unlocks: Add page count sensors to IPP integration.",
+      "url": "https://github.com/home-assistant/core/pull/165570",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "brianegge",
+      "mergedAt": "2026-09-16T14:15:40Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "integration: ipp",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 61.2,
+      "additions": 497,
+      "deletions": 11,
+      "changedFiles": 7
+    },
+    {
+      "id": "4212879189",
+      "title": "Implement Apple Music external ID lookup (ISRC/UPC)",
+      "summary": "What does this implement/fix? Implements external ID lookup for Apple Music provider: Track lookup by ISRC Album lookup by UPC/Barcode (with normalization to strip leading zeros) 1 week…",
+      "url": "https://github.com/music-assistant/server/pull/5353",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "dmoo500",
+      "mergedAt": "2026-09-16T13:03:16Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 61.1,
+      "additions": 261,
+      "deletions": 2,
+      "changedFiles": 4
+    },
+    {
+      "id": "4553575499",
+      "title": "Keep reconnecting, carry application-specific role data and tolerate unknown protocol values",
+      "summary": "Part of #390 Closes #348 Changes Reconnect (M 20, #348): a server initiated connection now keeps retrying at MAX RECONNECT BACKOFF S and never gives up on its own (spec #207).",
+      "url": "https://github.com/Sendspin/aiosendspin/pull/426",
+      "repository": "Sendspin/aiosendspin",
+      "organization": "Sendspin",
+      "author": "chrisuthe",
+      "mergedAt": "2026-09-17T01:41:47Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 59.9,
+      "additions": 936,
+      "deletions": 153,
+      "changedFiles": 21
+    },
+    {
+      "id": "4553337594",
+      "title": "Bind pairing PSK tokens to their client and keep the pairing window open across attempts",
+      "summary": "Part of #389 (pairing, server items and the pairing window).",
+      "url": "https://github.com/Sendspin/aiosendspin/pull/421",
+      "repository": "Sendspin/aiosendspin",
+      "organization": "Sendspin",
+      "author": "chrisuthe",
+      "mergedAt": "2026-09-17T00:30:45Z",
+      "labels": [
+        "breaking-change"
+      ],
+      "kind": "platform",
+      "score": 59.7,
+      "additions": 789,
+      "deletions": 103,
+      "changedFiles": 10
+    },
+    {
+      "id": "4548919890",
+      "title": "Carry the player format preference in client/state",
+      "summary": "Implements spec PR #195 for the player role: stream/request format is gone, and the player's preferred format is an optional format object on the client/state player object.",
+      "url": "https://github.com/Sendspin/aiosendspin/pull/404",
+      "repository": "Sendspin/aiosendspin",
+      "organization": "Sendspin",
+      "author": "chrisuthe",
+      "mergedAt": "2026-09-16T15:40:02Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 59.5,
+      "additions": 827,
+      "deletions": 118,
+      "changedFiles": 14
+    },
+    {
+      "id": "4549034724",
+      "title": "Move operator languages hint to server/hello (spec #241)",
+      "summary": "Implements spec PR #241: the operator languages hint moves from the server/activate pairing object to server/hello .",
+      "url": "https://github.com/Sendspin/aiosendspin/pull/406",
+      "repository": "Sendspin/aiosendspin",
+      "organization": "Sendspin",
+      "author": "chrisuthe",
+      "mergedAt": "2026-09-16T15:09:17Z",
+      "labels": [
+        "breaking-change"
+      ],
+      "kind": "platform",
+      "score": 59.4,
+      "additions": 183,
+      "deletions": 78,
+      "changedFiles": 12
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Update infrared-protocols to 10.1.0",
+      "url": "https://github.com/home-assistant/core/pull/182356",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump github/codeql-action/init from 4.37.9 to 4.38.0",
+      "url": "https://github.com/home-assistant/core/pull/182371",
+      "repository": "home-assistant/core",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Update zizmor",
+      "url": "https://github.com/home-assistant/core/pull/182367",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump aioindiallsky to V0.1.2",
+      "url": "https://github.com/home-assistant/core/pull/182366",
+      "repository": "home-assistant/core",
+      "author": "TN-1"
+    },
+    {
+      "title": "Bump aiounifi to v96",
+      "url": "https://github.com/home-assistant/core/pull/182415",
+      "repository": "home-assistant/core",
+      "author": "jimstrang"
+    },
+    {
+      "title": "Bump github/codeql-action/analyze from 4.37.9 to 4.38.0",
+      "url": "https://github.com/home-assistant/core/pull/182372",
+      "repository": "home-assistant/core",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump solarman quality scale to silver",
+      "url": "https://github.com/home-assistant/core/pull/181836",
+      "repository": "home-assistant/core",
+      "author": "Yves-Xu"
+    },
+    {
+      "title": "Bump besen to 0.4.5",
+      "url": "https://github.com/home-assistant/core/pull/182194",
+      "repository": "home-assistant/core",
+      "author": "moryoav"
+    },
+    {
+      "title": "Bump yarl to 1.25.1",
+      "url": "https://github.com/home-assistant/core/pull/182345",
+      "repository": "home-assistant/core",
+      "author": "bdraco"
+    },
+    {
+      "title": "Bump plugin-cli to 2026.09.0 on stable",
+      "url": "https://github.com/home-assistant/version/pull/542",
+      "repository": "home-assistant/version",
+      "author": "sairon"
+    },
+    {
+      "title": "Bump lunatone-rest-api-client to 0.10.2",
+      "url": "https://github.com/home-assistant/core/pull/182384",
+      "repository": "home-assistant/core",
+      "author": "MoonDevLT"
+    },
+    {
+      "title": "Bump homematicip to 2.17.0",
+      "url": "https://github.com/home-assistant/core/pull/182383",
+      "repository": "home-assistant/core",
+      "author": "lackas"
+    },
+    {
+      "title": "Bump PySwitchbot to 2.9.0",
+      "url": "https://github.com/home-assistant/core/pull/182303",
+      "repository": "home-assistant/core",
+      "author": "zerzhang"
+    },
+    {
+      "title": "Bump neopool-modbus to 4.8.0",
+      "url": "https://github.com/home-assistant/core/pull/182349",
+      "repository": "home-assistant/core",
+      "author": "svasek"
+    },
+    {
+      "title": "Bump aioipp to 0.19.3 and log IPP parse errors at warning level",
+      "url": "https://github.com/home-assistant/core/pull/182334",
+      "repository": "home-assistant/core",
+      "author": "brianegge"
+    },
+    {
+      "title": "Bump tzinfo-data from 1.2026.3 to 1.2026.4",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/48169",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump sass-embedded from 1.104.0 to 1.104.1",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/48168",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump teslemetry-stream to 0.13.2",
+      "url": "https://github.com/home-assistant/core/pull/182311",
+      "repository": "home-assistant/core",
+      "author": "Bre77"
+    },
+    {
+      "title": "Bump aioaxlevpp to 0.1.1",
+      "url": "https://github.com/home-assistant/core/pull/182336",
+      "repository": "home-assistant/core",
+      "author": "Herbertmt978"
+    },
+    {
+      "title": "Bump voip-utils",
+      "url": "https://github.com/home-assistant/core/pull/182339",
+      "repository": "home-assistant/core",
+      "author": "synesthesiam"
+    },
+    {
+      "title": "Update uv to 0.12.11",
+      "url": "https://github.com/home-assistant/core/pull/182355",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update pnpm to 12.4.0",
+      "url": "https://github.com/home-assistant/core/pull/182357",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump home-assistant/builder/actions/prepare-multi-arch-matrix from 2026.06.0 to 2026.09.0",
+      "url": "https://github.com/home-assistant/docker-base/pull/396",
+      "repository": "home-assistant/docker-base",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump home-assistant/builder/actions/build-image from 2026.06.0 to 2026.09.0",
+      "url": "https://github.com/home-assistant/docker-base/pull/395",
+      "repository": "home-assistant/docker-base",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump home-assistant/builder/actions/publish-multi-arch-manifest from 2026.06.0 to 2026.09.0",
+      "url": "https://github.com/home-assistant/docker-base/pull/394",
+      "repository": "home-assistant/docker-base",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "⬆️ Update codecov/codecov-action action to v7.1.1",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/568",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency ruff to v0.16.8",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/566",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency prettier to v3.9.7",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/565",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "[sendspin] Bump sendspin-cpp to v0.8.0",
+      "url": "https://github.com/esphome/esphome/pull/19357",
+      "repository": "esphome/esphome",
+      "author": "kahrendt"
+    },
+    {
+      "title": "Bump prek from 0.5.2 to 0.5.3",
+      "url": "https://github.com/esphome/esphome/pull/19358",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Cut v0.2.0: version bump, release notes, roadmap",
+      "url": "https://github.com/Sendspin/sendspin-cpp-cli/pull/64",
+      "repository": "Sendspin/sendspin-cpp-cli",
+      "author": "chrisuthe"
+    },
+    {
+      "title": "chore(deps): update pnpm to v12",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/76",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update dependency eslint to v10.10.0",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/85",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update docker/dockerfile docker tag to v1.27",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/86",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update dependency lint-staged to v17.5.0",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/81",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 97,
+      "thisWeek": 766,
+      "sinceRelease": 1449,
+      "lastReleaseDate": "2026-09-02"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 23,
+      "thisWeek": 248,
+      "sinceRelease": 163,
+      "lastReleaseDate": "2026-09-11"
+    },
+    {
+      "product": "ESPHome",
+      "today": 114,
+      "thisWeek": 260,
+      "sinceRelease": 125,
+      "lastReleaseDate": "2026-09-16"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "esphome/esphome:389759208",
+      "product": "ESPHome",
+      "repository": "esphome/esphome",
+      "name": "2026.9.0",
+      "tag": "2026.9.0",
+      "url": "https://github.com/esphome/esphome/releases/tag/2026.9.0",
+      "publishedAt": "2026-09-16T08:47:11Z",
+      "channel": "stable",
+      "accent": "green",
+      "sourcePullRequestIds": [
+        "4544137969"
+      ]
+    }
+  ],
+  "releases": [
+    {
+      "product": "Home Assistant’s 13th birthday",
+      "kind": "Event",
+      "date": "2026-09-17",
+      "accent": "blue"
+    },
+    {
+      "product": "OHF Summit · Lisbon",
+      "kind": "Event",
+      "date": "2026-09-22",
+      "endDate": "2026-09-24",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-09-30",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-10-21",
+      "version": "2026.10",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-10-28",
+      "version": "2026.11",
+      "accent": "blue"
+    },
+    {
+      "product": "Open Home Foundation Community Day",
+      "kind": "Event",
+      "date": "2026-11-07",
+      "accent": "blue",
+      "url": "https://www.openhomefoundation.org/blog/countdown-to-community-day-2026-starts-now/",
+      "sourceId": "open-home-foundation-blog:c10ad4759bc887b20b0fd3a5"
+    }
+  ],
+  "communityMeetups": [
+    {
+      "id": "evt-BSkghW5GKrhUDFt@events.lu.ma",
+      "title": "Home Assistant Meetup Köln",
+      "url": "https://luma.com/xk78o4pu",
+      "startAt": "2026-09-17T16:00:00.000Z",
+      "endAt": "2026-09-17T20:00:00.000Z",
+      "allDay": false,
+      "date": "2026-09-17",
+      "endDate": "2026-09-17",
+      "location": "REWE Digital GmbH, Schanzenstraße 6-20, 51063 Köln, Germany",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-Rv4vu3NCucJPTtF@events.lu.ma",
+      "title": "Meet the Open Home Foundation team - Lisbon",
+      "url": "https://luma.com/t13dc6er",
+      "startAt": "2026-09-23T18:00:00.000Z",
+      "endAt": "2026-09-23T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-09-23",
+      "endDate": "2026-09-23",
+      "location": "Impact Hub Lisbon - Penha, R. Neves Ferreira 13, 1170-273 Lisboa, Portugal",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-xt7N1yjW2LgCel5@events.lu.ma",
+      "title": "Melbourne, Australia Community Day Meetup",
+      "url": "https://luma.com/lax3x8f5",
+      "startAt": "2026-11-07T03:00:00.000Z",
+      "endAt": "2026-11-07T05:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-xt7N1yjW2LgCel5",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-o8ZHJ0MBYZnXIfu@events.lu.ma",
+      "title": "Tokyo - Home Assistant Community Day 2026",
+      "url": "https://luma.com/26u5bs6r",
+      "startAt": "2026-11-07T05:00:00.000Z",
+      "endAt": "2026-11-07T08:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "DevilCraft - The Corner, Japan, 〒101-0047 Tokyo, Chiyoda City, Uchikanda, 1-chōme−15−２ 神田オーシャンビル 1階102号室",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-UbE4Jn1D747rpQa@events.lu.ma",
+      "title": "East China Community Day Meetup",
+      "url": "https://luma.com/ecqcecyq",
+      "startAt": "2026-11-07T05:30:00.000Z",
+      "endAt": "2026-11-07T09:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "未来科技城海创园, Yuhang District, Hangzhou, China, 311122",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-JihxuewaCCylBGL@events.lu.ma",
+      "title": "Helsinki Meetup",
+      "url": "https://luma.com/ze4ta090",
+      "startAt": "2026-11-07T11:00:00.000Z",
+      "endAt": "2026-11-07T15:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Oy Merilux Ab, Työpajankatu 2, 00580 Helsinki, Finland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-wv8ErN3j5qGGgf5@events.lu.ma",
+      "title": "Salamanca Community Day",
+      "url": "https://luma.com/q6bw1v1u",
+      "startAt": "2026-11-07T11:00:00.000Z",
+      "endAt": "2026-11-07T13:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-wv8ErN3j5qGGgf5",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-5vlfFMTBq2mZH32@events.lu.ma",
+      "title": "Zeist (Utrecht) Meetup",
+      "url": "https://luma.com/2k3cc6g2",
+      "startAt": "2026-11-07T12:00:00.000Z",
+      "endAt": "2026-11-07T16:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Zeist, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-z5IzLCPyOVHEz3e@events.lu.ma",
+      "title": "Copenhagen | Home Assistant Community Day",
+      "url": "https://luma.com/mro5omfi",
+      "startAt": "2026-11-07T13:00:00.000Z",
+      "endAt": "2026-11-07T16:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Vesterbrogade 46, 1620 København, Denmark",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-nj4z28MNyiIjTYJ@events.lu.ma",
+      "title": "NL - Rosmalen (Den Bosch) - Meetup",
+      "url": "https://luma.com/1t4lcnwm",
+      "startAt": "2026-11-07T13:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "De Kentering, Dorpsstraat 54, 5241 ED Rosmalen, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-5NUVKsHQa4DWnZ2@events.lu.ma",
+      "title": "Horten meetup",
+      "url": "https://luma.com/1ne99it6",
+      "startAt": "2026-11-07T13:30:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Horten Folkeverksted, Tveitenveien 18, 3186 Horten, Norway",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-eMNQOP6Tx1Umw4x@events.lu.ma",
+      "title": "Dresden Meetup",
+      "url": "https://luma.com/ukr095h8",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Dresden, Germany",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-JWkAH5tKQzRYWXv@events.lu.ma",
+      "title": "Gouda meetup",
+      "url": "https://luma.com/50os1i8j",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Gouda, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-LIsfkOWDtOgmmpi@events.lu.ma",
+      "title": "St. Gallen Meetup",
+      "url": "https://luma.com/l7nve06d",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "L’Ultimo Bacio, Poststrasse 14, 9000 St. Gallen, Switzerland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-tdhTtJpEtCJlKnq@events.lu.ma",
+      "title": "Enschede meetup",
+      "url": "https://luma.com/openhome-7e9g",
+      "startAt": "2026-11-07T15:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Enschede, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-UKUXj52AYKCr2xJ@events.lu.ma",
+      "title": "Columbus, Ohio Meetup",
+      "url": "https://luma.com/u7limgv2",
+      "startAt": "2026-11-07T16:00:00.000Z",
+      "endAt": "2026-11-07T19:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Seventh Son Brewing Co., 1101 N 4th St, Columbus, OH 43201, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-czgmEZcB4zu9YUi@events.lu.ma",
+      "title": "South Florida Home Assistant Community Day Meetup",
+      "url": "https://luma.com/sua7nd2x",
+      "startAt": "2026-11-07T16:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Boca Raton, FL, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-JA5GInTNmciZ8N4@events.lu.ma",
+      "title": "Vienna Meetup",
+      "url": "https://luma.com/mcj8loas",
+      "startAt": "2026-11-07T17:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Metalab, Rathausstraße 6, 1010 Wien, Austria",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-FofoEA8HxuvlhOL@events.lu.ma",
+      "title": "Amsterdam Zuidoost meetup",
+      "url": "https://luma.com/f12y17ok",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "BuurtHuis Gein, Wisseloord 83, 1107 NB Amsterdam, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-EmX6ovo3mCEbFRH@events.lu.ma",
+      "title": "Buenos Aires meetup",
+      "url": "https://luma.com/gfcjcu9w",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Buenos Aires, Argentina",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-iDLj4WL8ShgfRtD@events.lu.ma",
+      "title": "Hasselt Meetup",
+      "url": "https://luma.com/khnqnbp9",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Brixel, Spalbeekstraat 34, 3510 Hasselt, Belgium",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-Kh8vM0koK8YJs6t@events.lu.ma",
+      "title": "Homeassistant Community Day Berlin",
+      "url": "https://luma.com/h1qd23b0",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "xHain hack+makespace, Grünberger Str. 16, 10243 Berlin-Bezirk Friedrichshain-Kreuzberg, Germany",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-OqihxJGuntwIMgl@events.lu.ma",
+      "title": "Strasbourg meetup",
+      "url": "https://luma.com/0wgen5u2",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Strasbourg, France",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-PRYX9aJuOK7AjE6@events.lu.ma",
+      "title": "Richmond Meetup",
+      "url": "https://luma.com/ufsiv9jh",
+      "startAt": "2026-11-07T19:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Hardywood Park Craft Brewery - Richmond, 2410 Ownby Ln, Richmond, VA 23220, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-Xjd7smGABFk8rA2@events.lu.ma",
+      "title": "Limerick Meetup",
+      "url": "https://luma.com/di99g420",
+      "startAt": "2026-11-07T19:30:00.000Z",
+      "endAt": "2026-11-07T20:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Level Up Arcade Bar, 109 O'Connell St, Prior's-Land, Limerick, Ireland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-OmZGvNyCAgEiHXl@events.lu.ma",
+      "title": "Kansas City Meetup",
+      "url": "https://luma.com/iepjyrfa",
+      "startAt": "2026-11-07T21:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-OmZGvNyCAgEiHXl",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    }
+  ],
+  "notes": [],
+  "articles": [
+    {
+      "id": "template-climate-builds-custom-heating-controls",
+      "title": "Home Assistant turns readings and actions into custom climate controls",
+      "dek": "A new helper combines chosen sensor readings and scripted actions into a heating or cooling control.",
+      "body": [
+        "Home Assistant adds a way to build a custom heating or cooling control around existing readings and actions. The template integration supplies its displayed state from templates and runs configured scripts when someone changes a mode or target temperature.",
+        "Petro31 adds setup through the Helpers screen or YAML configuration. Options cover temperature, humidity, fan modes, presets and air-direction controls. The person configuring the helper supplies the readings and actions behind the features they need; automatic temperature regulation depends on those configured actions."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 92,
+      "contributors": [
+        "Petro31"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "Petro31",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/35082313?v=4",
+          "profileUrl": "https://github.com/Petro31"
+        }
+      ],
+      "reviewers": [
+        "silamon"
+      ],
+      "approvers": [
+        "silamon"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "3804599794",
+          "title": "Add climate platform to template integration",
+          "url": "https://github.com/home-assistant/core/pull/173033",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4549696439",
+          "title": "Add climate platform to template integration",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/48187",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-keeps-sensitive-details-out-of-logs",
+      "title": "Home Assistant keeps more private details out of troubleshooting logs",
+      "dek": "Four integrations stop recording router credentials, banking identifiers and tracked coordinates in specific log messages.",
+      "body": [
+        "Home Assistant removes sensitive values from several messages that can end up in troubleshooting logs. Xiaomi router login failures stop recording the supplied username and password, and a failed Start.ca setup stops repeating the configured API key.",
+        "The National Weather Service integration also stops recording the coordinates of a followed person or device when it updates the weather station for that location. FinTS banking messages drop account numbers and the online-banking username while retaining the configured bank name.",
+        "Franck Nijhof’s corrections remove these particular exposures; they do not make every log free of private information. FinTS can still include an account number when it forms part of an entity’s existing name."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 88,
+      "contributors": [
+        "frenck"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "reviewers": [
+        "zweckj",
+        "silamon",
+        "cgarwood"
+      ],
+      "approvers": [
+        "zweckj",
+        "silamon",
+        "cgarwood"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4544379330",
+          "title": "Do not log the Xiaomi router password",
+          "url": "https://github.com/home-assistant/core/pull/182370",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4534290864",
+          "title": "Do not log the Start.ca API key",
+          "url": "https://github.com/home-assistant/core/pull/182279",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4540806664",
+          "title": "Do not log IBANs and account numbers in FinTS",
+          "url": "https://github.com/home-assistant/core/pull/182342",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4541409852",
+          "title": "Do not log the tracked location in NWS",
+          "url": "https://github.com/home-assistant/core/pull/182350",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "siri-calendar-list-sharing-controls",
+      "title": "Home Assistant lets you choose which calendars and lists Siri uses",
+      "dek": "Separate choices for each server control what Siri can access, and calendar queries refresh after changes.",
+      "body": [
+        "Home Assistant’s Apple app gains separate choices for the calendars and to-do lists exposed to Siri. Each connected server has a configuration screen where people can switch individual lists on or off and choose their defaults.",
+        "Siri’s calendar queries also refresh the server’s events before answering, avoiding a stale response immediately after creating or changing an event. Bruno Pantaleão Gonçalves adds the settings and refresh behavior; Spotlight continues to use its cached calendar information."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 85,
+      "contributors": [
+        "bgoncal"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bgoncal",
+          "name": "Bruno Pantaleão Gonçalves",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5808343?v=4",
+          "profileUrl": "https://github.com/bgoncal"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4550236612",
+          "title": "Choose which calendars and to-do lists Siri can use per server",
+          "url": "https://github.com/home-assistant/iOS/pull/5819",
+          "repository": "home-assistant/iOS"
+        },
+        {
+          "id": "4549357991",
+          "title": "Refresh cached calendar events before Siri reads them",
+          "url": "https://github.com/home-assistant/iOS/pull/5817",
+          "repository": "home-assistant/iOS"
+        }
+      ],
+      "externalSources": [],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-09-17/siri-calendar-list-sharing-controls-78901e3afd9d-1170w.webp",
+          "alt": "Siri configuration for calendars and to-do lists on a Home Assistant server",
+          "width": 1170,
+          "height": 2532,
+          "variants": [
+            {
+              "url": "/media/2026-09-17/siri-calendar-list-sharing-controls-78901e3afd9d-480w.webp",
+              "width": 480,
+              "height": 1039,
+              "bytes": 15160,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-09-17/siri-calendar-list-sharing-controls-78901e3afd9d-960w.webp",
+              "width": 960,
+              "height": 2078,
+              "bytes": 32506,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-09-17/siri-calendar-list-sharing-controls-78901e3afd9d-1170w.webp",
+              "width": 1170,
+              "height": 2532,
+              "bytes": 41120,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 88786
+        }
+      ]
+    },
+    {
+      "id": "music-assistant-keeps-duplicate-checks-from-blocking-sign-in",
+      "title": "Music Assistant stops library checks from freezing sign-in",
+      "dek": "A recurring duplicate-track scan can block the whole library when thousands of tracks share a title.",
+      "body": [
+        "Music Assistant fixes an hourly library check that could leave the interface stuck on “Authenticating.” Comparing thousands of tracks with the same title held up the database, stopping other library requests—including the count needed to finish signing in.",
+        "OzGav narrows duplicate checks to useful comparisons across different music sources and skips empty titles or titles shared by more than 200 tracks. In a test library of 40,000 tracks, with 6,000 sharing one title, the query fell from 55 seconds to under a second. A library with only one source skips the check entirely.",
+        "The original reporter confirmed that disabling the hourly check stopped the freezes. Marvin Schenkel reviewed the correction."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 83,
+      "contributors": [
+        "OzGav"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "OzGav",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/19848947?v=4",
+          "profileUrl": "https://github.com/OzGav"
+        }
+      ],
+      "reviewers": [
+        "MarvinSchenkel"
+      ],
+      "approvers": [
+        "MarvinSchenkel"
+      ],
+      "topics": [
+        "Music Assistant",
+        "Reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4482758271",
+          "title": "Keep the duplicate track walk from freezing the library database",
+          "url": "https://github.com/music-assistant/server/pull/6236",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-gives-sendspin-an-off-switch",
+      "title": "ESPHome gives Sendspin an off switch that survives a reboot",
+      "dek": "Disabling the client closes its connection and removes it from discovery until it is turned back on.",
+      "body": [
+        "ESPHome devices gain a configurable switch for turning their Sendspin audio client off and back on. Switching it off closes the server connection and removes the device from Sendspin discovery on the network.",
+        "Kevin Ahrendt makes the switch remember its setting across a reboot. A disabled device waits for that saved setting before starting the client, avoiding a brief connection during startup. The switch defaults to on; while it is off, the device refuses playback and source commands."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 76,
+      "contributors": [
+        "kahrendt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "kahrendt",
+          "name": "Kevin Ahrendt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1688493?v=4",
+          "profileUrl": "https://github.com/kahrendt"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "topics": [
+        "ESPHome",
+        "Sendspin",
+        "Local control"
+      ],
+      "pullRequests": [
+        {
+          "id": "4551961693",
+          "title": "[sendspin] Add a switch platform to enable and disable the client",
+          "url": "https://github.com/esphome/esphome/pull/19361",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "4551959762",
+          "title": "[sendspin] Add switch platform docs",
+          "url": "https://github.com/esphome/esphome.io/pull/7391",
+          "repository": "esphome/esphome.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "apple-watch-delivers-typed-notification-replies",
+      "title": "Apple Watch replies reach Home Assistant automations",
+      "dek": "A correction delivers typed notification answers that watchOS had silently dropped.",
+      "body": [
+        "Typing an answer to a Home Assistant notification on Apple Watch could show a reply screen yet never send the answer home. The companion app handles those text-entry actions itself and delivers the entered text through the paired iPhone or the watch’s own connection.",
+        "Bruno Pantaleão Gonçalves restores the notification events expected by automations. Actions requiring authentication remain under watchOS control, preserving that protection; older server-configured notification categories are unchanged."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 80,
+      "contributors": [
+        "bgoncal"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bgoncal",
+          "name": "Bruno Pantaleão Gonçalves",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5808343?v=4",
+          "profileUrl": "https://github.com/bgoncal"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4528876939",
+          "title": "Fix text input notification actions on Apple Watch",
+          "url": "https://github.com/home-assistant/iOS/pull/5778",
+          "repository": "home-assistant/iOS"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "backup-password-file-restricts-local-readers",
+      "title": "Home Assistant restricts local access to its backup password",
+      "dek": "The saved backup configuration gains private file permissions, including a rewrite of existing stores.",
+      "body": [
+        "Home Assistant tightens the permissions on the file holding its automatic-backup encryption password. Container and Core installations no longer leave that file readable by every local user; existing saved configurations are rewritten with private permissions when loaded.",
+        "The change preserves administrator access to the backup emergency kit. On Home Assistant OS it adds a precaution rather than a new boundary, because processes able to read the configuration directory already run with elevated access.",
+        "dbl-0 makes a first contribution to Home Assistant Core with the change."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 77,
+      "contributors": [
+        "dbl-0"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "dbl-0",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/194154189?v=4",
+          "profileUrl": "https://github.com/dbl-0"
+        }
+      ],
+      "reviewers": [
+        "emontnemery"
+      ],
+      "approvers": [
+        "emontnemery"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4530989562",
+          "title": "Write the backup store with private=True so the backup password is not world-readable",
+          "url": "https://github.com/home-assistant/core/pull/182259",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-answers-applescript-controls",
+      "title": "Music Assistant answers playback commands from Mac scripts",
+      "dek": "AppleScript can play, pause, skip and check the desktop app’s playback state.",
+      "body": [
+        "Mac automation scripts gain a way to control Music Assistant’s desktop app. Its AppleScript interface accepts play, pause, stop, next-track and previous-track commands, and reports whether the player is playing, paused or stopped.",
+        "The commands use the app’s existing playback controls and follow Spotify’s scripting terminology. This is Paulus Schoutsen’s first contribution to the Music Assistant desktop-app repository."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "balloob"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "balloob",
+          "name": "Paulus Schoutsen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1444314?v=4",
+          "profileUrl": "https://github.com/balloob"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant",
+        "Desktop"
+      ],
+      "pullRequests": [
+        {
+          "id": "4529987799",
+          "title": "Add macOS AppleScript control",
+          "url": "https://github.com/music-assistant/desktop-app/pull/184",
+          "repository": "music-assistant/desktop-app"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-finds-other-youtube-album-versions",
+      "title": "Music Assistant finds alternate albums on YouTube Music",
+      "dek": "The Other Versions view can retrieve editions that YouTube Music leaves out of search.",
+      "body": [
+        "Music Assistant’s Other Versions view finds alternate editions of YouTube Music albums by asking the service for them directly. YouTube Music does not include those alternatives in its search results, making the view largely ineffective when it was the listener’s only music source.",
+        "Chris Roberts adds the lookup in his first contribution to the Music Assistant server, reviewed by Marvin Schenkel."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 70,
+      "contributors": [
+        "NasaGeek"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "NasaGeek",
+          "name": "Chris Roberts",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/474937?v=4",
+          "profileUrl": "https://github.com/NasaGeek"
+        }
+      ],
+      "reviewers": [
+        "MarvinSchenkel"
+      ],
+      "approvers": [
+        "MarvinSchenkel"
+      ],
+      "topics": [
+        "Music Assistant",
+        "Music libraries"
+      ],
+      "pullRequests": [
+        {
+          "id": "4418453027",
+          "title": "Properly surface \"Other versions\" of an album from Youtube Music",
+          "url": "https://github.com/music-assistant/server/pull/6159",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ],
+  "roadmapUpdates": [
+    {
+      "id": "device-database-contributions-approval",
+      "title": "Device database contributions reach approval review",
+      "summary": "The first web contribution workflow moves from Shaping to Awaiting approval. Matthias Kerstner adds a shared proposal; its scope includes storage, initial moderation and individual changes submitted through the website or public Git repository, excluding anonymous contributions.",
+      "sources": [
+        {
+          "id": "roadmap:PVTI_lADOCX3lqc4BTbD7zgpYtww",
+          "title": "Enable first iteration of contributing to the device database via the web interface",
+          "url": "https://github.com/OpenHomeFoundation/roadmap/issues/87",
+          "publisher": "Open Home Foundation Roadmap",
+          "publishedAt": "2026-04-08T10:34:43Z",
+          "kind": "roadmap",
+          "status": "Awaiting approval",
+          "observedAt": "2026-09-17T04:02:07.569Z"
+        }
+      ]
+    },
+    {
+      "id": "modbus-panel-building",
+      "title": "The Modbus connection panel enters Building",
+      "summary": "The plan for a Modbus panel moves from Approved to Building. It aims to show which connections and devices are reachable, with links to serial ports; adding or editing connections remains outside this first scope.",
+      "sources": [
+        {
+          "id": "roadmap:PVTI_lADOCX3lqc4BTbD7zg5yLEw",
+          "title": "Show a Modbus panel in the new Connectivity settings to provide an easy entry point",
+          "url": "https://github.com/OpenHomeFoundation/roadmap/issues/235",
+          "publisher": "Open Home Foundation Roadmap",
+          "publishedAt": "2026-09-07T11:25:29Z",
+          "kind": "roadmap",
+          "status": "Building",
+          "observedAt": "2026-09-17T04:02:07.569Z"
+        }
+      ]
+    },
+    {
+      "id": "green-power-building",
+      "title": "Battery-free Zigbee switch support enters Building",
+      "summary": "The Green Power opportunity moves from Awaiting approval to Building after Matthias Kerstner asks whether its existing progress warrants the move. The plan covers pairing and managing battery-free, energy-harvesting devices in ZHA.",
+      "sources": [
+        {
+          "id": "roadmap:PVTI_lADOCX3lqc4BTbD7zgwKDCI",
+          "title": "Implement Green Power (ZGP) support",
+          "url": "https://github.com/OpenHomeFoundation/roadmap/issues/195",
+          "publisher": "Open Home Foundation Roadmap",
+          "publishedAt": "2026-06-18T13:48:23Z",
+          "kind": "roadmap",
+          "status": "Building",
+          "observedAt": "2026-09-17T04:02:07.569Z"
+        }
+      ]
+    },
+    {
+      "id": "remote-controls-next-steps",
+      "title": "Remote-control plans clarify their next steps",
+      "summary": "For receiving radio commands, Abílio Costa offers to investigate the missing design, then asks whether to wait for approval. Separately, Matthias Kerstner supports advancing the broader remote-device proposal led by DAB-LABS, although that card remains in Shaping.",
+      "sources": [
+        {
+          "id": "roadmap:PVTI_lADOCX3lqc4BTbD7zgyABaM",
+          "title": "Radio-frequency (RF) can receive commands",
+          "url": "https://github.com/OpenHomeFoundation/roadmap/issues/224",
+          "publisher": "Open Home Foundation Roadmap",
+          "publishedAt": "2026-07-07T11:47:57Z",
+          "kind": "roadmap",
+          "status": "Awaiting approval",
+          "observedAt": "2026-09-17T04:02:07.569Z"
+        },
+        {
+          "id": "roadmap:PVTI_lADOCX3lqc4BTbD7zgzbHD4",
+          "title": "Turn any remote into a first-class Home Assistant device",
+          "url": "https://github.com/OpenHomeFoundation/roadmap/issues/226",
+          "publisher": "Open Home Foundation Roadmap",
+          "publishedAt": "2026-07-20T12:29:06Z",
+          "kind": "roadmap",
+          "status": "Shaping",
+          "observedAt": "2026-09-17T04:02:07.569Z"
+        }
+      ]
+    },
+    {
+      "id": "infrared-radio-catalog-guidance",
+      "title": "Finding the right infrared and radio adapter",
+      "summary": "Abílio Costa proposes separate documentation categories for integrations that provide infrared or radio transmitters and those that use them, plus a shared prerequisites note. The proxy-documentation opportunity remains in Building.",
+      "sources": [
+        {
+          "id": "roadmap:PVTI_lADOCX3lqc4BTbD7zgwJraI",
+          "title": "Add documentation for proxying connectivity options",
+          "url": "https://github.com/OpenHomeFoundation/roadmap/issues/188",
+          "publisher": "Open Home Foundation Roadmap",
+          "publishedAt": "2026-06-18T12:55:53Z",
+          "kind": "roadmap",
+          "status": "Building",
+          "observedAt": "2026-09-17T04:02:07.569Z"
+        }
+      ]
+    },
+    {
+      "id": "companion-navigation-scope",
+      "title": "Phone navigation proposal sets out a staged approach",
+      "summary": "Niels condenses Bruno Pantaleão Gonçalves’s navigation proposal with his consent, outlining work on the shared frontend connection and iOS in one cycle, then Android in a follow-up. The approach remains under consideration and keeps existing dashboards intact.",
+      "sources": [
+        {
+          "id": "roadmap:PVTI_lADOCX3lqc4BTbD7zg7FCqI",
+          "title": "Give the companion app platform-standard navigation",
+          "url": "https://github.com/OpenHomeFoundation/roadmap/issues/244",
+          "publisher": "Open Home Foundation Roadmap",
+          "publishedAt": "2026-09-15T15:29:58Z",
+          "kind": "roadmap",
+          "status": "Considering",
+          "observedAt": "2026-09-17T04:02:07.569Z"
+        }
+      ]
+    },
+    {
+      "id": "companion-transfer-apple-response",
+      "title": "Apple still rejects the companion app transfer",
+      "summary": "Responding to the revised transfer guidance, Bruno Pantaleão Gonçalves confirms he has already raised those points with Apple Developer Support, which still says the app is ineligible. The planned transfer to the foundation remains blocked.",
+      "sources": [
+        {
+          "id": "roadmap:PVTI_lADOCX3lqc4BTbD7zg4RJVk",
+          "title": "Move companion app ownership to the foundation",
+          "url": "https://github.com/OpenHomeFoundation/roadmap/issues/232",
+          "publisher": "Open Home Foundation Roadmap",
+          "publishedAt": "2026-08-27T12:39:22Z",
+          "kind": "roadmap",
+          "status": "Now",
+          "observedAt": "2026-09-17T04:02:07.569Z"
+        }
+      ]
+    }
+  ]
+}
