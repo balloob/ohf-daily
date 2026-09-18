@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import YAML from "yaml";
 import { buildReleaseCalendar, type ReleaseCycle } from "../src/lib/releases";
 import { collectContentFeeds, type FeedSourceConfig } from "../src/lib/feed-collector";
+import { publishedPostsForWindow } from "../src/lib/published-posts";
 import { collectCommunityMeetups, type CommunityCalendarSource } from "../src/lib/community-meetups";
 import { collectRoadmap, type RoadmapSourceConfig } from "../src/lib/roadmap-collector";
 import { collectReleasePreviews, type ActiveReleaseTarget, type ReleasePreviewSourceConfig } from "../src/lib/release-previews";
@@ -1338,6 +1339,7 @@ export async function collect(): Promise<CollectionResult> {
     dependencies,
     pulse,
     landedReleases,
+    publishedPosts: publishedPostsForWindow(contentFeeds.current, start.toISOString(), end.toISOString()),
     releasePreviews: editionReleasePreviews.length > 0 ? editionReleasePreviews : undefined,
     releases: releaseCalendar,
     communityMeetups: community.meetups,

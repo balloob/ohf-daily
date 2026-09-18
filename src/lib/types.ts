@@ -144,6 +144,15 @@ export interface ProjectPulseItem {
   lastReleaseDate: string | null;
 }
 
+export interface PublishedPost {
+  id: string;
+  title: string;
+  url: string;
+  publisher: string;
+  publishedAt: string;
+  kind: "Newsletter" | "Blog post";
+}
+
 export interface Edition {
   date: string;
   generatedAt: string;
@@ -166,6 +175,7 @@ export interface Edition {
   roadmapUpdates?: RoadmapUpdate[];
   pulse?: ProjectPulseItem[];
   landedReleases?: LandedRelease[];
+  publishedPosts?: PublishedPost[];
   releasePreviews?: ReleasePreview[];
   releases: ReleaseEvent[];
   communityMeetups?: CommunityMeetup[];

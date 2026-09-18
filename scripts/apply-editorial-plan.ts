@@ -4,6 +4,7 @@ import process from "node:process";
 import { fileURLToPath } from "node:url";
 import YAML from "yaml";
 import { readContentStore } from "../src/lib/content-store";
+import { publishedPostsForWindow } from "../src/lib/published-posts";
 import { loadContributorCache } from "../src/lib/contributors";
 import { editorialInternals } from "../src/lib/editorial";
 import { readPullRequestStore } from "../src/lib/pr-store";
@@ -84,6 +85,7 @@ async function main(): Promise<void> {
   );
 
   edition.articles = articles;
+  edition.publishedPosts = publishedPostsForWindow(storedContent, edition.windowStart, edition.windowEnd);
   edition.roadmapUpdates = editorialInternals.resolveRoadmapUpdates(
     (plan.roadmapUpdates ?? []) as Parameters<typeof editorialInternals.resolveRoadmapUpdates>[0], roadmap, articles,
   );

@@ -3,6 +3,7 @@ import { dirname, resolve } from "node:path";
 import YAML from "yaml";
 import { isBotLogin, loadContributorCache, type ContributorProfile } from "./contributors";
 import { queryContent, readContentStore, type ContentQuery, type StoredContent } from "./content-store";
+import { publishedPostsForWindow } from "./published-posts";
 import type { Article, ArticleExternalSource, ArticleMedia, ArticleSource, Edition, ReleaseEvent, ReleasePreview, RoadmapUpdate } from "./types";
 import { queryPullRequests, readPullRequestStore, type PullRequestQuery, type StoredPullRequest } from "./pr-store";
 import { isHacsIndexAddition } from "./hacs";
@@ -970,6 +971,7 @@ export async function runEditorial(options: EditorialOptions): Promise<Article[]
   const articles = resolveArticles(raw.articles, editorialHistory, allContentHistory, releaseDay.map((release) => release.sourceId), roadmap.context, Object.values(contributorCache.profiles));
   const events = resolveEditorialEvents(raw.events, contentHistory, edition.date, eventHorizonDays, config.confirmed_events);
   edition.articles = articles;
+  edition.publishedPosts = publishedPostsForWindow(contentHistory, edition.windowStart, edition.windowEnd);
   edition.roadmapUpdates = resolveRoadmapUpdates(raw.roadmapUpdates ?? [], roadmap.context, articles);
   edition.releases = [...edition.releases.filter((event) => event.kind !== "Event"), ...events]
     .sort((left, right) => left.date.localeCompare(right.date));

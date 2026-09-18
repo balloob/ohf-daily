@@ -12,6 +12,7 @@ The non-negotiable rules are:
 - Never use `merge`, `merges`, `merged`, or `merging` in reader-facing article copy. Rewrite around the concrete outcome with an active verb. Do not mechanically substitute `landed`, `accepted`, `development branch`, `PR`, or `once released`. Describe what the change does in simple present; reserve `available now` or `users can now` for source-backed releases.
 - Lead with human consequence. Omit routine, weak, test-only, generated, formatting, and dependency-update work from articles.
 - Never surface a dependency update on the front page.
+- Substantial donations and funding commitments are significant ecosystem news and may merit feature or lead placement. A newsletter or blog post can support multiple articles about distinct meaningful developments; deduplicate outcomes, not source URLs. New official posts and newsletters also receive direct links in `Just shipped`, independently of article selection.
 - Documentation that merely accompanies a backend feature supports that feature; independently useful documentation can be news.
 - Clearly distinguish code in development from released or installed functionality, and library/protocol groundwork from downstream product support.
 - Use exact source IDs from the local stores. Never invent facts, people, links, media, measurements, release contents, or availability.

@@ -43,6 +43,12 @@ Publisher-confirmed events in `data/sources.yaml` under `confirmed_events` are a
 - Require natural-language attribution for source-specific claims and retain the structured source entry preserving the original publisher, title, publication date, and canonical URL. Keep pull request IDs in `pullRequestIds` and official or external item IDs in `contentSourceIds`; never disguise a URL as an ID.
 - Give official and independent coverage normal lead, feature, or brief placement according to human consequence, not source prestige. Prefer material adoption, interoperability, public-interest, privacy, security, accountability, or ecosystem impact; omit brand mentions, generic roundups, SEO pages, reactions without new reporting, and routine “elsewhere” collections.
 
+## Publications and foundation support
+
+- Treat substantial donations, funding commitments and other support for the foundation as significant ecosystem news. Judge their consequence for open-source stewardship, sustainability and community support; do not automatically demote them to a brief because they are not code changes. Consider feature or lead placement when warranted, without inventing how funds will be spent.
+- Read newsletters and multi-topic blog posts section by section. One publication can support several articles when it contains distinct, independently meaningful developments. Deduplicate the underlying reader outcome, not the source URL: sharing one source does not make two different stories duplicates. Record the disposition of each substantive section; retain normal evidence and repetition checks.
+- Newly published official newsletters and blog posts also appear as direct links in Just shipped, whether they support zero, one or several articles. This compact publication listing is separate from article selection. Use the exact source title, publisher and canonical link, no repeated date, and never imply that software described in a post has shipped.
+
 ## Copy desk
 
 - Titles are specific and active, not sensational.

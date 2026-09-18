@@ -1,5 +1,5 @@
 ---
-import type { CommunityMeetup, LandedRelease, ReleaseEvent } from "../lib/types";
+import type { CommunityMeetup, LandedRelease, PublishedPost, ReleaseEvent } from "../lib/types";
 import { releasesForRadar } from "../lib/releases";
 import CommunityMeetups from "./CommunityMeetups.astro";
 import { upcomingCommunityMeetups } from "../lib/community-meetups";
@@ -9,12 +9,13 @@ import eventGroups from "../../data/community-event-groups.json";
 interface Props {
   releases: ReleaseEvent[];
   landedReleases?: LandedRelease[];
+  publishedPosts?: PublishedPost[];
   hacsNewIntegrations?: number;
   today?: string;
   communityMeetups?: CommunityMeetup[];
 }
 
-const { releases, landedReleases = [], hacsNewIntegrations, today = new Date().toISOString().slice(0, 10), communityMeetups = [] } = Astro.props;
+const { releases, landedReleases = [], publishedPosts = [], hacsNewIntegrations, today = new Date().toISOString().slice(0, 10), communityMeetups = [] } = Astro.props;
 const meetups = upcomingCommunityMeetups(communityMeetups, today);
 const day = 86_400_000;
 const daysUntil = (date: string) => Math.ceil((Date.parse(`${date}T12:00:00Z`) - Date.parse(`${today}T12:00:00Z`)) / day);
@@ -43,7 +44,7 @@ const shippedOverflow = shipped.length - visibleShipped.length;
 const hacsCount = typeof hacsNewIntegrations === "number" && Number.isSafeInteger(hacsNewIntegrations) && hacsNewIntegrations > 0
   ? hacsNewIntegrations
   : undefined;
-const hasShippedItems = visibleShipped.length > 0 || hacsCount !== undefined;
+const hasShippedItems = visibleShipped.length > 0 || publishedPosts.length > 0 || hacsCount !== undefined;
 const upcoming = releases
   .map((release) => ({
     ...release,
@@ -67,6 +68,15 @@ const calendarRows = calendarMeetupRows(upcoming, meetups, eventGroups);
             <a href={release.url} target="_blank" rel="noreferrer">
               <span class="release-name"><strong>{release.product}</strong><small>{release.tag}</small></span>
               <span class="release-meta"><small>{release.channel}</small></span>
+              <span class="more-information" aria-hidden="true">›</span>
+            </a>
+          </li>
+        ))}
+        {publishedPosts.map((post) => (
+          <li class="published-post" style="--event-accent: var(--blue, var(--accent))">
+            <a href={post.url} target="_blank" rel="noreferrer">
+              <span class="release-name"><strong>{post.title}</strong><small>{post.publisher}</small></span>
+              <span class="release-meta"><small>{post.kind}</small></span>
               <span class="more-information" aria-hidden="true">›</span>
             </a>
           </li>
@@ -192,7 +202,8 @@ const calendarRows = calendarMeetupRows(upcoming, meetups, eventGroups);
     white-space: nowrap;
   }
 
-  .upcoming-name strong {
+  .upcoming-name strong,
+  .published-post .release-name strong {
     overflow: visible;
     text-overflow: clip;
     white-space: normal;
