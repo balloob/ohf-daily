@@ -1,4 +1,30 @@
 import type { LandedRelease, ReleaseEvent } from "./types";
+import type { StoredContentInput } from "./content-store";
+
+/** Prefer an evidenced monthly release post, including for its patch releases. */
+export function linkReleasePosts(releases: LandedRelease[], posts: StoredContentInput[], asOf: string): LandedRelease[] {
+  return releases.map((release) => {
+    if (release.channel !== "stable") return release;
+    const version = majorMinorVersion(release.tag);
+    const repository = release.repository.toLowerCase();
+    if (!version || !["home-assistant/core", "esphome/esphome"].includes(repository)) return release;
+    const post = posts.find((candidate) => {
+      if (candidate.kind !== "official_post" || !(Date.parse(candidate.publishedAt) <= Date.parse(asOf))) return false;
+      if (majorMinorVersion(candidate.title) !== version) return false;
+      let url: URL;
+      try { url = new URL(candidate.url); } catch { return false; }
+      if (url.protocol !== "https:" || url.username || url.password) return false;
+      const [year, month] = version.split(".");
+      if (repository === "home-assistant/core") {
+        return url.hostname === "www.home-assistant.io"
+          && new RegExp(`^/blog/${year}/\\d{2}/\\d{2}/release-${year}${month}/?$`).test(url.pathname);
+      }
+      return url.hostname === "esphome.io"
+        && new RegExp(`^/blog/${year}/\\d{2}/\\d{2}/esphome-${year}-${month}/?$`).test(url.pathname);
+    });
+    return post ? { ...release, releasePostUrl: post.url, releasePostSourceId: post.id } : release;
+  });
+}
 
 export interface ReleaseCycle {
   product: string;

@@ -65,7 +65,7 @@ const calendarRows = calendarMeetupRows(upcoming, meetups, eventGroups);
       <ul class="shipped-list">
         {visibleShipped.map((release) => (
           <li style={`--event-accent: var(--${release.accent}, var(--accent))`}>
-            <a href={release.url} target="_blank" rel="noreferrer">
+            <a href={release.releasePostUrl ?? release.url} target="_blank" rel="noreferrer">
               <span class="release-name"><strong>{release.product}</strong><small>{release.tag}</small></span>
               <span class="release-meta"><small>{release.channel}</small></span>
               <span class="more-information" aria-hidden="true">›</span>

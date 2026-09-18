@@ -48,6 +48,8 @@ export interface LandedRelease {
   channel: "stable" | "prerelease";
   accent: string;
   sourcePullRequestIds?: string[];
+  releasePostUrl?: string;
+  releasePostSourceId?: string;
 }
 
 export interface ReleasePreview {

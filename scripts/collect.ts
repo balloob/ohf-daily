@@ -3,7 +3,8 @@ import { basename, dirname, resolve } from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
 import YAML from "yaml";
-import { buildReleaseCalendar, type ReleaseCycle } from "../src/lib/releases";
+import { buildReleaseCalendar, linkReleasePosts, type ReleaseCycle } from "../src/lib/releases";
+import { readContentStore } from "../src/lib/content-store";
 import { collectContentFeeds, type FeedSourceConfig } from "../src/lib/feed-collector";
 import { publishedPostsForWindow } from "../src/lib/published-posts";
 import { collectCommunityMeetups, type CommunityCalendarSource } from "../src/lib/community-meetups";
@@ -1338,7 +1339,7 @@ export async function collect(): Promise<CollectionResult> {
     briefs,
     dependencies,
     pulse,
-    landedReleases,
+    landedReleases: linkReleasePosts(landedReleases, await readContentStore(resolve(root, "data/content")), end.toISOString()),
     publishedPosts: publishedPostsForWindow(contentFeeds.current, start.toISOString(), end.toISOString()),
     releasePreviews: editionReleasePreviews.length > 0 ? editionReleasePreviews : undefined,
     releases: releaseCalendar,
