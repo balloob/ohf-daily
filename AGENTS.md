@@ -33,6 +33,8 @@ The non-negotiable rules are:
 
 ## Presentation contract
 
+- Apply publication content and link updates only to today's issue unless the publisher explicitly requests older issues. Do not backfill changes into archived edition JSON as part of a general improvement; shared rendering fixes and future collection behavior can still apply site-wide.
+
 Publisher-confirmed upcoming dates are stored in `data/sources.yaml` under `confirmed_events`. Both editorial paths carry them into editions within the event horizon and remove them after their end date. These direct instructions do not require a blog source or an invented link; do not duplicate them in the editor's source-backed event plan.
 
 - Use the supplied `public/ohf-house.svg` house mark. Never invent, redraw, or substitute a newspaper logo or wordmark.
