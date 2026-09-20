@@ -1,0 +1,1763 @@
+{
+  "date": "2026-09-20",
+  "generatedAt": "2026-09-20T04:03:51.487Z",
+  "windowStart": "2026-09-19T04:02:35.264Z",
+  "windowEnd": "2026-09-20T04:02:35.264Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 196,
+    "repositories": 14,
+    "contributors": 73,
+    "dependencyUpdates": 28,
+    "hacsNewIntegrations": 0
+  },
+  "lead": {
+    "id": "4577007276",
+    "title": "Create the first admin account inside the setup wizard",
+    "summary": "What does this implement/fix? On a fresh server without Home Assistant, the first admin account is created on a plain page the server renders, which then hands the browser over to the app.",
+    "url": "https://github.com/music-assistant/frontend/pull/2799",
+    "repository": "music-assistant/frontend",
+    "organization": "Music Assistant",
+    "author": "marcelveldt",
+    "mergedAt": "2026-09-19T11:26:04Z",
+    "labels": [
+      "enhancement"
+    ],
+    "kind": "platform",
+    "score": 71.3,
+    "additions": 1570,
+    "deletions": 37,
+    "changedFiles": 16
+  },
+  "highlights": [
+    {
+      "id": "4579982165",
+      "title": "Add an energy complication for Apple Watch",
+      "summary": "AI Policy I have read the Open Home Foundation AI Policy.",
+      "unlocks": "Unlocks: Add an energy complication for Apple Watch.",
+      "url": "https://github.com/home-assistant/iOS/pull/5857",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "bgoncal",
+      "mergedAt": "2026-09-19T20:19:25Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "feature",
+      "score": 57.7,
+      "additions": 2157,
+      "deletions": 41,
+      "changedFiles": 55,
+      "image": "https://github.com/home-assistant/iOS/blob/apple-watch-energy-complication/Tests/WatchAppTests/__Snapshots__/EnergyComplicationWatchSnapshot.test/energy-grid-and-solar.png?raw=true"
+    },
+    {
+      "id": "4575365067",
+      "title": "Add a minimal MCP server library",
+      "summary": "What does this implement/fix? A minimal, dependency free MCP (Model Context Protocol) server library in esphome device builder/mcp/ , with nothing Device Builder specific in it; the endpoint…",
+      "unlocks": "Unlocks: Add a minimal MCP server library.",
+      "url": "https://github.com/esphome/device-builder/pull/2736",
+      "repository": "esphome/device-builder",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-19T13:57:48Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 57.6,
+      "additions": 878,
+      "deletions": 3,
+      "changedFiles": 14
+    },
+    {
+      "id": "4575241841",
+      "title": "Add an MCP server endpoint",
+      "summary": "What does this implement/fix? Adds a Model Context Protocol server at POST /api/mcp so an LLM agent can work on devices through the dashboard: Home Assistant's mcp integration (it gets…",
+      "unlocks": "Unlocks: Add an MCP server endpoint.",
+      "url": "https://github.com/esphome/device-builder/pull/2733",
+      "repository": "esphome/device-builder",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-20T02:38:58Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 57.1,
+      "additions": 1711,
+      "deletions": 4,
+      "changedFiles": 12
+    },
+    {
+      "id": "4520297807",
+      "title": "Add precipitation forecast service to Environment Canada",
+      "summary": "Adds a new get precipitation forecast action to the Environment Canada integration, exposing the ECPrecipForecast class added in env canada 0.20.0 (#182115, already merged): a 6 minute…",
+      "unlocks": "Unlocks: Add precipitation forecast service to Environment Canada.",
+      "url": "https://github.com/home-assistant/core/pull/182135",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "michaeldavie",
+      "mergedAt": "2026-09-19T19:14:26Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "integration: environment_canada",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 55.4,
+      "additions": 307,
+      "deletions": 3,
+      "changedFiles": 6
+    }
+  ],
+  "briefs": [
+    {
+      "id": "4576791304",
+      "title": "TC-BDX-1.4 and TC-BDX-2.1, and a controller that can serve a file",
+      "summary": "Why The BDX plans give their DUT the sender role, which in Matter means an OTA provider: nothing else in the protocol hands a file to a peer.",
+      "url": "https://github.com/matter-js/matter.js/pull/4473",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-09-19T15:08:29Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "platform",
+      "score": 54.9,
+      "additions": 1728,
+      "deletions": 37,
+      "changedFiles": 24
+    },
+    {
+      "id": "4547782020",
+      "title": "alexa_devices: remove stale values from known entities",
+      "summary": "Ensure stale entities are removed known entity sets.",
+      "unlocks": "Unlocks: Alexa_devices: remove stale values from known entities.",
+      "url": "https://github.com/home-assistant/core/pull/182401",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "jamesonuk",
+      "mergedAt": "2026-09-19T14:00:55Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "code-quality",
+        "quality scale: platinum",
+        "code-owner-approved",
+        "integration: alexa_devices",
+        "top 200"
+      ],
+      "kind": "feature",
+      "score": 54.4,
+      "additions": 280,
+      "deletions": 14,
+      "changedFiles": 19
+    },
+    {
+      "id": "4577724091",
+      "title": "Serve the app on the first-time setup page",
+      "summary": "What does this implement/fix? The first admin account of a fresh server (without Home Assistant) is now created inside the app's setup wizard, so the server no longer needs a setup page of its own.",
+      "url": "https://github.com/music-assistant/server/pull/6403",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-19T13:55:58Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 54.3,
+      "additions": 569,
+      "deletions": 319,
+      "changedFiles": 5
+    },
+    {
+      "id": "4379113356",
+      "title": "Allow image_upload in the media selector config",
+      "summary": "The frontend's media selector has supported an image upload option since frontend 20251029.0 (HA 2025.11), but MediaSelectorConfig rejects it.",
+      "unlocks": "Unlocks: Allow image_upload in the media selector config.",
+      "url": "https://github.com/home-assistant/core/pull/180452",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "parkghost",
+      "mergedAt": "2026-09-19T13:10:07Z",
+      "labels": [
+        "core",
+        "cla-signed",
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 54.1,
+      "additions": 64,
+      "deletions": 5,
+      "changedFiles": 2
+    },
+    {
+      "id": "4548607408",
+      "title": "alexa_devices: add person details to voice event",
+      "summary": "Adds details of who spoke to vocal history event Type of change Dependency upgrade Bugfix (non breaking change which fixes an issue) New integration (thank you!) New feature (which adds…",
+      "unlocks": "Unlocks: Alexa_devices: add person details to voice event.",
+      "url": "https://github.com/home-assistant/core/pull/182410",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "jamesonuk",
+      "mergedAt": "2026-09-19T14:00:43Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "new-feature",
+        "quality scale: platinum",
+        "code-owner-approved",
+        "integration: alexa_devices",
+        "top 200"
+      ],
+      "kind": "feature",
+      "score": 53.5,
+      "additions": 8,
+      "deletions": 0,
+      "changedFiles": 3
+    },
+    {
+      "id": "4577298298",
+      "title": "feat(cert): TC-WEBRTCR-2.3, 2.4 and 2.5, with a controller that holds a real connection",
+      "summary": "Type of change 🐛 Fix — corrects a defect or wrong behavior ✨ Feature — adds new functionality or capability Description Completes the WebRTC certification block with its three remaining cases.",
+      "url": "https://github.com/matter-js/matter.js/pull/4474",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-09-19T22:33:14Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "platform",
+      "score": 52.4,
+      "additions": 1586,
+      "deletions": 145,
+      "changedFiles": 21
+    },
+    {
+      "id": "4459708161",
+      "title": "Improve Player Group UX clarity",
+      "summary": "What does this implement/fix? Improves clarity of the Group selector, with a clearer starting state that indicates the function of the control.",
+      "url": "https://github.com/music-assistant/frontend/pull/2695",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "trisweb",
+      "mergedAt": "2026-09-19T22:13:51Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 52.4,
+      "additions": 9,
+      "deletions": 9,
+      "changedFiles": 3
+    },
+    {
+      "id": "4578174643",
+      "title": "Bound concurrent validate streams",
+      "summary": "What does this implement/fix? Every WS validate stream spawns an esphome config child that imports esphome.components (about 70 MiB), and nothing bounded how many ran at once.",
+      "url": "https://github.com/esphome/device-builder/pull/2739",
+      "repository": "esphome/device-builder",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-19T16:42:39Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 52.2,
+      "additions": 510,
+      "deletions": 53,
+      "changedFiles": 7
+    },
+    {
+      "id": "4580179115",
+      "title": "Omit component catalog fields that hold their default",
+      "summary": "What does this implement/fix? The board catalog models omit a field that holds its default from the wire; the component models never got that config, so ComponentCatalogEntry ,…",
+      "url": "https://github.com/esphome/device-builder/pull/2762",
+      "repository": "esphome/device-builder",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-19T20:34:17Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 50.5,
+      "additions": 177,
+      "deletions": 32,
+      "changedFiles": 10
+    },
+    {
+      "id": "4579463083",
+      "title": "Add is_device_config_name beside is_secrets_file",
+      "summary": "What does this implement/fix? is secrets file says whether a name is the secrets file; nothing said whether a name is a device config at all.",
+      "unlocks": "Unlocks: Add is_device_config_name beside is_secrets_file.",
+      "url": "https://github.com/esphome/device-builder/pull/2754",
+      "repository": "esphome/device-builder",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-19T18:53:57Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "feature",
+      "score": 49.8,
+      "additions": 61,
+      "deletions": 3,
+      "changedFiles": 2
+    },
+    {
+      "id": "4571766227",
+      "title": "matter.js OTA provider and requestor certification subjects",
+      "summary": "Why The BDX and software update certification cases name two apps — ota provider and ota requestor — that no matter.js subject answered.",
+      "url": "https://github.com/matter-js/matter.js/pull/4470",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-09-19T10:12:09Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "platform",
+      "score": 49.6,
+      "additions": 1458,
+      "deletions": 449,
+      "changedFiles": 13
+    },
+    {
+      "id": "4578825435",
+      "title": "Add apply_yaml_diff for the automation editor's splice",
+      "summary": "What does this implement/fix? The automation editor commands return a YamlDiff splice (fromLine, toLine, replacement) that only the frontend applied.",
+      "unlocks": "Unlocks: Add apply_yaml_diff for the automation editor's splice.",
+      "url": "https://github.com/esphome/device-builder/pull/2747",
+      "repository": "esphome/device-builder",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-19T17:29:13Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "feature",
+      "score": 49.4,
+      "additions": 113,
+      "deletions": 6,
+      "changedFiles": 6
+    },
+    {
+      "id": "4525311555",
+      "title": "Add diagnostics to Greencell integration",
+      "summary": "Breaking change Proposed change Adding diagnostic to greencell integration Type of change Dependency upgrade Bugfix (non breaking change which fixes an issue) New integration (thank you!)…",
+      "unlocks": "Unlocks: Add diagnostics to Greencell integration.",
+      "url": "https://github.com/home-assistant/core/pull/182178",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "BrzezowskiGC",
+      "mergedAt": "2026-09-19T18:59:52Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality-scale",
+        "quality scale: bronze",
+        "integration: greencell"
+      ],
+      "kind": "feature",
+      "score": 49.3,
+      "additions": 143,
+      "deletions": 50,
+      "changedFiles": 6
+    },
+    {
+      "id": "4529845927",
+      "title": "Use glass break device class in Hive",
+      "summary": "Breaking change Proposed change Use the dedicated glass break binary sensor device class for this integration's explicit glass break signal.",
+      "unlocks": "Unlocks: Use glass break device class in Hive.",
+      "url": "https://github.com/home-assistant/core/pull/182239",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "catellie",
+      "mergedAt": "2026-09-19T09:03:02Z",
+      "labels": [
+        "cla-signed",
+        "integration: hive",
+        "small-pr",
+        "new-feature",
+        "has-tests",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 49.3,
+      "additions": 52,
+      "deletions": 3,
+      "changedFiles": 2
+    },
+    {
+      "id": "4571395097",
+      "title": "Add tool metadata to the LLM API",
+      "summary": "Breaking change Proposed change Add title , annotations and integration to Tool , as approved in home assistant/architecture#1478.",
+      "unlocks": "Unlocks: Add tool metadata to the LLM API.",
+      "url": "https://github.com/home-assistant/core/pull/182614",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "balloob",
+      "mergedAt": "2026-09-19T17:56:03Z",
+      "labels": [
+        "core",
+        "new-feature",
+        "has-tests",
+        "quality scale: silver",
+        "integration: mcp_server"
+      ],
+      "kind": "feature",
+      "score": 49,
+      "additions": 151,
+      "deletions": 0,
+      "changedFiles": 4
+    },
+    {
+      "id": "4515692227",
+      "title": "Type the KNX UI entity configurations of the flat platforms",
+      "summary": "Breaking change Proposed change Give the KNX UI entity platforms typed configuration.",
+      "unlocks": "Unlocks: Type the KNX UI entity configurations of the flat platforms.",
+      "url": "https://github.com/home-assistant/core/pull/182067",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "farmio",
+      "mergedAt": "2026-09-19T18:56:42Z",
+      "labels": [
+        "cla-signed",
+        "integration: knx",
+        "has-tests",
+        "by-code-owner",
+        "code-quality",
+        "quality scale: platinum"
+      ],
+      "kind": "feature",
+      "score": 48.7,
+      "additions": 1038,
+      "deletions": 431,
+      "changedFiles": 27
+    },
+    {
+      "id": "4579613580",
+      "title": "Let automations/delete save the config in one call",
+      "summary": "What does this implement/fix? automations/delete takes an optional save ; when set it reads the config, removes the automation and writes the result back as one executor job under the file's…",
+      "url": "https://github.com/esphome/device-builder/pull/2757",
+      "repository": "esphome/device-builder",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-19T18:35:03Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 47.8,
+      "additions": 214,
+      "deletions": 19,
+      "changedFiles": 6
+    },
+    {
+      "id": "4580177678",
+      "title": "Tolerate catalog fields the backend omits at their default",
+      "summary": "What does this implement/fix? The backend is about to stop sending component catalog fields that hold their default, the way board data already works (companion PR linked below).",
+      "url": "https://github.com/esphome/device-builder-frontend/pull/1750",
+      "repository": "esphome/device-builder-frontend",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-19T20:08:00Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 47.4,
+      "additions": 86,
+      "deletions": 155,
+      "changedFiles": 14
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Bump uiprotect to 16.13.0",
+      "url": "https://github.com/home-assistant/core/pull/182725",
+      "repository": "home-assistant/core",
+      "author": "RaHehl"
+    },
+    {
+      "title": "Bump nyt_games to 1.0.0",
+      "url": "https://github.com/home-assistant/core/pull/182689",
+      "repository": "home-assistant/core",
+      "author": "joostlek"
+    },
+    {
+      "title": "Bump pySmartThings to 4.0.3",
+      "url": "https://github.com/home-assistant/core/pull/182690",
+      "repository": "home-assistant/core",
+      "author": "joostlek"
+    },
+    {
+      "title": "Migrate GitHub Actions updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/core/pull/182668",
+      "repository": "home-assistant/core",
+      "author": "frenck"
+    },
+    {
+      "title": "Bump uiprotect to 16.12.0",
+      "url": "https://github.com/home-assistant/core/pull/182670",
+      "repository": "home-assistant/core",
+      "author": "RaHehl"
+    },
+    {
+      "title": "Bump python-xbox to 0.3.0",
+      "url": "https://github.com/home-assistant/core/pull/182643",
+      "repository": "home-assistant/core",
+      "author": "tr4nt0r"
+    },
+    {
+      "title": "Bump anyio from 4.13.0 to 4.14.2",
+      "url": "https://github.com/home-assistant/core/pull/182665",
+      "repository": "home-assistant/core",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Update ical to 14.2.0",
+      "url": "https://github.com/home-assistant/core/pull/182658",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump diematic-modbus to 0.8.0",
+      "url": "https://github.com/home-assistant/core/pull/182597",
+      "repository": "home-assistant/core",
+      "author": "DaanVervacke"
+    },
+    {
+      "title": "Bump open-garage to 0.3.1",
+      "url": "https://github.com/home-assistant/core/pull/182626",
+      "repository": "home-assistant/core",
+      "author": "ziptbm"
+    },
+    {
+      "title": "Bump midea-local to 12.1.0",
+      "url": "https://github.com/home-assistant/core/pull/182624",
+      "repository": "home-assistant/core",
+      "author": "rokam"
+    },
+    {
+      "title": "Bump env-canada to 0.20.3",
+      "url": "https://github.com/home-assistant/core/pull/182650",
+      "repository": "home-assistant/core",
+      "author": "michaeldavie"
+    },
+    {
+      "title": "Bump frontend to 0.1.336",
+      "url": "https://github.com/esphome/device-builder/pull/2776",
+      "repository": "esphome/device-builder",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump frontend to 0.1.335",
+      "url": "https://github.com/esphome/device-builder/pull/2774",
+      "repository": "esphome/device-builder",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump frontend to 0.1.334",
+      "url": "https://github.com/esphome/device-builder/pull/2770",
+      "repository": "esphome/device-builder",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump frontend to 0.1.333",
+      "url": "https://github.com/esphome/device-builder/pull/2763",
+      "repository": "esphome/device-builder",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump frontend to 0.1.332",
+      "url": "https://github.com/esphome/device-builder/pull/2748",
+      "repository": "esphome/device-builder",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump frontend to 0.1.331",
+      "url": "https://github.com/esphome/device-builder/pull/2746",
+      "repository": "esphome/device-builder",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump @types/node from 26.5.0 to 26.5.1",
+      "url": "https://github.com/esphome/device-builder-frontend/pull/1743",
+      "repository": "esphome/device-builder-frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump typescript-eslint from 8.69.0 to 8.70.0",
+      "url": "https://github.com/esphome/device-builder-frontend/pull/1746",
+      "repository": "esphome/device-builder-frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump happy-dom from 20.14.0 to 20.14.5",
+      "url": "https://github.com/esphome/device-builder-frontend/pull/1742",
+      "repository": "esphome/device-builder-frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump @rspack/core from 2.2.2 to 2.2.3",
+      "url": "https://github.com/esphome/device-builder-frontend/pull/1744",
+      "repository": "esphome/device-builder-frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump intl-messageformat from 11.2.14 to 11.2.15",
+      "url": "https://github.com/esphome/device-builder-frontend/pull/1745",
+      "repository": "esphome/device-builder-frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump pre-commit from 4.6.0 to 4.6.2",
+      "url": "https://github.com/music-assistant/aiosonos/pull/169",
+      "repository": "music-assistant/aiosonos",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump mypy from 2.1.0 to 2.3.1",
+      "url": "https://github.com/music-assistant/aiosonos/pull/167",
+      "repository": "music-assistant/aiosonos",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump actions/setup-python from 6.3.0 to 7.0.0",
+      "url": "https://github.com/music-assistant/aiosonos/pull/164",
+      "repository": "music-assistant/aiosonos",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump pypa/gh-action-pypi-publish from 1.14.0 to 1.14.2",
+      "url": "https://github.com/music-assistant/aiosonos/pull/163",
+      "repository": "music-assistant/aiosonos",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump pytest-asyncio to 1.4.0",
+      "url": "https://github.com/zigpy/zha/pull/695",
+      "repository": "zigpy/zha",
+      "author": "TheJulianJES"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 99,
+      "thisWeek": 764,
+      "sinceRelease": 1733,
+      "lastReleaseDate": "2026-09-02"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 22,
+      "thisWeek": 172,
+      "sinceRelease": 33,
+      "lastReleaseDate": "2026-09-18"
+    },
+    {
+      "product": "ESPHome",
+      "today": 62,
+      "thisWeek": 292,
+      "sinceRelease": 222,
+      "lastReleaseDate": "2026-09-16"
+    }
+  ],
+  "landedReleases": [],
+  "publishedPosts": [],
+  "releases": [
+    {
+      "product": "OHF Summit · Lisbon",
+      "kind": "Event",
+      "date": "2026-09-22",
+      "endDate": "2026-09-24",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-09-30",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-10-21",
+      "version": "2026.10",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-10-28",
+      "version": "2026.11",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-11-04",
+      "version": "2026.11",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-11-04",
+      "version": "2026.11",
+      "accent": "green"
+    },
+    {
+      "product": "Open Home Foundation Community Day",
+      "kind": "Event",
+      "date": "2026-11-07",
+      "accent": "blue",
+      "url": "https://www.openhomefoundation.org/blog/countdown-to-community-day-2026-starts-now/",
+      "sourceId": "open-home-foundation-blog:c10ad4759bc887b20b0fd3a5"
+    }
+  ],
+  "communityMeetups": [
+    {
+      "id": "evt-Rv4vu3NCucJPTtF@events.lu.ma",
+      "title": "Meet the Open Home Foundation team - Lisbon",
+      "url": "https://luma.com/t13dc6er",
+      "startAt": "2026-09-23T18:00:00.000Z",
+      "endAt": "2026-09-23T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-09-23",
+      "endDate": "2026-09-23",
+      "location": "Impact Hub Lisbon - Penha, R. Neves Ferreira 13, 1170-273 Lisboa, Portugal",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-S9ESGJ8bq5Ysx6y@events.lu.ma",
+      "title": "South Florida HA Meetup with Paulus Schoutsen",
+      "url": "https://luma.com/w4trcwcg",
+      "startAt": "2026-10-01T00:00:00.000Z",
+      "endAt": "2026-10-01T02:00:00.000Z",
+      "allDay": false,
+      "date": "2026-10-01",
+      "endDate": "2026-10-01",
+      "location": "700 W Hillsboro Blvd, Deerfield Beach, FL 33441, USA",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-xt7N1yjW2LgCel5@events.lu.ma",
+      "title": "Melbourne, Australia Community Day Meetup",
+      "url": "https://luma.com/lax3x8f5",
+      "startAt": "2026-11-07T03:00:00.000Z",
+      "endAt": "2026-11-07T05:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-xt7N1yjW2LgCel5",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-o8ZHJ0MBYZnXIfu@events.lu.ma",
+      "title": "Tokyo - Home Assistant Community Day 2026",
+      "url": "https://luma.com/26u5bs6r",
+      "startAt": "2026-11-07T05:00:00.000Z",
+      "endAt": "2026-11-07T08:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Tokyo, Japan",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-UbE4Jn1D747rpQa@events.lu.ma",
+      "title": "East China Community Day Meetup",
+      "url": "https://luma.com/ecqcecyq",
+      "startAt": "2026-11-07T05:30:00.000Z",
+      "endAt": "2026-11-07T09:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "未来科技城海创园, Yuhang District, Hangzhou, China, 311122",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-JihxuewaCCylBGL@events.lu.ma",
+      "title": "Helsinki Meetup",
+      "url": "https://luma.com/ze4ta090",
+      "startAt": "2026-11-07T11:00:00.000Z",
+      "endAt": "2026-11-07T15:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Oy Merilux Ab, Työpajankatu 2, 00580 Helsinki, Finland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-wv8ErN3j5qGGgf5@events.lu.ma",
+      "title": "Salamanca Community Day",
+      "url": "https://luma.com/q6bw1v1u",
+      "startAt": "2026-11-07T11:00:00.000Z",
+      "endAt": "2026-11-07T13:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Manolita Café Bar, C. Palominos, 21, 37008 Salamanca, Spain",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-5vlfFMTBq2mZH32@events.lu.ma",
+      "title": "Zeist (Utrecht) Meetup",
+      "url": "https://luma.com/2k3cc6g2",
+      "startAt": "2026-11-07T12:00:00.000Z",
+      "endAt": "2026-11-07T16:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Zeist, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-z5IzLCPyOVHEz3e@events.lu.ma",
+      "title": "Copenhagen | Home Assistant Community Day",
+      "url": "https://luma.com/mro5omfi",
+      "startAt": "2026-11-07T13:00:00.000Z",
+      "endAt": "2026-11-07T16:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Vesterbrogade 46, 1620 København, Denmark",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-nj4z28MNyiIjTYJ@events.lu.ma",
+      "title": "NL - Rosmalen (Den Bosch) - Meetup",
+      "url": "https://luma.com/1t4lcnwm",
+      "startAt": "2026-11-07T13:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "De Kentering, Dorpsstraat 54, 5241 ED Rosmalen, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-5NUVKsHQa4DWnZ2@events.lu.ma",
+      "title": "Horten meetup",
+      "url": "https://luma.com/1ne99it6",
+      "startAt": "2026-11-07T13:30:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Horten Folkeverksted, Tveitenveien 18, 3186 Horten, Norway",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-eMNQOP6Tx1Umw4x@events.lu.ma",
+      "title": "Dresden Meetup",
+      "url": "https://luma.com/ukr095h8",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Dresden, Germany",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-JWkAH5tKQzRYWXv@events.lu.ma",
+      "title": "Gouda meetup",
+      "url": "https://luma.com/50os1i8j",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Gouda, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-LIsfkOWDtOgmmpi@events.lu.ma",
+      "title": "St. Gallen Meetup",
+      "url": "https://luma.com/l7nve06d",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "L’Ultimo Bacio, Poststrasse 14, 9000 St. Gallen, Switzerland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-jr3SSxFnG2fEZPA@events.lu.ma",
+      "title": "Zurich, CH Community Day 2026",
+      "url": "https://luma.com/dzp88p2s",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Zurich HB TBD",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-tdhTtJpEtCJlKnq@events.lu.ma",
+      "title": "Enschede meetup",
+      "url": "https://luma.com/openhome-7e9g",
+      "startAt": "2026-11-07T15:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Enschede, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-UKUXj52AYKCr2xJ@events.lu.ma",
+      "title": "Columbus, Ohio Meetup",
+      "url": "https://luma.com/u7limgv2",
+      "startAt": "2026-11-07T16:00:00.000Z",
+      "endAt": "2026-11-07T19:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-UKUXj52AYKCr2xJ",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-czgmEZcB4zu9YUi@events.lu.ma",
+      "title": "South Florida Home Assistant Community Day Meetup",
+      "url": "https://luma.com/sua7nd2x",
+      "startAt": "2026-11-07T16:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Boca Raton, FL, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-JA5GInTNmciZ8N4@events.lu.ma",
+      "title": "Vienna Meetup",
+      "url": "https://luma.com/mcj8loas",
+      "startAt": "2026-11-07T17:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Metalab, Rathausstraße 6, 1010 Wien, Austria",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-FofoEA8HxuvlhOL@events.lu.ma",
+      "title": "Amsterdam Zuidoost meetup",
+      "url": "https://luma.com/f12y17ok",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "BuurtHuis Gein, Wisseloord 83, 1107 NB Amsterdam, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-EmX6ovo3mCEbFRH@events.lu.ma",
+      "title": "Buenos Aires meetup",
+      "url": "https://luma.com/gfcjcu9w",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Buenos Aires, Argentina",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-iDLj4WL8ShgfRtD@events.lu.ma",
+      "title": "Hasselt Meetup",
+      "url": "https://luma.com/khnqnbp9",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Brixel, Spalbeekstraat 34, 3510 Hasselt, Belgium",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-Kh8vM0koK8YJs6t@events.lu.ma",
+      "title": "Homeassistant Community Day Berlin",
+      "url": "https://luma.com/h1qd23b0",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "xHain hack+makespace, Grünberger Str. 16, 10243 Berlin-Bezirk Friedrichshain-Kreuzberg, Germany",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-OqihxJGuntwIMgl@events.lu.ma",
+      "title": "Strasbourg meetup",
+      "url": "https://luma.com/0wgen5u2",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Strasbourg, France",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-PRYX9aJuOK7AjE6@events.lu.ma",
+      "title": "Richmond Meetup",
+      "url": "https://luma.com/ufsiv9jh",
+      "startAt": "2026-11-07T19:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Hardywood Park Craft Brewery - Richmond, 2410 Ownby Ln, Richmond, VA 23220, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-Xjd7smGABFk8rA2@events.lu.ma",
+      "title": "Limerick Meetup",
+      "url": "https://luma.com/di99g420",
+      "startAt": "2026-11-07T19:30:00.000Z",
+      "endAt": "2026-11-07T20:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Level Up Arcade Bar, 109 O'Connell St, Prior's-Land, Limerick, Ireland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-OmZGvNyCAgEiHXl@events.lu.ma",
+      "title": "Kansas City Meetup",
+      "url": "https://luma.com/iepjyrfa",
+      "startAt": "2026-11-07T21:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-OmZGvNyCAgEiHXl",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    }
+  ],
+  "notes": [],
+  "articles": [
+    {
+      "id": "esphome-device-builder-ai-tools",
+      "title": "ESPHome gives AI assistants tools to configure and install devices",
+      "dek": "A direct connection lets assistants create configurations, check them and run firmware builds and installations.",
+      "body": [
+        "ESPHome Device Builder gives AI assistants a direct way to create and configure devices, then build and install their firmware. Its twenty tools include finding components and documentation, reading and changing configurations, checking the result and managing device automations.",
+        "J. Nick Koston connects the dashboard through Model Context Protocol, a common interface for AI tools. Long firmware jobs start separately so an assistant can check their progress or cancel them without keeping one request open.",
+        "The connection includes access to sensitive configuration: an assistant can read the secrets file. Changes to an individual secret use a dedicated action, while replacing the whole secrets file is blocked. Validation and build output conceal values marked as secrets."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 95,
+      "contributors": [
+        "bdraco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "4575241841",
+          "title": "Add an MCP server endpoint",
+          "url": "https://github.com/esphome/device-builder/pull/2733",
+          "repository": "esphome/device-builder"
+        },
+        {
+          "id": "4575365067",
+          "title": "Add a minimal MCP server library",
+          "url": "https://github.com/esphome/device-builder/pull/2736",
+          "repository": "esphome/device-builder"
+        },
+        {
+          "id": "4575322268",
+          "title": "Expose the helpers the MCP endpoint reuses",
+          "url": "https://github.com/esphome/device-builder/pull/2734",
+          "repository": "esphome/device-builder"
+        },
+        {
+          "id": "4579496068",
+          "title": "Add plain_lines and move the conceal redaction beside the ANSI helpers",
+          "url": "https://github.com/esphome/device-builder/pull/2756",
+          "repository": "esphome/device-builder"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-stops-blink-repeat-downloads",
+      "title": "Home Assistant stops downloading the same Blink clips every five minutes",
+      "dek": "A repeated-media fetch consumed about 230 GB in one reported week with 14 cameras.",
+      "body": [
+        "Home Assistant stops repeatedly downloading Blink motion clips it already has. One household with 14 cameras reported about 230 GB of downstream traffic in a week because the same video files were fetched again at every five-minute update.",
+        "The integration lets the camera library reuse its cached media instead of forcing a fresh download. Camera state still refreshes on the existing five-minute schedule; the change removes the repeated transfer without lengthening that interval. Dex makes a first contribution to Home Assistant Core with the correction."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 92,
+      "contributors": [
+        "Dextheking1"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "Dextheking1",
+          "name": "Dex",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/4175097?v=4",
+          "profileUrl": "https://github.com/Dextheking1"
+        }
+      ],
+      "reviewers": [
+        "frenck"
+      ],
+      "approvers": [
+        "frenck"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Reliability",
+        "Cameras"
+      ],
+      "pullRequests": [
+        {
+          "id": "4572921013",
+          "title": "Stop forcing the Blink refresh on every poll",
+          "url": "https://github.com/home-assistant/core/pull/182639",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-energy-on-apple-watch",
+      "title": "Home Assistant brings the day’s energy picture to Apple Watch",
+      "dek": "A watch-face panel combines daily figures with a compact chart for each connected home.",
+      "body": [
+        "Home Assistant adds a rectangular Apple Watch complication showing the home’s daily energy figures and a compact stacked chart. The app offers one panel for each connected server, using the energy dashboard configuration already in place.",
+        "Bruno Pantaleão Gonçalves carries the phone’s Energy widget calculations onto the watch, including its early-morning fallback to yesterday’s figures. Watch faces that limit colors use different strengths of their accent color to distinguish the chart’s series."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 87,
+      "contributors": [
+        "bgoncal"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bgoncal",
+          "name": "Bruno Pantaleão Gonçalves",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5808343?v=4",
+          "profileUrl": "https://github.com/bgoncal"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Home Assistant",
+        "Energy",
+        "Apple Watch"
+      ],
+      "pullRequests": [
+        {
+          "id": "4579982165",
+          "title": "Add an energy complication for Apple Watch",
+          "url": "https://github.com/home-assistant/iOS/pull/5857",
+          "repository": "home-assistant/iOS"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "icloud-location-tracking-refreshes-again",
+      "title": "Home Assistant restores fresh locations from iCloud devices",
+      "dek": "Trackers could stay frozen for hours while battery readings continued to update.",
+      "body": [
+        "Home Assistant restores location updates for iCloud devices whose coordinates could remain frozen long after they moved. The integration explicitly asks Apple to locate the devices before reading their status, using its existing polling schedule.",
+        "Radek Piekarz verified the correction on an account with nine devices: one phone had kept the same coordinates for about ten hours across two trips, then moved to its actual zone on the next poll. Fresh battery readings could hide the stalled locations. Piekarz makes his first contribution to Home Assistant Core with the correction."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 86,
+      "contributors": [
+        "radzio"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "radzio",
+          "name": "Radek Piekarz",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/469111?v=4",
+          "profileUrl": "https://github.com/radzio"
+        }
+      ],
+      "reviewers": [
+        "frenck",
+        "Mithul"
+      ],
+      "approvers": [
+        "frenck"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Location",
+        "Reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4483882145",
+          "title": "Fix iCloud device tracker stale location by requesting an active locate on each poll",
+          "url": "https://github.com/home-assistant/core/pull/181731",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-restores-homepod-os27-playback",
+      "title": "Music Assistant restores sound on standalone HomePods running OS 27",
+      "dek": "Its AirPlay sender follows the speaker’s clock when a HomePod accepts playback but stays silent.",
+      "body": [
+        "Music Assistant’s AirPlay sender corrects a failure that left standalone HomePods running OS 27 silent while the interface showed music playing. Those speakers insist on supplying the timing clock themselves; following it restores sound. HomePods in stereo pairs or Apple TV groups already worked.",
+        "Vincent (Chin-Chen) Lin tested the change on a first-generation HomePod running OS 27.0 with Music Assistant 2.10.3, alongside a HomePod mini in an Apple TV group. It is his first contribution to the AirPlay sender, reviewed by Marcel van der Veldt.",
+        "Van der Veldt extends the correction to setups sharing one timing service among five to eight standalone HomePods, where the extra speakers would otherwise remain silent."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 84,
+      "contributors": [
+        "vincent861223",
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "vincent861223",
+          "name": "Vincent (Chin-Chen) Lin",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/22289385?v=4",
+          "profileUrl": "https://github.com/vincent861223"
+        },
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [
+        "marcelveldt"
+      ],
+      "approvers": [
+        "marcelveldt"
+      ],
+      "topics": [
+        "Music Assistant",
+        "AirPlay",
+        "HomePod"
+      ],
+      "pullRequests": [
+        {
+          "id": "4544042215",
+          "title": "Fix silence HomePod playback on HomePod OS 27",
+          "url": "https://github.com/music-assistant/airplay-cli/pull/74",
+          "repository": "music-assistant/airplay-cli"
+        },
+        {
+          "id": "4579774366",
+          "title": "Keep more than four HomePods in sync in shared PTP mode",
+          "url": "https://github.com/music-assistant/airplay-cli/pull/75",
+          "repository": "music-assistant/airplay-cli"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-lines-up-group-announcements",
+      "title": "Music Assistant lines up announcements across speaker groups",
+      "dek": "Groups use a synchronized stream when their speakers cannot coordinate native announcement playback.",
+      "body": [
+        "An announcement sent to a group of Home Assistant Voice speakers could reach each room at a different moment, making the message hard to understand. Music Assistant routes the clip through the group’s synchronized stream when the speakers cannot arrange a shared start themselves.",
+        "Marcel van der Veldt applies that route to Home Assistant players, ESPHome Sendspin players, Snapcast, Bose and Samsung, and to groups mixing providers. Music stops and resumes around the announcement. AirPlay and Sonos groups keep their native announcement path because those speakers can coordinate the start."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 80,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant",
+        "Voice",
+        "Multiroom audio"
+      ],
+      "pullRequests": [
+        {
+          "id": "4573868920",
+          "title": "Fix announcements on a speaker group playing out of sync",
+          "url": "https://github.com/music-assistant/server/pull/6392",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-matter-invalid-device-ranges",
+      "title": "Home Assistant keeps faulty Matter reports from disrupting every device",
+      "dek": "Invalid fan-speed and light-brightness ranges fall back to usable defaults instead of restarting the integration.",
+      "body": [
+        "A Matter fan reporting zero available speeds, or a light reporting an impossible brightness range, could interrupt Home Assistant’s connection to all its Matter devices. The integration guards those values instead of letting a calculation failure stop its listener and trigger a reload.",
+        "Franck Nijhof keeps the default speed count for an unusable fan report and the standard brightness range for an invalid light report. This extends earlier protection for invalid switch events and light color modes."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 81,
+      "contributors": [
+        "frenck"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "reviewers": [
+        "lboue"
+      ],
+      "approvers": [
+        "lboue"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Matter",
+        "Reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4573311378",
+          "title": "Fix Matter fan and light dividing by zero on out-of-spec device ranges",
+          "url": "https://github.com/home-assistant/core/pull/182645",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4513515646",
+          "title": "Guard against out-of-spec values from Matter devices",
+          "url": "https://github.com/home-assistant/core/pull/182034",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-shortcuts-sync-between-apple-devices",
+      "title": "Home Assistant repairs shortcuts shared between Apple devices",
+      "dek": "A shortcut shared through iCloud can use the sole configured server when its saved identity is unfamiliar.",
+      "body": [
+        "A Home Assistant shortcut copied between Apple devices through iCloud could fail with “No server provided” even while displaying the right server name. The Apple app resolves an unfamiliar saved identifier to the sole configured server, keeping the same shortcut usable on both devices. Multiple-server setups and widgets keep strict matching.",
+        "Bruno Pantaleão Gonçalves also makes newly added servers use Home Assistant’s own identity when it can be obtained through local discovery or the companion-app interface. That covers typed addresses and invitations, including remote connections when the server supplies the identity. Existing saved identifiers stay unchanged."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 79,
+      "contributors": [
+        "bgoncal"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bgoncal",
+          "name": "Bruno Pantaleão Gonçalves",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5808343?v=4",
+          "profileUrl": "https://github.com/bgoncal"
+        }
+      ],
+      "reviewers": [
+        "frenck"
+      ],
+      "approvers": [
+        "frenck"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Apple",
+        "Automation"
+      ],
+      "pullRequests": [
+        {
+          "id": "4571180303",
+          "title": "Fix synced shortcuts failing with \"No server provided\"",
+          "url": "https://github.com/home-assistant/iOS/pull/5842",
+          "repository": "home-assistant/iOS"
+        },
+        {
+          "id": "4572347214",
+          "title": "Use Home Assistant instance ID for manually added servers",
+          "url": "https://github.com/home-assistant/iOS/pull/5843",
+          "repository": "home-assistant/iOS"
+        },
+        {
+          "id": "4573491159",
+          "title": "Identify servers by the instance ID Home Assistant reports",
+          "url": "https://github.com/home-assistant/iOS/pull/5845",
+          "repository": "home-assistant/iOS"
+        },
+        {
+          "id": "4573246170",
+          "title": "Add instance ID to mobile_app get_config response",
+          "url": "https://github.com/home-assistant/core/pull/182644",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "environment-canada-precipitation-forecast-action",
+      "title": "Home Assistant gives Canadian automations a closer look at incoming rain",
+      "dek": "A new action returns radar-based precipitation estimates and hourly forecasts for custom cards and automations.",
+      "body": [
+        "Home Assistant’s Environment Canada integration gains an action for detailed precipitation forecasts. It returns a six-minute series combining observed radar with roughly the next hour’s extrapolation, alongside hourly amounts, probabilities and precipitation types extending up to 48 hours.",
+        "Michael Davie exposes the data on request so a custom card or automation can choose the forecast window it needs. The action returns the provider’s series directly; it does not add a ready-made forecast display to the standard weather card."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "michaeldavie"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "michaeldavie",
+          "name": "Michael Davie",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/16008714?v=4",
+          "profileUrl": "https://github.com/michaeldavie"
+        }
+      ],
+      "reviewers": [
+        "silamon",
+        "c0ffeeca7"
+      ],
+      "approvers": [
+        "silamon",
+        "c0ffeeca7"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Weather",
+        "Automation"
+      ],
+      "pullRequests": [
+        {
+          "id": "4520297807",
+          "title": "Add precipitation forecast service to Environment Canada",
+          "url": "https://github.com/home-assistant/core/pull/182135",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4520320686",
+          "title": "Document precipitation forecast action for Environment Canada",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/48119",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-c2-network-time-reboot-fix",
+      "title": "ESPHome stops network time from trapping ESP32-C2 devices in reboot loops",
+      "dek": "A startup log message could crash the device repeatedly and leave it in safe mode.",
+      "body": [
+        "An ESP32-C2 configured to get the time from a network server could crash on every startup and enter safe mode after ten attempts. Jonathan Swoboda fixes the text formatter that misread the time-server log message, giving the chip the same formatter used by other ESP32 variants. J. Nick Koston reviewed the correction."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "swoboda1337"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "swoboda1337",
+          "name": "Jonathan Swoboda",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/154711427?v=4",
+          "profileUrl": "https://github.com/swoboda1337"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "topics": [
+        "ESPHome",
+        "Reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4580210055",
+          "title": "[esp32] Disable newlib nano printf formatting on ESP32-C2",
+          "url": "https://github.com/esphome/esphome/pull/19418",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-keeps-alternate-secrets-file-out-of-history",
+      "title": "ESPHome keeps an alternate secrets file out of shareable history",
+      "dek": "Device Builder recognizes secrets.yml as well as secrets.yaml when starting a configuration repository.",
+      "body": [
+        "ESPHome Device Builder keeps secrets.yml out of a configuration’s initial Git history, closing a gap that could put credentials in a repository later pushed elsewhere. It previously recognized only the longer secrets.yaml filename.",
+        "J. Nick Koston applies the same recognition to the confirmation before wiping the secrets file. Both accepted filenames receive the same protection."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 75,
+      "contributors": [
+        "bdraco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "ESPHome",
+        "Privacy"
+      ],
+      "pullRequests": [
+        {
+          "id": "4578375436",
+          "title": "Treat both secrets spellings as the secrets file",
+          "url": "https://github.com/esphome/device-builder/pull/2744",
+          "repository": "esphome/device-builder"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "assist-understands-fractional-malayalam-timers",
+      "title": "Assist understands half-hour timers in Malayalam",
+      "dek": "Quarter, half and three-quarter durations join more natural ways to ask for a timer.",
+      "body": [
+        "Malayalam speakers gain ways to set Assist timers using quarter, half and three-quarter durations. The sentence rules interpret fractions of an hour as minutes and fractions of a minute as seconds, and the spoken confirmation reflects the requested duration.",
+        "Arun S. Sekher also expands timer-setting phrases, native timer names and alternative number words from one through ten. The additions extend existing Malayalam timer controls rather than introducing timers to the language for the first time."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 75,
+      "contributors": [
+        "arunshekher"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "arunshekher",
+          "name": "Arun S. Sekher",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/315195?v=4",
+          "profileUrl": "https://github.com/arunshekher"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Home Assistant",
+        "Assist",
+        "Malayalam"
+      ],
+      "pullRequests": [
+        {
+          "id": "4576304657",
+          "title": "[ml] Expand timer number alternatives",
+          "url": "https://github.com/OHF-Voice/intents/pull/4219",
+          "repository": "OHF-Voice/intents"
+        },
+        {
+          "id": "4577860661",
+          "title": "[ml] Add fractional timer duration support",
+          "url": "https://github.com/OHF-Voice/intents/pull/4220",
+          "repository": "OHF-Voice/intents"
+        },
+        {
+          "id": "4578427496",
+          "title": "[ml] Expand timer language and local-area controls",
+          "url": "https://github.com/OHF-Voice/intents/pull/4221",
+          "repository": "OHF-Voice/intents"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-actions-upload-images-directly",
+      "title": "Home Assistant actions can offer a direct photo upload",
+      "dek": "Blueprint and action authors gain an image field that opens the phone’s photo picker.",
+      "body": [
+        "Home Assistant lets blueprint and action authors offer an image-upload field directly in their forms. On a phone, that field opens the device’s photo picker instead of requiring someone to find the media browser’s upload controls first.",
+        "The change exposes an upload option already used by picture-card editors to YAML-defined action fields and blueprint inputs. Authors must specify the accepted file types, and the paired interface change lets a chosen image be cleared so another can be uploaded. Brandon makes a first contribution to Home Assistant Core with the change."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 73,
+      "contributors": [
+        "parkghost"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "parkghost",
+          "name": "Brandon",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/306544?v=4",
+          "profileUrl": "https://github.com/parkghost"
+        }
+      ],
+      "reviewers": [
+        "karwosts",
+        "silamon"
+      ],
+      "approvers": [
+        "karwosts",
+        "silamon"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Blueprints",
+        "Usability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4379113356",
+          "title": "Allow image_upload in the media selector config",
+          "url": "https://github.com/home-assistant/core/pull/180452",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4386982650",
+          "title": "Make the media selector clear button follow image_upload",
+          "url": "https://github.com/home-assistant/frontend/pull/53866",
+          "repository": "home-assistant/frontend"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ],
+  "roadmapUpdates": []
+}
