@@ -1,0 +1,1732 @@
+{
+  "date": "2026-09-23",
+  "generatedAt": "2026-09-23T04:02:51.329Z",
+  "windowStart": "2026-09-22T04:01:42.380Z",
+  "windowEnd": "2026-09-23T04:01:42.380Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 100,
+    "repositories": 18,
+    "contributors": 44,
+    "dependencyUpdates": 23,
+    "hacsNewIntegrations": 0
+  },
+  "lead": {
+    "id": "4183609926",
+    "title": "Migrate LIFX to the lifx-async library",
+    "summary": "Breaking change For Home Assistant users who haven't upgraded since 2021: Legacy migration from the original single config entry is dropped The single config entry relied on discovery to…",
+    "unlocks": "Unlocks: Migrate LIFX to the lifx-async library.",
+    "url": "https://github.com/home-assistant/core/pull/177944",
+    "repository": "home-assistant/core",
+    "organization": "Home Assistant",
+    "author": "Djelibeybi",
+    "mergedAt": "2026-09-22T12:48:11Z",
+    "labels": [
+      "new-platform",
+      "cla-signed",
+      "integration: lifx",
+      "has-tests",
+      "by-code-owner",
+      "code-quality",
+      "quality scale: no score"
+    ],
+    "kind": "feature",
+    "score": 61.1,
+    "additions": 13322,
+    "deletions": 7243,
+    "changedFiles": 38
+  },
+  "highlights": [
+    {
+      "id": "4605135068",
+      "title": "Choose sensors per server",
+      "summary": "AI Policy I have read the Open Home Foundation AI Policy.",
+      "url": "https://github.com/home-assistant/iOS/pull/5884",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "bgoncal",
+      "mergedAt": "2026-09-22T22:30:23Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "platform",
+      "score": 58.5,
+      "additions": 1587,
+      "deletions": 273,
+      "changedFiles": 45,
+      "image": "https://raw.githubusercontent.com/home-assistant/iOS/per-server-sensors/Tests/App/Settings/__Snapshots__/SensorListView.test/sensorListWithSeveralServersListsThem.light.png"
+    },
+    {
+      "id": "4601455272",
+      "title": "Carry has_condition_gate in the automation catalog",
+      "summary": "What does this implement/fix? The sync computed has condition gate in extract automation param schema and folded it into is control flow without emitting it, so the frontend hard codes if…",
+      "url": "https://github.com/esphome/device-builder/pull/2820",
+      "repository": "esphome/device-builder",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-22T13:22:01Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 57.1,
+      "additions": 1844,
+      "deletions": 1703,
+      "changedFiles": 596
+    },
+    {
+      "id": "4602809974",
+      "title": "Type upsert_automation's location and automation in the MCP tool schema",
+      "summary": "What does this implement/fix? upsert automation declared location and automation as open objects and carried their whole shape in the tool description, so Home Assistant's schema conversion…",
+      "url": "https://github.com/esphome/device-builder/pull/2823",
+      "repository": "esphome/device-builder",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-22T21:32:08Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 53.6,
+      "additions": 399,
+      "deletions": 202,
+      "changedFiles": 9
+    },
+    {
+      "id": "4588537168",
+      "title": "Allow main app internal URL logic to perform requests for watch",
+      "summary": "AI Policy I have read the Open Home Foundation AI Policy.",
+      "url": "https://github.com/home-assistant/iOS/pull/5871",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "bgoncal",
+      "mergedAt": "2026-09-22T13:35:39Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "platform",
+      "score": 51.9,
+      "additions": 2346,
+      "deletions": 123,
+      "changedFiles": 32
+    }
+  ],
+  "briefs": [
+    {
+      "id": "4587585447",
+      "title": "Remember the hostname a flash-free rename leaves on the device",
+      "summary": "What does this implement/fix? Renaming a device without flashing it leaves the firmware answering to its old hostname, and we kept no record of that hostname.",
+      "unlocks": "Unlocks: Remember the hostname a flash-free rename leaves on the device.",
+      "url": "https://github.com/esphome/device-builder/pull/2814",
+      "repository": "esphome/device-builder",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-22T11:23:26Z",
+      "labels": [
+        "bugfix"
+      ],
+      "kind": "feature",
+      "score": 51.8,
+      "additions": 752,
+      "deletions": 113,
+      "changedFiles": 26
+    },
+    {
+      "id": "4604893085",
+      "title": "Improve webview performance on iOS 27",
+      "summary": "AI Policy I have read the Open Home Foundation AI Policy Select exactly one option that describes AI usage in this contribution: I have not used AI for this contribution.",
+      "url": "https://github.com/home-assistant/iOS/pull/5883",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "bgoncal",
+      "mergedAt": "2026-09-22T22:26:29Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "platform",
+      "score": 51.4,
+      "additions": 527,
+      "deletions": 1,
+      "changedFiles": 21,
+      "image": "https://raw.githubusercontent.com/home-assistant/iOS/feature/webkit-enhanced-security-opt-out/Tests/App/Settings/__Snapshots__/EnhancedWebSecuritySettingsRow.test/testUI.light.png"
+    },
+    {
+      "id": "4580066529",
+      "title": "Use the loudness provided by Tidal",
+      "summary": "What does this implement/fix? As part of the playback info, Tidal also returns standard ReplayGain tags that bring the volume of the track to 18 LUFS.",
+      "url": "https://github.com/music-assistant/server/pull/6406",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "StollD",
+      "mergedAt": "2026-09-23T00:09:51Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 51.2,
+      "additions": 128,
+      "deletions": 0,
+      "changedFiles": 2
+    },
+    {
+      "id": "4603740578",
+      "title": "Persist frontend theme variables",
+      "summary": "AI Policy I have read the Open Home Foundation AI Policy.",
+      "url": "https://github.com/home-assistant/iOS/pull/5880",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "bgoncal",
+      "mergedAt": "2026-09-22T16:50:58Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "platform",
+      "score": 50.7,
+      "additions": 1507,
+      "deletions": 8,
+      "changedFiles": 27
+    },
+    {
+      "id": "4604236082",
+      "title": "Append a bounded esphome config run to the upsert_automation MCP reply",
+      "summary": "What does this implement/fix? The MCP half of #2797.",
+      "url": "https://github.com/esphome/device-builder/pull/2824",
+      "repository": "esphome/device-builder",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-22T20:57:15Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 50,
+      "additions": 258,
+      "deletions": 59,
+      "changedFiles": 5
+    },
+    {
+      "id": "4599437664",
+      "title": "Show where the closest server result comes from",
+      "summary": "AI Policy I have read the Open Home Foundation AI Policy.",
+      "url": "https://github.com/home-assistant/iOS/pull/5878",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "bgoncal",
+      "mergedAt": "2026-09-22T13:04:25Z",
+      "labels": [
+        "cla-signed",
+        "cla-error"
+      ],
+      "kind": "platform",
+      "score": 49.5,
+      "additions": 340,
+      "deletions": 24,
+      "changedFiles": 18,
+      "image": "https://raw.githubusercontent.com/home-assistant/iOS/5f47ad8b7909437f876c387a927f8b65941c2d7f/Tests/App/Settings/__Snapshots__/ClosestServerSourceBadge.test/badgeSources.dark.png"
+    },
+    {
+      "id": "4591533264",
+      "title": "Add a bug report link to log details",
+      "summary": "Adds a link to the appropriate repository issue tracker using templates to prefill the bug report forms for frontend and core.",
+      "unlocks": "Improves reliability around add a bug report link to log details.",
+      "url": "https://github.com/home-assistant/frontend/pull/54305",
+      "repository": "home-assistant/frontend",
+      "organization": "Home Assistant",
+      "author": "timmo001",
+      "mergedAt": "2026-09-22T10:08:00Z",
+      "labels": [
+        "cla-signed",
+        "tests: app",
+        "tests: e2e"
+      ],
+      "kind": "fix",
+      "score": 48.6,
+      "additions": 712,
+      "deletions": 55,
+      "changedFiles": 11
+    },
+    {
+      "id": "4598998686",
+      "title": "Update Localized Strings",
+      "summary": "Automatically created by zacwest.",
+      "url": "https://github.com/home-assistant/iOS/pull/5876",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "github-actions[bot]",
+      "mergedAt": "2026-09-22T14:21:58Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "platform",
+      "score": 47.4,
+      "additions": 239,
+      "deletions": 139,
+      "changedFiles": 34
+    },
+    {
+      "id": "4603148654",
+      "title": "bosch_shc: add Motion Detector 2 pet immunity switch entity",
+      "summary": "Exposes the Motion Detector 2's pet immunity mode as a switch entity ( SHCMotionDetector2.pet immunity enabled ).",
+      "unlocks": "Unlocks: Bosch_shc: add Motion Detector 2 pet immunity switch entity.",
+      "url": "https://github.com/home-assistant/core/pull/182924",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "mosandlt",
+      "mergedAt": "2026-09-22T17:13:14Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "integration: bosch_shc",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 47.3,
+      "additions": 83,
+      "deletions": 0,
+      "changedFiles": 4
+    },
+    {
+      "id": "4586069491",
+      "title": "Show provider names and icons",
+      "summary": "Closes #801 Is there anything about the code changes here that should be highlighted?",
+      "url": "https://github.com/music-assistant/mobile-app/pull/1028",
+      "repository": "music-assistant/mobile-app",
+      "organization": "Music Assistant",
+      "author": "seadowg",
+      "mergedAt": "2026-09-22T16:58:34Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 45.1,
+      "additions": 457,
+      "deletions": 283,
+      "changedFiles": 31
+    },
+    {
+      "id": "4607635568",
+      "title": "Drop the composed requirements nothing reads",
+      "summary": "EndpointType.Requirements carried deviceTypes and conditions , and codegen populated them across 31 generated files .",
+      "url": "https://github.com/matter-js/matter.js/pull/4496",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-09-22T23:28:35Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "platform",
+      "score": 44.7,
+      "additions": 74,
+      "deletions": 927,
+      "changedFiles": 39
+    },
+    {
+      "id": "4538090778",
+      "title": "Adjust brand bottom padding",
+      "summary": "When using the 3 buttons navbar the OHF icon in the loading screen was too close from it.",
+      "url": "https://github.com/home-assistant/android/pull/7481",
+      "repository": "home-assistant/android",
+      "organization": "Home Assistant",
+      "author": "TimoPtr",
+      "mergedAt": "2026-09-22T09:10:42Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "platform",
+      "score": 44.6,
+      "additions": 1,
+      "deletions": 2,
+      "changedFiles": 26,
+      "image": "https://raw.githubusercontent.com/home-assistant/android/5381500e03820c6df232188a60c325175d1fcdbc/app/src/screenshotTestFullDebug/reference/io/homeassistant/companion/android/frontend/FrontendScreenScreenshotTest/FrontendScreen%20LoadServer%20state_foldable_c908f502_0.png"
+    },
+    {
+      "id": "4183617214",
+      "title": "Update LIFX documentation to align with lifx-async migration",
+      "summary": "Update LIFX documentation to align with lifx async migration This PR restructures the LIFX integration page to follow the current integration documentation template, and brings all ten…",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/47195",
+      "repository": "home-assistant/home-assistant.io",
+      "organization": "Home Assistant",
+      "author": "Djelibeybi",
+      "mergedAt": "2026-09-22T17:21:18Z",
+      "labels": [
+        "next",
+        "has-parent"
+      ],
+      "kind": "docs",
+      "score": 42.6,
+      "additions": 1574,
+      "deletions": 461,
+      "changedFiles": 15
+    },
+    {
+      "id": "4467855934",
+      "title": "Enhance Liebherr integration with optimistic state updates for controls",
+      "summary": "Updates the Liebherr integration to use cloud push events for device state updates.",
+      "unlocks": "Unlocks: Enhance Liebherr integration with optimistic state updates for controls.",
+      "url": "https://github.com/home-assistant/core/pull/181603",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "mettolen",
+      "mergedAt": "2026-09-22T12:15:27Z",
+      "labels": [
+        "cla-signed",
+        "has-tests",
+        "by-code-owner",
+        "bugfix",
+        "quality scale: platinum",
+        "integration: liebherr"
+      ],
+      "kind": "feature",
+      "score": 40.5,
+      "additions": 244,
+      "deletions": 27,
+      "changedFiles": 10
+    },
+    {
+      "id": "4599400976",
+      "title": "[zigbee] Require mbedTLS extras for Zigbee crypto",
+      "summary": "Added requirements for AES CCM and deterministic ECDSA in mbedTLS.",
+      "url": "https://github.com/esphome/esphome/pull/19457",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "luar123",
+      "mergedAt": "2026-09-22T21:48:50Z",
+      "labels": [
+        "has-tests",
+        "small-pr",
+        "bugfix",
+        "by-code-owner",
+        "component: zigbee"
+      ],
+      "kind": "platform",
+      "score": 40.1,
+      "additions": 42,
+      "deletions": 3,
+      "changedFiles": 3
+    },
+    {
+      "id": "4608045234",
+      "title": "Remove sensor count from server rows and register pedometer sensors without a value",
+      "summary": "AI Policy I have read the Open Home Foundation AI Policy.",
+      "url": "https://github.com/home-assistant/iOS/pull/5887",
+      "repository": "home-assistant/iOS",
+      "organization": "Home Assistant",
+      "author": "bgoncal",
+      "mergedAt": "2026-09-23T01:28:38Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "platform",
+      "score": 40,
+      "additions": 40,
+      "deletions": 52,
+      "changedFiles": 7,
+      "image": "https://raw.githubusercontent.com/home-assistant/iOS/130203297f067c5b989e0d566e30deb60996e6fc/Tests/App/Settings/__Snapshots__/SensorListView.test/sensorListWithSeveralServersListsThem.dark.png"
+    },
+    {
+      "id": "4532328332",
+      "title": "Fix SleepIQ bed dedup removing real beds that share a sleeper",
+      "summary": "The duplicate bed filter introduced in #178682 used sleeper ID intersection to group beds, which incorrectly removed a real bed when two physical beds on the same account shared a sleeper profile.",
+      "unlocks": "Improves reliability around fix SleepIQ bed dedup removing real beds that share a sleeper.",
+      "url": "https://github.com/home-assistant/core/pull/182267",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "derekcentrico",
+      "mergedAt": "2026-09-22T07:00:19Z",
+      "labels": [
+        "cla-signed",
+        "integration: sleepiq",
+        "has-tests",
+        "bugfix",
+        "quality scale: no score"
+      ],
+      "kind": "fix",
+      "score": 38.7,
+      "additions": 115,
+      "deletions": 45,
+      "changedFiles": 2
+    },
+    {
+      "id": "4606919070",
+      "title": "Round-trip a scalar wait_until as a scalar",
+      "summary": "What does this implement/fix? A scalar wait until was rewritten on every save as wait until: {id: ...} .",
+      "url": "https://github.com/esphome/device-builder/pull/2825",
+      "repository": "esphome/device-builder",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-22T23:23:27Z",
+      "labels": [
+        "bugfix"
+      ],
+      "kind": "platform",
+      "score": 38.6,
+      "additions": 205,
+      "deletions": 71,
+      "changedFiles": 9
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Bump openrgb-python to 0.3.7",
+      "url": "https://github.com/home-assistant/core/pull/182885",
+      "repository": "home-assistant/core",
+      "author": "TRusselo"
+    },
+    {
+      "title": "Bump gcal-sync to 9.2.0",
+      "url": "https://github.com/home-assistant/core/pull/182899",
+      "repository": "home-assistant/core",
+      "author": "ihralle"
+    },
+    {
+      "title": "Bump boschshcpy to 0.6.10",
+      "url": "https://github.com/home-assistant/core/pull/182872",
+      "repository": "home-assistant/core",
+      "author": "mosandlt"
+    },
+    {
+      "title": "Bump uiprotect to 16.14.0",
+      "url": "https://github.com/home-assistant/core/pull/182866",
+      "repository": "home-assistant/core",
+      "author": "RaHehl"
+    },
+    {
+      "title": "Update SQLAlchemy to 2.0.53",
+      "url": "https://github.com/home-assistant/core/pull/182893",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump pnpm from 12.4.2 to 12.5.1",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/48296",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Update unidiff to 1.0.1",
+      "url": "https://github.com/home-assistant/core/pull/182894",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update uv to 0.12.14",
+      "url": "https://github.com/home-assistant/core/pull/182895",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update codecov/codecov-action action to v7.1.0",
+      "url": "https://github.com/home-assistant/core/pull/182896",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump asyncssh to 2.24.0",
+      "url": "https://github.com/home-assistant/core/pull/182889",
+      "repository": "home-assistant/core",
+      "author": "frenck"
+    },
+    {
+      "title": "Bump google-protobuf from 4.36.1 to 4.36.2",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/48297",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump platformdirs from 4.11.10 to 4.11.11",
+      "url": "https://github.com/esphome/esphome/pull/19465",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump filelock from 4.0.0 to 4.0.1",
+      "url": "https://github.com/esphome/esphome/pull/19464",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump aioesphomeapi from 46.4.1 to 46.5.0",
+      "url": "https://github.com/esphome/esphome/pull/19463",
+      "repository": "esphome/esphome",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump frontend to 0.1.339",
+      "url": "https://github.com/esphome/device-builder/pull/2822",
+      "repository": "esphome/device-builder",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump types-protobuf from 7.34.1.20260518 to 7.35.1.20260821",
+      "url": "https://github.com/esphome/aioesphomeapi/pull/1883",
+      "repository": "esphome/aioesphomeapi",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump docker/setup-qemu-action from 4.3.0 to 4.4.0",
+      "url": "https://github.com/esphome/aioesphomeapi/pull/1903",
+      "repository": "esphome/aioesphomeapi",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump docker/build-push-action from 7.3.0 to 7.4.0",
+      "url": "https://github.com/esphome/aioesphomeapi/pull/1905",
+      "repository": "esphome/aioesphomeapi",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump docker/setup-buildx-action from 4.3.0 to 4.4.1",
+      "url": "https://github.com/esphome/aioesphomeapi/pull/1906",
+      "repository": "esphome/aioesphomeapi",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump esphome/workflows/.github/workflows/lock.yml from 2026.8.1 to 2026.9.0",
+      "url": "https://github.com/esphome/aioesphomeapi/pull/1907",
+      "repository": "esphome/aioesphomeapi",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump codecov/codecov-action from 7.0.0 to 7.1.1",
+      "url": "https://github.com/esphome/aioesphomeapi/pull/1908",
+      "repository": "esphome/aioesphomeapi",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump oxfmt from 0.67.0 to 0.68.0",
+      "url": "https://github.com/matter-js/matter.js/pull/4492",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(pre-commit.ci): pre-commit autoupdate",
+      "url": "https://github.com/Bluetooth-Devices/habluetooth/pull/632",
+      "repository": "Bluetooth-Devices/habluetooth",
+      "author": "pre-commit-ci[bot]"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 54,
+      "thisWeek": 591,
+      "sinceRelease": 1943,
+      "lastReleaseDate": "2026-09-02"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 13,
+      "thisWeek": 108,
+      "sinceRelease": 69,
+      "lastReleaseDate": "2026-09-18"
+    },
+    {
+      "product": "ESPHome",
+      "today": 22,
+      "thisWeek": 279,
+      "sinceRelease": 290,
+      "lastReleaseDate": "2026-09-16"
+    }
+  ],
+  "landedReleases": [],
+  "publishedPosts": [],
+  "releases": [
+    {
+      "product": "OHF Summit · Lisbon",
+      "kind": "Event",
+      "date": "2026-09-22",
+      "endDate": "2026-09-24",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-09-30",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-10-21",
+      "version": "2026.10",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-10-28",
+      "version": "2026.11",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-11-04",
+      "version": "2026.11",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-11-04",
+      "version": "2026.11",
+      "accent": "green"
+    },
+    {
+      "product": "Open Home Foundation Community Day",
+      "kind": "Event",
+      "date": "2026-11-07",
+      "accent": "blue",
+      "url": "https://www.openhomefoundation.org/blog/countdown-to-community-day-2026-starts-now/",
+      "sourceId": "open-home-foundation-blog:c10ad4759bc887b20b0fd3a5"
+    }
+  ],
+  "communityMeetups": [
+    {
+      "id": "evt-Rv4vu3NCucJPTtF@events.lu.ma",
+      "title": "Meet the Open Home Foundation team - Lisbon",
+      "url": "https://luma.com/t13dc6er",
+      "startAt": "2026-09-23T18:00:00.000Z",
+      "endAt": "2026-09-23T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-09-23",
+      "endDate": "2026-09-23",
+      "location": "Impact Hub Lisbon - Penha, R. Neves Ferreira 13, 1170-273 Lisboa, Portugal",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-S9ESGJ8bq5Ysx6y@events.lu.ma",
+      "title": "South Florida HA Meetup with Paulus Schoutsen",
+      "url": "https://luma.com/w4trcwcg",
+      "startAt": "2026-10-01T00:00:00.000Z",
+      "endAt": "2026-10-01T02:00:00.000Z",
+      "allDay": false,
+      "date": "2026-10-01",
+      "endDate": "2026-10-01",
+      "location": "700 W Hillsboro Blvd, Deerfield Beach, FL 33441, USA",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-mUed7CByFECrash@events.lu.ma",
+      "title": "Auckland Home Assistant Community Day",
+      "url": "https://luma.com/8emp51gl",
+      "startAt": "2026-11-07T01:00:00.000Z",
+      "endAt": "2026-11-07T04:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-mUed7CByFECrash",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-xt7N1yjW2LgCel5@events.lu.ma",
+      "title": "Melbourne, Australia Community Day Meetup",
+      "url": "https://luma.com/lax3x8f5",
+      "startAt": "2026-11-07T03:00:00.000Z",
+      "endAt": "2026-11-07T05:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-xt7N1yjW2LgCel5",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-o8ZHJ0MBYZnXIfu@events.lu.ma",
+      "title": "Tokyo - Home Assistant Community Day 2026",
+      "url": "https://luma.com/26u5bs6r",
+      "startAt": "2026-11-07T05:00:00.000Z",
+      "endAt": "2026-11-07T08:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Tokyo, Japan",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-UbE4Jn1D747rpQa@events.lu.ma",
+      "title": "East China Community Day Meetup",
+      "url": "https://luma.com/ecqcecyq",
+      "startAt": "2026-11-07T05:30:00.000Z",
+      "endAt": "2026-11-07T09:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "未来科技城海创园, Yuhang District, Hangzhou, China, 311122",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-JihxuewaCCylBGL@events.lu.ma",
+      "title": "Helsinki Meetup",
+      "url": "https://luma.com/ze4ta090",
+      "startAt": "2026-11-07T11:00:00.000Z",
+      "endAt": "2026-11-07T15:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Oy Merilux Ab, Työpajankatu 2, 00580 Helsinki, Finland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-wv8ErN3j5qGGgf5@events.lu.ma",
+      "title": "Salamanca Community Day",
+      "url": "https://luma.com/q6bw1v1u",
+      "startAt": "2026-11-07T11:00:00.000Z",
+      "endAt": "2026-11-07T13:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Manolita Café Bar, C. Palominos, 21, 37008 Salamanca, Spain",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-5vlfFMTBq2mZH32@events.lu.ma",
+      "title": "Zeist (Utrecht) Meetup",
+      "url": "https://luma.com/2k3cc6g2",
+      "startAt": "2026-11-07T12:00:00.000Z",
+      "endAt": "2026-11-07T16:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Zeist, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-z5IzLCPyOVHEz3e@events.lu.ma",
+      "title": "Copenhagen | Home Assistant Community Day",
+      "url": "https://luma.com/mro5omfi",
+      "startAt": "2026-11-07T13:00:00.000Z",
+      "endAt": "2026-11-07T16:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Vesterbrogade 46, 1620 København, Denmark",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-nj4z28MNyiIjTYJ@events.lu.ma",
+      "title": "NL - Rosmalen (Den Bosch) - Meetup",
+      "url": "https://luma.com/1t4lcnwm",
+      "startAt": "2026-11-07T13:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "De Kentering, Dorpsstraat 54, 5241 ED Rosmalen, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-5NUVKsHQa4DWnZ2@events.lu.ma",
+      "title": "Horten meetup",
+      "url": "https://luma.com/1ne99it6",
+      "startAt": "2026-11-07T13:30:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Horten Folkeverksted, Tveitenveien 18, 3186 Horten, Norway",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-XdGWF22KjnjmDHk@events.lu.ma",
+      "title": "Brno, Czechia - Community Day",
+      "url": "https://luma.com/qvl7zyvp",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Brno, Czechia",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-eMNQOP6Tx1Umw4x@events.lu.ma",
+      "title": "Dresden Meetup",
+      "url": "https://luma.com/ukr095h8",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Dresden, Germany",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-JWkAH5tKQzRYWXv@events.lu.ma",
+      "title": "Gouda meetup",
+      "url": "https://luma.com/50os1i8j",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Gouda, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-LIsfkOWDtOgmmpi@events.lu.ma",
+      "title": "St. Gallen Meetup",
+      "url": "https://luma.com/l7nve06d",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "L’Ultimo Bacio, Poststrasse 14, 9000 St. Gallen, Switzerland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-jr3SSxFnG2fEZPA@events.lu.ma",
+      "title": "Zurich, CH Community Day 2026",
+      "url": "https://luma.com/dzp88p2s",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Zurich HB TBD",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-tdhTtJpEtCJlKnq@events.lu.ma",
+      "title": "Enschede meetup",
+      "url": "https://luma.com/openhome-7e9g",
+      "startAt": "2026-11-07T15:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Enschede, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-UKUXj52AYKCr2xJ@events.lu.ma",
+      "title": "Columbus, Ohio Meetup",
+      "url": "https://luma.com/u7limgv2",
+      "startAt": "2026-11-07T16:00:00.000Z",
+      "endAt": "2026-11-07T19:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-UKUXj52AYKCr2xJ",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-czgmEZcB4zu9YUi@events.lu.ma",
+      "title": "South Florida Home Assistant Community Day Meetup",
+      "url": "https://luma.com/sua7nd2x",
+      "startAt": "2026-11-07T16:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "700 W Hillsboro Blvd, Deerfield Beach, FL 33441, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-JA5GInTNmciZ8N4@events.lu.ma",
+      "title": "Vienna Meetup",
+      "url": "https://luma.com/mcj8loas",
+      "startAt": "2026-11-07T17:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Metalab, Rathausstraße 6, 1010 Wien, Austria",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-FofoEA8HxuvlhOL@events.lu.ma",
+      "title": "Amsterdam Zuidoost meetup",
+      "url": "https://luma.com/f12y17ok",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "BuurtHuis Gein, Wisseloord 83, 1107 NB Amsterdam, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-EmX6ovo3mCEbFRH@events.lu.ma",
+      "title": "Buenos Aires meetup",
+      "url": "https://luma.com/gfcjcu9w",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Buenos Aires, Argentina",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-iDLj4WL8ShgfRtD@events.lu.ma",
+      "title": "Hasselt Meetup",
+      "url": "https://luma.com/khnqnbp9",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Brixel, Spalbeekstraat 34, 3510 Hasselt, Belgium",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-Kh8vM0koK8YJs6t@events.lu.ma",
+      "title": "Homeassistant Community Day Berlin",
+      "url": "https://luma.com/h1qd23b0",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "xHain hack+makespace, Grünberger Str. 16, 10243 Berlin-Bezirk Friedrichshain-Kreuzberg, Germany",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-OqihxJGuntwIMgl@events.lu.ma",
+      "title": "Strasbourg meetup",
+      "url": "https://luma.com/0wgen5u2",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Strasbourg, France",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-PRYX9aJuOK7AjE6@events.lu.ma",
+      "title": "Richmond Meetup",
+      "url": "https://luma.com/ufsiv9jh",
+      "startAt": "2026-11-07T19:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Hardywood Park Craft Brewery - Richmond, 2410 Ownby Ln, Richmond, VA 23220, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-Xjd7smGABFk8rA2@events.lu.ma",
+      "title": "Limerick Meetup",
+      "url": "https://luma.com/di99g420",
+      "startAt": "2026-11-07T19:30:00.000Z",
+      "endAt": "2026-11-07T20:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Level Up Arcade Bar, 109 O'Connell St, Prior's-Land, Limerick, Ireland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-AFYOdKk71hlZkuX@events.lu.ma",
+      "title": "Mid-Missouri Community Day",
+      "url": "https://luma.com/ssvbr9gj",
+      "startAt": "2026-11-07T19:30:00.000Z",
+      "endAt": "2026-11-07T21:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://www.bigwhiskeys.com/",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-OmZGvNyCAgEiHXl@events.lu.ma",
+      "title": "Kansas City Meetup",
+      "url": "https://luma.com/iepjyrfa",
+      "startAt": "2026-11-07T21:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-OmZGvNyCAgEiHXl",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "bug-reports-from-home-assistant-logs",
+      "title": "Home Assistant turns an error log into a prepared bug report",
+      "dek": "A link chooses the appropriate issue tracker and fills in the error and software version.",
+      "body": [
+        "People reporting a Home Assistant problem gain a direct route from an error’s log details to a prepared bug report. The link opens the appropriate tracker for Core or the interface and fills in the selected log, the Core version and integration details where available.",
+        "Custom integrations use their own supplied issue tracker. Aidan Timson also adds links to reporting guidance, helping people find the right destination without reconstructing the diagnostic details by hand."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 96,
+      "contributors": [
+        "timmo001"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "timmo001",
+          "name": "Aidan Timson",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/28114703?v=4",
+          "profileUrl": "https://github.com/timmo001"
+        }
+      ],
+      "reviewers": [
+        "NoRi2909",
+        "silamon",
+        "mrpasztoradam"
+      ],
+      "approvers": [
+        "silamon"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4591533264",
+          "title": "Add a bug report link to log details",
+          "url": "https://github.com/home-assistant/frontend/pull/54305",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "4591029069",
+          "title": "Add field IDs to the bug report form",
+          "url": "https://github.com/home-assistant/frontend/pull/54303",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "4591043625",
+          "title": "Add field IDs to the bug report form",
+          "url": "https://github.com/home-assistant/core/pull/182854",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-09-23/bug-reports-from-home-assistant-logs-e42a508a3f75-1424w.webp",
+          "alt": "Home Assistant log details with links for reporting a Core issue.",
+          "width": 1424,
+          "height": 496,
+          "variants": [
+            {
+              "url": "/media/2026-09-23/bug-reports-from-home-assistant-logs-e42a508a3f75-480w.webp",
+              "width": 480,
+              "height": 167,
+              "bytes": 5866,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-09-23/bug-reports-from-home-assistant-logs-e42a508a3f75-960w.webp",
+              "width": 960,
+              "height": 334,
+              "bytes": 17768,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-09-23/bug-reports-from-home-assistant-logs-e42a508a3f75-1424w.webp",
+              "width": 1424,
+              "height": 496,
+              "bytes": 27980,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 51614
+        }
+      ]
+    },
+    {
+      "id": "ohf-summit-gathering-lisbon",
+      "title": "OHF Summit brings attendees together in Lisbon",
+      "dek": "Several days of unconference sessions and team building bring the open-home community together.",
+      "body": [
+        "The first attendees gathered in Lisbon ahead of the OHF Summit, taking place September 22–24. The Open Home Foundation shared this early-arrivals photo as people began to meet up.",
+        "The foundation is looking forward to multiple days of unconference sessions and team building activities."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 94,
+      "contributors": [],
+      "contributorProfiles": [],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Open Home Foundation"
+      ],
+      "pullRequests": [],
+      "externalSources": [],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-09-23/ohf-summit-gathering-lisbon-4a1b4df18813-1280w.webp",
+          "alt": "Five people gathered around a wooden table in Lisbon.",
+          "caption": "Early arrivals in Lisbon ahead of the OHF Summit. Photo provided by the Open Home Foundation.",
+          "width": 1280,
+          "height": 960,
+          "variants": [
+            {
+              "url": "/media/2026-09-23/ohf-summit-gathering-lisbon-4a1b4df18813-480w.webp",
+              "width": 480,
+              "height": 360,
+              "bytes": 26522,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-09-23/ohf-summit-gathering-lisbon-4a1b4df18813-960w.webp",
+              "width": 960,
+              "height": 720,
+              "bytes": 64022,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-09-23/ohf-summit-gathering-lisbon-4a1b4df18813-1280w.webp",
+              "width": 1280,
+              "height": 960,
+              "bytes": 94034,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 184578
+        }
+      ]
+    },
+    {
+      "id": "iphone-sensors-per-home",
+      "title": "Home Assistant gives each home its own phone-sensor choices",
+      "dek": "The Apple app can share different readings with different servers instead of sending every home the same set.",
+      "body": [
+        "Home Assistant’s Apple app lets people choose a separate set of phone sensors for each connected home. Enabling a sensor was previously a device-wide choice, so every server receiving sensors got the same selection.",
+        "The Sensors settings screen opens each home’s own choices. Existing servers inherit the selection they already shared, while a newly added server starts with no sensors enabled. The update interval and device permissions remain shared.",
+        "This extends the setup consent reported on September 21: people can decide which individual readings to share with each home, beyond the earlier choice of whether that home receives sensor data at all."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 90,
+      "contributors": [
+        "bgoncal"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bgoncal",
+          "name": "Bruno Pantaleão Gonçalves",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5808343?v=4",
+          "profileUrl": "https://github.com/bgoncal"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4605135068",
+          "title": "Choose sensors per server",
+          "url": "https://github.com/home-assistant/iOS/pull/5884",
+          "repository": "home-assistant/iOS"
+        },
+        {
+          "id": "4608045234",
+          "title": "Remove sensor count from server rows and register pedometer sensors without a value",
+          "url": "https://github.com/home-assistant/iOS/pull/5887",
+          "repository": "home-assistant/iOS"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "iphone-http-dashboard-performance",
+      "title": "Home Assistant tackles iOS 27 dashboard lag with a security tradeoff",
+      "dek": "Plain-HTTP connections bypass an extra WebKit security mode by default, with a setting to restore it.",
+      "body": [
+        "Home Assistant’s Apple app changes a browser security setting to tackle severe dashboard lag on iOS 27. Bruno Pantaleão Gonçalves reports that WebKit puts unencrypted HTTP pages in an enhanced-security process even on a private home network, while the same dashboard over HTTPS avoids that behavior.",
+        "When a configured server uses plain HTTP, the app disables the preference that selects that extra security mode. A General setting restores Apple’s default for people who prefer to keep the additional protection.",
+        "Gonçalves verified the process selection in a basic WebKit browser view, but a check against Home Assistant on a real device remains outstanding. The preference is undocumented and could change in a later Apple update."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 88,
+      "contributors": [
+        "bgoncal"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bgoncal",
+          "name": "Bruno Pantaleão Gonçalves",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5808343?v=4",
+          "profileUrl": "https://github.com/bgoncal"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4604893085",
+          "title": "Improve webview performance on iOS 27",
+          "url": "https://github.com/home-assistant/iOS/pull/5883",
+          "repository": "home-assistant/iOS"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "youtube-music-albums-playable-again",
+      "title": "Music Assistant restores albums that YouTube Music leaves unplayable",
+      "dek": "Albums could fail during playback and synchronization, or appear with no playable tracks.",
+      "body": [
+        "Music Assistant repairs a YouTube Music album lookup that could fail whenever someone tried to play or synchronize an affected album. It also restores track information missing from anonymous album requests, which could leave an album with no playable tracks.",
+        "Ralf Heiringhoff uses the listener’s existing authentication for the lookup and handles a missing playlist reference. This is his first contribution to the Music Assistant server, reviewed by OzGav."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 83,
+      "contributors": [
+        "frosty-geek"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "frosty-geek",
+          "name": "Ralf Heiringhoff",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2196917?v=4",
+          "profileUrl": "https://github.com/frosty-geek"
+        }
+      ],
+      "reviewers": [
+        "OzGav"
+      ],
+      "approvers": [
+        "OzGav"
+      ],
+      "topics": [
+        "Music Assistant",
+        "Reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4607865015",
+          "title": "Fix YTMusic album resolution crash on null audioPlaylistId",
+          "url": "https://github.com/music-assistant/server/pull/6435",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "apple-watch-uses-home-connection",
+      "title": "Apple Watch reaches Home Assistant through the iPhone’s home connection",
+      "dek": "Relaying requests fixes local controls on networks that cannot route their public address back into the home.",
+      "body": [
+        "Home Assistant restores Apple Watch controls on home networks where the public server address cannot be reached from inside. The watch previously always chose the remote address, even when its traffic passed through an iPhone connected to the home Wi-Fi.",
+        "When the paired iPhone is immediately reachable, it performs the request using its own choice of local or remote connection. The watch keeps its credentials and handles the result. If the relay is unavailable before a request reaches the network, the watch uses its own connection."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 82,
+      "contributors": [
+        "bgoncal"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bgoncal",
+          "name": "Bruno Pantaleão Gonçalves",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5808343?v=4",
+          "profileUrl": "https://github.com/bgoncal"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4588537168",
+          "title": "Allow main app internal URL logic to perform requests for watch",
+          "url": "https://github.com/home-assistant/iOS/pull/5871",
+          "repository": "home-assistant/iOS"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "tidal-volume-normalization-without-scanning",
+      "title": "Music Assistant levels Tidal tracks without a preliminary scan",
+      "dek": "Loudness information supplied by Tidal lets volume normalization work from the start.",
+      "body": [
+        "Music Assistant uses loudness information supplied by Tidal to even out differences in track volume without first scanning the audio. Tidal listeners benefit from the service’s existing measurements instead of waiting for Music Assistant to measure each track itself.",
+        "Dorian Stoll makes his first contribution to the Music Assistant server with the work. It builds on the existing support for loudness data supplied by other music sources."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 81,
+      "contributors": [
+        "StollD"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "StollD",
+          "name": "Dorian Stoll",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/7887606?v=4",
+          "profileUrl": "https://github.com/StollD"
+        }
+      ],
+      "reviewers": [
+        "jozefKruszynski"
+      ],
+      "approvers": [
+        "jozefKruszynski"
+      ],
+      "topics": [
+        "Music Assistant",
+        "Audio"
+      ],
+      "pullRequests": [
+        {
+          "id": "4580066529",
+          "title": "Use the loudness provided by Tidal",
+          "url": "https://github.com/music-assistant/server/pull/6406",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "labels-target-device-parts",
+      "title": "Home Assistant includes device parts when targeting a parent’s label",
+      "dek": "An action aimed at a labeled power strip also reaches its child outlets.",
+      "body": [
+        "Home Assistant includes a device’s child parts when an action targets a label attached to the parent. For example, a label on a power strip also selects its child outlets, matching what happens when the parent device is targeted directly.",
+        "Artur Pragacz changes action targeting rather than copying labels onto the children. A label attached only to one child continues to target that child alone."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 79,
+      "contributors": [
+        "arturpragacz"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "arturpragacz",
+          "name": "Artur Pragacz",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/49985303?v=4",
+          "profileUrl": "https://github.com/arturpragacz"
+        }
+      ],
+      "reviewers": [
+        "emontnemery"
+      ],
+      "approvers": [
+        "emontnemery"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4576403250",
+          "title": "Include child devices when targeting a labelled parent device",
+          "url": "https://github.com/home-assistant/core/pull/182664",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-renamed-device-upload",
+      "title": "ESPHome keeps renamed devices reachable for firmware updates",
+      "dek": "Device Builder remembers the name still running on a device when its configuration changes first.",
+      "body": [
+        "Renaming an ESPHome device without immediately installing new firmware could leave every later upload looking for a network name the device did not yet use. Device Builder remembers the old name so an installation can still reach it, instead of requiring the maker to rename the configuration back.",
+        "J. Nick Koston covers rename commands and direct edits to the device name. The remembered name is a fallback when the new one cannot be found and is cleared after a successful installation. Devices using only the web server still need to be discovered under their new name before an offline status can recover."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 79,
+      "contributors": [
+        "bdraco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "4587585447",
+          "title": "Remember the hostname a flash-free rename leaves on the device",
+          "url": "https://github.com/esphome/device-builder/pull/2814",
+          "repository": "esphome/device-builder"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "assist-basque-floor-scene-commands",
+      "title": "Assist expands Basque commands for floors, scripts and scenes",
+      "dek": "More ways to switch devices on and off join clearer spoken responses.",
+      "body": [
+        "Basque speakers gain Assist commands for switching devices by floor, starting named scripts and scenes, and addressing cover types across a room or floor. The language rules fill missing combinations in the existing on and off commands rather than introducing Basque voice control for the first time.",
+        "Urtzi Odriozola also expands polite phrasing and corrects requests referring to “here.” Replies for named covers, locks and valves include the device’s name."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 79,
+      "contributors": [
+        "urtzai"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "urtzai",
+          "name": "Urtzi Odriozola",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1741252?v=4",
+          "profileUrl": "https://github.com/urtzai"
+        }
+      ],
+      "reviewers": [
+        "duhow"
+      ],
+      "approvers": [
+        "duhow"
+      ],
+      "topics": [
+        "OHF Voice",
+        "Accessibility",
+        "Voice"
+      ],
+      "pullRequests": [
+        {
+          "id": "4553096923",
+          "title": "[eu] Complete HassTurnOn/TurnOff coverage and fix rules, errors and responses",
+          "url": "https://github.com/OHF-Voice/intents/pull/4210",
+          "repository": "OHF-Voice/intents"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-screen-reader-settings-lists",
+      "title": "Music Assistant stops announcing populated settings lists as empty",
+      "dek": "Screen readers can identify the rows in music-source settings, setup steps and other shared lists.",
+      "body": [
+        "Music Assistant gives screen readers the missing structure inside several settings and setup lists. Lists of music sources, background tasks, setup steps and user roles could be announced as empty because their rows did not identify themselves as list items.",
+        "Marcel van der Veldt fixes the shared row component so assistive technology can announce each list’s count and structure. The visual appearance stays the same."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant",
+        "Accessibility"
+      ],
+      "pullRequests": [
+        {
+          "id": "4599397263",
+          "title": "Announce list rows to screen readers in settings lists",
+          "url": "https://github.com/music-assistant/frontend/pull/2821",
+          "repository": "music-assistant/frontend"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "sleepiq-keeps-distinct-beds",
+      "title": "Home Assistant keeps separate SleepIQ beds that share a sleeper",
+      "dek": "A duplicate filter no longer discards a real bed because one person appears in both profiles.",
+      "body": [
+        "Home Assistant keeps separate SleepIQ beds on accounts where a person is associated with both. The previous duplicate filter treated any overlapping sleeper profile as evidence of duplication, silently removing a real second bed at each setup.",
+        "The filter compares the complete sleeper sets and uses foundation-feature information to distinguish controller duplicates. The correction preserves the original protection against duplicate “Firmness Control” devices."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 75,
+      "contributors": [
+        "derekcentrico"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "derekcentrico",
+          "name": "derekcentrico",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1930094?v=4",
+          "profileUrl": "https://github.com/derekcentrico"
+        }
+      ],
+      "reviewers": [
+        "kbickar",
+        "silamon"
+      ],
+      "approvers": [
+        "kbickar",
+        "silamon"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4532328332",
+          "title": "Fix SleepIQ bed dedup removing real beds that share a sleeper",
+          "url": "https://github.com/home-assistant/core/pull/182267",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "guide-connects-distant-serial-devices",
+      "title": "Home Assistant explains how to connect distant serial devices",
+      "dek": "New guidance covers local USB adapters, ESPHome proxies and stable port selection.",
+      "body": [
+        "Home Assistant’s serial guide walks through connecting equipment such as an AV receiver or energy meter either by a nearby USB adapter or through an ESPHome device beside the equipment. It explains how to check the available ports and choose the connection in the equipment’s integration.",
+        "The guide recommends stable serial identifiers instead of numbered USB paths that can change. A companion ESPHome overview explains Bluetooth, infrared, radio and serial proxies, and makes clear that serial proxies require a configuration you write and install yourself."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 73,
+      "contributors": [
+        "c0ffeeca7"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "c0ffeeca7",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/38767475?v=4",
+          "profileUrl": "https://github.com/c0ffeeca7"
+        }
+      ],
+      "reviewers": [
+        "kbx81"
+      ],
+      "approvers": [
+        "kbx81"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4557806645",
+          "title": "Serial: setting up a serial connection",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/48213",
+          "repository": "home-assistant/home-assistant.io"
+        },
+        {
+          "id": "4561303715",
+          "title": "ESPHome: add section on remote adapters for different protocols",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/48223",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ],
+  "roadmapUpdates": []
+}
