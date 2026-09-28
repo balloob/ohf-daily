@@ -1,0 +1,2307 @@
+{
+  "date": "2026-09-28",
+  "generatedAt": "2026-09-28T04:03:07.877Z",
+  "windowStart": "2026-09-27T04:01:20.234Z",
+  "windowEnd": "2026-09-28T04:01:20.234Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 356,
+    "repositories": 43,
+    "contributors": 58,
+    "dependencyUpdates": 74,
+    "hacsNewIntegrations": 0
+  },
+  "lead": {
+    "id": "4657128022",
+    "title": "Show an artist's full discography from MusicBrainz",
+    "summary": "What does this implement/fix? MusicBrainz knows an artist's complete discography, and after #6490 our library items carry their MusicBrainz ids.",
+    "unlocks": "Unlocks: Show an artist's full discography from MusicBrainz.",
+    "url": "https://github.com/music-assistant/server/pull/6509",
+    "repository": "music-assistant/server",
+    "organization": "Music Assistant",
+    "author": "marcelveldt",
+    "mergedAt": "2026-09-28T01:05:35Z",
+    "labels": [
+      "new-feature"
+    ],
+    "kind": "feature",
+    "score": 75.2,
+    "additions": 2321,
+    "deletions": 112,
+    "changedFiles": 20
+  },
+  "highlights": [
+    {
+      "id": "4656213114",
+      "title": "Link existing libraries to MusicBrainz in the background",
+      "summary": "What does this implement/fix? #6490 identifies items on MusicBrainz and links them to your other music services when they are added or refreshed.",
+      "url": "https://github.com/music-assistant/server/pull/6496",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-27T22:08:41Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 72.9,
+      "additions": 1915,
+      "deletions": 78,
+      "changedFiles": 20
+    },
+    {
+      "id": "4650836333",
+      "title": "Favorites are yours, and you can dislike",
+      "summary": "What does this implement/fix? Favorites used to be one flag for the whole household: your heart was everybody's heart.",
+      "url": "https://github.com/music-assistant/frontend/pull/2834",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-27T22:36:02Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 71.3,
+      "additions": 2134,
+      "deletions": 579,
+      "changedFiles": 44
+    },
+    {
+      "id": "4650541112",
+      "title": "Favorites are personal, and you can dislike",
+      "summary": "What does this implement/fix? A favorite was one flag on the library item itself, so one heart counted for the whole household: the moment somebody hearted a song, everybody had it in their favorites.",
+      "url": "https://github.com/music-assistant/server/pull/6482",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-27T11:32:03Z",
+      "labels": [
+        "enhancement",
+        "dependencies-reviewed"
+      ],
+      "kind": "platform",
+      "score": 70.9,
+      "additions": 1607,
+      "deletions": 340,
+      "changedFiles": 63
+    },
+    {
+      "id": "4653590154",
+      "title": "Fill in library items and link music services through MusicBrainz",
+      "summary": "What does this implement/fix? When an item lands in the library, Music Assistant now identifies it on our MusicBrainz mirror and uses what MusicBrainz knows about it.",
+      "url": "https://github.com/music-assistant/server/pull/6490",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-27T18:59:56Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 68.7,
+      "additions": 2024,
+      "deletions": 88,
+      "changedFiles": 11
+    }
+  ],
+  "briefs": [
+    {
+      "id": "4650808879",
+      "title": "Disliked tracks stay out of the music Music Assistant picks for you",
+      "summary": "What does this implement/fix? You can say a song should never come up for you again, but so far that only sat in the library: Music Assistant happily picked it back up the next time it chose music itself.",
+      "url": "https://github.com/music-assistant/server/pull/6483",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-27T17:44:06Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 67.1,
+      "additions": 621,
+      "deletions": 9,
+      "changedFiles": 11
+    },
+    {
+      "id": "4638023058",
+      "title": "feat: Matter 1.6.1 with Groupcast",
+      "summary": "Moves the generated model from Matter 1.6.0 to Matter 1.6.1, and brings in the Groupcast implementation 1.6.1 requires.",
+      "url": "https://github.com/matter-js/matter.js/pull/4526",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-09-27T14:05:50Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "platform",
+      "score": 63.5,
+      "additions": 57659,
+      "deletions": 2029,
+      "changedFiles": 262
+    },
+    {
+      "id": "4650317913",
+      "title": "Switch a row's source faster on the artist page",
+      "summary": "What does this implement/fix? Two small \"switch the source faster\" improvements on the artist page, following up on #2802.",
+      "url": "https://github.com/music-assistant/frontend/pull/2831",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-27T10:37:36Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 62.3,
+      "additions": 444,
+      "deletions": 34,
+      "changedFiles": 14
+    },
+    {
+      "id": "4656323964",
+      "title": "Add a source picker to the album page's \"more from this artist\" row",
+      "summary": "What does this implement/fix? On the album page, the \"More from this artist\" row always showed the album artist's own provider and could not be changed.",
+      "unlocks": "Unlocks: Add a source picker to the album page's \"more from this artist\" row.",
+      "url": "https://github.com/music-assistant/frontend/pull/2841",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-27T22:15:07Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "feature",
+      "score": 62.2,
+      "additions": 713,
+      "deletions": 116,
+      "changedFiles": 12
+    },
+    {
+      "id": "4656406431",
+      "title": "Fit the detail page header to smaller screens",
+      "summary": "What does this implement/fix? The album, artist and track page headers were cramped at tablet and medium widths.",
+      "url": "https://github.com/music-assistant/frontend/pull/2843",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-27T21:50:09Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 59.8,
+      "additions": 230,
+      "deletions": 123,
+      "changedFiles": 11
+    },
+    {
+      "id": "4540846847",
+      "title": "Add Teufel Raumfeld player provider",
+      "summary": "What does this implement/fix? Adds a native player provider for Teufel Raumfeld (Smart Speaker) multiroom systems.",
+      "unlocks": "Unlocks: Add Teufel Raumfeld player provider.",
+      "url": "https://github.com/music-assistant/server/pull/6364",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "Simanias",
+      "mergedAt": "2026-09-27T20:39:44Z",
+      "labels": [
+        "new-provider",
+        "dependencies-reviewed"
+      ],
+      "kind": "feature",
+      "score": 58,
+      "additions": 1897,
+      "deletions": 0,
+      "changedFiles": 16
+    },
+    {
+      "id": "4588711489",
+      "title": "Use child devices for Tuya multi-channel valves",
+      "summary": "Model each channel of a multi channel Tuya valve controller as a child device, following the child devices architecture proposal (home assistant/architecture#1414).",
+      "unlocks": "Unlocks: Use child devices for Tuya multi-channel valves.",
+      "url": "https://github.com/home-assistant/core/pull/182835",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "epenet",
+      "mergedAt": "2026-09-27T15:40:59Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "integration: tuya",
+        "has-tests",
+        "quality scale: no score",
+        "top 200",
+        "top 50",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 58,
+      "additions": 428,
+      "deletions": 249,
+      "changedFiles": 9
+    },
+    {
+      "id": "4653433727",
+      "title": "Match tracks and albums on other services by ISRC and barcode before searching",
+      "summary": "What does this implement/fix? When a library item is matched to the other music services, Music Assistant text searches every service and compares the candidates.",
+      "url": "https://github.com/music-assistant/server/pull/6489",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-27T17:56:45Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 57.9,
+      "additions": 591,
+      "deletions": 24,
+      "changedFiles": 5
+    },
+    {
+      "id": "4657205175",
+      "title": "Hand Raspberry Pi Pico firmware off to web.esphome.io",
+      "summary": "What does this implement/fix? On an insecure origin the dashboard had no USB option for a Raspberry Pi Pico.",
+      "unlocks": "Unlocks: Hand Raspberry Pi Pico firmware off to web.esphome.io.",
+      "url": "https://github.com/esphome/device-builder-frontend/pull/1923",
+      "repository": "esphome/device-builder-frontend",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-27T23:00:18Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 56.8,
+      "additions": 759,
+      "deletions": 91,
+      "changedFiles": 15
+    },
+    {
+      "id": "4656597609",
+      "title": "Add MCUboot updates for nRF52 to web.esphome.io",
+      "summary": "What does this implement/fix? Adds MCUboot updates for nRF52 to web.esphome.io, over the mcumgr SMP service by Bluetooth or serial.",
+      "unlocks": "Unlocks: Add MCUboot updates for nRF52 to web.esphome.io.",
+      "url": "https://github.com/esphome/device-builder-frontend/pull/1913",
+      "repository": "esphome/device-builder-frontend",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-27T21:59:00Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 54.2,
+      "additions": 875,
+      "deletions": 18,
+      "changedFiles": 9
+    },
+    {
+      "id": "4650467836",
+      "title": "Add MusicBrainz identity lookups and provider link helpers",
+      "summary": "What does this implement/fix? Groundwork for using our own MusicBrainz mirror as the source of truth for library identity.",
+      "unlocks": "Unlocks: Add MusicBrainz identity lookups and provider link helpers.",
+      "url": "https://github.com/music-assistant/server/pull/6481",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-27T10:23:15Z",
+      "labels": [
+        "maintenance"
+      ],
+      "kind": "feature",
+      "score": 51.8,
+      "additions": 2521,
+      "deletions": 201,
+      "changedFiles": 10
+    },
+    {
+      "id": "4657612430",
+      "title": "Flash an RP2350 from the browser",
+      "summary": "What does this implement/fix? Both apps refused to flash an RP2350 from the browser.",
+      "unlocks": "Unlocks: Flash an RP2350 from the browser.",
+      "url": "https://github.com/esphome/device-builder-frontend/pull/1927",
+      "repository": "esphome/device-builder-frontend",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-28T00:01:02Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 51.4,
+      "additions": 220,
+      "deletions": 96,
+      "changedFiles": 17
+    },
+    {
+      "id": "4657078528",
+      "title": "Keep disliked artists and albums out of generated playback",
+      "summary": "What does this implement/fix? Follow up to music assistant/server#6483.",
+      "url": "https://github.com/music-assistant/server/pull/6507",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-27T22:56:32Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 51.2,
+      "additions": 208,
+      "deletions": 49,
+      "changedFiles": 5
+    },
+    {
+      "id": "4654774490",
+      "title": "fix(dcl): align DCL types and client with Matter 1.6.1 and the live DCL REST API",
+      "summary": "The DCL types in @matter/types and the DCL client in @matter/protocol now describe Matter 1.6.1 (Core §11.23) and the records the DCL REST API actually returns.",
+      "unlocks": "Improves reliability around align DCL types and client with Matter 1.6.1 and the live DCL REST API.",
+      "url": "https://github.com/matter-js/matter.js/pull/4535",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-09-27T20:11:06Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "fix",
+      "score": 50.3,
+      "additions": 1481,
+      "deletions": 133,
+      "changedFiles": 21
+    },
+    {
+      "id": "4657480042",
+      "title": "Hand nRF52 firmware off to web.esphome.io",
+      "summary": "What does this implement/fix? On an insecure origin the dashboard had no USB option for an nRF52.",
+      "unlocks": "Unlocks: Hand nRF52 firmware off to web.esphome.io.",
+      "url": "https://github.com/esphome/device-builder-frontend/pull/1926",
+      "repository": "esphome/device-builder-frontend",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-09-27T23:27:20Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 49.9,
+      "additions": 422,
+      "deletions": 73,
+      "changedFiles": 14
+    },
+    {
+      "id": "4657093622",
+      "title": "Send YouTube Music track likes and dislikes to your account",
+      "summary": "What does this implement/fix? Music Assistant already reads likes and dislikes from YouTube Music.",
+      "url": "https://github.com/music-assistant/server/pull/6508",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-27T23:17:04Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 49.9,
+      "additions": 76,
+      "deletions": 0,
+      "changedFiles": 4
+    },
+    {
+      "id": "4656683153",
+      "title": "Mark searchable Music Assistant media items with can_search",
+      "summary": "Breaking change Proposed change Music Assistant can search inside an artist, an album or a playlist, but its media items did not say so.",
+      "unlocks": "Unlocks: Mark searchable Music Assistant media items with can_search.",
+      "url": "https://github.com/home-assistant/core/pull/183376",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "balloob",
+      "mergedAt": "2026-09-27T22:41:50Z",
+      "labels": [
+        "small-pr",
+        "new-feature",
+        "has-tests",
+        "integration: music_assistant",
+        "quality scale: bronze",
+        "top 200",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 49.1,
+      "additions": 46,
+      "deletions": 0,
+      "changedFiles": 2
+    },
+    {
+      "id": "4653331275",
+      "title": "Tidy up the album page rows",
+      "summary": "What does this implement/fix? Follow up polish to the redesigned album page (after #2802), bringing its rows in line with the artist page.",
+      "url": "https://github.com/music-assistant/frontend/pull/2837",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-09-27T18:39:29Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 48.4,
+      "additions": 73,
+      "deletions": 1,
+      "changedFiles": 4
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Update Yarn to v4.18.1",
+      "url": "https://github.com/home-assistant/frontend/pull/54407",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency @html-eslint/eslint-plugin to v0.66.1",
+      "url": "https://github.com/home-assistant/frontend/pull/54408",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency typescript-eslint to v8.70.1",
+      "url": "https://github.com/home-assistant/frontend/pull/54401",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency @lezer/highlight to v1.2.4",
+      "url": "https://github.com/home-assistant/frontend/pull/54387",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency @rspack/core to v2.2.7",
+      "url": "https://github.com/home-assistant/frontend/pull/54388",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency fs-extra to v11.4.1",
+      "url": "https://github.com/home-assistant/frontend/pull/54394",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency vite to v8.3.1 - autoclosed",
+      "url": "https://github.com/home-assistant/frontend/pull/54402",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency js-yaml to v5.4.2",
+      "url": "https://github.com/home-assistant/frontend/pull/54395",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency marked to v18.0.14",
+      "url": "https://github.com/home-assistant/frontend/pull/54396",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update vitest monorepo to v5.0.1",
+      "url": "https://github.com/home-assistant/frontend/pull/54405",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump samsung-exlink to 1.1.2",
+      "url": "https://github.com/home-assistant/core/pull/183347",
+      "repository": "home-assistant/core",
+      "author": "balloobbot"
+    },
+    {
+      "title": "Bump Insteon dependencies",
+      "url": "https://github.com/home-assistant/core/pull/183367",
+      "repository": "home-assistant/core",
+      "author": "connorgallopo"
+    },
+    {
+      "title": "Move GitHub Actions updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/HAKit/pull/123",
+      "repository": "home-assistant/HAKit",
+      "author": "frenck"
+    },
+    {
+      "title": "Track the Node.js version in .nvmrc with Renovate",
+      "url": "https://github.com/home-assistant/developers.home-assistant/pull/3371",
+      "repository": "home-assistant/developers.home-assistant",
+      "author": "frenck"
+    },
+    {
+      "title": "Bump pyoverkiz to 2.1.2",
+      "url": "https://github.com/home-assistant/core/pull/183355",
+      "repository": "home-assistant/core",
+      "author": "iMicknl"
+    },
+    {
+      "title": "Bump peblar to 2.1.0",
+      "url": "https://github.com/home-assistant/core/pull/183339",
+      "repository": "home-assistant/core",
+      "author": "frenck"
+    },
+    {
+      "title": "Move dependency updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/services.home-assistant.io/pull/939",
+      "repository": "home-assistant/services.home-assistant.io",
+      "author": "frenck"
+    },
+    {
+      "title": "Track Node.js and the devcontainer image with Renovate",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/48485",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "frenck"
+    },
+    {
+      "title": "Move dependency updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/48472",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "frenck"
+    },
+    {
+      "title": "Move dependency updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/developers.home-assistant/pull/3370",
+      "repository": "home-assistant/developers.home-assistant",
+      "author": "frenck"
+    },
+    {
+      "title": "Move dependency updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/works-with.home-assistant.io/pull/113",
+      "repository": "home-assistant/works-with.home-assistant.io",
+      "author": "frenck"
+    },
+    {
+      "title": "Move GitHub Actions updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/frontend/pull/54382",
+      "repository": "home-assistant/frontend",
+      "author": "frenck"
+    },
+    {
+      "title": "Move dependency updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/deployments/pull/143",
+      "repository": "home-assistant/deployments",
+      "author": "frenck"
+    },
+    {
+      "title": "Move dependency updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/version/pull/544",
+      "repository": "home-assistant/version",
+      "author": "frenck"
+    },
+    {
+      "title": "Move GitHub Actions updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/actions/pull/150",
+      "repository": "home-assistant/actions",
+      "author": "frenck"
+    },
+    {
+      "title": "Move GitHub Actions updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/private-demo/pull/111",
+      "repository": "home-assistant/private-demo",
+      "author": "frenck"
+    },
+    {
+      "title": "Move dependency updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/service-hub/pull/403",
+      "repository": "home-assistant/service-hub",
+      "author": "frenck"
+    },
+    {
+      "title": "Move dependency updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/analytics.home-assistant.io/pull/1145",
+      "repository": "home-assistant/analytics.home-assistant.io",
+      "author": "frenck"
+    },
+    {
+      "title": "Move dependency updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/data.home-assistant/pull/348",
+      "repository": "home-assistant/data.home-assistant",
+      "author": "frenck"
+    },
+    {
+      "title": "Add Renovate for dependency updates",
+      "url": "https://github.com/home-assistant/stun/pull/4",
+      "repository": "home-assistant/stun",
+      "author": "frenck"
+    },
+    {
+      "title": "Bump python-roborock to 7.12.0",
+      "url": "https://github.com/home-assistant/core/pull/183340",
+      "repository": "home-assistant/core",
+      "author": "lboue"
+    },
+    {
+      "title": "Move dependency updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/hass-release/pull/79",
+      "repository": "home-assistant/hass-release",
+      "author": "frenck"
+    },
+    {
+      "title": "Move dependency updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/companion.home-assistant/pull/1437",
+      "repository": "home-assistant/companion.home-assistant",
+      "author": "frenck"
+    },
+    {
+      "title": "Move GitHub Actions updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/example-custom-config/pull/88",
+      "repository": "home-assistant/example-custom-config",
+      "author": "frenck"
+    },
+    {
+      "title": "Bump jest from 26 to 30",
+      "url": "https://github.com/home-assistant/services.home-assistant.io/pull/938",
+      "repository": "home-assistant/services.home-assistant.io",
+      "author": "frenck"
+    },
+    {
+      "title": "Move GitHub Actions updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/brands/pull/11225",
+      "repository": "home-assistant/brands",
+      "author": "frenck"
+    },
+    {
+      "title": "Update dependency sass to v1.105.0",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/48480",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency pnpm to v12.6.0",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/48479",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update CodeMirror",
+      "url": "https://github.com/home-assistant/frontend/pull/54385",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update babel monorepo to v8.0.6",
+      "url": "https://github.com/home-assistant/frontend/pull/54384",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Fix Renovate keeping the Playwright container update pending forever",
+      "url": "https://github.com/home-assistant/frontend/pull/54380",
+      "repository": "home-assistant/frontend",
+      "author": "frenck"
+    },
+    {
+      "title": "Update dependency astro to v7.3.5",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/48476",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency ruby to v3.4.11",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/48477",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump sofar-modbus to 0.17.0",
+      "url": "https://github.com/home-assistant/core/pull/183282",
+      "repository": "home-assistant/core",
+      "author": "darkrain-nl"
+    },
+    {
+      "title": "Bump momonga to 0.7.0",
+      "url": "https://github.com/home-assistant/core/pull/183254",
+      "repository": "home-assistant/core",
+      "author": "tayuki"
+    },
+    {
+      "title": "Bump codecov/codecov-action from 7.0.0 to 7.1.1",
+      "url": "https://github.com/home-assistant/mobile-apps-fcm-push/pull/375",
+      "repository": "home-assistant/mobile-apps-fcm-push",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump w9jds/firebase-action from 15.30.0 to 15.30.2",
+      "url": "https://github.com/home-assistant/mobile-apps-fcm-push/pull/376",
+      "repository": "home-assistant/mobile-apps-fcm-push",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Extend the Renovate allowlist with test tooling and pre-commit hooks",
+      "url": "https://github.com/home-assistant/core/pull/183132",
+      "repository": "home-assistant/core",
+      "author": "frenck"
+    },
+    {
+      "title": "Bump uiprotect to 17.0.0",
+      "url": "https://github.com/home-assistant/core/pull/183178",
+      "repository": "home-assistant/core",
+      "author": "RaHehl"
+    },
+    {
+      "title": "Let Renovate keep the PostgreSQL versions tested in CI up to date",
+      "url": "https://github.com/home-assistant/core/pull/183128",
+      "repository": "home-assistant/core",
+      "author": "frenck"
+    },
+    {
+      "title": "Bump sofar-modbus to 0.16.0",
+      "url": "https://github.com/home-assistant/core/pull/183261",
+      "repository": "home-assistant/core",
+      "author": "darkrain-nl"
+    },
+    {
+      "title": "Bump the codeql-action group across 1 directory with 2 updates",
+      "url": "https://github.com/home-assistant/frontend/pull/54377",
+      "repository": "home-assistant/frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump pyportainer to 1.0.46",
+      "url": "https://github.com/home-assistant/core/pull/183229",
+      "repository": "home-assistant/core",
+      "author": "erwindouna"
+    },
+    {
+      "title": "⬆️ Lock file maintenance",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/582",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency coverage to v7.16.2",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/581",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump ty from 0.0.81 to 0.0.83",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1302",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump tox from 4.61.4 to 4.64.1",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1301",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump https://github.com/astral-sh/ty-pre-commit from v0.0.81 to 0.0.83 in the pre-commit group",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1299",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump the \"ruff\" group with 2 updates across multiple ecosystems",
+      "url": "https://github.com/home-assistant-libs/pytradfri/pull/1224",
+      "repository": "home-assistant-libs/pytradfri",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump habluetooth from 7.0.0 to 7.1.2",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1300",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump bundled esphome-device-builder to 1.17.0",
+      "url": "https://github.com/esphome/esphome/pull/19814",
+      "repository": "esphome/esphome",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump frontend to 0.1.350",
+      "url": "https://github.com/esphome/device-builder/pull/2861",
+      "repository": "esphome/device-builder",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump frontend to 0.1.349",
+      "url": "https://github.com/esphome/device-builder/pull/2849",
+      "repository": "esphome/device-builder",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump frontend to 0.1.348",
+      "url": "https://github.com/esphome/device-builder/pull/2847",
+      "repository": "esphome/device-builder",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump frontend to 0.1.347",
+      "url": "https://github.com/esphome/device-builder/pull/2843",
+      "repository": "esphome/device-builder",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "fix(deps): approve @parcel/watcher build script",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/103",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "djwmarcx"
+    },
+    {
+      "title": "chore(deps): update dependency prettier to v3.9.8",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/98",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update pnpm to v12.5.1",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/99",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update dependency @types/node to v24.13.6",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/101",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(renovate): group lint tooling, types, pnpm, actions, and NestJS",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/102",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "djwmarcx"
+    },
+    {
+      "title": "chore(deps): update dependency eslint to v10.11.0",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/100",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump `pyupgrade` and `mypy` pre-commit hooks for Python 3.14",
+      "url": "https://github.com/zigpy/bellows/pull/759",
+      "repository": "zigpy/bellows",
+      "author": "zigpy-review-bot"
+    },
+    {
+      "title": "Bump abstract-bits to support signed integers",
+      "url": "https://github.com/zigpy/ziggurat/pull/58",
+      "repository": "zigpy/ziggurat",
+      "author": "puddly"
+    },
+    {
+      "title": "chore(deps): bump blockbuster from 1.5.27 to 1.5.28",
+      "url": "https://github.com/Bluetooth-Devices/aiodiscover/pull/294",
+      "repository": "Bluetooth-Devices/aiodiscover",
+      "author": "dependabot[bot]"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 138,
+      "thisWeek": 603,
+      "sinceRelease": 2393,
+      "lastReleaseDate": "2026-09-02"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 71,
+      "thisWeek": 139,
+      "sinceRelease": 185,
+      "lastReleaseDate": "2026-09-18"
+    },
+    {
+      "product": "ESPHome",
+      "today": 113,
+      "thisWeek": 525,
+      "sinceRelease": 776,
+      "lastReleaseDate": "2026-09-16"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "home-assistant/core:397592186",
+      "product": "Home Assistant",
+      "repository": "home-assistant/core",
+      "name": "2026.9.4",
+      "tag": "2026.9.4",
+      "url": "https://github.com/home-assistant/core/releases/tag/2026.9.4",
+      "publishedAt": "2026-09-27T09:51:05Z",
+      "channel": "stable",
+      "accent": "blue",
+      "releasePostUrl": "https://www.home-assistant.io/blog/2026/09/02/release-20269/",
+      "releasePostSourceId": "home-assistant-blog:e0bfdb1d183fc9eff9de98de"
+    }
+  ],
+  "publishedPosts": [],
+  "releases": [
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-09-30",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-10-07",
+      "version": "2026.10",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-10-21",
+      "version": "2026.10",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-10-28",
+      "version": "2026.11",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-11-04",
+      "version": "2026.11",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-11-04",
+      "version": "2026.11",
+      "accent": "green"
+    },
+    {
+      "product": "Open Home Foundation Community Day",
+      "kind": "Event",
+      "date": "2026-11-07",
+      "accent": "blue",
+      "url": "https://www.openhomefoundation.org/blog/countdown-to-community-day-2026-starts-now/",
+      "sourceId": "open-home-foundation-blog:c10ad4759bc887b20b0fd3a5"
+    }
+  ],
+  "communityMeetups": [
+    {
+      "id": "evt-S9ESGJ8bq5Ysx6y@events.lu.ma",
+      "title": "South Florida HA Meetup with Paulus Schoutsen",
+      "url": "https://luma.com/w4trcwcg",
+      "startAt": "2026-10-01T00:00:00.000Z",
+      "endAt": "2026-10-01T02:00:00.000Z",
+      "allDay": false,
+      "date": "2026-10-01",
+      "endDate": "2026-10-01",
+      "location": "700 W Hillsboro Blvd, Deerfield Beach, FL 33441, USA",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-h2U89K2xZ1uigA9@events.lu.ma",
+      "title": "Tauranga, Aotearoa New Zealand Home Assistant Community Day",
+      "url": "https://luma.com/mdqlfbav",
+      "startAt": "2026-11-06T21:00:00.000Z",
+      "endAt": "2026-11-07T01:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-06",
+      "endDate": "2026-11-07",
+      "location": "148 Durham Street, Tauranga 3110, New Zealand",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-mUed7CByFECrash@events.lu.ma",
+      "title": "Auckland Home Assistant Community Day",
+      "url": "https://luma.com/8emp51gl",
+      "startAt": "2026-11-07T01:00:00.000Z",
+      "endAt": "2026-11-07T04:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-mUed7CByFECrash",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-xt7N1yjW2LgCel5@events.lu.ma",
+      "title": "Melbourne, Australia Community Day Meetup",
+      "url": "https://luma.com/lax3x8f5",
+      "startAt": "2026-11-07T03:00:00.000Z",
+      "endAt": "2026-11-07T05:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-xt7N1yjW2LgCel5",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-o8ZHJ0MBYZnXIfu@events.lu.ma",
+      "title": "Tokyo - Home Assistant Community Day 2026",
+      "url": "https://luma.com/26u5bs6r",
+      "startAt": "2026-11-07T05:00:00.000Z",
+      "endAt": "2026-11-07T08:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Tokyo, Japan",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-H4CaXPaSaEdzcm5@events.lu.ma",
+      "title": "Brisbane, Australia Community Day Meetup",
+      "url": "https://luma.com/uup4kwop",
+      "startAt": "2026-11-07T05:30:00.000Z",
+      "endAt": "2026-11-07T08:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-H4CaXPaSaEdzcm5",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-UbE4Jn1D747rpQa@events.lu.ma",
+      "title": "East China Community Day Meetup",
+      "url": "https://luma.com/ecqcecyq",
+      "startAt": "2026-11-07T05:30:00.000Z",
+      "endAt": "2026-11-07T09:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "未来科技城海创园, Yuhang District, Hangzhou, China, 311122",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-L7RODmonA7Rea7z@events.lu.ma",
+      "title": "Home Assistant conosciamoci! Community Day",
+      "url": "https://luma.com/4agnxpk7",
+      "startAt": "2026-11-07T08:00:00.000Z",
+      "endAt": "2026-11-07T12:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Consorzio Universitario di Pordenone, Via Prasecco, 3/A, 33170 Pordenone PN, Italy",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-PGOLhn6jjoyDOwR@events.lu.ma",
+      "title": "Cluj-Napoca Meetup | Home Assistant Community Day",
+      "url": "https://luma.com/1q5pu4by",
+      "startAt": "2026-11-07T09:00:00.000Z",
+      "endAt": "2026-11-07T14:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Tehnolemn S.C.M., Str. Câmpina, 62-64, Cluj-Napoca, Cluj, 400635, 400124 Cluj-Napoca, Romania",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-YkRcRLXLV5F15r4@events.lu.ma",
+      "title": "Solkan HA Community Meetup",
+      "url": "https://luma.com/s2lf735v",
+      "startAt": "2026-11-07T09:00:00.000Z",
+      "endAt": "2026-11-07T12:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Ulica Klementa Juga 7, 5250 Solkan, Slovenia",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-b9302XfbNdEIIwE@events.lu.ma",
+      "title": "East Essex Hackspace Open Home Community Day",
+      "url": "https://luma.com/af7w4pf9",
+      "startAt": "2026-11-07T11:00:00.000Z",
+      "endAt": "2026-11-07T16:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "East Essex Hackspace, Clements Hall Pavilion, Park Gardens, Hockley SS5 4HF, UK",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-JihxuewaCCylBGL@events.lu.ma",
+      "title": "Helsinki Meetup",
+      "url": "https://luma.com/ze4ta090",
+      "startAt": "2026-11-07T11:00:00.000Z",
+      "endAt": "2026-11-07T15:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Oy Merilux Ab, Työpajankatu 2, 00580 Helsinki, Finland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-wv8ErN3j5qGGgf5@events.lu.ma",
+      "title": "Salamanca Community Day",
+      "url": "https://luma.com/q6bw1v1u",
+      "startAt": "2026-11-07T11:00:00.000Z",
+      "endAt": "2026-11-07T13:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Manolita Café Bar, C. Palominos, 21, 37008 Salamanca, Spain",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-pNmA3L1d2kFLEeo@events.lu.ma",
+      "title": "Open Home Foundation Community Day Campinas - SP",
+      "url": "https://luma.com/xlwya2d1",
+      "startAt": "2026-11-07T12:00:00.000Z",
+      "endAt": "2026-11-07T19:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "LHC - Laboratório Hacker de Campinas, R. Araribóia, 121 - Pte. Preta, Campinas - SP, 13041-350, Brazil",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-re2W1vJ3bJZQ14r@events.lu.ma",
+      "title": "Unna - Home Assistant Community Day 2026",
+      "url": "https://luma.com/ip5ywry1",
+      "startAt": "2026-11-07T12:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "UN-Hack-Bar e.V., Hochstraße 10, 59425 Unna, Germany",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-5vlfFMTBq2mZH32@events.lu.ma",
+      "title": "Zeist (Utrecht) Meetup",
+      "url": "https://luma.com/2k3cc6g2",
+      "startAt": "2026-11-07T12:00:00.000Z",
+      "endAt": "2026-11-07T16:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Zeist, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-OJ16epW8b27dvss@events.lu.ma",
+      "title": "Community Day Haarlem",
+      "url": "https://luma.com/42wqajny",
+      "startAt": "2026-11-07T12:37:00.000Z",
+      "endAt": "2026-11-07T16:37:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Launchpad023, Wateringweg 65, 2031 EK Haarlem, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-z5IzLCPyOVHEz3e@events.lu.ma",
+      "title": "Copenhagen | Home Assistant Community Day",
+      "url": "https://luma.com/mro5omfi",
+      "startAt": "2026-11-07T13:00:00.000Z",
+      "endAt": "2026-11-07T16:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Vesterbrogade 46, 1620 København, Denmark",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-nj4z28MNyiIjTYJ@events.lu.ma",
+      "title": "NL - Rosmalen (Den Bosch) - Meetup",
+      "url": "https://luma.com/1t4lcnwm",
+      "startAt": "2026-11-07T13:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "De Kentering, Dorpsstraat 54, 5241 ED Rosmalen, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-5NUVKsHQa4DWnZ2@events.lu.ma",
+      "title": "Horten meetup",
+      "url": "https://luma.com/1ne99it6",
+      "startAt": "2026-11-07T13:30:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Horten Folkeverksted, Tveitenveien 18, 3186 Horten, Norway",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-XdGWF22KjnjmDHk@events.lu.ma",
+      "title": "Brno, Czechia - Community Day",
+      "url": "https://luma.com/qvl7zyvp",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Brno, Czechia",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-eMNQOP6Tx1Umw4x@events.lu.ma",
+      "title": "Dresden Meetup",
+      "url": "https://luma.com/ukr095h8",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Dresden, Germany",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-JWkAH5tKQzRYWXv@events.lu.ma",
+      "title": "Gouda meetup",
+      "url": "https://luma.com/50os1i8j",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Gouda, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-ZbA6wtQhn1GJD8B@events.lu.ma",
+      "title": "Home Assistant Community Day 2026",
+      "url": "https://luma.com/sm3wrbhq",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Stardust Video & Coffee, 1842 Winter Park Rd, Orlando, FL 32803, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-LIsfkOWDtOgmmpi@events.lu.ma",
+      "title": "St. Gallen Meetup",
+      "url": "https://luma.com/l7nve06d",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "L’Ultimo Bacio, Poststrasse 14, 9000 St. Gallen, Switzerland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-jr3SSxFnG2fEZPA@events.lu.ma",
+      "title": "Zurich, CH Community Day 2026",
+      "url": "https://luma.com/dzp88p2s",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Riithalle, Gessnerallee 8, 8001 Zürich, Switzerland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-tdhTtJpEtCJlKnq@events.lu.ma",
+      "title": "Enschede meetup",
+      "url": "https://luma.com/openhome-7e9g",
+      "startAt": "2026-11-07T15:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Enschede, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-9JYI4ojicajKySl@events.lu.ma",
+      "title": "Home Assistant Community Meetup Dnipro",
+      "url": "https://luma.com/1orf3cme",
+      "startAt": "2026-11-07T15:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Dogs&Burgers / Догс&Бургерс, Dmytra Yavornytskoho Ave, 49, Dnipro, Dnipropetrovs'ka oblast, Ukraine, 49000",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-UKUXj52AYKCr2xJ@events.lu.ma",
+      "title": "Columbus, Ohio Meetup",
+      "url": "https://luma.com/u7limgv2",
+      "startAt": "2026-11-07T16:00:00.000Z",
+      "endAt": "2026-11-07T19:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-UKUXj52AYKCr2xJ",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-YM6k9zHgiTvHWfk@events.lu.ma",
+      "title": "Oslo - Home Assistant Community Day 2026",
+      "url": "https://luma.com/gkmse561",
+      "startAt": "2026-11-07T16:00:00.000Z",
+      "endAt": "2026-11-07T19:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Mesh Nationaltheatret - Mesh Community, Tordenskiolds gate 2, 0160 Oslo, Norway",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-czgmEZcB4zu9YUi@events.lu.ma",
+      "title": "South Florida Home Assistant Community Day Meetup",
+      "url": "https://luma.com/sua7nd2x",
+      "startAt": "2026-11-07T16:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "700 W Hillsboro Blvd, Deerfield Beach, FL 33441, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-JA5GInTNmciZ8N4@events.lu.ma",
+      "title": "Vienna Meetup",
+      "url": "https://luma.com/mcj8loas",
+      "startAt": "2026-11-07T17:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Metalab, Rathausstraße 6, 1010 Wien, Austria",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-mevwXoxMAy5xAlW@events.lu.ma",
+      "title": "Home Assistant & ESPHome Meetup Brasil / SC",
+      "url": "https://luma.com/p6h2jspv",
+      "startAt": "2026-11-07T17:30:00.000Z",
+      "endAt": "2026-11-07T20:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Atrium Office, R. Jair Hamms, 38 - Pedra Branca, Palhoça - SC, 88137-084, Brazil",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-FofoEA8HxuvlhOL@events.lu.ma",
+      "title": "Amsterdam Zuidoost meetup",
+      "url": "https://luma.com/f12y17ok",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "BuurtHuis Gein, Wisseloord 83, 1107 NB Amsterdam, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-EmX6ovo3mCEbFRH@events.lu.ma",
+      "title": "Buenos Aires meetup",
+      "url": "https://luma.com/gfcjcu9w",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Buenos Aires, Argentina",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-yIfuCBY0ZE2J82V@events.lu.ma",
+      "title": "Cleveland, OH Home Assistant Community Day",
+      "url": "https://luma.com/cvjseulz",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-yIfuCBY0ZE2J82V",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-iDLj4WL8ShgfRtD@events.lu.ma",
+      "title": "Hasselt Meetup",
+      "url": "https://luma.com/khnqnbp9",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Brixel, Spalbeekstraat 34, 3510 Hasselt, Belgium",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-Kh8vM0koK8YJs6t@events.lu.ma",
+      "title": "Homeassistant Community Day Berlin",
+      "url": "https://luma.com/h1qd23b0",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "xHain hack+makespace, Grünberger Str. 16, 10243 Berlin-Bezirk Friedrichshain-Kreuzberg, Germany",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-xjjYKkI8UCpfw2b@events.lu.ma",
+      "title": "Montréal - Rencontre pour la Journée de la communauté",
+      "url": "https://luma.com/icl11j2u",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T21:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Complexe Roméo-V.-Patenaude, Complexe Roméo V.Patenaude, 135 Ch Haendel, Candiac, QC J5R 1R7, Canada",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-OqihxJGuntwIMgl@events.lu.ma",
+      "title": "Strasbourg meetup",
+      "url": "https://luma.com/0wgen5u2",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Strasbourg, France",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-PRYX9aJuOK7AjE6@events.lu.ma",
+      "title": "Richmond Meetup",
+      "url": "https://luma.com/ufsiv9jh",
+      "startAt": "2026-11-07T19:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Hardywood Park Craft Brewery - Richmond, 2410 Ownby Ln, Richmond, VA 23220, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-Xjd7smGABFk8rA2@events.lu.ma",
+      "title": "Limerick Meetup",
+      "url": "https://luma.com/di99g420",
+      "startAt": "2026-11-07T19:30:00.000Z",
+      "endAt": "2026-11-07T20:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Level Up Arcade Bar, 109 O'Connell St, Prior's-Land, Limerick, Ireland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-AFYOdKk71hlZkuX@events.lu.ma",
+      "title": "Mid-Missouri Community Day",
+      "url": "https://luma.com/ssvbr9gj",
+      "startAt": "2026-11-07T19:30:00.000Z",
+      "endAt": "2026-11-07T21:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://www.bigwhiskeys.com/",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-LnR7nkXX5NhD3Dv@events.lu.ma",
+      "title": "Southern California - Home Assistant Community Day!",
+      "url": "https://luma.com/1ykejuxy",
+      "startAt": "2026-11-07T20:00:00.000Z",
+      "endAt": "2026-11-08T00:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-08",
+      "location": "The Charleston, 114 E Commonwealth Ave, Fullerton, CA 92832, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-OmZGvNyCAgEiHXl@events.lu.ma",
+      "title": "Kansas City Meetup",
+      "url": "https://luma.com/iepjyrfa",
+      "startAt": "2026-11-07T21:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-OmZGvNyCAgEiHXl",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-87JtJwYoojgDwdR@events.lu.ma",
+      "title": "Home Assistant Meetup Köln",
+      "url": "https://luma.com/83fycwc9",
+      "startAt": "2026-12-03T17:00:00.000Z",
+      "endAt": "2026-12-03T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-12-03",
+      "endDate": "2026-12-03",
+      "location": "REWE Digital GmbH, Schanzenstraße 6-20, 51063 Köln, Germany",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    }
+  ],
+  "notes": [],
+  "articles": [
+    {
+      "id": "assist-voice-account-choice",
+      "title": "Assist plays music from a chosen household account",
+      "dek": "A voice assistant can act as a selected person and use their linked streaming account.",
+      "body": [
+        "Home Assistant lets an Assist voice assistant act as a chosen user. A request from a voice satellite previously carried no user identity, leaving integrations unable to choose that person’s linked account. Music Assistant can use the new setting to play from their own streaming account.",
+        "The “Acts as user” choice belongs to the assistant’s configuration; it does not recognize who is speaking. Requests from a signed-in non-administrator keep that person’s own identity, and a removed or inactive account is not adopted.",
+        "Felix Schneider supplies the implementation, settings picker and guide. The picker is his first contribution to the Home Assistant frontend."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 94,
+      "contributors": [
+        "felixschndr"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "felixschndr",
+          "name": "Felix Schneider",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/45742226?v=4",
+          "profileUrl": "https://github.com/felixschndr"
+        }
+      ],
+      "reviewers": [
+        "silamon",
+        "klaasnicolaas"
+      ],
+      "approvers": [
+        "silamon",
+        "klaasnicolaas"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Voice"
+      ],
+      "pullRequests": [
+        {
+          "id": "4583114153",
+          "title": "Add user_id to assist pipelines",
+          "url": "https://github.com/home-assistant/core/pull/182750",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4583341470",
+          "title": "Add a user picker to an assist pipeline",
+          "url": "https://github.com/home-assistant/frontend/pull/54276",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "4591964501",
+          "title": "Document the user an assist pipeline acts as",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/48286",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-personal-favourites-dislikes",
+      "title": "Music Assistant gives each listener personal favourites and dislikes",
+      "dek": "Hearts belong to individual accounts, and disliked tracks, albums and artists stay out of automatically chosen music.",
+      "body": [
+        "Music Assistant gives each household member their own favourites and dislikes. The heart shown in the interface reflects the signed-in listener’s choice, and an update from another person no longer replaces it. This extends the account protections reported on September 27, which left the app’s own hearts shared.",
+        "Personal dislikes also shape radio, mixes and autoplay: Music Assistant skips disliked tracks and music from disliked albums or artists when it chooses what to play. A track someone deliberately selects can still play. Disliking a new track does not add it to the connected music service’s library.",
+        "Marcel van der Veldt preserves existing favourites for the owners of the music sources that hold them, or for everyone when the source is shared by the whole home. Choices made on another device update the interface without a reload."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 93,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant",
+        "Personal accounts"
+      ],
+      "pullRequests": [
+        {
+          "id": "4650541112",
+          "title": "Favorites are personal, and you can dislike",
+          "url": "https://github.com/music-assistant/server/pull/6482",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4650836333",
+          "title": "Favorites are yours, and you can dislike",
+          "url": "https://github.com/music-assistant/frontend/pull/2834",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "4650808879",
+          "title": "Disliked tracks stay out of the music Music Assistant picks for you",
+          "url": "https://github.com/music-assistant/server/pull/6483",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4657078528",
+          "title": "Keep disliked artists and albums out of generated playback",
+          "url": "https://github.com/music-assistant/server/pull/6507",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4656352341",
+          "title": "A dislike no longer adds the track to your streaming library",
+          "url": "https://github.com/music-assistant/server/pull/6498",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-login-code-protection",
+      "title": "Home Assistant protects app sign-ins from intercepted codes",
+      "dek": "An optional proof check ties a login code to the app that requested it, including during account linking.",
+      "body": [
+        "Home Assistant completes a sign-in protection for apps that request it: a captured authorization code cannot be exchanged without the secret held by the client that began the login. The browser login flow carries the client’s proof request through to Home Assistant’s authentication service.",
+        "Allen Porter also closes an alternate route that could accept a protected code for account linking without that proof. The protection, called PKCE, applies to clients using the new flow; existing sign-ins that do not request it keep their previous behavior."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 88,
+      "contributors": [
+        "allenporter"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "allenporter",
+          "name": "Allen Porter",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6026418?v=4",
+          "profileUrl": "https://github.com/allenporter"
+        }
+      ],
+      "reviewers": [
+        "balloob",
+        "silamon",
+        "zweckj"
+      ],
+      "approvers": [
+        "balloob",
+        "silamon",
+        "zweckj"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Security"
+      ],
+      "pullRequests": [
+        {
+          "id": "4507211289",
+          "title": "Support PKCE S256 in OAuth server",
+          "url": "https://github.com/home-assistant/core/pull/181957",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4654588645",
+          "title": "Forward PKCE code_challenge parameters in login flow",
+          "url": "https://github.com/home-assistant/frontend/pull/54389",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "4648563281",
+          "title": "Reject PKCE authorization codes in LinkUserView",
+          "url": "https://github.com/home-assistant/core/pull/183213",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-raumfeld-rooms",
+      "title": "Music Assistant plays through Teufel Raumfeld multiroom systems",
+      "dek": "An experimental connection exposes rooms as players and controls the system’s own speaker groups.",
+      "body": [
+        "Music Assistant adds an experimental connection to Teufel Raumfeld multiroom systems. Each room appears as a player, and grouping those players creates or changes the corresponding zone on the Raumfeld host. Playback, volume and mute controls are included, along with line-in selection where a room’s device supports it.",
+        "The default continuous-stream mode supports gapless playback and crossfades across grouped rooms. In that mode, the Raumfeld app follows the track title but its clock runs across the whole queue; Music Assistant keeps the correct progress. Turning the mode off restores the Raumfeld app’s per-track clock at the cost of short gaps.",
+        "Contributor Simanias tested setup, playback and grouping on a real four-room system. This is their first contribution to the Music Assistant server, reviewed by OzGav."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 86,
+      "contributors": [
+        "Simanias"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "Simanias",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/4976061?v=4",
+          "profileUrl": "https://github.com/Simanias"
+        }
+      ],
+      "reviewers": [
+        "OzGav"
+      ],
+      "approvers": [
+        "OzGav"
+      ],
+      "topics": [
+        "Music Assistant",
+        "Devices"
+      ],
+      "pullRequests": [
+        {
+          "id": "4540846847",
+          "title": "Add Teufel Raumfeld player provider",
+          "url": "https://github.com/music-assistant/server/pull/6364",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-preserves-edits-between-yaml-and-forms",
+      "title": "ESPHome stops visual forms overwriting hand-edited configurations",
+      "dek": "Moving between YAML and the visual editor no longer restores deleted values or changes the wrong row.",
+      "body": [
+        "ESPHome Device Builder protects changes made directly in YAML when someone returns to its visual forms. Editing a form within a second of changing the text could previously replace the new text with older values. The forms read the current configuration before writing, while automation editors briefly pause until their updated contents are ready.",
+        "J. Nick Koston also prevents deleted formulas from being written into another action, filter or light-effect row. Moving or deleting a row could transfer its remembered values to the wrong place; entries the visual editor could not display could also make it change the wrong item or reorder the remaining entries.",
+        "When two items share the same editing address, Device Builder refuses an ambiguous change instead of silently replacing or deleting the wrong item. Its message asks the maker to give the items distinct identifiers in YAML."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 84,
+      "contributors": [
+        "bdraco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "esphome",
+        "reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4657326851",
+          "title": "Keep a hand edit of the YAML when the form is changed right after it",
+          "url": "https://github.com/esphome/device-builder-frontend/pull/1925",
+          "repository": "esphome/device-builder-frontend"
+        },
+        {
+          "id": "4657080438",
+          "title": "Keep automation rows with their action after a hand edit of the YAML",
+          "url": "https://github.com/esphome/device-builder-frontend/pull/1921",
+          "repository": "esphome/device-builder-frontend"
+        },
+        {
+          "id": "4656666345",
+          "title": "Forget what could write a value when the YAML is edited by hand",
+          "url": "https://github.com/esphome/device-builder-frontend/pull/1915",
+          "repository": "esphome/device-builder-frontend"
+        },
+        {
+          "id": "4654427647",
+          "title": "Key automation rows so their state follows the action",
+          "url": "https://github.com/esphome/device-builder-frontend/pull/1880",
+          "repository": "esphome/device-builder-frontend"
+        },
+        {
+          "id": "4656075888",
+          "title": "Keep what a form row remembers with the row when another is removed",
+          "url": "https://github.com/esphome/device-builder-frontend/pull/1904",
+          "repository": "esphome/device-builder-frontend"
+        },
+        {
+          "id": "4656383012",
+          "title": "Address a filter or effect row by its place in the list",
+          "url": "https://github.com/esphome/device-builder-frontend/pull/1909",
+          "repository": "esphome/device-builder-frontend"
+        },
+        {
+          "id": "4656849156",
+          "title": "Refuse an automation write aimed at a name more than one item carries",
+          "url": "https://github.com/esphome/device-builder/pull/2854",
+          "repository": "esphome/device-builder"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-links-music-services",
+      "title": "Music Assistant links the same albums across music services",
+      "dek": "MusicBrainz links and recording identifiers improve matching without relying on title searches alone.",
+      "body": [
+        "Music Assistant uses the open MusicBrainz catalogue to connect albums and tracks in a library with the same music on other configured services. Links already recorded by MusicBrainz come before a text search; recording identifiers and album barcodes provide another way to find a match.",
+        "Marcel van der Veldt applies the matching to new or refreshed library items and gradually works through existing collections in the background. Adding another music service also links items MusicBrainz has already identified. Missing album information can be filled in without replacing details already present.",
+        "An advanced setting, enabled by default, controls linking to other music services. Linking an item does not by itself add it to that service’s library."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 84,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant",
+        "Interoperability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4653590154",
+          "title": "Fill in library items and link music services through MusicBrainz",
+          "url": "https://github.com/music-assistant/server/pull/6490",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4656213114",
+          "title": "Link existing libraries to MusicBrainz in the background",
+          "url": "https://github.com/music-assistant/server/pull/6496",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4653433727",
+          "title": "Match tracks and albums on other services by ISRC and barcode before searching",
+          "url": "https://github.com/music-assistant/server/pull/6489",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4650467836",
+          "title": "Add MusicBrainz identity lookups and provider link helpers",
+          "url": "https://github.com/music-assistant/server/pull/6481",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "unifi-protect-api-key-camera-events",
+      "title": "UniFi Protect camera events work with API-key-only connections",
+      "dek": "Motion, sound, smart detection and package events no longer require the additional local account.",
+      "body": [
+        "Home Assistant adds UniFi Protect camera events to connections that use only an API key. Motion, sound detection, smart detection and package events become available where the camera exposes them, broadening the existing connection’s use in automations.",
+        "Raphael Hehl verified 33 event entities on a live console that previously had none in this mode. Doorbell rings, NFC, fingerprint and vehicle events still require full access through the private interface."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 82,
+      "contributors": [
+        "RaHehl"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "RaHehl",
+          "name": "Raphael Hehl",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/7577984?v=4",
+          "profileUrl": "https://github.com/RaHehl"
+        }
+      ],
+      "reviewers": [
+        "erwindouna"
+      ],
+      "approvers": [
+        "erwindouna"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4649221410",
+          "title": "Add UniFi Protect events to the API key only mode",
+          "url": "https://github.com/home-assistant/core/pull/183230",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-nrf52-bluetooth-firmware-updates",
+      "title": "ESPHome updates compatible Nordic devices over Bluetooth",
+      "dek": "Device Builder and ESPHome Web add wireless updates for nRF52 devices already configured to receive them.",
+      "body": [
+        "ESPHome Device Builder adds Bluetooth firmware updates for compatible nRF52 devices, alongside a serial update option. A device must already run firmware configured for the MCUboot update service. This extends the browser-based USB installation reported on September 25 with a wireless update path.",
+        "Contributor tomaszduda23 supplies the dashboard update engine, with J. Nick Koston reviewing and extending it to ESPHome Web. The standalone site accepts an app_update.bin file and checks it before offering Bluetooth or serial transfer. Bluetooth requires a browser that supports Web Bluetooth.",
+        "The work was tested on an Adafruit ItsyBitsy nRF52840 over both connections. Bluetooth discovery uses the update service advertised by the board, avoiding a remembered old device name that could keep it out of the chooser."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 81,
+      "contributors": [
+        "tomaszduda23",
+        "bdraco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "tomaszduda23",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/35012788?v=4",
+          "profileUrl": "https://github.com/tomaszduda23"
+        },
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "reviewers": [
+        "bdraco",
+        "swoboda1337"
+      ],
+      "approvers": [
+        "bdraco",
+        "swoboda1337"
+      ],
+      "topics": [
+        "esphome",
+        "new-devices"
+      ],
+      "pullRequests": [
+        {
+          "id": "4655606441",
+          "title": "Add MCUboot OTA for nRF52 over BLE and serial",
+          "url": "https://github.com/esphome/device-builder-frontend/pull/1891",
+          "repository": "esphome/device-builder-frontend"
+        },
+        {
+          "id": "4656597609",
+          "title": "Add MCUboot updates for nRF52 to web.esphome.io",
+          "url": "https://github.com/esphome/device-builder-frontend/pull/1913",
+          "repository": "esphome/device-builder-frontend"
+        },
+        {
+          "id": "4656651403",
+          "title": "Find an nRF52 over Bluetooth by the service it advertises",
+          "url": "https://github.com/esphome/device-builder-frontend/pull/1914",
+          "repository": "esphome/device-builder-frontend"
+        },
+        {
+          "id": "4654252921",
+          "title": "[nrf52] allow to download mcumgr image if exists",
+          "url": "https://github.com/esphome/esphome/pull/19769",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "4656326169",
+          "title": "List the MCUboot update image for an nRF52 build that also has a UF2",
+          "url": "https://github.com/esphome/device-builder/pull/2852",
+          "repository": "esphome/device-builder"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-deleted-timer-stops",
+      "title": "Deleted Home Assistant timers stop triggering automations",
+      "dek": "Removing a running timer also cancels the completion event it had already scheduled.",
+      "body": [
+        "Deleting a running Home Assistant timer stops its planned completion event. Previously, the deleted timer could still announce that it had finished at the original deadline and trigger automations, even though it no longer existed. Franck Nijhof cancels that pending event when the timer is removed."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 78,
+      "contributors": [
+        "frenck"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "reviewers": [
+        "epenet"
+      ],
+      "approvers": [
+        "epenet"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4654233623",
+          "title": "Cancel running timer when the timer entity is removed",
+          "url": "https://github.com/home-assistant/core/pull/183325",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-reconnects-silent-radio",
+      "title": "Music Assistant reconnects radio streams before playback gives up",
+      "dek": "A silent connection gets a fresh attempt after ten seconds instead of waiting five minutes.",
+      "body": [
+        "Music Assistant gives an internet-radio station a chance to recover when it stops sending audio but leaves the connection open. It retries that connection after ten seconds, ahead of the twenty-second silence limit that stops playback.",
+        "Previously, the connection could wait five minutes before retrying, so playback always stopped first. OzGav corrects both radio stream readers, with review by Fabian Munkes."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "OzGav"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "OzGav",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/19848947?v=4",
+          "profileUrl": "https://github.com/OzGav"
+        }
+      ],
+      "reviewers": [
+        "fmunkes"
+      ],
+      "approvers": [
+        "fmunkes"
+      ],
+      "topics": [
+        "Music Assistant",
+        "Reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4639112214",
+          "title": "Reconnect radio streams that go silent before playback gives up",
+          "url": "https://github.com/music-assistant/server/pull/6466",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-nrf52-smaller-resumable-build-setup",
+      "title": "ESPHome cuts the download and wait for first Nordic builds",
+      "dek": "Fetching only the tools a configuration needs reduces setup time and disk use; interrupted downloads can resume.",
+      "body": [
+        "ESPHome reduces the download and wait for a first nRF52 firmware build by fetching only the parts of the Nordic software kit that the configuration needs. Interrupted downloads can resume instead of starting again, and the log shows their progress.",
+        "In J. Nick Koston’s test of a basic ItsyBitsy configuration, setup and the first build took 99 seconds instead of 372, with the kit using 964 MB rather than 2.2 GB. The test started with an empty kit directory but an installed Python environment and compiler; both builds produced identical firmware. Authors of external components needing extra Nordic projects must declare them explicitly."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 73,
+      "contributors": [
+        "bdraco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "reviewers": [
+        "swoboda1337"
+      ],
+      "approvers": [
+        "swoboda1337"
+      ],
+      "topics": [
+        "esphome",
+        "reliability"
+      ],
+      "pullRequests": [
+        {
+          "id": "4649225148",
+          "title": "[nrf52] Fetch only the nRF Connect SDK projects a build needs",
+          "url": "https://github.com/esphome/esphome/pull/19735",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "4648612585",
+          "title": "[nrf52] Stream the SDK clone and resume it after an interruption",
+          "url": "https://github.com/esphome/esphome/pull/19731",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-saved-counter-sensors",
+      "title": "ESPHome adds a saved counter for pulses and sensor events",
+      "dek": "Makers can accumulate a total and restore its saved value after a restart.",
+      "body": [
+        "ESPHome adds a counter sensor for accumulating events such as pulses from a liquid-flow sensor. It can count each update from another sensor or each on transition from a binary sensor, and restores its saved total after a restart by default.",
+        "Clyde Stubbs also supplies actions to set the count or adjust it by a chosen amount. Counting sensor updates counts the events themselves, rather than adding the measurement values. J. Nick Koston reviewed the addition."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 71,
+      "contributors": [
+        "clydebarrow"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "clydebarrow",
+          "name": "Clyde Stubbs",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2366188?v=4",
+          "profileUrl": "https://github.com/clydebarrow"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "topics": [
+        "esphome",
+        "new-devices"
+      ],
+      "pullRequests": [
+        {
+          "id": "4651243144",
+          "title": "[counter] Add persistent counter sensor",
+          "url": "https://github.com/esphome/esphome/pull/19746",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ],
+  "roadmapUpdates": []
+}
