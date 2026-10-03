@@ -10,6 +10,7 @@ export interface StoredContentInput {
   source: string;
   title: string;
   url: string;
+  canonicalUrl?: string;
   publishedAt: string;
   updatedAt?: string;
   author?: string | null;
@@ -90,6 +91,7 @@ function normalizeInput(input: StoredContentInput): StoredContentInput {
     source,
     title,
     url,
+    canonicalUrl: input.canonicalUrl ? safeHttpsUrl(input.canonicalUrl) : undefined,
     publishedAt: normalizedTimestamp(input.publishedAt, "publishedAt"),
     updatedAt: input.updatedAt ? normalizedTimestamp(input.updatedAt, "updatedAt") : undefined,
     author: typeof input.author === "string" && input.author.trim() ? input.author.trim() : null,
@@ -106,6 +108,7 @@ function semanticRecord(record: StoredContent | StoredContentInput): string {
     source: record.source,
     title: record.title,
     url: record.url,
+    canonicalUrl: record.canonicalUrl,
     publishedAt: record.publishedAt,
     updatedAt: record.updatedAt,
     author: record.author,
@@ -206,6 +209,7 @@ function mergeContentInputs(previous: StoredContentInput, incoming: StoredConten
     ...previous,
     ...incoming,
     updatedAt: incoming.updatedAt ?? previous.updatedAt,
+    canonicalUrl: incoming.canonicalUrl ?? previous.canonicalUrl,
     author: incoming.author ?? previous.author,
     authorProfile: incoming.authorProfile ?? (
       incoming.author && previous.author && incoming.author !== previous.author ? undefined : previous.authorProfile

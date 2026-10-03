@@ -48,6 +48,7 @@ Publisher-confirmed events in `data/sources.yaml` under `confirmed_events` are a
 - Treat substantial donations, funding commitments and other support for the foundation as significant ecosystem news. Judge their consequence for open-source stewardship, sustainability and community support; do not automatically demote them to a brief because they are not code changes. Consider feature or lead placement when warranted, without inventing how funds will be spent.
 - Read newsletters and multi-topic blog posts section by section. One publication can support several articles when it contains distinct, independently meaningful developments. Deduplicate the underlying reader outcome, not the source URL: sharing one source does not make two different stories duplicates. Record the disposition of each substantive section; retain normal evidence and repetition checks.
 - Newly published official newsletters and blog posts also appear as direct links in Just shipped, whether they support zero, one or several articles. This compact publication listing is separate from article selection. Use the exact source title, publisher and canonical link, no repeated date, and never imply that software described in a post has shipped.
+- An OHF “Shared from” post repeats its declared canonical publication. List the original only once in Just shipped, using canonical-source metadata rather than title similarity; apply this check to manual post-link additions too. Distinct announcements remain eligible even when they concern the same development.
 
 ## Copy desk
 

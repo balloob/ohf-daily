@@ -6,15 +6,18 @@ export function publishedPostsForWindow(records: StoredContentInput[], start: st
   const from = Date.parse(start);
   const through = Date.parse(end);
   const posts = new Map<string, PublishedPost>();
+  const originals = new Set<string>();
   for (const record of records) {
     const published = Date.parse(record.publishedAt);
     if (record.kind !== "official_post" || !Number.isFinite(published) || !(published >= from && published <= through)) continue;
     let url: URL;
-    try { url = new URL(record.url); } catch { continue; }
+    try { url = new URL(record.canonicalUrl ?? record.url); } catch { continue; }
     if (url.protocol !== "https:" || url.username || url.password) continue;
     url.hash = "";
     const key = url.href.replace(/\/$/, "");
-    if (posts.has(key)) continue;
+    const isOriginal = !record.canonicalUrl || record.url.replace(/\/$/, "") === key;
+    if (posts.has(key) && (!isOriginal || originals.has(key))) continue;
+    if (isOriginal) originals.add(key);
     posts.set(key, {
       id: record.id, title: record.title, url: url.href, publisher: record.source,
       publishedAt: record.publishedAt,

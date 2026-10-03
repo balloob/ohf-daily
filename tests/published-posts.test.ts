@@ -24,3 +24,21 @@ test("publication radar includes fresh official posts, not old updates, outside 
   assert.equal(result[1].publisher, post.source);
   assert.equal(result[1].url, post.url);
 });
+
+test("shared posts use the original publication once regardless of feed order", () => {
+  const original: StoredContentInput = {
+    id: "original", kind: "official_post", source: "Home Assistant Blog", title: "Cloud becomes Link",
+    url: "https://www.home-assistant.io/blog/link/", publishedAt: "2026-10-02T12:00:00Z", body: null, mediaUrls: [],
+  };
+  const shared = { ...original, id: "shared", source: "Open Home Foundation Blog",
+    url: "https://www.openhomefoundation.org/blog/link/", canonicalUrl: original.url };
+  const separate = { ...original, id: "separate", source: "Nabu Casa News", url: "https://www.nabucasa.com/news/link/" };
+  for (const records of [[shared, original, separate], [original, separate, shared]]) {
+    const posts = publishedPostsForWindow(records, "2026-10-02T00:00:00Z", "2026-10-03T00:00:00Z");
+    assert.deepEqual(posts.map(p => p.id), ["original", "separate"]);
+    assert.equal(posts[0].url, original.url);
+    assert.equal(posts[0].publisher, original.source);
+  }
+  const [onlyShared] = publishedPostsForWindow([shared], "2026-10-02T00:00:00Z", "2026-10-03T00:00:00Z");
+  assert.equal(onlyShared.url, original.url);
+});

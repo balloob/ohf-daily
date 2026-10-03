@@ -211,6 +211,20 @@ function articleDateFromUrl(url: string, fallback: string): string {
   return new Date(timestamp).toISOString();
 }
 
+function articleCanonicalUrl(html: string, pageUrl: string): string | undefined {
+  for (const tag of html.match(/<link\b[^>]*>/gi) ?? []) {
+    if (!(htmlAttribute(tag, "rel") ?? "").toLowerCase().split(/\s+/).includes("canonical")) continue;
+    const href = htmlAttribute(tag, "href");
+    if (!href) continue;
+    try {
+      return safeFeedUrl(new URL(href.replace(/&amp;/g, "&"), pageUrl).href, "official").href;
+    } catch {
+      // Malformed canonical metadata cannot replace a safe publication link.
+    }
+  }
+  return undefined;
+}
+
 function articleMetadata(html: string, url: string, lastModified: string): Omit<StoredContentInput, "id" | "kind" | "source"> {
   const titleHtml = metadataValue(html, ["og:title", "twitter:title"])
     ?? html.match(/<title\b[^>]*>([\s\S]*?)<\/title\s*>/i)?.[1]
@@ -303,21 +317,35 @@ export async function collectContentFeeds(options: FeedCollectionOptions): Promi
           }
         }))).filter((entry): entry is StoredContentInput => entry !== undefined);
       }
-      return parseFeed(fetched.body, { maxBytes: maximumFeedBytes }).map((entry) => {
+      return await Promise.all(parseFeed(fetched.body, { maxBytes: maximumFeedBytes }).map(async (entry) => {
         const url = source.kind === "google_alert" ? googleAlertTarget(entry.url) : entry.url;
+        let canonicalUrl: string | undefined;
+        // OHF's feed omits the original URL for its “Shared from” posts.
+        // Read the page's declared canonical link without changing the source ID.
+        const pageUrl = new URL(url);
+        if (source.kind === "official" && pageUrl.hostname === "www.openhomefoundation.org" && pageUrl.pathname.startsWith("/blog/")) {
+          const page = await fetchDocument({
+            ...source,
+            id: `${source.id}-page-${createHash("sha256").update(url).digest("hex").slice(0, 16)}`,
+            url,
+          }, cache, fetcher, observedAt, "html");
+          if (page.warning) warnings.push(page.warning);
+          canonicalUrl = articleCanonicalUrl(page.body, url);
+        }
         return {
           id: stableContentId(source.id, entry.guid, entry.url),
           kind: source.kind === "official" ? "official_post" : "external_coverage",
           source: source.kind === "official" ? source.name : new URL(url).hostname.replace(/^www\./, ""),
           title: entry.title,
           url,
+          canonicalUrl,
           publishedAt: entry.publishedAt,
           updatedAt: entry.updatedAt,
           author: entry.author,
           body: entry.content || entry.summary || null,
           mediaUrls: entry.mediaUrls,
         };
-      });
+      }));
     } catch (error) {
       warnings.push(`${source.name} could not be collected: ${error instanceof Error ? error.message : String(error)}`);
       return [];
@@ -343,4 +371,5 @@ export const feedCollectorInternals = {
   responseTextWithinLimit,
   articleDateFromUrl,
   articleMetadata,
+  articleCanonicalUrl,
 };

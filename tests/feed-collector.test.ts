@@ -7,6 +7,25 @@ import { collectContentFeeds, feedCollectorInternals, googleAlertSources } from 
 
 const rss = `<?xml version="1.0"?><rss version="2.0"><channel><title>News</title><item><guid>story-1</guid><title>One useful announcement</title><link>https://example.com/news/one</link><pubDate>Mon, 31 Aug 2026 08:30:00 GMT</pubDate><description>Official details.</description></item></channel></rss>`;
 
+test("records OHF Shared from canonical sources even when the feed omits them", async (context) => {
+  const root = await temporaryRoot();
+  context.after(() => rm(root, { recursive: true, force: true }));
+  const wrapper = "https://www.openhomefoundation.org/blog/shared/";
+  const original = "https://www.home-assistant.io/blog/original/";
+  const result = await collectContentFeeds({
+    root,
+    sources: [{ id: "ohf", name: "OHF Blog", kind: "official", url: "https://www.openhomefoundation.org/blog/feed.xml" }],
+    start: new Date("2026-08-31T00:00:00Z"), end: new Date("2026-09-01T00:00:00Z"),
+    fetcher: (async (input) => String(input) === wrapper
+      ? new Response(`<link href="${original}" rel="canonical"><p>Shared from Home Assistant</p>`, { headers: { "content-type": "text/html" } })
+      : new Response(rss.replace("https://example.com/news/one", wrapper), { headers: { "content-type": "application/xml" } })) as typeof fetch,
+  });
+  assert.deepEqual(result.warnings, []);
+  assert.equal(result.current[0].url, wrapper);
+  assert.equal(result.current[0].canonicalUrl, original);
+  assert.equal(feedCollectorInternals.articleCanonicalUrl('<link rel="canonical" href="javascript:alert(1)">', wrapper), undefined);
+});
+
 async function temporaryRoot(): Promise<string> {
   return mkdtemp(resolve(tmpdir(), "ohf-feed-collector-"));
 }
