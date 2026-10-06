@@ -1,17 +1,24 @@
 ---
 import "../styles/global.css";
+import type { ArticleMedia } from "../lib/types";
 
 interface Props {
   title?: string;
   description?: string;
+  image?: Pick<ArticleMedia, "url" | "alt" | "width" | "height">;
 }
 
 const {
   title = "OHF Daily",
   description = "A daily briefing on the open-source work moving the Open Home forward.",
+  image,
 } = Astro.props;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
+const imageUrl = image && new URL(
+  /^https?:\/\//i.test(image.url) ? image.url : `${base}${image.url.replace(/^\/+/, "")}`,
+  Astro.site ?? Astro.url,
+).href;
 ---
 
 <!doctype html>
@@ -26,6 +33,15 @@ const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    {image && imageUrl && <>
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:alt" content={image.alt} />
+      {image.width && <meta property="og:image:width" content={String(image.width)} />}
+      {image.height && <meta property="og:image:height" content={String(image.height)} />}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:image:alt" content={image.alt} />
+    </>}
     <link rel="canonical" href={canonical} />
     <link rel="alternate" type="application/rss+xml" title="OHF Daily" href={`${base}rss.xml`} />
     <title>{title}</title>
