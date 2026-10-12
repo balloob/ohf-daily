@@ -1,0 +1,3026 @@
+{
+  "date": "2026-10-12",
+  "generatedAt": "2026-10-12T03:59:06.041Z",
+  "windowStart": "2026-10-11T03:57:34.745Z",
+  "windowEnd": "2026-10-12T03:57:34.745Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 307,
+    "repositories": 26,
+    "contributors": 105,
+    "dependencyUpdates": 38,
+    "hacsNewIntegrations": 0
+  },
+  "lead": {
+    "id": "4765791470",
+    "title": "[lvgl] Migrate to 9.6.0",
+    "summary": "Migrates the LVGL support from 9.5.0 to 9.6.0.",
+    "unlocks": "Unlocks: [lvgl] Migrate to 9.6.0.",
+    "url": "https://github.com/esphome/esphome/pull/20257",
+    "repository": "esphome/esphome",
+    "organization": "ESPHome",
+    "author": "clydebarrow",
+    "mergedAt": "2026-10-11T20:36:32Z",
+    "labels": [
+      "new-feature",
+      "has-tests",
+      "core",
+      "code-quality",
+      "by-code-owner",
+      "component: lvgl",
+      "developer-breaking-change"
+    ],
+    "kind": "feature",
+    "score": 66.6,
+    "additions": 413,
+    "deletions": 101,
+    "changedFiles": 28
+  },
+  "highlights": [
+    {
+      "id": "4822330677",
+      "title": "Remove scan interval option from control4",
+      "summary": "Breaking change The Control4 integration no longer lets you set the polling interval in its options.",
+      "unlocks": "Unlocks: Remove scan interval option from control4.",
+      "url": "https://github.com/home-assistant/core/pull/185879",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "gjohansson-ST",
+      "mergedAt": "2026-10-12T01:51:26Z",
+      "labels": [
+        "breaking-change",
+        "cla-signed",
+        "small-pr",
+        "has-tests",
+        "integration: control4",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 62.4,
+      "additions": 21,
+      "deletions": 144,
+      "changedFiles": 10
+    },
+    {
+      "id": "4679241905",
+      "title": "[remote_base] Add optional suffix bits to KeeLoq after the HCS301 word",
+      "summary": "What does this implement/fix? Optional bits after the existing 66 bit HCS301 KeeLoq word, in the same PWM coding.",
+      "unlocks": "Unlocks: [remote_base] Add optional suffix bits to KeeLoq after the HCS301 word.",
+      "url": "https://github.com/esphome/esphome/pull/19891",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "Bascht74",
+      "mergedAt": "2026-10-12T00:36:28Z",
+      "labels": [
+        "new-feature",
+        "component: remote_base",
+        "has-tests"
+      ],
+      "kind": "feature",
+      "score": 59,
+      "additions": 393,
+      "deletions": 14,
+      "changedFiles": 11
+    },
+    {
+      "id": "2199080593",
+      "title": "[cse7761] Add current_input option for current transformer boards such as the Sonoff POW CT",
+      "summary": "What does this implement/fix? Adds a current input option to the cse7761 sensor so boards that measure current through a current transformer, such as the Sonoff POW CT, report correct current and power.",
+      "unlocks": "Unlocks: [cse7761] Add current_input option for current transformer boards such as the Sonoff POW CT.",
+      "url": "https://github.com/esphome/esphome/pull/7836",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "mick96",
+      "mergedAt": "2026-10-12T03:00:16Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "component: cse7761",
+        "medium-pr"
+      ],
+      "kind": "feature",
+      "score": 58.3,
+      "additions": 64,
+      "deletions": 14,
+      "changedFiles": 8
+    },
+    {
+      "id": "4732941078",
+      "title": "Add setting up LaMetric with a press on its button",
+      "summary": "Adds a third way to set up a LaMetric device: with a press on the button on top of the device.",
+      "unlocks": "Unlocks: Add setting up LaMetric with a press on its button.",
+      "url": "https://github.com/home-assistant/core/pull/184197",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "frenck",
+      "mergedAt": "2026-10-11T19:14:59Z",
+      "labels": [
+        "hacktoberfest",
+        "cla-signed",
+        "integration: lametric",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 57.8,
+      "additions": 696,
+      "deletions": 16,
+      "changedFiles": 5
+    }
+  ],
+  "briefs": [
+    {
+      "id": "4814971174",
+      "title": "Add missing water heater entities to Midea",
+      "summary": "Add water heater missing entities Type of change Dependency upgrade Bugfix (non breaking change which fixes an issue) New integration (thank you!) New feature (which adds functionality to an…",
+      "unlocks": "Unlocks: Add missing water heater entities to Midea.",
+      "url": "https://github.com/home-assistant/core/pull/185735",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "rokam",
+      "mergedAt": "2026-10-11T18:28:40Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: gold",
+        "integration: midea"
+      ],
+      "kind": "feature",
+      "score": 57.6,
+      "additions": 581,
+      "deletions": 20,
+      "changedFiles": 8
+    },
+    {
+      "id": "4822393231",
+      "title": "[tmp102] Add comparator alert binary sensor",
+      "summary": "What does this implement/fix? Adds a tmp102 binary sensor that exposes the chip's AL comparator status bit through tmp102 id .",
+      "unlocks": "Unlocks: [tmp102] Add comparator alert binary sensor.",
+      "url": "https://github.com/esphome/esphome/pull/20540",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "techdregs",
+      "mergedAt": "2026-10-12T00:33:07Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "core",
+        "component: tmp102",
+        "code-quality",
+        "new-platform"
+      ],
+      "kind": "feature",
+      "score": 55.5,
+      "additions": 265,
+      "deletions": 11,
+      "changedFiles": 11
+    },
+    {
+      "id": "4822157366",
+      "title": "[api] Let a wizard input pick multiple entities",
+      "summary": "What does this implement/fix? Adds multiple: true to standalone api: wizard: inputs ( id: ), so the user can pick several Home Assistant entities for one input, for example several calendar…",
+      "unlocks": "Unlocks: [api] Let a wizard input pick multiple entities.",
+      "url": "https://github.com/esphome/esphome/pull/20537",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "jesserockz",
+      "mergedAt": "2026-10-11T22:22:30Z",
+      "labels": [
+        "cherry-picked",
+        "new-feature",
+        "component: api",
+        "has-tests",
+        "core"
+      ],
+      "kind": "feature",
+      "score": 54.5,
+      "additions": 360,
+      "deletions": 22,
+      "changedFiles": 9
+    },
+    {
+      "id": "3269957946",
+      "title": "[openthread] add mesh_local_eid openthread_info sensor",
+      "summary": "What does this implement/fix? Adds a mesh local eid text sensor to openthread info : the Mesh Local EID is the IPv6 address that stays stable while the device is part of the Thread network,…",
+      "unlocks": "Unlocks: [openthread] add mesh_local_eid openthread_info sensor.",
+      "url": "https://github.com/esphome/esphome/pull/13924",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "mrene",
+      "mergedAt": "2026-10-11T22:41:15Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "small-pr",
+        "component: openthread_info"
+      ],
+      "kind": "feature",
+      "score": 54.2,
+      "additions": 29,
+      "deletions": 0,
+      "changedFiles": 4
+    },
+    {
+      "id": "4823919638",
+      "title": "[remote_base] Generate the simple transmit actions with no C++ class",
+      "summary": "What does this implement/fix? New remote protocols keep arriving, five reviewed this week alone, and each one repeats the same action class boilerplate, so this cleans it up before more are added.",
+      "url": "https://github.com/esphome/esphome/pull/20549",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-10-12T03:03:59Z",
+      "labels": [
+        "component: remote_base",
+        "has-tests",
+        "core",
+        "code-quality",
+        "undocumented-api-change"
+      ],
+      "kind": "platform",
+      "score": 54.1,
+      "additions": 460,
+      "deletions": 660,
+      "changedFiles": 36
+    },
+    {
+      "id": "4820843674",
+      "title": "Add translations for KNX config panel validation errors",
+      "summary": "Breaking change Proposed change Adds translations for the validation errors of the KNX config panel (UI entities, exposes, time server).",
+      "unlocks": "Unlocks: Add translations for KNX config panel validation errors.",
+      "url": "https://github.com/home-assistant/core/pull/185839",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "farmio",
+      "mergedAt": "2026-10-12T00:37:31Z",
+      "labels": [
+        "cla-signed",
+        "integration: knx",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: platinum"
+      ],
+      "kind": "feature",
+      "score": 52.8,
+      "additions": 597,
+      "deletions": 45,
+      "changedFiles": 6
+    },
+    {
+      "id": "4784953218",
+      "title": "feat(node-manager): record drift of committed items and stop re-applying after a budget",
+      "summary": "Part 1 of Node Manager Phase 1b (live drift detection) from #3948.",
+      "url": "https://github.com/matter-js/matter.js/pull/4700",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-10-11T14:39:39Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 52.4,
+      "additions": 2460,
+      "deletions": 114,
+      "changedFiles": 20
+    },
+    {
+      "id": "3377578553",
+      "title": "[socket] Add lwip raw UDP socket implementation",
+      "summary": "What does this implement/fix? Add UDP support to the lwip raw socket layer used by ESP8266 and RP2040.",
+      "unlocks": "Unlocks: [socket] Add lwip raw UDP socket implementation.",
+      "url": "https://github.com/esphome/esphome/pull/14677",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-10-12T02:27:42Z",
+      "labels": [
+        "component: socket"
+      ],
+      "kind": "feature",
+      "score": 50.2,
+      "additions": 705,
+      "deletions": 146,
+      "changedFiles": 12
+    },
+    {
+      "id": "4820924757",
+      "title": "Add reauth flow to kostal_plenticore",
+      "summary": "Breaking change Proposed change Adds a reauth flow to kostal plenticore so users can update the password (and optionally the service code) when logging in to the inverter fails, instead of…",
+      "unlocks": "Unlocks: Add reauth flow to kostal_plenticore.",
+      "url": "https://github.com/home-assistant/core/pull/185841",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "gjohansson-ST",
+      "mergedAt": "2026-10-12T01:33:39Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "integration: kostal_plenticore",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 50,
+      "additions": 182,
+      "deletions": 4,
+      "changedFiles": 5
+    },
+    {
+      "id": "4723630855",
+      "title": "[uart] Keep constant switch, button and write payloads in flash",
+      "summary": "What does this implement/fix? UART switch and button payloads lived in heap std::vector s, and constant uart.write data in a static const array (RAM on ESP8266).",
+      "url": "https://github.com/esphome/esphome/pull/20082",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-10-12T01:16:34Z",
+      "labels": [
+        "component: uart",
+        "has-tests",
+        "code-quality",
+        "undocumented-api-change"
+      ],
+      "kind": "platform",
+      "score": 49.8,
+      "additions": 137,
+      "deletions": 80,
+      "changedFiles": 14
+    },
+    {
+      "id": "4821367404",
+      "title": "Add reauth flow to nexia",
+      "summary": "Breaking change Proposed change Adds a reauth flow to nexia so users can enter a new password when the current one is rejected, instead of having to remove and re add the integration.",
+      "unlocks": "Unlocks: Add reauth flow to nexia.",
+      "url": "https://github.com/home-assistant/core/pull/185852",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "gjohansson-ST",
+      "mergedAt": "2026-10-12T01:31:37Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "integration: nexia",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 49.7,
+      "additions": 203,
+      "deletions": 5,
+      "changedFiles": 5
+    },
+    {
+      "id": "4821781680",
+      "title": "Add reauth flow to smart_meter_texas",
+      "summary": "Breaking change Proposed change Adds a reauth flow to smart meter texas so users can enter a new password when the current one is rejected, instead of having to remove and re add the integration.",
+      "unlocks": "Unlocks: Add reauth flow to smart_meter_texas.",
+      "url": "https://github.com/home-assistant/core/pull/185860",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "gjohansson-ST",
+      "mergedAt": "2026-10-12T01:31:14Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "integration: smart_meter_texas",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 49.7,
+      "additions": 168,
+      "deletions": 10,
+      "changedFiles": 6
+    },
+    {
+      "id": "4821233739",
+      "title": "Add reauth flow to rachio",
+      "summary": "Breaking change Proposed change Adds a reauth flow to rachio so users can enter a new API key when the current one is rejected, instead of having to remove and re add the integration.",
+      "unlocks": "Unlocks: Add reauth flow to rachio.",
+      "url": "https://github.com/home-assistant/core/pull/185848",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "gjohansson-ST",
+      "mergedAt": "2026-10-12T01:32:26Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "integration: rachio",
+        "has-tests",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 49.6,
+      "additions": 196,
+      "deletions": 5,
+      "changedFiles": 5
+    },
+    {
+      "id": "4821346420",
+      "title": "Add reauth flow to bond",
+      "summary": "Breaking change Proposed change Adds a reauth flow to bond so users can enter a new access token when the current one is rejected, instead of having to remove and re add the integration.",
+      "unlocks": "Unlocks: Add reauth flow to bond.",
+      "url": "https://github.com/home-assistant/core/pull/185851",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "gjohansson-ST",
+      "mergedAt": "2026-10-12T01:32:01Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "integration: bond",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 49.6,
+      "additions": 189,
+      "deletions": 5,
+      "changedFiles": 5
+    },
+    {
+      "id": "4460245446",
+      "title": "[mipi_spi] Add LCDwiki ES3C35P model (ST77922 QSPI)",
+      "summary": "What does this implement/fix? Adds the LCDwiki ES3C35P (a 3.5\" 320x480 quad SPI panel with a Sitronix ST77922 on an ESP32 S3 with PSRAM) as a named mipi spi model, plus ES3C35P NS for the…",
+      "unlocks": "Unlocks: [mipi_spi] Add LCDwiki ES3C35P model (ST77922 QSPI).",
+      "url": "https://github.com/esphome/esphome/pull/19011",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "jlmeredith",
+      "mergedAt": "2026-10-12T00:48:48Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "component: mipi_spi",
+        "medium-pr"
+      ],
+      "kind": "feature",
+      "score": 49.5,
+      "additions": 109,
+      "deletions": 0,
+      "changedFiles": 2
+    },
+    {
+      "id": "4821315640",
+      "title": "Add reauth flow to kodi",
+      "summary": "Breaking change Proposed change Adds a reauth flow to kodi so users can enter a new username and password when the current ones are rejected, instead of having to remove and re add the integration.",
+      "unlocks": "Unlocks: Add reauth flow to kodi.",
+      "url": "https://github.com/home-assistant/core/pull/185850",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "gjohansson-ST",
+      "mergedAt": "2026-10-12T01:32:13Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "integration: kodi",
+        "has-tests",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 49.4,
+      "additions": 165,
+      "deletions": 6,
+      "changedFiles": 5
+    },
+    {
+      "id": "4806173994",
+      "title": "fix: one source for each part of a client peer's session data",
+      "summary": "A client peer's session data had no single source.",
+      "unlocks": "Improves reliability around one source for each part of a client peer's session data.",
+      "url": "https://github.com/matter-js/matter.js/pull/4714",
+      "repository": "matter-js/matter.js",
+      "organization": "Matter.js",
+      "author": "Apollon77",
+      "mergedAt": "2026-10-11T21:53:22Z",
+      "labels": [
+        "automerge"
+      ],
+      "kind": "fix",
+      "score": 49.4,
+      "additions": 1443,
+      "deletions": 240,
+      "changedFiles": 43
+    },
+    {
+      "id": "4823018442",
+      "title": "2026.10.0b3",
+      "summary": "Do not merge, release script will automatically merge [ci] Stop the toolchain tests from installing ESP IDF esphome#20413 [ethernet] Collapse duplicate CI test variants esphome#20406…",
+      "url": "https://github.com/esphome/esphome/pull/20542",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "jesserockz",
+      "mergedAt": "2026-10-12T02:42:25Z",
+      "labels": [
+        "merging-to-beta"
+      ],
+      "kind": "platform",
+      "score": 49.2,
+      "additions": 2995,
+      "deletions": 565,
+      "changedFiles": 124
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Bump arcam-fmj to 3.0.1",
+      "url": "https://github.com/home-assistant/core/pull/185887",
+      "repository": "home-assistant/core",
+      "author": "elupus"
+    },
+    {
+      "title": "Bump my-pv to 0.0.13",
+      "url": "https://github.com/home-assistant/core/pull/185797",
+      "repository": "home-assistant/core",
+      "author": "rrooggiieerr"
+    },
+    {
+      "title": "Bump async-upnp-client to 0.49.0",
+      "url": "https://github.com/home-assistant/core/pull/185830",
+      "repository": "home-assistant/core",
+      "author": "StevenLooman"
+    },
+    {
+      "title": "Bump quality scale to silver for dnsip",
+      "url": "https://github.com/home-assistant/core/pull/184764",
+      "repository": "home-assistant/core",
+      "author": "gjohansson-ST"
+    },
+    {
+      "title": "Update dependency astro to v7.3.8",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/49083",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "indi_allsky: bump aioindiallsky to 0.1.6",
+      "url": "https://github.com/home-assistant/core/pull/185770",
+      "repository": "home-assistant/core",
+      "author": "TN-1"
+    },
+    {
+      "title": "Bump python-izone to 1.3.11",
+      "url": "https://github.com/home-assistant/core/pull/185808",
+      "repository": "home-assistant/core",
+      "author": "Swamp-Ig"
+    },
+    {
+      "title": "Bump aiomelcloudhome to 0.3.0",
+      "url": "https://github.com/home-assistant/core/pull/185769",
+      "repository": "home-assistant/core",
+      "author": "erwindouna"
+    },
+    {
+      "title": "Bump uiprotect to 23.1.1",
+      "url": "https://github.com/home-assistant/core/pull/185805",
+      "repository": "home-assistant/core",
+      "author": "RaHehl"
+    },
+    {
+      "title": "Bump neopool-modbus to 4.13.0",
+      "url": "https://github.com/home-assistant/core/pull/185803",
+      "repository": "home-assistant/core",
+      "author": "svasek"
+    },
+    {
+      "title": "Bump systembridgeconnector to 5.12.1",
+      "url": "https://github.com/home-assistant/core/pull/185791",
+      "repository": "home-assistant/core",
+      "author": "timmo001"
+    },
+    {
+      "title": "Bump demetriek to 2.1.0",
+      "url": "https://github.com/home-assistant/core/pull/185779",
+      "repository": "home-assistant/core",
+      "author": "frenck"
+    },
+    {
+      "title": "Bump uiprotect to 23.1.0",
+      "url": "https://github.com/home-assistant/core/pull/185787",
+      "repository": "home-assistant/core",
+      "author": "RaHehl"
+    },
+    {
+      "title": "Bump sofar-modbus to 0.20.0",
+      "url": "https://github.com/home-assistant/core/pull/185766",
+      "repository": "home-assistant/core",
+      "author": "darkrain-nl"
+    },
+    {
+      "title": "Bump openrgb-python to 0.3.8",
+      "url": "https://github.com/home-assistant/core/pull/185747",
+      "repository": "home-assistant/core",
+      "author": "TRusselo"
+    },
+    {
+      "title": "Bump pykaleidescape to 1.1.7",
+      "url": "https://github.com/home-assistant/core/pull/185742",
+      "repository": "home-assistant/core",
+      "author": "SteveEasley"
+    },
+    {
+      "title": "Update actions/setup-node action to v7.1.0",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/49050",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency astro to v7.3.7",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/49047",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update CodeMirror",
+      "url": "https://github.com/home-assistant/frontend/pull/54820",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update Playwright",
+      "url": "https://github.com/home-assistant/frontend/pull/54824",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "indi_allsky: Bump aioindiallsky to V0.1.4",
+      "url": "https://github.com/home-assistant/core/pull/185751",
+      "repository": "home-assistant/core",
+      "author": "TN-1"
+    },
+    {
+      "title": "⬆️ Lock file maintenance",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/624",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update pre-commit hook rbubley/mirrors-prettier to v3.9.10",
+      "url": "https://github.com/home-assistant-libs/python-go2rtc-client/pull/406",
+      "repository": "home-assistant-libs/python-go2rtc-client",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency pylint to v4.1.3",
+      "url": "https://github.com/home-assistant-libs/python-go2rtc-client/pull/405",
+      "repository": "home-assistant-libs/python-go2rtc-client",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency pylint to v4.1.3",
+      "url": "https://github.com/home-assistant-libs/aioecowitt/pull/446",
+      "repository": "home-assistant-libs/aioecowitt",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency pylint to v4.1.3",
+      "url": "https://github.com/home-assistant-libs/python-webrtc-models/pull/286",
+      "repository": "home-assistant-libs/python-webrtc-models",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency pylint to v4.1.3",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/622",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump the pre-commit group with 2 updates",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1312",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump prek from 0.5.4 to 0.5.5",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1318",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump ty from 0.0.84 to 0.0.85",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1313",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump aiohttp from 3.14.3 to 3.14.4",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1315",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump ruff from 0.16.9 to 0.16.10",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1316",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump tox from 4.64.5 to 4.64.9",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1319",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump types-requests from 2.33.0.20260906 to 2.33.0.20261006",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1317",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump orjson from 3.12.0 to 3.13.0",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1314",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump aioesphomeapi from 46.9.0 to 46.10.0",
+      "url": "https://github.com/esphome/esphome/pull/20563",
+      "repository": "esphome/esphome",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "player: bump sendspin-cli to v0.2.0 and migrate server discovery",
+      "url": "https://github.com/music-assistant/local-audio-addon/pull/34",
+      "repository": "music-assistant/local-audio-addon",
+      "author": "chrisuthe"
+    },
+    {
+      "title": "chore(deps): bump dbus-fast from 5.0.25 to 5.2.0",
+      "url": "https://github.com/Bluetooth-Devices/habluetooth/pull/643",
+      "repository": "Bluetooth-Devices/habluetooth",
+      "author": "dependabot[bot]"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 142,
+      "thisWeek": 1887,
+      "sinceRelease": 1389,
+      "lastReleaseDate": "2026-10-07"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 27,
+      "thisWeek": 362,
+      "sinceRelease": 166,
+      "lastReleaseDate": "2026-10-09"
+    },
+    {
+      "product": "ESPHome",
+      "today": 112,
+      "thisWeek": 561,
+      "sinceRelease": 1677,
+      "lastReleaseDate": "2026-09-16"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "esphome/esphome:410088158",
+      "product": "ESPHome",
+      "repository": "esphome/esphome",
+      "name": "2026.10.0b3",
+      "tag": "2026.10.0b3",
+      "url": "https://github.com/esphome/esphome/releases/tag/2026.10.0b3",
+      "publishedAt": "2026-10-12T02:42:31Z",
+      "channel": "prerelease",
+      "accent": "green",
+      "sourcePullRequestIds": [
+        "4823018442"
+      ]
+    }
+  ],
+  "publishedPosts": [],
+  "releases": [
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-10-21",
+      "version": "2026.10",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-10-28",
+      "version": "2026.11",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-11-04",
+      "version": "2026.11",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-11-04",
+      "version": "2026.11",
+      "accent": "green"
+    },
+    {
+      "product": "Open Home Foundation Community Day",
+      "kind": "Event",
+      "date": "2026-11-07",
+      "accent": "blue",
+      "url": "https://www.openhomefoundation.org/blog/countdown-to-community-day-2026-starts-now/",
+      "sourceId": "open-home-foundation-blog:c10ad4759bc887b20b0fd3a5"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-11-18",
+      "version": "2026.11",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-11-25",
+      "version": "2026.12",
+      "accent": "blue"
+    }
+  ],
+  "communityMeetups": [
+    {
+      "id": "evt-7gIM98OZeNxo17Z@events.lu.ma",
+      "title": "Budapest Community Meetup",
+      "url": "https://luma.com/utg4q09a",
+      "startAt": "2026-11-06T14:30:00.000Z",
+      "endAt": "2026-11-06T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-06",
+      "endDate": "2026-11-06",
+      "location": "Hotel Tiliana - Wellness & Spa, Budapest, Hárshegyi út 1-3, 1021 Hungary",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-h2U89K2xZ1uigA9@events.lu.ma",
+      "title": "Tauranga, Aotearoa New Zealand Home Assistant Community Day",
+      "url": "https://luma.com/mdqlfbav",
+      "startAt": "2026-11-06T21:00:00.000Z",
+      "endAt": "2026-11-07T01:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-06",
+      "endDate": "2026-11-07",
+      "location": "148 Durham Street, Tauranga 3110, New Zealand",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-YwDqAb2dRe2wWFV@events.lu.ma",
+      "title": "Mount Gambier Community Meetup",
+      "url": "https://luma.com/uilnnoyr",
+      "startAt": "2026-11-06T23:30:00.000Z",
+      "endAt": "2026-11-07T01:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Mount Gambier Library, 6 Watson Terrace, Mount Gambier SA 5290, Australia",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-mUed7CByFECrash@events.lu.ma",
+      "title": "Auckland Home Assistant Community Day",
+      "url": "https://luma.com/8emp51gl",
+      "startAt": "2026-11-07T01:00:00.000Z",
+      "endAt": "2026-11-07T04:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-mUed7CByFECrash",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-0T70yLyU38I5xhp@events.lu.ma",
+      "title": "Cebu Home Assistant Community Day",
+      "url": "https://luma.com/q3low1wv",
+      "startAt": "2026-11-07T01:00:00.000Z",
+      "endAt": "2026-11-07T03:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-0T70yLyU38I5xhp",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-0Jzwz6iSHYv1kd8@events.lu.ma",
+      "title": "Christchurch NZ, Home Assistant Community Day",
+      "url": "https://luma.com/k74ofs9l",
+      "startAt": "2026-11-07T01:00:00.000Z",
+      "endAt": "2026-11-07T03:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "The Old Vicarage Cafe, Restaurant & Bar, 335 Halswell Road, Halswell, Christchurch 8025, New Zealand",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-P3ET8ExVSoe7lXj@events.lu.ma",
+      "title": "Open Home Foundation Community Day (Shenzhen)",
+      "url": "https://luma.com/crzylpdw",
+      "startAt": "2026-11-07T01:00:00.000Z",
+      "endAt": "2026-11-07T09:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "广东省深圳市龙华区大浪街道华明路75号大浪基地",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-xt7N1yjW2LgCel5@events.lu.ma",
+      "title": "Melbourne, Australia Community Day Meetup",
+      "url": "https://luma.com/lax3x8f5",
+      "startAt": "2026-11-07T03:00:00.000Z",
+      "endAt": "2026-11-07T05:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-xt7N1yjW2LgCel5",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-eP66ffD90T25Shd@events.lu.ma",
+      "title": "Adelaide, Australia Community Day Meetup",
+      "url": "https://luma.com/hb4tgbbw",
+      "startAt": "2026-11-07T03:30:00.000Z",
+      "endAt": "2026-11-07T05:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Parks Library, 46 Trafford St, Angle Park SA 5010, Australia",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-UbE4Jn1D747rpQa@events.lu.ma",
+      "title": "East China Community Day Meetup",
+      "url": "https://luma.com/ecqcecyq",
+      "startAt": "2026-11-07T05:00:00.000Z",
+      "endAt": "2026-11-07T09:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "未来科技城海创园, Yuhang District, Hangzhou, China, 311122",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-o8ZHJ0MBYZnXIfu@events.lu.ma",
+      "title": "Tokyo - Home Assistant Community Day 2026",
+      "url": "https://luma.com/26u5bs6r",
+      "startAt": "2026-11-07T05:00:00.000Z",
+      "endAt": "2026-11-07T08:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-o8ZHJ0MBYZnXIfu",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-H4CaXPaSaEdzcm5@events.lu.ma",
+      "title": "Brisbane, Australia Community Day Meetup",
+      "url": "https://luma.com/uup4kwop",
+      "startAt": "2026-11-07T05:30:00.000Z",
+      "endAt": "2026-11-07T08:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-H4CaXPaSaEdzcm5",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-AI49cKOea1KcoKj@events.lu.ma",
+      "title": "贵阳 Community Day 聚会｜WEBB LAB 开放智能硬件交流日",
+      "url": "https://luma.com/sb1h1rvs",
+      "startAt": "2026-11-07T05:30:00.000Z",
+      "endAt": "2026-11-07T09:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "WEBB LAB, Room 601, Building D, Midea Caizhi Center, Guanshanhu District, Guiyang, China",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-L7RODmonA7Rea7z@events.lu.ma",
+      "title": "Home Assistant conosciamoci! Community Day",
+      "url": "https://luma.com/4agnxpk7",
+      "startAt": "2026-11-07T08:00:00.000Z",
+      "endAt": "2026-11-07T12:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Consorzio Universitario di Pordenone, Via Prasecco, 3/A, 33170 Pordenone PN, Italy",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-7ZCT5I8YPldZpgY@events.lu.ma",
+      "title": "Hong Kong Open Home & Home Assistant Community Day 2026",
+      "url": "https://luma.com/h1owafmc",
+      "startAt": "2026-11-07T08:00:00.000Z",
+      "endAt": "2026-11-07T13:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Station 3 Cafe, Rm 08 ,25/F, 39 Sai Yee St, Mong Kok, Kowloon, Hong Kong",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-PGOLhn6jjoyDOwR@events.lu.ma",
+      "title": "Cluj-Napoca Meetup | Home Assistant Community Day",
+      "url": "https://luma.com/1q5pu4by",
+      "startAt": "2026-11-07T09:00:00.000Z",
+      "endAt": "2026-11-07T14:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Tehnolemn S.C.M., Str. Câmpina, 62-64, Cluj-Napoca, Cluj, 400635, 400124 Cluj-Napoca, Romania",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-5fZSBgG9dDAPlmO@events.lu.ma",
+      "title": "Home Assistant Meetup Bari",
+      "url": "https://luma.com/7c2mujly",
+      "startAt": "2026-11-07T09:00:00.000Z",
+      "endAt": "2026-11-07T12:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Via Giuseppe Re David, 186, 70125 Bari BA, Italy",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-j9rLKKE9uIRhmtD@events.lu.ma",
+      "title": "Open Home Foundation Community Day 2026 – Pécs, Hungary",
+      "url": "https://luma.com/nrk0ya98",
+      "startAt": "2026-11-07T09:00:00.000Z",
+      "endAt": "2026-11-07T11:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Pécs, Hungary",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-YkRcRLXLV5F15r4@events.lu.ma",
+      "title": "Solkan HA Community Meetup",
+      "url": "https://luma.com/s2lf735v",
+      "startAt": "2026-11-07T09:00:00.000Z",
+      "endAt": "2026-11-07T12:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Ulica Klementa Juga 7, 5250 Solkan, Slovenia",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-NdYqunhRp3ZsPM2@events.lu.ma",
+      "title": "Community Day Nürnberg",
+      "url": "https://luma.com/5osum5k2",
+      "startAt": "2026-11-07T10:00:00.000Z",
+      "endAt": "2026-11-07T16:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Thomas-Mann-Straße 16-20, 90471 Nürnberg-Südöstliche Außenstadt, Germany",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-uBbVKVGzuaf5Exq@events.lu.ma",
+      "title": "Leeds Home Assistant Community Meetup",
+      "url": "https://luma.com/fmobodit",
+      "startAt": "2026-11-07T10:00:00.000Z",
+      "endAt": "2026-11-07T16:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Imagine Leeds: the climate action hub, 9 Blenheim Ter, Woodhouse, Leeds LS2 9HZ, UK",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-nCeRZIJJNYEXQ5r@events.lu.ma",
+      "title": "OpenHome Community Day 2026 - Vigo",
+      "url": "https://luma.com/dhhpywcu",
+      "startAt": "2026-11-07T10:00:00.000Z",
+      "endAt": "2026-11-08T00:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-08",
+      "location": "A Industriosa, Gregorio Espino, 38, entresuelo 3, Sárdoma, 36205 Vigo, Pontevedra, Spain",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-b9302XfbNdEIIwE@events.lu.ma",
+      "title": "East Essex Hackspace Open Home Community Day",
+      "url": "https://luma.com/af7w4pf9",
+      "startAt": "2026-11-07T11:00:00.000Z",
+      "endAt": "2026-11-07T16:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "East Essex Hackspace, Clements Hall Pavilion, Park Gardens, Hockley SS5 4HF, UK",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-JihxuewaCCylBGL@events.lu.ma",
+      "title": "Helsinki Meetup",
+      "url": "https://luma.com/ze4ta090",
+      "startAt": "2026-11-07T11:00:00.000Z",
+      "endAt": "2026-11-07T15:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Oy Merilux Ab, Työpajankatu 2, 00580 Helsinki, Finland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-SLNCo4MrmQ6iQWn@events.lu.ma",
+      "title": "Home Assistant Community Day",
+      "url": "https://luma.com/7mmwwpwj",
+      "startAt": "2026-11-07T11:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Mönchengladbach Kreishandwerkerschaft, Platz des Handwerks 1, 41065 Mönchengladbach Ost, Germany",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-aZKdpwxkIi6N56X@events.lu.ma",
+      "title": "North Wales Open Home Community Day",
+      "url": "https://luma.com/cozsskxx",
+      "startAt": "2026-11-07T11:00:00.000Z",
+      "endAt": "2026-11-07T15:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Gwernymynydd Village Centre Team, Ruthin Rd, Gwernymynydd, Mold CH7 4AF, UK",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-wv8ErN3j5qGGgf5@events.lu.ma",
+      "title": "Salamanca Community Day",
+      "url": "https://luma.com/q6bw1v1u",
+      "startAt": "2026-11-07T11:00:00.000Z",
+      "endAt": "2026-11-07T13:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Manolita Café Bar, C. Palominos, 21, 37008 Salamanca, Spain",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-mevwXoxMAy5xAlW@events.lu.ma",
+      "title": "Home Assistant & ESPHome Meetup Brasil / SC",
+      "url": "https://luma.com/p6h2jspv",
+      "startAt": "2026-11-07T11:30:00.000Z",
+      "endAt": "2026-11-07T15:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Av. Caetano Silveira, 222 - Jardim Eldorado, Palhoça - SC, 88133-520, Brazil",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-jjCaopVuzNUfFBQ@events.lu.ma",
+      "title": "Bristol Home Assistant Community Day 2026",
+      "url": "https://luma.com/2fb938d0",
+      "startAt": "2026-11-07T12:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Central Bristol, somewhere near train and bus",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-FpfcDqoNFmwQcgz@events.lu.ma",
+      "title": "Darmstadt Meetup",
+      "url": "https://luma.com/pmdkhzpe",
+      "startAt": "2026-11-07T12:00:00.000Z",
+      "endAt": "2026-11-07T16:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Café Glaskasten, Schöfferstraße 3, 64295 Darmstadt-West, Germany",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-iMFX3qHiZrhxvPD@events.lu.ma",
+      "title": "Home Assitant Community Day - Galway, Ireland",
+      "url": "https://luma.com/o9m7fsjn",
+      "startAt": "2026-11-07T12:00:00.000Z",
+      "endAt": "2026-11-07T15:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "PorterShed 1 (PorterShed a hAon) Bowling Green, Bowling Green, Galway, H91 HE9E, Ireland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "calev-Q6uIdVgrh37SHUO@events.lu.ma",
+      "title": "Open Home Foundation Community Day Campinas - SP",
+      "url": "https://luma.com/communityday2026",
+      "startAt": "2026-11-07T12:00:00.000Z",
+      "endAt": "2026-11-07T15:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://eventos.lhc.net.br/event/open-home-foundation-community-day-campinas-sp",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-re2W1vJ3bJZQ14r@events.lu.ma",
+      "title": "Unna - Home Assistant Community Day 2026",
+      "url": "https://luma.com/ip5ywry1",
+      "startAt": "2026-11-07T12:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "UN-Hack-Bar e.V., Hochstraße 10, 59425 Unna, Germany",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-5vlfFMTBq2mZH32@events.lu.ma",
+      "title": "Zeist (Utrecht) Meetup",
+      "url": "https://luma.com/2k3cc6g2",
+      "startAt": "2026-11-07T12:00:00.000Z",
+      "endAt": "2026-11-07T16:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-5vlfFMTBq2mZH32",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-OJ16epW8b27dvss@events.lu.ma",
+      "title": "Community Day Haarlem",
+      "url": "https://luma.com/42wqajny",
+      "startAt": "2026-11-07T12:37:00.000Z",
+      "endAt": "2026-11-07T16:37:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Launchpad023, Wateringweg 65, 2031 EK Haarlem, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-EF9wlIOC5Q5iICV@events.lu.ma",
+      "title": "Community Day Chile 2026 Home assistant",
+      "url": "https://luma.com/xswy7vhs",
+      "startAt": "2026-11-07T13:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-EF9wlIOC5Q5iICV",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-z5IzLCPyOVHEz3e@events.lu.ma",
+      "title": "Copenhagen | Home Assistant Community Day",
+      "url": "https://luma.com/mro5omfi",
+      "startAt": "2026-11-07T13:00:00.000Z",
+      "endAt": "2026-11-07T16:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Vesterbrogade 46, 1620 København, Denmark",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-J8Mu6QbwWtcxU8y@events.lu.ma",
+      "title": "Grenoble, France: Community Day meetup",
+      "url": "https://luma.com/7azz77xe",
+      "startAt": "2026-11-07T13:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Le Minimistan, Cour Marcel Reymond, Rue des Minimes, 38000 Grenoble, France",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-nj4z28MNyiIjTYJ@events.lu.ma",
+      "title": "NL - Rosmalen (Den Bosch) - Home Assistant Community Day Meetup",
+      "url": "https://luma.com/1t4lcnwm",
+      "startAt": "2026-11-07T13:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "De Kentering, Dorpsstraat 54, 5241 ED Rosmalen, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-8BFQYejSyz56J32@events.lu.ma",
+      "title": "Switzerland, Avenches, Community Day Meetup (near Murten)",
+      "url": "https://luma.com/35gifwhm",
+      "startAt": "2026-11-07T13:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Swiss-domotique, Pl. de la Gare 14, 1580 Avenches, Switzerland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-AWPLtwlBCU6z1kF@events.lu.ma",
+      "title": "Switzerland, Zug Community Day Meetup",
+      "url": "https://luma.com/ejsim5gk",
+      "startAt": "2026-11-07T13:00:00.000Z",
+      "endAt": "2026-11-07T15:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Freiruum, Aabachstrasse 16, 6300 Zug, Switzerland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-LFFdW5yE2Vo0zot@events.lu.ma",
+      "title": "Cape Town Home Assistant Community Meetup",
+      "url": "https://luma.com/qixsd4bz",
+      "startAt": "2026-11-07T13:30:00.000Z",
+      "endAt": "2026-11-07T16:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-LFFdW5yE2Vo0zot",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-5NUVKsHQa4DWnZ2@events.lu.ma",
+      "title": "Horten meetup",
+      "url": "https://luma.com/1ne99it6",
+      "startAt": "2026-11-07T13:30:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Horten Folkeverksted, Tveitenveien 18, 3186 Horten, Norway",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-XdGWF22KjnjmDHk@events.lu.ma",
+      "title": "Brno, Czechia - Community Day",
+      "url": "https://luma.com/qvl7zyvp",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Moravské nám. 753/12, 602 00 Brno-střed-Veveří, Czechia",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-JWkAH5tKQzRYWXv@events.lu.ma",
+      "title": "Gouda meetup",
+      "url": "https://luma.com/50os1i8j",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Gouda, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-ZbA6wtQhn1GJD8B@events.lu.ma",
+      "title": "Home Assistant Community Day 2026",
+      "url": "https://luma.com/sm3wrbhq",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Stardust Video & Coffee, 1842 Winter Park Rd, Orlando, FL 32803, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-79SyHhYLqMXPUGI@events.lu.ma",
+      "title": "Home Assistant Community Meetup Kyiv",
+      "url": "https://luma.com/sne06a1s",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Nyzhnoiurkivska St, 31, Kyiv, Ukraine, 04080",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-C5SneY32JVfRqZu@events.lu.ma",
+      "title": "OpenHome Community Day 2026 - Lisboa",
+      "url": "https://luma.com/60ul9yzq",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Sede NOS, R. Actor António Silva 414G, 1600-404 Lisboa, Portugal",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-BeVAGdPqy1yxUcY@events.lu.ma",
+      "title": "Paris, France: Community Day meetup",
+      "url": "https://luma.com/k3g7uwmj",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "La Felicità, 5 Parv. Alan Turing, 75013 Paris, France",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-mBAQzF8kFCctJ0D@events.lu.ma",
+      "title": "Prague meetup",
+      "url": "https://luma.com/ahrev24z",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "elpíčko, Zenklova 305/11, 180 00 Praha 8-Libeň, Czechia",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-p7i3rrbcUoGijXV@events.lu.ma",
+      "title": "Reading Home Assistant Community Day",
+      "url": "https://luma.com/jr8j4uam",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-p7i3rrbcUoGijXV",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-b5gy48z0E7EF1Ut@events.lu.ma",
+      "title": "Renens, Home Assistant Community Day",
+      "url": "https://luma.com/8ymrqio8",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "FIXME Hackerspace, Chem. du Closel 3, 1020 Renens, Switzerland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-LIsfkOWDtOgmmpi@events.lu.ma",
+      "title": "St. Gallen Meetup",
+      "url": "https://luma.com/l7nve06d",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "L’Ultimo Bacio, Poststrasse 14, 9000 St. Gallen, Switzerland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-FoxL8dzOJ131BZ4@events.lu.ma",
+      "title": "Szczecin Home Assistant Community Meetup",
+      "url": "https://luma.com/8jdmifr0",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Ofiar Grudnia 1970 r. 19, 71-642 Szczecin, Poland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-jr3SSxFnG2fEZPA@events.lu.ma",
+      "title": "Zurich, CH Community Day 2026",
+      "url": "https://luma.com/dzp88p2s",
+      "startAt": "2026-11-07T14:00:00.000Z",
+      "endAt": "2026-11-07T17:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Riithalle, Gessnerallee 8, 8001 Zürich, Switzerland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-tdhTtJpEtCJlKnq@events.lu.ma",
+      "title": "Enschede meetup",
+      "url": "https://luma.com/openhome-7e9g",
+      "startAt": "2026-11-07T15:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Enschede, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-9JYI4ojicajKySl@events.lu.ma",
+      "title": "Home Assistant Community Meetup Dnipro",
+      "url": "https://luma.com/1orf3cme",
+      "startAt": "2026-11-07T15:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Dogs&Burgers / Догс&Бургерс, Dmytra Yavornytskoho Ave, 49, Dnipro, Dnipropetrovs'ka oblast, Ukraine, 49000",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-yydDEPOHfwvRy31@events.lu.ma",
+      "title": "LCD Porto Home Assistant Community Day",
+      "url": "https://luma.com/thzyo383",
+      "startAt": "2026-11-07T15:00:00.000Z",
+      "endAt": "2026-11-07T19:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "LCD Porto - Laboratório de Criação Digital, R. Cimo do Telheiro 47 B, 4465-078 São Mamede de Infesta, Portugal",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-HTG63F6sgKDNAvu@events.lu.ma",
+      "title": "Valencia, Spain: Community Day meetup",
+      "url": "https://luma.com/openhome-0btz",
+      "startAt": "2026-11-07T15:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "València, Valencia, Spain",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-citiHwJQKNJu16W@events.lu.ma",
+      "title": "Wrocław | Home Assistant Community Day 2026",
+      "url": "https://luma.com/d4p5p0dv",
+      "startAt": "2026-11-07T15:00:00.000Z",
+      "endAt": "2026-11-07T19:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-citiHwJQKNJu16W",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-eMNQOP6Tx1Umw4x@events.lu.ma",
+      "title": "Dresden Meetup",
+      "url": "https://luma.com/ukr095h8",
+      "startAt": "2026-11-07T15:30:00.000Z",
+      "endAt": "2026-11-07T18:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Lohrmanns Brauerei & Restaurant, Kraftwerk Mitte 6, 01067 Dresden, Germany",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-UKUXj52AYKCr2xJ@events.lu.ma",
+      "title": "Columbus, Ohio Meetup",
+      "url": "https://luma.com/u7limgv2",
+      "startAt": "2026-11-07T16:00:00.000Z",
+      "endAt": "2026-11-07T19:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-UKUXj52AYKCr2xJ",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-YM6k9zHgiTvHWfk@events.lu.ma",
+      "title": "Oslo - Home Assistant Community Day 2026",
+      "url": "https://luma.com/gkmse561",
+      "startAt": "2026-11-07T16:00:00.000Z",
+      "endAt": "2026-11-07T19:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Mesh Nationaltheatret - Mesh Community, Tordenskiolds gate 2, 0160 Oslo, Norway",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-czgmEZcB4zu9YUi@events.lu.ma",
+      "title": "South Florida Home Assistant Community Day Meetup",
+      "url": "https://luma.com/sua7nd2x",
+      "startAt": "2026-11-07T16:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "700 W Hillsboro Blvd, Deerfield Beach, FL 33441, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-CpNLYbdqTKvduE4@events.lu.ma",
+      "title": "Houston, TX Community Day",
+      "url": "https://luma.com/cs5agnla",
+      "startAt": "2026-11-07T16:30:00.000Z",
+      "endAt": "2026-11-07T17:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Tight Squeeze Acai Bar, 600 N Shepherd Dr Ste 456 Building 4, Houston, TX 77007, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-nqLfJCq9MCIEFuO@events.lu.ma",
+      "title": "Monterrey Community Day Meetup",
+      "url": "https://luma.com/i3hcj4al",
+      "startAt": "2026-11-07T17:00:00.000Z",
+      "endAt": "2026-11-07T18:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "TBD",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-Y3ghSYOUeOI0fJL@events.lu.ma",
+      "title": "Open Home Foundation Community Day @ São José do Rio Preto",
+      "url": "https://luma.com/i4yo57wf",
+      "startAt": "2026-11-07T17:00:00.000Z",
+      "endAt": "2026-11-07T23:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Trilan, R. Dra. Najla Eliani Chaddad, 6940 - Jardim Bosque das Vivendas, São José do Rio Preto - SP, 15090-500, Brazil",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-JA5GInTNmciZ8N4@events.lu.ma",
+      "title": "Vienna Meetup",
+      "url": "https://luma.com/mcj8loas",
+      "startAt": "2026-11-07T17:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Metalab, Rathausstraße 6, 1010 Wien, Austria",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-GtEIsflF3faaHE9@events.lu.ma",
+      "title": "Tobermory Home Assistant Community Day Social",
+      "url": "https://luma.com/itcvdaq7",
+      "startAt": "2026-11-07T17:30:00.000Z",
+      "endAt": "2026-11-07T21:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Bradley Drive & Silver Sides Point Road, Bradley Dr & Silver Sides Point Rd, Northern Bruce Peninsula, ON N0H 1W0, Canada",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-FofoEA8HxuvlhOL@events.lu.ma",
+      "title": "Amsterdam Zuidoost meetup",
+      "url": "https://luma.com/f12y17ok",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "BuurtHuis Gein, Wisseloord 83, 1107 NB Amsterdam, Netherlands",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-EmX6ovo3mCEbFRH@events.lu.ma",
+      "title": "Buenos Aires meetup",
+      "url": "https://luma.com/gfcjcu9w",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Buenos Aires, Argentina",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-yIfuCBY0ZE2J82V@events.lu.ma",
+      "title": "Cleveland, OH OHF Community Day",
+      "url": "https://luma.com/cvjseulz",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-yIfuCBY0ZE2J82V",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-iDLj4WL8ShgfRtD@events.lu.ma",
+      "title": "Hasselt Meetup",
+      "url": "https://luma.com/khnqnbp9",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Brixel, Spalbeekstraat 34, 3510 Hasselt, Belgium",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-HNxUmMzT5RwUoIi@events.lu.ma",
+      "title": "Home Assistant Community Day Tampa Bay",
+      "url": "https://luma.com/jxyl6yn5",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T20:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Coppertail Brewing Co., 2601 E 2nd Ave, Tampa, FL 33605, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-Kh8vM0koK8YJs6t@events.lu.ma",
+      "title": "Homeassistant Community Day Berlin",
+      "url": "https://luma.com/h1qd23b0",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "xHain hack+makespace, Grünberger Str. 16, 10243 Berlin-Bezirk Friedrichshain-Kreuzberg, Germany",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-lDseRbLUVCW4bJQ@events.lu.ma",
+      "title": "Mississauga Smart Home Meetup - Community Day 2026",
+      "url": "https://luma.com/chm7heqb",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Living Arts Centre, 4141 Living Arts Dr, Mississauga, ON L5B 4B8, Canada",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-xjjYKkI8UCpfw2b@events.lu.ma",
+      "title": "Montréal - Rencontre pour la Journée de la communauté",
+      "url": "https://luma.com/icl11j2u",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T21:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Complexe Roméo-V.-Patenaude, Complexe Roméo V.Patenaude, 135 Ch Haendel, Candiac, QC J5R 1R7, Canada",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-nguOa9vn0c9EIDe@events.lu.ma",
+      "title": "Research Triangle Meetup - Open Home Foundation Community Day 2026",
+      "url": "https://luma.com/4h8wp3hd",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T20:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Rosecomb Beer Garden, 1143 Parkside Main St, Cary, NC 27519, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-OqihxJGuntwIMgl@events.lu.ma",
+      "title": "Strasbourg, France: Community Day meetup",
+      "url": "https://luma.com/0wgen5u2",
+      "startAt": "2026-11-07T18:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "La Cuvette de Bouillons, 8 Rue du 22 Novembre, 67000 Strasbourg, France",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-49DQFC5l0NjPD6D@events.lu.ma",
+      "title": "Home Assistant Community Day meetup in the Twin Cities",
+      "url": "https://luma.com/hu9o6al4",
+      "startAt": "2026-11-07T19:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Wescott Large Meeting Room, 1340 Wescott Rd, Eagan, MN 55123",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-BmmM1Ai5yEwtWzC@events.lu.ma",
+      "title": "New York City Meetup",
+      "url": "https://luma.com/i8z9mmm7",
+      "startAt": "2026-11-07T19:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "New York, NY, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-PRYX9aJuOK7AjE6@events.lu.ma",
+      "title": "Richmond Meetup",
+      "url": "https://luma.com/ufsiv9jh",
+      "startAt": "2026-11-07T19:00:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Hardywood Park Craft Brewery - Richmond, 2410 Ownby Ln, Richmond, VA 23220, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-Xjd7smGABFk8rA2@events.lu.ma",
+      "title": "Limerick Meetup",
+      "url": "https://luma.com/di99g420",
+      "startAt": "2026-11-07T19:30:00.000Z",
+      "endAt": "2026-11-07T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "Level Up Arcade Bar, 109 O'Connell St, Prior's-Land, Limerick, Ireland",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-AFYOdKk71hlZkuX@events.lu.ma",
+      "title": "Mid-Missouri Community Day",
+      "url": "https://luma.com/ssvbr9gj",
+      "startAt": "2026-11-07T19:30:00.000Z",
+      "endAt": "2026-11-07T21:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "627 W McCarty St, Ste 101, Jefferson City, MO 65101",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-LnR7nkXX5NhD3Dv@events.lu.ma",
+      "title": "Southern California - Home Assistant Community Day!",
+      "url": "https://luma.com/1ykejuxy",
+      "startAt": "2026-11-07T20:00:00.000Z",
+      "endAt": "2026-11-08T00:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-08",
+      "location": "The Charleston, 114 E Commonwealth Ave, Fullerton, CA 92832, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-OmZGvNyCAgEiHXl@events.lu.ma",
+      "title": "Kansas City Meetup",
+      "url": "https://luma.com/iepjyrfa",
+      "startAt": "2026-11-07T21:00:00.000Z",
+      "endAt": "2026-11-07T22:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-07",
+      "location": "https://luma.com/event/evt-OmZGvNyCAgEiHXl",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-RlN9EfDQwWsty6g@events.lu.ma",
+      "title": "Home Assistant Community Day PDX",
+      "url": "https://luma.com/1oxif935",
+      "startAt": "2026-11-07T22:00:00.000Z",
+      "endAt": "2026-11-08T00:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-08",
+      "location": "Ctrl-H, 7600 N Interstate Ave, Portland, OR 97217, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-87JtJwYoojgDwdR@events.lu.ma",
+      "title": "Home Assistant Meetup Köln",
+      "url": "https://luma.com/83fycwc9",
+      "startAt": "2026-12-03T17:00:00.000Z",
+      "endAt": "2026-12-03T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-12-03",
+      "endDate": "2026-12-03",
+      "location": "REWE Digital GmbH, Schanzenstraße 6-20, 51063 Köln, Germany",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-JrQQIH3uBJV4C3A@events.lu.ma",
+      "title": "Home Assistant Meetup - Carpi",
+      "url": "https://luma.com/yjfnms6a",
+      "startAt": "2026-12-12T08:30:00.000Z",
+      "endAt": "2026-12-12T11:30:00.000Z",
+      "allDay": false,
+      "date": "2026-12-12",
+      "endDate": "2026-12-12",
+      "location": "TERMINAL - Terre d’Argine Innovation Lab, Piazzale Allende Salvador, 5, 41012 Carpi MO, Italy",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "withings-new-account-subscription",
+      "title": "New Withings accounts face a subscription requirement for data sharing",
+      "dek": "Home Assistant’s setup guide flags the change; Withings says accounts created before October 12 are unaffected.",
+      "body": [
+        "Withings says its free API plan introduces a Withings+ subscription requirement for new accounts sharing their data. Home Assistant’s setup guide adds the subscription as a prerequisite, changing the cost of connecting newly created Withings accounts through the existing setup process.",
+        "Withings dates the policy change to October 12 and says accounts created before that date are unaffected. The policy covers free-plan applications already in operation as well as new ones. Ethan G adds the warning in his first contribution to Home Assistant’s website."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 90,
+      "contributors": [
+        "GatorEG"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "GatorEG",
+          "name": "Ethan G",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/58863471?v=4",
+          "profileUrl": "https://github.com/GatorEG"
+        }
+      ],
+      "reviewers": [
+        "c0ffeeca7"
+      ],
+      "approvers": [
+        "c0ffeeca7"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4820140376",
+          "title": "Add Withings+ prerequisite for new accounts",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/49080",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-lametric-local-pairing",
+      "title": "Home Assistant pairs LaMetric displays with a button press",
+      "dek": "Compatible devices share their access key locally, without a LaMetric account.",
+      "body": [
+        "Home Assistant adds a local setup route for LaMetric displays: confirm the device, then press its top button to authorize the connection. Compatible devices from 2022 onward provide their access key directly, avoiding a LaMetric account or manually copying the key.",
+        "Franck Nijhof tests the full connection on a LaMetric TIME. The display asks for a press only after the person confirms its address, with a minute to respond. Older devices keep the cloud-import and manual-key options, and the local route also supports replacing rejected credentials."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 88,
+      "contributors": [
+        "frenck"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "reviewers": [
+        "balloob",
+        "zweckj",
+        "c0ffeeca7"
+      ],
+      "approvers": [
+        "balloob",
+        "c0ffeeca7"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4732941078",
+          "title": "Add setting up LaMetric with a press on its button",
+          "url": "https://github.com/home-assistant/core/pull/184197",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4733034677",
+          "title": "Document setting up LaMetric with a press on its button",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/48808",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-wake-word-internal-memory",
+      "title": "ESPHome gives voice-device makers a faster wake-word option",
+      "dek": "An optional memory setting reduces recognition processing time in a measured ESP32 test.",
+      "body": [
+        "ESPHome lets makers place active wake-word models in faster internal memory, reducing the processing time needed to listen for a wake word. The option starts off and falls back to the existing memory arrangement when there is not enough internal space.",
+        "In contributor embe’s test on an ESP32-WROVER with one 16 kHz model, each processing call fell from about 13.3 milliseconds to 3.7 milliseconds. A separate playback test reduced wake-word processing from about 64% to 33% of one core. Those measurements describe that device and model.",
+        "Only active models use the extra memory, including models loaded while the device is running. Disabling a model releases it again. The change speeds model processing; it does not establish better recognition accuracy. This is embe’s first contribution to ESPHome, reviewed by J. Nick Koston."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 88,
+      "contributors": [
+        "mbrudka"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "mbrudka",
+          "name": "embe",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/31192394?v=4",
+          "profileUrl": "https://github.com/mbrudka"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "4821661440",
+          "title": "[micro_wake_word] Add opt-in internal RAM placement",
+          "url": "https://github.com/esphome/esphome/pull/20529",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-home-assistant-image-proxy",
+      "title": "Music Assistant blocks an image route into Home Assistant data",
+      "dek": "The picture loader stops carrying its Home Assistant access token to unrelated API paths.",
+      "body": [
+        "Music Assistant restricts its Home Assistant picture loader after finding that a client could use it to read other Home Assistant API responses. The loader previously fetched any path registered as an image with Music Assistant’s Home Assistant access token and returned the response.",
+        "Marvin Schenkel limits requests to the paths used for entity pictures, rejects attempts to traverse into other paths, and requires an image response no larger than 10 MiB. OzGav reviewed the correction."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 86,
+      "contributors": [
+        "MarvinSchenkel"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "MarvinSchenkel",
+          "name": "Marvin Schenkel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
+          "profileUrl": "https://github.com/MarvinSchenkel"
+        }
+      ],
+      "reviewers": [
+        "OzGav"
+      ],
+      "approvers": [
+        "OzGav"
+      ],
+      "topics": [
+        "Music Assistant",
+        "Home Assistant",
+        "Privacy"
+      ],
+      "pullRequests": [
+        {
+          "id": "4770649740",
+          "title": "Limit the Home Assistant image proxy to entity pictures",
+          "url": "https://github.com/music-assistant/server/pull/6746",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-unifi-alarm-hub-zones",
+      "title": "Home Assistant reads UniFi Alarm Hub wired zones",
+      "dek": "Configured inputs, tamper detection and backup-battery status join the existing alarm controls.",
+      "body": [
+        "Home Assistant adds the UniFi Alarm Hub as a device and exposes its configured wired zones. Inputs can report motion, an opening, smoke, glass breakage or an emergency button according to their configured zone type, allowing the hub’s signals to participate in household automations.",
+        "The connection also exposes tamper detection, backup-battery voltage and problems, and the last event time. Follow-up corrections handle hubs added while Home Assistant is running and hubs without a name. Arming and disarming use the existing alarm control panel; the addition does not control the hub’s siren outputs."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 85,
+      "contributors": [
+        "SteveEdson",
+        "RaHehl"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "SteveEdson",
+          "name": "Steve Edson",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1201960?v=4",
+          "profileUrl": "https://github.com/SteveEdson"
+        },
+        {
+          "login": "RaHehl",
+          "name": "Raphael Hehl",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/7577984?v=4",
+          "profileUrl": "https://github.com/RaHehl"
+        }
+      ],
+      "reviewers": [
+        "RaHehl",
+        "silamon"
+      ],
+      "approvers": [
+        "RaHehl",
+        "silamon"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "3801746875",
+          "title": "Add UniFi Alarm Hub support to UniFi Protect",
+          "url": "https://github.com/home-assistant/core/pull/172996",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4818276106",
+          "title": "Fix UniFi Protect alarm hubs added at runtime and without a name",
+          "url": "https://github.com/home-assistant/core/pull/185774",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-replace-rejected-credentials",
+      "title": "Home Assistant repairs nine connections without rebuilding their setup",
+      "dek": "Rejected passwords and access keys prompt for replacements while keeping the existing integration.",
+      "body": [
+        "Home Assistant adds credential-replacement flows to nine integrations, letting people replace a rejected password or access key while preserving the existing connection. The additions cover Bond, Dexcom, Kodi, Kostal Plenticore, Nexia, Pushbullet, Rachio, Slack and Smart Meter Texas.",
+        "G Johansson’s forms ask for the credentials each service needs and preserve the existing connection. Slack, Pushbullet and Nexia check that the replacement still belongs to the same workspace, account or house; Bond checks the hub. Smart Meter Texas also starts recovery when authentication fails during normal meter readings."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 84,
+      "contributors": [
+        "gjohansson-ST"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "gjohansson-ST",
+          "name": "G Johansson",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/62932417?v=4",
+          "profileUrl": "https://github.com/gjohansson-ST"
+        }
+      ],
+      "reviewers": [
+        "balloob",
+        "grahamwetzler",
+        "joostlek"
+      ],
+      "approvers": [
+        "balloob",
+        "grahamwetzler",
+        "joostlek"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4820924757",
+          "title": "Add reauth flow to kostal_plenticore",
+          "url": "https://github.com/home-assistant/core/pull/185841",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4820984692",
+          "title": "Add reauth flow to slack",
+          "url": "https://github.com/home-assistant/core/pull/185842",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4821233739",
+          "title": "Add reauth flow to rachio",
+          "url": "https://github.com/home-assistant/core/pull/185848",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4821315640",
+          "title": "Add reauth flow to kodi",
+          "url": "https://github.com/home-assistant/core/pull/185850",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4821346420",
+          "title": "Add reauth flow to bond",
+          "url": "https://github.com/home-assistant/core/pull/185851",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4821367404",
+          "title": "Add reauth flow to nexia",
+          "url": "https://github.com/home-assistant/core/pull/185852",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4821424515",
+          "title": "Add reauth flow to pushbullet",
+          "url": "https://github.com/home-assistant/core/pull/185854",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4821781680",
+          "title": "Add reauth flow to smart_meter_texas",
+          "url": "https://github.com/home-assistant/core/pull/185860",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4821491670",
+          "title": "Add reauth flow to dexcom",
+          "url": "https://github.com/home-assistant/core/pull/185857",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-motioneye-session-cameras",
+      "title": "Home Assistant reconnects cameras and recordings from motionEye 0.44",
+      "dek": "The connection follows the camera server’s new sign-in method and preserves seeking through saved videos.",
+      "body": [
+        "Home Assistant adapts its motionEye connection to the session-based sign-in introduced in motionEye 0.44. Live camera views, current snapshots and saved images and movies use the authenticated connection instead of relying on the older signed addresses.",
+        "Marcin Krawczyk reports validation with twelve cameras on motionEye 0.44.0 and Home Assistant 2026.9.1, including live previews, saved photographs and playback of two test recordings. Saved movies stream through Home Assistant and preserve the requests needed for seeking. This is his first contribution to Home Assistant Core."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 82,
+      "contributors": [
+        "mkrawcz1"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "mkrawcz1",
+          "name": "Marcin Krawczyk",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1632969?v=4",
+          "profileUrl": "https://github.com/mkrawcz1"
+        }
+      ],
+      "reviewers": [
+        "dermotduffy",
+        "Marijn0",
+        "silamon"
+      ],
+      "approvers": [
+        "dermotduffy",
+        "silamon"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4509957791",
+          "title": "motioneye: support motionEye 0.44 session authentication",
+          "url": "https://github.com/home-assistant/core/pull/181994",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-esp8266-serial-reset",
+      "title": "ESPHome keeps serial input from repeatedly restarting ESP8266 devices",
+      "dek": "Slower serial connections stop blocking the Wi-Fi work needed to keep the device running.",
+      "body": [
+        "ESPHome changes how ESP8266 boards receive software-driven serial data so the incoming bytes do not hold up Wi-Fi long enough to restart the device. The correction applies at 19,200 baud and below; faster connections keep the existing method.",
+        "J. Nick Koston reproduced the problem on a D1 mini receiving serial data while repeatedly reconnecting an encrypted client. At 19,200 baud, the old version restarted three times in four minutes. The revised version ran the same setup without a reset at 9,600 and 19,200 baud, although some byte errors remained during reconnect bursts."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 81,
+      "contributors": [
+        "bdraco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "reviewers": [
+        "jesserockz"
+      ],
+      "approvers": [
+        "jesserockz"
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "4316425312",
+          "title": "[uart] Stop ESP8266 software serial RX ISR from blocking for a whole byte",
+          "url": "https://github.com/esphome/esphome/pull/18519",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "week-2026-10-05-automation-device-setup-music",
+      "title": "A week of clearer automations, guided device setup and smarter music",
+      "dek": "October 5–11 connected individual improvements into more complete ways to troubleshoot, build and listen.",
+      "body": [
+        "From Monday, October 5 through Sunday, October 11, Home Assistant connected more of the steps in troubleshooting an automation, ESPHome extended device setup, and Music Assistant paired richer playback with lower storage and processing costs.",
+        "Home Assistant’s automation changes connect testing with diagnosis. Disabled steps can be tried without enabling them in ordinary runs; a trace links to the exact script it started; and failures in 20 integrations reach the caller instead of appearing successful. Together, the week’s work makes it easier to distinguish a step that was skipped, a child routine that ran and a command that failed.",
+        "ESPHome’s setup work covers different points in a device’s life. Ready-made images and serial Wi-Fi setup broaden the browser route for seven Beken, Lightning and Realtek chip types. Signed devices get an explicit USB route for their first custom installation, while device-defined setup pages let makers explain settings and ask owners to choose household entities. The latter requires Home Assistant 2026.11; it is separate from firmware installation.",
+        "Music Assistant pairs richer transitions with lower costs for large collections. Its audio-analysis storage becomes smaller and separate from the music library, long shuffled queues are ordered in manageable batches, and Smart Fades gain transitions for songs that cannot share a beat. The combined direction matters for people who want an ordinary mixed collection to play smoothly without making its size a burden."
+      ],
+      "kind": "weekly_recap",
+      "placement": "feature",
+      "score": 80,
+      "contributors": [
+        "chrisuthe",
+        "jesserockz",
+        "kbx81",
+        "marcinbauer-ohf",
+        "bdraco",
+        "Xyolyp",
+        "erwindouna",
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "chrisuthe",
+          "name": "Chris",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/26907395?v=4",
+          "profileUrl": "https://github.com/chrisuthe"
+        },
+        {
+          "login": "jesserockz",
+          "name": "Jesse Hills",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/3060199?v=4",
+          "profileUrl": "https://github.com/jesserockz"
+        },
+        {
+          "login": "kbx81",
+          "name": "Keith Burzinski",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/21233191?v=4",
+          "profileUrl": "https://github.com/kbx81"
+        },
+        {
+          "login": "marcinbauer-ohf",
+          "name": "Marcin Bauer",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6719575?v=4",
+          "profileUrl": "https://github.com/marcinbauer-ohf"
+        },
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        },
+        {
+          "login": "Xyolyp",
+          "name": "Jonathan",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/13995942?v=4",
+          "profileUrl": "https://github.com/Xyolyp"
+        },
+        {
+          "login": "erwindouna",
+          "name": "Erwin Douna",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5011203?v=4",
+          "profileUrl": "https://github.com/erwindouna"
+        },
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [
+        "MarvinSchenkel",
+        "bdraco",
+        "wendevlin",
+        "MindFreeze",
+        "frenck"
+      ],
+      "approvers": [
+        "MarvinSchenkel",
+        "bdraco",
+        "wendevlin",
+        "MindFreeze",
+        "frenck"
+      ],
+      "topics": [
+        "Home Assistant",
+        "ESPHome",
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4553657700",
+          "title": "Store audio analysis records in a packed format",
+          "url": "https://github.com/music-assistant/server/pull/6379",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4553656921",
+          "title": "Promote audio analysis arrays to typed fields",
+          "url": "https://github.com/music-assistant/server/pull/6378",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4553655943",
+          "title": "Move audio analysis storage into its own database file",
+          "url": "https://github.com/music-assistant/server/pull/6377",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4700285503",
+          "title": "[api] Document the device wizard",
+          "url": "https://github.com/esphome/esphome.io/pull/7491",
+          "repository": "esphome/esphome.io"
+        },
+        {
+          "id": "4699284061",
+          "title": "[api] Add a device wizard for Home Assistant onboarding",
+          "url": "https://github.com/esphome/esphome/pull/19966",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "4780342947",
+          "title": "[api] Note that the setup wizard needs Home Assistant 2026.11",
+          "url": "https://github.com/esphome/esphome.io/pull/7552",
+          "repository": "esphome/esphome.io"
+        },
+        {
+          "id": "4700395343",
+          "title": "Add device wizard support",
+          "url": "https://github.com/esphome/aioesphomeapi/pull/1918",
+          "repository": "esphome/aioesphomeapi"
+        },
+        {
+          "id": "4779338815",
+          "title": "Route the first install of a signed-OTA device over USB",
+          "url": "https://github.com/esphome/device-builder-frontend/pull/1991",
+          "repository": "esphome/device-builder-frontend"
+        },
+        {
+          "id": "4767176350",
+          "title": "Expose the ota_signed mDNS flag on devices",
+          "url": "https://github.com/esphome/device-builder/pull/2895",
+          "repository": "esphome/device-builder"
+        },
+        {
+          "id": "4772582003",
+          "title": "Allow running and testing disabled actions and conditions",
+          "url": "https://github.com/home-assistant/frontend/pull/54649",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "4783698389",
+          "title": "Configure Wi-Fi over Improv serial from web.esphome.io's LibreTiny cards",
+          "url": "https://github.com/esphome/device-builder-frontend/pull/2000",
+          "repository": "esphome/device-builder-frontend"
+        },
+        {
+          "id": "4783255302",
+          "title": "Install the ESPHome Web firmware on LibreTiny boards from web.esphome.io",
+          "url": "https://github.com/esphome/device-builder-frontend/pull/1999",
+          "repository": "esphome/device-builder-frontend"
+        },
+        {
+          "id": "4782894986",
+          "title": "Add LibreTiny ESPHome Web firmware",
+          "url": "https://github.com/esphome/firmware/pull/373",
+          "repository": "esphome/firmware"
+        },
+        {
+          "id": "4707569335",
+          "title": "Link trace steps to the script or automation run they started",
+          "url": "https://github.com/home-assistant/frontend/pull/54518",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "4810418837",
+          "title": "Raise errors instead of logging in action handlers",
+          "url": "https://github.com/home-assistant/core/pull/185615",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4806419647",
+          "title": "Adding music to a large shuffled queue no longer takes a minute",
+          "url": "https://github.com/music-assistant/server/pull/6813",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4814656114",
+          "title": "Smart fades: filter out and echo out when two beats don't match",
+          "url": "https://github.com/music-assistant/server/pull/6867",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4814079854",
+          "title": "Smart fades: only stretch the tempo where both tracks have a beat",
+          "url": "https://github.com/music-assistant/server/pull/6864",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "4813956158",
+          "title": "Smart fades: longer, smoother transitions between tracks that can't be beatmatched",
+          "url": "https://github.com/music-assistant/server/pull/6861",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-gemini-speech-format",
+      "title": "Home Assistant restores speech from Gemini 3.8",
+      "dek": "Speech generation no longer fails after Gemini 3.8 Flash TTS has already produced its answer.",
+      "body": [
+        "Home Assistant accepts the complete WAV speech files returned by Gemini 3.8 Flash TTS. Its existing converter expected raw audio samples and rejected the new file format, so an otherwise successful generation could still produce no speech.",
+        "The change keeps complete files intact while preserving conversion for older raw-audio responses. It also avoids sending sampling and thinking settings that newer Gemini models do not support, while retaining saved preferences for older models. Contributor oohhddaanngg verifies a live WAV response through the corrected speech entity in their first contribution to Home Assistant Core."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 80,
+      "contributors": [
+        "oohhddaanngg"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "oohhddaanngg",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/149027586?v=4",
+          "profileUrl": "https://github.com/oohhddaanngg"
+        }
+      ],
+      "reviewers": [
+        "tronikos"
+      ],
+      "approvers": [
+        "tronikos"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4814307573",
+          "title": "Handle Gemini generation parameters and complete WAV TTS responses",
+          "url": "https://github.com/home-assistant/core/pull/185723",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-rituals-request-load",
+      "title": "Home Assistant keeps Rituals controls working through sensor failures",
+      "dek": "Less frequent cloud checks also cut one diffuser’s requests from about 100 to 14 an hour.",
+      "body": [
+        "Home Assistant separates Rituals Perfume Genie controls from its sensor checks, so a failed battery or cartridge request no longer takes the diffuser’s controls offline or prevents setup. All an account’s diffusers are checked together every five minutes; slower-changing readings use longer intervals.",
+        "Franck Nijhof calculates about fourteen requests an hour for one diffuser instead of about one hundred, with each extra diffuser adding two rather than another hundred. Battery and connection readings update hourly, while cartridge fill updates daily or when the cartridge changes. Existing entity identifiers stay the same."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 77,
+      "contributors": [
+        "frenck"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "reviewers": [
+        "balloob"
+      ],
+      "approvers": [
+        "balloob"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4746075628",
+          "title": "Poll Rituals Perfume Genie hubs and sensors separately",
+          "url": "https://github.com/home-assistant/core/pull/184328",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-daikin-presets",
+      "title": "ESPHome gives Daikin controls presets and half-degree temperatures",
+      "dek": "Infrared controls follow the remote’s comfort choices and its automatic end to boost mode.",
+      "body": [
+        "ESPHome adds boost, sleep, eco, comfort and activity presets to compatible Daikin infrared air-conditioner controls, along with temperature choices in half-degree Celsius steps. Receiving a command from the original remote updates the selected preset too.",
+        "Contributor opcod3 makes boost return to the ordinary setting after 20 minutes, matching the end of the unit’s powerful mode. That timing follows changes made through ESPHome, the remote and settings restored when the device starts. This is opcod3’s first ESPHome contribution, reviewed by J. Nick Koston."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "opcod3"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "opcod3",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5721873?v=4",
+          "profileUrl": "https://github.com/opcod3"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "4146277361",
+          "title": "[daikin] Add presets and half-degree temperature steps",
+          "url": "https://github.com/esphome/esphome/pull/17891",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-dropbox-backup-list",
+      "title": "Home Assistant opens Dropbox backup lists faster",
+      "dek": "Downloading several small metadata files together cuts a measured 30-backup wait from 23 seconds to 3.4.",
+      "body": [
+        "Home Assistant fetches Dropbox backup details eight at a time instead of waiting for each download before starting the next. In Ruslan Sayfutdinov’s test with thirty backups, collecting that metadata took 3.4 seconds instead of 23 seconds.",
+        "The change speeds the backup list, including the backups page. It does not change backup creation or restoration; limiting concurrency to eight avoids sending an unbounded batch of requests to Dropbox."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 75,
+      "contributors": [
+        "KapJI"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "KapJI",
+          "name": "Ruslan Sayfutdinov",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/3767331?v=4",
+          "profileUrl": "https://github.com/KapJI"
+        }
+      ],
+      "reviewers": [
+        "zweckj"
+      ],
+      "approvers": [
+        "zweckj"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4715052380",
+          "title": "Download Dropbox backup metadata concurrently",
+          "url": "https://github.com/home-assistant/core/pull/183994",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-knx-read-response",
+      "title": "Home Assistant automations can use a fresh KNX reply",
+      "dek": "A read action returns the requested value instead of only sending a request onto the control network.",
+      "body": [
+        "Home Assistant’s KNX read action can return a reply directly to an automation. That gives the following steps a fresh value from a chosen group address instead of only sending a request onto the building’s control network.",
+        "The reply can include a decoded value, unit and sending device when the loaded KNX project describes them, alongside the raw message. The action waits up to two seconds and reports an error if no answer arrives. Returning data supports one address at a time; ordinary requests to one or several addresses continue to work."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 75,
+      "contributors": [
+        "farmio"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "farmio",
+          "name": "Matthias Alphart",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12422879?v=4",
+          "profileUrl": "https://github.com/farmio"
+        }
+      ],
+      "reviewers": [
+        "silamon"
+      ],
+      "approvers": [
+        "silamon"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4817666979",
+          "title": "Support response data in the KNX read action",
+          "url": "https://github.com/home-assistant/core/pull/185759",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "home-assistant-switchbot-circulator-fan",
+      "title": "Home Assistant controls SwitchBot’s Circulator Fan Pro",
+      "dek": "The Bluetooth fan gains speed, oscillation and preset controls alongside its two-level night light.",
+      "body": [
+        "Home Assistant adds the SwitchBot Circulator Fan Pro W1160 through its encrypted Bluetooth connection. Its fan controls cover speed, oscillation and device-provided presets, including hurricane mode.",
+        "The same device exposes a high-or-low night light and a separate vertical-oscillation switch. The SwitchBot team reports testing the implementation on physical hardware."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 74,
+      "contributors": [
+        "Onero-testdev"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "Onero-testdev",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/274966558?v=4",
+          "profileUrl": "https://github.com/Onero-testdev"
+        }
+      ],
+      "reviewers": [
+        "silamon",
+        "TheJulianJES"
+      ],
+      "approvers": [
+        "silamon"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "3822478908",
+          "title": "Add SwitchBot Circulator Fan Pro support",
+          "url": "https://github.com/home-assistant/core/pull/173262",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-legacy-apple-tv-playback",
+      "title": "Music Assistant’s AirPlay tool lets older Apple TVs play again",
+      "dek": "A public device key no longer causes an unnecessary demand for a pairing secret.",
+      "body": [
+        "Music Assistant’s AirPlay tool stops refusing older Apple TVs that allow unpaired playback. A device such as Apple TV 2 could be rejected before the connection even started because its advertised public key was mistaken for a requirement to pair.",
+        "Marvin Schenkel removes that initial check. Devices that require pairing still reject an unpaired connection themselves. The source identifies this as a regression from playback that worked in Music Assistant 2.9; Marcel van der Veldt reviewed the correction."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 69,
+      "contributors": [
+        "MarvinSchenkel"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "MarvinSchenkel",
+          "name": "Marvin Schenkel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
+          "profileUrl": "https://github.com/MarvinSchenkel"
+        }
+      ],
+      "reviewers": [
+        "marcelveldt"
+      ],
+      "approvers": [
+        "marcelveldt"
+      ],
+      "topics": [
+        "Music Assistant",
+        "AirPlay",
+        "Compatibility"
+      ],
+      "pullRequests": [
+        {
+          "id": "4768539958",
+          "title": "Fix legacy Apple TV refusing to play without a pairing secret",
+          "url": "https://github.com/music-assistant/airplay-cli/pull/81",
+          "repository": "music-assistant/airplay-cli"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ],
+  "roadmapUpdates": []
+}
