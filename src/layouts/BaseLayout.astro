@@ -11,7 +11,12 @@ interface Props {
 const {
   title = "OHF Daily",
   description = "A daily briefing on the open-source work moving the Open Home forward.",
-  image,
+  image = {
+    url: "ohf-daily-og.png",
+    alt: "OHF Daily logo on a cream background",
+    width: 1200,
+    height: 630,
+  },
 } = Astro.props;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
