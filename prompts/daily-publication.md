@@ -8,6 +8,18 @@ Every scheduled trigger starts a new publication assignment, with standing autho
 
 Read `AGENTS.md` and execute its Codex-native publication workflow. Do not answer an old conversation question or mistake an earlier edition's successful deployment for this run's completion. Prior conversation and summaries provide background, not the current assignment. Only a newer explicit user instruction can replace this task.
 
+## Publisher assignment: October 17, 2026
+
+For the **2026-10-17 edition only**, include the launch of `contributors.home-assistant.io` as a visible **feature** article, with a homepage screenshot if possible. The publisher deliberately deferred this story from October 16; do not add it to that edition or drop it because the source's date falls before the normal collection window. Preserve its actual October 16 publication date.
+
+Primary source: [A new home for every contributor](https://contributors.home-assistant.io/blog/2026/10/16/a-new-home-for-every-contributor/), by Franck Nijhof. Report the single starting point for code and no-code contributions, concrete first steps, beginner GitHub guide, glossary, and replacement of the developer, design, and data portals with old links preserved. Credit the verified post author. Read the full article, not only the RSS summary; cache its evidence before resolving the plan. Include the original launch post once in Just shipped for this publisher-requested carryover.
+
+A verified homepage screenshot captured on October 16 is saved locally at `data/cache/publication-2026-10-17/contributors-home.jpg`. Its source is `https://contributors.home-assistant.io/`; use factual alt text describing the contributor homepage. Import it as publisher-requested local media and optimize it into October 17's responsive WebP assets after editorial resolution. Do not invent a remote screenshot URL. If that local capture is unavailable, capture the public homepage again. The source HTML and RSS are also retained in the same ignored directory for reference.
+
+## Contributor blog source from October 17 onward
+
+Collect official contributor posts from `https://contributors.home-assistant.io/blog/rss.xml`, configured in `data/sources.yaml`, instead of the developer, design, or data sites it replaces. Keep the main Home Assistant blog and other project feeds. Retain old source history for continuity; migrated posts and redirects are not new announcements. Compare migrated URLs with the old developer-blog records and prior coverage before selecting an article or Just shipped row. Read linked full posts when the feed supplies only a summary, and retain evidenced author and media metadata.
+
 At the start, record the target date, reporting window once collected, and current stage in an ignored local checkpoint under `data/cache/publication-run.json`. Keep this checkpoint current after collection, reporting, editorial resolution, independent review, verification, commit, deployment, and Slack announcement. Preserve the exact plan path, unresolved blockers, commit SHA, workflow run ID, and announcement timestamp as they become available. Never store tokens or private feed URLs. After an interruption or context compaction, reread this file and this prompt, inspect the actual artifacts, and resume the pending stage. A checkpoint is a pointer to evidence, not proof by itself.
 
 Run the single collector once per attempt; then use parallel bounded reporter subagents, a separate chief editor, and an independent final reviewer. Codex is the AI newsroom: no OpenAI API call or API key is required. Resolve the editor's plan against local sources and optimize selected media. Preserve unrelated changes and never publish placeholders, a deterministic fallback, or partial editorial content.

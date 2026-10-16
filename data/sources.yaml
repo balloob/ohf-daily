@@ -64,11 +64,13 @@ feed_sources:
     desk: Home Assistant
     url: https://www.home-assistant.io/atom.xml
     enabled: true
-  - id: home-assistant-developer-blog
-    name: Home Assistant Developer Blog
+  # From the 2026-10-17 edition, this replaces the developer/design/data sites.
+  # Migrated historical posts are continuity, not new publications.
+  - id: home-assistant-contributors-blog
+    name: Home Assistant Contributors Blog
     kind: official
-    desk: Home Assistant Libraries
-    url: https://developers.home-assistant.io/blog/rss.xml
+    desk: Home Assistant
+    url: https://contributors.home-assistant.io/blog/rss.xml
     enabled: true
   - id: esphome-blog
     name: ESPHome Blog
