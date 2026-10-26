@@ -24,6 +24,10 @@ At the start, record the target date, reporting window once collected, and curre
 
 Run the single collector once per attempt; then use parallel bounded reporter subagents, a separate chief editor, and an independent final reviewer. Codex is the AI newsroom: no OpenAI API call or API key is required. Resolve the editor's plan against local sources and optimize selected media. Preserve unrelated changes and never publish placeholders, a deterministic fallback, or partial editorial content.
 
+Publication must continue through calendar outages. If any configured calendar feed fails, times out, is rate-limited or cannot be parsed, use yesterday's published `communityMeetups` snapshot, remove entries expired for today's date, retain the normal horizon and grouping, and proceed without sleeping or retrying the calendars. Record the fallback in the ignored checkpoint/cache, not reader-facing copy or blocking edition notes. This calendar fallback is explicitly authorized and is not a partial or deterministic editorial edition.
+
+Only unavailable current pull-request evidence calls for a delayed source retry: preserve the checkpoint, run `sleep 30`, and retry the failed PR-data stage. Increase repeated waits to 60 seconds; honor a longer Retry-After in chunks no longer than 60 seconds while keeping the user informed. Do not substitute yesterday's PRs, abandon publication after the first transient failure, or repeat completed collection/reporting stages. Resume publication once the required current evidence is available.
+
 Before ending successfully, verify all of the following for the target date:
 
 1. The dated edition exists and contains the resolved, independently reviewed editorial content.

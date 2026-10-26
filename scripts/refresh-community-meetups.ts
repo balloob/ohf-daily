@@ -18,6 +18,7 @@ async function main() {
     sources: config.community_calendar_sources ?? [], editionDate: date,
     timeZone: edition.timezone, horizonDays: config.event_horizon_days ?? 90,
     cacheDirectory: resolve(root, "data/cache/community-calendars"),
+    editionDirectory: resolve(root, "data/editions"),
   });
   const temporary = `${path}.${process.pid}.tmp`;
   await writeFile(temporary, `${JSON.stringify(edition, null, 2)}\n`);

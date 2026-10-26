@@ -1036,6 +1036,7 @@ export async function collect(): Promise<CollectionResult> {
     sources: config.community_calendar_sources ?? [],
     editionDate, timeZone: config.timezone, horizonDays: config.event_horizon_days ?? 90,
     cacheDirectory: resolve(root, "data/cache/community-calendars"),
+    editionDirectory: resolve(root, "data/editions"),
   }).then((meetups) => ({ meetups, error: null }), (error: Error) => ({ meetups: [], error }));
   // Roadmap observations describe collection time, never a reconstructed past
   // board state. Historical edition runs must not relabel today's plans.

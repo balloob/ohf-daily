@@ -1,7 +1,7 @@
 import ICAL from "ical.js";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import type { CommunityMeetup } from "./types";
+import type { CommunityMeetup, Edition } from "./types";
 
 export interface CommunityCalendarSource {
   id: string;
@@ -100,20 +100,54 @@ export async function collectCommunityMeetups(options: {
   timeZone?: string;
   horizonDays?: number;
   cacheDirectory?: string;
+  /** Yesterday's published listings are the approved fallback for a feed outage. */
+  editionDirectory?: string;
   fetcher?: typeof fetch;
 }): Promise<CommunityMeetup[]> {
-  const results = await Promise.all(options.sources.filter((source) => source.enabled !== false).map(async (source) => {
-    if (!/^[a-z0-9-]+$/.test(source.id)) throw new Error("Invalid community calendar source ID.");
-    const response = await (options.fetcher ?? fetch)(source.url, { signal: AbortSignal.timeout(30_000), headers: { Accept: "text/calendar" } });
-    if (!response.ok) throw new Error(`${source.name}: calendar HTTP ${response.status}.`);
-    const text = await response.text();
-    if (Buffer.byteLength(text) > 2_000_000) throw new Error(`${source.name}: calendar feed is too large.`);
-    const meetups = parseCommunityCalendar(text, source, options.timeZone);
+  const sources = options.sources.filter((source) => source.enabled !== false);
+  if (sources.some((source) => !/^[a-z0-9-]+$/.test(source.id))) throw new Error("Invalid community calendar source ID.");
+  try {
+    const outcomes = await Promise.allSettled(sources.map(async (source) => {
+      const response = await (options.fetcher ?? fetch)(source.url, { signal: AbortSignal.timeout(30_000), headers: { Accept: "text/calendar" } });
+      if (!response.ok) throw new Error(`${source.name}: calendar HTTP ${response.status}.`);
+      const text = await response.text();
+      if (Buffer.byteLength(text) > 2_000_000) throw new Error(`${source.name}: calendar feed is too large.`);
+      const meetups = parseCommunityCalendar(text, source, options.timeZone);
+      if (options.cacheDirectory) {
+        await mkdir(options.cacheDirectory, { recursive: true });
+        await writeFile(resolve(options.cacheDirectory, `${source.id}.ics`), text);
+      }
+      return meetups;
+    }));
+    const results = outcomes.map((result) => {
+      if (result.status === "rejected") throw result.reason;
+      return result.value;
+    });
+    return upcomingCommunityMeetups(deduplicateCommunityMeetups(results.flat()), options.editionDate, options.horizonDays);
+  } catch (error) {
+    if (!options.editionDirectory) throw error;
+    const previous = new Date(`${options.editionDate}T12:00:00Z`);
+    previous.setUTCDate(previous.getUTCDate() - 1);
+    const previousDate = previous.toISOString().slice(0, 10);
+    let edition: Pick<Edition, "date" | "communityMeetups">;
+    try {
+      edition = JSON.parse(await readFile(resolve(options.editionDirectory, `${previousDate}.json`), "utf8"));
+      if (edition.date !== previousDate || !Array.isArray(edition.communityMeetups)) throw new Error("Missing listings");
+    } catch {
+      throw new Error(`Community calendars unavailable and no saved meetup listings exist for ${previousDate}.`, { cause: error });
+    }
+    // Use the complete prior snapshot, not a mixture of fresh and stale feeds.
+    // This avoids conflicting revisions and preserves cross-feed deduplication.
+    const meetups = upcomingCommunityMeetups(deduplicateCommunityMeetups(edition.communityMeetups!), options.editionDate, options.horizonDays);
     if (options.cacheDirectory) {
       await mkdir(options.cacheDirectory, { recursive: true });
-      await writeFile(resolve(options.cacheDirectory, `${source.id}.ics`), text);
+      await writeFile(resolve(options.cacheDirectory, `fallback-${options.editionDate}.json`), `${JSON.stringify({
+        editionDate: options.editionDate, previousDate, usedAt: new Date().toISOString(),
+        sourceIds: sources.map((source) => source.id), meetups: meetups.length,
+        reason: "Live calendar refresh failed; publisher-authorized previous-day snapshot used.",
+      }, null, 2)}\n`);
     }
+    console.log(`Community calendars unavailable; using ${meetups.length} saved meetups from ${previousDate}.`);
     return meetups;
-  }));
-  return upcomingCommunityMeetups(deduplicateCommunityMeetups(results.flat()), options.editionDate, options.horizonDays);
+  }
 }

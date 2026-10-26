@@ -1,5 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { collectCommunityMeetups, deduplicateCommunityMeetups, parseCommunityCalendar, upcomingCommunityMeetups } from "../src/lib/community-meetups";
 
 const source = { id: "community", name: "Community", url: "https://api.luma.com/feed", calendar_url: "https://luma.com/community" };
@@ -72,4 +75,57 @@ test("collects all configured calendars, deduplicates, and fails when any feed f
   assert.equal((await collectCommunityMeetups(options)).length, 1);
   await assert.rejects(collectCommunityMeetups({ ...options, fetcher: async () => new Response("", { status: 503 }) }), /HTTP 503/);
   assert.deepEqual(await collectCommunityMeetups({ ...options, sources: [{ ...source, enabled: false }], fetcher: async () => { throw new Error("must not fetch"); } }), []);
+});
+
+
+test("calendar outages reuse yesterday's complete snapshot without partial fresh results", async (t) => {
+  const directory = await mkdtemp(join(tmpdir(), "ohf-calendar-fallback-"));
+  t.after(() => rm(directory, { recursive: true, force: true }));
+  const previous = parseCommunityCalendar(calendar(
+    event("retained"),
+    event("expired", "", "20260914T170000Z", "20260914T190000Z"),
+    event("ongoing", "", "20260914T170000Z", "20260916T190000Z"),
+    event("distant", "", "20261215T170000Z", "20261215T190000Z"),
+    event("cancelled", "STATUS:CANCELLED"),
+  ), source);
+  const previousFile = join(directory, "2026-09-14.json");
+  const saved = JSON.stringify({ date: "2026-09-14", communityMeetups: previous });
+  await writeFile(previousFile, saved);
+  const second = { ...source, id: "second", url: "https://api.luma.com/second", calendar_url: "https://luma.com/second" };
+  let calls = 0;
+  const meetups = await collectCommunityMeetups({
+    sources: [source, second], editionDate: "2026-09-15", editionDirectory: directory, cacheDirectory: directory,
+    fetcher: async (url) => {
+      calls += 1;
+      return String(url) === source.url
+        ? new Response(calendar(event("fresh-only")))
+        : new Response("rate limited", { status: 429, headers: { "Retry-After": "300" } });
+    },
+  });
+  assert.equal(calls, 2, "calendar outages must not enter a retry loop");
+  assert.deepEqual(meetups.map((meetup) => meetup.id), ["ongoing", "retained"]);
+  assert.equal(await readFile(previousFile, "utf8"), saved, "archived editions remain unchanged");
+  const audit = JSON.parse(await readFile(join(directory, "fallback-2026-09-15.json"), "utf8"));
+  assert.equal(audit.previousDate, "2026-09-14");
+  assert.equal(audit.meetups, 2);
+});
+
+test("malformed feeds and network failures also use yesterday, including a verified empty calendar", async (t) => {
+  const directory = await mkdtemp(join(tmpdir(), "ohf-calendar-fallback-"));
+  t.after(() => rm(directory, { recursive: true, force: true }));
+  await writeFile(join(directory, "2026-12-31.json"), JSON.stringify({ date: "2026-12-31", communityMeetups: [] }));
+  const options = { sources: [source], editionDate: "2027-01-01", editionDirectory: directory };
+  assert.deepEqual(await collectCommunityMeetups({ ...options, fetcher: async () => new Response("truncated") }), []);
+  assert.deepEqual(await collectCommunityMeetups({ ...options, fetcher: async () => { throw new Error("network unavailable"); } }), []);
+});
+
+test("successful refreshes take precedence and a missing previous snapshot is never fabricated", async (t) => {
+  const directory = await mkdtemp(join(tmpdir(), "ohf-calendar-fallback-"));
+  t.after(() => rm(directory, { recursive: true, force: true }));
+  const options = { sources: [source], editionDate: "2026-09-15", editionDirectory: directory };
+  const fresh = await collectCommunityMeetups({ ...options, fetcher: async () => new Response(calendar(event("fresh"))) });
+  assert.deepEqual(fresh.map((meetup) => meetup.id), ["fresh"]);
+  await assert.rejects(collectCommunityMeetups({ ...options, fetcher: async () => new Response("", { status: 503 }) }), /no saved meetup listings exist for 2026-09-14/);
+  await writeFile(join(directory, "2026-09-14.json"), JSON.stringify({ date: "2026-09-13", communityMeetups: [] }));
+  await assert.rejects(collectCommunityMeetups({ ...options, fetcher: async () => new Response("", { status: 503 }) }), /no saved meetup listings/);
 });
