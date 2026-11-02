@@ -6,11 +6,13 @@ interface Props {
   title?: string;
   description?: string;
   image?: Pick<ArticleMedia, "url" | "alt" | "width" | "height">;
+  article?: { headline: string; datePublished: string };
 }
 
 const {
   title = "OHF Daily",
   description = "A daily briefing on the open-source work moving the Open Home forward.",
+  article,
   image = {
     url: "ohf-daily-og.png",
     alt: "OHF Daily logo on a cream background",
@@ -24,6 +26,30 @@ const imageUrl = image && new URL(
   /^https?:\/\//i.test(image.url) ? image.url : `${base}${image.url.replace(/^\/+/, "")}`,
   Astro.site ?? Astro.url,
 ).href;
+const publicationUrl = new URL(base, Astro.site ?? Astro.url).href;
+const newsroom = {
+  "@type": "Organization",
+  "@id": `${publicationUrl}#newsroom`,
+  name: "OHF Daily",
+  url: publicationUrl,
+  description: "Automated reporting on the Open Home Foundation ecosystem.",
+};
+const articleData = article && {
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "@id": `${canonical.href}#article`,
+  url: canonical.href,
+  mainEntityOfPage: canonical.href,
+  headline: article.headline,
+  description,
+  datePublished: article.datePublished,
+  inLanguage: "en",
+  author: newsroom,
+  publisher: newsroom,
+  ...(imageUrl ? { image: [imageUrl] } : {}),
+};
+// Keep source-derived text from terminating the JSON-LD script element.
+const articleJson = articleData && JSON.stringify(articleData).replace(/</g, "\\u003c");
 ---
 
 <!doctype html>
@@ -34,7 +60,13 @@ const imageUrl = image && new URL(
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#f6f3eb" />
     <meta name="description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OHF Daily" />
+    <meta property="og:type" content={article ? "article" : "website"} />
+    {article && <>
+      <meta name="author" content="OHF Daily" />
+      <meta property="article:published_time" content={article.datePublished} />
+    </>}
+    {articleJson && <script type="application/ld+json" set:html={articleJson} />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />

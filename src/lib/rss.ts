@@ -46,6 +46,7 @@ function itemXml(site: URL, basePath: string, edition: Edition, article: Article
     `    <link>${escapeXml(url)}</link>`,
     `    <guid isPermaLink="true">${escapeXml(url)}</guid>`,
     `    <pubDate>${publicationDate(edition).toUTCString()}</pubDate>`,
+    "    <dc:creator>OHF Daily</dc:creator>",
     `    <description>${escapeXml(description)}</description>`,
     categories,
     "  </item>",
@@ -67,7 +68,7 @@ export function buildRssFeed({ site, basePath, editions, limit = 50 }: RssFeedOp
 
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">',
     "<channel>",
     "  <title>OHF Daily</title>",
     `  <link>${escapeXml(homeUrl)}</link>`,

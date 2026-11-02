@@ -28,7 +28,7 @@ const topic = article.kind === "weekly_recap" ? "Week in review" : article.topic
 const image = article.media.find((media) => media.type === "image");
 ---
 
-<BaseLayout title={`${article.title} · OHF Daily`} description={article.dek || `OHF Daily article for ${formatEditionDate(edition.date)}.`} {image}>
+<BaseLayout title={`${article.title} · OHF Daily`} description={article.dek || `OHF Daily article for ${formatEditionDate(edition.date)}.`} {image} article={{ headline: article.title, datePublished: edition.generatedAt }}>
   <Masthead date={edition.date} {previousDate} section={`${topic} · ${formatEditionDate(edition.date)}`} />
   <main class="article-page shell">
     <nav class="breadcrumbs" aria-label="Article navigation">
