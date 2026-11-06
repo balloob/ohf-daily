@@ -44,6 +44,8 @@ const shippedOverflow = shipped.length - visibleShipped.length;
 const hacsCount = typeof hacsNewIntegrations === "number" && Number.isSafeInteger(hacsNewIntegrations) && hacsNewIntegrations > 0
   ? hacsNewIntegrations
   : undefined;
+// HACS became Marketplace with the November 4, 2026 release.
+const integrationIndexName = today >= "2026-11-04" ? "Marketplace" : "HACS";
 const hasShippedItems = visibleShipped.length > 0 || publishedPosts.length > 0 || hacsCount !== undefined;
 const upcoming = releases
   .map((release) => ({
@@ -83,7 +85,7 @@ const calendarRows = calendarMeetupRows(upcoming, meetups, eventGroups);
         ))}
         {hacsCount !== undefined && (
           <li class="hacs-summary" style="--event-accent: var(--blue, var(--accent))">
-            <span class="release-name"><strong>HACS</strong><small>{hacsCount} new {hacsCount === 1 ? "integration" : "integrations"}</small></span>
+            <span class="release-name"><strong>{integrationIndexName}</strong><small>{hacsCount} new {hacsCount === 1 ? "integration" : "integrations"}</small></span>
             <span class="release-meta"><small>index</small></span>
           </li>
         )}

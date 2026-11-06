@@ -204,7 +204,7 @@ The live publication is [paulusschoutsen.nl/ohf-daily](https://paulusschoutsen.n
 
 Dependency updates, editor diagnostics, and deterministic raw PR rankings do not appear on an AI-produced front page. The raw ranked sections are a local development fallback only; scheduled publication requires a fully written, independently reviewed edition.
 
-HACS default-index additions are stored in local history but are never eligible article sources, including through AI history queries and weekly recaps. Each edition records an authoritative `stats.hacsNewIntegrations` total from a dedicated GitHub search. A positive count appears in `Just shipped`; zero is omitted.
+HACS default-index additions are stored in local history but are never eligible article sources, including through AI history queries and weekly recaps. Each edition records an authoritative `stats.hacsNewIntegrations` total from a dedicated GitHub search. A positive count appears in `Just shipped`; zero is omitted. Editions from November 4, 2026 onward label this count **Marketplace**, following the rename; the source repository and stored statistic key stay unchanged.
 
 To work on the site without collecting again:
 
