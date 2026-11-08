@@ -1,0 +1,1475 @@
+{
+  "date": "2026-11-08",
+  "generatedAt": "2026-11-08T05:03:05.164Z",
+  "windowStart": "2026-11-07T04:58:31.958Z",
+  "windowEnd": "2026-11-08T04:58:31.958Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 144,
+    "repositories": 25,
+    "contributors": 66,
+    "dependencyUpdates": 30,
+    "hacsNewIntegrations": 0
+  },
+  "lead": {
+    "id": "4955164556",
+    "title": "Show the active setpoint as the BSB-LAN climate target",
+    "summary": "Breaking change The climate target temperature now shows the setpoint the controller applies, instead of always the comfort setpoint.",
+    "unlocks": "Unlocks: Show the active setpoint as the BSB-LAN climate target.",
+    "url": "https://github.com/home-assistant/core/pull/187891",
+    "repository": "home-assistant/core",
+    "organization": "Home Assistant",
+    "author": "piitaya",
+    "mergedAt": "2026-11-07T23:01:03Z",
+    "labels": [
+      "breaking-change",
+      "cla-signed",
+      "has-tests",
+      "integration: bsblan",
+      "quality scale: silver"
+    ],
+    "kind": "feature",
+    "score": 68.1,
+    "additions": 550,
+    "deletions": 83,
+    "changedFiles": 5
+  },
+  "highlights": [
+    {
+      "id": "5193315806",
+      "title": "[nrf52] Add the nRF52832 and the Adafruit Feather nRF52832",
+      "summary": "What does this implement/fix? This adds the nRF52832 SoC and the Adafruit Feather nRF52832 as a board, so ESPHome builds, flashes over the board's USB serial chip and logs on its UART, the…",
+      "unlocks": "Unlocks: [nrf52] Add the nRF52832 and the Adafruit Feather nRF52832.",
+      "url": "https://github.com/esphome/esphome/pull/22385",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-08T03:30:18Z",
+      "labels": [
+        "new-feature",
+        "component: logger",
+        "has-tests",
+        "component: nrf52",
+        "platform: nrf52",
+        "component: zephyr_coredump"
+      ],
+      "kind": "feature",
+      "score": 66.4,
+      "additions": 424,
+      "deletions": 54,
+      "changedFiles": 17
+    },
+    {
+      "id": "4446873477",
+      "title": "data_grand_lyon alerts",
+      "summary": "Add transit network alerts to the data grand lyon integration.",
+      "unlocks": "Unlocks: Data_grand_lyon alerts.",
+      "url": "https://github.com/home-assistant/core/pull/181339",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "Crocmagnon",
+      "mergedAt": "2026-11-07T12:30:17Z",
+      "labels": [
+        "new-platform",
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: platinum",
+        "integration: data_grand_lyon"
+      ],
+      "kind": "feature",
+      "score": 66.4,
+      "additions": 1138,
+      "deletions": 80,
+      "changedFiles": 17
+    },
+    {
+      "id": "5190772092",
+      "title": "Offer to move Spotify playback here when another player holds it",
+      "summary": "What does this implement/fix? When you start Spotify on one player while another player is already playing from the same Spotify account, the server refuses and names that player.",
+      "url": "https://github.com/music-assistant/frontend/pull/3122",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-08T00:18:10Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 64.4,
+      "additions": 616,
+      "deletions": 8,
+      "changedFiles": 10
+    },
+    {
+      "id": "5108658379",
+      "title": "Expand native infrared protocol and climate command coverage",
+      "summary": "Expand infrared transports and appliance commands for Home Assistant integrations while retaining the package's MIT license.",
+      "url": "https://github.com/home-assistant-libs/infrared-protocols/pull/190",
+      "repository": "home-assistant-libs/infrared-protocols",
+      "organization": "Home Assistant Libraries",
+      "author": "balloob",
+      "mergedAt": "2026-11-07T13:17:08Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 64.4,
+      "additions": 24778,
+      "deletions": 97,
+      "changedFiles": 129
+    }
+  ],
+  "briefs": [
+    {
+      "id": "4933403860",
+      "title": "Add configurable one-finger edge swipe gestures",
+      "summary": "Adds configurable one finger inward swipes from the left and right edges of the Home Assistant page.",
+      "unlocks": "Unlocks: Add configurable one-finger edge swipe gestures.",
+      "url": "https://github.com/home-assistant/android/pull/7655",
+      "repository": "home-assistant/android",
+      "organization": "Home Assistant",
+      "author": "mmihaylov00",
+      "mergedAt": "2026-11-07T20:45:19Z",
+      "labels": [
+        "cla-signed"
+      ],
+      "kind": "feature",
+      "score": 61.6,
+      "additions": 1285,
+      "deletions": 63,
+      "changedFiles": 28,
+      "image": "https://raw.githubusercontent.com/mmihaylov00/android/a811f3a8ba76aef17832f86daa8f4bd164c0a666/app/src/screenshotTestFullDebug/reference/io/homeassistant/companion/android/settings/gestures/GesturesFragmentScreenshotTest/Gestures%20list%20with%20no%20action%20for%20each%20gesture_0.png"
+    },
+    {
+      "id": "5193277701",
+      "title": "[ci] Add speaker, voice and microphone flows to the hardware-test skill",
+      "summary": "What does this implement/fix? Adds the audio flows proven since the last sync to the hardware test agent skill.",
+      "unlocks": "Unlocks: [ci] Add speaker, voice and microphone flows to the hardware-test skill.",
+      "url": "https://github.com/esphome/esphome/pull/22384",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-08T04:03:23Z",
+      "labels": [
+        "code-quality",
+        "mega-pr"
+      ],
+      "kind": "feature",
+      "score": 60.9,
+      "additions": 2062,
+      "deletions": 1,
+      "changedFiles": 35
+    },
+    {
+      "id": "4819750595",
+      "title": "Indi_allsky: Implement media source",
+      "summary": "Allows Home Assistant to have access to the media generated by INDI Allsky in the media browser Type of change Dependency upgrade Bugfix (non breaking change which fixes an issue) New…",
+      "unlocks": "Unlocks: Indi_allsky: Implement media source.",
+      "url": "https://github.com/home-assistant/core/pull/185819",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "TN-1",
+      "mergedAt": "2026-11-07T13:06:41Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze",
+        "integration: indi_allsky"
+      ],
+      "kind": "feature",
+      "score": 60.8,
+      "additions": 1851,
+      "deletions": 0,
+      "changedFiles": 4
+    },
+    {
+      "id": "4718931377",
+      "title": "Sync client with server API schema 101",
+      "summary": "Syncs the client with the current server API (schema 46 → 101) and bumps API SCHEMA VERSION to 101.",
+      "url": "https://github.com/music-assistant/client/pull/297",
+      "repository": "music-assistant/client",
+      "organization": "Music Assistant",
+      "author": "fmunkes",
+      "mergedAt": "2026-11-07T10:37:28Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 60.3,
+      "additions": 2924,
+      "deletions": 277,
+      "changedFiles": 9
+    },
+    {
+      "id": "4949512576",
+      "title": "[gy39] Add the GY-39 environment sensor",
+      "summary": "What does this implement/fix? Adds the gy39 sensor platform for the GY 39 module, which reports illuminance (MAX44009) and temperature, pressure, humidity and altitude (BME280) through its…",
+      "unlocks": "Unlocks: [gy39] Add the GY-39 environment sensor.",
+      "url": "https://github.com/esphome/esphome/pull/21265",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "St0fF-NPL-ToM",
+      "mergedAt": "2026-11-07T21:22:14Z",
+      "labels": [
+        "new-component",
+        "new-feature",
+        "has-tests",
+        "new-platform",
+        "component: gy39"
+      ],
+      "kind": "feature",
+      "score": 59.9,
+      "additions": 257,
+      "deletions": 0,
+      "changedFiles": 11
+    },
+    {
+      "id": "4725326878",
+      "title": "[tcp_uart][uart_tcp] Close a quiet TCP connection",
+      "summary": "What does this implement/fix? Stacked on #21365, which adds the idle timeout to socket::TcpClientLink ; only these changes belong here.",
+      "unlocks": "Unlocks: [tcp_uart][uart_tcp] Close a quiet TCP connection.",
+      "url": "https://github.com/esphome/esphome/pull/20097",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "Bascht74",
+      "mergedAt": "2026-11-07T20:18:46Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "medium-pr",
+        "component: tcp_uart",
+        "component: uart_tcp"
+      ],
+      "kind": "feature",
+      "score": 59.5,
+      "additions": 32,
+      "deletions": 9,
+      "changedFiles": 11
+    },
+    {
+      "id": "5193182136",
+      "title": "[ci] Add simulated I2C, SPI and parallel bus flows to the hardware-test skill",
+      "summary": "What does this implement/fix? Adds the simulated bus flows proven since the last sync to the hardware test agent skill: the device under test talks to fake peripherals on its own buses, so…",
+      "unlocks": "Unlocks: [ci] Add simulated I2C, SPI and parallel bus flows to the hardware-test skill.",
+      "url": "https://github.com/esphome/esphome/pull/22377",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-08T03:47:24Z",
+      "labels": [
+        "code-quality",
+        "mega-pr"
+      ],
+      "kind": "feature",
+      "score": 58.3,
+      "additions": 5682,
+      "deletions": 17,
+      "changedFiles": 52
+    },
+    {
+      "id": "5193277150",
+      "title": "[ci] Add network, BLE, MQTT, HTTPS and crash report flows to the hardware-test skill",
+      "summary": "What does this implement/fix? Adds the network and BLE flows proven since the last sync to the hardware test agent skill.",
+      "unlocks": "Improves reliability around [ci] Add network, BLE, MQTT, HTTPS and crash report flows to the hardware-test skill.",
+      "url": "https://github.com/esphome/esphome/pull/22383",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-08T03:39:41Z",
+      "labels": [
+        "code-quality",
+        "mega-pr"
+      ],
+      "kind": "fix",
+      "score": 57.6,
+      "additions": 3400,
+      "deletions": 12,
+      "changedFiles": 65
+    },
+    {
+      "id": "5193276158",
+      "title": "[ci] Add simulated UART, RS485 and HX711 flows to the hardware-test skill",
+      "summary": "What does this implement/fix? Adds the simulated UART flows proven since the last sync to the hardware test agent skill: the sensor or bus device runs on a second UART of the same board,…",
+      "unlocks": "Unlocks: [ci] Add simulated UART, RS485 and HX711 flows to the hardware-test skill.",
+      "url": "https://github.com/esphome/esphome/pull/22381",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-08T03:28:49Z",
+      "labels": [
+        "code-quality",
+        "mega-pr"
+      ],
+      "kind": "feature",
+      "score": 57.1,
+      "additions": 2365,
+      "deletions": 10,
+      "changedFiles": 53
+    },
+    {
+      "id": "5193276689",
+      "title": "[ci] Add LED strip, sigma_delta and PIO probe flows to the hardware-test skill",
+      "summary": "What does this implement/fix? Adds the output probe flows proven since the last sync to the hardware test agent skill: LED strip and speaker pins are read back off the board's own pads, so no logic analyzer is needed.",
+      "unlocks": "Unlocks: [ci] Add LED strip, sigma_delta and PIO probe flows to the hardware-test skill.",
+      "url": "https://github.com/esphome/esphome/pull/22382",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-08T03:56:26Z",
+      "labels": [
+        "code-quality",
+        "mega-pr"
+      ],
+      "kind": "feature",
+      "score": 56.8,
+      "additions": 1821,
+      "deletions": 2,
+      "changedFiles": 25
+    },
+    {
+      "id": "5200367582",
+      "title": "Raumfeld: follow the speakers' events instead of polling them",
+      "summary": "What does this implement/fix? Raumfeld players now follow their speakers' UPnP events instead of polling them.",
+      "url": "https://github.com/music-assistant/server/pull/7427",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "Simanias",
+      "mergedAt": "2026-11-07T23:05:19Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 56.6,
+      "additions": 1090,
+      "deletions": 12,
+      "changedFiles": 10
+    },
+    {
+      "id": "5152040375",
+      "title": "Raumfeld: follow the host's rooms and zones without hassfeld",
+      "summary": "What does this implement/fix? Second of two PRs that remove the Raumfeld provider's dependency on hassfeld .",
+      "url": "https://github.com/music-assistant/server/pull/7368",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "Simanias",
+      "mergedAt": "2026-11-07T13:30:11Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 55.7,
+      "additions": 785,
+      "deletions": 181,
+      "changedFiles": 11
+    },
+    {
+      "id": "5184293351",
+      "title": "[pixoo][graph][usb_audio][ld600x] Keep display and audio buffers in static buffers",
+      "summary": "What does this implement/fix? Five display and audio components keep their config sized buffers in static buffers from codegen instead of allocating them at setup: pixoo, the addressable…",
+      "url": "https://github.com/esphome/esphome/pull/22336",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-08T04:04:54Z",
+      "labels": [
+        "has-tests",
+        "code-quality",
+        "component: addressable_light",
+        "component: graph",
+        "component: usb_audio",
+        "component: ld6002b",
+        "component: pixoo",
+        "component: ld6004",
+        "component: ld600x"
+      ],
+      "kind": "platform",
+      "score": 54.1,
+      "additions": 156,
+      "deletions": 82,
+      "changedFiles": 23
+    },
+    {
+      "id": "5184294752",
+      "title": "[tlc5947][sn74hc595] Keep output driver buffers in static or fixed storage",
+      "summary": "What does this implement/fix? Nine small output and shift register drivers stop allocating fixed size buffers at setup: those sized from config get static buffers from codegen, and those…",
+      "url": "https://github.com/esphome/esphome/pull/22338",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-08T03:59:18Z",
+      "labels": [
+        "component: my9231",
+        "component: sm16716",
+        "component: sn74hc595",
+        "code-quality",
+        "component: sm2135",
+        "component: tlc5947",
+        "component: bp1658cj",
+        "component: sn74hc165",
+        "component: sun_gtil2",
+        "component: tlc5971",
+        "undocumented-api-change"
+      ],
+      "kind": "platform",
+      "score": 54,
+      "additions": 105,
+      "deletions": 114,
+      "changedFiles": 24
+    },
+    {
+      "id": "5202973513",
+      "title": "Deezer: sync playback with the Deezer app",
+      "summary": "What does this implement/fix? Makes the Deezer apps see what you play in Music Assistant.",
+      "url": "https://github.com/music-assistant/server/pull/7428",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "jdaberkow",
+      "mergedAt": "2026-11-07T23:19:32Z",
+      "labels": [
+        "enhancement",
+        "dependencies-reviewed"
+      ],
+      "kind": "platform",
+      "score": 54,
+      "additions": 586,
+      "deletions": 17,
+      "changedFiles": 11
+    },
+    {
+      "id": "5197501348",
+      "title": "Swap descriptions to the new language after a language change",
+      "summary": "What does this implement/fix? When you change the metadata language, descriptions already in your library stayed in the old language until you pressed Update metadata on each item.",
+      "unlocks": "Unlocks: Swap descriptions to the new language after a language change.",
+      "url": "https://github.com/music-assistant/server/pull/7423",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "OzGav",
+      "mergedAt": "2026-11-07T09:40:13Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "feature",
+      "score": 52.4,
+      "additions": 241,
+      "deletions": 17,
+      "changedFiles": 6
+    },
+    {
+      "id": "5147110867",
+      "title": "Log the entities when trigger-based template variables fail to render",
+      "summary": "Breaking change Proposed change When a trigger based template's variables fail to render, the TemplateError escaped handle triggered and ended up as an unhandled task exception with no hint of which template it came from.",
+      "unlocks": "Unlocks: Log the entities when trigger-based template variables fail to render.",
+      "url": "https://github.com/home-assistant/core/pull/190276",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "lazerg",
+      "mergedAt": "2026-11-07T15:43:17Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "integration: template",
+        "has-tests",
+        "bugfix",
+        "quality scale: internal",
+        "top 200",
+        "top 50",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 51.7,
+      "additions": 361,
+      "deletions": 106,
+      "changedFiles": 27
+    },
+    {
+      "id": "5192662444",
+      "title": "Add charge limit number to Škoda",
+      "summary": "Add a new Number entity to the Skoda integration to observe and update the vehicle's target charge limit.",
+      "unlocks": "Unlocks: Add charge limit number to Škoda.",
+      "url": "https://github.com/home-assistant/core/pull/190966",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "dvx76",
+      "mergedAt": "2026-11-07T12:51:10Z",
+      "labels": [
+        "new-platform",
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze",
+        "integration: skoda"
+      ],
+      "kind": "feature",
+      "score": 51.7,
+      "additions": 473,
+      "deletions": 0,
+      "changedFiles": 5
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Update emulator-wtf/actions action to v1.2.6",
+      "url": "https://github.com/home-assistant/android/pull/7827",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update github/codeql-action action to v4.39.3",
+      "url": "https://github.com/home-assistant/android/pull/7824",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump greeclimate to 3.6.4",
+      "url": "https://github.com/home-assistant/core/pull/191122",
+      "repository": "home-assistant/core",
+      "author": "cmroche"
+    },
+    {
+      "title": "Bump HAP-python to 5.2.0",
+      "url": "https://github.com/home-assistant/core/pull/191104",
+      "repository": "home-assistant/core",
+      "author": "RaHehl"
+    },
+    {
+      "title": "Bump music-assistant-client to 1.8.0",
+      "url": "https://github.com/home-assistant/core/pull/191044",
+      "repository": "home-assistant/core",
+      "author": "fmunkes"
+    },
+    {
+      "title": "Bump spinev-ble to 0.7.0",
+      "url": "https://github.com/home-assistant/core/pull/190805",
+      "repository": "home-assistant/core",
+      "author": "Dr-Blank"
+    },
+    {
+      "title": "Bump sofar-modbus to 0.25.4",
+      "url": "https://github.com/home-assistant/core/pull/191048",
+      "repository": "home-assistant/core",
+      "author": "darkrain-nl"
+    },
+    {
+      "title": "Bump python-hotspring to 4.0.2",
+      "url": "https://github.com/home-assistant/core/pull/190974",
+      "repository": "home-assistant/core",
+      "author": "tmilnthorp"
+    },
+    {
+      "title": "Update CodSpeedHQ/action action to v5.6.1",
+      "url": "https://github.com/home-assistant/core/pull/191004",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update prek to 0.5.9",
+      "url": "https://github.com/home-assistant/core/pull/191005",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump agent-py to 0.0.25",
+      "url": "https://github.com/home-assistant/core/pull/191024",
+      "repository": "home-assistant/core",
+      "author": "ispysoftware"
+    },
+    {
+      "title": "Bump solarlog_cli to 0.7.2",
+      "url": "https://github.com/home-assistant/core/pull/190991",
+      "repository": "home-assistant/core",
+      "author": "dontinelli"
+    },
+    {
+      "title": "Bump aioengiebelgium to 0.9.0",
+      "url": "https://github.com/home-assistant/core/pull/191039",
+      "repository": "home-assistant/core",
+      "author": "DaanVervacke"
+    },
+    {
+      "title": "Update dependency fullcalendar to v7.1.4",
+      "url": "https://github.com/home-assistant/frontend/pull/55730",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency @versatiles/style to v8.1.1",
+      "url": "https://github.com/home-assistant/frontend/pull/55715",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency temporal-polyfill to v1.0.7",
+      "url": "https://github.com/home-assistant/frontend/pull/55731",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump E3/DC to silver quality scale",
+      "url": "https://github.com/home-assistant/core/pull/190972",
+      "repository": "home-assistant/core",
+      "author": "AlCalzone"
+    },
+    {
+      "title": "build(deps-dev): Bump pytest from 9.1.1 to 9.2.0",
+      "url": "https://github.com/home-assistant-libs/forecast_solar/pull/474",
+      "repository": "home-assistant-libs/forecast_solar",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps): Bump github/codeql-action/upload-sarif from 4.39.1 to 4.39.2",
+      "url": "https://github.com/home-assistant-libs/forecast_solar/pull/471",
+      "repository": "home-assistant-libs/forecast_solar",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump prek from 0.5.7 to 0.5.9",
+      "url": "https://github.com/home-assistant-libs/forecast_solar/pull/472",
+      "repository": "home-assistant-libs/forecast_solar",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump ty from 0.0.92 to 0.0.96",
+      "url": "https://github.com/home-assistant-libs/forecast_solar/pull/473",
+      "repository": "home-assistant-libs/forecast_solar",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump zizmor from 1.31.1 to 1.32.0",
+      "url": "https://github.com/home-assistant-libs/forecast_solar/pull/475",
+      "repository": "home-assistant-libs/forecast_solar",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Update cryptography requirement from >=48.0.0 to >=50.0.2",
+      "url": "https://github.com/esphome/aioesphomeapi/pull/1930",
+      "repository": "esphome/aioesphomeapi",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump CodSpeedHQ/action from 5.6.1 to 5.6.3",
+      "url": "https://github.com/esphome/aioesphomeapi/pull/2002",
+      "repository": "esphome/aioesphomeapi",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore: bump pytest from 9.1.1 to 9.2.0",
+      "url": "https://github.com/music-assistant/deezer-python-gql/pull/73",
+      "repository": "music-assistant/deezer-python-gql",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore: bump mypy from 2.4.0 to 2.4.1",
+      "url": "https://github.com/music-assistant/deezer-python-gql/pull/74",
+      "repository": "music-assistant/deezer-python-gql",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore: bump pytest-asyncio from 1.4.1 to 1.4.1.post1",
+      "url": "https://github.com/music-assistant/deezer-python-gql/pull/75",
+      "repository": "music-assistant/deezer-python-gql",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore: bump ruff from 0.17.2 to 0.17.3",
+      "url": "https://github.com/music-assistant/deezer-python-gql/pull/76",
+      "repository": "music-assistant/deezer-python-gql",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): update dependency eslint to v10.14.0",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/144",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update pnpm to v12.17.0",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/145",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 60,
+      "thisWeek": 1429,
+      "sinceRelease": 723,
+      "lastReleaseDate": "2026-11-04"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 32,
+      "thisWeek": 221,
+      "sinceRelease": 235,
+      "lastReleaseDate": "2026-10-30"
+    },
+    {
+      "product": "ESPHome",
+      "today": 33,
+      "thisWeek": 523,
+      "sinceRelease": 1478,
+      "lastReleaseDate": "2026-10-21"
+    }
+  ],
+  "landedReleases": [],
+  "publishedPosts": [],
+  "releases": [
+    {
+      "product": "No device left behind",
+      "kind": "Event",
+      "date": "2026-11-11",
+      "accent": "blue",
+      "url": "https://www.home-assistant.io/no-device-left-behind/",
+      "sourceId": "home-assistant-page:dacc1535cab88700080aea3d"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-11-18",
+      "version": "2026.11",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-11-25",
+      "version": "2026.12",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-12-02",
+      "version": "2026.12",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-12-02",
+      "version": "2026.12",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-12-16",
+      "version": "2026.12",
+      "accent": "green"
+    }
+  ],
+  "communityMeetups": [
+    {
+      "id": "evt-nCeRZIJJNYEXQ5r@events.lu.ma",
+      "title": "OpenHome Community Day 2026 - Vigo",
+      "url": "https://luma.com/dhhpywcu",
+      "startAt": "2026-11-07T10:00:00.000Z",
+      "endAt": "2026-11-08T00:30:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-08",
+      "location": "A Industriosa, Gregorio Espino, 38, entresuelo 3, Sárdoma, 36205 Vigo, Pontevedra, Spain",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-LnR7nkXX5NhD3Dv@events.lu.ma",
+      "title": "Southern California - Home Assistant Community Day!",
+      "url": "https://luma.com/1ykejuxy",
+      "startAt": "2026-11-07T21:00:00.000Z",
+      "endAt": "2026-11-08T01:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-08",
+      "location": "Stereo Brewing, 950 S Vía Rodeo, Placentia, CA 92870, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-RlN9EfDQwWsty6g@events.lu.ma",
+      "title": "Home Assistant Community Day PDX",
+      "url": "https://luma.com/1oxif935",
+      "startAt": "2026-11-07T22:00:00.000Z",
+      "endAt": "2026-11-08T00:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-07",
+      "endDate": "2026-11-08",
+      "location": "Ctrl-H, 7600 N Interstate Ave, Portland, OR 97217, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-Ew4wCXiuRNYEjRt@events.lu.ma",
+      "title": "Seattle Meetup",
+      "url": "https://luma.com/a6qrebjw",
+      "startAt": "2026-11-07T23:00:00.000Z",
+      "endAt": "2026-11-08T01:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-08",
+      "endDate": "2026-11-08",
+      "location": "La Parisienne French Bakery, 2507 4th Ave, Seattle, WA 98121, USA",
+      "calendarUrls": [
+        "https://luma.com/communityday2026"
+      ]
+    },
+    {
+      "id": "evt-QEzt2fYlUfSiP1J@events.lu.ma",
+      "title": "Home Assistant Community Hackathon: The Hague",
+      "url": "https://luma.com/cmsahysn",
+      "startAt": "2026-11-19T09:00:00.000Z",
+      "endAt": "2026-11-19T19:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-19",
+      "endDate": "2026-11-19",
+      "location": "https://luma.com/event/evt-QEzt2fYlUfSiP1J",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-87JtJwYoojgDwdR@events.lu.ma",
+      "title": "Home Assistant Meetup Köln",
+      "url": "https://luma.com/83fycwc9",
+      "startAt": "2026-12-03T17:00:00.000Z",
+      "endAt": "2026-12-03T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-12-03",
+      "endDate": "2026-12-03",
+      "location": "REWE Digital GmbH, Schanzenstraße 6-20, 51063 Köln, Germany",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-JrQQIH3uBJV4C3A@events.lu.ma",
+      "title": "Home Assistant Meetup - Carpi",
+      "url": "https://luma.com/yjfnms6a",
+      "startAt": "2026-12-12T08:30:00.000Z",
+      "endAt": "2026-12-12T11:30:00.000Z",
+      "allDay": false,
+      "date": "2026-12-12",
+      "endDate": "2026-12-12",
+      "location": "TERMINAL - Terre d’Argine Innovation Lab, Piazzale Allende Salvador, 5, 41012 Carpi MO, Italy",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "music-assistant-spotify-play-here",
+      "title": "Music Assistant offers to move Spotify to another speaker",
+      "dek": "Choose to stop the current player and start the music on the speaker you selected.",
+      "body": [
+        "Music Assistant offers a choice when a Spotify account is already playing on another speaker: stop there and play here, or leave the existing music alone. The new dialog replaces a message that told the listener to stop the other player themselves.",
+        "For ordinary play or replace requests involving a track, album or playlist, the server checks before loading tracks or replacing the destination queue. That avoids waits of up to 45 seconds for a playlist that cannot start. The takeover choice appears only when the listener can control the other player.",
+        "Artist playback, shuffled selections and some queue actions are checked later, so they lack the same protection for the destination player. Retrying Play Now while keeping the queue can still add the requested items twice."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 98,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5190772092",
+          "title": "Offer to move Spotify playback here when another player holds it",
+          "url": "https://github.com/music-assistant/frontend/pull/3122",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "5190771301",
+          "title": "Say at once that Spotify is busy elsewhere instead of after loading the playlist",
+          "url": "https://github.com/music-assistant/server/pull/7408",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "android-one-finger-edge-gestures",
+      "title": "Home Assistant adds one-finger edge shortcuts on Android",
+      "dek": "Optional inward swipes can open the sidebar or run an existing gesture action, while Android navigation keeps priority.",
+      "body": [
+        "Home Assistant’s Android app adds configurable one-finger swipes from the left and right edges of its page. Each can use an existing gesture action, including opening the sidebar, giving people another way to reach controls without using multiple fingers.",
+        "Both start with no action assigned. An option is hidden when Android reserves that edge for system navigation; its saved action is kept if the owner switches back to button navigation. Ordinary scrolling and touches away from the edges do not trigger the shortcut.",
+        "The addition is mmihaylov00’s first contribution to the Android app."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 96,
+      "contributors": [
+        "mmihaylov00"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "mmihaylov00",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/71435826?v=4",
+          "profileUrl": "https://github.com/mmihaylov00"
+        }
+      ],
+      "reviewers": [
+        "jpelgrom",
+        "TimoPtr"
+      ],
+      "approvers": [
+        "jpelgrom"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4933403860",
+          "title": "Add configurable one-finger edge swipe gestures",
+          "url": "https://github.com/home-assistant/android/pull/7655",
+          "repository": "home-assistant/android"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "infrared-library-appliance-coverage",
+      "title": "Home Assistant’s infrared library adds commands for more appliances",
+      "dek": "Reusable command formats cover more air conditioners, fans and other equipment; integrations still need to adopt them.",
+      "body": [
+        "Home Assistant’s infrared library adds command formats for a much wider range of household equipment. The work covers air-conditioner families from manufacturers including Mitsubishi, Hitachi, Toshiba, Midea and Panasonic, alongside television and audio formats, Dyson fans and Hob2Hood extractors.",
+        "The library can read more captured remote signals and preserve appliance-specific settings such as fan levels, presets and vane positions when constructing a command. It also handles some air-conditioner messages that a receiver splits into several captures.",
+        "Integrations still need to select the correct remote layout and translate its settings, and most devices need hardware validation. Paulus Schoutsen’s implementations are checked against reference signals and recorded packets; the library work does not itself add every listed appliance to Home Assistant."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 94,
+      "contributors": [
+        "balloob"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "balloob",
+          "name": "Paulus Schoutsen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1444314?v=4",
+          "profileUrl": "https://github.com/balloob"
+        }
+      ],
+      "reviewers": [
+        "abmantis"
+      ],
+      "approvers": [
+        "abmantis"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5108658379",
+          "title": "Expand native infrared protocol and climate command coverage",
+          "url": "https://github.com/home-assistant-libs/infrared-protocols/pull/190",
+          "repository": "home-assistant-libs/infrared-protocols"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-sunshine-live",
+      "title": "Sunshine Live brings 35 electronic-music channels to Music Assistant",
+      "dek": "The direct connection uses higher-quality streams without requiring an account.",
+      "body": [
+        "Music Assistant adds a direct connection to Sunshine Live, the German electronic-music station and its 35 channels. It uses the station’s own 192 kbit/s MP3 streams rather than the 64 kbit/s main programme available through TuneIn, and needs no account.",
+        "The channel list comes from the station’s website, so new channels can appear automatically. Song titles follow the audio stream; during live shows, the provider uses the programme name instead of presenting “Simulcast” as a song. Jordi Böhme makes his first contribution to Music Assistant’s server with the provider."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 92,
+      "contributors": [
+        "jordiboehme"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "jordiboehme",
+          "name": "Jordi Böhme",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/61378?v=4",
+          "profileUrl": "https://github.com/jordiboehme"
+        }
+      ],
+      "reviewers": [
+        "OzGav"
+      ],
+      "approvers": [
+        "OzGav"
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5188249038",
+          "title": "Add the Sunshine Live provider",
+          "url": "https://github.com/music-assistant/server/pull/7406",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-deezer-app-continuity",
+      "title": "Deezer’s app follows listening in Music Assistant",
+      "dek": "An optional setting carries the queue and position back to Deezer when its app opens.",
+      "body": [
+        "Music Assistant updates Deezer’s listening history as music starts, including albums, artists and playlists in the Deezer app’s recently played list. A new “Continue in the Deezer app” setting lets that app resume where Music Assistant stopped; it starts switched off.",
+        "The recent-listening view inside Music Assistant also refreshes every five minutes instead of every hour. Players that prepare a track before it starts can still put an unheard track into Deezer’s history."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 90,
+      "contributors": [
+        "jdaberkow"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "jdaberkow",
+          "name": "Julian Daberkow",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/13017916?v=4",
+          "profileUrl": "https://github.com/jdaberkow"
+        }
+      ],
+      "reviewers": [
+        "OzGav"
+      ],
+      "approvers": [
+        "OzGav"
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5202973513",
+          "title": "Deezer: sync playback with the Deezer app",
+          "url": "https://github.com/music-assistant/server/pull/7428",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5202386043",
+          "title": "feat: add pushQueueState mutation",
+          "url": "https://github.com/music-assistant/deezer-python-gql/pull/77",
+          "repository": "music-assistant/deezer-python-gql"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "piper-native-tagalog-speech",
+      "title": "Piper’s native library restores intelligible Tagalog speech",
+      "dek": "A sound-mapping error turned a tested voice into noise and could affect other voice configurations.",
+      "body": [
+        "Applications using Piper’s native C++ speech library avoid a pronunciation-map error that turned a tested Tagalog voice into noise. The library treated some two-part vowel sounds as their first character, attaching extra sound identifiers to ordinary vowels.",
+        "Ihor Shevchuk separates those combinations from single sounds. Verification produced recognizable Tagalog speech and preserved the expected English output. Eighteen of the 206 checked voice configurations contain the affected kind of entry; applications need to adopt the library correction."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 88,
+      "contributors": [
+        "IhorShevchuk"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "IhorShevchuk",
+          "name": "Ihor Shevchuk",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/8997814?v=4",
+          "profileUrl": "https://github.com/IhorShevchuk"
+        }
+      ],
+      "reviewers": [
+        "synesthesiam"
+      ],
+      "approvers": [
+        "synesthesiam"
+      ],
+      "topics": [
+        "OHF Voice"
+      ],
+      "pullRequests": [
+        {
+          "id": "5203546445",
+          "title": "Fix phoneme_id_map corrupting multi-codepoint phonemes",
+          "url": "https://github.com/OHF-Voice/piper1-gpl/pull/352",
+          "repository": "OHF-Voice/piper1-gpl"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-similarity-server-pauses",
+      "title": "Music Assistant reduces pauses during sound-based discovery",
+      "dek": "A large-library test shows severe recommendation requests no longer holding up the server for seconds.",
+      "body": [
+        "Music Assistant reduces pauses caused by finding similar tracks in a large library. The affected searches could freeze the whole server, including music streams, while choosing a varied set of recommendations.",
+        "In Marcel van der Veldt’s 50,000-track test on an Apple Silicon Mac, a demanding request fell from a 17-second freeze to 12 milliseconds. It requested 100 tracks with five starting tracks, a search depth of five and diversity set to 0.2. Default similar-track settings stayed at two milliseconds; the selected tracks and their order stay the same."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 86,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5207707806",
+          "title": "Similar tracks and the Discover row no longer freeze the server on large libraries",
+          "url": "https://github.com/music-assistant/server/pull/7437",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-realtek-pulse-readings",
+      "title": "ESPHome restores pulse and input readings on RTL8720C devices",
+      "dek": "The Realtek chip keeps reporting signal changes instead of stopping after the first one.",
+      "body": [
+        "ESPHome repairs pulse counting and interrupt-driven inputs on devices using the RTL8720C chip. Reading an input could disable the mechanism that reports its changes, leaving pulse counters at zero and binary sensors stuck after their first change.",
+        "J. Nick Koston makes those reads preserve the active interrupt. Tests on a BW15 board restored counting with the default pulse filter and kept a binary sensor following a changing signal. The correction is specific to RTL8720C; it does not resolve different pulse-counting limitations on RTL8710B or Beken chips."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 84,
+      "contributors": [
+        "bdraco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "reviewers": [
+        "swoboda1337"
+      ],
+      "approvers": [
+        "swoboda1337"
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5198932393",
+          "title": "[libretiny] Read pins in interrupts without detaching the interrupt on Realtek",
+          "url": "https://github.com/esphome/esphome/pull/22400",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "lyon-transit-alert-calendars",
+      "title": "Lyon transit disruptions gain calendars in Home Assistant",
+      "dek": "Alerts are grouped by transit line and retain their start and end dates.",
+      "body": [
+        "Home Assistant’s Grand Lyon data integration adds calendars for transit-network alerts. People can follow the alerts for a chosen line with their start and end dates.",
+        "The integration retrieves the network’s alerts together and presents them by line. It includes all alert kinds rather than choosing which disruptions deserve priority."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 82,
+      "contributors": [
+        "Crocmagnon"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "Crocmagnon",
+          "name": "Crocmagnon",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/3630554?v=4",
+          "profileUrl": "https://github.com/Crocmagnon"
+        }
+      ],
+      "reviewers": [
+        "silamon"
+      ],
+      "approvers": [
+        "silamon"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4446873477",
+          "title": "data_grand_lyon alerts",
+          "url": "https://github.com/home-assistant/core/pull/181339",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "bsblan-active-heating-target",
+      "title": "Home Assistant shows the temperature BSB-LAN is actually targeting",
+      "dek": "Heating schedules and temporary overrides no longer leave the climate card showing the comfort setting throughout.",
+      "body": [
+        "Home Assistant’s BSB-LAN climate control shows the temperature the heating controller is applying. It previously displayed the comfort setting even while an automatic schedule or room unit selected a different target.",
+        "In heating mode, changing the target adjusts the active comfort or reduced setting. In automatic or off mode, those temperatures must be edited through their separate number controls instead. Presets in automatic mode temporarily override the schedule; selecting automatic again ends the override.",
+        "The Comfort preset replaces None, and permanent reduced heating appears as Heat with the Eco preset. Controllers on the PPS bus no longer expose presets."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 80,
+      "contributors": [
+        "piitaya"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "piitaya",
+          "name": "Paul Bottein",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5878303?v=4",
+          "profileUrl": "https://github.com/piitaya"
+        }
+      ],
+      "reviewers": [
+        "liudger",
+        "silamon"
+      ],
+      "approvers": [
+        "liudger",
+        "silamon"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4955164556",
+          "title": "Show the active setpoint as the BSB-LAN climate target",
+          "url": "https://github.com/home-assistant/core/pull/187891",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "homematic-cloud-throttle-cooldown",
+      "title": "Home Assistant stops prolonging Homematic cloud blocks",
+      "dek": "Setup waits out the cloud service’s cooldown instead of repeatedly requesting the whole home.",
+      "body": [
+        "Home Assistant waits when Homematic IP Cloud blocks an address for making too many requests. Previously, setup retried about every eighty seconds and downloaded the home’s state again, which could extend the block and keep the connection unavailable for hours.",
+        "The integration respects the fifteen-minute cooldown remembered after a rate-limit response and shows the remaining wait in its setup status. Installations that are not being throttled keep their existing behavior."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "lackas"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "lackas",
+          "name": "Christian Lackas",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1557396?v=4",
+          "profileUrl": "https://github.com/lackas"
+        }
+      ],
+      "reviewers": [
+        "thecode"
+      ],
+      "approvers": [
+        "thecode"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5168277839",
+          "title": "Wait out a HomematicIP Cloud throttle instead of retrying the setup against it",
+          "url": "https://github.com/home-assistant/core/pull/190546",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "forecast-solar-hourly-periods",
+      "title": "Forecast.Solar’s library puts energy estimates in the right hour",
+      "dek": "Current-hour and next-hour calculations were each reading the preceding period.",
+      "body": [
+        "Forecast.Solar’s Python library corrects hourly energy estimates that were shifted back by one period. Its current-hour value contained the previous hour’s energy, while the calculation used for Home Assistant’s next-hour sensor returned the current hour instead.",
+        "The correction follows the service’s timestamps, which mark the end of each measurement period. Tests cover hourly and fifteen-minute forecasts. It is Tagliax’s first contribution to the library; the separate remaining-energy-today calculation is unchanged."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 74,
+      "contributors": [
+        "Tagliax"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "Tagliax",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/112966866?v=4",
+          "profileUrl": "https://github.com/Tagliax"
+        }
+      ],
+      "reviewers": [
+        "klaasnicolaas"
+      ],
+      "approvers": [
+        "klaasnicolaas"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5023229204",
+          "title": "Count energy values for the period that ends at their timestamp",
+          "url": "https://github.com/home-assistant-libs/forecast_solar/pull/465",
+          "repository": "home-assistant-libs/forecast_solar"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-gy39-environment-sensing",
+      "title": "ESPHome reads light and weather measurements from GY-39 modules",
+      "dek": "One wired module supplies illuminance, temperature, humidity, pressure and altitude.",
+      "body": [
+        "ESPHome adds support for the GY-39 environment module, giving makers five optional readings through one I²C connection: light level, temperature, humidity, pressure and altitude.",
+        "The driver reads the measurements together and handles temperatures below freezing and altitude below sea level. Stefan Kaps contributes the component and its configuration guide in his first contributions to ESPHome and its documentation."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 72,
+      "contributors": [
+        "St0fF-NPL-ToM"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "St0fF-NPL-ToM",
+          "name": "Stefan Kaps",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/11975636?v=4",
+          "profileUrl": "https://github.com/St0fF-NPL-ToM"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "4949512576",
+          "title": "[gy39] Add the GY-39 environment sensor",
+          "url": "https://github.com/esphome/esphome/pull/21265",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "4959571679",
+          "title": "[gy39] Add the GY-39 environment sensor",
+          "url": "https://github.com/esphome/esphome.io/pull/7852",
+          "repository": "esphome/esphome.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-deezer-high-resolution",
+      "title": "Music Assistant reads Deezer’s real audio quality before playback",
+      "dek": "High-resolution FLAC tracks avoid being reduced to CD quality inside the playback buffer.",
+      "body": [
+        "Music Assistant checks a Deezer FLAC track’s actual sample rate and bit depth before playback. Deezer labels both CD-quality and higher-resolution files as FLAC, so the provider had declared every track as 44.1 kHz and 16-bit and reduced higher-quality audio before sending it on. This extends October’s format correction to Deezer’s provider-specific streams, which the earlier change excluded.",
+        "A test with a Sendspin player and USB audio converter preserved an 88.2 kHz, 24-bit track from its first play, while a CD-quality track remained at 44.1 kHz. The check is cached, and a failed format lookup leaves the previous playback path in place. Jean-Philippe Menil makes his first contribution to Music Assistant’s server with the correction."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 70,
+      "contributors": [
+        "jpmenil"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "jpmenil",
+          "name": "Jean-Philippe Menil",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5759916?v=4",
+          "profileUrl": "https://github.com/jpmenil"
+        }
+      ],
+      "reviewers": [
+        "OzGav"
+      ],
+      "approvers": [
+        "OzGav"
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5185998513",
+          "title": "Play Deezer hi-res tracks at their real sample rate and bit depth",
+          "url": "https://github.com/music-assistant/server/pull/7403",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ],
+  "roadmapUpdates": []
+}
