@@ -1,0 +1,1758 @@
+{
+  "date": "2026-11-09",
+  "generatedAt": "2026-11-09T05:08:56.483Z",
+  "windowStart": "2026-11-08T05:05:31.773Z",
+  "windowEnd": "2026-11-09T05:05:31.773Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 216,
+    "repositories": 26,
+    "contributors": 68,
+    "dependencyUpdates": 72,
+    "hacsNewIntegrations": 0
+  },
+  "lead": {
+    "id": "5207239221",
+    "title": "Turn on offline players through their power control",
+    "summary": "What does this implement/fix? A player that is switched off at a smart plug goes offline, and Music Assistant then refused every command to it, including power on.",
+    "url": "https://github.com/music-assistant/server/pull/7435",
+    "repository": "music-assistant/server",
+    "organization": "Music Assistant",
+    "author": "marcelveldt",
+    "mergedAt": "2026-11-08T18:58:23Z",
+    "labels": [
+      "enhancement"
+    ],
+    "kind": "platform",
+    "score": 73.2,
+    "additions": 1558,
+    "deletions": 125,
+    "changedFiles": 46
+  },
+  "highlights": [
+    {
+      "id": "5084968215",
+      "title": "[canbus] Add support for MCP251xFD series of CAN FD SPI Controllers",
+      "summary": "What does this implement/fix? This PR adds a canbus component for using the Microchip MCP2517FD, MCP2518FD and MCP251863 series of external CAN FD SPI controllers with ESPHome.",
+      "unlocks": "Unlocks: [canbus] Add support for MCP251xFD series of CAN FD SPI Controllers.",
+      "url": "https://github.com/esphome/esphome/pull/21951",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "jc2a",
+      "mergedAt": "2026-11-08T13:07:23Z",
+      "labels": [
+        "new-component",
+        "new-feature",
+        "has-tests",
+        "new-platform",
+        "component: mcp251xfd"
+      ],
+      "kind": "feature",
+      "score": 70.9,
+      "additions": 1924,
+      "deletions": 0,
+      "changedFiles": 21
+    },
+    {
+      "id": "5164292935",
+      "title": "[tuya] Support string datapoints for fan and select devices",
+      "summary": "What does this implement/fix? The Tuya fan and select devices already supported int and enum datatypes; this supports string datatypes too.",
+      "unlocks": "Unlocks: [tuya] Support string datapoints for fan and select devices.",
+      "url": "https://github.com/esphome/esphome/pull/22289",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "dwmw2",
+      "mergedAt": "2026-11-08T17:32:30Z",
+      "labels": [
+        "new-feature",
+        "component: tuya",
+        "has-tests"
+      ],
+      "kind": "feature",
+      "score": 64.9,
+      "additions": 293,
+      "deletions": 50,
+      "changedFiles": 9
+    },
+    {
+      "id": "5215141752",
+      "title": "Power off idle players through their power control",
+      "summary": "What does this implement/fix? Music Assistant can switch on a player through its power control, such as a Home Assistant smart plug, when you play to it or an announcement comes in (#7435).",
+      "url": "https://github.com/music-assistant/server/pull/7446",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-09T01:52:39Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 58.6,
+      "additions": 440,
+      "deletions": 15,
+      "changedFiles": 8
+    },
+    {
+      "id": "5161017620",
+      "title": "Enable seeded random sorting in paginated listings",
+      "summary": "What does this implement/fix? Enables Random and Random (least played first) sorting in paginated library and genre listings.",
+      "url": "https://github.com/music-assistant/frontend/pull/3113",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "dmoo500",
+      "mergedAt": "2026-11-08T13:52:57Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 58.1,
+      "additions": 246,
+      "deletions": 19,
+      "changedFiles": 14
+    }
+  ],
+  "briefs": [
+    {
+      "id": "5187115079",
+      "title": "Add the E3/DC sensors that newer firmware serves",
+      "summary": "Breaking change Proposed change This PR adds the E3/DC sensors that newer firmware serves.",
+      "unlocks": "Unlocks: Add the E3/DC sensors that newer firmware serves.",
+      "url": "https://github.com/home-assistant/core/pull/190878",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "AlCalzone",
+      "mergedAt": "2026-11-08T13:43:36Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality-scale",
+        "quality scale: bronze",
+        "integration: e3dc"
+      ],
+      "kind": "feature",
+      "score": 57.3,
+      "additions": 848,
+      "deletions": 11,
+      "changedFiles": 9
+    },
+    {
+      "id": "5128189831",
+      "title": "Require admin for System Bridge host actions and raise on failure",
+      "summary": "Breaking change The System Bridge power command , open path , open url , send keypress and send text actions now need an admin user, as they control the host.",
+      "unlocks": "Unlocks: Require admin for System Bridge host actions and raise on failure.",
+      "url": "https://github.com/home-assistant/core/pull/190128",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "timmo001",
+      "mergedAt": "2026-11-08T12:15:44Z",
+      "labels": [
+        "breaking-change",
+        "cla-signed",
+        "has-tests",
+        "by-code-owner",
+        "integration: system_bridge",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 56.5,
+      "additions": 219,
+      "deletions": 28,
+      "changedFiles": 3
+    },
+    {
+      "id": "5175084342",
+      "title": "Add Plugwise preset numbers",
+      "summary": "This adds a number entity for each preset temperature of a zone, so users of an Adam (and a non legacy Anna) can change the temperature set point of their presets.",
+      "unlocks": "Unlocks: Add Plugwise preset numbers.",
+      "url": "https://github.com/home-assistant/core/pull/190677",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "bouwew",
+      "mergedAt": "2026-11-08T12:14:33Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "integration: plugwise",
+        "by-code-owner",
+        "quality scale: platinum"
+      ],
+      "kind": "feature",
+      "score": 56,
+      "additions": 4041,
+      "deletions": 157,
+      "changedFiles": 7
+    },
+    {
+      "id": "5109447260",
+      "title": "Add diagnostics to Panasonic Viera",
+      "summary": "Breaking change Proposed change Add a diagnostics platform to Panasonic Viera.",
+      "unlocks": "Unlocks: Add diagnostics to Panasonic Viera.",
+      "url": "https://github.com/home-assistant/core/pull/189875",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "jerome-pouiller",
+      "mergedAt": "2026-11-08T16:18:11Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "integration: panasonic_viera",
+        "has-tests",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 54.9,
+      "additions": 378,
+      "deletions": 0,
+      "changedFiles": 5
+    },
+    {
+      "id": "5210626329",
+      "title": "Deezer: more metadata and a few small improvements",
+      "summary": "What does this implement/fix? Uses more of what Deezer already returns, plus a few small improvements.",
+      "url": "https://github.com/music-assistant/server/pull/7441",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "jdaberkow",
+      "mergedAt": "2026-11-09T02:28:45Z",
+      "labels": [
+        "enhancement",
+        "dependencies-reviewed"
+      ],
+      "kind": "platform",
+      "score": 54.2,
+      "additions": 370,
+      "deletions": 15,
+      "changedFiles": 12
+    },
+    {
+      "id": "5212918508",
+      "title": "[core][components] Use standard helpers and ternaries for if/else blocks that pick a value",
+      "summary": "What does this implement/fix? Replaces 86 if/else blocks that only pick a value, in 43 components and esphome/core , with a standard helper where one fits and a one line ternary otherwise (+93 / −446 lines).",
+      "url": "https://github.com/esphome/esphome/pull/22425",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-08T18:18:46Z",
+      "labels": [
+        "core",
+        "code-quality",
+        "by-code-owner",
+        "platform: esp8266",
+        "mega-pr"
+      ],
+      "kind": "platform",
+      "score": 53.2,
+      "additions": 98,
+      "deletions": 449,
+      "changedFiles": 50
+    },
+    {
+      "id": "5204234856",
+      "title": "Stop adding MediaItemImage objects for images outside of subsonic",
+      "summary": "What does this implement/fix? The proivder parser for artists and albums would include all images found in the subsonic metadata, regardless of where they are hosted.",
+      "url": "https://github.com/music-assistant/server/pull/7431",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "khers",
+      "mergedAt": "2026-11-08T20:54:51Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 53.1,
+      "additions": 119,
+      "deletions": 127,
+      "changedFiles": 7
+    },
+    {
+      "id": "5066916392",
+      "title": "Add reauthentication to A Better Routeplanner",
+      "summary": "Breaking change Proposed change Adds a reauthentication flow to A Better Routeplanner.",
+      "unlocks": "Unlocks: Add reauthentication to A Better Routeplanner.",
+      "url": "https://github.com/home-assistant/core/pull/189427",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "mtandersson",
+      "mergedAt": "2026-11-08T12:23:31Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality-scale",
+        "quality scale: bronze",
+        "integration: abrp"
+      ],
+      "kind": "feature",
+      "score": 52.2,
+      "additions": 161,
+      "deletions": 23,
+      "changedFiles": 6
+    },
+    {
+      "id": "5217271380",
+      "title": "Player split: plugins follow player availability",
+      "summary": "What does this implement/fix? Part of the player split (one player per device, providers attach to it).",
+      "url": "https://github.com/music-assistant/server/pull/7449",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-09T01:54:52Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 52,
+      "additions": 628,
+      "deletions": 51,
+      "changedFiles": 22
+    },
+    {
+      "id": "5200744301",
+      "title": "Add Natede and Eteria air quality sensors to Vitesy",
+      "summary": "Add Natede and Eteria air quality sensors to Vitesy Type of change Dependency upgrade Bugfix (non breaking change which fixes an issue) New integration (thank you!) New feature (which adds…",
+      "unlocks": "Unlocks: Add Natede and Eteria air quality sensors to Vitesy.",
+      "url": "https://github.com/home-assistant/core/pull/191037",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "chemelli74",
+      "mergedAt": "2026-11-08T23:34:23Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze",
+        "integration: vitesy"
+      ],
+      "kind": "feature",
+      "score": 51.6,
+      "additions": 637,
+      "deletions": 5,
+      "changedFiles": 5
+    },
+    {
+      "id": "5155131499",
+      "title": "Add Shelly switch usage counter sensors",
+      "summary": "Add Shelly switch usage counter sensors Implement feature request https://github.com/orgs/home assistant/discussions/4617 Since firmware 2.0.0, Shelly switch components report usage counters…",
+      "unlocks": "Unlocks: Add Shelly switch usage counter sensors.",
+      "url": "https://github.com/home-assistant/core/pull/190393",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "thecode",
+      "mergedAt": "2026-11-08T12:19:58Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "integration: shelly",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: platinum",
+        "top 200",
+        "top 50",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 50.8,
+      "additions": 347,
+      "deletions": 0,
+      "changedFiles": 5
+    },
+    {
+      "id": "5184619805",
+      "title": "Squeezelite: report the player names set in Music Assistant to the clients",
+      "summary": "What does this implement/fix? Renaming a Squeezelite/Squeezebox player in Music Assistant doesn't change its name on the device or in other devices' \"Choose player\" lists.",
+      "unlocks": "Unlocks: Squeezelite: report the player names set in Music Assistant to the clients.",
+      "url": "https://github.com/music-assistant/server/pull/7402",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "lawrence-jeff",
+      "mergedAt": "2026-11-08T20:57:56Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 50.7,
+      "additions": 28,
+      "deletions": 0,
+      "changedFiles": 2
+    },
+    {
+      "id": "5217295191",
+      "title": "Player split: providers look up their own players through the provider",
+      "summary": "What does this implement/fix? Part of the player split (one player per device, providers attach to it).",
+      "url": "https://github.com/music-assistant/server/pull/7450",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-09T01:54:48Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 49.6,
+      "additions": 419,
+      "deletions": 310,
+      "changedFiles": 100
+    },
+    {
+      "id": "5210276779",
+      "title": "Add OpenAI Images 2.6 support",
+      "summary": "Add Images 2.6 support for OpenAI.",
+      "unlocks": "Unlocks: Add OpenAI Images 2.6 support.",
+      "url": "https://github.com/home-assistant/core/pull/191189",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "Shulyaka",
+      "mergedAt": "2026-11-08T12:19:00Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "integration: openai_conversation",
+        "quality scale: bronze",
+        "top 200"
+      ],
+      "kind": "feature",
+      "score": 49.4,
+      "additions": 27,
+      "deletions": 3,
+      "changedFiles": 4
+    },
+    {
+      "id": "5211877006",
+      "title": "Add an energy sensor for Shelly fan component",
+      "summary": "Breaking change Proposed change Adds an energy sensor for Shelly fan component Type of change Dependency upgrade Bugfix (non breaking change which fixes an issue) New integration (thank you!",
+      "unlocks": "Unlocks: Add an energy sensor for Shelly fan component.",
+      "url": "https://github.com/home-assistant/core/pull/191263",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "bieniu",
+      "mergedAt": "2026-11-08T17:10:35Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "new-feature",
+        "integration: shelly",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: platinum",
+        "top 200",
+        "top 50",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 49.3,
+      "additions": 37,
+      "deletions": 0,
+      "changedFiles": 2
+    },
+    {
+      "id": "5202830828",
+      "title": "Add diagnostics to Vitesy",
+      "summary": "Add diagnostics to Vitesy Type of change Dependency upgrade Bugfix (non breaking change which fixes an issue) New integration (thank you!) New feature (which adds functionality to an…",
+      "unlocks": "Unlocks: Add diagnostics to Vitesy.",
+      "url": "https://github.com/home-assistant/core/pull/191081",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "chemelli74",
+      "mergedAt": "2026-11-08T15:29:57Z",
+      "labels": [
+        "cla-signed",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality-scale",
+        "quality scale: bronze",
+        "integration: vitesy"
+      ],
+      "kind": "feature",
+      "score": 48.8,
+      "additions": 178,
+      "deletions": 1,
+      "changedFiles": 4
+    },
+    {
+      "id": "5211645215",
+      "title": "Add an humidity level sensor for Shelly fan component",
+      "summary": "Breaking change Proposed change Adds an humidity level sensor for Shelly fan component.",
+      "unlocks": "Unlocks: Add an humidity level sensor for Shelly fan component.",
+      "url": "https://github.com/home-assistant/core/pull/191253",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "bieniu",
+      "mergedAt": "2026-11-08T13:50:44Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "new-feature",
+        "integration: shelly",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: platinum",
+        "top 200",
+        "top 50",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 47.4,
+      "additions": 62,
+      "deletions": 0,
+      "changedFiles": 4
+    },
+    {
+      "id": "5216905551",
+      "title": "2026.11.0b3",
+      "summary": "Do not merge, release script will automatically merge [vl53l0x] Recover from a failed I2C read instead of stalling esphome#19235 [ht16k33] Rename display off method esphome#22352 [core] Add…",
+      "url": "https://github.com/esphome/esphome/pull/22442",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "jesserockz",
+      "mergedAt": "2026-11-09T01:04:52Z",
+      "labels": [
+        "merging-to-beta"
+      ],
+      "kind": "platform",
+      "score": 47,
+      "additions": 619,
+      "deletions": 60,
+      "changedFiles": 41
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Bump solaredge-web to 0.5.1",
+      "url": "https://github.com/home-assistant/core/pull/191188",
+      "repository": "home-assistant/core",
+      "author": "tronikos"
+    },
+    {
+      "title": "Bump python-google-maps-routing-api to 0.0.4",
+      "url": "https://github.com/home-assistant/core/pull/191234",
+      "repository": "home-assistant/core",
+      "author": "tronikos"
+    },
+    {
+      "title": "Bump python-google-weather-api to 0.0.10",
+      "url": "https://github.com/home-assistant/core/pull/191235",
+      "repository": "home-assistant/core",
+      "author": "tronikos"
+    },
+    {
+      "title": "Bump aioswitcher to 6.5.0",
+      "url": "https://github.com/home-assistant/core/pull/191336",
+      "repository": "home-assistant/core",
+      "author": "thecode"
+    },
+    {
+      "title": "Bump opower to 0.23.1",
+      "url": "https://github.com/home-assistant/core/pull/191341",
+      "repository": "home-assistant/core",
+      "author": "tronikos"
+    },
+    {
+      "title": "Bump plexwebsocket to 0.1.0",
+      "url": "https://github.com/home-assistant/core/pull/191320",
+      "repository": "home-assistant/core",
+      "author": "jjlawren"
+    },
+    {
+      "title": "Bump mitsubishi-comfort to 0.6.2",
+      "url": "https://github.com/home-assistant/core/pull/191299",
+      "repository": "home-assistant/core",
+      "author": "nikolairahimi"
+    },
+    {
+      "title": "Bump androidtvremote2 to 0.3.3",
+      "url": "https://github.com/home-assistant/core/pull/191214",
+      "repository": "home-assistant/core",
+      "author": "tronikos"
+    },
+    {
+      "title": "Bump lorawan-connection to 1.3.2",
+      "url": "https://github.com/home-assistant/core/pull/191271",
+      "repository": "home-assistant/core",
+      "author": "balloob"
+    },
+    {
+      "title": "Update dependency io.sentry:sentry-android-core to v8.63.0",
+      "url": "https://github.com/home-assistant/android/pull/7833",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update com.android.*",
+      "url": "https://github.com/home-assistant/android/pull/7835",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump python-google-drive-api to 0.2.1",
+      "url": "https://github.com/home-assistant/core/pull/191233",
+      "repository": "home-assistant/core",
+      "author": "tronikos"
+    },
+    {
+      "title": "Bump serialize-javascript from 7.1.0 to 7.1.4",
+      "url": "https://github.com/home-assistant/frontend/pull/55758",
+      "repository": "home-assistant/frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump undici from 6.29.0 to 6.29.1",
+      "url": "https://github.com/home-assistant/frontend/pull/55757",
+      "repository": "home-assistant/frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump fast-uri from 3.1.8 to 3.1.9",
+      "url": "https://github.com/home-assistant/frontend/pull/55756",
+      "repository": "home-assistant/frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Update dependency jsdom to v31",
+      "url": "https://github.com/home-assistant/frontend/pull/55755",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency @rslib/core to v1.0.6",
+      "url": "https://github.com/home-assistant/frontend/pull/55754",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump python-roborock to 7.17.0",
+      "url": "https://github.com/home-assistant/core/pull/191293",
+      "repository": "home-assistant/core",
+      "author": "lboue"
+    },
+    {
+      "title": "Bump velbus-aio to 2026.11.0",
+      "url": "https://github.com/home-assistant/core/pull/191095",
+      "repository": "home-assistant/core",
+      "author": "cereal2nd"
+    },
+    {
+      "title": "bump pyvesync to 3.5.1",
+      "url": "https://github.com/home-assistant/core/pull/191265",
+      "repository": "home-assistant/core",
+      "author": "cdnninja"
+    },
+    {
+      "title": "Bump renault-api to v0.6.3",
+      "url": "https://github.com/home-assistant/core/pull/191068",
+      "repository": "home-assistant/core",
+      "author": "empty88"
+    },
+    {
+      "title": "Bump lorawan-connection to 1.3.1",
+      "url": "https://github.com/home-assistant/core/pull/191052",
+      "repository": "home-assistant/core",
+      "author": "balloob"
+    },
+    {
+      "title": "Bump python-roborock to 7.16.0",
+      "url": "https://github.com/home-assistant/core/pull/191211",
+      "repository": "home-assistant/core",
+      "author": "lboue"
+    },
+    {
+      "title": "Bump pygeosphere-warnings to 0.2.1",
+      "url": "https://github.com/home-assistant/core/pull/191232",
+      "repository": "home-assistant/core",
+      "author": "tklecka"
+    },
+    {
+      "title": "Bump aioshelly to 14.2.0",
+      "url": "https://github.com/home-assistant/core/pull/191216",
+      "repository": "home-assistant/core",
+      "author": "thecode"
+    },
+    {
+      "title": "Bump aiowebostv to 1.0.1",
+      "url": "https://github.com/home-assistant/core/pull/191134",
+      "repository": "home-assistant/core",
+      "author": "thecode"
+    },
+    {
+      "title": "Update dawidd6/action-download-artifact action to v28",
+      "url": "https://github.com/home-assistant/core/pull/191165",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update actions/setup-java action to v6.2.0",
+      "url": "https://github.com/home-assistant/android/pull/7831",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency vite to v8.3.6",
+      "url": "https://github.com/home-assistant/frontend/pull/55751",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump knx-frontend to 2026.11.8.11926",
+      "url": "https://github.com/home-assistant/core/pull/191159",
+      "repository": "home-assistant/core",
+      "author": "farmio"
+    },
+    {
+      "title": "Update zeroconf to 0.153.0",
+      "url": "https://github.com/home-assistant/core/pull/191163",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update pytest-codspeed to 5.0.4",
+      "url": "https://github.com/home-assistant/core/pull/191162",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump iZone to silver quality scale",
+      "url": "https://github.com/home-assistant/core/pull/191070",
+      "repository": "home-assistant/core",
+      "author": "Swamp-Ig"
+    },
+    {
+      "title": "Bump guppy3 to 3.2.0",
+      "url": "https://github.com/home-assistant/core/pull/191164",
+      "repository": "home-assistant/core",
+      "author": "eshattow"
+    },
+    {
+      "title": "Bump pyrainbird to 6.10.0",
+      "url": "https://github.com/home-assistant/core/pull/191166",
+      "repository": "home-assistant/core",
+      "author": "allenporter"
+    },
+    {
+      "title": "Bump aiohpprinter to 3.7.0",
+      "url": "https://github.com/home-assistant/core/pull/191097",
+      "repository": "home-assistant/core",
+      "author": "chemelli74"
+    },
+    {
+      "title": "Bump aiovitesy to 1.4.8",
+      "url": "https://github.com/home-assistant/core/pull/191098",
+      "repository": "home-assistant/core",
+      "author": "chemelli74"
+    },
+    {
+      "title": "Bump aioengiebelgium to 0.13.0",
+      "url": "https://github.com/home-assistant/core/pull/191092",
+      "repository": "home-assistant/core",
+      "author": "DaanVervacke"
+    },
+    {
+      "title": "Bump victron-mqtt to 2026.11.1",
+      "url": "https://github.com/home-assistant/core/pull/191123",
+      "repository": "home-assistant/core",
+      "author": "tomer-w"
+    },
+    {
+      "title": "Update dependency temporal-polyfill to v1.0.8",
+      "url": "https://github.com/home-assistant/frontend/pull/55749",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update pnpm to v12.18.0",
+      "url": "https://github.com/home-assistant/frontend/pull/55750",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): lock file maintenance",
+      "url": "https://github.com/home-assistant-libs/home-assistant-bluetooth/pull/141",
+      "repository": "home-assistant-libs/home-assistant-bluetooth",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Lock file maintenance",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/747",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump types-requests from 2.33.0.20261006 to 2.33.0.20261030",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1372",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump prek from 0.5.7 to 0.5.10",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1370",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump pytest-asyncio from 1.4.1 to 1.4.1.post1",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1369",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump the \"ty-checker\" group with 2 updates across multiple ecosystems",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1371",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump zeroconf from 0.151.5 to 0.153.0",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1367",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump tox from 4.67.4 to 4.67.11",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1368",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): update dependency bleak to v3.1.0",
+      "url": "https://github.com/home-assistant-libs/home-assistant-bluetooth/pull/140",
+      "repository": "home-assistant-libs/home-assistant-bluetooth",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump @astrojs/starlight from 0.41.7 to 0.42.9",
+      "url": "https://github.com/esphome/devices.esphome.io/pull/1973",
+      "repository": "esphome/devices.esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump astro from 7.3.1 to 7.4.7",
+      "url": "https://github.com/esphome/devices.esphome.io/pull/1972",
+      "repository": "esphome/devices.esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump @astrojs/markdown-remark from 7.3.5 to 7.3.6",
+      "url": "https://github.com/esphome/devices.esphome.io/pull/1971",
+      "repository": "esphome/devices.esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump the shared-workflows group across 1 directory with 5 updates",
+      "url": "https://github.com/esphome/rf-proxies/pull/31",
+      "repository": "esphome/rf-proxies",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump the shared-workflows group across 1 directory with 5 updates",
+      "url": "https://github.com/esphome/serial-proxies/pull/16",
+      "repository": "esphome/serial-proxies",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump the shared-workflows group across 1 directory with 5 updates",
+      "url": "https://github.com/esphome/bluetooth-proxies/pull/201",
+      "repository": "esphome/bluetooth-proxies",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump frontend to 0.1.384",
+      "url": "https://github.com/esphome/device-builder/pull/3047",
+      "repository": "esphome/device-builder",
+      "author": "esphome[bot]"
+    },
+    {
+      "title": "Bump pytest-asyncio from 1.4.1 to 1.4.1.post1",
+      "url": "https://github.com/music-assistant/aioslimproto/pull/598",
+      "repository": "music-assistant/aioslimproto",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump ruff from 0.17.3 to 0.17.4",
+      "url": "https://github.com/music-assistant/aioslimproto/pull/597",
+      "repository": "music-assistant/aioslimproto",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump pywam from 0.2.0 to 0.2.3",
+      "url": "https://github.com/music-assistant/server/pull/7322",
+      "repository": "music-assistant/server",
+      "author": "FSund"
+    },
+    {
+      "title": "chore(deps-dev): Bump oxlint from 1.90.0 to 1.91.0",
+      "url": "https://github.com/matter-js/matter.js/pull/4887",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps-dev): Bump oxlint-tsgolint from 7.0.2005 to 7.0.2006",
+      "url": "https://github.com/matter-js/matter.js/pull/4837",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps-dev): Bump oxfmt from 0.73.0 to 0.76.0",
+      "url": "https://github.com/matter-js/matter.js/pull/4890",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): Bump react-native-quick-crypto from 1.1.8 to 1.1.9",
+      "url": "https://github.com/matter-js/matter.js/pull/4893",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps-dev): Bump node-datachannel from 0.33.4 to 0.33.6",
+      "url": "https://github.com/matter-js/matter.js/pull/4894",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): Bump @types/node from 26.6.5 to 26.6.6",
+      "url": "https://github.com/matter-js/matter.js/pull/4886",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): Bump memlab from 2.0.5 to 2.0.6",
+      "url": "https://github.com/matter-js/matter.js/pull/4891",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): Bump @memlab/api from 2.0.5 to 2.0.6",
+      "url": "https://github.com/matter-js/matter.js/pull/4892",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "[WIP] chore(deps-dev): Bump oxlint from 1.88.0 to 1.90.0",
+      "url": "https://github.com/matter-js/matter.js/pull/4897",
+      "repository": "matter-js/matter.js",
+      "author": "Copilot"
+    },
+    {
+      "title": "chore(deps): bump pytest-asyncio from 1.4.1 to 1.4.1.post1",
+      "url": "https://github.com/Bluetooth-Devices/aiodiscover/pull/305",
+      "repository": "Bluetooth-Devices/aiodiscover",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps-dev): bump pytest-asyncio from 1.4.1 to 1.4.1.post1",
+      "url": "https://github.com/Bluetooth-Devices/habluetooth/pull/655",
+      "repository": "Bluetooth-Devices/habluetooth",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps-dev): bump pytest-codspeed from 5.0.3 to 5.0.4",
+      "url": "https://github.com/Bluetooth-Devices/habluetooth/pull/654",
+      "repository": "Bluetooth-Devices/habluetooth",
+      "author": "dependabot[bot]"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 121,
+      "thisWeek": 1430,
+      "sinceRelease": 844,
+      "lastReleaseDate": "2026-11-04"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 31,
+      "thisWeek": 240,
+      "sinceRelease": 266,
+      "lastReleaseDate": "2026-10-30"
+    },
+    {
+      "product": "ESPHome",
+      "today": 37,
+      "thisWeek": 469,
+      "sinceRelease": 1515,
+      "lastReleaseDate": "2026-10-21"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "esphome/esphome:438641510",
+      "product": "ESPHome",
+      "repository": "esphome/esphome",
+      "name": "2026.11.0b3",
+      "tag": "2026.11.0b3",
+      "url": "https://github.com/esphome/esphome/releases/tag/2026.11.0b3",
+      "publishedAt": "2026-11-09T01:04:57Z",
+      "channel": "prerelease",
+      "accent": "green",
+      "sourcePullRequestIds": [
+        "5216905551"
+      ]
+    }
+  ],
+  "publishedPosts": [],
+  "releases": [
+    {
+      "product": "No device left behind",
+      "kind": "Event",
+      "date": "2026-11-11",
+      "accent": "blue",
+      "url": "https://www.home-assistant.io/no-device-left-behind/",
+      "sourceId": "home-assistant-page:dacc1535cab88700080aea3d"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-11-18",
+      "version": "2026.11",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-11-25",
+      "version": "2026.12",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-12-02",
+      "version": "2026.12",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-12-02",
+      "version": "2026.12",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-12-16",
+      "version": "2026.12",
+      "accent": "green"
+    }
+  ],
+  "communityMeetups": [
+    {
+      "id": "evt-QEzt2fYlUfSiP1J@events.lu.ma",
+      "title": "Home Assistant Community Hackathon: The Hague",
+      "url": "https://luma.com/cmsahysn",
+      "startAt": "2026-11-19T09:00:00.000Z",
+      "endAt": "2026-11-19T19:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-19",
+      "endDate": "2026-11-19",
+      "location": "https://luma.com/event/evt-QEzt2fYlUfSiP1J",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-87JtJwYoojgDwdR@events.lu.ma",
+      "title": "Home Assistant Meetup Köln",
+      "url": "https://luma.com/83fycwc9",
+      "startAt": "2026-12-03T17:00:00.000Z",
+      "endAt": "2026-12-03T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-12-03",
+      "endDate": "2026-12-03",
+      "location": "REWE Digital GmbH, Schanzenstraße 6-20, 51063 Köln, Germany",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-JrQQIH3uBJV4C3A@events.lu.ma",
+      "title": "Home Assistant Meetup - Carpi",
+      "url": "https://luma.com/yjfnms6a",
+      "startAt": "2026-12-12T08:30:00.000Z",
+      "endAt": "2026-12-12T11:30:00.000Z",
+      "allDay": false,
+      "date": "2026-12-12",
+      "endDate": "2026-12-12",
+      "location": "TERMINAL - Terre d’Argine Innovation Lab, Piazzale Allende Salvador, 5, 41012 Carpi MO, Italy",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    }
+  ],
+  "notes": [],
+  "articles": [
+    {
+      "id": "hue-gradient-segment-colors",
+      "title": "Home Assistant sets separate colors along Hue gradient lights",
+      "dek": "Each color point gets a control; brightness and power still apply to the whole light.",
+      "body": [
+        "Home Assistant gives Hue gradient lights a separate color control for each segment. Owners of compatible lights such as Play gradient lightstrips, Signe and Festavia can choose different colors along the light instead of setting only one color for the whole device.",
+        "The segment controls start hidden so room and device commands reach the main light rather than each color point separately. Owners can unhide them for dashboards. Brightness and power remain shared across the whole light, and scenes that change several segment colors send them to the Hue bridge together."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 96,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [
+        "silamon"
+      ],
+      "approvers": [
+        "silamon"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5188806659",
+          "title": "Add segment lights for Hue gradient lights",
+          "url": "https://github.com/home-assistant/core/pull/190905",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-speaker-power-cycle",
+      "title": "Music Assistant powers speakers on for playback and off when idle",
+      "dek": "Configured power controls can wake an offline speaker, then shut it down after a chosen idle period.",
+      "body": [
+        "Music Assistant can start music on a speaker that is switched off through a configured power control, such as a Home Assistant smart plug. The player appears as powered off instead of unavailable; starting playback turns its power on and waits up to ninety seconds for it to reconnect.",
+        "This also covers announcements and playback requested through Home Assistant, voice assistants and Spotify Connect. A stop or power-off request during startup cancels the waiting playback.",
+        "A separate Power off when idle setting switches a stopped player off after a chosen number of minutes. It starts disabled, and each grouped speaker follows its own timer. This completes the cycle for speakers that would otherwise remain powered after a single announcement."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 94,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5207239221",
+          "title": "Turn on offline players through their power control",
+          "url": "https://github.com/music-assistant/server/pull/7435",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5215141752",
+          "title": "Power off idle players through their power control",
+          "url": "https://github.com/music-assistant/server/pull/7446",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "android-notification-count-private-default",
+      "title": "Android notification counts leave message content out by default",
+      "dek": "Newly enabled count sensors require an explicit choice to include notification contents; existing setups retain their setting.",
+      "body": [
+        "People who newly enable the Home Assistant Android app’s active-notification count sensor get the count without notification content attached. Including that content becomes an option the phone owner turns on rather than the starting setting.",
+        "Existing setups keep their behavior. An already-enabled sensor with no saved choice retains content sharing, and an explicit setting is preserved. The separate last-notification sensor is unchanged."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 92,
+      "contributors": [
+        "TimoPtr"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "TimoPtr",
+          "name": "Timothy",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6560631?v=4",
+          "profileUrl": "https://github.com/TimoPtr"
+        }
+      ],
+      "reviewers": [
+        "jpelgrom"
+      ],
+      "approvers": [
+        "jpelgrom"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4789636277",
+          "title": "Stop sending content as attr in NotificationListenerSensorManager by default",
+          "url": "https://github.com/home-assistant/android/pull/7596",
+          "repository": "home-assistant/android"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "fitbit-google-health-migration",
+      "title": "Home Assistant directs Fitbit users to Google Health",
+      "dek": "The retired Fitbit connection cannot transfer its old sign-in credentials automatically.",
+      "body": [
+        "Home Assistant retires its Fitbit connection following Google’s November 2 shutdown of the legacy Fitbit Web API and sign-in endpoints. Existing installations receive a repair notice directing them to set up the Google Health integration.",
+        "Fitbit credentials and tokens cannot carry over to the new API. Owners need to set up Google Health and remove the old Fitbit entries from Devices & services; unused Fitbit credentials can also be removed from Application credentials."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 90,
+      "contributors": [
+        "allenporter"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "allenporter",
+          "name": "Allen Porter",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6026418?v=4",
+          "profileUrl": "https://github.com/allenporter"
+        }
+      ],
+      "reviewers": [
+        "MartinHjelmare"
+      ],
+      "approvers": [
+        "MartinHjelmare"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5207058514",
+          "title": "Remove Fitbit integration",
+          "url": "https://github.com/home-assistant/core/pull/191154",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-beken-power-recalibration",
+      "title": "ESPHome flags recalibration for affected Beken power meters",
+      "dek": "An old calibration can halve readings after the 2026.11 upgrade.",
+      "body": [
+        "ESPHome’s 2026.11 upgrade guidance asks owners of Beken smart plugs using an HLW8012-family power meter with inverted pins to calibrate their readings again. Older firmware counted some short pulses twice; the correction counts each once, so calibration tuned to the old behavior can make the new readings half as large.",
+        "The warning covers HLW8012, BL0937 and CSE7759 meters. Short pulses on non-inverted pins were previously missed and are now counted. Ordinary pulse counters using the default filter, and slower pulses such as those from water or gas meters, retain their previous counting behavior."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 88,
+      "contributors": [
+        "bdraco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "reviewers": [
+        "jesserockz"
+      ],
+      "approvers": [
+        "jesserockz"
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5196589876",
+          "title": "[changelog] Note hlw8012 recalibration on Beken plugs in 2026.11",
+          "url": "https://github.com/esphome/esphome.io/pull/8056",
+          "repository": "esphome/esphome.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "engie-capacity-tariff-peaks",
+      "title": "ENGIE Belgium shows the power peaks behind capacity tariffs",
+      "dek": "New readings identify the highest fifteen-minute average and when it occurred.",
+      "body": [
+        "Home Assistant’s ENGIE Belgium connection adds readings for capacity-tariff peaks. Households can see their highest fifteen-minute average power for the month, the energy used during that interval and its start and end times, alongside the most recent daily peak.",
+        "The readings refresh hourly. Early in a month, when ENGIE has not published a peak yet, they use the previous month’s value and identify it as a fallback. Daily peak history and the lower monthly peak that was replaced are also available as supporting details."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 86,
+      "contributors": [
+        "DaanVervacke"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "DaanVervacke",
+          "name": "Daan Vervacke",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/23398694?v=4",
+          "profileUrl": "https://github.com/DaanVervacke"
+        }
+      ],
+      "reviewers": [
+        "silamon"
+      ],
+      "approvers": [
+        "silamon"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5201094753",
+          "title": "Add capacity tariff peak sensors to ENGIE Belgium",
+          "url": "https://github.com/home-assistant/core/pull/191042",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-youtube-shared-sessions",
+      "title": "Music Assistant drops YouTube Music renewal that disrupted shared sign-ins",
+      "dek": "Tests reverse October’s approach: renewing one session copy could sign out another.",
+      "body": [
+        "Music Assistant removes the ten-minute YouTube Music session renewal introduced in October. Tests found that renewing one copy of a sign-in cookie could sign out another Music Assistant instance or a download script sharing that session about twenty minutes later.",
+        "Bautista Igarzabal tested five sessions from one account and found that renewal did not extend their lifetime; an untouched cookie remained valid for twenty-one days. Music Assistant still saves cookie updates sent during audio extraction. Existing setup values keep their format, and the guidance to close the browser window used to copy the cookie remains."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 84,
+      "contributors": [
+        "bbauti"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bbauti",
+          "name": "Bautista Igarzabal",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/68351913?v=4",
+          "profileUrl": "https://github.com/bbauti"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5216396030",
+          "title": "Stop refreshing the YouTube Music session from Music Assistant",
+          "url": "https://github.com/music-assistant/server/pull/7448",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-random-library-browsing",
+      "title": "Music Assistant adds random browsing that stays consistent as you scroll",
+      "dek": "Random and least-played-first choices stay consistent across pages, then reshuffle on refresh.",
+      "body": [
+        "Music Assistant adds Random and Random (least played first) sorting to library and genre listings. Loading more items keeps the same randomized order; refreshing the listing creates a new one.",
+        "The least-played choice puts items with lower play counts first and shuffles those with the same count. These web controls complete the server support added in October, which left the interface as a separate follow-up."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 82,
+      "contributors": [
+        "dmoo500"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "dmoo500",
+          "name": "DMoo",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/207219397?v=4",
+          "profileUrl": "https://github.com/dmoo500"
+        }
+      ],
+      "reviewers": [
+        "pierosavi",
+        "fmunkes"
+      ],
+      "approvers": [
+        "pierosavi",
+        "fmunkes"
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5161017620",
+          "title": "Enable seeded random sorting in paginated listings",
+          "url": "https://github.com/music-assistant/frontend/pull/3113",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "4907977854",
+          "title": "Keep seeded random listing order stable across pages",
+          "url": "https://github.com/music-assistant/server/pull/7078",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-11-09/music-assistant-random-library-browsing-8b14f087b445-452w.webp",
+          "alt": "Music Assistant sort menu with Random and Random (least played first) choices.",
+          "width": 452,
+          "height": 970,
+          "variants": [
+            {
+              "url": "/media/2026-11-09/music-assistant-random-library-browsing-8b14f087b445-452w.webp",
+              "width": 452,
+              "height": 970,
+              "bytes": 17964,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 17964
+        }
+      ]
+    },
+    {
+      "id": "esphome-external-can-fd-controllers",
+      "title": "ESPHome connects makers to CAN FD equipment",
+      "dek": "Three external controller chips support longer messages and faster data transfers.",
+      "body": [
+        "ESPHome adds support for Microchip’s MCP2517FD, MCP2518FD and MCP251863 controllers, giving makers a hardware connection for CAN FD, the extended version of the CAN device bus. Connected over SPI, they handle messages of up to 64 data bytes instead of classic CAN’s eight.",
+        "The component turns November 4’s message-handling groundwork into a hardware connection. Joe tested all three controller variants at data rates up to 5 Mbit/s, and the MCP2518FD at 8 Mbit/s.",
+        "The MCP2517FD has a hardware timing limitation that can still lose received messages or interrupt transmission. The driver warns when the controller reports the error and attempts to restore its configured mode."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 80,
+      "contributors": [
+        "jc2a"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "jc2a",
+          "name": "Joe",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2266618?v=4",
+          "profileUrl": "https://github.com/jc2a"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5084968215",
+          "title": "[canbus] Add support for MCP251xFD series of CAN FD SPI Controllers",
+          "url": "https://github.com/esphome/esphome/pull/21951",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "5085133282",
+          "title": "[canbus] Add doc for new MCP251xFD external CAN FD SPI Controller component",
+          "url": "https://github.com/esphome/esphome.io/pull/7985",
+          "repository": "esphome/esphome.io"
+        },
+        {
+          "id": "5084809397",
+          "title": "[canbus] Add support for CAN FD frames",
+          "url": "https://github.com/esphome/esphome/pull/21950",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "smlight-selected-firmware-version",
+      "title": "Home Assistant can return SMLIGHT devices to an earlier firmware",
+      "dek": "Core and radio updates can select a version from the device’s firmware catalogue.",
+      "body": [
+        "Home Assistant’s SMLIGHT update controls can install a chosen firmware version rather than only the latest one. An owner can return to an earlier version listed for the device’s current channel after an update proves unreliable.",
+        "The choice applies to core and radio firmware through the update action’s version option. A version absent from the catalogue is rejected before anything is sent to the device. AntoineLav makes a first contribution to Home Assistant Core with the change."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 78,
+      "contributors": [
+        "AntoineLav"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "AntoineLav",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1039123?v=4",
+          "profileUrl": "https://github.com/AntoineLav"
+        }
+      ],
+      "reviewers": [
+        "silamon",
+        "tl-sl"
+      ],
+      "approvers": [
+        "silamon",
+        "tl-sl"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5189921449",
+          "title": "Allow installing a specific firmware version in SMLIGHT update entities",
+          "url": "https://github.com/home-assistant/core/pull/190928",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "shelly-switch-runtime-counters",
+      "title": "Shelly switches report runtime and switching cycles to Home Assistant",
+      "dek": "Device counters can drive maintenance reminders without building a separate runtime counter.",
+      "body": [
+        "Home Assistant exposes the runtime and switching counters reported by compatible Shelly switch channels. Alongside total on-time and switching cycles, it reads time spent above the device’s configured power threshold, giving automations a basis for tasks such as filter-cleaning reminders.",
+        "The diagnostic sensors start disabled and appear only when a device reports the counters. Testing found them on the Shelly 1PM Mini Gen4 and Power Strip 4 Gen4 with firmware 2.1.1; those devices kept counting across a reboot. Resetting a counter starts a new statistics cycle in Home Assistant."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "thecode"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "thecode",
+          "name": "Shay Levy",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1858925?v=4",
+          "profileUrl": "https://github.com/thecode"
+        }
+      ],
+      "reviewers": [
+        "bieniu",
+        "chemelli74"
+      ],
+      "approvers": [
+        "bieniu",
+        "chemelli74"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5155131499",
+          "title": "Add Shelly switch usage counter sensors",
+          "url": "https://github.com/home-assistant/core/pull/190393",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "system-bridge-admin-host-actions",
+      "title": "Home Assistant reserves computer-control actions for administrators",
+      "dek": "System Bridge power, keyboard and open-file actions gain an explicit permission boundary.",
+      "body": [
+        "Home Assistant requires an administrator for System Bridge actions that control a computer: power commands, opening paths or URLs, and sending keypresses or text. Calls from other users fail with an unauthorized error.",
+        "These actions also fail explicitly when the connection is closed or System Bridge rejects the command. Automations that previously inspected an error inside the returned response need to handle a failed action instead, for example by choosing whether to continue on error."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 74,
+      "contributors": [
+        "timmo001"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "timmo001",
+          "name": "Aidan Timson",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/28114703?v=4",
+          "profileUrl": "https://github.com/timmo001"
+        }
+      ],
+      "reviewers": [
+        "silamon"
+      ],
+      "approvers": [
+        "silamon"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5128189831",
+          "title": "Require admin for System Bridge host actions and raise on failure",
+          "url": "https://github.com/home-assistant/core/pull/190128",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-classic-esp32-bus-reboots",
+      "title": "ESPHome keeps wired sensor faults from restarting classic ESP32 devices",
+      "dek": "A stuck I²C controller can recover without taking down the whole board.",
+      "body": [
+        "ESPHome prevents a fault on a classic ESP32’s I²C sensor connection from overwhelming the processor and restarting the entire device. A controller stuck reporting the same error could otherwise leave the device unable to run until its watchdog reset it.",
+        "J. Nick Koston’s correction stops the repeated error signal until the next transaction, allowing the device to keep running and the bus to recover. Three ten-minute tests passed the fault sequence that repeatedly crashed the earlier build. The correction applies to classic ESP32 chips; the same failure was not reproduced on the C2, C3 or S3."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 72,
+      "contributors": [
+        "bdraco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "reviewers": [
+        "jesserockz"
+      ],
+      "approvers": [
+        "jesserockz"
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5196420730",
+          "title": "[i2c] Mask I2C interrupts after an error on classic ESP32",
+          "url": "https://github.com/esphome/esphome/pull/22396",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-mobile-speaker-timing",
+      "title": "Music Assistant’s mobile app puts speaker timing beside group controls",
+      "dek": "Sendspin players get individual timing adjustments alongside their volume controls.",
+      "body": [
+        "Music Assistant’s mobile group panel adds volume and timing controls to each speaker’s row. For Sendspin players, Speed up and Slow down buttons adjust timing in steps of one, ten or one hundred milliseconds.",
+        "Andrii Mitnovych connects the remote controls to each player’s saved Sendspin delay; changing them requires permission to edit player configuration. Other audio protocols do not get the delay control, and the local player keeps its delay in the app’s settings."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 70,
+      "contributors": [
+        "formatBCE"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "formatBCE",
+          "name": "Andrii Mitnovych",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/10116550?v=4",
+          "profileUrl": "https://github.com/formatBCE"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5209386739",
+          "title": "Add volume and delay panels to the group sheet rows",
+          "url": "https://github.com/music-assistant/mobile-app/pull/1328",
+          "repository": "music-assistant/mobile-app"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "google-travel-time-routing-preference",
+      "title": "Home Assistant’s Google travel estimates can skip live traffic",
+      "dek": "A routing choice supports distance-based planning without requesting a traffic-aware route.",
+      "body": [
+        "Home Assistant adds a routing preference to Google travel-time settings and its travel-time action. Choosing a traffic-unaware route suits uses such as estimating a trip’s distance for charging plans and sends the request through Google’s Essentials service tier.",
+        "The existing traffic-aware optimal route remains the default. A second traffic-aware option trades some route quality for a faster response; both traffic-aware choices use Google’s Pro tier."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 68,
+      "contributors": [
+        "pkolbus"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "pkolbus",
+          "name": "Peter Kolbus",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/16658020?v=4",
+          "profileUrl": "https://github.com/pkolbus"
+        }
+      ],
+      "reviewers": [
+        "tronikos"
+      ],
+      "approvers": [
+        "tronikos"
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4999261263",
+          "title": "Support Compute Routes Essentials (RoutingPreference)",
+          "url": "https://github.com/home-assistant/core/pull/188415",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ],
+  "roadmapUpdates": []
+}
