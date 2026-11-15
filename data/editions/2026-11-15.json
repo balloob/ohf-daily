@@ -1,0 +1,1555 @@
+{
+  "date": "2026-11-15",
+  "generatedAt": "2026-11-15T05:01:00.215Z",
+  "windowStart": "2026-11-14T04:56:17.887Z",
+  "windowEnd": "2026-11-15T04:56:17.887Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 232,
+    "repositories": 28,
+    "contributors": 61,
+    "dependencyUpdates": 29,
+    "hacsNewIntegrations": 0
+  },
+  "lead": {
+    "id": "5307460288",
+    "title": "Player linking improvements",
+    "summary": "What does this implement/fix? Music Assistant already merges every way it can reach a device (the device's own protocol, AirPlay, Chromecast, DLNA, Sendspin) into one player.",
+    "url": "https://github.com/music-assistant/server/pull/7649",
+    "repository": "music-assistant/server",
+    "organization": "Music Assistant",
+    "author": "marcelveldt",
+    "mergedAt": "2026-11-15T01:57:34Z",
+    "labels": [
+      "enhancement"
+    ],
+    "kind": "platform",
+    "score": 73.4,
+    "additions": 90219,
+    "deletions": 48984,
+    "changedFiles": 591
+  },
+  "highlights": [
+    {
+      "id": "5309512023",
+      "title": "A group switches on a speaker that is off at its power control and waits for it",
+      "summary": "What does this implement/fix? A speaker can have an external power control, usually a smart plug in Home Assistant.",
+      "url": "https://github.com/music-assistant/server/pull/7652",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-15T00:37:02Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 72.1,
+      "additions": 4810,
+      "deletions": 200,
+      "changedFiles": 52
+    },
+    {
+      "id": "5305990246",
+      "title": "Add the Marketplace: one page to find and add music sources, players, metadata and plugins",
+      "summary": "What does this implement/fix? Finding something to add to Music Assistant meant opening the right settings page and pressing \"add\", which showed a plain list.",
+      "unlocks": "Unlocks: Add the Marketplace: one page to find and add music sources, players, metadata and plugins.",
+      "url": "https://github.com/music-assistant/frontend/pull/3176",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-15T03:23:19Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 72,
+      "additions": 3025,
+      "deletions": 219,
+      "changedFiles": 26
+    },
+    {
+      "id": "5306653606",
+      "title": "Community catalog: install, load and update providers that the community maintains",
+      "summary": "What does this implement/fix? This adds the server side of the community catalog: providers that people in the community build and maintain in their own repositories, listed in a registry…",
+      "unlocks": "Unlocks: Community catalog: install, load and update providers that the community maintains.",
+      "url": "https://github.com/music-assistant/server/pull/7641",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-14T22:20:23Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 70,
+      "additions": 6711,
+      "deletions": 31,
+      "changedFiles": 36
+    },
+    {
+      "id": "5269299825",
+      "title": "Manage players whose provider is not running, and remove all unavailable players at once",
+      "summary": "What does this implement/fix? The server now keeps every player known, also while its provider is not running, and stores its settings independently of that provider.",
+      "url": "https://github.com/music-assistant/frontend/pull/3161",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-15T02:44:39Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 68.5,
+      "additions": 1393,
+      "deletions": 107,
+      "changedFiles": 46
+    }
+  ],
+  "briefs": [
+    {
+      "id": "5306637383",
+      "title": "Community catalog: enable it, install and remove community contributions",
+      "summary": "What does this implement/fix? Admins can now enable the community catalog in the Marketplace: music sources, player support and plugins made and maintained by people in the community.",
+      "unlocks": "Unlocks: Community catalog: enable it, install and remove community contributions.",
+      "url": "https://github.com/music-assistant/frontend/pull/3177",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-15T03:24:39Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 68.2,
+      "additions": 3620,
+      "deletions": 74,
+      "changedFiles": 36
+    },
+    {
+      "id": "5307242614",
+      "title": "Community catalog: updates, automatic updates and what is new",
+      "summary": "What does this implement/fix? Admins can now keep what they installed from the community catalog up to date: one at a time, all at once, or automatically while nothing plays.",
+      "unlocks": "Unlocks: Community catalog: updates, automatic updates and what is new.",
+      "url": "https://github.com/music-assistant/frontend/pull/3179",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-15T03:25:26Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 67.1,
+      "additions": 2180,
+      "deletions": 82,
+      "changedFiles": 24
+    },
+    {
+      "id": "5318541182",
+      "title": "Marketplace: a Discover tab with a top pick, and a page that fits a phone",
+      "summary": "What does this implement/fix? The Marketplace page opened on one long list of everything (about 29,000 px tall on a phone), had no place that put one thing forward, and did not fit a phone:…",
+      "unlocks": "Unlocks: Marketplace: a Discover tab with a top pick, and a page that fits a phone.",
+      "url": "https://github.com/music-assistant/frontend/pull/3186",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-15T03:26:17Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 61.7,
+      "additions": 2039,
+      "deletions": 410,
+      "changedFiles": 31
+    },
+    {
+      "id": "5319218408",
+      "title": "Marketplace: suggestions from your own setup",
+      "summary": "What does this implement/fix? The Discover tab of the Marketplace now suggests what fits your own setup: speakers Music Assistant found on your network, and what goes well with what you…",
+      "url": "https://github.com/music-assistant/frontend/pull/3187",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-15T04:46:58Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 61.6,
+      "additions": 1669,
+      "deletions": 575,
+      "changedFiles": 23
+    },
+    {
+      "id": "4061524604",
+      "title": "[cc1101] Add long packet support, plus a lambda packet_length for unknown-length packets",
+      "summary": "What does this implement/fix? For context: this PR is part of a larger project, esphome mbus, a generic M Bus/wM Bus component that works over cc1101 , sx126x , and sx127x (and, architecturally, wired UART).",
+      "unlocks": "Unlocks: [cc1101] Add long packet support, plus a lambda packet_length for unknown-length packets.",
+      "url": "https://github.com/esphome/esphome/pull/17578",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "hn",
+      "mergedAt": "2026-11-15T03:43:21Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "core",
+        "component: cc1101"
+      ],
+      "kind": "feature",
+      "score": 61.6,
+      "additions": 553,
+      "deletions": 42,
+      "changedFiles": 9
+    },
+    {
+      "id": "5104919013",
+      "title": "Add event platform to SilverCrest Infrared",
+      "summary": "Adds an event entity for received infrared commands Type of change Dependency upgrade Bugfix (non breaking change which fixes an issue) New integration (thank you!) New feature (which adds…",
+      "unlocks": "Unlocks: Add event platform to SilverCrest Infrared.",
+      "url": "https://github.com/home-assistant/core/pull/189801",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "tr4nt0r",
+      "mergedAt": "2026-11-14T22:15:56Z",
+      "labels": [
+        "new-platform",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality-scale",
+        "quality scale: bronze",
+        "integration: silvercrest_infrared"
+      ],
+      "kind": "feature",
+      "score": 60.9,
+      "additions": 478,
+      "deletions": 49,
+      "changedFiles": 15
+    },
+    {
+      "id": "5310541533",
+      "title": "[whirlpool] Add the Hitachi HCRA31NEWH model",
+      "summary": "What does this implement/fix? Adds support for Hitachi units with the HCRA31NEWH remote as a whirlpool model, because their 168 bit protocol is the Whirlpool frame with a different remote ID and a few fixed bytes.",
+      "unlocks": "Unlocks: [whirlpool] Add the Hitachi HCRA31NEWH model.",
+      "url": "https://github.com/esphome/esphome/pull/22704",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "Rodrigoah",
+      "mergedAt": "2026-11-14T20:23:52Z",
+      "labels": [
+        "new-feature",
+        "component: whirlpool",
+        "has-tests",
+        "core",
+        "waiting-for-hardware-test"
+      ],
+      "kind": "feature",
+      "score": 59.6,
+      "additions": 187,
+      "deletions": 23,
+      "changedFiles": 8
+    },
+    {
+      "id": "5131925717",
+      "title": "[sx126x] Refactor/sx126x radio lifecycle",
+      "summary": "I'm sending this because I'm building ESPHome based MeshCore firmware, and I needed to fix the bugs listed below and make sending asynchronous.",
+      "unlocks": "Unlocks: [sx126x] Refactor/sx126x radio lifecycle.",
+      "url": "https://github.com/esphome/esphome/pull/22197",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "fortuna",
+      "mergedAt": "2026-11-15T02:17:24Z",
+      "labels": [
+        "has-tests",
+        "bugfix",
+        "component: sx126x",
+        "undocumented-api-change",
+        "new-feature-developer"
+      ],
+      "kind": "feature",
+      "score": 57.1,
+      "additions": 3284,
+      "deletions": 589,
+      "changedFiles": 19
+    },
+    {
+      "id": "5318387666",
+      "title": "Marketplace: the server suggests what to add",
+      "summary": "What does this implement/fix? The Marketplace can now ask the server what to suggest, instead of working it out from a fixed list in the app.",
+      "unlocks": "Unlocks: Marketplace: the server suggests what to add.",
+      "url": "https://github.com/music-assistant/server/pull/7706",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-15T03:18:09Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "feature",
+      "score": 55.3,
+      "additions": 879,
+      "deletions": 23,
+      "changedFiles": 7
+    },
+    {
+      "id": "5314814483",
+      "title": "Link an artist to a newly added music service when its page is opened",
+      "summary": "What does this implement/fix? When you add a streaming service to an existing library, your artists only got linked to it at their next metadata refresh (up to 90 days later) or after the…",
+      "url": "https://github.com/music-assistant/server/pull/7689",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-14T19:05:14Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 54.2,
+      "additions": 339,
+      "deletions": 24,
+      "changedFiles": 5
+    },
+    {
+      "id": "5318148883",
+      "title": "Merge dev into the player split branch (20)",
+      "summary": "What does this implement/fix? Brings feature/player split level with dev at 34d05e7db : two changes, the community catalog (#7641) and an airplay cli update in the Dockerfile (#7699).",
+      "url": "https://github.com/music-assistant/server/pull/7702",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-15T01:33:02Z",
+      "labels": [
+        "maintenance"
+      ],
+      "kind": "platform",
+      "score": 53,
+      "additions": 6719,
+      "deletions": 33,
+      "changedFiles": 37
+    },
+    {
+      "id": "5317956885",
+      "title": "Second opinion and speech-to-text boundary from Parakeet's CTC head",
+      "summary": "Reports of missed wake words, and of having to pause after \"okay nabu\" before the command, came down to three things.",
+      "url": "https://github.com/OHF-Voice/app-voice-support/pull/6",
+      "repository": "OHF-Voice/app-voice-support",
+      "organization": "OHF Voice",
+      "author": "synesthesiam",
+      "mergedAt": "2026-11-15T00:49:40Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 52.2,
+      "additions": 2866,
+      "deletions": 78,
+      "changedFiles": 22
+    },
+    {
+      "id": "5306257571",
+      "title": "Vesync Light Detection Switch",
+      "summary": "Add configuration of \"light detection\" on devices that support it.",
+      "unlocks": "Unlocks: Vesync Light Detection Switch.",
+      "url": "https://github.com/home-assistant/core/pull/192629",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "cdnninja",
+      "mergedAt": "2026-11-14T16:28:31Z",
+      "labels": [
+        "new-feature",
+        "integration: vesync",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze",
+        "top 200"
+      ],
+      "kind": "feature",
+      "score": 51.7,
+      "additions": 147,
+      "deletions": 3,
+      "changedFiles": 5
+    },
+    {
+      "id": "5314871561",
+      "title": "Merge dev into the player split branch (17)",
+      "summary": "What does this implement/fix? Brings feature/player split level with dev at 6e33e7f3b : seven changes, the library counts (#7675), the removed database alias (#7677), metadata only for what…",
+      "url": "https://github.com/music-assistant/server/pull/7690",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-14T19:04:03Z",
+      "labels": [
+        "maintenance"
+      ],
+      "kind": "platform",
+      "score": 50.1,
+      "additions": 636,
+      "deletions": 92,
+      "changedFiles": 22
+    },
+    {
+      "id": "5314604191",
+      "title": "[cstxxx] Share the Hynitron 16-bit register touchscreen code",
+      "summary": "What does this implement/fix? Adds a shared cstxxx base for the Hynitron touchscreens that speak the 16 bit register protocol, and moves cst226, cst328 and cst9220 onto it so each driver…",
+      "unlocks": "Unlocks: [cstxxx] Share the Hynitron 16-bit register touchscreen code.",
+      "url": "https://github.com/esphome/esphome/pull/22718",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-15T02:11:10Z",
+      "labels": [
+        "new-component",
+        "has-tests",
+        "code-quality",
+        "component: cst226",
+        "component: cst328",
+        "component: cst9220",
+        "component: cstxxx"
+      ],
+      "kind": "feature",
+      "score": 49.6,
+      "additions": 347,
+      "deletions": 304,
+      "changedFiles": 16
+    },
+    {
+      "id": "5296865250",
+      "title": "Add heat production sensors to ViCare",
+      "summary": "Adds the current heat production of the heat pump and the heat produced today for heating and for domestic hot water.",
+      "unlocks": "Unlocks: Add heat production sensors to ViCare.",
+      "url": "https://github.com/home-assistant/core/pull/192458",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "lackas",
+      "mergedAt": "2026-11-14T10:12:28Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "integration: vicare",
+        "by-code-owner",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 48.9,
+      "additions": 154,
+      "deletions": 0,
+      "changedFiles": 3
+    },
+    {
+      "id": "5315251190",
+      "title": "Merge dev into the player split branch (18)",
+      "summary": "What does this implement/fix? Brings feature/player split level with dev at 5246bbd9b : four changes, the genre count (#7686), more discography albums that open (#7688), linking an artist to…",
+      "url": "https://github.com/music-assistant/server/pull/7693",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-14T19:27:41Z",
+      "labels": [
+        "maintenance"
+      ],
+      "kind": "platform",
+      "score": 48,
+      "additions": 1134,
+      "deletions": 149,
+      "changedFiles": 16
+    },
+    {
+      "id": "5313605254",
+      "title": "[wifi] Leave the AP before restarting on ESP32",
+      "summary": "What does this implement/fix? On ESP32, ESPHome restarts with esp restart() while still associated, and Wi Fi is stopped by ESP IDF's esp wifi stop shutdown handler.",
+      "url": "https://github.com/esphome/esphome/pull/22715",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "miguelangel-nubla",
+      "mergedAt": "2026-11-14T18:05:43Z",
+      "labels": [
+        "component: wifi",
+        "has-tests",
+        "core",
+        "small-pr",
+        "bugfix"
+      ],
+      "kind": "platform",
+      "score": 47,
+      "additions": 206,
+      "deletions": 3,
+      "changedFiles": 10
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Bump nibe to 2.26.0",
+      "url": "https://github.com/home-assistant/core/pull/192708",
+      "repository": "home-assistant/core",
+      "author": "elupus"
+    },
+    {
+      "title": "Bump homematicip to 2.23.0",
+      "url": "https://github.com/home-assistant/core/pull/192707",
+      "repository": "home-assistant/core",
+      "author": "lackas"
+    },
+    {
+      "title": "Bump bluetti-modbus to 0.76.0",
+      "url": "https://github.com/home-assistant/core/pull/192704",
+      "repository": "home-assistant/core",
+      "author": "chpego"
+    },
+    {
+      "title": "Bump reolink_aio to 023.1",
+      "url": "https://github.com/home-assistant/core/pull/192710",
+      "repository": "home-assistant/core",
+      "author": "starkillerOG"
+    },
+    {
+      "title": "Update dependency prettier to v3.10.0",
+      "url": "https://github.com/home-assistant/frontend/pull/55910",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update tsparticles to v4.5.4",
+      "url": "https://github.com/home-assistant/frontend/pull/55909",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump sofar-modbus to 0.32.0",
+      "url": "https://github.com/home-assistant/core/pull/192671",
+      "repository": "home-assistant/core",
+      "author": "darkrain-nl"
+    },
+    {
+      "title": "Bump sofar-modbus to 0.31.0",
+      "url": "https://github.com/home-assistant/core/pull/192654",
+      "repository": "home-assistant/core",
+      "author": "darkrain-nl"
+    },
+    {
+      "title": "Bump sofar-modbus to 0.29.0",
+      "url": "https://github.com/home-assistant/core/pull/192644",
+      "repository": "home-assistant/core",
+      "author": "darkrain-nl"
+    },
+    {
+      "title": "Bump axis to 75",
+      "url": "https://github.com/home-assistant/core/pull/192662",
+      "repository": "home-assistant/core",
+      "author": "Kane610"
+    },
+    {
+      "title": "Bump midea-local to 15.2.0",
+      "url": "https://github.com/home-assistant/core/pull/192648",
+      "repository": "home-assistant/core",
+      "author": "chemelli74"
+    },
+    {
+      "title": "Update dependency astro to v7.4.10",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/50587",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency sass to v1.108.2",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/50590",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency sass-embedded to v1.108.2",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/50591",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump python-google-weather-api to 0.0.11",
+      "url": "https://github.com/home-assistant/core/pull/192640",
+      "repository": "home-assistant/core",
+      "author": "tronikos"
+    },
+    {
+      "title": "Bump lifx-async to 8.0.1",
+      "url": "https://github.com/home-assistant/core/pull/192634",
+      "repository": "home-assistant/core",
+      "author": "Djelibeybi"
+    },
+    {
+      "title": "Update PostgreSQL CI matrix",
+      "url": "https://github.com/home-assistant/core/pull/192632",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency vite to v8.3.8",
+      "url": "https://github.com/home-assistant/frontend/pull/55906",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update release-drafter/release-drafter action to v7.11.0",
+      "url": "https://github.com/home-assistant-libs/python-go2rtc-client/pull/428",
+      "repository": "home-assistant-libs/python-go2rtc-client",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency pylint to v4.1.4",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/777",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency syrupy to v7.0.1",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/778",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update release-drafter/release-drafter action to v7.11.0",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/776",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "[rp2] Bump arduino-pico framework to 6.3.2",
+      "url": "https://github.com/esphome/esphome/pull/22671",
+      "repository": "esphome/esphome",
+      "author": "bdraco"
+    },
+    {
+      "title": "chore(pre-commit.ci): pre-commit autoupdate",
+      "url": "https://github.com/Bluetooth-Devices/xiaomi-ble/pull/406",
+      "repository": "Bluetooth-Devices/xiaomi-ble",
+      "author": "pre-commit-ci[bot]"
+    },
+    {
+      "title": "chore(deps-dev): bump mypy from 2.4.0 to 2.4.1",
+      "url": "https://github.com/Bluetooth-Devices/xiaomi-ble/pull/404",
+      "repository": "Bluetooth-Devices/xiaomi-ble",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps-dev): bump pytest from 9.1.1 to 9.2.0",
+      "url": "https://github.com/Bluetooth-Devices/xiaomi-ble/pull/403",
+      "repository": "Bluetooth-Devices/xiaomi-ble",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps-dev): bump flake8 from 7.4.1 to 7.5.0",
+      "url": "https://github.com/Bluetooth-Devices/xiaomi-ble/pull/402",
+      "repository": "Bluetooth-Devices/xiaomi-ble",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): bump bluetooth-sensor-state-data from 1.9.0 to 1.9.2",
+      "url": "https://github.com/Bluetooth-Devices/xiaomi-ble/pull/401",
+      "repository": "Bluetooth-Devices/xiaomi-ble",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): bump pycryptodomex from 3.24.1 to 3.24.2",
+      "url": "https://github.com/Bluetooth-Devices/xiaomi-ble/pull/408",
+      "repository": "Bluetooth-Devices/xiaomi-ble",
+      "author": "dependabot[bot]"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 71,
+      "thisWeek": 1415,
+      "sinceRelease": 2138,
+      "lastReleaseDate": "2026-11-04"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 116,
+      "thisWeek": 486,
+      "sinceRelease": 76,
+      "lastReleaseDate": "2026-11-14"
+    },
+    {
+      "product": "ESPHome",
+      "today": 16,
+      "thisWeek": 374,
+      "sinceRelease": 1852,
+      "lastReleaseDate": "2026-10-21"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "music-assistant/server:445416300",
+      "product": "Music Assistant",
+      "repository": "music-assistant/server",
+      "name": "2.10.12",
+      "tag": "2.10.12",
+      "url": "https://github.com/music-assistant/server/releases/tag/2.10.12",
+      "publishedAt": "2026-11-14T16:30:53Z",
+      "channel": "stable",
+      "accent": "rust"
+    }
+  ],
+  "publishedPosts": [],
+  "releases": [
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-11-18",
+      "version": "2026.11",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-11-25",
+      "version": "2026.12",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-12-02",
+      "version": "2026.12",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-12-02",
+      "version": "2026.12",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-12-16",
+      "version": "2026.12",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-12-30",
+      "version": "2027.1",
+      "accent": "blue"
+    }
+  ],
+  "communityMeetups": [
+    {
+      "id": "evt-QEzt2fYlUfSiP1J@events.lu.ma",
+      "title": "Home Assistant Community Hackathon: The Hague",
+      "url": "https://luma.com/cmsahysn",
+      "startAt": "2026-11-19T09:00:00.000Z",
+      "endAt": "2026-11-19T19:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-19",
+      "endDate": "2026-11-19",
+      "location": "https://luma.com/event/evt-QEzt2fYlUfSiP1J",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-87JtJwYoojgDwdR@events.lu.ma",
+      "title": "Home Assistant Meetup Köln",
+      "url": "https://luma.com/83fycwc9",
+      "startAt": "2026-12-03T17:00:00.000Z",
+      "endAt": "2026-12-03T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-12-03",
+      "endDate": "2026-12-03",
+      "location": "REWE Digital GmbH, Schanzenstraße 6-20, 51063 Köln, Germany",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-JrQQIH3uBJV4C3A@events.lu.ma",
+      "title": "Home Assistant Meetup - Carpi",
+      "url": "https://luma.com/yjfnms6a",
+      "startAt": "2026-12-12T08:30:00.000Z",
+      "endAt": "2026-12-12T11:30:00.000Z",
+      "allDay": false,
+      "date": "2026-12-12",
+      "endDate": "2026-12-12",
+      "location": "TERMINAL - Terre d’Argine Innovation Lab, Piazzale Allende Salvador, 5, 41012 Carpi MO, Italy",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-3GIz2yYPGSZ8Gnw@events.lu.ma",
+      "title": "Orlando Home Assistant Meetup: Get-Together & Gear Swap",
+      "url": "https://luma.com/qpe49nll",
+      "startAt": "2027-01-09T14:00:00.000Z",
+      "endAt": "2027-01-09T17:00:00.000Z",
+      "allDay": false,
+      "date": "2027-01-09",
+      "endDate": "2027-01-09",
+      "location": "Stardust Video & Coffee, 1842 Winter Park Rd, Orlando, FL 32803, USA",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    }
+  ],
+  "notes": [],
+  "articles": [
+    {
+      "id": "music-assistant-marketplace-community-catalog",
+      "title": "Music Assistant opens a Marketplace for music sources, speakers and plugins",
+      "dek": "One page finds music sources, speakers and plugins, with suggestions based on the listener’s setup.",
+      "body": [
+        "Music Assistant adds a Marketplace in Settings for browsing and adding music sources, speaker support, metadata services and plugins. A Discover page puts suggested additions first, including speakers found on the network and services that fit an existing setup. Each suggestion explains its reason and can be dismissed.",
+        "Administrators can also enable the community catalog proposed on November 13, after confirming its own-risk warning. Contributions maintained outside the server then appear alongside the built-in choices, with named maintainers, source links and help destinations. The catalog remains off by default, and no existing provider has moved into it yet.",
+        "Installed community contributions can be updated individually, together or automatically when nothing is playing. The interface identifies updates that need a restart and explains blocked or unavailable contributions. Turning the catalog off requires removing what was installed from it first."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 94,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5305990246",
+          "title": "Add the Marketplace: one page to find and add music sources, players, metadata and plugins",
+          "url": "https://github.com/music-assistant/frontend/pull/3176",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "5306637383",
+          "title": "Community catalog: enable it, install and remove community contributions",
+          "url": "https://github.com/music-assistant/frontend/pull/3177",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "5307242614",
+          "title": "Community catalog: updates, automatic updates and what is new",
+          "url": "https://github.com/music-assistant/frontend/pull/3179",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "5318541182",
+          "title": "Marketplace: a Discover tab with a top pick, and a page that fits a phone",
+          "url": "https://github.com/music-assistant/frontend/pull/3186",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "5319218408",
+          "title": "Marketplace: suggestions from your own setup",
+          "url": "https://github.com/music-assistant/frontend/pull/3187",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "5306653606",
+          "title": "Community catalog: install, load and update providers that the community maintains",
+          "url": "https://github.com/music-assistant/server/pull/7641",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5318387666",
+          "title": "Marketplace: the server suggests what to add",
+          "url": "https://github.com/music-assistant/server/pull/7706",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "voice-preview-second-opinion",
+      "title": "Home Assistant’s voice preview gives missed wake words a second chance",
+      "dek": "Recorded tests catch more real wake phrases and lose fewer first words, with a tradeoff in similar-sounding phrases.",
+      "body": [
+        "Home Assistant’s experimental Voice Support work tackles wake phrases that go unanswered and commands that lose their first word. Michael Hansen adds a second opinion when the initial verifier rejects a possible wake phrase, and places the start of speech recognition at the detected end of that phrase. Home Assistant also enables the buffered-audio request left off in yesterday’s preview coverage, but only when Voice Support can verify every active wake word.",
+        "Hansen’s measurements use 6,188 recorded audio streams from four speakers, including two children, run through Home Assistant’s voice pipeline. Among wake phrases the detector had already caught on the measured channel, one child’s verification rate rises from 28.2% to 88.1%. There is a cost: 21.9% of synthesized similar-sounding phrases that triggered the detector pass verification, compared with 10.1% before.",
+        "In the same recorded evaluation, speech recognition loses the command’s first word in 23% of accepted wake phrases, down from 30%. The work also fixes a canceled verification leaving its answer behind for the next request. These are preview results: the app has not been tested on a real device, and its ARM64 images have not been tested."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 91,
+      "contributors": [
+        "synesthesiam"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "synesthesiam",
+          "name": "Michael Hansen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2743976?v=4",
+          "profileUrl": "https://github.com/synesthesiam"
+        }
+      ],
+      "reviewers": [
+        "balloob"
+      ],
+      "approvers": [
+        "balloob"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Voice"
+      ],
+      "pullRequests": [
+        {
+          "id": "5317956885",
+          "title": "Second opinion and speech-to-text boundary from Parakeet's CTC head",
+          "url": "https://github.com/OHF-Voice/app-voice-support/pull/6",
+          "repository": "OHF-Voice/app-voice-support"
+        },
+        {
+          "id": "5245735234",
+          "title": "Ask for wake word audio only when something will verify it",
+          "url": "https://github.com/home-assistant/core/pull/191921",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-esp32-clean-disconnect",
+      "title": "ESPHome avoids a reboot burst that can restart access points",
+      "dek": "ESP32 devices leave Wi-Fi before restarting, addressing a failure observed on a WPA3 network.",
+      "body": [
+        "ESPHome disconnects ESP32 devices from Wi-Fi before they restart. Previously, shutdown could repeatedly send the same protected disconnection message, triggering a bug that occasionally restarted the contributor’s access point. A device rebooting every fifteen minutes after its Home Assistant connection was disabled exposed the problem.",
+        "Miguel Angel Nubla tested forced and safe restarts on an ESP32-C3 using ESP-IDF and WPA3. The corrected build sent one disconnection message per restart, apart from ordinary retries, and the access point stopped reporting replay failures. Other ESP32 variants, Arduino builds and deep sleep were not tested. This is Nubla’s first contribution to ESPHome."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 86,
+      "contributors": [
+        "miguelangel-nubla"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "miguelangel-nubla",
+          "name": "Miguel Angel Nubla",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/866596?v=4",
+          "profileUrl": "https://github.com/miguelangel-nubla"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "topics": [
+        "ESPHome",
+        "Devices"
+      ],
+      "pullRequests": [
+        {
+          "id": "5313605254",
+          "title": "[wifi] Leave the AP before restarting on ESP32",
+          "url": "https://github.com/esphome/esphome/pull/22715",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-track-energy",
+      "title": "Music Assistant gives tracks an estimated energy level",
+      "dek": "A one-to-ten score appears beside tempo and musical key, with an optional table column.",
+      "body": [
+        "Music Assistant adds an estimated energy level to analyzed tracks, giving listeners another way to compare how energetic music sounds. The score appears in the audio-analysis panel beside tempo and key, and in an optional Energy column that starts hidden.",
+        "Marvin Schenkel combines the track’s existing brightness, loudness and arousal measurements, so already analyzed tracks need no new analysis. The score is an estimate: a track without a proper loudness measurement can read about one level too low until that measurement is made."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 84,
+      "contributors": [
+        "MarvinSchenkel"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "MarvinSchenkel",
+          "name": "Marvin Schenkel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
+          "profileUrl": "https://github.com/MarvinSchenkel"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5295917800",
+          "title": "Add a perceived energy level to track audio metadata",
+          "url": "https://github.com/music-assistant/server/pull/7589",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5313309448",
+          "title": "Show a track's energy level next to BPM and key",
+          "url": "https://github.com/music-assistant/frontend/pull/3181",
+          "repository": "music-assistant/frontend"
+        }
+      ],
+      "externalSources": [],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-11-15/music-assistant-track-energy-870845257e49-1000w.webp",
+          "alt": "Music Assistant’s audio-analysis panel for a demonstration track shows energy 8, tempo 124 BPM and A minor.",
+          "width": 1000,
+          "height": 400,
+          "variants": [
+            {
+              "url": "/media/2026-11-15/music-assistant-track-energy-870845257e49-480w.webp",
+              "width": 480,
+              "height": 192,
+              "bytes": 4916,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-15/music-assistant-track-energy-870845257e49-960w.webp",
+              "width": 960,
+              "height": 384,
+              "bytes": 11940,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-15/music-assistant-track-energy-870845257e49-1000w.webp",
+              "width": 1000,
+              "height": 400,
+              "bytes": 12674,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 29530
+        }
+      ]
+    },
+    {
+      "id": "music-assistant-speaker-handoff",
+      "title": "Music Assistant lets other apps take over its speakers",
+      "dek": "AirPlay receivers leave their groups cleanly, and stopped WiiM members can keep another input.",
+      "body": [
+        "Music Assistant releases an AirPlay speaker when playback stops, instead of leaving its output reserved and blocking another music app. When an iPhone or other sender takes over, the speaker goes idle in Music Assistant and leaves its group instead of being pulled back automatically.",
+        "A related change lets a WiiM member leave a Squeezelite group when its own app stops it or switches inputs. The other speakers keep playing. That exception does not cover a WiiM leading the group or a fixed Sync Group, whose membership stays unchanged."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 83,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5311891728",
+          "title": "Release the speaker on stop and notice when another app takes it over",
+          "url": "https://github.com/music-assistant/airplay-cli/pull/113",
+          "repository": "music-assistant/airplay-cli"
+        },
+        {
+          "id": "5311997307",
+          "title": "Release AirPlay speakers on stop and let another app take them over",
+          "url": "https://github.com/music-assistant/server/pull/7671",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5312314950",
+          "title": "Release AirPlay speakers on stop and notice when another app takes them over (airplay-cli v0.5.13)",
+          "url": "https://github.com/music-assistant/server/pull/7673",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5315539483",
+          "title": "A WiiM stopped from its own app now leaves its squeezelite group",
+          "url": "https://github.com/music-assistant/server/pull/7695",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-artwork-visualizer",
+      "title": "Music Assistant colors its visualizer from album artwork",
+      "dek": "Separate controls adjust the whole picture and the waveform, replacing the flat tint.",
+      "body": [
+        "Music Assistant’s MilkDrop visualizer uses the playing track’s artwork palette inside the visual effects, replacing a flat color overlay. A strength slider controls recoloring of the picture, while a separate switch applies colors to the waveform and borders.",
+        "The new controls appear in settings and the player menu. Recoloring starts at 75 percent and waveform coloring starts on; an earlier choice to disable the old tint is not carried over. Jozef Kruszynski connects the new artwork controls with the matching server change."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 82,
+      "contributors": [
+        "jozefKruszynski"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "jozefKruszynski",
+          "name": "Jozef Kruszynski",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/60214390?v=4",
+          "profileUrl": "https://github.com/jozefKruszynski"
+        }
+      ],
+      "reviewers": [
+        "MarvinSchenkel",
+        "OzGav"
+      ],
+      "approvers": [
+        "OzGav"
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5303914534",
+          "title": "Recolour the visualizer from the artwork palette",
+          "url": "https://github.com/music-assistant/frontend/pull/3172",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "5303895319",
+          "title": "Replace the MilkDrop color tint setting with the artwork palette",
+          "url": "https://github.com/music-assistant/server/pull/7622",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-11-15/music-assistant-artwork-visualizer-08953319cc84-1600w.webp",
+          "alt": "Full-screen MilkDrop playback in Music Assistant with the visualizer controls open.",
+          "width": 1600,
+          "height": 1210,
+          "variants": [
+            {
+              "url": "/media/2026-11-15/music-assistant-artwork-visualizer-08953319cc84-480w.webp",
+              "width": 480,
+              "height": 363,
+              "bytes": 16616,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-15/music-assistant-artwork-visualizer-08953319cc84-960w.webp",
+              "width": 960,
+              "height": 726,
+              "bytes": 40000,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-15/music-assistant-artwork-visualizer-08953319cc84-1600w.webp",
+              "width": 1600,
+              "height": 1210,
+              "bytes": 72642,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 129258
+        }
+      ]
+    },
+    {
+      "id": "esphome-cc1101-long-radio-messages",
+      "title": "ESPHome’s CC1101 radios receive longer messages",
+      "dek": "A larger receive limit accommodates wireless-meter transmissions that exceeded the old 64-byte ceiling.",
+      "body": [
+        "ESPHome extends CC1101 packet reception from 64 bytes to as many as 1,024. Makers can also calculate a packet’s length from its opening bytes, allowing protocols whose message size is not known in advance.",
+        "Hajo Noerenberg verified fixed-length messages up to 140 bytes and a complete 194-byte wireless M-Bus frame on an ESP32-C3. The work supplies a radio capability needed by his separate meter-reading component; it does not itself add automatic meter discovery. Long-packet configurations are receive-only and do not support the radio’s hardware checksum option."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 82,
+      "contributors": [
+        "hn"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "hn",
+          "name": "Hajo Noerenberg",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/11134981?v=4",
+          "profileUrl": "https://github.com/hn"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "topics": [
+        "ESPHome",
+        "Devices"
+      ],
+      "pullRequests": [
+        {
+          "id": "4061524604",
+          "title": "[cc1101] Add long packet support, plus a lambda packet_length for unknown-length packets",
+          "url": "https://github.com/esphome/esphome/pull/17578",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "xiaomi-safe-door-and-lock-state",
+      "title": "Mi Smart Safe reports a closed door correctly",
+      "dek": "The Bluetooth library also infers relocking from a closed door and stops displaying an invented battery voltage.",
+      "body": [
+        "The Xiaomi Bluetooth library corrects the Mi Smart Safe Box’s door readings. The safe could alternate between closed and open while remaining shut because its periodic status used the opposite mapping from its door event.",
+        "Vladimir Bely checked the advertisements from a safe running firmware 2.3.1_1160. The library also marks it locked when the door closes, since the safe sends no separate lock event, and keeps fingerprint-match events from overwriting the correct key identifier. It retains the reported battery percentage and removes the voltage estimate. This is Bely’s first contribution to the library."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 81,
+      "contributors": [
+        "vlw"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "vlw",
+          "name": "Vladimir Bely",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6003820?v=4",
+          "profileUrl": "https://github.com/vlw"
+        }
+      ],
+      "reviewers": [
+        "Ernst79"
+      ],
+      "approvers": [
+        "Ernst79"
+      ],
+      "topics": [
+        "Devices"
+      ],
+      "pullRequests": [
+        {
+          "id": "5210792033",
+          "title": "fix: correct door and lock state, drop voltage for loock.safe.v1",
+          "url": "https://github.com/Bluetooth-Devices/xiaomi-ble/pull/407",
+          "repository": "Bluetooth-Devices/xiaomi-ble"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-squeezelite-group-controls",
+      "title": "Squeezelite groups start and pause together",
+      "dek": "Music Assistant adopts coordinated timing and routes a speaker’s own controls to the group.",
+      "body": [
+        "Music Assistant coordinates Squeezelite group starts and resumes using the synchronization logic from Lyrion Music Server. It corrects timing drift during playback and brings slow-starting outputs back into line at the first check, rather than waiting for a second confirmation.",
+        "Play and pause from a speaker’s remote, screen or own app also control the whole group and its queue. Previously one member could pause alone, leave the rest stuttering and return seconds behind. Squeezebox pause commands now honor an explicit pause or resume request instead of guessing from the server’s last known state."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 80,
+      "contributors": [
+        "Carunga",
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "Carunga",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/47155053?v=4",
+          "profileUrl": "https://github.com/Carunga"
+        },
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [
+        "marcelveldt",
+        "MarvinSchenkel"
+      ],
+      "approvers": [
+        "marcelveldt"
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4650329140",
+          "title": "Use LMS synchronisation logic for squeezelite sync groups",
+          "url": "https://github.com/music-assistant/server/pull/6477",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5311643192",
+          "title": "Pausing a squeezelite group member on its own device now pauses the whole group",
+          "url": "https://github.com/music-assistant/server/pull/7669",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5311353562",
+          "title": "Get grouped players back in sync sooner after a start or resume",
+          "url": "https://github.com/music-assistant/aioslimproto/pull/606",
+          "repository": "music-assistant/aioslimproto"
+        },
+        {
+          "id": "5314175185",
+          "title": "Fix the pause button on Squeezebox Radio, Touch and Controller",
+          "url": "https://github.com/music-assistant/aioslimproto/pull/607",
+          "repository": "music-assistant/aioslimproto"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-libretiny-web-memory",
+      "title": "ESPHome curbs memory exhaustion from repeated web requests",
+      "dek": "Realtek and LN882x devices release closed connections sooner instead of retaining them for two minutes.",
+      "body": [
+        "ESPHome prevents short web requests from piling up closed connections in memory on Realtek RTL87xx and LN882x devices. A flood of requests could exhaust the heap and restart the device; the connections are now released after about a second rather than 120 seconds.",
+        "In J. Nick Koston’s tests, 600 requests at roughly three per second previously held about 60 KB on a BW15 board. With the correction, memory on the BW15 and LN882H stayed within about 2 KB of idle and recovered in one to two seconds. Beken devices already used the shorter wait. Separate failures caused by very large request headers remain outside this correction."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 80,
+      "contributors": [
+        "bdraco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "reviewers": [
+        "swoboda1337"
+      ],
+      "approvers": [
+        "swoboda1337"
+      ],
+      "topics": [
+        "ESPHome",
+        "Devices"
+      ],
+      "pullRequests": [
+        {
+          "id": "5307965450",
+          "title": "[libretiny] Free closed TCP connections after about 1 s instead of 120 s",
+          "url": "https://github.com/esphome/esphome/pull/22696",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-oversized-mp3-tags",
+      "title": "Music Assistant skips MP3 tags that can exhaust host memory",
+      "dek": "Library scans skip unusually large metadata before it can consume the host’s memory.",
+      "body": [
+        "Music Assistant checks an MP3 file’s metadata size before scanning it, skipping files whose ID3 tag exceeds 32 MiB. Three files with roughly 154 MiB of metadata each had repeatedly exhausted memory on a 4 GB Home Assistant host.",
+        "The check reads the small tag header first and reports an ordinary file error for oversized metadata. It prevents the audio-inspection tools from loading the full tag during a library scan."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 79,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5311290359",
+          "title": "Reject oversized ID3 tags before scanning local audio files",
+          "url": "https://github.com/music-assistant/server/pull/7667",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "silvercrest-remote-button-events",
+      "title": "SilverCrest remotes can trigger Home Assistant automations",
+      "dek": "An infrared receiver turns five fan-remote commands into distinct events.",
+      "body": [
+        "Home Assistant’s SilverCrest Infrared integration adds a way to react when someone presses the physical fan remote. With a configured infrared receiver, it emits separate events for power, speed, oscillation, mode and timer commands, giving automations a specific button press to respond to.",
+        "A receiver-only setup can listen without an infrared emitter. The events identify matching remote commands rather than confirming the fan’s current state."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 78,
+      "contributors": [
+        "tr4nt0r"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "tr4nt0r",
+          "name": "Manu",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/4445816?v=4",
+          "profileUrl": "https://github.com/tr4nt0r"
+        }
+      ],
+      "reviewers": [
+        "joostlek",
+        "silamon"
+      ],
+      "approvers": [
+        "joostlek",
+        "silamon"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Devices"
+      ],
+      "pullRequests": [
+        {
+          "id": "5104919013",
+          "title": "Add event platform to SilverCrest Infrared",
+          "url": "https://github.com/home-assistant/core/pull/189801",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "ai-evaluation-automation-guide",
+      "title": "A new guide puts AI answers to work in automations",
+      "dek": "Home Assistant documents probabilities, choices and scores, with a doorbell example.",
+      "body": [
+        "Home Assistant’s new guide to the existing AI Evaluate action shows how an automation can ask questions about text, structured data or a camera snapshot and use the answers in its next step. Questions can request an estimated yes probability, a choice between named alternatives or a score against an ordered set of criteria.",
+        "The worked example evaluates a front-door snapshot when the doorbell rings, then thanks a delivery driver through the doorbell speaker if the model’s estimated probability reaches 90%. That number is the model’s estimate, not a guarantee. The example needs a camera, an AI task entity that supports evaluation, and a doorbell capable of the required text-to-speech playback. The guide covers both the automation interface and YAML; the AI entity must support evaluation, which is separate from data generation."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "balloob"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "balloob",
+          "name": "Paulus Schoutsen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1444314?v=4",
+          "profileUrl": "https://github.com/balloob"
+        }
+      ],
+      "reviewers": [
+        "c0ffeeca7"
+      ],
+      "approvers": [
+        "c0ffeeca7"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Documentation",
+        "AI"
+      ],
+      "pullRequests": [
+        {
+          "id": "5283722964",
+          "title": "Document the ai_task.evaluate action",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50533",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "vicare-heat-production",
+      "title": "ViCare measures heat delivered to rooms and hot water",
+      "dek": "Heat-pump output gains a live reading and separate daily totals.",
+      "body": [
+        "Home Assistant’s ViCare integration adds three readings for heat-pump output: current heat production in kilowatts, heat produced today for space heating, and heat produced today for domestic hot water. The daily totals measure delivered heat in kilowatt-hours.",
+        "That split makes the heat going into rooms distinct from the heat going into hot water. Home Assistant’s statistics provide longer-term history rather than adding separate week, month and year entities."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 75,
+      "contributors": [
+        "lackas"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "lackas",
+          "name": "Christian Lackas",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1557396?v=4",
+          "profileUrl": "https://github.com/lackas"
+        }
+      ],
+      "reviewers": [
+        "zweckj",
+        "c0ffeeca7"
+      ],
+      "approvers": [
+        "zweckj",
+        "c0ffeeca7"
+      ],
+      "topics": [
+        "Home Assistant",
+        "Energy"
+      ],
+      "pullRequests": [
+        {
+          "id": "5296865250",
+          "title": "Add heat production sensors to ViCare",
+          "url": "https://github.com/home-assistant/core/pull/192458",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5296871994",
+          "title": "Document the ViCare heat production sensors",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50562",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ],
+  "roadmapUpdates": []
+}
