@@ -16,7 +16,7 @@ OHF Daily is a concise newspaper for people who care about the open-home ecosyst
 
 - Use sentence case and concrete, active verbs. Prefer roughly 6–14 words when the story permits it.
 - Never use `merge`, `merges`, `merged`, or `merging` in reader-facing article copy: not in a headline, dek, front-page summary, body, continuity note, caption, alt text, contributor welcome, or review credit. Repository workflow is not the reader outcome. Rewrite around what the work does: `adds`, `fixes`, `protects`, `opens`, `supports`, `updates`, or a more specific verb. Prefer a natural outcome-led construction such as “X joins Music Assistant as a new provider.”
-- State the reader outcome before the component, protocol, repository, class, or schema. Project and product names are useful when they orient the reader.
+- State the reader outcome before the component, protocol, repository, class, or schema. Read the project label, headline, dek and opening together: do not repeat the label’s project name at the start of both the headline and first sentence. Lead with the action, person, object or consequence instead. Keep project and product names where they distinguish the story, and identify the project naturally in the dek or opening so RSS and shared articles remain understandable. This is not a blanket ban on project names.
 - Avoid sensationalism, clickbait, puns that obscure meaning, and stock launch language such as “game-changing,” “revolutionary,” “exciting,” “supercharges,” or “takes X to the next level.”
 - Avoid `PR`, `pull request`, repository names, code identifiers, and unexplained acronyms in headlines and deks unless the development process itself is the news.
 - Use the dek to add the practical payoff or important boundary, not to restate the headline.
@@ -24,7 +24,7 @@ OHF Daily is a concise newspaper for people who care about the open-home ecosyst
 
 ## Article shape
 
-- Open with the consequence. A reader should understand who benefits and why the story matters before encountering implementation detail.
+- Open with the consequence. A reader should understand who benefits and why the story matters before encountering implementation detail. Vary sentence subjects across the edition; avoid a run of “Home Assistant adds…” or “Music Assistant fixes…” openings. Rewrite naturally rather than deleting the name mechanically or replacing it with “the project.”
 - Prefer two or three compact paragraphs. A brief may use one or two; a release lead may use three or four when the themes genuinely differ.
 - Give each paragraph a job: outcome and context; how it works or what failed; evidence, limits, continuity, or human credit.
 - Translate source language rather than polishing it. Never reproduce PR templates, raw descriptions, checklists, release-note fragments, or an author’s self-promotional framing.

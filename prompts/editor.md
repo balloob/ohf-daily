@@ -52,6 +52,8 @@ Publisher-confirmed events in `data/sources.yaml` under `confirmed_events` are a
 
 ## Copy desk
 
+- Read each project label, headline, dek and opening as one sequence, then scan them across the whole edition. Remove redundant project-name openings and vary sentence subjects around the reader outcome. Retain names where they resolve ambiguity, including cross-project stories, and enough context for RSS and standalone articles.
+
 - Titles are specific and active, not sensational.
 - Reject `merge`, `merges`, `merged`, and `merging` anywhere in reader-facing article copy. Rewrite around what the work adds, fixes, prevents, enables, or changes. Do not substitute `landed`, `accepted`, `development branch`, `PR`, `once released`, or another status disclaimer. Describe code behavior in simple present without claiming current installation; reserve `available now`, `users can now`, and equivalent availability claims for source-backed releases.
 - The dek states the practical payoff without overstating availability.

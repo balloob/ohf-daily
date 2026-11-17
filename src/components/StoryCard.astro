@@ -385,7 +385,8 @@ const externalSourceGroups = articleExternalSources.reduce<Map<string, Editorial
     line-height: 1.58;
   }
 
-  .article-body p:first-child::first-letter {
+  .lead .article-body p:first-child::first-letter,
+  .detail .article-body p:first-child::first-letter {
     float: left;
     margin: 0.08em 0.1em 0 0;
     color: var(--ink);

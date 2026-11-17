@@ -14,6 +14,7 @@ Review every article for:
 - roadmap audit exclusions: ordinary outside feedback is not a project decision; reference-link maintenance and refreshing old implementation links are not changed opportunity meaning. Check these distinctions against source text rather than treating every comment or generic update timestamp as a new direction. Do not allow a small real scope, status, or meaning change to be excluded as uninteresting;
 - clarity without PR context, including unexplained jargon and implementation-detail overload;
 - headline, dek, first paragraph, structure, repetition, and newspaper tone;
+- project-name repetition: check the label, headline and opening together and scan the edition for repeated project-first sentence patterns. Prefer varied, outcome-led subjects while preserving standalone context; the front page should use a drop cap only for the lead story, not every feature;
 - reader-facing workflow language: titles, deks, front-page summaries, bodies, continuity notes, captions, alt text, contributor welcomes, and review credit must not use `merge`, `merges`, `merged`, `merging`, `development branch`, or `once released`; rewrite around the concrete outcome in simple present without replacing one status disclaimer with another;
 - grouping around one reader outcome rather than author, repository, date, or chronology;
 - factual scope: development versus released, reporting versus provisioning, and groundwork versus an available downstream capability;
