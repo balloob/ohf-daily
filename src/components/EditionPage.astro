@@ -33,7 +33,6 @@ const signatureArticles = deskArticles.filter(
 const signatureArticleIds = new Set(signatureArticles.map((article) => article.id));
 const columnFeatures = deskArticles.filter((article) => !signatureArticleIds.has(article.id) && article.placement !== "brief");
 const columnBriefs = deskArticles.filter((article) => !signatureArticleIds.has(article.id) && article.placement === "brief");
-const columnArticles = [...columnFeatures, ...columnBriefs];
 const coveredPullRequests = new Set(editorialArticles.flatMap((article) => Array.isArray(article.pullRequests) ? article.pullRequests.map((pullRequest) => pullRequest.id) : []));
 const releaseSourcePullRequests = new Set((edition.landedReleases ?? []).flatMap((release) => release.sourcePullRequestIds ?? []));
 const hasEditorial = Array.isArray(edition.articles) || Boolean(edition.roadmapUpdates?.length);
@@ -105,13 +104,7 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
             {signatureArticles.map((article) => (
               <StoryCard article={article} variant="feature" articleHref={articleHref(article)} />
             ))}
-            {columnArticles.length > 0 && (
-              <div class:list={["article-spread", { "single-story": columnArticles.length === 1 }]}>
-                {columnArticles.map((article) => (
-                  <StoryCard article={article} variant={article.placement === "brief" ? "brief" : "feature"} articleHref={articleHref(article)} />
-                ))}
-              </div>
-            )}
+
           </div>
         </section>
       )}
@@ -143,6 +136,25 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
       )}
 
     </div>
+
+    {(columnFeatures.length > 0 || columnBriefs.length > 0) && (
+      <section class:list={["article-spread", { "briefs-only": columnFeatures.length === 0, "features-only": columnBriefs.length === 0, "single-brief": columnBriefs.length === 1 }]} aria-label="More reported stories">
+        {columnFeatures.length > 0 && (
+          <div class="feature-column">
+            {columnFeatures.map((article) => (
+              <StoryCard article={article} variant="feature" articleHref={articleHref(article)} />
+            ))}
+          </div>
+        )}
+        {columnBriefs.length > 0 && (
+          <div class="brief-columns">
+            {columnBriefs.map((article) => (
+              <StoryCard article={article} variant="brief" articleHref={articleHref(article)} />
+            ))}
+          </div>
+        )}
+      </section>
+    )}
 
     <div class="edition-sidebar">
       <RoadmapRail updates={edition.roadmapUpdates} articles={edition.articles} date={edition.date} />
@@ -286,6 +298,8 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
   }
 
   .edition-sidebar {
+    grid-column: 2;
+    grid-row: 1;
     display: grid;
     gap: 1.5rem;
     min-width: 0;
@@ -316,24 +330,69 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
   }
 
   .article-spread {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(1.8rem, 4vw, 2.7rem);
+    align-items: start;
+    border-bottom: 1px solid var(--rule-dark);
+  }
+
+  .feature-column,
+  .brief-columns {
+    min-width: 0;
+  }
+
+  .feature-column {
+    padding-right: clamp(0.9rem, 2vw, 1.35rem);
+    border-right: 1px solid var(--rule);
+  }
+
+  .brief-columns {
     columns: 2;
     column-gap: clamp(1.8rem, 4vw, 2.7rem);
     column-rule: 1px solid var(--rule);
     column-fill: balance;
-    border-bottom: 1px solid var(--rule-dark);
   }
 
-  .article-spread.single-story {
-    columns: 1;
-  }
-
-  .article-spread :global(.story) {
+  .brief-columns :global(.story) {
     break-inside: avoid;
     border-top: 0;
   }
 
-  .article-spread :global(.story:last-child) {
+  .article-spread .brief-columns :global(.editorial-article.brief h2) {
+    max-width: none;
+    font-size: 1.45rem;
+    line-height: 1.12;
+  }
+
+  .brief-columns :global(.dek) {
+    margin-block: 0.65rem;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .feature-column :global(.story:last-child),
+  .brief-columns :global(.story:last-child) {
     border-bottom: 0;
+  }
+
+  .article-spread.briefs-only,
+  .article-spread.features-only {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .article-spread.features-only .feature-column {
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  .article-spread.single-brief:not(.briefs-only) {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
+
+  .single-brief .brief-columns {
+    columns: 1;
   }
 
   .reported > .rule-heading {
@@ -415,6 +474,18 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
     font: 400 1.45rem/1 var(--display);
   }
 
+  @media (max-width: 1100px) {
+    .article-spread,
+    .article-spread.single-brief:not(.briefs-only) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .feature-column {
+      padding-right: 0;
+      border-right: 0;
+    }
+  }
+
   @media (max-width: 960px) {
     .desk-grid {
       grid-template-columns: minmax(0, 1fr) 250px;
@@ -434,10 +505,6 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
       border-left: 1px solid var(--rule);
     }
 
-    .article-spread {
-      columns: 1;
-      column-rule: 0;
-    }
   }
 
   @media (max-width: 1280px) {
@@ -461,6 +528,16 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
 
     .quiet-edition :global(.story-image) {
       grid-row: 1;
+    }
+
+    .edition-sidebar {
+      grid-column: 1;
+      grid-row: auto;
+    }
+
+    .brief-columns {
+      columns: 1;
+      column-rule: 0;
     }
 
     .article-grid {
