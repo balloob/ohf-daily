@@ -33,6 +33,7 @@ const signatureArticles = deskArticles.filter(
 const signatureArticleIds = new Set(signatureArticles.map((article) => article.id));
 const columnFeatures = deskArticles.filter((article) => !signatureArticleIds.has(article.id) && article.placement !== "brief");
 const columnBriefs = deskArticles.filter((article) => !signatureArticleIds.has(article.id) && article.placement === "brief");
+const columnArticles = [...columnFeatures, ...columnBriefs];
 const coveredPullRequests = new Set(editorialArticles.flatMap((article) => Array.isArray(article.pullRequests) ? article.pullRequests.map((pullRequest) => pullRequest.id) : []));
 const releaseSourcePullRequests = new Set((edition.landedReleases ?? []).flatMap((release) => release.sourcePullRequestIds ?? []));
 const hasEditorial = Array.isArray(edition.articles) || Boolean(edition.roadmapUpdates?.length);
@@ -104,22 +105,11 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
             {signatureArticles.map((article) => (
               <StoryCard article={article} variant="feature" articleHref={articleHref(article)} />
             ))}
-            {(columnFeatures.length > 0 || columnBriefs.length > 0) && (
-              <div class:list={["article-spread", { "features-only": columnBriefs.length === 0, "briefs-only": columnFeatures.length === 0 }]}>
-                {columnFeatures.length > 0 && (
-                  <div class="feature-column">
-                    {columnFeatures.map((article) => (
-                      <StoryCard article={article} variant="feature" articleHref={articleHref(article)} />
-                    ))}
-                  </div>
-                )}
-                {columnBriefs.length > 0 && (
-                  <div class="brief-column">
-                    {columnBriefs.map((article) => (
-                      <StoryCard article={article} variant="brief" articleHref={articleHref(article)} />
-                    ))}
-                  </div>
-                )}
+            {columnArticles.length > 0 && (
+              <div class:list={["article-spread", { "single-story": columnArticles.length === 1 }]}>
+                {columnArticles.map((article) => (
+                  <StoryCard article={article} variant={article.placement === "brief" ? "brief" : "feature"} articleHref={articleHref(article)} />
+                ))}
               </div>
             )}
           </div>
@@ -326,43 +316,28 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
   }
 
   .article-spread {
-    display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(230px, 1fr);
-    gap: 0;
+    columns: 2;
+    column-gap: clamp(1.8rem, 4vw, 2.7rem);
+    column-rule: 1px solid var(--rule);
+    column-fill: balance;
     border-bottom: 1px solid var(--rule-dark);
   }
 
-  .article-spread.features-only,
-  .article-spread.briefs-only {
-    grid-template-columns: minmax(0, 1fr);
+  .article-spread.single-story {
+    columns: 1;
   }
 
-  .feature-column,
-  .brief-column {
-    min-width: 0;
+  .article-spread :global(.story) {
+    break-inside: avoid;
+    border-top: 0;
   }
 
-  .feature-column {
-    padding-right: clamp(0.9rem, 2vw, 1.35rem);
-    border-right: 1px solid var(--rule);
-  }
-
-  .brief-column {
-    padding-left: clamp(0.9rem, 2vw, 1.35rem);
-  }
-
-  .article-spread.features-only .feature-column {
-    padding-right: 0;
-    border-right: 0;
-  }
-
-  .article-spread.briefs-only .brief-column {
-    padding-left: 0;
-  }
-
-  .feature-column :global(.story:last-child),
-  .brief-column :global(.story:last-child) {
+  .article-spread :global(.story:last-child) {
     border-bottom: 0;
+  }
+
+  .reported > .rule-heading {
+    border-top: 0;
   }
 
   .highlight-grid :global(.story) {
@@ -460,17 +435,8 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
     }
 
     .article-spread {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 0;
-    }
-
-    .feature-column {
-      padding-right: 0;
-      border-right: 0;
-    }
-
-    .brief-column {
-      padding-left: 0;
+      columns: 1;
+      column-rule: 0;
     }
   }
 

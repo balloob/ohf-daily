@@ -44,7 +44,6 @@ const destination = (update: RoadmapUpdate) => linkedArticle(update)
 )}
 
 <style>
-  .roadmap-rail { border-top: 3px double var(--rule-dark); }
   header { padding: 0.85rem 0; border-bottom: 1px solid var(--rule-dark); }
   header .eyebrow { margin: 0 0 0.25rem; }
   h2 { margin: 0; font: 400 1.6rem/1.1 var(--display); }
@@ -55,7 +54,7 @@ const destination = (update: RoadmapUpdate) => linkedArticle(update)
   h3 a:hover span:first-child { text-decoration: underline; text-underline-offset: 0.15em; }
   h3 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .chevron { flex-shrink: 0; color: var(--muted); font: 600 1.3rem/1 var(--sans); }
-  p { margin: 0.35rem 0; font: 400 0.83rem/1.5 var(--sans); }
+  li > p { margin: 0.35rem 0; font: 400 0.83rem/1.5 var(--sans); }
   .status { color: var(--muted); font: 500 0.66rem/1.4 var(--sans); }
   .sources { margin-top: 0.45rem; }
   .sources li { padding: 0.2rem 0; border: 0; font: 500 0.7rem/1.4 var(--sans); }
