@@ -70,6 +70,7 @@ const externalSourceGroups = articleExternalSources.reduce<Map<string, Editorial
                 Your browser does not support embedded video. <a href={item.url}>Open the video</a>.
               </video>
             ) : (
+              <SummaryTag class:list={{ "article-image-link": isArticlePreview }} href={articleHref} aria-label={isArticlePreview ? article.title : undefined}>
               <picture>
                 {imageVariants(item).length > 0 && (
                   <source
@@ -88,6 +89,7 @@ const externalSourceGroups = articleExternalSources.reduce<Map<string, Editorial
                   decoding="async"
                 />
               </picture>
+              </SummaryTag>
             )}
             {item.caption && <figcaption>{item.caption}</figcaption>}
           </figure>
@@ -298,6 +300,10 @@ const externalSourceGroups = articleExternalSources.reduce<Map<string, Editorial
     line-height: 1.45;
   }
 
+  .article-image-link {
+    display: block;
+  }
+
   .story-link {
     display: block;
     color: inherit;
@@ -310,7 +316,8 @@ const externalSourceGroups = articleExternalSources.reduce<Map<string, Editorial
     text-underline-offset: 0.08em;
   }
 
-  .story-link:focus-visible {
+  .story-link:focus-visible,
+  .article-image-link:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 4px;
   }
