@@ -1,0 +1,2091 @@
+{
+  "date": "2026-11-18",
+  "generatedAt": "2026-11-18T05:01:47.052Z",
+  "windowStart": "2026-11-17T04:59:41.653Z",
+  "windowEnd": "2026-11-18T04:59:41.653Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 472,
+    "repositories": 47,
+    "contributors": 192,
+    "dependencyUpdates": 55,
+    "hacsNewIntegrations": 47
+  },
+  "lead": {
+    "id": "4200825758",
+    "title": "Add release notes messages for update entities",
+    "summary": "Add the base implementation for generic update entity release notes messages, as approved in architecture discussion https://github.com/home assistant/architecture/discussions/1423.",
+    "unlocks": "Unlocks: Add release notes messages for update entities.",
+    "url": "https://github.com/home-assistant/core/pull/178125",
+    "repository": "home-assistant/core",
+    "organization": "Home Assistant",
+    "author": "jpbede",
+    "mergedAt": "2026-11-17T20:30:12Z",
+    "labels": [
+      "core",
+      "new-feature",
+      "has-tests",
+      "integration: update",
+      "quality scale: internal"
+    ],
+    "kind": "feature",
+    "score": 70.7,
+    "additions": 589,
+    "deletions": 102,
+    "changedFiles": 24
+  },
+  "highlights": [
+    {
+      "id": "5348651487",
+      "title": "Show why a player or queue action is refused",
+      "summary": "What does this implement/fix? When you asked a player or a queue to do something it could not do, the app mostly showed one generic sentence, whatever the reason was.",
+      "url": "https://github.com/music-assistant/server/pull/7812",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T00:05:53Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 66.2,
+      "additions": 727,
+      "deletions": 98,
+      "changedFiles": 34
+    },
+    {
+      "id": "5344824961",
+      "title": "Let the user disable audio analysis of a line-in or VBAN input",
+      "summary": "What does this implement/fix? Audio analysis can follow a line in or other live input while it plays, for example to recognize the song.",
+      "url": "https://github.com/music-assistant/server/pull/7798",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T01:22:38Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 65.3,
+      "additions": 316,
+      "deletions": 22,
+      "changedFiles": 16
+    },
+    {
+      "id": "5361817262",
+      "title": "Show a set of speakers as one multi-channel player with its layout",
+      "summary": "What does this implement/fix? Speakers that belong together (a stereo pair, a home theater set) are one player in Music Assistant.",
+      "url": "https://github.com/music-assistant/server/pull/7862",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-17T18:00:30Z",
+      "labels": [
+        "enhancement",
+        "dependencies-reviewed"
+      ],
+      "kind": "platform",
+      "score": 64.7,
+      "additions": 325,
+      "deletions": 56,
+      "changedFiles": 29
+    },
+    {
+      "id": "5340419381",
+      "title": "[pcm1863] Add PCM1863 stereo audio ADC component",
+      "summary": "What does this implement/fix? Adds an audio adc platform for the Texas Instruments PCM1863, an I²C configured stereo ADC for line and microphone input, plus a select platform that switches…",
+      "unlocks": "Unlocks: [pcm1863] Add PCM1863 stereo audio ADC component.",
+      "url": "https://github.com/esphome/esphome/pull/22794",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "anabolyc",
+      "mergedAt": "2026-11-17T21:18:49Z",
+      "labels": [
+        "new-component",
+        "new-feature",
+        "has-tests",
+        "core",
+        "new-platform",
+        "component: pcm1863"
+      ],
+      "kind": "feature",
+      "score": 64.2,
+      "additions": 486,
+      "deletions": 0,
+      "changedFiles": 13
+    }
+  ],
+  "briefs": [
+    {
+      "id": "5141994959",
+      "title": "Let the server refuse stale playlist edits and drop the client-side locks",
+      "summary": "What does this implement/fix? Playlist moves and removals now send the tracks they expect at each position, and the server refuses the edit when the playlist changed in the meantime.",
+      "url": "https://github.com/music-assistant/frontend/pull/3103",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "pierosavi",
+      "mergedAt": "2026-11-18T02:23:23Z",
+      "labels": [
+        "enhancement",
+        "backend changes merged"
+      ],
+      "kind": "platform",
+      "score": 63.9,
+      "additions": 404,
+      "deletions": 960,
+      "changedFiles": 10
+    },
+    {
+      "id": "5367038693",
+      "title": "Merge two players into one, or split an output off as its own player",
+      "summary": "What does this implement/fix? Sometimes one speaker shows up as two players, or an output (such as AirPlay) ends up on the wrong player.",
+      "url": "https://github.com/music-assistant/frontend/pull/3228",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-17T23:51:17Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 61.7,
+      "additions": 678,
+      "deletions": 1,
+      "changedFiles": 11
+    },
+    {
+      "id": "5177939208",
+      "title": "Add temperature controls to aerosmart",
+      "summary": "Add two manufacturer verified temperature controls to the aerosmart integration: Room temperature setpoint (14 26 degrees Celsius) Domestic hot water temperature setpoint (20 55 degrees…",
+      "unlocks": "Unlocks: Add temperature controls to aerosmart.",
+      "url": "https://github.com/home-assistant/core/pull/190743",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "kayloehmann",
+      "mergedAt": "2026-11-17T15:13:57Z",
+      "labels": [
+        "new-platform",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze",
+        "integration: aerosmart"
+      ],
+      "kind": "feature",
+      "score": 61.3,
+      "additions": 316,
+      "deletions": 1,
+      "changedFiles": 8
+    },
+    {
+      "id": "5216020836",
+      "title": "Add the queue to a new or existing playlist",
+      "summary": "What does this implement/fix? The queue's menu entry \"Save queue as playlist\" becomes \"Add queue to playlist...\", which opens the same sheet the track menu uses: pick an existing playlist or create a new one.",
+      "unlocks": "Unlocks: Add the queue to a new or existing playlist.",
+      "url": "https://github.com/music-assistant/frontend/pull/3130",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "pierosavi",
+      "mergedAt": "2026-11-18T02:05:42Z",
+      "labels": [
+        "enhancement",
+        "backend changes merged"
+      ],
+      "kind": "feature",
+      "score": 59.1,
+      "additions": 239,
+      "deletions": 248,
+      "changedFiles": 10
+    },
+    {
+      "id": "5134007838",
+      "title": "Add Belgian DSMR 5B diagnostic fields and monthly peak history",
+      "summary": "Expose already parsed Belgian ( 5B ) P1 version information, electricity meter identifier, electricity switch state, and meter text message as diagnostic sensors.",
+      "unlocks": "Unlocks: Add Belgian DSMR 5B diagnostic fields and monthly peak history.",
+      "url": "https://github.com/home-assistant/core/pull/190174",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "2xPower",
+      "mergedAt": "2026-11-17T19:43:50Z",
+      "labels": [
+        "new-feature",
+        "integration: dsmr",
+        "has-tests",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 59.1,
+      "additions": 490,
+      "deletions": 13,
+      "changedFiles": 4
+    },
+    {
+      "id": "5361858768",
+      "title": "Show a set of speakers as a multi-channel player with its layout",
+      "summary": "What does this implement/fix? Speakers that belong together (a stereo pair, a home theater set) are one multi channel player in Music Assistant.",
+      "url": "https://github.com/music-assistant/frontend/pull/3221",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T03:49:09Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 59,
+      "additions": 109,
+      "deletions": 12,
+      "changedFiles": 9
+    },
+    {
+      "id": "5177242598",
+      "title": "Add Aerosmart binary sensors",
+      "summary": "Breaking change None. Proposed change Add 48 read only binary sensors for the boolean registers exposed by the aerosmart Modbus model.",
+      "unlocks": "Unlocks: Add Aerosmart binary sensors.",
+      "url": "https://github.com/home-assistant/core/pull/190735",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "kayloehmann",
+      "mergedAt": "2026-11-17T15:25:23Z",
+      "labels": [
+        "new-platform",
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: bronze",
+        "integration: aerosmart"
+      ],
+      "kind": "feature",
+      "score": 58.8,
+      "additions": 3033,
+      "deletions": 1,
+      "changedFiles": 6
+    },
+    {
+      "id": "5363150075",
+      "title": "Hand the player's PCM with its format on every write",
+      "summary": "Next step of the public API move to standard view types (after #260, #261, #266).",
+      "url": "https://github.com/Sendspin/sendspin-cpp/pull/268",
+      "repository": "Sendspin/sendspin-cpp",
+      "organization": "Sendspin",
+      "author": "kahrendt",
+      "mergedAt": "2026-11-17T20:31:23Z",
+      "labels": [],
+      "kind": "platform",
+      "score": 58.4,
+      "additions": 518,
+      "deletions": 212,
+      "changedFiles": 27
+    },
+    {
+      "id": "5316503333",
+      "title": "Add Matter battery quantity sensor",
+      "summary": "This PR adds a diagnostic sensor for battery powered matter devices, showing the battery quantity.",
+      "unlocks": "Unlocks: Add Matter battery quantity sensor.",
+      "url": "https://github.com/home-assistant/core/pull/192726",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "tomfrenzel",
+      "mergedAt": "2026-11-17T07:03:11Z",
+      "labels": [
+        "small-pr",
+        "new-feature",
+        "has-tests",
+        "integration: matter",
+        "quality scale: no score",
+        "top 200",
+        "top 50",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 58,
+      "additions": 675,
+      "deletions": 7,
+      "changedFiles": 4
+    },
+    {
+      "id": "5362173906",
+      "title": "Show Sonos stereo pairs and home theater sets as multi-channel players",
+      "summary": "What does this implement/fix? A Sonos stereo pair or home theater set (a soundbar or Amp with a sub and surround speakers) is one player in Music Assistant, but nothing said it is a set.",
+      "url": "https://github.com/music-assistant/server/pull/7863",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-17T20:59:33Z",
+      "labels": [
+        "enhancement",
+        "dependencies-reviewed"
+      ],
+      "kind": "platform",
+      "score": 57.7,
+      "additions": 296,
+      "deletions": 6,
+      "changedFiles": 9
+    },
+    {
+      "id": "5360803757",
+      "title": "Let a provider list tools for AI assistants in its manifest",
+      "summary": "What does this implement/fix? A provider can now describe tools for AI assistants (served by the built in MCP server) in its manifest, under mcp tools .",
+      "url": "https://github.com/music-assistant/server/pull/7857",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-17T22:08:21Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 56.1,
+      "additions": 690,
+      "deletions": 10,
+      "changedFiles": 8
+    },
+    {
+      "id": "5369586521",
+      "title": "Remove the old player of a Sonos speaker that became part of a stereo pair or home theater set",
+      "summary": "What does this implement/fix? A Sonos speaker that becomes the second speaker of a stereo pair, or a surround or sub of a home theater set, is part of that set and no longer a speaker of its own.",
+      "url": "https://github.com/music-assistant/server/pull/7897",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T04:30:55Z",
+      "labels": [
+        "enhancement",
+        "dependencies-reviewed"
+      ],
+      "kind": "platform",
+      "score": 55,
+      "additions": 260,
+      "deletions": 2,
+      "changedFiles": 6
+    },
+    {
+      "id": "5047690828",
+      "title": "Add reconfigure flow to VLC media player via Telnet",
+      "summary": "Breaking change Proposed change Adds a reconfigure flow to VLC media player via Telnet, so users can update the host, port and password of an existing entry (for example after an IP address…",
+      "unlocks": "Unlocks: Add reconfigure flow to VLC media player via Telnet.",
+      "url": "https://github.com/home-assistant/core/pull/189059",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "joostlek",
+      "mergedAt": "2026-11-17T15:32:57Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "integration: vlc_telnet",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 55,
+      "additions": 246,
+      "deletions": 1,
+      "changedFiles": 3
+    },
+    {
+      "id": "5358961844",
+      "title": "Send a squeezelite speaker in a Sendspin group FLAC and no more bits than its music has",
+      "summary": "What does this implement/fix? A squeezelite speaker in a Sendspin group always got raw PCM in its highest bit depth, whatever played and whatever its output codec setting said.",
+      "url": "https://github.com/music-assistant/server/pull/7842",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-17T20:06:30Z",
+      "labels": [
+        "maintenance"
+      ],
+      "kind": "platform",
+      "score": 54.5,
+      "additions": 1765,
+      "deletions": 77,
+      "changedFiles": 11
+    },
+    {
+      "id": "5299045259",
+      "title": "Drop departed connections in Swiss public transport between updates",
+      "summary": "Breaking change Proposed change Move the Swiss public transport sensors on to the next connection as soon as the current one has departed, instead of waiting for the next update.",
+      "unlocks": "Unlocks: Drop departed connections in Swiss public transport between updates.",
+      "url": "https://github.com/home-assistant/core/pull/192576",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "agners",
+      "mergedAt": "2026-11-17T20:23:36Z",
+      "labels": [
+        "new-feature",
+        "integration: swiss_public_transport",
+        "has-tests",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 53.4,
+      "additions": 234,
+      "deletions": 7,
+      "changedFiles": 3
+    },
+    {
+      "id": "5361276976",
+      "title": "Add gas price per m³ sensors to ENGIE Belgium",
+      "summary": "Breaking change Proposed change ENGIE now surfaces the gas conversion coefficient, which we can use to calculate and create price sensors per m³.",
+      "unlocks": "Unlocks: Add gas price per m³ sensors to ENGIE Belgium.",
+      "url": "https://github.com/home-assistant/core/pull/193135",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "DaanVervacke",
+      "mergedAt": "2026-11-17T19:00:51Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: silver",
+        "integration: engie_be"
+      ],
+      "kind": "feature",
+      "score": 53,
+      "additions": 516,
+      "deletions": 100,
+      "changedFiles": 7
+    },
+    {
+      "id": "5359673933",
+      "title": "Close the connection on a malformed `group_id`",
+      "summary": "What does this implement/fix? The client now closes the connection when a group/update carries a group id that isn't 43 base64url characters, as the spec requires.",
+      "url": "https://github.com/Sendspin/aiosendspin/pull/623",
+      "repository": "Sendspin/aiosendspin",
+      "organization": "Sendspin",
+      "author": "maximmaxim345",
+      "mergedAt": "2026-11-17T15:36:06Z",
+      "labels": [
+        "breaking-change"
+      ],
+      "kind": "platform",
+      "score": 51.8,
+      "additions": 71,
+      "deletions": 0,
+      "changedFiles": 2
+    },
+    {
+      "id": "5364748581",
+      "title": "Enable multi instance support in BBC Sounds provider",
+      "summary": "What does this implement/fix? Now the library supports per user cookie jars properly, make the required changes to set multi instance: true .",
+      "unlocks": "Unlocks: Enable multi instance support in BBC Sounds provider.",
+      "url": "https://github.com/music-assistant/server/pull/7877",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "kieranhogg",
+      "mergedAt": "2026-11-18T00:09:55Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "feature",
+      "score": 51.7,
+      "additions": 91,
+      "deletions": 92,
+      "changedFiles": 7
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Bump lyngdorf to 2.2.2",
+      "url": "https://github.com/home-assistant/core/pull/193170",
+      "repository": "home-assistant/core",
+      "author": "fishloa"
+    },
+    {
+      "title": "Update logback monorepo to v1.6.7",
+      "url": "https://github.com/home-assistant/android/pull/7913",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update funasr to v1.4.27",
+      "url": "https://github.com/home-assistant/app-whisper/pull/19",
+      "repository": "home-assistant/app-whisper",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump aiounifi to v100",
+      "url": "https://github.com/home-assistant/core/pull/193153",
+      "repository": "home-assistant/core",
+      "author": "Kane610"
+    },
+    {
+      "title": "Bump pyaprilaire to 0.10.0",
+      "url": "https://github.com/home-assistant/core/pull/186563",
+      "repository": "home-assistant/core",
+      "author": "chamberlain2007"
+    },
+    {
+      "title": "Bump pysmartthings to 4.1.0",
+      "url": "https://github.com/home-assistant/core/pull/193130",
+      "repository": "home-assistant/core",
+      "author": "julieganzer"
+    },
+    {
+      "title": "Bump music-assistant-client to 1.8.1",
+      "url": "https://github.com/home-assistant/core/pull/193125",
+      "repository": "home-assistant/core",
+      "author": "fmunkes"
+    },
+    {
+      "title": "Bump pyjvcprojector to 2.1.2",
+      "url": "https://github.com/home-assistant/core/pull/193117",
+      "repository": "home-assistant/core",
+      "author": "SteveEasley"
+    },
+    {
+      "title": "Bump pydaikin to 2.24.1",
+      "url": "https://github.com/home-assistant/core/pull/193110",
+      "repository": "home-assistant/core",
+      "author": "ha-newbie"
+    },
+    {
+      "title": "Bump PySwitchbot to 3.8.4",
+      "url": "https://github.com/home-assistant/core/pull/193115",
+      "repository": "home-assistant/core",
+      "author": "derekcentrico"
+    },
+    {
+      "title": "Bump env-canada to 0.20.7",
+      "url": "https://github.com/home-assistant/core/pull/193018",
+      "repository": "home-assistant/core",
+      "author": "michaeldavie"
+    },
+    {
+      "title": "Update ciso8601 to 2.4.1",
+      "url": "https://github.com/home-assistant/core/pull/193014",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump aioamazondevices to 17.3.2",
+      "url": "https://github.com/home-assistant/core/pull/193129",
+      "repository": "home-assistant/core",
+      "author": "jamesonuk"
+    },
+    {
+      "title": "Update uv to v0.13.9",
+      "url": "https://github.com/home-assistant/app-piper/pull/13",
+      "repository": "home-assistant/app-piper",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump aerosmart-modbus to 0.3.5",
+      "url": "https://github.com/home-assistant/core/pull/193118",
+      "repository": "home-assistant/core",
+      "author": "kayloehmann"
+    },
+    {
+      "title": "Update dependency pnpm to v12.21.0",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/50710",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency astro to v7.4.12",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/50696",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump homematicip to 2.23.1",
+      "url": "https://github.com/home-assistant/core/pull/193056",
+      "repository": "home-assistant/core",
+      "author": "lackas"
+    },
+    {
+      "title": "Bump CLI to v6.0.0",
+      "url": "https://github.com/home-assistant/plugin-cli/pull/239",
+      "repository": "home-assistant/plugin-cli",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update actions/setup-java action to v6.3.0",
+      "url": "https://github.com/home-assistant/android/pull/7906",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update pnpm to v12.21.0",
+      "url": "https://github.com/home-assistant/frontend/pull/55978",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update Playwright",
+      "url": "https://github.com/home-assistant/frontend/pull/55976",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency eslint to v10.15.0",
+      "url": "https://github.com/home-assistant/frontend/pull/55977",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update actions/dependency-review-action action to v5.0.1",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/788",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump release-drafter/release-drafter from 7.10.0 to 7.11.0",
+      "url": "https://github.com/home-assistant-libs/voluptuous-openapi/pull/115",
+      "repository": "home-assistant-libs/voluptuous-openapi",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency ty to v0.0.105",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/787",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency astral-sh/uv to v0.13.9",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/786",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump the \"ruff\" group with 2 updates across multiple ecosystems",
+      "url": "https://github.com/home-assistant-libs/aiowebostv/pull/794",
+      "repository": "home-assistant-libs/aiowebostv",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump pytest-asyncio from 1.4.1.post1 to 1.5.0",
+      "url": "https://github.com/home-assistant-libs/aiowebostv/pull/795",
+      "repository": "home-assistant-libs/aiowebostv",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump the \"ty-checker\" group with 2 updates across multiple ecosystems",
+      "url": "https://github.com/home-assistant-libs/aiowebostv/pull/796",
+      "repository": "home-assistant-libs/aiowebostv",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump astro from 7.4.11 to 7.4.12",
+      "url": "https://github.com/esphome/devices.esphome.io/pull/2005",
+      "repository": "esphome/devices.esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump @astrojs/markdown-remark from 7.3.8 to 7.3.9",
+      "url": "https://github.com/esphome/devices.esphome.io/pull/2006",
+      "repository": "esphome/devices.esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "[docs] Allow git dependencies in .npmrc for npm 12",
+      "url": "https://github.com/esphome/esphome.io/pull/8165",
+      "repository": "esphome/esphome.io",
+      "author": "jesserockz"
+    },
+    {
+      "title": "Bump @astrojs/starlight from 0.42.11 to 0.43.1 in the starlight group",
+      "url": "https://github.com/esphome/esphome.io/pull/8164",
+      "repository": "esphome/esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump smp from 4.2.0 to 4.3.0",
+      "url": "https://github.com/esphome/esphome/pull/22853",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump auntie-sounds to 3.1.0",
+      "url": "https://github.com/music-assistant/server/pull/7879",
+      "repository": "music-assistant/server",
+      "author": "kieranhogg"
+    },
+    {
+      "title": "Bump python-slugify from 9.1.1 to 9.1.3",
+      "url": "https://github.com/music-assistant/server/pull/7747",
+      "repository": "music-assistant/server",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump prettier from 3.9.10 to 3.10.1",
+      "url": "https://github.com/music-assistant/frontend/pull/3210",
+      "repository": "music-assistant/frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump jsdom from 30.1.1 to 31.0.1",
+      "url": "https://github.com/music-assistant/frontend/pull/3207",
+      "repository": "music-assistant/frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump oxlint and eslint-plugin-oxlint",
+      "url": "https://github.com/music-assistant/frontend/pull/3208",
+      "repository": "music-assistant/frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Build(deps): Bump ruff from 0.17.4 to 0.17.5",
+      "url": "https://github.com/music-assistant/models/pull/477",
+      "repository": "music-assistant/models",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump vue-router from 5.4.0 to 5.5.1",
+      "url": "https://github.com/music-assistant/frontend/pull/3211",
+      "repository": "music-assistant/frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump marked from 18.1.2 to 18.2.0",
+      "url": "https://github.com/music-assistant/frontend/pull/3213",
+      "repository": "music-assistant/frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump @lucide/vue from 1.66.0 to 1.73.0",
+      "url": "https://github.com/music-assistant/frontend/pull/3215",
+      "repository": "music-assistant/frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump sass from 1.107.1 to 1.108.2",
+      "url": "https://github.com/music-assistant/frontend/pull/3216",
+      "repository": "music-assistant/frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump @vitejs/plugin-vue from 6.0.10 to 6.0.11",
+      "url": "https://github.com/music-assistant/frontend/pull/3212",
+      "repository": "music-assistant/frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump vite from 8.3.6 to 8.3.8",
+      "url": "https://github.com/music-assistant/frontend/pull/3214",
+      "repository": "music-assistant/frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump peter-evans/create-pull-request from 8.1.2 to 8.1.3",
+      "url": "https://github.com/music-assistant/frontend/pull/3206",
+      "repository": "music-assistant/frontend",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump ruff from 0.17.4 to 0.17.5",
+      "url": "https://github.com/music-assistant/aiosonos/pull/202",
+      "repository": "music-assistant/aiosonos",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Update dependencies to latest versions",
+      "url": "https://github.com/OpenHomeFoundation/sotoh.openhomefoundation.org/pull/179",
+      "repository": "OpenHomeFoundation/sotoh.openhomefoundation.org",
+      "author": "dan-long-dev"
+    },
+    {
+      "title": "chore(deps): update dependency typescript-eslint to v8.72.2",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/153",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update nestjs to v11.2.9",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/152",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update pnpm to v12.19.0",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/154",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump version to 2.5.4",
+      "url": "https://github.com/OHF-Voice/wyoming-piper/pull/79",
+      "repository": "OHF-Voice/wyoming-piper",
+      "author": "synesthesiam"
+    },
+    {
+      "title": "chore(pre-commit.ci): pre-commit autoupdate",
+      "url": "https://github.com/Bluetooth-Devices/thermopro-ble/pull/184",
+      "repository": "Bluetooth-Devices/thermopro-ble",
+      "author": "pre-commit-ci[bot]"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 179,
+      "thisWeek": 1172,
+      "sinceRelease": 2717,
+      "lastReleaseDate": "2026-11-04"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 123,
+      "thisWeek": 620,
+      "sinceRelease": 381,
+      "lastReleaseDate": "2026-11-14"
+    },
+    {
+      "product": "ESPHome",
+      "today": 32,
+      "thisWeek": 384,
+      "sinceRelease": 14,
+      "lastReleaseDate": "2026-11-18"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "esphome/esphome:449473510",
+      "product": "ESPHome",
+      "repository": "esphome/esphome",
+      "name": "2026.11.0b7",
+      "tag": "2026.11.0b7",
+      "url": "https://github.com/esphome/esphome/releases/tag/2026.11.0b7",
+      "publishedAt": "2026-11-18T03:07:27Z",
+      "channel": "prerelease",
+      "accent": "green",
+      "sourcePullRequestIds": [
+        "5368957348"
+      ]
+    },
+    {
+      "id": "esphome/esphome:448395191",
+      "product": "ESPHome",
+      "repository": "esphome/esphome",
+      "name": "2026.11.0b6",
+      "tag": "2026.11.0b6",
+      "url": "https://github.com/esphome/esphome/releases/tag/2026.11.0b6",
+      "publishedAt": "2026-11-17T09:25:02Z",
+      "channel": "prerelease",
+      "accent": "green",
+      "sourcePullRequestIds": [
+        "5351959972"
+      ]
+    }
+  ],
+  "publishedPosts": [],
+  "releasePreviews": [
+    {
+      "id": "ESPHome/2026.11",
+      "product": "ESPHome",
+      "version": "2026.11",
+      "title": "ESPHome 2026.11.0: Lighter builds and tougher updates",
+      "url": "https://next.esphome.io/blog/2026/11/18/esphome-2026-11/",
+      "body": "ESPHome 2026.11.0: Lighter builds and tougher updates\n\nNov 18, 2026\nJesse Hills\nESPHome Developer\n\nNOTE\n\nThis is a beta release. Details on this page may change before the stable release is published.\n\nESPHome publishes a release like this each month, so you can see what’s new, what’s fixed and anything to be aware of before you update.\n\nShort on time? Here’s the quick version\nSection titled “Short on time? Here’s the quick version”\n\nThis is the short, plain-language version for anyone short on time or still finding their way around ESPHome. The full technical post continues below.\n\nSub-devices: every entry under esphome: devices: now needs a relation: field – via for a separate physical device reached through this node, child for a logical part of this node.\n\nHTTP requests in scripts: http_request.get,.post and.send no longer pause the script, so add mode: queued or mode: parallel where repeated runs must not be skipped.\n\nESP-IDF minimum version: if your ESP32 build pins the ESP-IDF framework to a 5.0 version, move it to 5.1 or newer (or remove the pin).\n\nPower meters on Beken chips: on BK72xx, hlw8012 power meters with short pulses, such as the BL0937, on inverted\npins previously double counted each pulse. They now count each pulse once and match ESP32, so if a plug calibrated on\nan older release reads half after updating, double voltage_divider and the current calibration (see the checklist\nbelow).\n\nNew features: ESPHome uses less memory on every supported chip, especially the ESP8266, and the way automations are built now produces smaller, faster code.\n\nAlso in this release: over thirty new components plus many smaller fixes and improvements.\n\nIf you’re running a typical config, there’s nothing else you need to check before updating – aside from the items above and a few rarer setups covered in the upgrade checklist.\n\nFor the full release overview and technical detail – including anything that affects custom lambdas, external components or non-standard setups – keep reading below.\n\nComponents added in this release\nSection titled “Components added in this release”\n\nESP3​2​ ​ULP ​coprocessor\n\nModem\n\nEZSP ​Proxy ​Tap\n\nBLE ​MIDI\n\nZephyr ​Coredump\n\nOTA ​Updates ​for ​nRF5​2​ ​(​Adafruit ​BLE)​\n\nFUSB3​0​2​B\nUSB-​C ​PD ​sink\n\nHDMI-​CEC ​Bus\n\nTinyUSB ​Keyboard\n\nUSB ​Audio\n\nPCA9​5​0​5​\n\nModem ​Signal\n\nAPC1​\nParticulate ​&​ ​CO2​ ​&​ ​Volatile ​organics ​&​ ​Temp ​&​ ​Humidity\n\nAranet ​BLE\nCO2​ ​&​ ​Radon ​&​ ​Radiation\n\nDFRobot ​SEN0​4​6​5​ ​Gas ​Sensors\nO2​ ​&​ ​CO ​&​ ​H2​S ​&​ ​NH3​ ​&​ ​.​.​.​\n\nEcocomfort2​ ​VMC\nVolatile ​organics\n\nMiCS-​5​5​2​4​\nGas ​concentration\n\nRenogy ​Inverter ​BLE\n\nVL5​3​L1​X\nIR ​optical ​distance\n\nDS3​2​3​1​ ​RTC\nTemperature\n\nMAX3​1​8​8​8​\nTemperature\n\nVevor ​DTX ​Weather ​Station\nWeather\n\nAPDS9​9​3​0​\nLight ​&​ ​Proximity\n\nAS7​3​4​1​ ​/​ ​AS7​3​4​3​ ​/​ ​TCS3​4​4​8​\nSpectral ​Color ​Sensor\n\nBH1​7​4​5​\nLux ​&​ ​RGB ​colour\n\nVEML6​0​4​0​\nLux ​&​ ​RGBW ​colour\n\nMT6​7​0​1​\n1​4​-​Bit ​Magnetic ​Angle ​Sensor\n\nBQ2​7​2​2​0​\nBattery ​Fuel ​Gauge\n\nBQ7​6​9​7​2​\nBattery ​Monitor\n\nCW2​0​1​7​\nBattery ​fuel ​gauge\n\nFilter ​Lifetime\n\nMAX1​7​0​4​8​\nBattery ​fuel ​gauge\n\nDFRobot ​SEN0​6​0​9​ ​mmWave ​Radar\nMotion ​&​ ​Presence\n\nICM-​2​0​6​8​9​\nAccelerometer ​&​ ​Gyroscope\n\nLD2​4​1​0​S\nMotion ​&​ ​Presence\n\nLD2​4​6​0​\nMotion ​&​ ​Presence\n\nLD6​0​0​4​\nMotion ​&​ ​Presence\n\nLIS2​DW1​2​\nAccelerometer\n\nLIS3​DH\nAccelerometer\n\nUART ​Binary ​Sensor\n\nTCA8​4​1​8​ ​Keypad\n\nST2​5​R3​9​1​6​\n\nDS3​2​3​1​ ​RTC ​Alarms\n\nHUSB2​3​8​ ​USB ​PD ​Sink\n\nRX8​1​1​1​ ​RTC ​Status\n\nES7​2​4​3​\n\nES9​0​3​8​Q2​M ​Katana\n\nAirton ​Serial ​Climate\n\nDaikin ​Madoka\n\nMidea ​PortaSplit\n\nAPC ​Proteous ​Cover\n\nVNC ​Client\n\nHT1​6​K3​3​ ​Character ​Display\n\nSH1​1​2​2​\n\nST7​3​0​5​\n\nM5​Unit-​BLDC\n\nTMC2​2​0​9​ ​Stepper ​Driver\n\nDelta ​AC ​Wallbox\n\nLight\n\nI2​S ​Clockless\n\nLN8​8​2​x ​SPI\n\nUSB ​Audio ​Microphone\n\nLP5​5​6​2​\n\nPower ​Management ​Core\n\nESP3​2​ ​Power ​Management\n\nDuco ​Ventilation\n\nHaier ​Select\n\nUSB ​Audio ​Speaker\n\nM5​Stack ​4​-​Relay\n\nSeeed ​Studio ​Multi-​Channel ​Relay\n\nModem ​Text ​Sensor\n\nRX8​1​1​1​ ​Timestamp\n\nDS3​2​3​1​ ​RTC\n\nRX8​1​1​1​ ​RTC\n\nNS2​0​0​9​\n\nSPD2​0​1​0​\n\nHaier ​Water ​Heater\n\nBQ2​5​1​8​6​\nBattery ​charger ​IC\n\nModbus ​Monitor\n\nRTSP ​Server\n\nRelease overview\nSection titled “Release overview”\n\nESPHome 2026.11.0 is a framework release. Another large sweep of entity names, filter tables and lookup strings leaves\nRAM on ESP8266 and lives in flash on every platform. Scheduler timers lose their string names, cover, fan, valve and\nlock traits pack into one byte, and several components switch from heap vectors to fixed buffers. The generated code\nfor automations now compiles to plain C++ control flow, saving about 1.6 KB of RAM on ESP8266 and ESP32 IDF for a modest\nconfiguration.\n\nCodegen gets a wave of shared helpers, so new components and migrations need less boilerplate: new Apply entity\nclasses for hub-forwarding buttons, switches, numbers and selects, SUB_* and PUBLISH_STATE macros for child\nentities, and byte, I2C, UART, BLE and modbus helpers that roll out across dozens of drivers. The minimum ESP-IDF rises\nto 5.1, LibreTiny goes to 1.14.0 with BDK 3.0.78 on Beken chips, and esp_hosted moves to 3.1.0. Native ESPHome OTA\nnow falls back to UDP when the link is lossy, so uploads finish on Wi-Fi that would stall the previous TCP data phase.\nwifi: ap: with web_server: now serves the interface as a captive portal, the DHCP lease is cached across reboots\nand Wi-Fi Easy Connect lands on ESP32.\n\nOpenThread on ESP32 gains an experimental border router that bridges Thread to Wi-Fi. nRF52 picks up a crash coredump,\na native toolchain entry, a dongle board, BLE OTA through the Adafruit bootloader and SMP-over-UDP. HTTP requests from\nautomations no longer block the main loop, the logger buffers early boot lines for later replay over the API, and the\nweb server stops exposing internal entities over REST. This release also adds over thirty new components, including\nDaikin Madoka BLE, USB audio and keyboard, an RTSP server, a VNC client, BLE MIDI, HDMI-CEC and the ESP32 ULP\ncoprocessor, twelve new climate IR platforms, and many new sensors, radars and expanders. A short codebase-correctness\nsweep closes memory, event-decoding and REST-visibility bugs.\n\nFixes made during the beta make Wi-Fi reconnects, MQTT and Bluetooth proxies more reliable. They also stop several\nwatchdog resets on ESP8266 and timing errors on Realtek chips.\n\nUpgrade checklist\nSection titled “Upgrade checklist”\n\nIf you use esphome: devices: for sub-devices, add relation: via (separate physical device) or relation: child\n(logical part of this node) to every entry.\n\nIf you use OpenThread on ESP32, make sure your build uses ESP-IDF 5.5.5 or newer; remove any pinned\nesp32.framework.version older than that.\n\nIf you target the ESP32 with ESP-IDF, remove any pin to ESP-IDF 5.0.x; the minimum is now 5.1.\n\nIf you use esp32_hosted, require ESP-IDF 5.5 or newer, add d1_pin on a 1-bit SDIO setup, and remove\nactive_high: false (use the default; active_high: true works with a deprecation warning).\n\nIf you use OpenThread on ESP32 without anything else that needs IPv4, add network: enable_ipv4: true to keep\nIPv4 on.\n\nIf you use http_request actions inside a script, set mode: queued or mode: parallel where repeated runs must\nnot be skipped; actions no longer block the script.\n\nIf you have clk_mode: on the ethernet: component, move it to the clk: block with mode: and pin:.\n\nIf you have provider: on dlms_meter:, drop it; for provider: netznoe add the two custom_patterns from the\nrelease notes.\n\nIf you have DLMS meter sensors using predefined keys such as voltage_l1 or timestamp, replace each with its\nown entity using obis_code.\n\nIf you have update_on_release: on an LVGL number, replace it with trigger: on_release.\n\nIf you have dump_device_info: on nextion:, delete it; device info is always logged.\n\nIf you have platform: qspi_amoled, change it to platform: qspi_dbi.\n\nIf you use delay, wait_until or script.wait inside emonTx on_json / on_data, MQTT on_json_message, or\nHaier on_status_message, copy the values you need into globals first and defer from a separate script.\n\nIf you drive internal entities through the web server REST API by URL, add include_internal: true under\nweb_server:.\n\nIf you have NEC remote_transmitter.transmit_nec actions with command_repeats above 10 or equal to 0, change\nthem to a value between 1 and 10.\n\nIf you have on_nec lambdas comparing x.command_repeats, update them - the value is always 1 now and the check\nno longer works.\n\nIf you have Panasonic IR configs captured from a 56-bit remote, run the dumper again and update address_2 and\ncommand.\n\nIf you have MagiQuest on_magiquest lambdas comparing x.wand_id or x.magnitude, re-dump and use the new values.\n\nIf you have a canbus.send with a constant payload longer than 8 bytes, shorten it to at most 8 bytes.\n\nIf you use esp32_rmt_led_strip, remote_transmitter or remote_receiver with a custom rmt_symbols or multiple\ncomponents, re-run validation; conflicts and invalid sizes now fail at config time.\n\nIf you use color_bwr e-paper panels (WeAct 3C, Waveshare B, Waveshare BWR, Inkplate 2), expect color mapping to\nchange; the test card and lambdas on WeAct 3C or Waveshare 7.5” V2 BWR also change because they now report\nDISPLAY_TYPE_COLOR.\n\nIf you use the CB3S board (LN-CB3S V1.0) with the D12 alias, update your pin to D13 or PA11; D12 now\ndrives PA10.\n\nIf you use hlw8012 (HLW8012, BL0937, CSE7759) on a BK72xx (Beken) chip with inverted pins and the readings dropped\nto half after updating (typical for the BL0937, whose pulses are 38 µs), update the calibration: pulses of about 50 µs\nor less were previously double counted on Beken chips, and each pulse is now counted once, the same as on ESP32. To\nkeep your calibration, double voltage_divider (this also corrects power and energy) and double the current: double\nan existing multiply filter on the current sensor, or add multiply: 2. Leave current_resistor as it is, because\npower depends on both values and halving it as well would double power a second time. Then check the readings against\na known load. With pins that are not inverted, these short pulses were missed before and are now counted; pulses\nbetween about 75 and 150 µs were miscounted either way. The same applies to pulse_counter with\ninternal_filter: 0us; with the default filter, and for slower pulses such as water and gas meters, pulse_counter\non Beken chips counts as before ( #21271 ).\n\nIf you use hlw8012 (HLW8012, BL0937, CSE7759) on a Realtek chip, check its calibration: on RTL8720C it counted no\npulses at all on older releases, and on RTL8710B it counted nothing with inverted pins; both now read correctly, the\nsame as on ESP32. pulse_counter with internal_filter: 0us counts there too; with the default filter it still\ncounts nothing on RTL8720C, or with inverted pins on RTL8710B\n( #21271 ). LN882H reads the pin within a few microseconds of a pulse\nedge, so it counted these pulses correctly before and needs no change.\n\nIf a browser page on another site calls web OTA /update, Prometheus /metrics, the index page or the ESP32\n/events stream, add that site to web_server: allowed_origins:. Each entry can be at most 127 characters.\n\nIf you use deep_sleep with wakeup_pin on an ESP32-H2, replace it with esp32_ext1_wakeup using the same pin.\n\nIf your device receives MQTT messages over 8 KB (ESP8266), 16 KB (LibreTiny) or 32 KB (ESP32), raise the new\nmax_payload_size option under mqtt:. Larger messages are now dropped with a warning.\n\nESP8266 RAM diet and framework-wide flash tables\nSection titled “ESP8266 RAM diet and framework-wide flash tables”\n\nESP8266 keeps on a strict RAM budget, and this release shaves another large chunk off it by moving constant tables and\nstrings into flash. Entity names, device classes, icons, log tags, filter tables, effect lists, enum option lookups\nand action payloads now live in flash on every build, and are only copied into RAM when a component actua…",
+      "mediaUrls": [
+        "https://assets.openhomefoundation.org/opengraph?url=https://esphome.io/blog/2026/11/18/esphome-2026-11",
+        "https://next.esphome.io/_astro/opengraph_Z249avw.webp",
+        "https://avatars.githubusercontent.com/jesserockz?size=64",
+        "https://next.esphome.io/images/badges/esp32_ulp.svg",
+        "https://next.esphome.io/images/modem.svg",
+        "https://next.esphome.io/images/badges/ezsp_proxy_tap.svg",
+        "https://next.esphome.io/images/bluetooth.svg",
+        "https://next.esphome.io/images/bug-report.svg",
+        "https://next.esphome.io/images/system-update.svg",
+        "https://next.esphome.io/images/badges/fusb302b.svg",
+        "https://next.esphome.io/images/badges/hdmi-cec.svg",
+        "https://next.esphome.io/images/usb.svg",
+        "https://next.esphome.io/images/badges/pca9505.svg",
+        "https://next.esphome.io/images/apc1.webp",
+        "https://next.esphome.io/images/dfrobot_sen0465.jpg",
+        "https://next.esphome.io/images/fan.svg",
+        "https://next.esphome.io/images/mics_5524.jpg",
+        "https://next.esphome.io/images/vl53l1x.jpg",
+        "https://next.esphome.io/images/ds3231.jpg",
+        "https://next.esphome.io/images/badges/max31888.svg",
+        "https://next.esphome.io/images/weather-sunny.svg",
+        "https://next.esphome.io/images/apds9930.jpg",
+        "https://next.esphome.io/images/as7341.jpg",
+        "https://next.esphome.io/images/bh1745.jpg",
+        "https://next.esphome.io/images/badges/veml6040.svg",
+        "https://next.esphome.io/images/mt6701.jpg",
+        "https://next.esphome.io/images/bq27220.jpg",
+        "https://next.esphome.io/images/bq76972.jpg",
+        "https://next.esphome.io/images/badges/cw2017.svg",
+        "https://next.esphome.io/images/badges/filter_lifetime.svg",
+        "https://next.esphome.io/images/max17048.webp",
+        "https://next.esphome.io/images/badges/sen0609.svg",
+        "https://next.esphome.io/images/imu.svg",
+        "https://next.esphome.io/images/badges/ld2410s.svg",
+        "https://next.esphome.io/images/ld2460.jpg",
+        "https://next.esphome.io/images/badges/ld6004.svg",
+        "https://next.esphome.io/images/lis2dw12.jpg",
+        "https://next.esphome.io/images/badges/uart.svg",
+        "https://next.esphome.io/images/matrix_keypad.jpg",
+        "https://next.esphome.io/images/badges/st25r3916.svg",
+        "https://next.esphome.io/images/husb238.jpg",
+        "https://next.esphome.io/images/clock-outline.svg",
+        "https://next.esphome.io/images/badges/es7243.svg",
+        "https://next.esphome.io/images/badges/es9038q2m.svg",
+        "https://next.esphome.io/images/air-conditioner.svg",
+        "https://next.esphome.io/images/daikin.png",
+        "https://next.esphome.io/images/midea.svg",
+        "https://next.esphome.io/images/apc_proteous.svg",
+        "https://next.esphome.io/images/badges/vnc.svg",
+        "https://next.esphome.io/images/badges/ht16k33.svg",
+        "https://next.esphome.io/images/sh1122.jpg",
+        "https://next.esphome.io/images/st7305.jpg",
+        "https://next.esphome.io/images/motor.png",
+        "https://next.esphome.io/images/badges/tmc2209.svg",
+        "https://next.esphome.io/images/delta-wallbox-ac-max.jpg",
+        "https://next.esphome.io/images/home-assistant.svg",
+        "https://next.esphome.io/images/color_lens.svg",
+        "https://next.esphome.io/images/badges/lp5562.svg",
+        "https://next.esphome.io/images/badges/power_management.svg",
+        "https://next.esphome.io/images/badges/esp32.svg",
+        "https://next.esphome.io/images/duco.svg",
+        "https://next.esphome.io/images/haier.svg",
+        "https://next.esphome.io/images/m5stack_4relay.webp",
+        "https://next.esphome.io/images/seeed_multi_channel_relay.webp",
+        "https://next.esphome.io/images/mod-lcd2.8rtp.jpg",
+        "https://next.esphome.io/images/waveshare-lcd-1.46-touch.webp",
+        "https://next.esphome.io/images/badges/haier_water_heater.svg",
+        "https://next.esphome.io/images/badges/bq25186.svg",
+        "https://next.esphome.io/images/modbus.png",
+        "https://next.esphome.io/images/camera.svg",
+        "https://next.esphome.io/images/OHF-lockup-main-color-on-dark.svg",
+        "https://next.esphome.io/images/OHF-lockup-main-color-on-bright.svg"
+      ],
+      "contentHash": "394df30f7f5f6dc6d4f9dc64f9a7586f4834014f4195a0559114ada8c93f372a",
+      "fetchedAt": "2026-11-18T04:59:41.739Z",
+      "releaseDate": "2026-11-18T00:00:00.000Z"
+    }
+  ],
+  "releases": [
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-11-18",
+      "version": "2026.11",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-11-25",
+      "version": "2026.12",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-12-02",
+      "version": "2026.12",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-12-02",
+      "version": "2026.12",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-12-16",
+      "version": "2026.12",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-12-30",
+      "version": "2027.1",
+      "accent": "blue"
+    }
+  ],
+  "communityMeetups": [
+    {
+      "id": "evt-QEzt2fYlUfSiP1J@events.lu.ma",
+      "title": "Home Assistant Community Hackathon: The Hague",
+      "url": "https://luma.com/cmsahysn",
+      "startAt": "2026-11-19T09:00:00.000Z",
+      "endAt": "2026-11-19T19:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-19",
+      "endDate": "2026-11-19",
+      "location": "https://luma.com/event/evt-QEzt2fYlUfSiP1J",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-87JtJwYoojgDwdR@events.lu.ma",
+      "title": "Home Assistant Meetup Köln",
+      "url": "https://luma.com/83fycwc9",
+      "startAt": "2026-12-03T17:00:00.000Z",
+      "endAt": "2026-12-03T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-12-03",
+      "endDate": "2026-12-03",
+      "location": "REWE Digital GmbH, Schanzenstraße 6-20, 51063 Köln, Germany",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-JrQQIH3uBJV4C3A@events.lu.ma",
+      "title": "Home Assistant Meetup - Carpi",
+      "url": "https://luma.com/yjfnms6a",
+      "startAt": "2026-12-12T08:30:00.000Z",
+      "endAt": "2026-12-12T11:30:00.000Z",
+      "allDay": false,
+      "date": "2026-12-12",
+      "endDate": "2026-12-12",
+      "location": "TERMINAL - Terre d’Argine Innovation Lab, Piazzale Allende Salvador, 5, 41012 Carpi MO, Italy",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-3GIz2yYPGSZ8Gnw@events.lu.ma",
+      "title": "Orlando Home Assistant Meetup: Get-Together & Gear Swap",
+      "url": "https://luma.com/qpe49nll",
+      "startAt": "2027-01-09T14:00:00.000Z",
+      "endAt": "2027-01-09T17:00:00.000Z",
+      "allDay": false,
+      "date": "2027-01-09",
+      "endDate": "2027-01-09",
+      "location": "Stardust Video & Coffee, 1842 Winter Park Rd, Orlando, FL 32803, USA",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    }
+  ],
+  "notes": [],
+  "articles": [
+    {
+      "id": "esphome-2026-11-release",
+      "title": "More room for automations and fewer stalled updates",
+      "dek": "ESPHome 2026.11 arrives today; sub-devices and scripts that fetch web data need a configuration check.",
+      "body": [
+        "Small ESP8266 boards have little working memory to spare. The release keeps more fixed names and lookup tables in flash storage instead, and builds automation steps into smaller programs. In the official example, eight three-step automations use about 1.6 KB less working memory on ESP8266 and on ESP32 builds using Espressif’s development framework.",
+        "Wireless firmware uploads gain another way through a poor connection: the transfer can switch methods when Wi-Fi is losing packets, avoiding stalls in the previous upload path. Devices can also retain early startup messages and replay them after a client connects, making faults from before Wi-Fi was ready easier to investigate.",
+        "New components broaden what makers can connect. Compatible ESP32 boards can capture from USB microphones and play through USB sound cards, while an ESP32 camera can supply a stream understood by players such as VLC and surveillance software such as Frigate. The release also includes an experimental way to bridge a Thread device network to Wi-Fi.",
+        "Before updating, check configurations that describe sub-devices: each needs a relation field identifying a separate physical device or a logical part of the same node. Scripts making web requests need queued or parallel mode when repeated runs must not be skipped. Builds pinned to version 5.0 of Espressif’s development framework need at least 5.1. Owners of affected Beken smart plugs whose power readings halve should follow the release notes’ recalibration instructions and check against a known load."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 100,
+      "contributors": [
+        "bdraco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "reviewers": [
+        "jesserockz"
+      ],
+      "approvers": [
+        "jesserockz"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "jesserockz",
+          "name": "Jesse Hills",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/3060199?v=4",
+          "profileUrl": "https://github.com/jesserockz"
+        }
+      ],
+      "topics": [
+        "ESPHome",
+        "Release"
+      ],
+      "pullRequests": [
+        {
+          "id": "5364579077",
+          "title": "[changelog] Refresh the 2026.11.0 release notes for the beta changes",
+          "url": "https://github.com/esphome/esphome.io/pull/8162",
+          "repository": "esphome/esphome.io"
+        }
+      ],
+      "externalSources": [
+        {
+          "id": "release-preview:ESPHome/2026.11",
+          "title": "ESPHome 2026.11.0: Lighter builds and tougher updates",
+          "url": "https://next.esphome.io/blog/2026/11/18/esphome-2026-11/",
+          "publisher": "ESPHome release notes",
+          "publishedAt": "2026-11-18T00:00:00.000Z",
+          "kind": "official_post"
+        }
+      ],
+      "media": [],
+      "frontPage": true
+    },
+    {
+      "id": "home-assistant-live-startup-progress",
+      "title": "Watch what is happening during startup",
+      "dek": "A live details panel counts completed integrations, identifies failures and keeps a summary after the system finishes.",
+      "body": [
+        "An integration taking a long time to start no longer hides what the others are doing. The startup message opens a live view of the current phase, the connections still being set up and how long each has been running.",
+        "Completion appears when the system is actually running, with a warning if any integrations need attention. The summary retains the total startup time and the slowest integrations; familiar icons help identify them, with a separate alert beside failures.",
+        "Erwin Douna connects the new screen to the startup reporting added earlier this month. It explains the wait without changing how integrations are scheduled or how long they are allowed to take."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 94,
+      "contributors": [
+        "erwindouna"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "erwindouna",
+          "name": "Erwin Douna",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5011203?v=4",
+          "profileUrl": "https://github.com/erwindouna"
+        }
+      ],
+      "reviewers": [
+        "wendevlin",
+        "silamon",
+        "chemelli74",
+        "emontnemery"
+      ],
+      "approvers": [
+        "wendevlin",
+        "silamon",
+        "chemelli74",
+        "emontnemery"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "wendevlin",
+          "name": "Wendelin",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12148533?v=4",
+          "profileUrl": "https://github.com/wendevlin"
+        },
+        {
+          "login": "silamon",
+          "name": "Simon Lamon",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/32477463?v=4",
+          "profileUrl": "https://github.com/silamon"
+        },
+        {
+          "login": "chemelli74",
+          "name": "Simone Chemelli",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/57354320?v=4",
+          "profileUrl": "https://github.com/chemelli74"
+        },
+        {
+          "login": "emontnemery",
+          "name": "Erik Montnemery",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/14281572?v=4",
+          "profileUrl": "https://github.com/emontnemery"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5245140267",
+          "title": "Show startup progress while Home Assistant starts",
+          "url": "https://github.com/home-assistant/frontend/pull/55834",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "5355413435",
+          "title": "Show integration icons in the startup details",
+          "url": "https://github.com/home-assistant/frontend/pull/55981",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "5245133505",
+          "title": "Add bootstrap startup progress",
+          "url": "https://github.com/home-assistant/core/pull/191915",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-11-18/home-assistant-live-startup-progress-4475ee80d5d2-1280w.webp",
+          "alt": "Home Assistant Startup details dialog listing integrations, startup times and a failed integration",
+          "width": 1280,
+          "height": 800,
+          "variants": [
+            {
+              "url": "/media/2026-11-18/home-assistant-live-startup-progress-4475ee80d5d2-480w.webp",
+              "width": 480,
+              "height": 300,
+              "bytes": 7056,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-18/home-assistant-live-startup-progress-4475ee80d5d2-960w.webp",
+              "width": 960,
+              "height": 600,
+              "bytes": 20072,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-18/home-assistant-live-startup-progress-4475ee80d5d2-1280w.webp",
+              "width": 1280,
+              "height": 800,
+              "bytes": 29590,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 56718
+        }
+      ]
+    },
+    {
+      "id": "music-assistant-speaker-sets",
+      "title": "Stereo pairs and home theaters take one place in the player list",
+      "dek": "Changes made in the Sonos app follow through, and speakers removed from a set return with fresh settings.",
+      "body": [
+        "A surround speaker that belongs to a soundbar should not remain in the player list as an unusable separate destination. The server removes those obsolete Sonos entries and their settings, while showing the complete set with its speaker layout, such as stereo or 5.1.",
+        "Chromecast speaker pairs use the same multi-channel category. These sets behave like one speaker when playing music or joining a group, and their own volume counts toward the group level when they lead it. A filter in the player list helps find them.",
+        "The Sonos layout follows changes made in the manufacturer’s app. Taking a speaker out of a pair or theater set brings it back as a new player; this does not create or configure the set itself."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 87,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5360555967",
+          "title": "Add the multi-channel player type and its channel layout",
+          "url": "https://github.com/music-assistant/models/pull/479",
+          "repository": "music-assistant/models"
+        },
+        {
+          "id": "5361817262",
+          "title": "Show a set of speakers as one multi-channel player with its layout",
+          "url": "https://github.com/music-assistant/server/pull/7862",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5361858768",
+          "title": "Show a set of speakers as a multi-channel player with its layout",
+          "url": "https://github.com/music-assistant/frontend/pull/3221",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "5362173906",
+          "title": "Show Sonos stereo pairs and home theater sets as multi-channel players",
+          "url": "https://github.com/music-assistant/server/pull/7863",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5361374000",
+          "title": "Tell whether a player is a stereo pair",
+          "url": "https://github.com/music-assistant/aiosonos/pull/203",
+          "repository": "music-assistant/aiosonos"
+        },
+        {
+          "id": "5365691893",
+          "title": "Tell which other speakers are bonded into a player",
+          "url": "https://github.com/music-assistant/aiosonos/pull/204",
+          "repository": "music-assistant/aiosonos"
+        },
+        {
+          "id": "5367235726",
+          "title": "Let a provider remove the old players of the other speakers of a stereo pair or home theater set",
+          "url": "https://github.com/music-assistant/server/pull/7892",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5369586521",
+          "title": "Remove the old player of a Sonos speaker that became part of a stereo pair or home theater set",
+          "url": "https://github.com/music-assistant/server/pull/7897",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "battery-capacity-live-sensor",
+      "title": "Let the battery report its usable capacity",
+      "dek": "Manual entry remains available, while changing measurements feed the combined charge percentage.",
+      "body": [
+        "If a storage system already measures how much energy it can hold, its reading can replace a fixed number in the Energy settings. The combined battery charge percentage follows that usable capacity as it changes, giving larger batteries the appropriate weight.",
+        "The selector accepts capacity in watt-hours, kilowatt-hours or megawatt-hours. A missing or invalid reading falls back to the existing calculation for batteries without a capacity; the field is for usable capacity, not remaining energy or lifetime production.",
+        "Thomas van Tilburg’s first contributions to Home Assistant Core and the frontend bring the setting and its calculation together. Existing configurations keep their manual capacity values."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 87,
+      "contributors": [
+        "thomasvt1"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "thomasvt1",
+          "name": "Thomas van Tilburg",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2271011?v=4",
+          "profileUrl": "https://github.com/thomasvt1"
+        }
+      ],
+      "reviewers": [
+        "MindFreeze",
+        "lboue"
+      ],
+      "approvers": [
+        "MindFreeze"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "MindFreeze",
+          "name": "Petar Petrov",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5219205?v=4",
+          "profileUrl": "https://github.com/MindFreeze"
+        },
+        {
+          "login": "lboue",
+          "name": "Ludovic BOUÉ",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/938089?v=4",
+          "profileUrl": "https://github.com/lboue"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5193579567",
+          "title": "Allow selecting a sensor for battery capacity",
+          "url": "https://github.com/home-assistant/frontend/pull/55713",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "5193576442",
+          "title": "Allow a sensor to provide battery capacity in energy preferences",
+          "url": "https://github.com/home-assistant/core/pull/190980",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-11-18/battery-capacity-live-sensor-b388e1bdcaac-1600w.webp",
+          "alt": "Home Assistant battery settings with Use a sensor selected for usable battery capacity",
+          "width": 1600,
+          "height": 1125,
+          "variants": [
+            {
+              "url": "/media/2026-11-18/battery-capacity-live-sensor-b388e1bdcaac-480w.webp",
+              "width": 480,
+              "height": 338,
+              "bytes": 7056,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-18/battery-capacity-live-sensor-b388e1bdcaac-960w.webp",
+              "width": 960,
+              "height": 675,
+              "bytes": 23918,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-18/battery-capacity-live-sensor-b388e1bdcaac-1600w.webp",
+              "width": 1600,
+              "height": 1125,
+              "bytes": 49810,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 80784
+        }
+      ]
+    },
+    {
+      "id": "music-assistant-radio-song-saving",
+      "title": "Turn a radio discovery into a saved song",
+      "dek": "The web player separates track actions from station actions; an installed recognition provider can fill gaps in programme information.",
+      "body": [
+        "Hear something worth keeping while a station is playing? The heart menu in the player bar and full-screen web player puts the named song first, with options to save it to favorites or a playlist. The station has its own entries beneath it.",
+        "The search through your music services happens only when you choose an action. If the song cannot be found, the player explains that and leaves the library unchanged. Talk, adverts and stations without an identified song retain the station menu.",
+        "An installed music-recognition provider can also supply the title and artist when a station sends none. Those details appear as playback reaches the recognized audio; the station’s own information takes priority, and recognition results are not stored."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 81,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5346588163",
+          "title": "Like the song a radio station plays, or add it to a playlist",
+          "url": "https://github.com/music-assistant/frontend/pull/3201",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "5346984101",
+          "title": "Tell apps which track a radio station is playing",
+          "url": "https://github.com/music-assistant/server/pull/7802",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5347235540",
+          "title": "Show the song an analysis provider recognises on radio stations without their own metadata",
+          "url": "https://github.com/music-assistant/server/pull/7809",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "ipma-current-weather-warning",
+      "title": "Weather warnings show the highest level in effect",
+      "dek": "Future Portuguese alerts no longer appear as though they have already begun.",
+      "body": [
+        "A yellow warning could hide an orange one simply because it appeared first in the district’s response. The Weather Alert sensor instead selects the most severe warning whose start and end times include the present moment, and shows its details.",
+        "@JorgeS15’s first contribution to Home Assistant Core also makes the state unknown when warnings cannot be retrieved. The correction avoids treating an alert published days ahead as a current condition."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 82,
+      "contributors": [
+        "JorgeS15"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "JorgeS15",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195638646?v=4",
+          "profileUrl": "https://github.com/JorgeS15"
+        }
+      ],
+      "reviewers": [
+        "dgomes",
+        "silamon"
+      ],
+      "approvers": [
+        "dgomes"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "dgomes",
+          "name": "Diogo Gomes",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/137684?v=4",
+          "profileUrl": "https://github.com/dgomes"
+        },
+        {
+          "login": "silamon",
+          "name": "Simon Lamon",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/32477463?v=4",
+          "profileUrl": "https://github.com/silamon"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5193893049",
+          "title": "Report the most severe IPMA warning currently in effect",
+          "url": "https://github.com/home-assistant/core/pull/190984",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5194171375",
+          "title": "Enhance IPMA integration with Weather Alert sensor",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50299",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "aerosmart-temperature-and-fault-controls",
+      "title": "Room and hot-water settings reach Aerosmart",
+      "dek": "Faults, filter alerts and heating requests also become signals for automations.",
+      "body": [
+        "Temperature targets can be set from 14–26°C for rooms and 20–55°C for domestic hot water. Each requested value is checked and read back from the controller before the interface shows it as accepted.",
+        "Kay also exposes fault signals, filter-replacement alerts, utility lockouts and operating requests. These can drive automations, while static information about installed capabilities starts disabled to avoid clutter. Ventilation-mode selection is separate work."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 80,
+      "contributors": [
+        "kayloehmann"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "kayloehmann",
+          "name": "Kay",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/34281638?v=4",
+          "profileUrl": "https://github.com/kayloehmann"
+        }
+      ],
+      "reviewers": [
+        "silamon",
+        "iluvdata"
+      ],
+      "approvers": [
+        "silamon",
+        "iluvdata"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "silamon",
+          "name": "Simon Lamon",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/32477463?v=4",
+          "profileUrl": "https://github.com/silamon"
+        },
+        {
+          "login": "iluvdata",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/86066778?v=4",
+          "profileUrl": "https://github.com/iluvdata"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5177939208",
+          "title": "Add temperature controls to aerosmart",
+          "url": "https://github.com/home-assistant/core/pull/190743",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5177242598",
+          "title": "Add Aerosmart binary sensors",
+          "url": "https://github.com/home-assistant/core/pull/190735",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5177319293",
+          "title": "Document Aerosmart binary sensors",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50252",
+          "repository": "home-assistant/home-assistant.io"
+        },
+        {
+          "id": "5178236767",
+          "title": "Document Aerosmart temperature controls",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50255",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "belgian-meter-monthly-peak-history",
+      "title": "Monthly electricity peaks come straight from the meter",
+      "dek": "Compatible Belgian DSMR 5B meters supply up to thirteen valid records, with timestamps.",
+      "body": [
+        "The historical demand sensor exposes the peak readings already held in a Belgian meter’s monthly buffer. Invalid placeholders are left out, so the number of usable months depends on the meter.",
+        "TwicePower’s first contribution to Home Assistant Core also adds diagnostic information such as meter identifiers and switch or valve state. The historical readings do not change the current-month sensor’s reset timing or the separate DSMR Reader integration."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 80,
+      "contributors": [
+        "2xPower"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "2xPower",
+          "name": "TwicePower",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/11692384?v=4",
+          "profileUrl": "https://github.com/2xPower"
+        }
+      ],
+      "reviewers": [
+        "silamon"
+      ],
+      "approvers": [
+        "silamon"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "silamon",
+          "name": "Simon Lamon",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/32477463?v=4",
+          "profileUrl": "https://github.com/silamon"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5134007838",
+          "title": "Add Belgian DSMR 5B diagnostic fields and monthly peak history",
+          "url": "https://github.com/home-assistant/core/pull/190174",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5136132248",
+          "title": "Document Belgian DSMR 5B diagnostics and monthly demand history",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50145",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "enphase-battery-only-startup",
+      "title": "Battery-only Envoys avoid a five-minute startup trap",
+      "dek": "A setup option skips solar-production requests when the gateway manages storage alone.",
+      "body": [
+        "Adding Enphase batteries to a home with another brand of solar can leave the Envoy responsible only for storage. Asking that gateway for inverter production can stall setup long enough to exceed the five-minute limit.",
+        "The No solar option tells the integration to skip those requests and continue collecting battery data. It describes what the Envoy manages, not whether the home has solar panels."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 78,
+      "contributors": [
+        "catsmanac"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "catsmanac",
+          "name": "Arie Catsman",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/120491684?v=4",
+          "profileUrl": "https://github.com/catsmanac"
+        }
+      ],
+      "reviewers": [
+        "silamon"
+      ],
+      "approvers": [
+        "silamon"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "silamon",
+          "name": "Simon Lamon",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/32477463?v=4",
+          "profileUrl": "https://github.com/silamon"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5193558740",
+          "title": "Use NO_SOLAR config to avoid enphase_envoy integration load timeout",
+          "url": "https://github.com/home-assistant/core/pull/190979",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5193552264",
+          "title": "Document enphase_envoy NO SOLAR mode",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50296",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "sendspin-client-browser-connections",
+      "title": "Playback clients reject connections from web pages",
+      "dek": "The Python client library closes a route for a page on the local network to impersonate its server.",
+      "body": [
+        "A browser page on the same network could open a connection to the client listener and act as a playback server. The listener rejects requests carrying the browser’s Origin header before the connection handler runs.",
+        "Ordinary server connections do not carry that header and continue as before. This is a change to the Python client library; it does not establish that every Sendspin speaker has received the protection."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 77,
+      "contributors": [
+        "maximmaxim345"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "maximmaxim345",
+          "name": "Maxim Raznatovski",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/30021287?v=4",
+          "profileUrl": "https://github.com/maximmaxim345"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Sendspin"
+      ],
+      "pullRequests": [
+        {
+          "id": "5359842410",
+          "title": "Reject client listener upgrades that carry an `Origin` header",
+          "url": "https://github.com/Sendspin/aiosendspin/pull/626",
+          "repository": "Sendspin/aiosendspin"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "tractive-pet-health-status",
+      "title": "Your pet’s resting health indicators join the dashboard",
+      "dek": "The tracker service supplies the assessments; sensors appear only when health data is available.",
+      "body": [
+        "Resting heart-rate and breathing-rate status, plus scratching status, draw on the health overview already received from Tractive. The integration adds no extra request to obtain them.",
+        "The sensors show unknown while the service is establishing a baseline or lacks enough data. F4llen’s first contribution to Home Assistant Core exposes the service’s assessments rather than making a diagnosis of its own."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 77,
+      "contributors": [
+        "f4llenz"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "f4llenz",
+          "name": "F4llen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/76191805?v=4",
+          "profileUrl": "https://github.com/f4llenz"
+        }
+      ],
+      "reviewers": [
+        "bieniu"
+      ],
+      "approvers": [
+        "bieniu"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bieniu",
+          "name": "Maciej Bieniek",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/478555?v=4",
+          "profileUrl": "https://github.com/bieniu"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5152750408",
+          "title": "Add health status sensors to Tractive",
+          "url": "https://github.com/home-assistant/core/pull/190347",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5152751714",
+          "title": "Add Tractive health status sensors",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50173",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "multicast-plugin-deprecation",
+      "title": "App authors get a timetable for discovery changes",
+      "dek": "Local hostname resolution stays intact as Supervisor retires its network-discovery relay.",
+      "body": [
+        "Apps that browse for devices from the internal network should test with the multicast plugin disabled. Stefan Agner’s contributor guide explains how to check that dependency; apps using the host network, and those that only resolve .local names, need no change.",
+        "Supervisor 2026.12 stops installing the plugin on new systems. Version 2027.02 disables it on all installations but retains the option to turn it back on; removal follows in a later release."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 77,
+      "contributors": [
+        "agners"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "agners",
+          "name": "Stefan Agner",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/34061?v=4",
+          "profileUrl": "https://github.com/agners"
+        }
+      ],
+      "reviewers": [
+        "frenck"
+      ],
+      "approvers": [
+        "frenck"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5338202563",
+          "title": "Blog: the multicast plugin is being deprecated",
+          "url": "https://github.com/home-assistant/contributors.home-assistant.io/pull/229",
+          "repository": "home-assistant/contributors.home-assistant.io"
+        }
+      ],
+      "externalSources": [
+        {
+          "id": "home-assistant-contributors-blog:e0312784fcab6272f3e6b60b",
+          "title": "The multicast plugin is being deprecated",
+          "url": "https://contributors.home-assistant.io/blog/2026/11/17/multicast-plugin-deprecation/",
+          "publisher": "Home Assistant Contributors Blog",
+          "publishedAt": "2026-11-17T00:00:00.000Z",
+          "kind": "official_post"
+        }
+      ],
+      "media": []
+    },
+    {
+      "id": "music-assistant-artwork-log-credentials",
+      "title": "Artwork errors stop exposing music-service credentials",
+      "dek": "Warning messages conceal access tokens while keeping local addresses and paths useful for troubleshooting.",
+      "body": [
+        "A failed cover-image download could write a Plex or Jellyfin access token into the log twice: once in the requested address and again in the error text. Marvin Schenkel filters the complete warning and its cached failure message before either is retained.",
+        "This closes a different exposure from October’s removal of Jellyfin credentials from library data. The correction covers image-download errors across providers, including credentials embedded directly in an address."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "MarvinSchenkel"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "MarvinSchenkel",
+          "name": "Marvin Schenkel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
+          "profileUrl": "https://github.com/MarvinSchenkel"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5360602293",
+          "title": "Hide provider tokens in the failed image fetch warning",
+          "url": "https://github.com/music-assistant/server/pull/7855",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "sonos-sound-controls-through-music-assistant",
+      "title": "Put night mode and speech enhancement into automations",
+      "dek": "Sonos options supplied by Music Assistant 2.11 become Home Assistant switches.",
+      "body": [
+        "The switches for loudness, night mode and speech enhancement are enabled by default for supported speakers. Additional controls include the subwoofer and surround speakers, status light, touch controls and Trueplay.",
+        "These are speaker sound and hardware settings, separate from the queue’s Crossfade and Autoplay controls covered yesterday. Less common switches start disabled and can be enabled when needed."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "fmunkes"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "fmunkes",
+          "name": "Fabian Munkes",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/105975993?v=4",
+          "profileUrl": "https://github.com/fmunkes"
+        }
+      ],
+      "reviewers": [
+        "arturpragacz"
+      ],
+      "approvers": [
+        "arturpragacz"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "arturpragacz",
+          "name": "Artur Pragacz",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/49985303?v=4",
+          "profileUrl": "https://github.com/arturpragacz"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5312490409",
+          "title": "Add Sonos player option switches to Music Assistant",
+          "url": "https://github.com/home-assistant/core/pull/192690",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5312489128",
+          "title": "Add Sonos player option numbers to Music Assistant",
+          "url": "https://github.com/home-assistant/core/pull/192689",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-touchscreen-phantom-taps",
+      "title": "Idle touchscreens stop pressing their own buttons",
+      "dek": "Invalid reports from supported CST8xx controllers are filtered before they become a touch.",
+      "body": [
+        "A tabletop music controller could pause or resume playback every minute or two without anyone touching it. An idle report was being interpreted as a press in the far corner of the display.",
+        "@Mattheinrichs’s first ESPHome contribution rejects those invalid reports while retaining real touches. A hardware check on a Makerfabs MaTouch display found no phantom presses during a six-minute capture with the correction applied to ESPHome 2026.10."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 73,
+      "contributors": [
+        "Mattheinrichs"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "Mattheinrichs",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2302703?v=4",
+          "profileUrl": "https://github.com/Mattheinrichs"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "topics": [
+        "ESPHome",
+        "Touchscreens"
+      ],
+      "pullRequests": [
+        {
+          "id": "5214531525",
+          "title": "[cst816] Ignore idle 0xFF touch frames and invalid coordinates",
+          "url": "https://github.com/esphome/esphome/pull/22435",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-audiobook-people-search",
+      "title": "Find books by the people who write and read them",
+      "dek": "Separate author and narrator filters appear only when a connected service supports them.",
+      "body": [
+        "Writers who are not yet in your library can appear in their own search category instead of being mixed in with musicians. Authors and narrators on a book’s page also link to their pages.",
+        "Music-only setups keep the same search options. Services that supply only audiobooks no longer appear in the music Artists filter."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 73,
+      "contributors": [
+        "fmunkes"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "fmunkes",
+          "name": "Fabian Munkes",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/105975993?v=4",
+          "profileUrl": "https://github.com/fmunkes"
+        }
+      ],
+      "reviewers": [
+        "pierosavi",
+        "OzGav"
+      ],
+      "approvers": [
+        "pierosavi",
+        "OzGav"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "pierosavi",
+          "name": "Piero",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/15440183?v=4",
+          "profileUrl": "https://github.com/pierosavi"
+        },
+        {
+          "login": "OzGav",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/19848947?v=4",
+          "profileUrl": "https://github.com/OzGav"
+        }
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5298444970",
+          "title": "Add authors and narrators to search, link audiobook authors",
+          "url": "https://github.com/music-assistant/frontend/pull/3167",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "5298441971",
+          "title": "Send supported artist types with the provider",
+          "url": "https://github.com/music-assistant/server/pull/7595",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ],
+  "roadmapUpdates": []
+}
