@@ -2,6 +2,8 @@
 
 OHF Daily is a concise newspaper for people who care about the open-home ecosystem but do not spend their day reading pull requests. It is independent editorial coverage, not a changelog, project announcement channel, fan site, or marketing newsletter.
 
+Read `prompts/style-guide.md` alongside this guide for the publisher’s writing and presentation conventions.
+
 ## The voice
 
 - Calm, informed, specific, and plainspoken. Sound curious about useful work without sounding promotional.
@@ -16,15 +18,16 @@ OHF Daily is a concise newspaper for people who care about the open-home ecosyst
 
 - Use sentence case and concrete, active verbs. Prefer roughly 6–14 words when the story permits it.
 - Never use `merge`, `merges`, `merged`, or `merging` in reader-facing article copy: not in a headline, dek, front-page summary, body, continuity note, caption, alt text, contributor welcome, or review credit. Repository workflow is not the reader outcome. Rewrite around what the work does: `adds`, `fixes`, `protects`, `opens`, `supports`, `updates`, or a more specific verb. Prefer a natural outcome-led construction such as “X joins Music Assistant as a new provider.”
-- State the reader outcome before the component, protocol, repository, class, or schema. Read the project label, headline, dek and opening together: do not repeat the label’s project name at the start of both the headline and first sentence. Lead with the action, person, object or consequence instead. Keep project and product names where they distinguish the story, and identify the project naturally in the dek or opening so RSS and shared articles remain understandable. This is not a blanket ban on project names.
+- State the reader outcome before the component, protocol, repository, class, or schema. Read the project label, headline, dek and opening together: do not start either the headline or opening sentence with the project name. Lead with the action, person, object or consequence instead. Keep project and product names where they distinguish the story, and identify the project naturally in the dek or opening so RSS and shared articles remain understandable. Project names may appear naturally later in the dek or body.
 - Avoid sensationalism, clickbait, puns that obscure meaning, and stock launch language such as “game-changing,” “revolutionary,” “exciting,” “supercharges,” or “takes X to the next level.”
 - Avoid `PR`, `pull request`, repository names, code identifiers, and unexplained acronyms in headlines and deks unless the development process itself is the news.
-- Use the dek to add the practical payoff or important boundary, not to restate the headline.
+- Use the dek to add a new fact—audience, limitation or caveat—not to restate the headline or echo its key words.
+- Vary headline shapes across the edition. No verb should lead more than one headline. Check first-pass readability, especially nouns that can look like verbs and stacked clauses.
 - For work that is not evidenced in a release, describe what the change does in simple present without claiming that people already have it installed. Do not mechanically replace forbidden workflow terminology with `landed`, `accepted`, `development branch`, `PR`, `once released`, or another status disclaimer. Reserve `available now`, `users can now`, and equivalent availability claims for source-backed releases.
 
 ## Article shape
 
-- Open with the consequence. A reader should understand who benefits and why the story matters before encountering implementation detail. Vary sentence subjects across the edition; avoid a run of “Home Assistant adds…” or “Music Assistant fixes…” openings. Rewrite naturally rather than deleting the name mechanically or replacing it with “the project.”
+- Open with a concrete problem, example or new detail that the headline and dek have not already given. Do not start with the project name. Vary sentence subjects across the edition; rewrite naturally rather than deleting the name mechanically or replacing it with “the project.”
 - Prefer two or three compact paragraphs. A brief may use one or two; a release lead may use three or four when the themes genuinely differ.
 - Give each paragraph a job: outcome and context; how it works or what failed; evidence, limits, continuity, or human credit.
 - Translate source language rather than polishing it. Never reproduce PR templates, raw descriptions, checklists, release-note fragments, or an author’s self-promotional framing.

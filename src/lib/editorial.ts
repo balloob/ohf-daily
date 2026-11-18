@@ -657,6 +657,12 @@ function resolveArticles(
     });
     const humanCredits = (field: "reviewers" | "approvers"): string[] => uniqueLogins(sourceRecords.flatMap((record) => record[field]
       .filter((login) => !isBotLogin(login) && login.toLowerCase() !== record.author.toLowerCase())));
+    const reviewers = humanCredits("reviewers");
+    const approvers = humanCredits("approvers");
+    const reviewerProfiles = uniqueLogins([...reviewers, ...approvers]).flatMap((login) => {
+      const profile = profilesByLogin.get(login.toLowerCase());
+      return profile ? [{ login: profile.login, name: profile.name, avatarUrl: profile.avatarUrl, profileUrl: profile.profileUrl }] : [];
+    });
     articles.push({
       id,
       title: draft.title.trim(),
@@ -668,8 +674,9 @@ function resolveArticles(
       score: Math.max(0, Math.min(100, draft.score)),
       contributors,
       contributorProfiles,
-      reviewers: humanCredits("reviewers"),
-      approvers: humanCredits("approvers"),
+      reviewers,
+      approvers,
+      reviewerProfiles,
       topics: [...new Set(draft.topics.map((item) => item.trim()).filter(Boolean))],
       continuity: nullable(draft.continuity),
       pullRequests: sources,

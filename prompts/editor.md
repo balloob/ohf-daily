@@ -54,6 +54,8 @@ Publisher-confirmed events in `data/sources.yaml` under `confirmed_events` are a
 
 ## Copy desk
 
+- Apply `prompts/style-guide.md`: neither headlines nor openings start with the project name; deks add a distinct fact and openings add a concrete problem or fresh detail. Vary headline shapes and ensure no verb leads more than one headline. Explain technical terms in bodies or omit them. Rank by user impact.
+
 - Read each project label, headline, dek and opening as one sequence, then scan them across the whole edition. Remove redundant project-name openings and vary sentence subjects around the reader outcome. Retain names where they resolve ambiguity, including cross-project stories, and enough context for RSS and standalone articles.
 
 - Titles are specific and active, not sensational.

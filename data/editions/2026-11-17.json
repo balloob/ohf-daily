@@ -1444,12 +1444,12 @@
   "articles": [
     {
       "id": "home-assistant-database-usage",
-      "title": "Database report shows which entities take up space",
-      "dek": "A Storage report identifies the tables and entities taking up space, including on Core and Container installations.",
+      "title": "Find out what’s filling your database",
+      "dek": "Core and Container installations receive the Storage page too, with measurements taken on request.",
       "body": [
-        "A new Database card breaks down Home Assistant’s history storage by table and entity. Administrators can search and sort the entity list to find what takes up space, then open an entity’s settings from the report.",
-        "The report separates recorded states from statistics, making it easier to find a particularly busy sensor or a large collection of retained history. Per-entity sizes are estimates; some database configurations can report row counts without byte sizes.",
-        "A Refresh button measures the database when requested. The card also brings the Storage page to Core and Container installations that use the recorder."
+        "Sort the new Storage report by size to find which sensor is keeping the most history, then open its settings directly from the list. Home Assistant’s Database card separates recorded states from statistics and lets administrators search for individual items.",
+        "A breakdown by table shows how the different parts of the history store contribute to the total. Per-item sizes are estimates; some database configurations can report row counts without byte sizes.",
+        "The Refresh button takes a new measurement when requested. Core and Container installations need the recorder, Home Assistant’s history component, enabled to show the card."
       ],
       "kind": "daily",
       "placement": "lead",
@@ -1532,16 +1532,41 @@
           ],
           "bytes": 62428
         }
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "emontnemery",
+          "name": "Erik Montnemery",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/14281572?v=4",
+          "profileUrl": "https://github.com/emontnemery"
+        },
+        {
+          "login": "MindFreeze",
+          "name": "Petar Petrov",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5219205?v=4",
+          "profileUrl": "https://github.com/MindFreeze"
+        },
+        {
+          "login": "NoRi2909",
+          "name": "Norbert Rittel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/179329902?v=4",
+          "profileUrl": "https://github.com/NoRi2909"
+        },
+        {
+          "login": "silamon",
+          "name": "Simon Lamon",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/32477463?v=4",
+          "profileUrl": "https://github.com/silamon"
+        }
       ]
     },
     {
       "id": "home-assistant-cover-controls",
-      "title": "Shutter and blind drawings become controls",
-      "dek": "A redesigned panel keeps the reported position separate from the position requested.",
+      "title": "Set your blinds by dragging their picture",
+      "dek": "The panel keeps the reported position separate from the requested one, so a command does not look like completed movement.",
       "body": [
-        "Tap or drag a shutter, blind or garage-door drawing to choose its position in Home Assistant’s redesigned cover panel. Labeled Open, Stop and Close buttons sit alongside it.",
-        "The picture follows the position reported by the device, while a separate marker shows the requested position. That keeps a command from looking like a movement that has already happened. Covers without position control use an open-or-close gesture instead.",
-        "The control also supports keyboard and screen-reader operation. Where a cover supports tilt, a switch changes between position and tilt controls."
+        "Labeled Open, Stop and Close buttons sit beside an interactive drawing in Home Assistant’s redesigned shutter, blind and garage-door panel. A tap or drag chooses a position; equipment without position control uses an open-or-close gesture instead.",
+        "The picture follows what the device reports, with a separate marker for its target. Keyboard and screen-reader controls remain available, and a switch selects tilt adjustment where the device supports it."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -1600,16 +1625,24 @@
           ],
           "bytes": 19768
         }
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "wendevlin",
+          "name": "Wendelin",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12148533?v=4",
+          "profileUrl": "https://github.com/wendevlin"
+        }
       ]
     },
     {
       "id": "zwave-floorplan-network-map",
-      "title": "Z-Wave JS UI puts the network on a floorplan",
-      "dek": "Routes, battery levels and network health appear alongside the rooms where devices sit.",
+      "title": "See which walls stand between connected devices",
+      "dek": "Separate maps accommodate several floors or buildings, with battery levels and failed connections as optional layers.",
       "body": [
-        "An uploaded floorplan puts Z-Wave devices in their physical context, with network connections drawn between them. In Z-Wave JS UI, owners can maintain separate maps for different floors or buildings and drag devices into position.",
-        "Optional layers show current and backup routes, failed connections, neighbor links and battery levels. Clicking a device opens its usual details, and maps are included in backups by default.",
-        "Steve Berg tested the view on a network of about thirty-seven devices. Owners place devices on the map themselves, and route information builds as devices communicate, so a map can initially lack routes after a restart."
+        "A weak connection means more when its route crosses the rooms you know. Uploading a floorplan to Z-Wave JS UI lets owners place their devices on it and trace the path back to the controller.",
+        "Current and backup routes, neighboring devices and network-health indicators can be shown together or hidden individually. Clicking a device opens its usual details, and maps are included in backups by default.",
+        "Steve Berg tested the view on a network of about thirty-seven devices. Owners position the devices themselves, and route information builds as they communicate, so a map can initially lack routes after a restart."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -1673,15 +1706,23 @@
           ],
           "bytes": 126562
         }
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "robertsLando",
+          "name": "Daniel Lando",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/11502495?v=4",
+          "profileUrl": "https://github.com/robertsLando"
+        }
       ]
     },
     {
       "id": "android-camera-talkback",
-      "title": "Android brings camera talkback to local HTTP connections",
-      "dek": "The companion app supplies the microphone connection when the browser cannot.",
+      "title": "Talk through a camera over a local HTTP connection",
+      "dek": "The Android app requests microphone permission and stops sending audio when the page closes or the app moves into the background.",
       "body": [
-        "Talking through a compatible camera gains a microphone path on local HTTP connections in the Home Assistant Android app. A native connection supplies the audio when the browser cannot.",
-        "The app requests microphone permission before starting and stops the stream when the page closes or the app moves into the background. The camera still needs to support two-way audio."
+        "An unencrypted connection to Home Assistant can prevent the browser from supplying microphone audio. The Android companion app provides a native audio path in that situation, allowing two-way conversations through compatible cameras.",
+        "The camera still needs to support two-way audio; the app does not add that capability to equipment that lacks it."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -1730,16 +1771,30 @@
         }
       ],
       "externalSources": [],
-      "media": []
+      "media": [],
+      "reviewerProfiles": [
+        {
+          "login": "jpelgrom",
+          "name": "Joris Pelgröm",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/8148535?v=4",
+          "profileUrl": "https://github.com/jpelgrom"
+        },
+        {
+          "login": "c0ffeeca7",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/38767475?v=4",
+          "profileUrl": "https://github.com/c0ffeeca7"
+        }
+      ]
     },
     {
       "id": "home-assistant-marketplace-navigation-shaping",
-      "title": "A simpler Marketplace starts with what people want to do",
-      "dek": "A proposal groups community projects by type and goal, and explains what to do after installation.",
+      "title": "A simpler way to find the right community project",
+      "dek": "A Marketplace proposal would explain the next step after installation; curation and mobile designs remain open questions.",
       "body": [
-        "Finding a community project by the problem it solves is the aim of a new Home Assistant Marketplace proposal. Laura (@laupalombi) is shaping one Discover page with routes by type—such as dashboard cards, integrations and themes—and by goals such as tracking energy or adding devices.",
-        "A proposed detail page puts a plain-language summary and the next step after installation above the developer’s README. It would explain where a card or theme appears, keep updates visible on the Installed page, and identify the project as community-made and not tested or reviewed by Home Assistant.",
-        "The plan uses existing catalog information apart from a small curated set of goal-based lists. Who maintains those lists, how they fit with integration categories, and the mobile and dark-mode designs remain open questions. The installation process itself is outside this proposal."
+        "Looking for a way to track energy or add devices could become a starting point for discovery. Laura is shaping a Home Assistant Marketplace page organized both by those goals and by types such as dashboard cards, integrations and themes.",
+        "A proposed detail page puts a plain-language summary and practical instructions above the developer’s project notes. It would explain where a card or theme appears, keep updates visible on the Installed page, and identify the project as community-made and not tested or reviewed by Home Assistant.",
+        "The approach uses existing catalog information apart from a small curated set of goal-based lists. Who maintains those lists, how they fit with integration categories, and the mobile and dark-mode designs remain unresolved. Changing the installation process is outside this proposal."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -1775,16 +1830,17 @@
           "observedAt": "2026-11-17T05:04:56.502Z"
         }
       ],
-      "media": []
+      "media": [],
+      "reviewerProfiles": []
     },
     {
       "id": "music-assistant-ard-account-sync",
       "title": "A new sign-in route restores ARD Sounds accounts",
-      "dek": "Device-code sign-in restores subscriptions and listening progress without storing an ARD password.",
+      "dek": "Existing password-based setups need to be linked again; radio, search and public podcasts continue without authentication.",
       "body": [
-        "ARD Sounds listeners get a replacement for the password login that stopped working in Music Assistant: a device code confirmed on ARD’s own sign-in page. The change restores account access after ARD restricted password login to its captcha-protected website and moved subscription data out of the API the provider used.",
+        "A code confirmed on ARD’s own website replaces the password entry that stopped working in Music Assistant. ARD had restricted password login to its captcha-protected page and moved subscription data away from the service the integration used.",
         "Subscribed podcasts synchronize with the Music Assistant library, and listening progress travels in both directions, with the newer position taking precedence. Adding or removing an ARD podcast also changes the subscription in the ARD account.",
-        "Existing password-based accounts need to sign in again. Radio, search and public podcasts continue without an account, while an account-service outage preserves the existing subscription list. Peter Meiser tested sign-in, subscriptions, listening progress and session renewal with a real account."
+        "Music Assistant no longer stores the ARD password, and an account-service outage preserves the existing subscription list. Peter Meiser tested sign-in, subscriptions, listening progress and session renewal with a real account."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -1820,15 +1876,23 @@
         }
       ],
       "externalSources": [],
-      "media": []
+      "media": [],
+      "reviewerProfiles": [
+        {
+          "login": "OzGav",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/19848947?v=4",
+          "profileUrl": "https://github.com/OzGav"
+        }
+      ]
     },
     {
       "id": "music-assistant-chapter-navigation",
-      "title": "Long chapter lists become easier to follow",
-      "dek": "Segmented timelines and chapter titles carry across the player, queue and detail pages.",
+      "title": "A clearer place in a long audiobook",
+      "dek": "Podcasts receive the same treatment, with tabs separating chapters from bookmarks on detail pages.",
       "body": [
-        "Audiobook and podcast chapters get their own timeline segments in Music Assistant’s web player, with “Chapter X of Y” between the timestamps. The fullscreen player leads with the current chapter’s title, while the book or episode and its author remain underneath.",
-        "The queue lists chapters and bookmarks with their start times and keeps the current chapter in view. Detail pages separate those entries into tabs and highlight the chapter playing. Tapping the chapter count switches between chapter progress and progress through the whole book or episode."
+        "Instead of overlapping labels, the listening timeline in Music Assistant has a segment for each chapter and a ‘Chapter X of Y’ indicator between the timestamps. The fullscreen player leads with the current chapter’s title, keeping the book or episode and its author underneath.",
+        "The queue lists chapters and bookmarks with their start times and keeps the current chapter in view. Tapping the chapter count switches between progress through that section and progress through the whole book or episode."
       ],
       "kind": "daily",
       "placement": "feature",
@@ -1897,15 +1961,23 @@
           ],
           "bytes": 23348
         }
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "fmunkes",
+          "name": "Fabian Munkes",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/105975993?v=4",
+          "profileUrl": "https://github.com/fmunkes"
+        }
       ]
     },
     {
       "id": "intesis-local-climate-control",
-      "title": "An Intesis gateway brings local air-conditioning control",
-      "dek": "The integration starts with a serial gateway for Mitsubishi Heavy Industries units.",
+      "title": "Local air-conditioning control through an Intesis gateway",
+      "dek": "Support begins with one model for Mitsubishi Heavy Industries units; vane movement depends on the equipment.",
       "body": [
-        "A Mitsubishi Heavy Industries air conditioner connects to Home Assistant through an Intesis INMBSMHI001R000 gateway over a local serial Modbus connection.",
-        "The climate control covers power, operating mode, target temperature and fan speed, with vane movement where the unit supports it. This first version is limited to that single-unit gateway model."
+        "Power, operating mode, target temperature and fan speed become Home Assistant controls through a wired serial connection. The first version supports the Intesis INMBSMHI001R000, a gateway serving a single air-conditioning unit.",
+        "Where the unit has a movable vane, its swing position can be controlled too. Other gateway models are outside this initial support."
       ],
       "kind": "daily",
       "placement": "brief",
@@ -1947,15 +2019,28 @@
         }
       ],
       "externalSources": [],
-      "media": []
+      "media": [],
+      "reviewerProfiles": [
+        {
+          "login": "joostlek",
+          "name": "Joost Lekkerkerker",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/7083755?v=4",
+          "profileUrl": "https://github.com/joostlek"
+        },
+        {
+          "login": "c0ffeeca7",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/38767475?v=4",
+          "profileUrl": "https://github.com/c0ffeeca7"
+        }
+      ]
     },
     {
       "id": "assist-broadcast-area-floor",
-      "title": "Assist announcements can stay on one floor",
-      "dek": "AI-assisted broadcasts gain room and floor targeting instead of reaching the whole home.",
+      "title": "Keep an announcement on one floor",
+      "dek": "AI-assisted broadcasts can target a room as well; VoIP phones, which use internet calling, remain excluded.",
       "body": [
-        "An announcement can reach just one area or floor through Home Assistant’s AI-assisted broadcast tool. Previously the tool could reach only every voice satellite in the home.",
-        "The change applies to AI-assisted broadcasts; VoIP phones remain outside them."
+        "A message intended for upstairs no longer has to reach every voice satellite in the home. Home Assistant’s AI-assisted broadcast tool accepts an area or floor as its destination instead of always addressing the whole house."
       ],
       "kind": "daily",
       "placement": "brief",
@@ -1989,15 +2074,23 @@
         }
       ],
       "externalSources": [],
-      "media": []
+      "media": [],
+      "reviewerProfiles": [
+        {
+          "login": "synesthesiam",
+          "name": "Michael Hansen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2743976?v=4",
+          "profileUrl": "https://github.com/synesthesiam"
+        }
+      ]
     },
     {
       "id": "zonneplan-electricity-price-schedule",
-      "title": "Zonneplan exposes its price schedule to automations",
-      "dek": "A new action returns hourly or quarter-hourly rates for planning around cheaper electricity.",
+      "title": "Plan charging around the cheapest electricity",
+      "dek": "Zonneplan’s hourly and quarter-hourly contracts are covered, using data already fetched for the account.",
       "body": [
-        "Planning around cheaper electricity gets a fuller set of rates through a new Zonneplan action in Home Assistant. It returns each interval’s start, end and all-in price per kilowatt-hour from the data already fetched for the account, for both hourly and quarter-hourly contracts.",
-        "That gives an automation the full available schedule to compare, rather than just the current or next price and daily extremes—for example when finding a cheaper block for charging. Calling the action does not make another request to Zonneplan."
+        "Finding an inexpensive overnight block takes more than the current rate or the next one. A new Home Assistant action returns the full available Zonneplan price schedule, so an automation can compare intervals before choosing when to charge.",
+        "Each entry includes its start, end and all-in price per kilowatt-hour. Calling the action makes no additional request to Zonneplan."
       ],
       "kind": "daily",
       "placement": "brief",
@@ -2031,15 +2124,23 @@
         }
       ],
       "externalSources": [],
-      "media": []
+      "media": [],
+      "reviewerProfiles": [
+        {
+          "login": "erwindouna",
+          "name": "Erwin Douna",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5011203?v=4",
+          "profileUrl": "https://github.com/erwindouna"
+        }
+      ]
     },
     {
       "id": "reolink-recording-thumbnails",
       "title": "Reolink recordings get a picture before you open them",
-      "dek": "Recording previews help identify footage, while thumbnail loading leaves room for playback.",
+      "dek": "Limits on simultaneous thumbnail requests leave connections free for playback.",
       "body": [
-        "A frame from each Reolink recording replaces its blank placeholder in Home Assistant’s media browser. Cards that use the same media source can use those previews too.",
-        "The media browser also limits simultaneous local thumbnail requests and cancels ones that are no longer needed. That keeps a page of previews from occupying every connection while someone tries to play a recording. Michał Jonik makes a first contribution to Home Assistant Core with the recording previews."
+        "Blank placeholders in Home Assistant’s media browser give way to a frame chosen near the event that triggered the recording. Cards using the same media source can display it too.",
+        "The browser also cancels image requests that are no longer needed, preventing an entire page of previews from holding up playback. Michał Jonik makes a first contribution to Home Assistant Core with the recording previews."
       ],
       "kind": "daily",
       "placement": "brief",
@@ -2088,15 +2189,28 @@
         }
       ],
       "externalSources": [],
-      "media": []
+      "media": [],
+      "reviewerProfiles": [
+        {
+          "login": "starkillerOG",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/14811189?v=4",
+          "profileUrl": "https://github.com/starkillerOG"
+        },
+        {
+          "login": "wendevlin",
+          "name": "Wendelin",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12148533?v=4",
+          "profileUrl": "https://github.com/wendevlin"
+        }
+      ]
     },
     {
       "id": "home-assistant-music-queue-switches",
-      "title": "Automations gain Crossfade and Autoplay switches",
-      "dek": "Per-player Crossfade and Autoplay switches connect listening preferences to dashboards and automations.",
+      "title": "Automate Crossfade and Autoplay for each player",
+      "dek": "The new switches require Music Assistant 2.11 or later; older servers do not receive them.",
       "body": [
-        "Crossfade and Autoplay become switches for each Music Assistant player’s queue in Home Assistant. They can be placed on a dashboard or used in an automation, alongside the integration’s playback controls.",
-        "The entities require Music Assistant 2.11 or later; older servers do not receive them. Fabian Munkes contributes the integration change and documentation."
+        "Dashboard buttons can sit alongside the existing playback controls, while Home Assistant automations can change the two queue settings. Fabian Munkes contributes both the integration change and its documentation."
       ],
       "kind": "daily",
       "placement": "brief",
@@ -2138,15 +2252,23 @@
         }
       ],
       "externalSources": [],
-      "media": []
+      "media": [],
+      "reviewerProfiles": [
+        {
+          "login": "arturpragacz",
+          "name": "Artur Pragacz",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/49985303?v=4",
+          "profileUrl": "https://github.com/arturpragacz"
+        }
+      ]
     },
     {
       "id": "music-assistant-manual-dlna",
-      "title": "A manual address reaches DLNA players discovery misses",
-      "dek": "An advanced setting accepts a device address or its description URL.",
+      "title": "Add DLNA speakers that don’t show up automatically",
+      "dek": "An advanced setting accepts a device address or description URL; the first route depends on how the equipment responds.",
       "body": [
-        "Speakers and receivers missed by automatic discovery gain a manual-device setting in Music Assistant. Owners can enter an IPv4 address or an HTTP or HTTPS device-description URL, giving DLNA equipment on a routed network another route into the player list.",
-        "A device address triggers a targeted discovery request; a description URL connects directly. Offline manual devices are retried every minute. Mark (@m-a-r-k-e) tested the URL route with a Denon receiver on a separate network segment, making a first contribution to Music Assistant’s server. The receiver did not answer targeted discovery, so the address route remains device-dependent."
+        "A receiver on a separate part of the home network can be missed during Music Assistant’s usual search. For equipment using DLNA, a standard for sharing media over a network, owners can supply its numeric IPv4 network address or the HTTP or HTTPS address of its device-description document.",
+        "The numeric address triggers a targeted search; the document connects directly. Offline manual devices are retried every minute. Mark tested the document route with a Denon receiver on a separate network segment, making a first contribution to Music Assistant’s server. That receiver did not answer the targeted search."
       ],
       "kind": "daily",
       "placement": "brief",
@@ -2182,15 +2304,23 @@
         }
       ],
       "externalSources": [],
-      "media": []
+      "media": [],
+      "reviewerProfiles": [
+        {
+          "login": "MarvinSchenkel",
+          "name": "Marvin Schenkel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
+          "profileUrl": "https://github.com/MarvinSchenkel"
+        }
+      ]
     },
     {
       "id": "dutch-assist-floors-and-temperature",
-      "title": "Dutch Assist understands more room and floor commands",
-      "dek": "Thermostat targets, cover positions and floor-wide shutoff gain Dutch phrases.",
+      "title": "Ask in Dutch about thermostat targets and whole floors",
+      "dek": "Related phrases set blinds by room or location and switch off groups of lights or fans.",
       "body": [
-        "Asking what a thermostat is set to becomes distinct from asking for the measured temperature in Dutch Assist. Temperature questions also work for a whole floor, including floor names used directly, such as “beneden”.",
-        "Martijn van der Pol adds phrases for setting covers by name in a room or on a floor, and for setting a class of covers on a floor. Related additions switch off lights or fans across a floor."
+        "‘Op hoeveel graden staat de verwarming ingesteld’ gets the set temperature rather than the measured one. Dutch Assist also handles temperature questions using a floor name directly, such as ‘beneden’.",
+        "Martijn van der Pol adds ways to set a shutter or blind by name in a room or on a floor, or to address a whole type, such as blinds, on a floor. Lights and fans can likewise be switched off across a floor."
       ],
       "kind": "daily",
       "placement": "brief",
@@ -2240,15 +2370,15 @@
         }
       ],
       "externalSources": [],
-      "media": []
+      "media": [],
+      "reviewerProfiles": []
     },
     {
       "id": "esphome-esp32-neopixelbus-migration",
-      "title": "ESP32 light configurations move away from NeoPixelBus",
-      "dek": "ESPHome changes a deprecation warning into a configuration error and points makers to the RMT LED-strip platform.",
+      "title": "An ESP32 lighting update needs a configuration change",
+      "dek": "NeoPixelBus remains supported on ESP8266 devices; the newer restriction replaces an earlier warning.",
       "body": [
-        "Existing ESP32 light configurations using NeoPixelBus need to switch to esp32_rmt_led_strip before they can pass validation with the updated ESPHome software. The former warning becomes a configuration error.",
-        "The platform had already warned that support would end when ESPHome moved to ESP-IDF 6. This change does not remove NeoPixelBus support from ESP8266 devices."
+        "LED-strip configurations must select esp32_rmt_led_strip, ESPHome’s alternative light component, to pass validation when they previously used NeoPixelBus on ESP32. The error message points makers to the replacement’s documentation."
       ],
       "kind": "daily",
       "placement": "brief",
@@ -2282,15 +2412,23 @@
         }
       ],
       "externalSources": [],
-      "media": []
+      "media": [],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ]
     },
     {
       "id": "esphome-hidden-wifi-fallback",
-      "title": "Backup Wi-Fi works when a preferred hidden network is absent",
-      "dek": "An ESP32 fix stops failed hidden-network probes from blocking the next configured connection.",
+      "title": "Backup Wi-Fi takes over when a hidden network is missing",
+      "dek": "ESP8266 devices were unaffected; the failing connection sequence dates back to the 2025.11 release.",
       "body": [
-        "An ESP32 device can move on to its next saved Wi-Fi network when the preferred hidden network is out of range, following a correction in ESPHome. Previously, a delayed notification from the failed attempt could trap the device in repeated retries.",
-        "The correction covers both ESP32 frameworks. On an ESP32-PICO-D4 bench setup, it connected after all four resets, while the affected build failed to connect during the comparison runs. ESP8266 devices were not affected."
+        "A device could get stuck retrying connections after its preferred hidden network proved out of range. A delayed failure notification then disrupted each subsequent attempt, preventing ESPHome from joining another saved network.",
+        "On an ESP32-PICO-D4 test setup, the correction connected after all four resets, while the affected build failed to connect during the comparison runs."
       ],
       "kind": "daily",
       "placement": "brief",
@@ -2324,15 +2462,23 @@
         }
       ],
       "externalSources": [],
-      "media": []
+      "media": [],
+      "reviewerProfiles": [
+        {
+          "login": "jesserockz",
+          "name": "Jesse Hills",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/3060199?v=4",
+          "profileUrl": "https://github.com/jesserockz"
+        }
+      ]
     },
     {
       "id": "zwave-controller-restore-key-protection",
-      "title": "Z-Wave restores protect controller identity and update keys",
-      "dek": "A restore safeguard covers older controller firmware, with a limit when the backup ends in data.",
+      "title": "A safeguard for identity and keys during controller restores",
+      "dek": "Protection extends to older firmware, but cannot help when the backup’s final byte contains data.",
       "body": [
-        "Controller identity and firmware-update keys get protection from a backup-restore hazard in Z-Wave JS. Restoring a backup could erase a neighboring part of the controller’s memory; on Home Assistant Connect ZWA-2, losing that manufacturing information changes its security identity and prevents signed firmware updates.",
-        "The driver avoids writing through the hazardous boundary when a backup ends in unused space, extending protection to older firmware. If its final byte contains data, the restore still proceeds with a warning. The author has verified the safeguard with unit tests, but has not tested it on hardware."
+        "Losing manufacturing information during a Z-Wave backup restore can change a controller’s security identity and prevent signed firmware updates. The hazard affects Home Assistant Connect ZWA-2: writing the end of a backup can erase a neighboring part of memory.",
+        "Z-Wave JS avoids that boundary when the backup ends in unused space. Otherwise, the restore proceeds with a warning. The author has verified the safeguard with automated tests, but has not tested it on hardware."
       ],
       "kind": "daily",
       "placement": "brief",
@@ -2357,15 +2503,23 @@
         }
       ],
       "externalSources": [],
-      "media": []
+      "media": [],
+      "reviewerProfiles": [
+        {
+          "login": "AlCalzone",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17641229?v=4",
+          "profileUrl": "https://github.com/AlCalzone"
+        }
+      ]
     },
     {
       "id": "esphome-entity-state-after-restart",
       "title": "Readings recover after a device restart",
-      "dek": "Shutdown ordering prevents a stale state from hiding an unchanged reading when the device reconnects.",
+      "dek": "Low-power sleep keeps its existing shutdown order so an expected pause remains distinct from a lost connection.",
       "body": [
-        "A restart or firmware update could leave an ESPHome entity marked unavailable in Home Assistant even after the device reconnected. A shutdown correction prevents queued readings sent after the disconnect notice from making the next identical reading look like a duplicate.",
-        "Devices without deep sleep send the queued readings their connection can accept before announcing the disconnect. Deep-sleep devices keep their existing order so an expected sleep remains distinguishable from a lost connection."
+        "An unchanged sensor value could leave Home Assistant showing ‘unavailable’ even after an ESPHome device reconnected. A message sent too late during shutdown made the next identical reading look like a duplicate.",
+        "Devices without deep sleep—the low-power mode that temporarily suspends operation—send the queued readings their connection can accept before announcing the disconnect. That ordering prevents stale readings from hiding the device’s return after a restart or firmware update."
       ],
       "kind": "daily",
       "placement": "brief",
@@ -2399,7 +2553,15 @@
         }
       ],
       "externalSources": [],
-      "media": []
+      "media": [],
+      "reviewerProfiles": [
+        {
+          "login": "jesserockz",
+          "name": "Jesse Hills",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/3060199?v=4",
+          "profileUrl": "https://github.com/jesserockz"
+        }
+      ]
     }
   ],
   "roadmapUpdates": [

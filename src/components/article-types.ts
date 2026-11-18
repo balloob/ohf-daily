@@ -51,6 +51,7 @@ export interface EditorialArticle {
   score: number;
   contributors: string[];
   contributorProfiles?: EditorialContributor[];
+  reviewerProfiles?: EditorialContributor[];
   reviewers?: string[];
   approvers?: string[];
   topics: string[];

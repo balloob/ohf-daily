@@ -121,6 +121,7 @@ export interface Article {
   score: number;
   contributors: string[];
   contributorProfiles?: ContributorCredit[];
+  reviewerProfiles?: ContributorCredit[];
   reviewers?: string[];
   approvers?: string[];
   topics: string[];

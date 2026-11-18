@@ -139,6 +139,11 @@ test("can provide the release reporter with the full bounded preview body", () =
 });
 
 test("resolves only locally evidenced PRs and media, including review credit", () => {
+  const reviewerProfile = {
+    login: "human-reviewer", name: "Human Reviewer",
+    avatarUrl: "https://avatars.githubusercontent.com/u/123?v=4",
+    profileUrl: "https://github.com/human-reviewer",
+  };
   const articles = editorialInternals.resolveArticles([
     {
       id: "solaredge-progress",
@@ -158,7 +163,11 @@ test("resolves only locally evidenced PRs and media, including review credit", (
         { type: "image", url: "https://example.com/invented.png", alt: "Invented", caption: null, poster: null },
       ],
     },
-  ], [record]);
+  ], [record], [], [], [], [
+    reviewerProfile,
+    { ...reviewerProfile, login: "unrelated-person" },
+    { ...reviewerProfile, login: "esphbot" },
+  ]);
   assert.equal(articles.length, 1);
   assert.equal(articles[0].placement, "lead");
   assert.deepEqual(articles[0].pullRequests.map((source) => source.id), ["42"]);
@@ -167,6 +176,9 @@ test("resolves only locally evidenced PRs and media, including review credit", (
   assert.deepEqual(articles[0].approvers, ["human-reviewer"]);
   assert.deepEqual(articles[0].contributors, ["frenck"]);
   assert.deepEqual(articles[0].contributorProfiles, [record.authorProfile]);
+  // One person credited as both reviewer and approver gets one profile, while
+  // unrelated cached people and bots cannot enter the byline.
+  assert.deepEqual(articles[0].reviewerProfiles, [reviewerProfile]);
 });
 
 test("never resolves HACS default-index additions into articles", () => {

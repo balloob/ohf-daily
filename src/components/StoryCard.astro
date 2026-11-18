@@ -1,5 +1,6 @@
 ---
 import type { PullRequestStory } from "../lib/types";
+import { isBotLogin } from "../lib/contributors";
 import type { EditorialArticle, EditorialExternalSource, EditorialMedia, EditorialPullRequest } from "./article-types";
 import StoryImage from "./StoryImage.astro";
 
@@ -17,29 +18,24 @@ const articleBody = Array.isArray(article?.body) ? article.body.filter(Boolean) 
 const articleMedia = Array.isArray(article?.media) ? article.media.filter((item) => item?.url) : [];
 const articlePullRequests = Array.isArray(article?.pullRequests) ? article.pullRequests.filter((item) => item?.url) : [];
 const articleExternalSources = Array.isArray(article?.externalSources) ? article.externalSources.filter((item) => item?.url) : [];
-const articleSourceCount = articlePullRequests.length + articleExternalSources.length;
-const articleContributors = Array.isArray(article?.contributors) ? article.contributors.filter(Boolean) : [];
 const isRecap = article?.kind === "weekly_recap";
 const isArticlePreview = Boolean(articleHref);
-const useCompactRecapCredits = isRecap && isArticlePreview;
-const contributorProfiles = Array.isArray(article?.contributorProfiles)
-  ? article.contributorProfiles.filter((profile) => profile?.login && profile.avatarUrl?.startsWith("https://") && profile.profileUrl?.startsWith("https://"))
-  : [];
-const profiledLogins = new Set(contributorProfiles.map((profile) => profile.login.toLowerCase()));
-const unprofiledContributors = articleContributors.filter((login) => !profiledLogins.has(login.toLowerCase()));
-const recapContributorLimit = 3;
-const visibleContributorProfiles = useCompactRecapCredits ? contributorProfiles.slice(0, recapContributorLimit) : contributorProfiles;
-const remainingRecapContributorSlots = Math.max(0, recapContributorLimit - visibleContributorProfiles.length);
-const visibleUnprofiledContributors = useCompactRecapCredits
-  ? unprofiledContributors.slice(0, remainingRecapContributorSlots)
-  : unprofiledContributors;
-const remainingContributorCount = useCompactRecapCredits
-  ? contributorProfiles.length + unprofiledContributors.length - visibleContributorProfiles.length - visibleUnprofiledContributors.length
-  : 0;
-const articleReviewers = [...new Map([
-  ...(Array.isArray(article?.reviewers) ? article.reviewers : []),
-  ...(Array.isArray(article?.approvers) ? article.approvers : []),
-].filter(Boolean).map((login) => [login.toLowerCase(), login])).values()];
+const SummaryTag = articleHref ? "a" : "div";
+const creditLogins = [...new Map([
+  ...(article?.contributors ?? []), ...(article?.reviewers ?? []), ...(article?.approvers ?? []),
+].filter((login) => login && login.toLowerCase() !== "ghost" && !isBotLogin(login))
+  .map((login) => [login.toLowerCase(), login])).values()];
+const profilesByLogin = new Map([
+  ...(article?.contributorProfiles ?? []), ...(article?.reviewerProfiles ?? []),
+].filter((profile) => profile?.login && profile.avatarUrl?.startsWith("https://") && profile.profileUrl?.startsWith("https://"))
+  .map((profile) => [profile.login.toLowerCase(), profile]));
+const creditProfiles = creditLogins.flatMap((login) => {
+  const profile = profilesByLogin.get(login.toLowerCase());
+  return profile ? [profile] : [];
+});
+// Older editions may not carry a profile for every reviewer. Keep their link
+// with an explicit @handle fallback rather than inventing a full name.
+const unprofiledCredits = creditLogins.filter((login) => !profilesByLogin.has(login.toLowerCase()));
 const articleTopics = Array.isArray(article?.topics) ? article.topics.filter(Boolean) : [];
 const isSafeMediaUrl = (url: string) => url.startsWith("https://") || url.startsWith("/");
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
@@ -100,40 +96,34 @@ const externalSourceGroups = articleExternalSources.reduce<Map<string, Editorial
     )}
     <div class="copy">
       <p class="eyebrow">{isRecap ? "Week in review" : articleTopics[0] || "Reported"}</p>
-      {variant === "detail" ? (
-        <h1>{article.title}</h1>
-      ) : (
-        <h2>{articleHref ? <a href={articleHref}>{article.title}</a> : article.title}</h2>
-      )}
-      {article.dek && <p class="dek">{article.dek}</p>}
-      {variant === "detail" && (
-        <p class="article-author">By <a href={base} rel="author">OHF Daily</a> · Automated reporting</p>
-      )}
-      {(articleContributors.length > 0 || contributorProfiles.length > 0 || articleSourceCount > 0) && (
+      <SummaryTag class:list={{ "story-link": isArticlePreview }} href={articleHref} aria-label={isArticlePreview ? article.title : undefined}>
+        {variant === "detail" ? <h1>{article.title}</h1> : <h2>{article.title}</h2>}
+        {article.dek && <p class="dek">{article.dek}</p>}
+        {isArticlePreview && variant !== "brief" && (
+          <div class="article-body">
+            {articleBody.slice(0, 1).map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        )}
+      </SummaryTag>
+      {creditLogins.length > 0 && (
         <div class="byline">
-          {(visibleContributorProfiles.length > 0 || visibleUnprofiledContributors.length > 0) && <span>With work by</span>}
-          {visibleContributorProfiles.map((profile) => (
-            <a class="contributor" href={profile.profileUrl} target="_blank" rel="noreferrer" title={`View ${profile.login} on GitHub`}>
+          {!isArticlePreview && <span>With work by</span>}
+          {creditProfiles.map((profile) => (
+            <a class="contributor" href={profile.profileUrl} target="_blank" rel="noreferrer" aria-label={profile.name || `@${profile.login}`} title={profile.name || `@${profile.login}`}>
               <img src={profile.avatarUrl} alt="" loading="lazy" />
-              <span>{profile.name || profile.login}{profile.name && <small>@{profile.login}</small>}</span>
+              <span>{profile.name || `@${profile.login}`}</span>
             </a>
           ))}
-          {visibleUnprofiledContributors.length > 0 && <span>{visibleUnprofiledContributors.join(", ")}</span>}
-          {remainingContributorCount > 0 && <span>+{remainingContributorCount} more {remainingContributorCount === 1 ? "contributor" : "contributors"}</span>}
-          {articleExternalSources.length > 0
-            ? <span>{articleSourceCount} linked {articleSourceCount === 1 ? "source" : "sources"}</span>
-            : articlePullRequests.length > 0 && <span>{articlePullRequests.length} linked {articlePullRequests.length === 1 ? "pull request" : "pull requests"}</span>}
+          {unprofiledCredits.map((login) => (
+            <a class="contributor" href={`https://github.com/${encodeURIComponent(login)}`} target="_blank" rel="noreferrer" aria-label={`@${login}`} title={`@${login}`}><span>@{login}</span></a>
+          ))}
         </div>
       )}
-      {articleReviewers.length > 0 && (
-        <p class="editorial-credit">
-          {articleReviewers.length > 0 && <span>{useCompactRecapCredits ? `${articleReviewers.length} ${articleReviewers.length === 1 ? "reviewer" : "reviewers"}` : `Reviewed by ${articleReviewers.join(", ")}`}</span>}
-        </p>
+      {!isArticlePreview && (
+        <div class="article-body">
+          {articleBody.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
       )}
-      <div class="article-body">
-        {(isArticlePreview ? articleBody.slice(0, variant === "brief" ? 0 : 1) : articleBody).map((paragraph) => <p>{paragraph}</p>)}
-      </div>
-      {articleHref && <a class="read-article" href={articleHref}>Read full article <span aria-hidden="true">→</span></a>}
       {!isArticlePreview && article.continuity && (
         <aside class="continuity"><strong>The continuing story</strong><span>{article.continuity}</span></aside>
       )}
@@ -211,7 +201,6 @@ const externalSourceGroups = articleExternalSources.reduce<Map<string, Editorial
   }
 
   .editorial-article h2 {
-    max-width: 18ch;
     font-size: clamp(2rem, 4.5vw, 4rem);
     line-height: 0.98;
   }
@@ -225,7 +214,6 @@ const externalSourceGroups = articleExternalSources.reduce<Map<string, Editorial
   }
 
   .editorial-article.detail h1 {
-    max-width: 16ch;
     margin: 0;
     font: 400 clamp(3rem, 8vw, 7rem)/0.91 var(--display);
     letter-spacing: -0.045em;
@@ -310,24 +298,38 @@ const externalSourceGroups = articleExternalSources.reduce<Map<string, Editorial
     line-height: 1.45;
   }
 
-  .read-article {
-    display: inline-block;
-    margin-top: 0.5rem;
-    font: 700 0.68rem/1.3 var(--label);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+  .story-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
   }
 
-  .article-author {
-    margin: 1rem 0;
-    color: var(--muted);
-    font: 500 0.75rem/1.4 var(--sans);
+  .story-link:hover h2 {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.08em;
+  }
+
+  .story-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+
+  .brief .dek {
+    font-style: normal;
+  }
+
+  .preview .byline {
+    margin: 0.75rem 0 0;
+    padding: 0;
+    border: 0;
   }
 
   .byline {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.3rem 1rem;
+    gap: 0.35rem 0.65rem;
+    align-items: center;
     margin: 1rem 0;
     padding-block: 0.6rem;
     border-block: 1px solid var(--rule);
@@ -337,42 +339,44 @@ const externalSourceGroups = articleExternalSources.reduce<Map<string, Editorial
 
   .contributor {
     display: inline-flex;
-    gap: 0.38rem;
+    gap: 0.3em;
     align-items: center;
     color: var(--ink);
     text-decoration: none;
   }
 
-  .contributor:hover span {
+  .contributor:hover span,
+  .contributor:focus-visible span {
     text-decoration: underline;
   }
 
   .contributor img {
-    width: 1.7rem;
-    height: 1.7rem;
+    width: 1.15em;
+    height: 1.15em;
+    flex-shrink: 0;
     border: 1px solid var(--rule);
     border-radius: 50%;
     object-fit: cover;
+    position: relative;
+    transition: transform 140ms ease;
+  }
+
+  .contributor:hover img,
+  .contributor:focus-visible img {
+    transform: scale(2);
+    z-index: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contributor img {
+      transition: none;
+    }
   }
 
   .contributor > span {
     display: inline-flex;
     gap: 0.25rem;
     align-items: baseline;
-  }
-
-  .contributor small {
-    color: var(--muted);
-    font: inherit;
-  }
-
-  .editorial-credit {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem 0.9rem;
-    margin: -0.45rem 0 1rem;
-    color: var(--muted);
-    font: 500 0.61rem/1.35 var(--sans);
   }
 
   .article-body {
