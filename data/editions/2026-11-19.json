@@ -1,0 +1,1806 @@
+{
+  "date": "2026-11-19",
+  "generatedAt": "2026-11-19T05:05:26.201Z",
+  "windowStart": "2026-11-18T05:03:46.268Z",
+  "windowEnd": "2026-11-19T05:03:46.268Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 304,
+    "repositories": 40,
+    "contributors": 92,
+    "dependencyUpdates": 20,
+    "hacsNewIntegrations": 0
+  },
+  "lead": {
+    "id": "5366799090",
+    "title": "Group devices on the Players page and add a Playback page",
+    "summary": "What does this implement/fix? The Players page showed every device in one long list, the playback defaults were spread over three modules under System, and Player support was a menu item of its own.",
+    "unlocks": "Unlocks: Group devices on the Players page and add a Playback page.",
+    "url": "https://github.com/music-assistant/frontend/pull/3226",
+    "repository": "music-assistant/frontend",
+    "organization": "Music Assistant",
+    "author": "marcelveldt",
+    "mergedAt": "2026-11-18T22:59:43Z",
+    "labels": [
+      "enhancement"
+    ],
+    "kind": "feature",
+    "score": 71.7,
+    "additions": 983,
+    "deletions": 200,
+    "changedFiles": 23
+  },
+  "highlights": [
+    {
+      "id": "5375264217",
+      "title": "Play a Sendspin device's line-in without a separate plugin",
+      "summary": "What does this implement/fix? The line in, turntable or microphone input of a Sendspin device needed the separate \"Sendspin Source\" plugin before it could be played.",
+      "unlocks": "Unlocks: Play a Sendspin device's line-in without a separate plugin.",
+      "url": "https://github.com/music-assistant/server/pull/7909",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T23:06:44Z",
+      "labels": [
+        "enhancement",
+        "dependencies-reviewed"
+      ],
+      "kind": "feature",
+      "score": 69.4,
+      "additions": 605,
+      "deletions": 707,
+      "changedFiles": 31
+    },
+    {
+      "id": "5365792181",
+      "title": "Audio analysis and background tasks each get one place in Settings",
+      "summary": "What does this implement/fix? Settings for audio analysis and background tasks were spread over several places.",
+      "url": "https://github.com/music-assistant/frontend/pull/3222",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T22:50:17Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 69.1,
+      "additions": 2105,
+      "deletions": 210,
+      "changedFiles": 28
+    },
+    {
+      "id": "5376237481",
+      "title": "Let a provider serve a page of its own, listed in the app's menu",
+      "summary": "What does this implement/fix? A provider (built in, or from the community catalog) can now serve a page of its own, such as a small web interface.",
+      "url": "https://github.com/music-assistant/server/pull/7910",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T21:15:23Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 68.9,
+      "additions": 1333,
+      "deletions": 46,
+      "changedFiles": 24
+    },
+    {
+      "id": "4652163351",
+      "title": "[wifi][ethernet] Support IPv6-only networks with enable_ipv4: false",
+      "summary": "What does this implement/fix? Lets Wi Fi and Ethernet run with network: enable ipv4: false (added in #14526) on ESP32 with ESP IDF, on a network with SLAAC and no DHCPv4.",
+      "unlocks": "Unlocks: [wifi][ethernet] Support IPv6-only networks with enable_ipv4: false.",
+      "url": "https://github.com/esphome/esphome/pull/19750",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "davidcoulson",
+      "mergedAt": "2026-11-18T20:58:26Z",
+      "labels": [
+        "new-feature",
+        "component: ethernet",
+        "component: network",
+        "component: wifi",
+        "has-tests",
+        "component: openthread"
+      ],
+      "kind": "feature",
+      "score": 68.9,
+      "additions": 375,
+      "deletions": 52,
+      "changedFiles": 20
+    }
+  ],
+  "briefs": [
+    {
+      "id": "3678435672",
+      "title": "[core][esp32] Allow watchdog_timeout: 0 to disable the ESP32 task watchdog",
+      "summary": "What does this implement/fix? This PR lets ESP32 set watchdog timeout: 0 to turn off the task watchdog on the main loop task.",
+      "unlocks": "Unlocks: [core][esp32] Allow watchdog_timeout: 0 to disable the ESP32 task watchdog.",
+      "url": "https://github.com/esphome/esphome/pull/16407",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "rwrozelle",
+      "mergedAt": "2026-11-18T20:56:26Z",
+      "labels": [
+        "new-feature",
+        "component: http_request",
+        "component: nextion",
+        "has-tests",
+        "core",
+        "component: esp32",
+        "component: watchdog",
+        "component: openthread",
+        "platform: esp32",
+        "component: runtime_image"
+      ],
+      "kind": "feature",
+      "score": 68.7,
+      "additions": 297,
+      "deletions": 64,
+      "changedFiles": 24
+    },
+    {
+      "id": "5376219898",
+      "title": "Open the page a plugin serves from the main menu",
+      "summary": "What does this implement/fix? A plugin or music source can now serve a page of its own, such as listening stats or a dashboard.",
+      "url": "https://github.com/music-assistant/frontend/pull/3241",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T22:12:58Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 67.2,
+      "additions": 1095,
+      "deletions": 27,
+      "changedFiles": 18
+    },
+    {
+      "id": "5323981169",
+      "title": "Play every group of Squeezebox and squeezelite speakers through Sendspin",
+      "summary": "What does this implement/fix? Squeezebox and squeezelite speakers had two ways to play as a group: their own sync, which corrects with audible skips, and their Sendspin output, which keeps them within about a millisecond.",
+      "url": "https://github.com/music-assistant/server/pull/7739",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T19:14:57Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 66.8,
+      "additions": 664,
+      "deletions": 1449,
+      "changedFiles": 14
+    },
+    {
+      "id": "5367138192",
+      "title": "[pioneer_wt] Add Pioneer WT mini split climate component",
+      "summary": "What does this implement/fix? Adds a climate platform for Pioneer mini split air conditioners that use the \"WT\" Wi Fi module.",
+      "unlocks": "Unlocks: [pioneer_wt] Add Pioneer WT mini split climate component.",
+      "url": "https://github.com/esphome/esphome/pull/22865",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "martinsah",
+      "mergedAt": "2026-11-18T16:24:01Z",
+      "labels": [
+        "new-component",
+        "new-feature",
+        "has-tests",
+        "new-platform",
+        "component: pioneer_wt"
+      ],
+      "kind": "feature",
+      "score": 66.2,
+      "additions": 1377,
+      "deletions": 0,
+      "changedFiles": 14
+    },
+    {
+      "id": "5370887058",
+      "title": "Open author and narrator pages under Audiobooks, link them in collections",
+      "summary": "What does this implement/fix? Author and narrator pages open under Audiobooks, so the sidebar highlights Audiobooks instead of Artists.",
+      "url": "https://github.com/music-assistant/frontend/pull/3235",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "fmunkes",
+      "mergedAt": "2026-11-18T20:07:57Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 63.5,
+      "additions": 336,
+      "deletions": 108,
+      "changedFiles": 18
+    },
+    {
+      "id": "5383230312",
+      "title": "Split off an output from its own row in the player settings",
+      "summary": "What does this implement/fix? Splitting an output off works on one output, but the action sat in the player's own menu, with a list of outputs to pick from.",
+      "url": "https://github.com/music-assistant/frontend/pull/3247",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T20:40:03Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 62.1,
+      "additions": 412,
+      "deletions": 89,
+      "changedFiles": 10
+    },
+    {
+      "id": "5369621345",
+      "title": "System becomes a hub, with all log levels on Diagnostics",
+      "summary": "What does this implement/fix? System was a list of technical modules, and the log level of each module sat on whichever page showed that module.",
+      "url": "https://github.com/music-assistant/frontend/pull/3231",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T23:07:24Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 61.7,
+      "additions": 1351,
+      "deletions": 1095,
+      "changedFiles": 35
+    },
+    {
+      "id": "5367090665",
+      "title": "Library options under Music sources and metadata settings under Metadata sources",
+      "summary": "What does this implement/fix? The options of your music library (music locations, genres, which source plays, resetting the library) and the metadata settings were spread over System.",
+      "url": "https://github.com/music-assistant/frontend/pull/3229",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T23:03:06Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 61.2,
+      "additions": 580,
+      "deletions": 99,
+      "changedFiles": 16
+    },
+    {
+      "id": "5366309272",
+      "title": "Show the network settings together on one Network page",
+      "summary": "What does this implement/fix? Network settings were spread over four places: Remote Access in the main menu, and Webserver, Streams and Discovery under System.",
+      "url": "https://github.com/music-assistant/frontend/pull/3223",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T22:55:12Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 60.7,
+      "additions": 1061,
+      "deletions": 124,
+      "changedFiles": 23
+    },
+    {
+      "id": "5367017351",
+      "title": "[uart] Accept alternate hardware UART pins on LibreTiny",
+      "summary": "What does this implement/fix? Some LibreTiny boards can route a hardware UART to more than one pair of pins.",
+      "unlocks": "Unlocks: [uart] Accept alternate hardware UART pins on LibreTiny.",
+      "url": "https://github.com/esphome/esphome/pull/22863",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "martinsah",
+      "mergedAt": "2026-11-18T16:44:54Z",
+      "labels": [
+        "new-feature",
+        "component: uart",
+        "has-tests",
+        "core",
+        "bugfix",
+        "component: libretiny",
+        "platform: libretiny"
+      ],
+      "kind": "feature",
+      "score": 60.5,
+      "additions": 390,
+      "deletions": 46,
+      "changedFiles": 8
+    },
+    {
+      "id": "5363641016",
+      "title": "Let a speaker keep its music service stream when it moves to the next track",
+      "summary": "What does this implement/fix? A speaker that plays from a music service that allows one stream at a time, and gets its audio at playback speed, now keeps that stream when it moves to its…",
+      "url": "https://github.com/music-assistant/server/pull/7870",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T21:07:21Z",
+      "labels": [
+        "maintenance"
+      ],
+      "kind": "platform",
+      "score": 60.2,
+      "additions": 2752,
+      "deletions": 152,
+      "changedFiles": 19
+    },
+    {
+      "id": "4985436456",
+      "title": "[epaper_spi] Add Waveshare 7.5\" HD (B) 3-color e-paper",
+      "summary": "What does this implement/fix? Add support for the Waveshare 7.5\" HD (B) 3 color e paper (880x528, SSD1677) panel.",
+      "unlocks": "Unlocks: [epaper_spi] Add Waveshare 7.5\" HD (B) 3-color e-paper.",
+      "url": "https://github.com/esphome/esphome/pull/21492",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "candrews",
+      "mergedAt": "2026-11-18T20:08:41Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "component: epaper_spi"
+      ],
+      "kind": "feature",
+      "score": 60.2,
+      "additions": 348,
+      "deletions": 3,
+      "changedFiles": 8
+    },
+    {
+      "id": "5375629936",
+      "title": "Offer the apps that play to Music Assistant in the setup wizard",
+      "summary": "What does this implement/fix? \"Connect my music apps\" in the setup wizard offered Spotify Connect and the AirPlay receiver from a fixed list, plus every other plugin.",
+      "url": "https://github.com/music-assistant/frontend/pull/3237",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T22:58:13Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 59.7,
+      "additions": 325,
+      "deletions": 106,
+      "changedFiles": 14
+    },
+    {
+      "id": "4605583137",
+      "title": "Add input lock switch to Shelly integration",
+      "summary": "Adds an input lock switch entity for Gen2+ Shelly devices, which makes the device ignore all changes to physical inputs.",
+      "unlocks": "Unlocks: Add input lock switch to Shelly integration.",
+      "url": "https://github.com/home-assistant/core/pull/182941",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "YuvalWS",
+      "mergedAt": "2026-11-18T15:48:40Z",
+      "labels": [
+        "new-feature",
+        "integration: shelly",
+        "has-tests",
+        "noteworthy",
+        "quality scale: platinum",
+        "code-owner-approved",
+        "top 200",
+        "top 50",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 59.3,
+      "additions": 350,
+      "deletions": 2,
+      "changedFiles": 5
+    },
+    {
+      "id": "5365699688",
+      "title": "Fetch missing 'now playing' metadata images from Spotify oEmbed API for BBC Sounds",
+      "summary": "What does this implement/fix? Re enables the Spotify oEmbed lookup for missing thumbnails, removed from #7571 for issues around rate limiting.",
+      "url": "https://github.com/music-assistant/server/pull/7883",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "kieranhogg",
+      "mergedAt": "2026-11-19T01:25:07Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 57.3,
+      "additions": 454,
+      "deletions": 167,
+      "changedFiles": 7
+    },
+    {
+      "id": "5383793558",
+      "title": "Show the repeat and shuffle of the queue on Squeezebox and squeezelite players",
+      "summary": "What does this implement/fix? A squeezelite player such as a WiiM, Squeezebox Radio or Touch shows repeat and shuffle from the status it polls or gets pushed by Music Assistant.",
+      "url": "https://github.com/music-assistant/server/pull/7934",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T22:34:16Z",
+      "labels": [
+        "enhancement",
+        "dependencies-reviewed"
+      ],
+      "kind": "platform",
+      "score": 57.3,
+      "additions": 222,
+      "deletions": 22,
+      "changedFiles": 8
+    },
+    {
+      "id": "5356165095",
+      "title": "Add reconfiguration flow to my-PV",
+      "summary": "Add a reconfiguration flow to the my PV integration This also brings the integration to quality scale Platinum Type of change Dependency upgrade Bugfix (non breaking change which fixes an…",
+      "unlocks": "Unlocks: Add reconfiguration flow to my-PV.",
+      "url": "https://github.com/home-assistant/core/pull/193095",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "rrooggiieerr",
+      "mergedAt": "2026-11-18T21:08:09Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: silver",
+        "quality-scale",
+        "integration: my_pv"
+      ],
+      "kind": "feature",
+      "score": 57,
+      "additions": 302,
+      "deletions": 16,
+      "changedFiles": 4
+    },
+    {
+      "id": "5375747401",
+      "title": "Connect Home Assistant from the setup wizard",
+      "summary": "What does this implement/fix? Outside the Home Assistant add on, the setup wizard never mentioned Home Assistant, so you had to find it in the settings yourself.",
+      "url": "https://github.com/music-assistant/frontend/pull/3238",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-18T23:02:38Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 54.9,
+      "additions": 480,
+      "deletions": 69,
+      "changedFiles": 11
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Bump pykodi to 0.4.0",
+      "url": "https://github.com/home-assistant/core/pull/193333",
+      "repository": "home-assistant/core",
+      "author": "olympia"
+    },
+    {
+      "title": "Bump evohome-async to 3.4.0",
+      "url": "https://github.com/home-assistant/core/pull/193289",
+      "repository": "home-assistant/core",
+      "author": "zxdavb"
+    },
+    {
+      "title": "Update dependency lint-staged to v17.6.1",
+      "url": "https://github.com/home-assistant/frontend/pull/55995",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump earn-e-p1 to 0.4.2",
+      "url": "https://github.com/home-assistant/core/pull/193292",
+      "repository": "home-assistant/core",
+      "author": "Miggets7"
+    },
+    {
+      "title": "Bump indevolt-api to 1.9.0",
+      "url": "https://github.com/home-assistant/core/pull/193301",
+      "repository": "home-assistant/core",
+      "author": "Xirt"
+    },
+    {
+      "title": "Bump irm-kmi-api to 1.1.2",
+      "url": "https://github.com/home-assistant/core/pull/193312",
+      "repository": "home-assistant/core",
+      "author": "YP30"
+    },
+    {
+      "title": "Update home-assistant/workflows action to v0.1.2",
+      "url": "https://github.com/home-assistant/app-nginx-proxy/pull/10",
+      "repository": "home-assistant/app-nginx-proxy",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency barcode-detector to v3.2.4",
+      "url": "https://github.com/home-assistant/frontend/pull/55992",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump earn-e-p1 to 0.4.0",
+      "url": "https://github.com/home-assistant/core/pull/193283",
+      "repository": "home-assistant/core",
+      "author": "Miggets7"
+    },
+    {
+      "title": "Bump lyngdorf to 2.3.0",
+      "url": "https://github.com/home-assistant/core/pull/193210",
+      "repository": "home-assistant/core",
+      "author": "fishloa"
+    },
+    {
+      "title": "Bump release-drafter/release-drafter from 7.10.0 to 7.11.0",
+      "url": "https://github.com/home-assistant-libs/pyevilgenius/pull/125",
+      "repository": "home-assistant-libs/pyevilgenius",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump release-drafter/release-drafter from 7.10.0 to 7.11.0",
+      "url": "https://github.com/home-assistant-libs/zwave-js-server-python/pull/1561",
+      "repository": "home-assistant-libs/zwave-js-server-python",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump release-drafter/release-drafter from 7.10.0 to 7.11.0",
+      "url": "https://github.com/home-assistant-libs/pydroid-ipcam/pull/372",
+      "repository": "home-assistant-libs/pydroid-ipcam",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency ty to v0.0.106",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/791",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "build(deps): Bump release-drafter/release-drafter from 7.10.0 to 7.11.0",
+      "url": "https://github.com/home-assistant-libs/aiowebostv/pull/797",
+      "repository": "home-assistant-libs/aiowebostv",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump release-drafter/release-drafter from 7.10.0 to 7.11.0",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1388",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump pylint from 4.1.3 to 4.1.4",
+      "url": "https://github.com/esphome/esphome/pull/22890",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "[audio] Bump microFLAC to v0.3.1",
+      "url": "https://github.com/esphome/esphome/pull/22878",
+      "repository": "esphome/esphome",
+      "author": "kahrendt"
+    },
+    {
+      "title": "Build(deps): Bump release-drafter/release-drafter from 7.10.0 to 7.11.0",
+      "url": "https://github.com/music-assistant/models/pull/482",
+      "repository": "music-assistant/models",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump release-drafter/release-drafter from 7.10.0 to 7.11.0",
+      "url": "https://github.com/Sendspin/sendspin-cpp/pull/269",
+      "repository": "Sendspin/sendspin-cpp",
+      "author": "dependabot[bot]"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 123,
+      "thisWeek": 1111,
+      "sinceRelease": 2840,
+      "lastReleaseDate": "2026-11-04"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 107,
+      "thisWeek": 680,
+      "sinceRelease": 488,
+      "lastReleaseDate": "2026-11-14"
+    },
+    {
+      "product": "ESPHome",
+      "today": 48,
+      "thisWeek": 325,
+      "sinceRelease": 62,
+      "lastReleaseDate": "2026-11-18"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "esphome/esphome:450407317",
+      "product": "ESPHome",
+      "repository": "esphome/esphome",
+      "name": "2026.11.0",
+      "tag": "2026.11.0",
+      "url": "https://github.com/esphome/esphome/releases/tag/2026.11.0",
+      "publishedAt": "2026-11-18T18:43:06Z",
+      "channel": "stable",
+      "accent": "green",
+      "sourcePullRequestIds": [
+        "5381618964"
+      ],
+      "releasePostUrl": "https://esphome.io/blog/2026/11/18/esphome-2026-11/",
+      "releasePostSourceId": "esphome-blog:bdb0fe0ecc0a272843114877"
+    }
+  ],
+  "publishedPosts": [
+    {
+      "id": "home-assistant-blog:844bf0c616aa6a8a293afe79",
+      "title": "Aeotec joins Works with Home Assistant",
+      "url": "https://www.home-assistant.io/blog/2026/11/18/aeotec-joins-works-with-home-assistant/",
+      "publisher": "Home Assistant",
+      "publishedAt": "2026-11-18T00:00:01.000Z",
+      "kind": "Blog post"
+    }
+  ],
+  "releases": [
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-11-25",
+      "version": "2026.12",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-12-02",
+      "version": "2026.12",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-12-02",
+      "version": "2026.12",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-12-16",
+      "version": "2026.12",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-12-30",
+      "version": "2027.1",
+      "accent": "blue"
+    }
+  ],
+  "communityMeetups": [
+    {
+      "id": "evt-QEzt2fYlUfSiP1J@events.lu.ma",
+      "title": "Home Assistant Community Hackathon: The Hague",
+      "url": "https://luma.com/cmsahysn",
+      "startAt": "2026-11-19T09:00:00.000Z",
+      "endAt": "2026-11-19T19:00:00.000Z",
+      "allDay": false,
+      "date": "2026-11-19",
+      "endDate": "2026-11-19",
+      "location": "https://luma.com/event/evt-QEzt2fYlUfSiP1J",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-87JtJwYoojgDwdR@events.lu.ma",
+      "title": "Home Assistant Meetup Köln",
+      "url": "https://luma.com/83fycwc9",
+      "startAt": "2026-12-03T17:00:00.000Z",
+      "endAt": "2026-12-03T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-12-03",
+      "endDate": "2026-12-03",
+      "location": "REWE Digital GmbH, Schanzenstraße 6-20, 51063 Köln, Germany",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-JrQQIH3uBJV4C3A@events.lu.ma",
+      "title": "Home Assistant Meetup - Carpi",
+      "url": "https://luma.com/yjfnms6a",
+      "startAt": "2026-12-12T08:30:00.000Z",
+      "endAt": "2026-12-12T11:30:00.000Z",
+      "allDay": false,
+      "date": "2026-12-12",
+      "endDate": "2026-12-12",
+      "location": "TERMINAL - Terre d’Argine Innovation Lab, Piazzale Allende Salvador, 5, 41012 Carpi MO, Italy",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-3GIz2yYPGSZ8Gnw@events.lu.ma",
+      "title": "Orlando Home Assistant Meetup: Get-Together & Gear Swap",
+      "url": "https://luma.com/qpe49nll",
+      "startAt": "2027-01-09T14:00:00.000Z",
+      "endAt": "2027-01-09T17:00:00.000Z",
+      "allDay": false,
+      "date": "2027-01-09",
+      "endDate": "2027-01-09",
+      "location": "Stardust Video & Coffee, 1842 Winter Park Rd, Orlando, FL 32803, USA",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-9d75XRFz6VpfCfI@events.lu.ma",
+      "title": "Home Assistant Community Meetup - Tauranga",
+      "url": "https://luma.com/0nai7yth",
+      "startAt": "2027-01-26T04:30:00.000Z",
+      "endAt": "2027-01-26T05:30:00.000Z",
+      "allDay": false,
+      "date": "2027-01-26",
+      "endDate": "2027-01-26",
+      "location": "148 Durham Street, Tauranga 3110, New Zealand",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "aeotec-certified-local-devices",
+      "title": "Nine Aeotec devices earn Home Assistant certification",
+      "dek": "Tested sensors, alarms and a switch come with a commitment to long-term support.",
+      "body": [
+        "Eight Z-Wave products and the Zigbee Pico Switch have passed the Works with Home Assistant program’s checks for local operation and privacy. Aeotec commits to continued support and firmware updates for the listed devices, which include leak and door sensors alongside a siren.",
+        "Five of the certified products support Z-Wave Long Range. They need a compatible adapter, such as Connect ZWA-2, to use that direct-to-adapter connection; an older adapter still runs them as ordinary Z-Wave devices. The announcement lists US and European availability.",
+        "Jacqueline Ajayi’s announcement explains that certification covers the listed models rather than every device from the brand. Equipment outside the list can still work with Home Assistant; it may simply not have undergone the program’s testing."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 91,
+      "contributors": [
+        "dan-long-dev",
+        "jacquelineajayi"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "dan-long-dev",
+          "name": "Dan Long",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/4980085?v=4",
+          "profileUrl": "https://github.com/dan-long-dev"
+        },
+        {
+          "login": "jacquelineajayi",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/295876694?v=4",
+          "profileUrl": "https://github.com/jacquelineajayi"
+        }
+      ],
+      "reviewers": [
+        "mrdarrengriffin"
+      ],
+      "approvers": [
+        "mrdarrengriffin"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "mrdarrengriffin",
+          "name": "Darren Griffin",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6920899?v=4",
+          "profileUrl": "https://github.com/mrdarrengriffin"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5361351526",
+          "title": "Add Aeotec announcement post and integration page for WWHA",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50745",
+          "repository": "home-assistant/home-assistant.io"
+        },
+        {
+          "id": "5354336776",
+          "title": "Add Aeotec devices and logo",
+          "url": "https://github.com/home-assistant/works-with.home-assistant.io/pull/123",
+          "repository": "home-assistant/works-with.home-assistant.io"
+        }
+      ],
+      "externalSources": [
+        {
+          "id": "home-assistant-blog:844bf0c616aa6a8a293afe79",
+          "title": "Aeotec joins Works with Home Assistant",
+          "url": "https://www.home-assistant.io/blog/2026/11/18/aeotec-joins-works-with-home-assistant/",
+          "publisher": "home-assistant-blog",
+          "publishedAt": "2026-11-18T00:00:01.000Z",
+          "kind": "official_post"
+        }
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-11-19/aeotec-certified-local-devices-d486b6fcd158-900w.webp",
+          "alt": "Aeotec Door Window Sensor 8 on a window frame and MultiSensor 8 on a shelf among plants",
+          "caption": "The Door Window Sensor 8 and MultiSensor 8 are among the certified devices.",
+          "width": 900,
+          "height": 507,
+          "variants": [
+            {
+              "url": "/media/2026-11-19/aeotec-certified-local-devices-d486b6fcd158-480w.webp",
+              "width": 480,
+              "height": 270,
+              "bytes": 14478,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-19/aeotec-certified-local-devices-d486b6fcd158-900w.webp",
+              "width": 900,
+              "height": 507,
+              "bytes": 36180,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 50658
+        }
+      ]
+    },
+    {
+      "id": "esphome-pioneer-wt-local-control",
+      "title": "Local control for Pioneer WT air conditioners",
+      "dek": "Compatible WT modules can run ESPHome, with the handheld remote’s changes reflected in the controls.",
+      "body": [
+        "A mini split that previously depended on Tuya’s service can instead exchange commands directly with an ESPHome device. The new Pioneer WT component talks over the indoor unit’s wired serial connection, using either a replacement board or compatible original hardware running custom firmware.",
+        "Mode, temperature, fan speed, vertical swing and an economy preset join optional controls for the display and beep. Reported state comes from the air conditioner itself, so a command is not mistaken for a completed change.",
+        "Martin Klingensmith tested one Pioneer WT unit with an ESP8266 board and with its original WBR3 module. Related serial-port support makes the original module usable without a workaround. Horizontal swing is not supported, and testing one unit does not establish compatibility with every Pioneer or TCL model."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 88,
+      "contributors": [
+        "martinsah"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "martinsah",
+          "name": "Martin Klingensmith",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/7488558?v=4",
+          "profileUrl": "https://github.com/martinsah"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5367138192",
+          "title": "[pioneer_wt] Add Pioneer WT mini split climate component",
+          "url": "https://github.com/esphome/esphome/pull/22865",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "5367017351",
+          "title": "[uart] Accept alternate hardware UART pins on LibreTiny",
+          "url": "https://github.com/esphome/esphome/pull/22863",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "5367140739",
+          "title": "[pioneer_wt] Add Pioneer WT climate documentation",
+          "url": "https://github.com/esphome/esphome.io/pull/8163",
+          "repository": "esphome/esphome.io"
+        },
+        {
+          "id": "5377053874",
+          "title": "[uart] Document hardware UART pins on LibreTiny boards",
+          "url": "https://github.com/esphome/esphome.io/pull/8169",
+          "repository": "esphome/esphome.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "sony-nad-infrared-controls",
+      "title": "Bring Sony TVs and NAD hi-fi into your automations",
+      "dek": "Both connections use an infrared emitter; the audio integration also covers CD players and cassette decks.",
+      "body": [
+        "A television or amplifier does not need its own network connection to receive commands from Home Assistant. Two new integrations send the infrared signals used by compatible Sony TVs and NAD audio equipment through an emitter already configured in the home.",
+        "Sony TV controls cover power, volume, mute and channel changes. NAD receivers and amplifiers add source and listening-mode selection; compatible CD players receive playback and track controls, while cassette decks support play, pause and stop. NAD receivers and amplifiers must use infrared channel 0.",
+        "The NAD integration assumes state from the commands it sends rather than confirming what the equipment did. CD and cassette controls do not include power. Gord makes a first contribution to Home Assistant Core with the Sony integration, alongside rrooggiieerr’s NAD work."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 86,
+      "contributors": [
+        "rrooggiieerr",
+        "googanhiem"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "rrooggiieerr",
+          "name": "rrooggiieerr",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/18603534?v=4",
+          "profileUrl": "https://github.com/rrooggiieerr"
+        },
+        {
+          "login": "googanhiem",
+          "name": "Gord",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/31004434?v=4",
+          "profileUrl": "https://github.com/googanhiem"
+        }
+      ],
+      "reviewers": [
+        "balloob",
+        "joostlek"
+      ],
+      "approvers": [
+        "balloob",
+        "joostlek"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "balloob",
+          "name": "Paulus Schoutsen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1444314?v=4",
+          "profileUrl": "https://github.com/balloob"
+        },
+        {
+          "login": "joostlek",
+          "name": "Joost Lekkerkerker",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/7083755?v=4",
+          "profileUrl": "https://github.com/joostlek"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4912924708",
+          "title": "Add NAD Infrared integration",
+          "url": "https://github.com/home-assistant/core/pull/187250",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5375376693",
+          "title": "Add Sony Infrared integration",
+          "url": "https://github.com/home-assistant/core/pull/193272",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5375325223",
+          "title": "Add Sony infrared docs",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50826",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-settings-by-task",
+      "title": "Playback settings move into one place",
+      "dek": "Library, network and diagnostic options also get clearer homes, replacing scattered technical modules.",
+      "body": [
+        "Changing crossfade, volume normalization or what happens when you press Play no longer means searching three separate System modules. A Playback page under Players brings those defaults together with autoplay, volume steps and announcements.",
+        "Music sources holds the library’s locations, genres and source preferences, while Metadata sources holds language, online lookups and artwork settings. System becomes a starting point for Network, Background tasks and Diagnostics; all module log levels sit together on Diagnostics.",
+        "The Players page separates speakers, lights, screens and audio inputs into their own groups. These are changes to where existing controls live; ordinary members still see only their own music sources, without the new library-settings links."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 84,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5365792181",
+          "title": "Audio analysis and background tasks each get one place in Settings",
+          "url": "https://github.com/music-assistant/frontend/pull/3222",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "5366309272",
+          "title": "Show the network settings together on one Network page",
+          "url": "https://github.com/music-assistant/frontend/pull/3223",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "5366799090",
+          "title": "Group devices on the Players page and add a Playback page",
+          "url": "https://github.com/music-assistant/frontend/pull/3226",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "5367090665",
+          "title": "Library options under Music sources and metadata settings under Metadata sources",
+          "url": "https://github.com/music-assistant/frontend/pull/3229",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "5369621345",
+          "title": "System becomes a hub, with all log levels on Diagnostics",
+          "url": "https://github.com/music-assistant/frontend/pull/3231",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "5366612447",
+          "title": "Group the crossfade, volume normalization and self-registration settings by what they do",
+          "url": "https://github.com/music-assistant/server/pull/7889",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "button-multiple-presses-held-condition",
+      "title": "One button can distinguish four kinds of press",
+      "dek": "Compatible event-based controls gain double, triple and quadruple choices, plus a condition for a continuing hold.",
+      "body": [
+        "A single press can keep its existing action while a double press triggers something different. Home Assistant’s button trigger adds a press-count selector, with single through quadruple choices in the interface and higher counts available in YAML.",
+        "The device must report multiple presses itself; the trigger does not turn several separate clicks into a double press. Ordinary software buttons retain single-press behavior.",
+        "Abílio Costa also adds a condition that checks whether a button is still held. It needs separate start and end reports, so devices that only report a hold after release do not qualify. A thirty-second timeout prevents a missed release from leaving the condition true indefinitely."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 83,
+      "contributors": [
+        "abmantis"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "abmantis",
+          "name": "Abílio Costa",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/974569?v=4",
+          "profileUrl": "https://github.com/abmantis"
+        }
+      ],
+      "reviewers": [
+        "MartinHjelmare",
+        "NoRi2909"
+      ],
+      "approvers": [
+        "MartinHjelmare",
+        "NoRi2909"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "MartinHjelmare",
+          "name": "Martin Hjelmare",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/3181692?v=4",
+          "profileUrl": "https://github.com/MartinHjelmare"
+        },
+        {
+          "login": "NoRi2909",
+          "name": "Norbert Rittel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/179329902?v=4",
+          "profileUrl": "https://github.com/NoRi2909"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5248006198",
+          "title": "Add multi press support to button.pressed trigger",
+          "url": "https://github.com/home-assistant/core/pull/191943",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5228975944",
+          "title": "Add button.is_being_held condition",
+          "url": "https://github.com/home-assistant/core/pull/191663",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-recording-duplicates",
+      "title": "Duplicate tracks become one library entry",
+      "dek": "A shared recording identity is not enough: track length and the usual matching checks must agree.",
+      "body": [
+        "A song kept from both Spotify and Tidal, or from a local file and a streaming service, can remain as two library entries even after both have been identified. Music Assistant uses the MusicBrainz catalogue’s recording identifiers to bring matching entries together.",
+        "The durations must be close and the normal track-matching checks must agree. A track carrying a second recording identity is left separate. The check runs when album tracks are matched, MusicBrainz is queried or an audio-fingerprint lookup supplies identifiers."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 81,
+      "contributors": [
+        "OzGav"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "OzGav",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/19848947?v=4",
+          "profileUrl": "https://github.com/OzGav"
+        }
+      ],
+      "reviewers": [
+        "MarvinSchenkel"
+      ],
+      "approvers": [
+        "MarvinSchenkel"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "MarvinSchenkel",
+          "name": "Marvin Schenkel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
+          "profileUrl": "https://github.com/MarvinSchenkel"
+        }
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5367566635",
+          "title": "Merge library tracks of one MusicBrainz recording",
+          "url": "https://github.com/music-assistant/server/pull/7893",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "update-notices-before-release-notes",
+      "title": "Read the warning before starting an update",
+      "dek": "Integrations can supply translated notices separately from their regular release notes.",
+      "body": [
+        "A caution against cutting power should not be buried in a long list of changes. Home Assistant’s update dialog displays notices supplied by an integration above the release notes, with an alert style matching their severity.",
+        "Jan-Philipp Benecke connects the display to the new backend message format. The change provides a place for integrations to explain precautions; it does not invent warnings for every update. The accompanying screenshot demonstrates the layout with sample messages."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 78,
+      "contributors": [
+        "jpbede"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "jpbede",
+          "name": "Jan-Philipp Benecke",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/3989428?v=4",
+          "profileUrl": "https://github.com/jpbede"
+        }
+      ],
+      "reviewers": [
+        "MindFreeze",
+        "MartinHjelmare"
+      ],
+      "approvers": [
+        "MindFreeze",
+        "MartinHjelmare"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "MindFreeze",
+          "name": "Petar Petrov",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5219205?v=4",
+          "profileUrl": "https://github.com/MindFreeze"
+        },
+        {
+          "login": "MartinHjelmare",
+          "name": "Martin Hjelmare",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/3181692?v=4",
+          "profileUrl": "https://github.com/MartinHjelmare"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5048970851",
+          "title": "Show update release notes messages in the more info dialog",
+          "url": "https://github.com/home-assistant/frontend/pull/55388",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "4200825758",
+          "title": "Add release notes messages for update entities",
+          "url": "https://github.com/home-assistant/core/pull/178125",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-11-19/update-notices-before-release-notes-99d9c072e1a5-800w.webp",
+          "alt": "Home Assistant demo update dialog with information and warning messages above release notes.",
+          "caption": "A demonstration of the notice layout, using sample update messages.",
+          "width": 800,
+          "height": 771,
+          "variants": [
+            {
+              "url": "/media/2026-11-19/update-notices-before-release-notes-99d9c072e1a5-480w.webp",
+              "width": 480,
+              "height": 463,
+              "bytes": 10254,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-19/update-notices-before-release-notes-99d9c072e1a5-800w.webp",
+              "width": 800,
+              "height": 771,
+              "bytes": 22360,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 32614
+        }
+      ]
+    },
+    {
+      "id": "esphome-mqtt-wake-reporting",
+      "title": "Sleepy sensors spend less time waiting to report",
+      "dek": "A startup delay disappears for devices using MQTT; retries after a genuine connection failure keep their pause.",
+      "body": [
+        "A battery-powered sensor can have Wi-Fi ready yet spend most of its waking time waiting to send a reading. ESPHome starts its first MQTT connection attempt as soon as the network is ready, instead of treating the early lack of a network like a failed attempt and waiting until five seconds after boot. MQTT is a messaging system commonly used to pass sensor readings.",
+        "Leandro’s first ESPHome contribution was tested on a BK7231N board sleeping for eight seconds between reports, with a precomputed Wi-Fi key and the message server supplied by address. Connections previously took about 5.1 seconds after boot; with the correction, seven of eight starts took about 0.8–1.5 seconds, and one took 3.5 seconds."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 83,
+      "contributors": [
+        "leandropineda"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "leandropineda",
+          "name": "Leandro",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/8092356?v=4",
+          "profileUrl": "https://github.com/leandropineda"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5375412502",
+          "title": "[mqtt] Connect as soon as the network is up, not 5 s after boot",
+          "url": "https://github.com/esphome/esphome/pull/22871",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-squeezebox-group-change",
+      "title": "Some older Squeezebox players lose synchronized grouping",
+      "dek": "Squeezebox-only groups switch to Sendspin; solo playback and groups with separate streams retain their existing paths.",
+      "body": [
+        "The original Squeezebox from 2003 and players supplied through Logitech Media Server bridge tools cannot join synchronized groups under the new arrangement: they lack the required Sendspin output. Compatible Squeezebox and squeezelite speakers use that connection even when the group contains no other kind of player.",
+        "Adding or removing a member no longer restarts the music on the remaining speakers. Solo playback keeps its existing path, as do universal groups, where each member plays a separate stream. The new restriction changes the Squeezebox-only grouping that remained untouched in the November 16 coverage."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 82,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5323981169",
+          "title": "Play every group of Squeezebox and squeezelite speakers through Sendspin",
+          "url": "https://github.com/music-assistant/server/pull/7739",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "zwave-ecolink-leak-clears",
+      "title": "A dried leak probe stops reporting a flood",
+      "dek": "The Ecolink FLF-ZWAVE5 clears its alert from the device’s own dry signal, rather than a timer.",
+      "body": [
+        "A wet probe could leave the default water-leak entity in Home Assistant stuck on long after it dried. The Ecolink sensor sends a different notification for dry conditions, which Z-Wave JS previously interpreted without clearing the earlier alarm.",
+        "@twagner12’s first contribution to Z-Wave JS maps that signal to the end of the leak alert. This avoids a timed reset that could conceal water still present. The correction is supported by a recorded wet-to-dry exchange; the contributor has not yet tested the changed mapping on the device."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 82,
+      "contributors": [
+        "twagner12"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "twagner12",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/220443546?v=4",
+          "profileUrl": "https://github.com/twagner12"
+        }
+      ],
+      "reviewers": [
+        "AlCalzone"
+      ],
+      "approvers": [
+        "AlCalzone"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "AlCalzone",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17641229?v=4",
+          "profileUrl": "https://github.com/AlCalzone"
+        }
+      ],
+      "topics": [
+        "Z-Wave JS"
+      ],
+      "pullRequests": [
+        {
+          "id": "4837668211",
+          "title": "fix(config): idle water leak notification on Ecolink FLF-ZWAVE5 when the probe dries",
+          "url": "https://github.com/zwave-js/zwave-js/pull/9345",
+          "repository": "zwave-js/zwave-js"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esphome-dim-led-colors",
+      "title": "Dim orange LEDs stop turning yellow",
+      "dek": "Addressable strips preserve the dominant colour while retaining the safeguard against going completely dark.",
+      "body": [
+        "An orange-red light at a few percent brightness could become yellow because its red and green channels were both rounded up to the same tiny value. ESPHome instead considers the whole pixel, allowing a weak colour channel to drop to zero while the stronger one remains lit.",
+        "Keith Burzinski checked the change on a twelve-LED SK6812 RGBW ring. Dim white stays white, while a very dim orange resolves toward red instead of yellow; the correction does not claim perfect colour reproduction below the strip’s available brightness steps."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 81,
+      "contributors": [
+        "kbx81"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "kbx81",
+          "name": "Keith Burzinski",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/21233191?v=4",
+          "profileUrl": "https://github.com/kbx81"
+        }
+      ],
+      "reviewers": [
+        "jesserockz"
+      ],
+      "approvers": [
+        "jesserockz"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "jesserockz",
+          "name": "Jesse Hills",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/3060199?v=4",
+          "profileUrl": "https://github.com/jesserockz"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5369834620",
+          "title": "[light] Keep the colour of a dim addressable pixel",
+          "url": "https://github.com/esphome/esphome/pull/22868",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "aux-2-custom-firmware-feature-parity",
+      "title": "Custom AUX-2 firmware regains missing audio and Zigbee features",
+      "dek": "The adopted configuration requires ESPHome 2026.11.0 and restores 24-bit Sendspin audio.",
+      "body": [
+        "Owners taking control of a Connect AUX-2 no longer need the reduced configuration introduced to keep custom firmware building with an older stable ESPHome release. The imported configuration includes both 24-bit Sendspin playback and the Zigbee proxy feature that handles time-sensitive acknowledgements locally.",
+        "Keith Burzinski compiled the factory and adopted configurations with ESPHome 2026.11.0. This restores the capabilities left out of custom builds on November 10; factory firmware already had them."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 80,
+      "contributors": [
+        "kbx81",
+        "puddly"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "kbx81",
+          "name": "Keith Burzinski",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/21233191?v=4",
+          "profileUrl": "https://github.com/kbx81"
+        },
+        {
+          "login": "puddly",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/32534428?v=4",
+          "profileUrl": "https://github.com/puddly"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "topics": [
+        "Home Assistant Connect AUX-2"
+      ],
+      "pullRequests": [
+        {
+          "id": "5387522676",
+          "title": "Move the Zigbee tap and 24-bit Sendspin into the adopted configuration",
+          "url": "https://github.com/NabuCasa/aux-2/pull/74",
+          "repository": "NabuCasa/aux-2"
+        },
+        {
+          "id": "4778786903",
+          "title": "[ezsp_proxy_tap] Add SiLabs EZSP auto-ACK implementation",
+          "url": "https://github.com/esphome/esphome/pull/20304",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "shelly-lock-physical-inputs",
+      "title": "Keep a wall switch from changing the device",
+      "dek": "An input-lock control covers supported Shelly switches and shutters from generation two onward.",
+      "body": [
+        "A physical input can be ignored while an automation keeps control of the connected equipment. The new Home Assistant switch changes the input-lock setting on supported Shelly switch and cover components.",
+        "Yuval Weiss tested a Shelly 1PM Mini Gen3 and a Plus 2PM configured for a shutter. The new control appears by default in Home Assistant; the physical input does not start locked."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 78,
+      "contributors": [
+        "YuvalWS"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "YuvalWS",
+          "name": "Yuval Weiss",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/51225462?v=4",
+          "profileUrl": "https://github.com/YuvalWS"
+        }
+      ],
+      "reviewers": [
+        "bieniu",
+        "thecode"
+      ],
+      "approvers": [
+        "bieniu",
+        "thecode"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bieniu",
+          "name": "Maciej Bieniek",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/478555?v=4",
+          "profileUrl": "https://github.com/bieniu"
+        },
+        {
+          "login": "thecode",
+          "name": "Shay Levy",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1858925?v=4",
+          "profileUrl": "https://github.com/thecode"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "4605583137",
+          "title": "Add input lock switch to Shelly integration",
+          "url": "https://github.com/home-assistant/core/pull/182941",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "4613294903",
+          "title": "Document the Shelly input lock switch",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/48326",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-provider-text-privacy",
+      "title": "Setup descriptions stop loading tracking images",
+      "dek": "Images in biographies and programme notes remain; the restriction applies to text supplied by providers.",
+      "body": [
+        "A hidden image in a provider’s description could contact an outside server when someone opened its settings. Music Assistant removes remote images and other media from provider-written labels, alerts, setup text, errors, task reports and Marketplace credits.",
+        "Setup illustrations still work when embedded in the data sent by the provider. Built-in providers already use that approach, so their setup appearance stays the same."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 78,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5376067289",
+          "title": "Load no remote images from provider text",
+          "url": "https://github.com/music-assistant/frontend/pull/3240",
+          "repository": "music-assistant/frontend"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-line-in-setup",
+      "title": "A paired device brings its audio input with it",
+      "dek": "The separate Sendspin Source plugin is removed; automatic playback settings stay on the device.",
+      "body": [
+        "A turntable, line-in or microphone attached to a Sendspin device becomes a Music Assistant audio source as soon as that device is paired. There is no additional source plugin to find and enable.",
+        "Upgrades remove the old plugin’s stored settings. Line-in autostart and the per-device controls remain on the Sendspin device itself."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 77,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5375264217",
+          "title": "Play a Sendspin device's line-in without a separate plugin",
+          "url": "https://github.com/music-assistant/server/pull/7909",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5366996387",
+          "title": "Let any provider type deliver audio sources",
+          "url": "https://github.com/music-assistant/server/pull/7890",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-kiosk-player-close",
+      "title": "A visible exit for the full-screen player",
+      "dek": "Wall tablets avoid a swipe that reloads the page; keyboard and screen-reader users gain the same labelled control.",
+      "body": [
+        "Fully Kiosk Browser can intercept the downward swipe meant to close Music Assistant’s player and reload the page instead. The close chevron stays visible on phones and tablets, giving those screens a direct way back.",
+        "Piero reproduced the problem with pull-to-refresh enabled in an Android emulator at tablet and phone sizes, then checked the correction on a real phone."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "pierosavi"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "pierosavi",
+          "name": "Piero",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/15440183?v=4",
+          "profileUrl": "https://github.com/pierosavi"
+        }
+      ],
+      "reviewers": [
+        "OzGav"
+      ],
+      "approvers": [
+        "OzGav"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "OzGav",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/19848947?v=4",
+          "profileUrl": "https://github.com/OzGav"
+        }
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5384396944",
+          "title": "Always show the close chevron on the fullscreen player",
+          "url": "https://github.com/music-assistant/frontend/pull/3248",
+          "repository": "music-assistant/frontend"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "smartthings-retired-entities",
+      "title": "Old SmartThings switches and sensors need replacement",
+      "dek": "Media-player and water-heater controls take over from entities deprecated since 2025.",
+      "body": [
+        "Dashboards, templates and automations still pointing to the older entities need to use their replacements. Appliance switches give way to binary status sensors, while media-player switches and separate source, repeat, shuffle, playback and volume sensors give way to the media-player entity.",
+        "For heat pumps with domestic hot water, the water-heater entity replaces the old switch and temperature or cooling-setpoint sensors. This removes the deprecated copies; it does not remove the supported equipment from Home Assistant."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 68,
+      "contributors": [
+        "gjohansson-ST"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "gjohansson-ST",
+          "name": "G Johansson",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/62932417?v=4",
+          "profileUrl": "https://github.com/gjohansson-ST"
+        }
+      ],
+      "reviewers": [
+        "erwindouna"
+      ],
+      "approvers": [
+        "erwindouna"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "erwindouna",
+          "name": "Erwin Douna",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5011203?v=4",
+          "profileUrl": "https://github.com/erwindouna"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5362450710",
+          "title": "Remove deprecated entities from SmartThings",
+          "url": "https://github.com/home-assistant/core/pull/193145",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ],
+  "roadmapUpdates": [
+    {
+      "id": "marketplace-discovery-scope-narrows",
+      "title": "Marketplace redesign focuses on discovery",
+      "summary": "A revised Home Assistant proposal in Shaping would combine Discover and Browse, with paths by content type or goal. Changes to individual item pages and the Installed page are now outside its scope; keeping the table view for power users remains an open question.",
+      "sources": [
+        {
+          "id": "roadmap:PVTI_lADOCX3lqc4BTbD7zhJGWNk",
+          "title": "Discover community contributions in Marketplace feels easy",
+          "url": "https://github.com/OpenHomeFoundation/roadmap/issues/264",
+          "publisher": "Open Home Foundation Roadmap",
+          "publishedAt": "2026-11-16T09:02:23Z",
+          "kind": "roadmap",
+          "status": "Shaping",
+          "observedAt": "2026-11-19T05:04:02.514Z"
+        }
+      ]
+    }
+  ]
+}
