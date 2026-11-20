@@ -1,0 +1,2018 @@
+{
+  "date": "2026-11-20",
+  "generatedAt": "2026-11-20T04:58:58.459Z",
+  "windowStart": "2026-11-19T04:56:34.749Z",
+  "windowEnd": "2026-11-20T04:56:34.749Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 704,
+    "repositories": 72,
+    "contributors": 261,
+    "dependencyUpdates": 63,
+    "hacsNewIntegrations": 108
+  },
+  "lead": {
+    "id": "5383852993",
+    "title": "Play an Apple TV and its HomePods as one player",
+    "summary": "What does this implement/fix? An Apple TV that uses HomePods as its speakers never passes a stream on to them, so playing to it stayed silent, and its HomePods showed up as separate players.",
+    "url": "https://github.com/music-assistant/server/pull/7936",
+    "repository": "music-assistant/server",
+    "organization": "Music Assistant",
+    "author": "marcelveldt",
+    "mergedAt": "2026-11-19T18:08:36Z",
+    "labels": [
+      "enhancement"
+    ],
+    "kind": "platform",
+    "score": 75.8,
+    "additions": 3906,
+    "deletions": 204,
+    "changedFiles": 26
+  },
+  "highlights": [
+    {
+      "id": "5401361889",
+      "title": "Polish the setup wizard's choice and music app steps",
+      "summary": "What does this implement/fix? A few rough edges in the setup wizard, found while clicking through a fresh install: The first question now reads \"How would you primarily like to use Music…",
+      "url": "https://github.com/music-assistant/frontend/pull/3265",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-19T20:26:49Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 71.3,
+      "additions": 870,
+      "deletions": 437,
+      "changedFiles": 20
+    },
+    {
+      "id": "5405414201",
+      "title": "Redesign the setup wizard layout",
+      "summary": "What does this implement/fix? The setup wizard's steps each had their own layout: a link visual, centred text blocks of different widths, a big button in the body that competed with Next, and a lot of chrome on top.",
+      "url": "https://github.com/music-assistant/frontend/pull/3280",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-20T00:54:26Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 67.9,
+      "additions": 1456,
+      "deletions": 1387,
+      "changedFiles": 37
+    },
+    {
+      "id": "5392560582",
+      "title": "Combine Sendspin speakers into a stereo pair",
+      "summary": "What does this implement/fix? Two Sendspin speakers can now be combined into one multi channel player, a stereo pair.",
+      "url": "https://github.com/music-assistant/server/pull/7954",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-19T17:23:57Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 67.6,
+      "additions": 3344,
+      "deletions": 67,
+      "changedFiles": 26
+    },
+    {
+      "id": "5393966895",
+      "title": "Combine Sendspin speakers into a stereo pair",
+      "summary": "What does this implement/fix? Two Sendspin speakers can now be combined into one multi channel player, a stereo pair, from the player settings.",
+      "url": "https://github.com/music-assistant/frontend/pull/3253",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-19T17:24:06Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 67,
+      "additions": 3050,
+      "deletions": 42,
+      "changedFiles": 31
+    }
+  ],
+  "briefs": [
+    {
+      "id": "5162044098",
+      "title": "Open a Discover section in full by clicking its title",
+      "summary": "What does this implement/fix? A Discover row only shows the handful of items that fit on screen, with no way to see the rest.",
+      "url": "https://github.com/music-assistant/frontend/pull/3114",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "ryanmac8",
+      "mergedAt": "2026-11-19T17:40:32Z",
+      "labels": [
+        "enhancement",
+        "backend changes merged"
+      ],
+      "kind": "platform",
+      "score": 66.2,
+      "additions": 398,
+      "deletions": 86,
+      "changedFiles": 13,
+      "image": "https://raw.githubusercontent.com/ryanmac8/frontend/pr-assets-discover-browse/breadcrumb-before-after.png"
+    },
+    {
+      "id": "5395455886",
+      "title": "Add an AI page to the settings",
+      "summary": "What does this implement/fix? The AI settings had no page of their own: the default engines sat in a plain module page under System, and nothing showed which features use which engine.",
+      "unlocks": "Unlocks: Add an AI page to the settings.",
+      "url": "https://github.com/music-assistant/frontend/pull/3256",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-19T15:10:45Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 65,
+      "additions": 1502,
+      "deletions": 2,
+      "changedFiles": 24
+    },
+    {
+      "id": "5391067537",
+      "title": "Map OpenSubsonic release_types field onto MusicAssistant AlbumType.",
+      "summary": "What does this implement/fix? Maps an album's release type from OpenSubsonic onto the MusicAssistant enum in a similar fashion to other providers.",
+      "unlocks": "Unlocks: Map OpenSubsonic release_types field onto MusicAssistant AlbumType.",
+      "url": "https://github.com/music-assistant/server/pull/7951",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "CDrummond",
+      "mergedAt": "2026-11-19T21:13:59Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 63.4,
+      "additions": 1205,
+      "deletions": 58,
+      "changedFiles": 8
+    },
+    {
+      "id": "5402099692",
+      "title": "Make the remaining setup wizard steps more inviting",
+      "summary": "What does this implement/fix? The setup wizard's Home Assistant, remote access and AI steps got a more inviting layout in #3266.",
+      "url": "https://github.com/music-assistant/frontend/pull/3270",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-19T20:46:43Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 61.4,
+      "additions": 766,
+      "deletions": 277,
+      "changedFiles": 14
+    },
+    {
+      "id": "5401364834",
+      "title": "Make the optional steps of the setup wizard more inviting",
+      "summary": "What does this implement/fix? The setup wizard's three optional steps (Home Assistant, remote access and AI) were a single paragraph with a small button, and only the footer hinted that they could be skipped.",
+      "url": "https://github.com/music-assistant/frontend/pull/3266",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-19T20:03:20Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 61.4,
+      "additions": 1013,
+      "deletions": 606,
+      "changedFiles": 14
+    },
+    {
+      "id": "5394239591",
+      "title": "Filter plugins by what they do",
+      "summary": "What does this implement/fix? The Plugins page and the Marketplace's Plugins tab get the same chip filter as the music sources, so you can find a plugin by what it does: All · AI · Text to…",
+      "url": "https://github.com/music-assistant/frontend/pull/3254",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-19T16:43:45Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 61.3,
+      "additions": 780,
+      "deletions": 435,
+      "changedFiles": 40
+    },
+    {
+      "id": "5219301043",
+      "title": "Clarify library-based statistics",
+      "summary": "What does this implement/fix? Adds an info tooltip to the album, genre, release year and listening time statistics.",
+      "url": "https://github.com/music-assistant/frontend/pull/3132",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "dmoo500",
+      "mergedAt": "2026-11-19T18:36:02Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 59.6,
+      "additions": 233,
+      "deletions": 34,
+      "changedFiles": 14
+    },
+    {
+      "id": "5399424375",
+      "title": "Ask about AI in the setup wizard",
+      "summary": "What does this implement/fix? The full setup now asks whether to add AI.",
+      "url": "https://github.com/music-assistant/frontend/pull/3262",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-19T17:35:17Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 59.6,
+      "additions": 650,
+      "deletions": 29,
+      "changedFiles": 18
+    },
+    {
+      "id": "5347766132",
+      "title": "[ci] Add simulated radios and ESP-NOW, UDP and TCP link flows to the hardware-test skill",
+      "summary": "What does this implement/fix? Adds the radio and link flows to the hardware test agent skill: simulated SX127x and SX126x radios, two CC1101 radios with long packets, and packet interface…",
+      "unlocks": "Unlocks: [ci] Add simulated radios and ESP-NOW, UDP and TCP link flows to the hardware-test skill.",
+      "url": "https://github.com/esphome/esphome/pull/22828",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-20T04:50:11Z",
+      "labels": [
+        "code-quality",
+        "mega-pr"
+      ],
+      "kind": "feature",
+      "score": 58.4,
+      "additions": 6306,
+      "deletions": 1,
+      "changedFiles": 52
+    },
+    {
+      "id": "5349821590",
+      "title": "[ci] Add Wi-Fi outage, DNS loss, web server, API overflow and serial_proxy flows to the hardware-test skill",
+      "summary": "What does this implement/fix? Adds the network, web and API flows to the hardware test agent skill: Wi Fi outage and Disassociation rigs, the DNS loss harness, the ESPAsyncWebServer bump and…",
+      "unlocks": "Unlocks: [ci] Add Wi-Fi outage, DNS loss, web server, API overflow and serial_proxy flows to the hardware-test skill.",
+      "url": "https://github.com/esphome/esphome/pull/22831",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-20T04:34:16Z",
+      "labels": [
+        "code-quality",
+        "mega-pr"
+      ],
+      "kind": "feature",
+      "score": 58,
+      "additions": 4552,
+      "deletions": 69,
+      "changedFiles": 71
+    },
+    {
+      "id": "5349819574",
+      "title": "[ci] Add I2C wire A/B and the WK2168 and BMI270 fakes to the hardware-test skill",
+      "summary": "What does this implement/fix? Adds the I2C bus flows to the hardware test agent skill: a wire level A/B of bus changes and two more fake I2C devices, so an agent can check a bus or driver change without the chip.",
+      "unlocks": "Unlocks: [ci] Add I2C wire A/B and the WK2168 and BMI270 fakes to the hardware-test skill.",
+      "url": "https://github.com/esphome/esphome/pull/22829",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-20T04:25:12Z",
+      "labels": [
+        "code-quality",
+        "mega-pr"
+      ],
+      "kind": "feature",
+      "score": 57.8,
+      "additions": 3889,
+      "deletions": 8,
+      "changedFiles": 47
+    },
+    {
+      "id": "5349820618",
+      "title": "[ci] Add climate IR, remote_base A/B, Tuya, Xiaomi and BLE scan flows to the hardware-test skill",
+      "summary": "What does this implement/fix? Adds the IR and sensor flows to the hardware test agent skill: climate IR loopback, protocol and dumper A/B on the host, and the Tuya, Xiaomi and BLE scan harnesses.",
+      "unlocks": "Unlocks: [ci] Add climate IR, remote_base A/B, Tuya, Xiaomi and BLE scan flows to the hardware-test skill.",
+      "url": "https://github.com/esphome/esphome/pull/22830",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-20T03:38:44Z",
+      "labels": [
+        "code-quality",
+        "mega-pr"
+      ],
+      "kind": "feature",
+      "score": 57.7,
+      "additions": 3494,
+      "deletions": 64,
+      "changedFiles": 65
+    },
+    {
+      "id": "4681840277",
+      "title": "Add timer_list integration",
+      "summary": "Implements part of https://github.com/home assistant/architecture/discussions/1407 Adds a new timer list base entity platform: a single entity holds many independent countdown timers (its…",
+      "unlocks": "Unlocks: Add timer_list integration.",
+      "url": "https://github.com/home-assistant/core/pull/183648",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "synesthesiam",
+      "mergedAt": "2026-11-19T22:20:24Z",
+      "labels": [
+        "core",
+        "new-integration",
+        "has-tests",
+        "quality scale: internal",
+        "integration: local_timer_list",
+        "integration: timer_list"
+      ],
+      "kind": "feature",
+      "score": 57.7,
+      "additions": 2189,
+      "deletions": 0,
+      "changedFiles": 23
+    },
+    {
+      "id": "5394345951",
+      "title": "Make the setup wizard's network step only about remote access",
+      "summary": "What does this implement/fix? The setup wizard's \"Access Music Assistant\" step mixed remote access with the server's addresses, address checks and an edit form.",
+      "url": "https://github.com/music-assistant/frontend/pull/3255",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-19T15:16:47Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 55.5,
+      "additions": 184,
+      "deletions": 1967,
+      "changedFiles": 10
+    },
+    {
+      "id": "5382512312",
+      "title": "Reorder and hide the rows of a podcast episode page",
+      "summary": "What does this implement/fix? The podcast episode page already had the shared hero, but its rows were fixed: it was the only detail page with rows under the hero that had no Edit rows.",
+      "url": "https://github.com/music-assistant/frontend/pull/3246",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "stvncode",
+      "mergedAt": "2026-11-19T19:53:05Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 54.6,
+      "additions": 324,
+      "deletions": 43,
+      "changedFiles": 7,
+      "image": "https://gist.githubusercontent.com/stvncode/5b1f6264966d140211ee7c153fd8b7a6/raw/5deba70e2b63294a62fc63240d827ea4eb711b37/before-menu.jpg"
+    },
+    {
+      "id": "5400964145",
+      "title": "Start the first setup with a welcome and keep account creation in the wizard",
+      "summary": "What does this implement/fix? A fresh install opened straight on a \"Create your account\" form with a button of its own, which did not look or work like the rest of the setup wizard.",
+      "url": "https://github.com/music-assistant/frontend/pull/3264",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-19T19:17:26Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 54.1,
+      "additions": 391,
+      "deletions": 102,
+      "changedFiles": 10
+    },
+    {
+      "id": "5399220673",
+      "title": "Wait for the HomeWizard button press in the background in the v2 migration repair",
+      "summary": "#193392 replaced the \"press the button and submit within 30 seconds\" step in the config flow with a progress step that requests a token in the background.",
+      "unlocks": "Improves reliability around wait for the HomeWizard button press in the background in the v2 migration repair.",
+      "url": "https://github.com/home-assistant/core/pull/193457",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "nvanofwegen",
+      "mergedAt": "2026-11-19T18:35:43Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "integration: homewizard",
+        "quality scale: platinum",
+        "code-owner-approved",
+        "top 200",
+        "hackathon"
+      ],
+      "kind": "fix",
+      "score": 54,
+      "additions": 183,
+      "deletions": 143,
+      "changedFiles": 4
+    },
+    {
+      "id": "5387637709",
+      "title": "Start time-sync bursts no more than 10 s apart",
+      "summary": "Spec #357 made the burst rules normative (messaging.md \"Clock Synchronization\"): each burst holds at least 8 messages, and consecutive bursts start no more than 10 s apart.",
+      "url": "https://github.com/Sendspin/sendspin-cpp/pull/277",
+      "repository": "Sendspin/sendspin-cpp",
+      "organization": "Sendspin",
+      "author": "kahrendt",
+      "mergedAt": "2026-11-19T14:15:24Z",
+      "labels": [
+        "breaking change",
+        "bugfix"
+      ],
+      "kind": "platform",
+      "score": 53.7,
+      "additions": 507,
+      "deletions": 247,
+      "changedFiles": 19
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Bump aerosmart-modbus to 0.3.7",
+      "url": "https://github.com/home-assistant/core/pull/193463",
+      "repository": "home-assistant/core",
+      "author": "kayloehmann"
+    },
+    {
+      "title": "Bump aiounifi to v101",
+      "url": "https://github.com/home-assistant/core/pull/193468",
+      "repository": "home-assistant/core",
+      "author": "Kane610"
+    },
+    {
+      "title": "Bump holidays to 0.109",
+      "url": "https://github.com/home-assistant/core/pull/193395",
+      "repository": "home-assistant/core",
+      "author": "gjohansson-ST"
+    },
+    {
+      "title": "Bump brother to 7.0.0",
+      "url": "https://github.com/home-assistant/core/pull/193479",
+      "repository": "home-assistant/core",
+      "author": "bieniu"
+    },
+    {
+      "title": "Update dependency marked to v18.2.1",
+      "url": "https://github.com/home-assistant/frontend/pull/56034",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency browserslist to v4.29.6",
+      "url": "https://github.com/home-assistant/frontend/pull/56033",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency home-assistant-js-websocket to v9.9.0",
+      "url": "https://github.com/home-assistant/frontend/pull/56031",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency fastlane to v2.242.0",
+      "url": "https://github.com/home-assistant/android/pull/7928",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump pyfireservicerota to 0.0.51",
+      "url": "https://github.com/home-assistant/core/pull/193422",
+      "repository": "home-assistant/core",
+      "author": "cyberjunky"
+    },
+    {
+      "title": "Lock file maintenance",
+      "url": "https://github.com/home-assistant/home-assistant-js-websocket/pull/806",
+      "repository": "home-assistant/home-assistant-js-websocket",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update sigstore/cosign-installer action to v4.1.3",
+      "url": "https://github.com/home-assistant/operating-system-full-images/pull/12",
+      "repository": "home-assistant/operating-system-full-images",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump pyfireservicerota to 0.0.50",
+      "url": "https://github.com/home-assistant/core/pull/193385",
+      "repository": "home-assistant/core",
+      "author": "cyberjunky"
+    },
+    {
+      "title": "Move dependency updates from Dependabot to Renovate",
+      "url": "https://github.com/home-assistant/apps-development/pull/245",
+      "repository": "home-assistant/apps-development",
+      "author": "frenck"
+    },
+    {
+      "title": "Bump velbus-aio to 2026.11.4",
+      "url": "https://github.com/home-assistant/core/pull/193393",
+      "repository": "home-assistant/core",
+      "author": "cereal2nd"
+    },
+    {
+      "title": "Bump python-homewizard-energy to 10.3.0",
+      "url": "https://github.com/home-assistant/core/pull/193406",
+      "repository": "home-assistant/core",
+      "author": "lexpostma"
+    },
+    {
+      "title": "Linux: Update kernel to 6.18.64",
+      "url": "https://github.com/home-assistant/operating-system/pull/5202",
+      "repository": "home-assistant/operating-system",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump hdfury to 1.7.0",
+      "url": "https://github.com/home-assistant/core/pull/193398",
+      "repository": "home-assistant/core",
+      "author": "glenndehaan"
+    },
+    {
+      "title": "Lock file maintenance",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/50648",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump zwave-js to 15.32.4",
+      "url": "https://github.com/home-assistant/zwa2-toolbox/pull/101",
+      "repository": "home-assistant/zwa2-toolbox",
+      "author": "AlCalzone"
+    },
+    {
+      "title": "Bump pycasperglow to 1.3.0",
+      "url": "https://github.com/home-assistant/core/pull/193355",
+      "repository": "home-assistant/core",
+      "author": "mikeodr"
+    },
+    {
+      "title": "Bump hydroquebec_peak to 0.3.0",
+      "url": "https://github.com/home-assistant/core/pull/192960",
+      "repository": "home-assistant/core",
+      "author": "Beat-YT"
+    },
+    {
+      "title": "Update release-drafter/release-drafter action to v7.11.0",
+      "url": "https://github.com/home-assistant/supervisor/pull/7511",
+      "repository": "home-assistant/supervisor",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency pylint to v4.1.4",
+      "url": "https://github.com/home-assistant/supervisor/pull/7510",
+      "repository": "home-assistant/supervisor",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump python-hotspring to 5.0.0",
+      "url": "https://github.com/home-assistant/core/pull/193363",
+      "repository": "home-assistant/core",
+      "author": "Moustachauve"
+    },
+    {
+      "title": "Bump aioamazondevices to 17.5.0",
+      "url": "https://github.com/home-assistant/core/pull/193343",
+      "repository": "home-assistant/core",
+      "author": "chemelli74"
+    },
+    {
+      "title": "Update types stubs",
+      "url": "https://github.com/home-assistant/core/pull/193361",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency ruff to v0.17.6",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/794",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update pre-commit hook tox-dev/pyproject-fmt to v2.31.1",
+      "url": "https://github.com/home-assistant-libs/annotatedyaml/pull/201",
+      "repository": "home-assistant-libs/annotatedyaml",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency ty to v0.0.107",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/792",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update ossf/scorecard-action action to v2.6.0",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/793",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "build(deps): bump nix from 0.31.3 to 0.32.0 in /src-tauri",
+      "url": "https://github.com/esphome/esphome-desktop/pull/519",
+      "repository": "esphome/esphome-desktop",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): bump prek from 0.5.6 to 0.5.11",
+      "url": "https://github.com/esphome/esphome-desktop/pull/518",
+      "repository": "esphome/esphome-desktop",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): bump ruff from 0.16.8 to 0.17.5",
+      "url": "https://github.com/esphome/esphome-desktop/pull/520",
+      "repository": "esphome/esphome-desktop",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps): bump clap from 4.6.7 to 4.6.8 in /src-tauri",
+      "url": "https://github.com/esphome/esphome-desktop/pull/517",
+      "repository": "esphome/esphome-desktop",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps): bump release-drafter/release-drafter from 7.10.0 to 7.11.0",
+      "url": "https://github.com/esphome/esphome-desktop/pull/511",
+      "repository": "esphome/esphome-desktop",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps): bump cargo-bins/cargo-binstall from 1.26.1 to 1.27.0",
+      "url": "https://github.com/esphome/esphome-desktop/pull/512",
+      "repository": "esphome/esphome-desktop",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps): bump tauri-plugin-notification from 2.8.0 to 2.8.1 in /src-tauri in the tauri group across 1 directory",
+      "url": "https://github.com/esphome/esphome-desktop/pull/514",
+      "repository": "esphome/esphome-desktop",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps): bump peter-evans/create-pull-request from 8.1.1 to 8.1.3",
+      "url": "https://github.com/esphome/esphome-desktop/pull/513",
+      "repository": "esphome/esphome-desktop",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps): bump libloading from 0.9.0 to 0.9.1 in /src-tauri",
+      "url": "https://github.com/esphome/esphome-desktop/pull/515",
+      "repository": "esphome/esphome-desktop",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps): bump log from 0.4.34 to 0.4.35 in /src-tauri",
+      "url": "https://github.com/esphome/esphome-desktop/pull/516",
+      "repository": "esphome/esphome-desktop",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump typescript-eslint from 8.72.2 to 8.73.0",
+      "url": "https://github.com/esphome/esphome.io/pull/8193",
+      "repository": "esphome/esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump lint-staged from 17.6.0 to 17.6.1",
+      "url": "https://github.com/esphome/esphome.io/pull/8179",
+      "repository": "esphome/esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump release-drafter/release-drafter from 7.10.0 to 7.11.0",
+      "url": "https://github.com/esphome/workflows/pull/201",
+      "repository": "esphome/workflows",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump j178/prek-action from 3.1.0 to 3.1.1",
+      "url": "https://github.com/esphome/esphome/pull/22951",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump puremagic from 2.2.1 to 2.3.0",
+      "url": "https://github.com/esphome/esphome/pull/22950",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump prek from 0.5.10 to 0.5.11",
+      "url": "https://github.com/esphome/esphome/pull/22949",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "[esp32] Bump recommended ESP-IDF to 6.1.1 and Arduino to 4.0.0",
+      "url": "https://github.com/esphome/esphome/pull/22902",
+      "repository": "esphome/esphome",
+      "author": "swoboda1337"
+    },
+    {
+      "title": "Bump actions/upload-artifact from 7.0.1 to 7.0.2",
+      "url": "https://github.com/esphome/esp-hosted-firmware/pull/28",
+      "repository": "esphome/esp-hosted-firmware",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump actions/download-artifact from 8.0.1 to 8.0.2",
+      "url": "https://github.com/esphome/esp-hosted-firmware/pull/27",
+      "repository": "esphome/esp-hosted-firmware",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump softprops/action-gh-release from 3.0.3 to 3.0.4",
+      "url": "https://github.com/esphome/esp-hosted-firmware/pull/33",
+      "repository": "esphome/esp-hosted-firmware",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "deps: bump ruff from 0.17.4 to 0.17.5",
+      "url": "https://github.com/esphome/device-builder/pull/3080",
+      "repository": "esphome/device-builder",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "deps: bump esphome-device-builder-frontend from 0.1.387 to 0.1.389",
+      "url": "https://github.com/esphome/device-builder/pull/3079",
+      "repository": "esphome/device-builder",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump aioslimproto to 3.6.8",
+      "url": "https://github.com/music-assistant/server/pull/7967",
+      "repository": "music-assistant/server",
+      "author": "MarvinSchenkel"
+    },
+    {
+      "title": "chore(deps): update docker/dockerfile docker tag to v1.29",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/156",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update dependency prettier to v3.10.0",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/155",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "chore(deps): update pnpm to v12.20.0",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/157",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "feat: bump zwave-js@15.32.4",
+      "url": "https://github.com/zwave-js/zwave-js-ui/pull/4904",
+      "repository": "zwave-js/zwave-js-ui",
+      "author": "zwave-js-bot"
+    },
+    {
+      "title": "chore: stop Renovate from replacing `@tsconfig/node20`",
+      "url": "https://github.com/zwave-js/zwave-js/pull/9505",
+      "repository": "zwave-js/zwave-js",
+      "author": "zwave-js-bot"
+    },
+    {
+      "title": "chore(deps-dev): Bump oxlint-tsgolint from 7.0.2006 to 7.0.2007",
+      "url": "https://github.com/matter-js/matter.js/pull/5008",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): Bump bufferutil from 4.1.0 to 4.2.0",
+      "url": "https://github.com/matter-js/matter.js/pull/5007",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps-dev): Bump oxlint from 1.91.0 to 1.93.0",
+      "url": "https://github.com/matter-js/matter.js/pull/5006",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): Bump ws from 8.22.1 to 8.23.0",
+      "url": "https://github.com/matter-js/matter.js/pull/5005",
+      "repository": "matter-js/matter.js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump dependencies to their latest versions",
+      "url": "https://github.com/OHF-Voice/wyoming-faster-whisper/pull/143",
+      "repository": "OHF-Voice/wyoming-faster-whisper",
+      "author": "candrews"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 272,
+      "thisWeek": 1164,
+      "sinceRelease": 3112,
+      "lastReleaseDate": "2026-11-04"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 106,
+      "thisWeek": 722,
+      "sinceRelease": 594,
+      "lastReleaseDate": "2026-11-14"
+    },
+    {
+      "product": "ESPHome",
+      "today": 69,
+      "thisWeek": 323,
+      "sinceRelease": 130,
+      "lastReleaseDate": "2026-11-18"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "zwave-js/zwave-js:451447322",
+      "product": "Z-Wave JS",
+      "repository": "zwave-js/zwave-js",
+      "name": "Release v15.32.4",
+      "tag": "v15.32.4",
+      "url": "https://github.com/zwave-js/zwave-js/releases/tag/v15.32.4",
+      "publishedAt": "2026-11-19T14:19:09Z",
+      "channel": "stable",
+      "accent": "blue"
+    }
+  ],
+  "publishedPosts": [
+    {
+      "id": "open-home-foundation-blog:bbeb76bcb23324574b3f7509",
+      "title": "Community Day 2026: You knocked it out of the park!",
+      "url": "https://www.openhomefoundation.org/blog/community-day-2026-you-knocked-it-out-of-the-park/",
+      "publisher": "Open Home Foundation Blog",
+      "publishedAt": "2026-11-19T00:00:00.000Z",
+      "kind": "Blog post"
+    }
+  ],
+  "releases": [
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-11-25",
+      "version": "2026.12",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-12-02",
+      "version": "2026.12",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-12-02",
+      "version": "2026.12",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-12-16",
+      "version": "2026.12",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-12-30",
+      "version": "2027.1",
+      "accent": "blue"
+    }
+  ],
+  "communityMeetups": [
+    {
+      "id": "evt-87JtJwYoojgDwdR@events.lu.ma",
+      "title": "Home Assistant Meetup Köln",
+      "url": "https://luma.com/83fycwc9",
+      "startAt": "2026-12-03T17:00:00.000Z",
+      "endAt": "2026-12-03T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-12-03",
+      "endDate": "2026-12-03",
+      "location": "REWE Digital GmbH, Schanzenstraße 6-20, 51063 Köln, Germany",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-JrQQIH3uBJV4C3A@events.lu.ma",
+      "title": "Home Assistant Meetup - Carpi",
+      "url": "https://luma.com/yjfnms6a",
+      "startAt": "2026-12-12T08:30:00.000Z",
+      "endAt": "2026-12-12T11:30:00.000Z",
+      "allDay": false,
+      "date": "2026-12-12",
+      "endDate": "2026-12-12",
+      "location": "TERMINAL - Terre d’Argine Innovation Lab, Piazzale Allende Salvador, 5, 41012 Carpi MO, Italy",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-3GIz2yYPGSZ8Gnw@events.lu.ma",
+      "title": "Orlando Home Assistant Meetup: Get-Together & Gear Swap",
+      "url": "https://luma.com/qpe49nll",
+      "startAt": "2027-01-09T14:00:00.000Z",
+      "endAt": "2027-01-09T17:00:00.000Z",
+      "allDay": false,
+      "date": "2027-01-09",
+      "endDate": "2027-01-09",
+      "location": "Stardust Video & Coffee, 1842 Winter Park Rd, Orlando, FL 32803, USA",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-9d75XRFz6VpfCfI@events.lu.ma",
+      "title": "Home Assistant Community Meetup - Tauranga",
+      "url": "https://luma.com/0nai7yth",
+      "startAt": "2027-01-26T04:30:00.000Z",
+      "endAt": "2027-01-26T05:30:00.000Z",
+      "allDay": false,
+      "date": "2027-01-26",
+      "endDate": "2027-01-26",
+      "location": "148 Durham Street, Tauranga 3110, New Zealand",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "community-day-2026-recap",
+      "title": "Community Day draws 2,712 registrations across 35 countries",
+      "dek": "Ninety-seven events prompt a fresh look at meetup sizes and earlier planning for next year.",
+      "body": [
+        "An average of 28 registrations per meetup has the foundation reconsidering its earlier suggestion of keeping gatherings below 20 people. Missy Quarry’s recap reports 76% more registered guests than last year and 20% more events.",
+        "This was the second annual Community Day and the first to include the ESPHome and Music Assistant communities. Hosts organized hardware swaps, presentations and music quizzes, alongside locally made gifts.",
+        "Support for hosts continues throughout the year, including eligible venue costs, host travel and meals, and custom merchandise or materials. The community team plans clearer guidance in its Meetups Playbook after questions about reimbursements and hosting exposed gaps.",
+        "The next Community Day is planned for the second half of 2027, with a save-the-date announcement expected in the first quarter. No exact event date has been announced."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 96,
+      "contributors": [
+        "missyquarry"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "missyquarry",
+          "name": "Missy",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/159956037?v=4",
+          "profileUrl": "https://github.com/missyquarry"
+        }
+      ],
+      "reviewers": [
+        "dan-long-dev"
+      ],
+      "approvers": [
+        "dan-long-dev"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "dan-long-dev",
+          "name": "Dan Long",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/4980085?v=4",
+          "profileUrl": "https://github.com/dan-long-dev"
+        }
+      ],
+      "topics": [
+        "Open Home Foundation",
+        "Community"
+      ],
+      "pullRequests": [
+        {
+          "id": "5391310882",
+          "title": "Add Community Day 2026 recap blog post",
+          "url": "https://github.com/OpenHomeFoundation/openhomefoundation.org/pull/172",
+          "repository": "OpenHomeFoundation/openhomefoundation.org"
+        }
+      ],
+      "externalSources": [
+        {
+          "id": "open-home-foundation-blog:bbeb76bcb23324574b3f7509",
+          "title": "Community Day 2026: You knocked it out of the park!",
+          "url": "https://www.openhomefoundation.org/blog/community-day-2026-you-knocked-it-out-of-the-park/",
+          "publisher": "Open Home Foundation Blog",
+          "publishedAt": "2026-11-19T00:00:00.000Z",
+          "kind": "official_post"
+        }
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-11-20/community-day-2026-recap-3b6474063ed9-1200w.webp",
+          "alt": "Green Community Day 2026 recap graphic with photographs of local meetups.",
+          "caption": "The second Community Day brought together Home Assistant, ESPHome and Music Assistant communities.",
+          "width": 1200,
+          "height": 630,
+          "variants": [
+            {
+              "url": "/media/2026-11-20/community-day-2026-recap-3b6474063ed9-480w.webp",
+              "width": 480,
+              "height": 252,
+              "bytes": 24874,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-20/community-day-2026-recap-3b6474063ed9-960w.webp",
+              "width": 960,
+              "height": 504,
+              "bytes": 60970,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-20/community-day-2026-recap-3b6474063ed9-1200w.webp",
+              "width": 1200,
+              "height": 630,
+              "bytes": 94352,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 180196
+        }
+      ]
+    },
+    {
+      "id": "controls-named-for-screen-readers",
+      "title": "Know which switch you’re changing without seeing the screen",
+      "dek": "Automation fields and selected labels gain spoken names; choosing a dashboard card also works from the keyboard.",
+      "body": [
+        "An unnamed checkbox gives no clue whether it selects a device, enables an optional action field or completes a task. Home Assistant gives those controls names that screen readers can announce, while label menus distinguish labels applied to all selected items from those applied to only some.",
+        "Each dashboard-card preview becomes one named button, reached with Tab and selected with Enter or Space. The controls inside the preview stay out of the way. On narrow settings pages, focus follows the visible order from the header through the content to the bottom tabs.",
+        "Address search during initial setup keeps focus in the search field and announces the selected place. Enter chooses a result without unexpectedly completing the step. Assist and entity-detail dialogs also gain spoken titles, completing a gap left in October’s ordinary-dialog changes."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 91,
+      "contributors": [
+        "wendevlin",
+        "maartenla",
+        "chanellebingham",
+        "bramkragten"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "wendevlin",
+          "name": "Wendelin",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12148533?v=4",
+          "profileUrl": "https://github.com/wendevlin"
+        },
+        {
+          "login": "maartenla",
+          "name": "Maarten Lakerveld",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1911588?v=4",
+          "profileUrl": "https://github.com/maartenla"
+        },
+        {
+          "login": "chanellebingham",
+          "name": "Chanelle",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/308286909?v=4",
+          "profileUrl": "https://github.com/chanellebingham"
+        },
+        {
+          "login": "bramkragten",
+          "name": "Bram Kragten",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5662298?v=4",
+          "profileUrl": "https://github.com/bramkragten"
+        }
+      ],
+      "reviewers": [
+        "bramkragten",
+        "timmo001",
+        "wendevlin",
+        "maartenla"
+      ],
+      "approvers": [
+        "bramkragten",
+        "timmo001",
+        "wendevlin",
+        "maartenla"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bramkragten",
+          "name": "Bram Kragten",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5662298?v=4",
+          "profileUrl": "https://github.com/bramkragten"
+        },
+        {
+          "login": "timmo001",
+          "name": "Aidan Timson",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/28114703?v=4",
+          "profileUrl": "https://github.com/timmo001"
+        },
+        {
+          "login": "wendevlin",
+          "name": "Wendelin",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12148533?v=4",
+          "profileUrl": "https://github.com/wendevlin"
+        },
+        {
+          "login": "maartenla",
+          "name": "Maarten Lakerveld",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1911588?v=4",
+          "profileUrl": "https://github.com/maartenla"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5398055543",
+          "title": "Expose label menu checked state to screen readers",
+          "url": "https://github.com/home-assistant/frontend/pull/56027",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "5396826094",
+          "title": "Give dashboard and to-do controls an accessible name",
+          "url": "https://github.com/home-assistant/frontend/pull/56022",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "5396653631",
+          "title": "Give automation editor checkboxes an accessible name",
+          "url": "https://github.com/home-assistant/frontend/pull/56019",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "5393334355",
+          "title": "Give dialogs an accessible name for screen readers",
+          "url": "https://github.com/home-assistant/frontend/pull/56003",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "5393369786",
+          "title": "Make the onboarding location search usable with a screen reader",
+          "url": "https://github.com/home-assistant/frontend/pull/56005",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "5396344806",
+          "title": "Give data table selection checkboxes an accessible name",
+          "url": "https://github.com/home-assistant/frontend/pull/56015",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "5395635606",
+          "title": "Give settings switches an accessible name",
+          "url": "https://github.com/home-assistant/frontend/pull/56014",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "5393357581",
+          "title": "Move header controls out of card headings",
+          "url": "https://github.com/home-assistant/frontend/pull/56004",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "5393392110",
+          "title": "Make card picker tiles keyboard and screen reader accessible",
+          "url": "https://github.com/home-assistant/frontend/pull/56006",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "5393487762",
+          "title": "Label unlabelled icon buttons",
+          "url": "https://github.com/home-assistant/frontend/pull/56007",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "5393328451",
+          "title": "Put the mobile tab bar after the page content in focus order",
+          "url": "https://github.com/home-assistant/frontend/pull/56002",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "5392329577",
+          "title": "Give the onboarding welcome cards a button role",
+          "url": "https://github.com/home-assistant/frontend/pull/55999",
+          "repository": "home-assistant/frontend"
+        },
+        {
+          "id": "5396595850",
+          "title": "Simplify the onboarding location announcements",
+          "url": "https://github.com/home-assistant/frontend/pull/56017",
+          "repository": "home-assistant/frontend"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "energy-meters-ready-to-add",
+      "title": "Find the meters missing from your energy dashboard",
+      "dek": "Suggestions cover electricity, gas and water, with a chance to review each choice before saving.",
+      "body": [
+        "A meter can already be collecting statistics without appearing in the household energy picture. Home Assistant’s Energy settings lists those unused readings on the relevant tab, with options to add or dismiss them.",
+        "Choosing Add opens the appropriate editor with the meter selected. A reading that could fit several roles prompts a choice first, and nothing is saved until the editor is confirmed. Already configured meters and their related helper sources are skipped to avoid suggesting the same measurement twice.",
+        "Dismissed suggestions are remembered separately for each user."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 88,
+      "contributors": [
+        "erwindouna"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "erwindouna",
+          "name": "Erwin Douna",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5011203?v=4",
+          "profileUrl": "https://github.com/erwindouna"
+        }
+      ],
+      "reviewers": [
+        "MindFreeze"
+      ],
+      "approvers": [
+        "MindFreeze"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "MindFreeze",
+          "name": "Petar Petrov",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5219205?v=4",
+          "profileUrl": "https://github.com/MindFreeze"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5201297230",
+          "title": "Suggest energy meters that aren't configured",
+          "url": "https://github.com/home-assistant/frontend/pull/55735",
+          "repository": "home-assistant/frontend"
+        }
+      ],
+      "externalSources": [],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-11-20/energy-meters-ready-to-add-2e857d0f1c5a-1280w.webp",
+          "alt": "Energy settings showing suggested electricity meters and an Add as menu with several meter roles.",
+          "width": 1280,
+          "height": 800,
+          "variants": [
+            {
+              "url": "/media/2026-11-20/energy-meters-ready-to-add-2e857d0f1c5a-480w.webp",
+              "width": 480,
+              "height": 300,
+              "bytes": 10010,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-20/energy-meters-ready-to-add-2e857d0f1c5a-960w.webp",
+              "width": 960,
+              "height": 600,
+              "bytes": 28746,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-20/energy-meters-ready-to-add-2e857d0f1c5a-1280w.webp",
+              "width": 1280,
+              "height": 800,
+              "bytes": 42242,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 80998
+        }
+      ]
+    },
+    {
+      "id": "music-assistant-create-stereo-pair",
+      "title": "Two speakers, one stereo pair",
+      "dek": "Sendspin pairs share their volume and can join a larger speaker group.",
+      "body": [
+        "Choose two compatible Sendspin speakers in player settings, assign left and right channels, and give the pair a name. The pair becomes one player in both Music Assistant and Home Assistant, with one volume control and shared sound processing.",
+        "Previously, assigning channels through a synchronized group left both speakers visible and prevented that pair from joining another group. The new pair can take part in a larger group. If one speaker goes offline, the other plays both channels until it returns; taking the pair apart restores the individual players."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 86,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant",
+        "Sendspin"
+      ],
+      "pullRequests": [
+        {
+          "id": "5392560582",
+          "title": "Combine Sendspin speakers into a stereo pair",
+          "url": "https://github.com/music-assistant/server/pull/7954",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5393966895",
+          "title": "Combine Sendspin speakers into a stereo pair",
+          "url": "https://github.com/music-assistant/frontend/pull/3253",
+          "repository": "music-assistant/frontend"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "radio-coprocessor-network-recovery",
+      "title": "A way back online for boards with older radio firmware",
+      "dek": "The repair addresses a failure after the November update; ESP32-C5 owners also get a warning before a risky firmware change.",
+      "body": [
+        "Boards with a separate Wi-Fi chip can lose their connection shortly after starting ESPHome 2026.11.0 when that chip still runs firmware older than 2.12.0. Jonathan Swoboda corrects the handling of incoming data; an M5Stack Tab5 answered all 1,500 test pings, compared with 389 before the connection stopped in the comparison build.",
+        "A related change prevents startup from resetting the board before a recovery update can run. Smaller radio-firmware builds also fit the update space on ESP32-C6 and C61 chips that shipped with the older layout.",
+        "ESP32-C5 owners get a warning before an update between firmware families that use different storage layouts. That mismatch can leave the radio chip unable to start and require recovery over a direct serial connection. The warning does not block the update or identify which layout is actually on the chip."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 85,
+      "contributors": [
+        "swoboda1337"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "swoboda1337",
+          "name": "Jonathan Swoboda",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/154711427?v=4",
+          "profileUrl": "https://github.com/swoboda1337"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5388405904",
+          "title": "[esp32_hosted] Fix the SDIO stall with coprocessor firmware older than 2.12.0",
+          "url": "https://github.com/esphome/esphome/pull/22906",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "5388406244",
+          "title": "[esp32_hosted] Raise the watchdog around the coprocessor version request",
+          "url": "https://github.com/esphome/esphome/pull/22907",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "5397424864",
+          "title": "[esp32_hosted] Warn about the ESP32-C5 partition table offset on coprocessor updates",
+          "url": "https://github.com/esphome/esphome/pull/22918",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "5398523589",
+          "title": "Build the co-processor firmware for size",
+          "url": "https://github.com/esphome/esp-hosted-firmware/pull/40",
+          "repository": "esphome/esp-hosted-firmware"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "android-widgets-fetch-only-needed-entities",
+      "title": "A watch complication no longer downloads the whole home",
+      "dek": "Android widgets, quick settings and Wear OS controls request the readings they actually display.",
+      "body": [
+        "Refreshing one small watch-face display could fetch every device state and the complete entity registry from Home Assistant—several megabytes on a large installation. Filtering on the server reduces that request to the selected state and its registry entry.",
+        "The same approach reaches widgets, quick settings tiles, the Wear OS thermostat tile, media sessions and device controls. Lists that need a whole category request that category instead; older servers keep a compatible fallback."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 85,
+      "contributors": [
+        "TimoPtr"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "TimoPtr",
+          "name": "Timothy",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6560631?v=4",
+          "profileUrl": "https://github.com/TimoPtr"
+        }
+      ],
+      "reviewers": [
+        "jpelgrom"
+      ],
+      "approvers": [
+        "jpelgrom"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "jpelgrom",
+          "name": "Joris Pelgröm",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/8148535?v=4",
+          "profileUrl": "https://github.com/jpelgrom"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5345146320",
+          "title": "Introduce EntityFilter for WebSocket.getState",
+          "url": "https://github.com/home-assistant/android/pull/7901",
+          "repository": "home-assistant/android"
+        },
+        {
+          "id": "5356412165",
+          "title": "Use EntityFilter in EntitiesForDisplayManager",
+          "url": "https://github.com/home-assistant/android/pull/7908",
+          "repository": "home-assistant/android"
+        },
+        {
+          "id": "5356663795",
+          "title": "Add missing usage of EntityFilters",
+          "url": "https://github.com/home-assistant/android/pull/7909",
+          "repository": "home-assistant/android"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-apple-tv-homepod-room",
+      "title": "Music reaches the HomePods attached to your Apple TV",
+      "dek": "The room becomes one player; existing automations may need the replacement for its separate speaker entities.",
+      "body": [
+        "Sending music to an Apple TV configured to use HomePods as its speakers could leave the room silent. Music Assistant sends audio directly to those HomePods while the television box shows the track and provides remote controls.",
+        "The room can join Sendspin groups, and “Play on HomePods only” avoids waking the Apple TV. Once the devices confirm that they belong together, their old separate HomePod players and Home Assistant entities are removed. The room keeps the Apple TV player’s settings and queue."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 83,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant",
+        "AirPlay"
+      ],
+      "pullRequests": [
+        {
+          "id": "5383852993",
+          "title": "Play an Apple TV and its HomePods as one player",
+          "url": "https://github.com/music-assistant/server/pull/7936",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5390969074",
+          "title": "Play an Apple TV and its HomePods in a Sendspin group",
+          "url": "https://github.com/music-assistant/server/pull/7950",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "homewizard-button-authorization",
+      "title": "Press the button without racing back to the setup screen",
+      "dek": "A blinking status light helps identify the device during migration, and authorization completes without another click.",
+      "body": [
+        "The old HomeWizard authorization step allowed 30 seconds to press a physical button and submit a form. Home Assistant’s setup and reauthorization flows instead wait in the background and continue when access is granted, offering another attempt after five minutes.",
+        "The migration repair uses the same wait. On devices that support identification, a blinking light points to the correct socket or meter and stops when authorization finishes, the wait expires or the repair closes. Nathan van Ofwegen makes his first contribution to Home Assistant Core with the setup change."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 83,
+      "contributors": [
+        "nvanofwegen"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "nvanofwegen",
+          "name": "Nathan van Ofwegen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/776433?v=4",
+          "profileUrl": "https://github.com/nvanofwegen"
+        }
+      ],
+      "reviewers": [
+        "DCSBL",
+        "jbouwh",
+        "lexpostma"
+      ],
+      "approvers": [
+        "DCSBL",
+        "jbouwh",
+        "lexpostma"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "DCSBL",
+          "name": "Duco Sebel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/74970928?v=4",
+          "profileUrl": "https://github.com/DCSBL"
+        },
+        {
+          "login": "jbouwh",
+          "name": "Jan Bouwhuis",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/7188918?v=4",
+          "profileUrl": "https://github.com/jbouwh"
+        },
+        {
+          "login": "lexpostma",
+          "name": "Lex Postma",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/7419685?v=4",
+          "profileUrl": "https://github.com/lexpostma"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5395677407",
+          "title": "Wait for the HomeWizard button press in the background during setup",
+          "url": "https://github.com/home-assistant/core/pull/193392",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5397441354",
+          "title": "Identify the HomeWizard device while the v2 API migration repair is open",
+          "url": "https://github.com/home-assistant/core/pull/193415",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5399220673",
+          "title": "Wait for the HomeWizard button press in the background in the v2 migration repair",
+          "url": "https://github.com/home-assistant/core/pull/193457",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "tile-bluetooth-home-presence",
+      "title": "Tell whether your Tile tracker is at home over Bluetooth",
+      "dek": "Account sign-in identifies your own trackers during setup; day-to-day presence uses nearby radio advertisements.",
+      "body": [
+        "A tracker stays home while its Bluetooth advertisements reach Home Assistant and becomes away when they stop. The new Tile BLE integration listens locally, independently of the separate cloud integration.",
+        "Setup is started manually so a neighbour’s tracker does not generate an invitation. A one-time Tile account sign-in finds names and device keys; only the selected tracker’s key is stored, not the account credentials."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 82,
+      "contributors": [
+        "joostlek"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "joostlek",
+          "name": "Joost Lekkerkerker",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/7083755?v=4",
+          "profileUrl": "https://github.com/joostlek"
+        }
+      ],
+      "reviewers": [
+        "zweckj"
+      ],
+      "approvers": [
+        "zweckj"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "zweckj",
+          "name": "Josef Zweck",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/24647999?v=4",
+          "profileUrl": "https://github.com/zweckj"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5005287018",
+          "title": "Add Tile BLE integration",
+          "url": "https://github.com/home-assistant/core/pull/188526",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "zwa2-repeater-bootloader-detection",
+      "title": "Firmware installation gets past a stuck ZWA-2",
+      "dek": "The toolbox handles end-device firmware and gives a clear recovery step when a repeater fails to restart.",
+      "body": [
+        "A Connect ZWA-2 already running end-device firmware could resist a fresh installation because the toolbox used the wrong route into its firmware installer. @AlCalzone enables the supported command, verified with a successful installation on a ZWA-2.",
+        "A related Z-Wave JS correction recognizes the installer when its startup message arrives in separate fragments. If a repeater still fails to restart, the toolbox stops before configuration and asks the owner to unplug and reconnect it, instead of reporting a misleading region error."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 81,
+      "contributors": [
+        "AlCalzone"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "AlCalzone",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17641229?v=4",
+          "profileUrl": "https://github.com/AlCalzone"
+        }
+      ],
+      "reviewers": [
+        "AlCalzone"
+      ],
+      "approvers": [
+        "AlCalzone"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "AlCalzone",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17641229?v=4",
+          "profileUrl": "https://github.com/AlCalzone"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5395846252",
+          "title": "Fix bootloader entry on end device firmware",
+          "url": "https://github.com/home-assistant/zwa2-toolbox/pull/99",
+          "repository": "home-assistant/zwa2-toolbox"
+        },
+        {
+          "id": "5396444361",
+          "title": "Fail install when repeater does not reboot after flashing",
+          "url": "https://github.com/home-assistant/zwa2-toolbox/pull/100",
+          "repository": "home-assistant/zwa2-toolbox"
+        },
+        {
+          "id": "5396247671",
+          "title": "fix(serial): detect the bootloader when a line break arrives in a separate chunk",
+          "url": "https://github.com/zwave-js/zwave-js/pull/9507",
+          "repository": "zwave-js/zwave-js"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "wyoming-lithuanian-local-recognition",
+      "title": "Faster Lithuanian recognition on a local server",
+      "dek": "An optional language-specific engine cuts the delay in desktop tests; ordinary Whisper installations keep their existing path.",
+      "body": [
+        "Short Lithuanian commands can use a recognizer that processes the audio received instead of Whisper’s fixed-length window. Wyoming Faster Whisper selects the LT_ausys model, based on Datolabs’ Upelis, when its optional onnx-asr speech engine is installed.",
+        "In the contributor’s 127-command test on a Ryzen computer, median recognition time was 0.18 seconds, compared with 3.55 seconds for the tested Paprika Whisper model. The recordings came from one speaker. This changes the standalone server package; it does not establish availability through the Home Assistant OS Whisper app."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 81,
+      "contributors": [
+        "RobertasTa"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "RobertasTa",
+          "name": "Claude's Gifts to the World",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/201237731?v=4",
+          "profileUrl": "https://github.com/RobertasTa"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "OHF Voice"
+      ],
+      "pullRequests": [
+        {
+          "id": "4997334635",
+          "title": "Route Lithuanian to onnx-asr with LT_ausys, the way Russian goes to GigaAM",
+          "url": "https://github.com/OHF-Voice/wyoming-faster-whisper/pull/133",
+          "repository": "OHF-Voice/wyoming-faster-whisper"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "heatit-thermostat-qr-labels",
+      "title": "Defective QR labels no longer block thermostat pairing",
+      "dek": "The workaround is limited to a manufacturing error on some Heatit Z-TRM6 labels.",
+      "body": [
+        "A stray decimal suffix on some factory labels makes SmartStart reject the code used to add a Heatit Z-TRM6 thermostat. @AMThie makes a first contribution to Z-Wave JS with a narrowly scoped correction for the defect confirmed by Heatit.",
+        "The original label’s checksum is still checked and the device’s security key is untouched. Incomplete identifying data remains invalid."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 80,
+      "contributors": [
+        "AMThie"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "AMThie",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/76055528?v=4",
+          "profileUrl": "https://github.com/AMThie"
+        }
+      ],
+      "reviewers": [
+        "AlCalzone"
+      ],
+      "approvers": [
+        "AlCalzone"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "AlCalzone",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17641229?v=4",
+          "profileUrl": "https://github.com/AlCalzone"
+        }
+      ],
+      "topics": [
+        "Z-Wave JS"
+      ],
+      "pullRequests": [
+        {
+          "id": "5145516007",
+          "title": "fix: tolerate float artifact in SmartStart QR codes (Heatit Z-TRM6)",
+          "url": "https://github.com/zwave-js/zwave-js/pull/9449",
+          "repository": "zwave-js/zwave-js"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "timers-extend-past-original-duration",
+      "title": "Give a running timer more time than it started with",
+      "dek": "An extension affects the current countdown; the configured duration returns when it finishes or is cancelled.",
+      "body": [
+        "Ten minutes into a 45-minute countdown, adding another 15 minutes used to be rejected because 50 minutes would remain. Home Assistant’s timer change action removes that ceiling.",
+        "The displayed duration grows when needed so progress stays within 100 percent. The safeguard against leaving a negative amount of time remains."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 79,
+      "contributors": [
+        "danieldotnl"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "danieldotnl",
+          "name": "Daniel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2983203?v=4",
+          "profileUrl": "https://github.com/danieldotnl"
+        }
+      ],
+      "reviewers": [
+        "frenck"
+      ],
+      "approvers": [
+        "frenck"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5398851210",
+          "title": "Allow timer.change to extend a timer beyond its duration",
+          "url": "https://github.com/home-assistant/core/pull/193435",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5398865125",
+          "title": "Document that timer.change can extend a timer beyond its duration",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50883",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-title-reveal-quiz",
+      "title": "Name that tune, one letter at a time",
+      "dek": "Early correct answers earn more points, with an optional extra guess for the artist.",
+      "body": [
+        "As a song plays, blank spaces in its title gradually reveal letters. The new Title Reveal game in Music Quiz lets each player type guesses on their own device, then try the artist after solving the title.",
+        "Hosts choose the number of rounds, answer time, hint speed and typo tolerance. Spaces and punctuation stay visible, and guesses ignore differences such as accents and capitalization."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "justinladwig"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "justinladwig",
+          "name": "Justin Ladwig",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/35572731?v=4",
+          "profileUrl": "https://github.com/justinladwig"
+        }
+      ],
+      "reviewers": [
+        "MarvinSchenkel"
+      ],
+      "approvers": [
+        "MarvinSchenkel"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "MarvinSchenkel",
+          "name": "Marvin Schenkel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
+          "profileUrl": "https://github.com/MarvinSchenkel"
+        }
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5360337085",
+          "title": "Add Title Reveal game to Music Quiz",
+          "url": "https://github.com/music-assistant/server/pull/7852",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5360344656",
+          "title": "Game interface for Title Reveal game in Music Quiz",
+          "url": "https://github.com/music-assistant/frontend/pull/3220",
+          "repository": "music-assistant/frontend"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-assistant-jellyfin-playlist-editing",
+      "title": "Edit Jellyfin playlists from the music player",
+      "dek": "Permissions still apply, and removing one repeated track leaves its other copies in place.",
+      "body": [
+        "Playlists owned by the connected Jellyfin account, or shared with editing permission, appear in Music Assistant’s “Add to playlist” instead of being treated as read-only. Tracks can also be removed without opening Jellyfin separately.",
+        "Removing a track targets that particular playlist entry, so another copy of the same song survives. Creating playlists and changing their order are outside this addition. If the server cannot verify editing permission, it leaves the playlist readable but read-only."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 74,
+      "contributors": [
+        "tobernguyen"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "tobernguyen",
+          "name": "Long Nguyen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/10015525?v=4",
+          "profileUrl": "https://github.com/tobernguyen"
+        }
+      ],
+      "reviewers": [
+        "MarvinSchenkel",
+        "OzGav"
+      ],
+      "approvers": [
+        "MarvinSchenkel"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "MarvinSchenkel",
+          "name": "Marvin Schenkel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
+          "profileUrl": "https://github.com/MarvinSchenkel"
+        },
+        {
+          "login": "OzGav",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/19848947?v=4",
+          "profileUrl": "https://github.com/OzGav"
+        }
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5368937188",
+          "title": "Add Jellyfin playlist track editing",
+          "url": "https://github.com/music-assistant/server/pull/7896",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ],
+  "roadmapUpdates": [
+    {
+      "id": "router-presence-proposal-not-planned",
+      "title": "Router presence overhaul is not planned",
+      "summary": "Niels closed a proposal for a shared router-client picker after finding little demand beyond experienced users. How router trackers create devices remains for an architecture discussion rather than a roadmap project.",
+      "sources": [
+        {
+          "id": "roadmap:PVTI_lADOCX3lqc4BTbD7zhKHRI0",
+          "title": "Let people see who's home through their router without sorting through every network client",
+          "url": "https://github.com/OpenHomeFoundation/roadmap/issues/265",
+          "publisher": "Open Home Foundation Roadmap",
+          "publishedAt": "2026-11-19T10:01:09Z",
+          "kind": "roadmap",
+          "status": "Done",
+          "observedAt": "2026-11-20T04:56:50.057Z"
+        }
+      ]
+    }
+  ]
+}
