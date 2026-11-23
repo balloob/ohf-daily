@@ -1,0 +1,1749 @@
+{
+  "date": "2026-11-23",
+  "generatedAt": "2026-11-23T05:01:09.608Z",
+  "windowStart": "2026-11-22T04:59:43.976Z",
+  "windowEnd": "2026-11-23T04:59:43.976Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 333,
+    "repositories": 24,
+    "contributors": 139,
+    "dependencyUpdates": 57,
+    "hacsNewIntegrations": 25
+  },
+  "lead": {
+    "id": "5337176823",
+    "title": "[zigbee] Allow explicit endpoint IDs on nRF52",
+    "summary": "What does this implement/fix? Allow an optional endpoint number on nRF52 Zigbee sensors, binary sensors, numbers and switches.",
+    "unlocks": "Unlocks: [zigbee] Allow explicit endpoint IDs on nRF52.",
+    "url": "https://github.com/esphome/esphome/pull/22788",
+    "repository": "esphome/esphome",
+    "organization": "ESPHome",
+    "author": "maniekes",
+    "mergedAt": "2026-11-23T04:02:28Z",
+    "labels": [
+      "new-feature",
+      "has-tests",
+      "core",
+      "component: zigbee",
+      "undocumented-api-change"
+    ],
+    "kind": "feature",
+    "score": 72.8,
+    "additions": 347,
+    "deletions": 41,
+    "changedFiles": 22
+  },
+  "highlights": [
+    {
+      "id": "5398960722",
+      "title": "[openthread] Add an Ethernet backbone for border routers",
+      "summary": "What does this implement/fix? Adds backbone: ethernet to the OpenThread border router, so a border router can route between Thread and the LAN over Ethernet, with Wi Fi optional (absent, or…",
+      "unlocks": "Unlocks: [openthread] Add an Ethernet backbone for border routers.",
+      "url": "https://github.com/esphome/esphome/pull/22929",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "chrisuthe",
+      "mergedAt": "2026-11-23T03:49:09Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "component: openthread"
+      ],
+      "kind": "feature",
+      "score": 66.6,
+      "additions": 511,
+      "deletions": 99,
+      "changedFiles": 16
+    },
+    {
+      "id": "5430316045",
+      "title": "Play the input of one Sonos or HEOS speaker on the others",
+      "summary": "What does this implement/fix? Sonos and HEOS can play the input of one speaker on the other speakers of the system, but Music Assistant only offered a speaker's own input.",
+      "url": "https://github.com/music-assistant/server/pull/8039",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-22T19:31:20Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 65.7,
+      "additions": 1500,
+      "deletions": 235,
+      "changedFiles": 22
+    },
+    {
+      "id": "5417152444",
+      "title": "Standardise the naming across the BBC Sounds provider code",
+      "summary": "What does this implement/fix? Extracts the scattered naming functionality out and into a new naming.py.",
+      "url": "https://github.com/music-assistant/server/pull/8006",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "kieranhogg",
+      "mergedAt": "2026-11-22T12:09:20Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 63.8,
+      "additions": 697,
+      "deletions": 197,
+      "changedFiles": 12
+    },
+    {
+      "id": "5409601869",
+      "title": "Show a WiiM stereo pair as one player",
+      "summary": "What does this implement/fix? A stereo pair made in the WiiM Home app showed up as two players, and grouping them in Music Assistant gave each speaker the full stereo signal.",
+      "url": "https://github.com/music-assistant/server/pull/7988",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-22T09:54:42Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 61,
+      "additions": 984,
+      "deletions": 14,
+      "changedFiles": 10
+    }
+  ],
+  "briefs": [
+    {
+      "id": "5408344553",
+      "title": "[ci] Add I2C bus recovery, TCA9548A, BMI270, SCD30, VL6180X and CST816 flows to the hardware-test skill",
+      "summary": "What does this implement/fix? Adds I2C flows to the hardware test agent skill: bus recovery against a device wedged on purpose, a simulated and a real TCA9548A, a real BMI270, SCD30 clock…",
+      "unlocks": "Unlocks: [ci] Add I2C bus recovery, TCA9548A, BMI270, SCD30, VL6180X and CST816 flows to the hardware-test skill.",
+      "url": "https://github.com/esphome/esphome/pull/22975",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-22T05:11:15Z",
+      "labels": [
+        "code-quality",
+        "mega-pr",
+        "has-conflicts"
+      ],
+      "kind": "feature",
+      "score": 57.1,
+      "additions": 2397,
+      "deletions": 3,
+      "changedFiles": 61
+    },
+    {
+      "id": "4848043415",
+      "title": "Add reauthentication flow to PAJ GPS",
+      "summary": "Add a reauthentication flow to PAJ GPS.",
+      "unlocks": "Unlocks: Add reauthentication flow to PAJ GPS.",
+      "url": "https://github.com/home-assistant/core/pull/186214",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "joostlek",
+      "mergedAt": "2026-11-23T03:30:34Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "quality-scale",
+        "quality scale: bronze",
+        "integration: paj_gps"
+      ],
+      "kind": "feature",
+      "score": 57,
+      "additions": 326,
+      "deletions": 9,
+      "changedFiles": 6
+    },
+    {
+      "id": "5386318142",
+      "title": "Add LIFX Lights Sync plugin provider",
+      "summary": "For full context, see the discussion here : https://github.com/orgs/music assistant/discussions/6754 What it does?",
+      "unlocks": "Unlocks: Add LIFX Lights Sync plugin provider.",
+      "url": "https://github.com/music-assistant/server/pull/7947",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "sonic1200",
+      "mergedAt": "2026-11-23T00:14:07Z",
+      "labels": [
+        "new-provider"
+      ],
+      "kind": "feature",
+      "score": 56.8,
+      "additions": 3059,
+      "deletions": 2,
+      "changedFiles": 19
+    },
+    {
+      "id": "5408344917",
+      "title": "[ci] Add log string table, ESP8266 edge capture flows and board facts to the hardware-test skill",
+      "summary": "What does this implement/fix? Adds log string table A/B and ESP8266 edge capture flows to the hardware test agent skill, with board facts for ESP8266, BW15, Beken and a few breakouts.",
+      "unlocks": "Unlocks: [ci] Add log string table, ESP8266 edge capture flows and board facts to the hardware-test skill.",
+      "url": "https://github.com/esphome/esphome/pull/22976",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-22T05:46:06Z",
+      "labels": [
+        "code-quality",
+        "mega-pr",
+        "has-conflicts"
+      ],
+      "kind": "feature",
+      "score": 56.6,
+      "additions": 1610,
+      "deletions": 5,
+      "changedFiles": 34
+    },
+    {
+      "id": "5442856881",
+      "title": "[cover] Remove the deprecated on_open trigger",
+      "summary": "What does this implement/fix? Removes the on open cover trigger, an alias for on opened that was deprecated in #13471 and due for removal in 2026.8.0; on open: now fails validation with an error naming on opened .",
+      "url": "https://github.com/esphome/esphome/pull/23128",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-22T22:56:27Z",
+      "labels": [
+        "breaking-change",
+        "component: cover",
+        "has-tests",
+        "small-pr"
+      ],
+      "kind": "platform",
+      "score": 56.3,
+      "additions": 16,
+      "deletions": 9,
+      "changedFiles": 3
+    },
+    {
+      "id": "5437897679",
+      "title": "[lvgl] Generate lvgl actions and conditions as inline actions",
+      "summary": "What does this implement/fix? LVGL actions and conditions are now generated inline, like the core inline actions, instead of each being an object that holds its code in a std::function ; on…",
+      "url": "https://github.com/esphome/esphome/pull/23095",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-22T22:20:26Z",
+      "labels": [
+        "has-tests",
+        "code-quality",
+        "bugfix",
+        "component: lvgl"
+      ],
+      "kind": "platform",
+      "score": 55.8,
+      "additions": 469,
+      "deletions": 389,
+      "changedFiles": 35
+    },
+    {
+      "id": "5436360123",
+      "title": "[havells_solar] Report the inverter temperatures in °C with the temperature device class",
+      "summary": "What does this implement/fix? The inverter module and inner temperatures were reported in ° with no device class, although the inverter reports degrees Celsius (as the docs say); they now use the TEMPERATURE preset.",
+      "unlocks": "Unlocks: [havells_solar] Report the inverter temperatures in °C with the temperature device class.",
+      "url": "https://github.com/esphome/esphome/pull/23073",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-22T13:15:36Z",
+      "labels": [
+        "breaking-change",
+        "small-pr",
+        "component: havells_solar"
+      ],
+      "kind": "feature",
+      "score": 55.6,
+      "additions": 2,
+      "deletions": 7,
+      "changedFiles": 1
+    },
+    {
+      "id": "5436365804",
+      "title": "[tx20] Give wind direction the wind_direction device class and measurement_angle",
+      "summary": "What does this implement/fix? Wind direction (°) had no device class and the plain measurement state class, so Home Assistant averaged it linearly (the mean of 350° and 10° came out as…",
+      "unlocks": "Unlocks: [tx20] Give wind direction the wind_direction device class and measurement_angle.",
+      "url": "https://github.com/esphome/esphome/pull/23081",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-22T13:13:41Z",
+      "labels": [
+        "breaking-change",
+        "component: tx20",
+        "small-pr"
+      ],
+      "kind": "feature",
+      "score": 55.3,
+      "additions": 4,
+      "deletions": 1,
+      "changedFiles": 1
+    },
+    {
+      "id": "5430708260",
+      "title": "Add search to MCP to reduce token usage",
+      "summary": "GetLiveContext 's name filter only matches exact names or aliases.",
+      "unlocks": "Unlocks: Add search to MCP to reduce token usage.",
+      "url": "https://github.com/home-assistant/core/pull/193712",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "vmartinv",
+      "mergedAt": "2026-11-23T02:22:04Z",
+      "labels": [
+        "core",
+        "new-feature",
+        "integration: homeassistant",
+        "has-tests",
+        "integration: search",
+        "quality scale: internal"
+      ],
+      "kind": "feature",
+      "score": 54.9,
+      "additions": 145,
+      "deletions": 32,
+      "changedFiles": 5
+    },
+    {
+      "id": "5443305678",
+      "title": "Add reauthentication flow to AnyList",
+      "summary": "AnyList raised an authentication error when the stored credentials stopped working, but had no reauthentication flow, so the entry failed for good.",
+      "unlocks": "Unlocks: Add reauthentication flow to AnyList.",
+      "url": "https://github.com/home-assistant/core/pull/193850",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "gjohansson-ST",
+      "mergedAt": "2026-11-23T02:53:30Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "quality-scale",
+        "quality scale: bronze",
+        "integration: any_list"
+      ],
+      "kind": "feature",
+      "score": 54.2,
+      "additions": 263,
+      "deletions": 27,
+      "changedFiles": 8
+    },
+    {
+      "id": "5443898058",
+      "title": "Add reauthentication flow to Solyx Energy Cloud",
+      "summary": "Solyx Energy Cloud raised an authentication error when the client secret was rejected, but had no reauthentication flow, so the entry failed for good.",
+      "unlocks": "Unlocks: Add reauthentication flow to Solyx Energy Cloud.",
+      "url": "https://github.com/home-assistant/core/pull/193861",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "gjohansson-ST",
+      "mergedAt": "2026-11-23T02:52:25Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "quality-scale",
+        "quality scale: bronze",
+        "integration: solyx_energy_cloud"
+      ],
+      "kind": "feature",
+      "score": 53.7,
+      "additions": 137,
+      "deletions": 5,
+      "changedFiles": 5
+    },
+    {
+      "id": "5136823559",
+      "title": "Add reauthentication flow to AEMET OpenData",
+      "summary": "AEMET OpenData uses an API key to fetch weather data.",
+      "unlocks": "Unlocks: Add reauthentication flow to AEMET OpenData.",
+      "url": "https://github.com/home-assistant/core/pull/190211",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "jorgediez",
+      "mergedAt": "2026-11-23T02:56:55Z",
+      "labels": [
+        "new-feature",
+        "integration: aemet",
+        "has-tests",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 53.4,
+      "additions": 244,
+      "deletions": 36,
+      "changedFiles": 7
+    },
+    {
+      "id": "5423677235",
+      "title": "Add reconfiguration flow support to `samsung_infrared`",
+      "summary": "Part 2 of x PRs to increase the integration quality of samsung infrared to Platinum level: Part 1 / Part 2 (this PR) / Part 3 / Part 4 Adds support for the reconfiguration flow so that…",
+      "unlocks": "Unlocks: Add reconfiguration flow support to `samsung_infrared`.",
+      "url": "https://github.com/home-assistant/core/pull/193648",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "JamesFromIT",
+      "mergedAt": "2026-11-23T03:01:13Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "quality-scale",
+        "quality scale: bronze",
+        "integration: samsung_infrared"
+      ],
+      "kind": "feature",
+      "score": 53.3,
+      "additions": 209,
+      "deletions": 19,
+      "changedFiles": 5
+    },
+    {
+      "id": "5434497600",
+      "title": "Update the AirPlay Receiver to shairport-sync 5.6.3",
+      "summary": "What does this implement/fix? The AirPlay Receiver shipped shairport sync 4.3.7.",
+      "url": "https://github.com/music-assistant/server/pull/8050",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-22T19:47:34Z",
+      "labels": [
+        "maintenance"
+      ],
+      "kind": "platform",
+      "score": 52.9,
+      "additions": 559,
+      "deletions": 474,
+      "changedFiles": 17
+    },
+    {
+      "id": "5209433446",
+      "title": "Allow removing stale Fressnapf Tracker devices",
+      "summary": "Breaking change Proposed change When a tracker is removed from the Fressnapf account (for example after it is broken or sold), its device stays in Home Assistant forever and cannot be deleted from the UI.",
+      "unlocks": "Unlocks: Allow removing stale Fressnapf Tracker devices.",
+      "url": "https://github.com/home-assistant/core/pull/191173",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "Uli112Winsen",
+      "mergedAt": "2026-11-22T22:59:36Z",
+      "labels": [
+        "cla-signed",
+        "small-pr",
+        "new-feature",
+        "has-tests",
+        "quality-scale",
+        "quality scale: bronze",
+        "integration: fressnapf_tracker"
+      ],
+      "kind": "feature",
+      "score": 52.2,
+      "additions": 89,
+      "deletions": 1,
+      "changedFiles": 3
+    },
+    {
+      "id": "5047856324",
+      "title": "Add reconfigure flow to Xiaomi Miio",
+      "summary": "Breaking change Proposed change Adds a reconfigure flow to Xiaomi Miio, so users can update the host and token of an existing entry (for example after an IP address change) without removing and re adding it.",
+      "unlocks": "Unlocks: Add reconfigure flow to Xiaomi Miio.",
+      "url": "https://github.com/home-assistant/core/pull/189100",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "joostlek",
+      "mergedAt": "2026-11-23T03:19:45Z",
+      "labels": [
+        "new-feature",
+        "integration: xiaomi_miio",
+        "has-tests",
+        "quality scale: no score",
+        "top 200"
+      ],
+      "kind": "feature",
+      "score": 52,
+      "additions": 305,
+      "deletions": 1,
+      "changedFiles": 4
+    },
+    {
+      "id": "5405749095",
+      "title": "indi_allsky: Add reconfigure flow",
+      "summary": "Adds reconfiguration flow to indi allsky integration Type of change Dependency upgrade Bugfix (non breaking change which fixes an issue) New integration (thank you!) New feature (which adds…",
+      "unlocks": "Unlocks: Indi_allsky: Add reconfigure flow.",
+      "url": "https://github.com/home-assistant/core/pull/193498",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "TN-1",
+      "mergedAt": "2026-11-23T02:58:57Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality-scale",
+        "quality scale: bronze",
+        "integration: indi_allsky"
+      ],
+      "kind": "feature",
+      "score": 51.5,
+      "additions": 477,
+      "deletions": 4,
+      "changedFiles": 4
+    },
+    {
+      "id": "5047720690",
+      "title": "Add reconfigure flow to Magic Home",
+      "summary": "Breaking change Proposed change Adds a reconfigure flow to Magic Home, so users can update the host of an existing entry (for example after an IP address change) without removing and re adding it.",
+      "unlocks": "Unlocks: Add reconfigure flow to Magic Home.",
+      "url": "https://github.com/home-assistant/core/pull/189068",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "joostlek",
+      "mergedAt": "2026-11-23T03:21:32Z",
+      "labels": [
+        "new-feature",
+        "integration: flux_led",
+        "has-tests",
+        "quality scale: no score"
+      ],
+      "kind": "feature",
+      "score": 51.4,
+      "additions": 237,
+      "deletions": 1,
+      "changedFiles": 3
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Bump fastdotcom to 0.0.7",
+      "url": "https://github.com/home-assistant/core/pull/193767",
+      "repository": "home-assistant/core",
+      "author": "erwindouna"
+    },
+    {
+      "title": "Bump aiovodafone to 3.3.14",
+      "url": "https://github.com/home-assistant/core/pull/193869",
+      "repository": "home-assistant/core",
+      "author": "chemelli74"
+    },
+    {
+      "title": "Update wear.compose to v1.7.2",
+      "url": "https://github.com/home-assistant/android/pull/7947",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update androidx.* to v2.11.1",
+      "url": "https://github.com/home-assistant/android/pull/7945",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update Gradle to v9.9.2",
+      "url": "https://github.com/home-assistant/android/pull/7946",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump aioshelly to 14.5.0",
+      "url": "https://github.com/home-assistant/core/pull/193852",
+      "repository": "home-assistant/core",
+      "author": "bieniu"
+    },
+    {
+      "title": "Bump aioautomower to 3.2.0",
+      "url": "https://github.com/home-assistant/core/pull/193803",
+      "repository": "home-assistant/core",
+      "author": "ReconOperator"
+    },
+    {
+      "title": "Bump ttn_client to 1.3.2",
+      "url": "https://github.com/home-assistant/core/pull/193840",
+      "repository": "home-assistant/core",
+      "author": "angelnu"
+    },
+    {
+      "title": "Update logback monorepo to v1.6.8",
+      "url": "https://github.com/home-assistant/android/pull/7943",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump pyairnow to 1.4.1",
+      "url": "https://github.com/home-assistant/core/pull/193808",
+      "repository": "home-assistant/core",
+      "author": "derekcentrico"
+    },
+    {
+      "title": "Update dependency ruby to v4.0.10",
+      "url": "https://github.com/home-assistant/android/pull/7935",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update ruby/setup-ruby action to v1.342.0",
+      "url": "https://github.com/home-assistant/android/pull/7937",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump HueBLE to 2.4.1",
+      "url": "https://github.com/home-assistant/core/pull/193811",
+      "repository": "home-assistant/core",
+      "author": "flip-dots"
+    },
+    {
+      "title": "Bump python-opendata-transport to 0.6.3",
+      "url": "https://github.com/home-assistant/core/pull/193787",
+      "repository": "home-assistant/core",
+      "author": "agners"
+    },
+    {
+      "title": "Bump qbusmqttapi to v1.6.1",
+      "url": "https://github.com/home-assistant/core/pull/193804",
+      "repository": "home-assistant/core",
+      "author": "thomasddn"
+    },
+    {
+      "title": "Bump xknxproject to 3.11.0",
+      "url": "https://github.com/home-assistant/core/pull/193833",
+      "repository": "home-assistant/core",
+      "author": "farmio"
+    },
+    {
+      "title": "Bump my-PV quality scale to Platinum",
+      "url": "https://github.com/home-assistant/core/pull/193340",
+      "repository": "home-assistant/core",
+      "author": "rrooggiieerr"
+    },
+    {
+      "title": "Bump airOS version (added v6 IeeeMode)",
+      "url": "https://github.com/home-assistant/core/pull/193805",
+      "repository": "home-assistant/core",
+      "author": "CoMPaTech"
+    },
+    {
+      "title": "Bump nextdns to 5.3.0",
+      "url": "https://github.com/home-assistant/core/pull/193801",
+      "repository": "home-assistant/core",
+      "author": "bieniu"
+    },
+    {
+      "title": "Bump pyHik to 0.5.0",
+      "url": "https://github.com/home-assistant/core/pull/193189",
+      "repository": "home-assistant/core",
+      "author": "baylanger"
+    },
+    {
+      "title": "Bump aiotractive to 2.1.1",
+      "url": "https://github.com/home-assistant/core/pull/193772",
+      "repository": "home-assistant/core",
+      "author": "bieniu"
+    },
+    {
+      "title": "Revert \"Bump rpi_power to rpi-bad-power-ng 0.2.0 (#193678)\"",
+      "url": "https://github.com/home-assistant/core/pull/193778",
+      "repository": "home-assistant/core",
+      "author": "erwindouna"
+    },
+    {
+      "title": "Bump rpi_power to rpi-bad-power-ng 0.2.0",
+      "url": "https://github.com/home-assistant/core/pull/193678",
+      "repository": "home-assistant/core",
+      "author": "marcomsousa"
+    },
+    {
+      "title": "Update dependency rubocop to v1.92.3",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/50928",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency sinatra to v4.2.2",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/50929",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency astro to v7.4.13",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/50951",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update ruby/setup-ruby action to v1.342.0",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/50957",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency github/gh-actions-lock to v0.5.0",
+      "url": "https://github.com/home-assistant/frontend/pull/56057",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump satel-integra to 1.7.1",
+      "url": "https://github.com/home-assistant/core/pull/193755",
+      "repository": "home-assistant/core",
+      "author": "Tommatheussen"
+    },
+    {
+      "title": "Update syrupy to 7.0.1",
+      "url": "https://github.com/home-assistant/core/pull/193739",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump python-opendata-transport to 0.6.2",
+      "url": "https://github.com/home-assistant/core/pull/192985",
+      "repository": "home-assistant/core",
+      "author": "jfietz"
+    },
+    {
+      "title": "Bump modbus-connection to 4.12.8",
+      "url": "https://github.com/home-assistant/core/pull/193617",
+      "repository": "home-assistant/core",
+      "author": "balloob"
+    },
+    {
+      "title": "Update pylint to 4.1.4",
+      "url": "https://github.com/home-assistant/core/pull/193738",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump python-roborock to 7.26.1",
+      "url": "https://github.com/home-assistant/core/pull/193750",
+      "repository": "home-assistant/core",
+      "author": "lboue"
+    },
+    {
+      "title": "Update dependency @webcomponents/scoped-custom-element-registry to v0.0.11",
+      "url": "https://github.com/home-assistant/frontend/pull/56056",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Lock file maintenance",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/808",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency zizmor to v1.33.1",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/807",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency zizmor to v1.33.0",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/806",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency ty to v0.0.108",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/805",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump the \"ruff\" group with 2 updates across multiple ecosystems",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1397",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump tox from 4.67.13 to 4.67.15",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1398",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump pytest-asyncio from 1.4.1.post1 to 1.5.0",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1393",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump habluetooth from 7.1.2 to 7.1.3",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1394",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump prek from 0.5.10 to 0.5.11",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1396",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump the \"ty-checker\" group with 2 updates across multiple ecosystems",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1395",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump tox-gh-actions from 3.5.0 to 3.5.1",
+      "url": "https://github.com/home-assistant-libs/aioshelly/pull/1392",
+      "repository": "home-assistant-libs/aioshelly",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump the shared-workflows group across 1 directory with 5 updates",
+      "url": "https://github.com/esphome/firmware/pull/374",
+      "repository": "esphome/firmware",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump actions/setup-python from 6.2.0 to 7.1.0",
+      "url": "https://github.com/esphome/firmware/pull/376",
+      "repository": "esphome/firmware",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump actions/create-github-app-token from 3.3.0 to 3.4.0",
+      "url": "https://github.com/esphome/devices.esphome.io/pull/2047",
+      "repository": "esphome/devices.esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump astro from 7.4.12 to 7.4.13",
+      "url": "https://github.com/esphome/devices.esphome.io/pull/2046",
+      "repository": "esphome/devices.esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump @astrojs/sitemap from 3.7.5 to 3.7.6",
+      "url": "https://github.com/esphome/devices.esphome.io/pull/2045",
+      "repository": "esphome/devices.esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump shared Copilot review workflow to 2026.11.2",
+      "url": "https://github.com/esphome/esphome-webserver/pull/257",
+      "repository": "esphome/esphome-webserver",
+      "author": "jesserockz"
+    },
+    {
+      "title": "chore: bump ruff from 0.17.4 to 0.17.5",
+      "url": "https://github.com/music-assistant/deezer-python-gql/pull/85",
+      "repository": "music-assistant/deezer-python-gql",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore: bump pytest-asyncio from 1.4.1.post1 to 1.5.0",
+      "url": "https://github.com/music-assistant/deezer-python-gql/pull/84",
+      "repository": "music-assistant/deezer-python-gql",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(deps): update dependency likec4 to v1.61.0",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/162",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump @rollup/plugin-typescript from 12.3.0 to 12.3.1",
+      "url": "https://github.com/improv-wifi/sdk-serial-js/pull/196",
+      "repository": "improv-wifi/sdk-serial-js",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump rollup from 4.68.0 to 4.68.3",
+      "url": "https://github.com/improv-wifi/sdk-serial-js/pull/195",
+      "repository": "improv-wifi/sdk-serial-js",
+      "author": "dependabot[bot]"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 202,
+      "thisWeek": 1216,
+      "sinceRelease": 3477,
+      "lastReleaseDate": "2026-11-04"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 18,
+      "thisWeek": 601,
+      "sinceRelease": 99,
+      "lastReleaseDate": "2026-11-21"
+    },
+    {
+      "product": "ESPHome",
+      "today": 59,
+      "thisWeek": 399,
+      "sinceRelease": 282,
+      "lastReleaseDate": "2026-11-18"
+    }
+  ],
+  "landedReleases": [],
+  "publishedPosts": [],
+  "releases": [
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-11-25",
+      "version": "2026.12",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-12-02",
+      "version": "2026.12",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-12-02",
+      "version": "2026.12",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-12-16",
+      "version": "2026.12",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-12-30",
+      "version": "2027.1",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2027-01-06",
+      "version": "2027.1",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2027-01-06",
+      "version": "2027.1",
+      "accent": "green"
+    }
+  ],
+  "communityMeetups": [
+    {
+      "id": "evt-87JtJwYoojgDwdR@events.lu.ma",
+      "title": "Home Assistant Meetup Köln",
+      "url": "https://luma.com/83fycwc9",
+      "startAt": "2026-12-03T17:00:00.000Z",
+      "endAt": "2026-12-03T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-12-03",
+      "endDate": "2026-12-03",
+      "location": "REWE Digital GmbH, Schanzenstraße 6-20, 51063 Köln, Germany",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-JrQQIH3uBJV4C3A@events.lu.ma",
+      "title": "Home Assistant Meetup - Carpi",
+      "url": "https://luma.com/yjfnms6a",
+      "startAt": "2026-12-12T08:30:00.000Z",
+      "endAt": "2026-12-12T11:30:00.000Z",
+      "allDay": false,
+      "date": "2026-12-12",
+      "endDate": "2026-12-12",
+      "location": "TERMINAL - Terre d’Argine Innovation Lab, Piazzale Allende Salvador, 5, 41012 Carpi MO, Italy",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-3GIz2yYPGSZ8Gnw@events.lu.ma",
+      "title": "Orlando Home Assistant Meetup: Get-Together & Gear Swap",
+      "url": "https://luma.com/qpe49nll",
+      "startAt": "2027-01-09T14:00:00.000Z",
+      "endAt": "2027-01-09T17:00:00.000Z",
+      "allDay": false,
+      "date": "2027-01-09",
+      "endDate": "2027-01-09",
+      "location": "Stardust Video & Coffee, 1842 Winter Park Rd, Orlando, FL 32803, USA",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-9d75XRFz6VpfCfI@events.lu.ma",
+      "title": "Home Assistant Community Meetup - Tauranga",
+      "url": "https://luma.com/0nai7yth",
+      "startAt": "2027-01-26T04:30:00.000Z",
+      "endAt": "2027-01-26T05:30:00.000Z",
+      "allDay": false,
+      "date": "2027-01-26",
+      "endDate": "2027-01-26",
+      "location": "148 Durham Street, Tauranga 3110, New Zealand",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "reolink-recordings-browser-playback",
+      "title": "Watch Reolink recordings on an iPhone",
+      "dek": "Chrome and Edge gain seeking, while battery cameras join the new playback route.",
+      "body": [
+        "A saved camera clip no longer has to finish downloading before its first picture appears. Home Assistant streams Reolink recordings through a temporary file, letting Safari on iOS request the pieces it needs and letting Chrome and Edge jump to another point in the recording.",
+        "The new path replaces the older playback method and also supports recordings from cameras without an HTTP connection, including battery-powered models. Large recordings use temporary disk space rather than filling memory; the files are cleaned up automatically."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 94,
+      "contributors": [
+        "starkillerOG"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "starkillerOG",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/14811189?v=4",
+          "profileUrl": "https://github.com/starkillerOG"
+        }
+      ],
+      "reviewers": [
+        "silamon"
+      ],
+      "approvers": [
+        "silamon"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "silamon",
+          "name": "Simon Lamon",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/32477463?v=4",
+          "profileUrl": "https://github.com/silamon"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5336136790",
+          "title": "Use HLS VOD playlist for Reolink recording playback",
+          "url": "https://github.com/home-assistant/core/pull/192887",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "ai-manage-existing-integration-repairs",
+      "title": "An assistant can work on connections you already have",
+      "dek": "Administrator tools expose repair notices, discovered devices and sign-in requests; browser authorization still stays with you.",
+      "body": [
+        "An expired sign-in or a discovered device can become a concrete next step for a connected AI assistant. Home Assistant’s management tools list those pending setup tasks alongside translated repair notices, with serious issues placed ahead of lower-priority ones.",
+        "Allen Porter also extends the setup tools to change options and reconfigure an existing integration, rather than only create a new connection. The assistant can work through the available forms; an external sign-in step returns a link for the person to finish in Home Assistant.",
+        "The repair list is read-only. Seeing a warning does not mean the assistant can resolve every repair automatically, and these system-management capabilities require administrator access."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 86,
+      "contributors": [
+        "allenporter"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "allenporter",
+          "name": "Allen Porter",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6026418?v=4",
+          "profileUrl": "https://github.com/allenporter"
+        }
+      ],
+      "reviewers": [
+        "balloob"
+      ],
+      "approvers": [
+        "balloob"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "balloob",
+          "name": "Paulus Schoutsen",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1444314?v=4",
+          "profileUrl": "https://github.com/balloob"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5330827303",
+          "title": "Add options and reconfigure flow support to config LLM tools",
+          "url": "https://github.com/home-assistant/core/pull/192856",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5329882872",
+          "title": "Add GetFlowsInProgressTool to config LLM tools",
+          "url": "https://github.com/home-assistant/core/pull/192847",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5435603873",
+          "title": "Add GetIssuesTool LLM tool to repairs integration",
+          "url": "https://github.com/home-assistant/core/pull/193749",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "knx-reuse-channel-setup",
+      "title": "Configure one KNX channel and reuse it for the others",
+      "dek": "Suggestions can learn from existing controls, including projects without detailed function descriptions.",
+      "body": [
+        "A carefully configured shutter can become the model for other equivalent channels in the same building. Home Assistant reads the existing KNX control’s setup and suggests matching channels, carrying over choices such as inversion and travel times while substituting the correct addresses.",
+        "The comparison works across channels on the same device and identically programmed devices. It accepts only unambiguous matches, and channels already using the same addresses are not suggested. The proposal still needs to pass the normal configuration checks; it does not create controls automatically.",
+        "A second extension adds thermostat suggestions when the project describes a current temperature and a writable target in the same channel. That route uses standardized device-function descriptions, while copying an existing configuration works without them."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 84,
+      "contributors": [
+        "farmio"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "farmio",
+          "name": "Matthias Alphart",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12422879?v=4",
+          "profileUrl": "https://github.com/farmio"
+        }
+      ],
+      "reviewers": [
+        "silamon"
+      ],
+      "approvers": [
+        "silamon"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "silamon",
+          "name": "Simon Lamon",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/32477463?v=4",
+          "profileUrl": "https://github.com/silamon"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5255893856",
+          "title": "Add KNX entity suggestions from existing entity configurations",
+          "url": "https://github.com/home-assistant/core/pull/192014",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5230925927",
+          "title": "Add KNX climate suggestions from functional blocks",
+          "url": "https://github.com/home-assistant/core/pull/191688",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "lifx-lights-follow-music",
+      "title": "Let LIFX lights follow the music",
+      "dek": "The new plugin sends colors over the local network and restores the lights after a listening session.",
+      "body": [
+        "A listening session can change compatible LIFX bulbs with the song’s beat and color palette. Music Assistant’s new Lights Sync plugin sends those changes over the local network, saving the lights’ previous state and restoring it afterward.",
+        "Each configured lighting group becomes a Sendspin visualizer—a receiver for the music analysis that drives the effects. @sonic1200 makes a first contribution to Music Assistant’s server with the provider; the existing Hue connection is unchanged."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 83,
+      "contributors": [
+        "sonic1200"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "sonic1200",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/7190120?v=4",
+          "profileUrl": "https://github.com/sonic1200"
+        }
+      ],
+      "reviewers": [
+        "OzGav"
+      ],
+      "approvers": [
+        "OzGav"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "OzGav",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/19848947?v=4",
+          "profileUrl": "https://github.com/OzGav"
+        }
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5386318142",
+          "title": "Add LIFX Lights Sync plugin provider",
+          "url": "https://github.com/music-assistant/server/pull/7947",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "rain-forecasts-minute-actions",
+      "title": "Plan around rain in the next few minutes",
+      "dek": "New actions cover Tomorrow.io, Foreca and Belgium’s weather service, with different detail and request costs.",
+      "body": [
+        "An automation can look beyond an hourly forecast before deciding whether to leave something outside. Home Assistant exposes the near-term rain data from three existing weather connections as action responses, rather than adding a ready-made dashboard card.",
+        "Tomorrow.io makes its already-fetched short-interval forecast accessible again without another request, skipping intervals that have already ended. Foreca returns the next hour’s precipitation: minute-by-minute radar detail in Europe and the continental United States, and hourly resolution elsewhere. Each Foreca call makes one request.",
+        "The Belgian IRM KMI action returns radar predictions in ten-minute steps, or five-minute steps in the Netherlands, with optional earlier frames. It uses cached data and includes the predicted range as well as the rainfall rate."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 82,
+      "contributors": [
+        "raman325",
+        "EetuPelkonen",
+        "YP30"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "raman325",
+          "name": "Raman Gupta",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/7243222?v=4",
+          "profileUrl": "https://github.com/raman325"
+        },
+        {
+          "login": "EetuPelkonen",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/197888940?v=4",
+          "profileUrl": "https://github.com/EetuPelkonen"
+        },
+        {
+          "login": "YP30",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/58120331?v=4",
+          "profileUrl": "https://github.com/YP30"
+        }
+      ],
+      "reviewers": [
+        "silamon",
+        "mastermc0"
+      ],
+      "approvers": [
+        "silamon",
+        "mastermc0"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "silamon",
+          "name": "Simon Lamon",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/32477463?v=4",
+          "profileUrl": "https://github.com/silamon"
+        },
+        {
+          "login": "mastermc0",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/18171370?v=4",
+          "profileUrl": "https://github.com/mastermc0"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5288136528",
+          "title": "Add get_minute_forecast action to Tomorrow.io",
+          "url": "https://github.com/home-assistant/core/pull/192376",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5224104337",
+          "title": "Add get_minute_forecast action to Foreca",
+          "url": "https://github.com/home-assistant/core/pull/191591",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5430950209",
+          "title": "Add get_forecasts_radar action to irm_kmi",
+          "url": "https://github.com/home-assistant/core/pull/193715",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "thread-router-ethernet-backbone",
+      "title": "Connect a homemade Thread router by Ethernet",
+      "dek": "The experimental bridge pauses when its cable is unplugged; it does not move the Thread connection onto Wi-Fi.",
+      "body": [
+        "A Thread device network can reach the home network through a wired ESPHome border router instead of relying on a Wi-Fi link. The new backbone: ethernet option selects that cable connection, with Wi-Fi optional for the board’s own networking.",
+        "Border routing stops when the cable connection disappears and starts again when it returns. Ethernet must be enabled at startup; a Wi-Fi fallback for the board itself does not carry the Thread traffic.",
+        "The experimental support also admits ESP32-S31 boards with a built-in Thread radio. An ESP32-P4 can host a separate radio, although that combination has only been checked by compiling it."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 80,
+      "contributors": [
+        "chrisuthe"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "chrisuthe",
+          "name": "Chris",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/26907395?v=4",
+          "profileUrl": "https://github.com/chrisuthe"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5398960722",
+          "title": "[openthread] Add an Ethernet backbone for border routers",
+          "url": "https://github.com/esphome/esphome/pull/22929",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "sonos-heos-shared-inputs",
+      "title": "Play another room’s wired source on your speaker",
+      "dek": "The connection stays within its Sonos or HEOS system; some Home Assistant automations need updated source names.",
+      "body": [
+        "A turntable connected to the Den’s Sonos speaker can be selected from the Kitchen instead of only from the speaker beside it. Music Assistant lists the inputs of other speakers in the same system, with the room name attached so listeners can tell them apart.",
+        "Sonos shares a connected line-in with the chosen speaker or its group; TV inputs stay with their own speaker. Older Sonos S1 systems only list an input after it has played. HEOS also lists other devices’ inputs, excluding a built-in radio tuner. The listener needs access to the source speaker, and disabled or inaccessible speakers do not supply entries.",
+        "HEOS names lose the device prefix: “Den - Line In 1” becomes “Line In 1” on that device. Home Assistant automations selecting the old name need updating. Scripts using Sonos or HEOS input identifiers also need the new identifiers, which are consistent across speakers."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 79,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5430316045",
+          "title": "Play the input of one Sonos or HEOS speaker on the others",
+          "url": "https://github.com/music-assistant/server/pull/8039",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "webdav-upload-automation-files",
+      "title": "Send camera snapshots to your own file server",
+      "dek": "A new upload action handles several files and creates missing destination folders.",
+      "body": [
+        "A camera automation can save its pictures on a WebDAV server, such as a compatible network storage device. Home Assistant’s upload action accepts one or more local files, including a filename pattern that selects several at once.",
+        "Only files inside explicitly allowed local folders can be uploaded. Transfers are streamed in chunks, and the destination folder is created when it does not yet exist."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 78,
+      "contributors": [
+        "jpbede"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "jpbede",
+          "name": "Jan-Philipp Benecke",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/3989428?v=4",
+          "profileUrl": "https://github.com/jpbede"
+        }
+      ],
+      "reviewers": [
+        "silamon"
+      ],
+      "approvers": [
+        "silamon"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "silamon",
+          "name": "Simon Lamon",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/32477463?v=4",
+          "profileUrl": "https://github.com/silamon"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5321933201",
+          "title": "Add WebDAV upload action",
+          "url": "https://github.com/home-assistant/core/pull/192767",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "miele-filling-level-outage",
+      "title": "A filling-level outage stops taking every appliance offline",
+      "dek": "Optional readings can recover later while the rest of the Miele connection finishes setup.",
+      "body": [
+        "A failing request for appliance filling levels could leave all Miele entities unavailable, even while the service still answered normal device requests. Home Assistant stops making that optional response a condition for starting the integration.",
+        "When the readings return, their sensors are added automatically. Bastian Zimmermann makes his first contribution to Home Assistant Core with the correction, tested against both server errors and timeouts."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 77,
+      "contributors": [
+        "BastianZim"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "BastianZim",
+          "name": "Bastian Zimmermann",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/10774221?v=4",
+          "profileUrl": "https://github.com/BastianZim"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5443203235",
+          "title": "Don't block Miele setup when filling levels can't be fetched",
+          "url": "https://github.com/home-assistant/core/pull/193845",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "onvif-line-crossing-events",
+      "title": "A crossed camera boundary can trigger an automation",
+      "dek": "Compatible ONVIF cameras expose momentary events instead of silently losing them.",
+      "body": [
+        "A line-crossing alert is an instant, not a state that remains on until something clears it. Home Assistant adds event entities for these short-lived camera messages, giving automations a trigger for each new occurrence.",
+        "The camera must supply a supported event. Messages repeated when subscribing or renewing the connection are ignored, so reconnecting does not replay an old occurrence as a fresh alert."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "jterrace"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "jterrace",
+          "name": "Jeff Terrace",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/154510?v=4",
+          "profileUrl": "https://github.com/jterrace"
+        }
+      ],
+      "reviewers": [
+        "silamon",
+        "frenck"
+      ],
+      "approvers": [
+        "silamon",
+        "frenck"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "silamon",
+          "name": "Simon Lamon",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/32477463?v=4",
+          "profileUrl": "https://github.com/silamon"
+        },
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5205716350",
+          "title": "Add event platform to ONVIF",
+          "url": "https://github.com/home-assistant/core/pull/191132",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5206433147",
+          "title": "Document ONVIF event entities",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50321",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "nrf52-stable-zigbee-addresses",
+      "title": "Keep Zigbee sensor addresses steady as a device grows",
+      "dek": "Makers using nRF52 boards can mix fixed and automatic numbering; the eight-function limit remains.",
+      "body": [
+        "Each exposed sensor or control has a numbered address within a Zigbee device. Adding or removing another function could change an automatically assigned number; ESPHome lets makers choose fixed numbers for the functions that need to stay put.",
+        "The option covers sensors, binary sensors, numbers and switches on nRF52 boards. Explicit numbers are reserved before the rest are assigned, while unchanged configurations using only automatic numbering keep their existing addresses.",
+        "@maniekes makes a first contribution to ESPHome with the feature, tested on an nRF52840 device with Zigbee2MQTT. Sharing one address between several functions is outside this change."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 75,
+      "contributors": [
+        "maniekes"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "maniekes",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/92219550?v=4",
+          "profileUrl": "https://github.com/maniekes"
+        }
+      ],
+      "reviewers": [
+        "bdraco",
+        "luar123"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        },
+        {
+          "login": "luar123",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/49960470?v=4",
+          "profileUrl": "https://github.com/luar123"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5337176823",
+          "title": "[zigbee] Allow explicit endpoint IDs on nRF52",
+          "url": "https://github.com/esphome/esphome/pull/22788",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "adguard-protection-timed-pause",
+      "title": "Pause ad blocking without forgetting to turn it back on",
+      "dek": "AdGuard Home handles the return after the duration requested by an automation.",
+      "body": [
+        "A temporary exception no longer needs a separate delayed action to restore protection. Home Assistant adds a timed pause command, and AdGuard Home re-enables its protection when that interval ends.",
+        "The existing protection switch remains available for an indefinite on-or-off choice."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 74,
+      "contributors": [
+        "mib1185"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "mib1185",
+          "name": "Michael",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/35783820?v=4",
+          "profileUrl": "https://github.com/mib1185"
+        }
+      ],
+      "reviewers": [
+        "gjohansson-ST"
+      ],
+      "approvers": [
+        "gjohansson-ST"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "gjohansson-ST",
+          "name": "G Johansson",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/62932417?v=4",
+          "profileUrl": "https://github.com/gjohansson-ST"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5439247648",
+          "title": "Add pause protection action to AdGuard Home",
+          "url": "https://github.com/home-assistant/core/pull/193797",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "deezer-audiobooks-pass-intro",
+      "title": "The story continues after a Deezer audiobook’s intro",
+      "dek": "The correction affects lossless books whose chapters use a different audio layout from the opening.",
+      "body": [
+        "One Tilda Apfelkern episode played its 36-second theme tune and then ended, with the rest of the book rejected as faulty audio. Music Assistant was reading all chapters using a limit taken from the shorter opening.",
+        "Julian Daberkow adjusts the start of the lossless stream so the later chapters can be decoded, and verified that an affected episode plays to the end. MP3 audiobooks and ordinary music tracks keep their existing behavior."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 73,
+      "contributors": [
+        "jdaberkow"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "jdaberkow",
+          "name": "Julian Daberkow",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/13017916?v=4",
+          "profileUrl": "https://github.com/jdaberkow"
+        }
+      ],
+      "reviewers": [
+        "OzGav"
+      ],
+      "approvers": [
+        "OzGav"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "OzGav",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/19848947?v=4",
+          "profileUrl": "https://github.com/OzGav"
+        }
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5437697041",
+          "title": "Deezer: fix audiobooks stopping after the first chapter",
+          "url": "https://github.com/music-assistant/server/pull/8054",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "tx20-wind-direction-averages",
+      "title": "North stays north in wind-direction averages",
+      "dek": "TX20 readings use circular statistics in Home Assistant; the configuration needs no change.",
+      "body": [
+        "Two readings of 350 and 10 degrees both point close to north, but treating them as ordinary numbers puts their average at 180 degrees—south. ESPHome marks TX20 wind direction as an angle so Home Assistant calculates its long-term statistics around the circle.",
+        "The change applies to newly calculated statistics and preserves the sensor’s degree unit. It does not change the direction measured by the hardware."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 72,
+      "contributors": [
+        "bdraco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "reviewers": [
+        "swoboda1337"
+      ],
+      "approvers": [
+        "swoboda1337"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "swoboda1337",
+          "name": "Jonathan Swoboda",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/154711427?v=4",
+          "profileUrl": "https://github.com/swoboda1337"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5436365804",
+          "title": "[tx20] Give wind direction the wind_direction device class and measurement_angle",
+          "url": "https://github.com/esphome/esphome/pull/23081",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ],
+  "roadmapUpdates": []
+}
