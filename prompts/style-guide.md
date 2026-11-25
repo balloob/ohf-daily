@@ -30,7 +30,7 @@ Every story appears under a project label. Readers already know the project befo
 
 ## Labels and order
 
-- Use one consistent labelling scheme: project names, including Home Assistant, Music Assistant, ESPHome and Z-Wave JS. Reporting desks such as Devices must not replace independent project identities.
+- Use one consistent labelling scheme: project names, including Home Assistant, Music Assistant, ESPHome, Z-Wave JS and Voice. Use Voice rather than OHF Voice in visible labels. Reporting desks such as Devices must not replace independent project identities.
 - Rank and select stories by impact on users, not project or pull-request count. Keep the existing evidence, repetition and release-day requirements.
 
 ## Layout
@@ -40,7 +40,7 @@ Every story appears under a project label. Readers already know the project befo
 - Keep avatars close to text height so credits wrap compactly.
 - Do not show counts such as “1 linked pull request” or “1 linked source” in story blocks. Make the headline, subheading and excerpt one article link, with no separate “Read more” link. Link each front-page article picture to the same story too. Keep contributor profile links separate. Exact source links remain on the article page.
 - Let headlines wrap naturally across their available column width. Do not use `text-wrap: balance`, forced line breaks, or character-based headline width limits.
-- Preserve newspaper hierarchy: a lead, larger features with excerpts, and compact briefs. Keep the wide feature column and two narrower brief columns on large screens, using the space below the sidebar.
+- Preserve newspaper hierarchy: a lead, larger features with excerpts, and compact briefs. Keep the wide feature column and two narrower brief columns on large screens, with stories starting immediately below the section heading. The calendar shares the right narrow column with briefs; balance briefs around its actual height instead of placing all text stories below the sidebar.
 - Reserve the front-page drop cap for the lead. Avoid duplicate rules above Reported stories and Product direction; keep Product direction in the same bold label style as the project names.
 
 - Brief subheadings use upright text. Their name/avatar credits sit below the linked copy without a bordered block or prefix.

@@ -27,12 +27,8 @@ const editorialArticles = (Array.isArray(edition.articles) ? edition.articles : 
   .sort((a, b) => b.score - a.score);
 const leadArticle = editorialArticles.find((article) => article.placement === "lead");
 const deskArticles = editorialArticles.filter((article) => article.id !== leadArticle?.id);
-const signatureArticles = deskArticles.filter(
-  (article) => article.kind === "weekly_recap" || (Array.isArray(article.media) && article.media.some((item) => item?.url)),
-);
-const signatureArticleIds = new Set(signatureArticles.map((article) => article.id));
-const columnFeatures = deskArticles.filter((article) => !signatureArticleIds.has(article.id) && article.placement !== "brief");
-const columnBriefs = deskArticles.filter((article) => !signatureArticleIds.has(article.id) && article.placement === "brief");
+const columnFeatures = deskArticles.filter((article) => article.placement !== "brief");
+const columnBriefs = deskArticles.filter((article) => article.placement === "brief");
 const coveredPullRequests = new Set(editorialArticles.flatMap((article) => Array.isArray(article.pullRequests) ? article.pullRequests.map((pullRequest) => pullRequest.id) : []));
 const releaseSourcePullRequests = new Set((edition.landedReleases ?? []).flatMap((release) => release.sourcePullRequestIds ?? []));
 const hasEditorial = Array.isArray(edition.articles) || Boolean(edition.roadmapUpdates?.length);
@@ -92,19 +88,13 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
     </section>
   )}
 
-  <div class="desk-grid">
+  <div class="desk-grid" data-newsroom>
     <div class="news-column">
       {deskArticles.length > 0 && (
         <section class="reported" aria-labelledby="reported-heading">
           <div class="rule-heading">
             <h2 id="reported-heading" class="section-title">Reported stories</h2>
             <span>{deskArticles.length} original {deskArticles.length === 1 ? "article" : "articles"}</span>
-          </div>
-          <div class="article-grid">
-            {signatureArticles.map((article) => (
-              <StoryCard article={article} variant="feature" articleHref={articleHref(article)} />
-            ))}
-
           </div>
         </section>
       )}
@@ -137,36 +127,36 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
 
     </div>
 
-    {(columnFeatures.length > 0 || columnBriefs.length > 0) && (
-      <section class:list={["article-spread", { "briefs-only": columnFeatures.length === 0, "features-only": columnBriefs.length === 0, "single-brief": columnBriefs.length === 1 }]} aria-label="More reported stories">
-        {columnFeatures.length > 0 && (
-          <div class="feature-column">
-            {columnFeatures.map((article) => (
-              <StoryCard article={article} variant="feature" articleHref={articleHref(article)} />
-            ))}
+    <section class:list={["article-spread", { "briefs-only": columnFeatures.length === 0, "features-only": columnBriefs.length === 0 }]} aria-label="Reported stories and calendar">
+      {columnFeatures.length > 0 && (
+        <div class="feature-column">
+          {columnFeatures.map((article) => (
+            <StoryCard article={article} variant="feature" articleHref={articleHref(article)} />
+          ))}
+        </div>
+      )}
+      <div class="story-side-columns">
+        <div class="brief-columns" data-brief-primary>
+          {columnBriefs.map((article) => (
+            <StoryCard article={article} variant="brief" articleHref={articleHref(article)} />
+          ))}
+        </div>
+        <div class="edition-sidebar">
+          <div class="calendar-column" data-calendar-column>
+            <RoadmapRail updates={edition.roadmapUpdates} articles={edition.articles} date={edition.date} />
+            <ReleaseRail
+              releases={edition.releases}
+              landedReleases={edition.landedReleases}
+              publishedPosts={edition.publishedPosts}
+              hacsNewIntegrations={edition.stats.hacsNewIntegrations}
+              communityMeetups={edition.communityMeetups}
+              today={edition.date}
+            />
           </div>
-        )}
-        {columnBriefs.length > 0 && (
-          <div class="brief-columns">
-            {columnBriefs.map((article) => (
-              <StoryCard article={article} variant="brief" articleHref={articleHref(article)} />
-            ))}
-          </div>
-        )}
-      </section>
-    )}
-
-    <div class="edition-sidebar">
-      <RoadmapRail updates={edition.roadmapUpdates} articles={edition.articles} date={edition.date} />
-      <ReleaseRail
-        releases={edition.releases}
-        landedReleases={edition.landedReleases}
-        publishedPosts={edition.publishedPosts}
-        hacsNewIntegrations={edition.stats.hacsNewIntegrations}
-        communityMeetups={edition.communityMeetups}
-        today={edition.date}
-      />
-    </div>
+          <div class="brief-columns" data-brief-secondary></div>
+        </div>
+      </div>
+    </section>
   </div>
 
   <nav class="edition-nav" aria-label="Edition navigation">
@@ -180,6 +170,51 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
   <p class="footer-name">OHF Daily</p>
   <a href="https://www.openhomefoundation.org/" target="_blank" rel="noreferrer">Open Home Foundation ↗</a>
 </footer>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-newsroom]").forEach((newsroom) => {
+    const primary = newsroom.querySelector<HTMLElement>("[data-brief-primary]");
+    const secondary = newsroom.querySelector<HTMLElement>("[data-brief-secondary]");
+    const calendar = newsroom.querySelector<HTMLElement>("[data-calendar-column]");
+    const columns = newsroom.querySelector<HTMLElement>(".story-side-columns");
+    if (!primary || !secondary || !calendar || !columns) return;
+    const briefs = Array.from(primary.children) as HTMLElement[];
+    if (!briefs.length) return;
+    let frame = 0;
+    let previousWidth = -1;
+    const balance = () => {
+      const focused = document.activeElement as HTMLElement | null;
+      primary.append(...briefs);
+      if (matchMedia("(min-width: 761px)").matches) {
+        const heights = briefs.map((brief) => brief.getBoundingClientRect().height);
+        const total = heights.reduce((sum, height) => sum + height, 0);
+        const gap = parseFloat(getComputedStyle(secondary.parentElement!).rowGap) || 0;
+        const rail = calendar.getBoundingClientRect().height + gap;
+        let left = 0;
+        let split = briefs.length;
+        let best = Math.abs(total - rail);
+        // Keep ranking order within each column, starting the second below the calendar.
+        for (let index = 1; index < briefs.length; index++) {
+          left += heights[index - 1];
+          const difference = Math.abs(left - (rail + total - left));
+          if (difference < best) { best = difference; split = index; }
+        }
+        secondary.append(...briefs.slice(split));
+      }
+      if (focused && briefs.some((brief) => brief.contains(focused))) focused.focus({ preventScroll: true });
+    };
+    const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(balance); };
+    new ResizeObserver(([entry]) => {
+      if (entry.contentRect.width !== previousWidth) {
+        previousWidth = entry.contentRect.width;
+        schedule();
+      }
+    }).observe(columns);
+    new ResizeObserver(schedule).observe(calendar);
+    document.fonts.ready.then(schedule);
+    schedule();
+  });
+</script>
 
 <style>
   main {
@@ -292,19 +327,37 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
 
   .desk-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 290px;
+    grid-template-columns: minmax(0, 1fr);
     gap: clamp(1.4rem, 3vw, 2.6rem);
     padding-top: 2.2rem;
   }
 
   .edition-sidebar {
-    grid-column: 2;
-    grid-row: 1;
     display: grid;
     gap: 1.5rem;
     min-width: 0;
     align-self: start;
   }
+
+  .calendar-column {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .story-side-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.8rem, 4vw, 2.7rem);
+    align-items: start;
+    min-width: 0;
+  }
+
+  .story-side-columns > .brief-columns {
+    padding-right: 1.35rem;
+    border-right: 1px solid var(--rule);
+  }
+
+  .brief-columns:empty { display: none; }
 
   .rule-heading > span {
     color: var(--muted);
@@ -321,12 +374,6 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
   .reported + .highlights,
   .reported + .briefs {
     margin-top: 2.3rem;
-  }
-
-  .article-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0;
   }
 
   .article-spread {
@@ -349,10 +396,8 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
   }
 
   .brief-columns {
-    columns: 2;
-    column-gap: clamp(1.8rem, 4vw, 2.7rem);
-    column-rule: 1px solid var(--rule);
-    column-fill: balance;
+    display: grid;
+    align-content: start;
   }
 
   .brief-columns :global(.story) {
@@ -377,22 +422,16 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
     border-bottom: 0;
   }
 
-  .article-spread.briefs-only,
-  .article-spread.features-only {
+  .article-spread.briefs-only {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .article-spread.features-only .feature-column {
-    padding-right: 0;
-    border-right: 0;
+  .article-spread.features-only:not(.briefs-only) {
+    grid-template-columns: minmax(0, 1fr) 290px;
   }
 
-  .article-spread.single-brief:not(.briefs-only) {
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  }
-
-  .single-brief .brief-columns {
-    columns: 1;
+  .features-only .story-side-columns {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .reported > .rule-heading {
@@ -476,7 +515,7 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
 
   @media (max-width: 1100px) {
     .article-spread,
-    .article-spread.single-brief:not(.briefs-only) {
+    .article-spread.features-only:not(.briefs-only) {
       grid-template-columns: minmax(0, 1fr);
     }
 
@@ -487,9 +526,6 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
   }
 
   @media (max-width: 960px) {
-    .desk-grid {
-      grid-template-columns: minmax(0, 1fr) 250px;
-    }
 
     .brief-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -522,7 +558,9 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
 
   @media (max-width: 760px) {
     .quiet-edition,
-    .desk-grid {
+    .desk-grid,
+    .article-spread,
+    .article-spread.features-only:not(.briefs-only) {
       grid-template-columns: 1fr;
     }
 
@@ -530,19 +568,13 @@ const hasPulse = Array.isArray(edition.pulse) && edition.pulse.some((item) => it
       grid-row: 1;
     }
 
-    .edition-sidebar {
-      grid-column: 1;
-      grid-row: auto;
+    .feature-column {
+      padding-right: 0;
+      border-right: 0;
     }
 
-    .brief-columns {
-      columns: 1;
-      column-rule: 0;
-    }
-
-    .article-grid {
-      grid-template-columns: 1fr;
-    }
+    .story-side-columns { grid-template-columns: minmax(0, 1fr); }
+    .story-side-columns > .brief-columns { padding-right: 0; border-right: 0; }
 
     .site-footer {
       grid-template-columns: 1fr;

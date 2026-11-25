@@ -1,4 +1,5 @@
 ---
+import { projectLabel } from "../lib/project-label";
 import type { PullRequestStory } from "../lib/types";
 import { isBotLogin } from "../lib/contributors";
 import type { EditorialArticle, EditorialExternalSource, EditorialMedia, EditorialPullRequest } from "./article-types";
@@ -97,7 +98,7 @@ const externalSourceGroups = articleExternalSources.reduce<Map<string, Editorial
       </div>
     )}
     <div class="copy">
-      <p class="eyebrow">{isRecap ? "Week in review" : articleTopics[0] || "Reported"}</p>
+      <p class="eyebrow">{isRecap ? "Week in review" : projectLabel(articleTopics[0] || "Reported")}</p>
       <SummaryTag class:list={{ "story-link": isArticlePreview }} href={articleHref} aria-label={isArticlePreview ? article.title : undefined}>
         {variant === "detail" ? <h1>{article.title}</h1> : <h2>{article.title}</h2>}
         {article.dek && <p class="dek">{article.dek}</p>}

@@ -1,4 +1,5 @@
 ---
+import { projectLabel } from "../lib/project-label";
 import type { PulseItem } from "./article-types";
 
 interface Props {
@@ -19,7 +20,7 @@ const activity = (value: number) => `${Number(value) || 0}`;
     <div class="pulse-items">
       {validItems.map((item) => (
         <article>
-          <h3>{item.product}</h3>
+          <h3>{projectLabel(item.product)}</h3>
           <dl>
             <div><dt>Today</dt><dd>{activity(item.today)}</dd></div>
             <div><dt>7 days</dt><dd>{activity(item.thisWeek)}</dd></div>
