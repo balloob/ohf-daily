@@ -28,14 +28,14 @@ const dateVersion = (date: string) => {
   const [year, month] = date.split("-").map(Number);
   return `${year}.${month}`;
 };
-const versionFor = (event: ReleaseEvent) => event.version ?? dateVersion(
+const versionFor = (event: ReleaseEvent) => event.version ?? (["Home Assistant", "ESPHome"].includes(event.product) ? dateVersion(
   event.kind === "Beta"
     ? releases.find((candidate) => candidate.product === event.product && candidate.kind === "Release" && candidate.date >= event.date)?.date ?? event.date
     : event.date,
-);
+) : "");
 const detailFor = (event: ReleaseEvent) => event.kind === "Event"
   ? event.endDate && event.endDate !== event.date ? `Event · through ${formatShort(event.endDate)}` : "Event"
-  : `${versionFor(event)} ${event.kind}`;
+  : [versionFor(event), event.kind].filter(Boolean).join(" ");
 const shipped = releasesForRadar(landedReleases)
   .filter((release) => release?.url && Number.isFinite(Date.parse(release.publishedAt)))
   .sort((left, right) => right.publishedAt.localeCompare(left.publishedAt));

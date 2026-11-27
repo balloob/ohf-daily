@@ -17,7 +17,8 @@
     "backfill": "node --import tsx scripts/backfill.ts",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "test": "node --import tsx --test tests/*.test.ts"
+    "test": "node --import tsx --test tests/*.test.ts",
+    "refresh:releases": "node --import tsx scripts/refresh-release-calendar.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",

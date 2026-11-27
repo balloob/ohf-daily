@@ -30,13 +30,18 @@ roadmap_source:
   project_id: PVT_kwDOCX3lqc4BTbD7
   url: https://github.com/orgs/OpenHomeFoundation/projects/8
 
+# Authoritative release/beta dates, including recurring events and exceptions.
+# The feed does not currently name Music Assistant versions; annotate only the
+# publisher-confirmed occurrence, letting the feed control its scheduled date.
+release_calendar_source:
+  url: https://calendar.google.com/calendar/ical/p07n98go11onamd08d0kmq6jhs%40group.calendar.google.com/public/basic.ics
+  versions:
+    - uid: 2nvc60navbuake679tll25tpub@google.com
+      occurrence: "2026-12-16"
+      version: "2.11"
+
 # Dates supplied directly by the publisher; carried into upcoming editions.
 confirmed_events:
-  - product: Music Assistant
-    kind: Release
-    version: "2.11"
-    date: "2026-12-11"
-    accent: rust
   # Home Assistant was founded September 17, 2013; update the age each year.
   - product: Home Assistant’s 13th birthday
     kind: Event
@@ -279,6 +284,8 @@ editorial_tracks:
     prompt: prompts/tracks/documentation.md
     enabled: true
 
+# Legacy cycle definitions support demos and historical activity calculations.
+# Live Upcoming dates come from release_calendar_source, never these estimates.
 release_cycles:
   - product: Home Assistant
     rule: first-wednesday

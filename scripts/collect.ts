@@ -3,6 +3,7 @@ import { basename, dirname, resolve } from "node:path";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
 import YAML from "yaml";
+import { collectReleaseCalendar, type ReleaseCalendarSource } from "../src/lib/release-calendar-feed";
 import { buildReleaseCalendar, linkReleasePosts, type ReleaseCycle } from "../src/lib/releases";
 import { readContentStore } from "../src/lib/content-store";
 import { collectContentFeeds, type FeedSourceConfig } from "../src/lib/feed-collector";
@@ -37,6 +38,7 @@ export interface SourcesConfig {
   front_page_stories: number;
   briefs_limit: number;
   release_horizon_days?: number;
+  release_calendar_source?: ReleaseCalendarSource;
   feed_sources?: FeedSourceConfig[];
   community_calendar_sources?: CommunityCalendarSource[];
   event_horizon_days?: number;
@@ -969,13 +971,21 @@ export interface CollectionResult {
   projectPulse: ProjectPulseItem[];
 }
 
+function releaseTargetVersion(event: Edition["releases"][number]): string {
+  if (event.version) return event.version;
+  if (!["Home Assistant", "ESPHome"].includes(event.product)) {
+    throw new Error(`The scheduled ${event.product} release needs an evidenced version before release-day reporting.`);
+  }
+  const [year, month] = event.date.split("-").map(Number);
+  return `${year}.${month}`;
+}
+
 export function releaseTargetsForDate(date: string, releases: Edition["releases"]): ActiveReleaseTarget[] {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new TypeError("Release target date must use YYYY-MM-DD format.");
   return releases
     .filter((event) => event.kind === "Release" && event.date === date)
     .map((event) => {
-      const [year, month] = event.date.split("-").map(Number);
-      return { product: event.product, version: `${year}.${month}`, releaseDate: event.date };
+      return { product: event.product, version: releaseTargetVersion(event), releaseDate: event.date };
     });
 }
 
@@ -992,8 +1002,7 @@ export function releasePreviewTargetsForDate(
     const betaStart = new Date(`${event.date}T00:00:00Z`);
     betaStart.setUTCDate(betaStart.getUTCDate() - daysBefore);
     if (date < betaStart.toISOString().slice(0, 10) || date > event.date) return [];
-    const [year, month] = event.date.split("-").map(Number);
-    return [{ product: event.product, version: `${year}.${month}`, releaseDate: event.date }];
+    return [{ product: event.product, version: releaseTargetVersion(event), releaseDate: event.date }];
   });
 }
 
@@ -1011,7 +1020,6 @@ export async function collect(): Promise<CollectionResult> {
   const config = await loadYaml<SourcesConfig>(configPath);
   const requestedDate = getArgument("--date");
   const { editionDate, start, end } = reportingWindow(new Date(), requestedDate, config.timezone, config.window_hours);
-  const releaseCalendar = buildReleaseCalendar(editionDate, config.release_cycles, 4, config.release_horizon_days ?? 45);
 
   if (hasArgument("--demo")) {
     const demo = makeDemoEdition(end, editionDate, config);
@@ -1019,6 +1027,13 @@ export async function collect(): Promise<CollectionResult> {
     console.log(`Wrote demo edition ${demo.date}.`);
     return { edition: demo, projectPulse: demo.pulse ?? [] };
   }
+
+  if (!config.release_calendar_source) throw new Error("Missing official release_calendar_source configuration.");
+  const releaseCalendar = await collectReleaseCalendar({
+    source: config.release_calendar_source, editionDate, timeZone: config.timezone,
+    horizonDays: config.release_horizon_days ?? 45,
+    cacheDirectory: resolve(root, "data/cache/release-calendar"), editionDirectory,
+  });
 
   const contentFeedCollection = collectContentFeeds({
     root,
