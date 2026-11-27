@@ -1,0 +1,2718 @@
+{
+  "date": "2026-11-27",
+  "generatedAt": "2026-11-27T05:07:01.076Z",
+  "windowStart": "2026-11-26T05:05:09.142Z",
+  "windowEnd": "2026-11-27T05:05:09.142Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 859,
+    "repositories": 69,
+    "contributors": 415,
+    "dependencyUpdates": 77,
+    "hacsNewIntegrations": 230
+  },
+  "lead": {
+    "id": "5420781062",
+    "title": "Unify the media detail page headers",
+    "summary": "What does this implement/fix? Every media detail page (album, artist, track, playlist, podcast, audiobook, radio, genre and the provider/browse variants) now builds its header from one…",
+    "url": "https://github.com/music-assistant/frontend/pull/3290",
+    "repository": "music-assistant/frontend",
+    "organization": "Music Assistant",
+    "author": "pierosavi",
+    "mergedAt": "2026-11-26T22:29:22Z",
+    "labels": [
+      "enhancement"
+    ],
+    "kind": "platform",
+    "score": 75.4,
+    "additions": 1246,
+    "deletions": 1706,
+    "changedFiles": 47
+  },
+  "highlights": [
+    {
+      "id": "5518405790",
+      "title": "Give a player's output protocols and player controls their own settings pages",
+      "summary": "What does this implement/fix? The settings page of a single player had grown long: every output protocol with its own settings and all the player controls sat in one form with the few…",
+      "url": "https://github.com/music-assistant/frontend/pull/3352",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-27T01:06:42Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 70.4,
+      "additions": 2265,
+      "deletions": 598,
+      "changedFiles": 20
+    },
+    {
+      "id": "5212866502",
+      "title": "Add power meter and inverter devices to E3/DC",
+      "summary": "This PR adds the E3/DC power meters and inverters.",
+      "unlocks": "Unlocks: Add power meter and inverter devices to E3/DC.",
+      "url": "https://github.com/home-assistant/core/pull/191296",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "AlCalzone",
+      "mergedAt": "2026-11-27T00:52:19Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "quality scale: silver",
+        "quality-scale",
+        "integration: e3dc"
+      ],
+      "kind": "feature",
+      "score": 70.4,
+      "additions": 3008,
+      "deletions": 82,
+      "changedFiles": 11
+    },
+    {
+      "id": "5462559547",
+      "title": "[vl53l4cx] Add the VL53L4CX multi-target time-of-flight sensor",
+      "summary": "What does this implement/fix? Adds a vl53l4cx sensor platform for ST's VL53L4CX multi target time of flight sensor, so esphome ratgdo's v3.2 Disco board can drop its Arduino only distance sensor and build on ESP IDF.",
+      "unlocks": "Unlocks: [vl53l4cx] Add the VL53L4CX multi-target time-of-flight sensor.",
+      "url": "https://github.com/esphome/esphome/pull/23215",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-27T03:27:52Z",
+      "labels": [
+        "new-component",
+        "new-feature",
+        "has-tests",
+        "core",
+        "new-platform",
+        "component: vl53l4cx"
+      ],
+      "kind": "feature",
+      "score": 70.1,
+      "additions": 1108,
+      "deletions": 0,
+      "changedFiles": 20
+    },
+    {
+      "id": "5519473788",
+      "title": "Add a group player from one dialog",
+      "summary": "What does this implement/fix? Adding a group player took a needless step and ended on an old page: first a picker that usually offered a single choice, then a full page with its own Save and Close buttons.",
+      "unlocks": "Unlocks: Add a group player from one dialog.",
+      "url": "https://github.com/music-assistant/frontend/pull/3355",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-27T01:34:52Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "feature",
+      "score": 69.3,
+      "additions": 1373,
+      "deletions": 503,
+      "changedFiles": 24
+    }
+  ],
+  "briefs": [
+    {
+      "id": "5497696652",
+      "title": "Add some setup wizard UI/UX improvements",
+      "summary": "What does this implement/fix? A follow up to #3280 that steadies the setup wizard layout and brings back a few fixes from #2898.",
+      "unlocks": "Unlocks: Add some setup wizard UI/UX improvements.",
+      "url": "https://github.com/music-assistant/frontend/pull/3342",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "pierosavi",
+      "mergedAt": "2026-11-26T22:32:13Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "feature",
+      "score": 68.8,
+      "additions": 398,
+      "deletions": 171,
+      "changedFiles": 27
+    },
+    {
+      "id": "5513692253",
+      "title": "Show music sources in a list with columns, or as Marketplace cards",
+      "summary": "What does this implement/fix? The settings pages that list providers (Music sources, Metadata, Audio analysis, Player providers, Plugins) used big three column cards with a large radius, a…",
+      "url": "https://github.com/music-assistant/frontend/pull/3348",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "stvncode",
+      "mergedAt": "2026-11-26T22:18:46Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 68.7,
+      "additions": 933,
+      "deletions": 378,
+      "changedFiles": 19,
+      "image": "https://gist.githubusercontent.com/stvncode/e53c6f52dd49bfbf41deb99d248a95db/raw/56d0ef230a05f039ed0b94bb5192ff4697e64132/before-list.jpg"
+    },
+    {
+      "id": "4607907734",
+      "title": "[mipi_csi] adds support for mipi csi camera sensors on esp32-p4",
+      "summary": "What does this implement/fix? Adds a new mipi csi component with support for MIPI CSI camera sensors on the ESP32 P4, using Espressif’s esp video , esp cam sensor , and esp ipa IDF components.",
+      "unlocks": "Unlocks: [mipi_csi] adds support for mipi csi camera sensors on esp32-p4.",
+      "url": "https://github.com/esphome/esphome/pull/19480",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "Horstexplorer",
+      "mergedAt": "2026-11-26T20:11:36Z",
+      "labels": [
+        "new-component",
+        "new-feature",
+        "has-tests",
+        "core",
+        "mega-pr",
+        "component: mipi_csi"
+      ],
+      "kind": "feature",
+      "score": 68.3,
+      "additions": 1360,
+      "deletions": 0,
+      "changedFiles": 17
+    },
+    {
+      "id": "5519072310",
+      "title": "Remove the fixed content length setting: players get what they need by themselves",
+      "summary": "What does this implement/fix? The player setting \"Requires a fixed content length\" is gone.",
+      "url": "https://github.com/music-assistant/server/pull/8211",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-27T02:01:05Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 66,
+      "additions": 379,
+      "deletions": 295,
+      "changedFiles": 42
+    },
+    {
+      "id": "5513126389",
+      "title": "Browse the Marketplace from one toolbar, with smaller cards",
+      "summary": "What does this implement/fix? The Marketplace stacked two rows of tabs (the types, then the label chips inside a type), cards spent a quarter of their height on a banner that was the same…",
+      "url": "https://github.com/music-assistant/frontend/pull/3347",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "stvncode",
+      "mergedAt": "2026-11-26T22:09:05Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 65.1,
+      "additions": 1078,
+      "deletions": 533,
+      "changedFiles": 22,
+      "image": "https://gist.githubusercontent.com/stvncode/21dc98254d719b9e768c6ea355a4e6dd/raw/c0a3188159d706567698cae0103b16d644f9dd99/before-music-sources.jpg"
+    },
+    {
+      "id": "5164477376",
+      "title": "Add API key expiration repair to AEMET",
+      "summary": "Read the API key expiration from the JWT, show a fixable repair before expiration, and start reauthentication only when AEMET rejects the key.",
+      "unlocks": "Improves reliability around add API key expiration repair to AEMET.",
+      "url": "https://github.com/home-assistant/core/pull/190502",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "figorr",
+      "mergedAt": "2026-11-26T09:41:16Z",
+      "labels": [
+        "new-feature",
+        "integration: aemet",
+        "has-tests",
+        "quality scale: no score"
+      ],
+      "kind": "fix",
+      "score": 65.1,
+      "additions": 629,
+      "deletions": 49,
+      "changedFiles": 12
+    },
+    {
+      "id": "5518926179",
+      "title": "Save settings from one bar at the bottom of the page",
+      "summary": "What does this implement/fix? Saving worked differently per settings page.",
+      "url": "https://github.com/music-assistant/frontend/pull/3354",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-27T01:14:30Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 63.8,
+      "additions": 370,
+      "deletions": 233,
+      "changedFiles": 20
+    },
+    {
+      "id": "5496528554",
+      "title": "Group UniFi firewall policy entities under a child device per policy",
+      "summary": "As requested in https://github.com/home assistant/core/pull/192592#discussion r4691440516 , this moves UniFi firewall entities to child devices off the Network device.",
+      "unlocks": "Unlocks: Group UniFi firewall policy entities under a child device per policy.",
+      "url": "https://github.com/home-assistant/core/pull/194557",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "bhamiltoncx",
+      "mergedAt": "2026-11-26T19:31:01Z",
+      "labels": [
+        "new-feature",
+        "integration: unifi",
+        "has-tests",
+        "quality scale: silver",
+        "top 200",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 62,
+      "additions": 256,
+      "deletions": 23,
+      "changedFiles": 10
+    },
+    {
+      "id": "5520146664",
+      "title": "Show a queue as paused on speakers that can't pause",
+      "summary": "What does this implement/fix? A speaker without a pause of its own (or one whose pause would stop it, such as a Sonos speaker playing a radio stream, or a DLNA renderer set to stop instead…",
+      "url": "https://github.com/music-assistant/server/pull/8227",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-27T03:05:10Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 61.8,
+      "additions": 1120,
+      "deletions": 122,
+      "changedFiles": 48
+    },
+    {
+      "id": "5519898176",
+      "title": "Tidy up the header of a player's settings page",
+      "summary": "What does this implement/fix? The header of a player's settings page read like a developer view: the raw player id, the IP address and the MAC address sat right under the name, and…",
+      "url": "https://github.com/music-assistant/frontend/pull/3357",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-27T02:29:03Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 60.6,
+      "additions": 614,
+      "deletions": 263,
+      "changedFiles": 9
+    },
+    {
+      "id": "5518653294",
+      "title": "Choose Standard or Expert in your profile, and keep Standard simpler",
+      "summary": "What does this implement/fix? The welcome asks a new user whether they want the standard or the expert experience, but the answer could not be changed afterwards, an administrator was never…",
+      "url": "https://github.com/music-assistant/frontend/pull/3353",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-27T00:14:19Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 59.7,
+      "additions": 560,
+      "deletions": 76,
+      "changedFiles": 14
+    },
+    {
+      "id": "5519655414",
+      "title": "Add a skip command for players",
+      "summary": "What does this implement/fix? Adds players/cmd/skip : skip a number of seconds forward or back in what a player is playing, whatever it plays.",
+      "unlocks": "Unlocks: Add a skip command for players.",
+      "url": "https://github.com/music-assistant/server/pull/8218",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-27T02:57:35Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "feature",
+      "score": 56.7,
+      "additions": 178,
+      "deletions": 13,
+      "changedFiles": 7
+    },
+    {
+      "id": "5519575431",
+      "title": "Move what clicking or playing an item does to its own Tap & play settings page",
+      "summary": "What does this implement/fix? Settings → Players → Playback was one long page of 39 settings that mixed how music sounds with what happens when you click or play something.",
+      "url": "https://github.com/music-assistant/frontend/pull/3356",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-27T01:42:47Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 56.3,
+      "additions": 220,
+      "deletions": 12,
+      "changedFiles": 11
+    },
+    {
+      "id": "5361351793",
+      "title": "[duco] Extend comfort_temperature to support multi-zone boxes",
+      "summary": "What does this implement/fix? This PR Extends number/comfort temperature to use 0x12 as default but allow 0x13 (zone 1) and 0x14 (zone 2).",
+      "unlocks": "Unlocks: [duco] Extend comfort_temperature to support multi-zone boxes.",
+      "url": "https://github.com/esphome/esphome/pull/22847",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "w1ll14m",
+      "mergedAt": "2026-11-26T14:21:41Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "component: duco",
+        "medium-pr"
+      ],
+      "kind": "feature",
+      "score": 56.1,
+      "additions": 115,
+      "deletions": 23,
+      "changedFiles": 11
+    },
+    {
+      "id": "5443440153",
+      "title": "Credit plays and progress to the user who added the item to the queue",
+      "summary": "What does this implement/fix? Plays, resume positions and statistics now go to the user who added an item to the queue, not to whoever last added anything to it.",
+      "url": "https://github.com/music-assistant/server/pull/8068",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "fmunkes",
+      "mergedAt": "2026-11-27T02:57:35Z",
+      "labels": [
+        "bugfix"
+      ],
+      "kind": "platform",
+      "score": 55.5,
+      "additions": 518,
+      "deletions": 140,
+      "changedFiles": 34
+    },
+    {
+      "id": "5509784488",
+      "title": "[ld2451] Add LD2451 radar hub and sensor platform",
+      "summary": "What does this implement/fix? Adds the ld2451 component for the Hi Link HLK LD2451, a 24 GHz radar that tracks vehicles up to 100 m away.",
+      "unlocks": "Unlocks: [ld2451] Add LD2451 radar hub and sensor platform.",
+      "url": "https://github.com/esphome/esphome/pull/23330",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "poolski",
+      "mergedAt": "2026-11-26T14:23:15Z",
+      "labels": [
+        "new-component",
+        "new-feature",
+        "has-tests",
+        "new-platform",
+        "component: ld2451"
+      ],
+      "kind": "feature",
+      "score": 54.7,
+      "additions": 557,
+      "deletions": 0,
+      "changedFiles": 10
+    },
+    {
+      "id": "5514059716",
+      "title": "[components] Flatten frame format options so declarations read without stair steps",
+      "summary": "What does this implement/fix? Makes the LengthFrameReader frame format declarations readable: the check and warning wrappers become flat named options of FrameFormat , so clang format no…",
+      "unlocks": "Unlocks: [components] Flatten frame format options so declarations read without stair steps.",
+      "url": "https://github.com/esphome/esphome/pull/23337",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "bdraco",
+      "mergedAt": "2026-11-26T20:05:50Z",
+      "labels": [
+        "has-tests",
+        "core",
+        "code-quality",
+        "mega-pr",
+        "new-feature-developer"
+      ],
+      "kind": "feature",
+      "score": 54.3,
+      "additions": 233,
+      "deletions": 151,
+      "changedFiles": 20
+    },
+    {
+      "id": "5519219856",
+      "title": "Show the right position after a seek made on a DLNA player itself",
+      "summary": "What does this implement/fix? When you seek on a DLNA player itself (its app, remote or buttons) while it plays a track as a file, Music Assistant now shows the new position within two seconds.",
+      "url": "https://github.com/music-assistant/server/pull/8213",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-27T01:31:43Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 53.6,
+      "additions": 135,
+      "deletions": 2,
+      "changedFiles": 6
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Bump py-synologydsm-api to 2.12.2",
+      "url": "https://github.com/home-assistant/core/pull/194855",
+      "repository": "home-assistant/core",
+      "author": "mib1185"
+    },
+    {
+      "title": "Bump aiolibrenms to 0.0.5",
+      "url": "https://github.com/home-assistant/core/pull/194861",
+      "repository": "home-assistant/core",
+      "author": "mib1185"
+    },
+    {
+      "title": "Update home-assistant/cli to v6",
+      "url": "https://github.com/home-assistant/app-ssh/pull/10",
+      "repository": "home-assistant/app-ssh",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump ZHA to 2.5.1",
+      "url": "https://github.com/home-assistant/core/pull/194853",
+      "repository": "home-assistant/core",
+      "author": "TheJulianJES"
+    },
+    {
+      "title": "Bump hydropeak-opendata to 0.4.1",
+      "url": "https://github.com/home-assistant/core/pull/194798",
+      "repository": "home-assistant/core",
+      "author": "Beat-YT"
+    },
+    {
+      "title": "Update dependency typescript-eslint to v8.74.0",
+      "url": "https://github.com/home-assistant/frontend/pull/56187",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump aioshelly to 14.6.1",
+      "url": "https://github.com/home-assistant/core/pull/194835",
+      "repository": "home-assistant/core",
+      "author": "thecode"
+    },
+    {
+      "title": "Bump habluetooth to 7.2.0 and dbus-fast to 5.2.0",
+      "url": "https://github.com/home-assistant/core/pull/194828",
+      "repository": "home-assistant/core",
+      "author": "thecode"
+    },
+    {
+      "title": "Bump midea-local to 15.3.0",
+      "url": "https://github.com/home-assistant/core/pull/194771",
+      "repository": "home-assistant/core",
+      "author": "rokam"
+    },
+    {
+      "title": "Bump devialet to 1.6.0",
+      "url": "https://github.com/home-assistant/core/pull/194713",
+      "repository": "home-assistant/core",
+      "author": "fwestenberg"
+    },
+    {
+      "title": "Bump aioanylist to 1.0.3",
+      "url": "https://github.com/home-assistant/core/pull/194659",
+      "repository": "home-assistant/core",
+      "author": "BookCatKid"
+    },
+    {
+      "title": "Bump pynintendoparental to 2.7.1",
+      "url": "https://github.com/home-assistant/core/pull/194805",
+      "repository": "home-assistant/core",
+      "author": "theSiegs"
+    },
+    {
+      "title": "Bump matter-python-client to 1.6.1",
+      "url": "https://github.com/home-assistant/core/pull/194734",
+      "repository": "home-assistant/core",
+      "author": "TheJulianJES"
+    },
+    {
+      "title": "Bump python-homewizard-energy to 10.4.0",
+      "url": "https://github.com/home-assistant/core/pull/194728",
+      "repository": "home-assistant/core",
+      "author": "lexpostma"
+    },
+    {
+      "title": "Update dependency coverage to v7.17.5",
+      "url": "https://github.com/home-assistant/supervisor/pull/7545",
+      "repository": "home-assistant/supervisor",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency sentry-sdk to v2.76.0",
+      "url": "https://github.com/home-assistant/supervisor/pull/7546",
+      "repository": "home-assistant/supervisor",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update home-assistant/workflows action to v0.2.0",
+      "url": "https://github.com/home-assistant/app-vlc/pull/8",
+      "repository": "home-assistant/app-vlc",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update home-assistant/workflows action to v0.2.0",
+      "url": "https://github.com/home-assistant/app-duckdns/pull/7",
+      "repository": "home-assistant/app-duckdns",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump huawei-lte-api to 3.0.0",
+      "url": "https://github.com/home-assistant/core/pull/194793",
+      "repository": "home-assistant/core",
+      "author": "cb12tre"
+    },
+    {
+      "title": "Update home-assistant/workflows action to v0.2.0",
+      "url": "https://github.com/home-assistant/app-deconz/pull/8",
+      "repository": "home-assistant/app-deconz",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update frenck/action-app-linter action to v2.21.3",
+      "url": "https://github.com/home-assistant/workflows/pull/23",
+      "repository": "home-assistant/workflows",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump pypalazzetti to 0.1.23",
+      "url": "https://github.com/home-assistant/core/pull/194735",
+      "repository": "home-assistant/core",
+      "author": "dotvav"
+    },
+    {
+      "title": "Bump intesis-gw-modbus to 0.3.2",
+      "url": "https://github.com/home-assistant/core/pull/194697",
+      "repository": "home-assistant/core",
+      "author": "TimoPtr"
+    },
+    {
+      "title": "Update dependency zizmor to v1.33.1",
+      "url": "https://github.com/home-assistant/android/pull/7978",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump enocean-async from 0.17.0 to 0.18.1",
+      "url": "https://github.com/home-assistant/core/pull/194719",
+      "repository": "home-assistant/core",
+      "author": "eltakoal"
+    },
+    {
+      "title": "Group intl-messageformat with formatjs packages in Renovate",
+      "url": "https://github.com/home-assistant/frontend/pull/56161",
+      "repository": "home-assistant/frontend",
+      "author": "MindFreeze"
+    },
+    {
+      "title": "Bump marantz-rs232 to 2.2.0",
+      "url": "https://github.com/home-assistant/core/pull/194650",
+      "repository": "home-assistant/core",
+      "author": "balloob"
+    },
+    {
+      "title": "Bump opower to 0.24.0",
+      "url": "https://github.com/home-assistant/core/pull/194642",
+      "repository": "home-assistant/core",
+      "author": "tronikos"
+    },
+    {
+      "title": "Update Matter Server to 1.6.1",
+      "url": "https://github.com/home-assistant/app-matter-server/pull/31",
+      "repository": "home-assistant/app-matter-server",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency @versatiles/style to v9.1.1",
+      "url": "https://github.com/home-assistant/frontend/pull/56158",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency memoize-one to v7",
+      "url": "https://github.com/home-assistant/frontend/pull/56160",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency rubocop to v1.93.0",
+      "url": "https://github.com/home-assistant/iOS/pull/6306",
+      "repository": "home-assistant/iOS",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update types-croniter to 6.2.4.20261118",
+      "url": "https://github.com/home-assistant/core/pull/194640",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update home-assistant/base image to 3.24-2026.11.1",
+      "url": "https://github.com/home-assistant/app-samba/pull/18",
+      "repository": "home-assistant/app-samba",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update home-assistant/base image to 3.23-2026.11.1",
+      "url": "https://github.com/home-assistant/app-duckdns/pull/6",
+      "repository": "home-assistant/app-duckdns",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update home-assistant/base image to 3.24-2026.11.1",
+      "url": "https://github.com/home-assistant/app-mariadb/pull/12",
+      "repository": "home-assistant/app-mariadb",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update home-assistant/docker-base image to 2026.11.1",
+      "url": "https://github.com/home-assistant/docker/pull/452",
+      "repository": "home-assistant/docker",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update home-assistant/base-debian image to trixie-2026.11.1",
+      "url": "https://github.com/home-assistant/app-speech-to-phrase/pull/10",
+      "repository": "home-assistant/app-speech-to-phrase",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update home-assistant/base-debian image to trixie-2026.11.1",
+      "url": "https://github.com/home-assistant/app-mosquitto/pull/16",
+      "repository": "home-assistant/app-mosquitto",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update home-assistant/base image to 3.24-2026.11.1",
+      "url": "https://github.com/home-assistant/app-rpc-shutdown/pull/7",
+      "repository": "home-assistant/app-rpc-shutdown",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update home-assistant/base-debian image to trixie-2026.11.1",
+      "url": "https://github.com/home-assistant/app-letsencrypt/pull/19",
+      "repository": "home-assistant/app-letsencrypt",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update home-assistant/base image to 3.24-2026.11.1",
+      "url": "https://github.com/home-assistant/app-git-pull/pull/12",
+      "repository": "home-assistant/app-git-pull",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update home-assistant/base image to 3.24-2026.11.1",
+      "url": "https://github.com/home-assistant/plugin-multicast/pull/164",
+      "repository": "home-assistant/plugin-multicast",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update home-assistant/base image to 3.24-2026.11.1",
+      "url": "https://github.com/home-assistant/app-configurator/pull/17",
+      "repository": "home-assistant/app-configurator",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update home-assistant/base image to 3.24-2026.11.1",
+      "url": "https://github.com/home-assistant/plugin-audio/pull/255",
+      "repository": "home-assistant/plugin-audio",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update home-assistant/base image to 3.23-2026.11.1",
+      "url": "https://github.com/home-assistant/app-zwave-js/pull/16",
+      "repository": "home-assistant/app-zwave-js",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency ty to v0.0.112",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/823",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump release-drafter/release-drafter from 7.10.0 to 7.11.0",
+      "url": "https://github.com/home-assistant-libs/python-nmap/pull/87",
+      "repository": "home-assistant-libs/python-nmap",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump release-drafter/release-drafter from 7.10.0 to 7.11.0",
+      "url": "https://github.com/home-assistant-libs/tellcore-net/pull/34",
+      "repository": "home-assistant-libs/tellcore-net",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "⬆️ Update dependency prek to v0.5.12",
+      "url": "https://github.com/home-assistant-libs/tuya-device-handlers/pull/820",
+      "repository": "home-assistant-libs/tuya-device-handlers",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump the \"ruff\" group with 2 updates across multiple ecosystems",
+      "url": "https://github.com/home-assistant-libs/pytradfri/pull/1253",
+      "repository": "home-assistant-libs/pytradfri",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump typescript-eslint from 8.73.0 to 8.74.0",
+      "url": "https://github.com/esphome/esphome.io/pull/8276",
+      "repository": "esphome/esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump @astrojs/markdown-remark from 7.3.9 to 7.3.10",
+      "url": "https://github.com/esphome/esphome.io/pull/8223",
+      "repository": "esphome/esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump remark-github-blockquote-alert from 2.1.0 to 2.1.1",
+      "url": "https://github.com/esphome/esphome.io/pull/8222",
+      "repository": "esphome/esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump astro from 7.4.12 to 7.4.13",
+      "url": "https://github.com/esphome/esphome.io/pull/8224",
+      "repository": "esphome/esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump actions/create-github-app-token from 3.3.0 to 3.4.0",
+      "url": "https://github.com/esphome/esphome.io/pull/8221",
+      "repository": "esphome/esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump markdownlint-cli from 0.50.0 to 0.50.1",
+      "url": "https://github.com/esphome/esphome.io/pull/8240",
+      "repository": "esphome/esphome.io",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump filelock from 4.3.0 to 4.3.1",
+      "url": "https://github.com/esphome/esphome/pull/23345",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump esphome/workflows/.github/workflows/lock.yml from 2026.11.1 to 2026.11.2",
+      "url": "https://github.com/esphome/esphome/pull/23346",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump esphome/workflows/.github/workflows/stale.yml from 2026.11.1 to 2026.11.2",
+      "url": "https://github.com/esphome/esphome/pull/23347",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "deps: bump ruff from 0.17.5 to 0.17.6",
+      "url": "https://github.com/esphome/device-builder/pull/3114",
+      "repository": "esphome/device-builder",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "ci: bump esphome/workflows/.github/workflows/lock.yml from 2026.11.1 to 2026.11.2",
+      "url": "https://github.com/esphome/device-builder/pull/3113",
+      "repository": "esphome/device-builder",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "ci: bump the npm_and_yarn group across 2 directories with 1 update",
+      "url": "https://github.com/esphome/device-builder/pull/3105",
+      "repository": "esphome/device-builder",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "ci: bump ip-address from 10.2.0 to 10.7.6 in /esp-stacktrace-decoder",
+      "url": "https://github.com/esphome/device-builder/pull/3107",
+      "repository": "esphome/device-builder",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "ci: bump ip-address from 10.2.0 to 10.7.6 in /flasher",
+      "url": "https://github.com/esphome/device-builder/pull/3108",
+      "repository": "esphome/device-builder",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "ci: bump js-yaml from 4.2.0 to 4.3.2 in /flasher",
+      "url": "https://github.com/esphome/device-builder/pull/3109",
+      "repository": "esphome/device-builder",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "ci: bump js-yaml from 4.3.0 to 4.3.2 in /esp-stacktrace-decoder",
+      "url": "https://github.com/esphome/device-builder/pull/3106",
+      "repository": "esphome/device-builder",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore: bump sendspin-kmp version to 0.3.0",
+      "url": "https://github.com/music-assistant/mobile-app/pull/1444",
+      "repository": "music-assistant/mobile-app",
+      "author": "github-actions[bot]"
+    },
+    {
+      "title": "Bump `aiosendspin` to 11.0.0 to fix silent line-in from idle Sendspin devices",
+      "url": "https://github.com/music-assistant/server/pull/8184",
+      "repository": "music-assistant/server",
+      "author": "maximmaxim345"
+    },
+    {
+      "title": "Chore(deps): Bump aiofiles from 24.1.0 to 25.1.0",
+      "url": "https://github.com/music-assistant/server/pull/2773",
+      "repository": "music-assistant/server",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump alexapy to 1.37.0",
+      "url": "https://github.com/music-assistant/server/pull/8190",
+      "repository": "music-assistant/server",
+      "author": "MarvinSchenkel"
+    },
+    {
+      "title": "chore(deps): update nestjs to v11.2.11",
+      "url": "https://github.com/OpenHomeFoundation/web-api/pull/166",
+      "repository": "OpenHomeFoundation/web-api",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump Ziggurat to 0.5.0",
+      "url": "https://github.com/zigpy/addons/pull/7",
+      "repository": "zigpy/addons",
+      "author": "puddly"
+    },
+    {
+      "title": "Bump zigpy from 2.5.0 to 2.5.1",
+      "url": "https://github.com/zigpy/zha/pull/1100",
+      "repository": "zigpy/zha",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump aioesphomeapi from 45.3.1 to 46.30.1",
+      "url": "https://github.com/OHF-Voice/linux-voice-assistant/pull/570",
+      "repository": "OHF-Voice/linux-voice-assistant",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump websockets from 12 to 17.4",
+      "url": "https://github.com/OHF-Voice/linux-peripherals-controller/pull/1",
+      "repository": "OHF-Voice/linux-peripherals-controller",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "chore(pre-commit.ci): pre-commit autoupdate",
+      "url": "https://github.com/Bluetooth-Devices/habluetooth/pull/639",
+      "repository": "Bluetooth-Devices/habluetooth",
+      "author": "pre-commit-ci[bot]"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 290,
+      "thisWeek": 1841,
+      "sinceRelease": 4953,
+      "lastReleaseDate": "2026-11-04"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 97,
+      "thisWeek": 481,
+      "sinceRelease": 416,
+      "lastReleaseDate": "2026-11-21"
+    },
+    {
+      "product": "ESPHome",
+      "today": 53,
+      "thisWeek": 497,
+      "sinceRelease": 627,
+      "lastReleaseDate": "2026-11-18"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "zigpy/zigpy:459728282",
+      "product": "Zigpy",
+      "repository": "zigpy/zigpy",
+      "name": "2.5.1",
+      "tag": "2.5.1",
+      "url": "https://github.com/zigpy/zigpy/releases/tag/2.5.1",
+      "publishedAt": "2026-11-26T17:36:31Z",
+      "channel": "stable",
+      "accent": "green"
+    },
+    {
+      "id": "home-assistant/core:459717219",
+      "product": "Home Assistant",
+      "repository": "home-assistant/core",
+      "name": "2026.12.0b2",
+      "tag": "2026.12.0b2",
+      "url": "https://github.com/home-assistant/core/releases/tag/2026.12.0b2",
+      "publishedAt": "2026-11-26T17:25:26Z",
+      "channel": "prerelease",
+      "accent": "blue"
+    },
+    {
+      "id": "home-assistant/core:459156591",
+      "product": "Home Assistant",
+      "repository": "home-assistant/core",
+      "name": "2026.12.0b1",
+      "tag": "2026.12.0b1",
+      "url": "https://github.com/home-assistant/core/releases/tag/2026.12.0b1",
+      "publishedAt": "2026-11-26T08:54:19Z",
+      "channel": "prerelease",
+      "accent": "blue"
+    }
+  ],
+  "publishedPosts": [],
+  "releases": [
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2026-12-02",
+      "version": "2026.12",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2026-12-02",
+      "version": "2026.12",
+      "accent": "green"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "date": "2026-12-16",
+      "version": "2026.12",
+      "accent": "green"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "date": "2026-12-30",
+      "version": "2027.1",
+      "accent": "blue"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "date": "2027-01-06",
+      "version": "2027.1",
+      "accent": "blue"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "date": "2027-01-06",
+      "version": "2027.1",
+      "accent": "green"
+    }
+  ],
+  "communityMeetups": [
+    {
+      "id": "evt-87JtJwYoojgDwdR@events.lu.ma",
+      "title": "Home Assistant Meetup Köln",
+      "url": "https://luma.com/83fycwc9",
+      "startAt": "2026-12-03T17:00:00.000Z",
+      "endAt": "2026-12-03T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-12-03",
+      "endDate": "2026-12-03",
+      "location": "REWE Digital GmbH, Schanzenstraße 6-20, 51063 Köln, Germany",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-JrQQIH3uBJV4C3A@events.lu.ma",
+      "title": "Home Assistant Meetup - Carpi",
+      "url": "https://luma.com/yjfnms6a",
+      "startAt": "2026-12-12T08:30:00.000Z",
+      "endAt": "2026-12-12T11:30:00.000Z",
+      "allDay": false,
+      "date": "2026-12-12",
+      "endDate": "2026-12-12",
+      "location": "TERMINAL - Terre d’Argine Innovation Lab, Piazzale Allende Salvador, 5, 41012 Carpi MO, Italy",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-3GIz2yYPGSZ8Gnw@events.lu.ma",
+      "title": "Orlando Home Assistant Meetup: Get-Together & Gear Swap",
+      "url": "https://luma.com/qpe49nll",
+      "startAt": "2027-01-09T14:00:00.000Z",
+      "endAt": "2027-01-09T17:00:00.000Z",
+      "allDay": false,
+      "date": "2027-01-09",
+      "endDate": "2027-01-09",
+      "location": "Stardust Video & Coffee, 1842 Winter Park Rd, Orlando, FL 32803, USA",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-9d75XRFz6VpfCfI@events.lu.ma",
+      "title": "Home Assistant Community Meetup - Tauranga",
+      "url": "https://luma.com/0nai7yth",
+      "startAt": "2027-01-26T04:30:00.000Z",
+      "endAt": "2027-01-26T05:30:00.000Z",
+      "allDay": false,
+      "date": "2027-01-26",
+      "endDate": "2027-01-26",
+      "location": "148 Durham Street, Tauranga 3110, New Zealand",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "script-conditions-memory-growth",
+      "title": "Repeated automations stop leaking memory",
+      "dek": "A 50,000-run comparison isolates one cause of rising resource use without predicting savings for every home.",
+      "body": [
+        "A routine that repeatedly evaluates a template could keep a fresh copy of the same condition check in memory on each run. Home Assistant reuses the saved check instead, while still evaluating it with the current values.",
+        "In @jgaalen’s controlled comparison, 50,000 additional script runs after 100 warmups left about 53.7 MB of extra live Python allocations before the correction and 36 KB after it. That measures retained program data, not the process’s total memory. The store of reusable checks held 50,100 entries before and one after.",
+        "The test used isolated processes without integrations or devices, with one trial per comparison. It demonstrates this leak being eliminated, not that every source of growing memory use in a real installation will disappear."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 94,
+      "contributors": [
+        "jgaalen"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "jgaalen",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/10229665?v=4",
+          "profileUrl": "https://github.com/jgaalen"
+        }
+      ],
+      "reviewers": [
+        "frenck"
+      ],
+      "approvers": [
+        "frenck"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5448307528",
+          "title": "Fix script condition cache growth after template renders",
+          "url": "https://github.com/home-assistant/core/pull/182183",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-11-27/script-conditions-memory-growth-680ba4e7278e-1600w.webp",
+          "alt": "Four comparison charts showing condition-cache memory and entry counts during isolated script runs before and after the correction.",
+          "caption": "A controlled synthetic comparison isolates one cache-growth mechanism; it is not a forecast for a production installation.",
+          "width": 1600,
+          "height": 1067,
+          "variants": [
+            {
+              "url": "/media/2026-11-27/script-conditions-memory-growth-680ba4e7278e-480w.webp",
+              "width": 480,
+              "height": 320,
+              "bytes": 17036,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-27/script-conditions-memory-growth-680ba4e7278e-960w.webp",
+              "width": 960,
+              "height": 640,
+              "bytes": 46026,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-27/script-conditions-memory-growth-680ba4e7278e-1600w.webp",
+              "width": 1600,
+              "height": 1067,
+              "bytes": 81802,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 144864
+        }
+      ]
+    },
+    {
+      "id": "shared-streaming-account-owner-priority",
+      "title": "Share a music account without losing your own turn",
+      "dek": "Borrowing can be limited to people without their own subscription, or allowed when their account is busy.",
+      "body": [
+        "A household subscription reserved for whole-home music need not be occupied by someone whose own account is free. Music Assistant adds “Playback by others” choices that let its owner keep playback to themselves, share only with people who lack an account of that service, or also help when another person’s account is busy.",
+        "Playback prefers the listener’s own account, then one shared with them by name, then one shared with everybody. An account offered as a fallback is tried only after other usable sources, while listening history still goes to the listener’s own account.",
+        "When the owner starts listening, another person using that account continues at the same position through an available permitted account. If none is free, their playback stops with its place preserved. The owner’s other players are not taken over."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 91,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "6615544824",
+          "title": "Let the owner choose when a shared account plays for others",
+          "url": "https://github.com/music-assistant/server/pull/8161",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "6616724590",
+          "title": "Let the owner of a shared account go first when someone else plays it",
+          "url": "https://github.com/music-assistant/server/pull/8177",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "6616159709",
+          "title": "Let the owner choose when a shared account plays for others",
+          "url": "https://github.com/music-assistant/frontend/pull/3343",
+          "repository": "music-assistant/frontend"
+        }
+      ],
+      "externalSources": [],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-11-27/shared-streaming-account-owner-priority-fb254000d1d1-760w.webp",
+          "alt": "The Playback by others choices in a shared music account’s settings",
+          "caption": "The account owner chooses when other listeners may use the subscription.",
+          "width": 760,
+          "height": 780,
+          "variants": [
+            {
+              "url": "/media/2026-11-27/shared-streaming-account-owner-priority-fb254000d1d1-480w.webp",
+              "width": 480,
+              "height": 493,
+              "bytes": 10080,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-27/shared-streaming-account-owner-priority-fb254000d1d1-760w.webp",
+              "width": 760,
+              "height": 780,
+              "bytes": 18668,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 28748
+        }
+      ]
+    },
+    {
+      "id": "airplay-keeps-speaker-volume",
+      "title": "Music starts at the speaker’s volume, not a stored guess",
+      "dek": "Related corrections address unexpected jumps on WiiM, Bose, LinkPlay and HomePod players.",
+      "body": [
+        "Reports describe a WiiM Mini jumping to 60% and a Bose SoundTouch to 100% when an AirPlay session starts without an explicit level. Music Assistant sends those speakers their current volume when their own controls are responsible for it.",
+        "For players without a saved preference, volume and mute again use the speaker’s own connection when reachable. Generic LinkPlay speakers, including the Edifier MS50A, gain that control path too, keeping changes made with a remote or app visible while idle.",
+        "HomePods are asked for their real volume when Music Assistant connects, rather than starting the next stream at a saved guess. Existing choices of control method remain in place; if a HomePod does not answer, its previous behavior remains."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 89,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "6616723408",
+          "title": "Keep WiiM and Bose SoundTouch speakers at their own volume when AirPlay starts",
+          "url": "https://github.com/music-assistant/server/pull/8176",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "6622264118",
+          "title": "Use the speaker's own volume control by default again",
+          "url": "https://github.com/music-assistant/server/pull/8183",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5515186981",
+          "title": "Let Edifier and other LinkPlay speakers use their own volume control",
+          "url": "https://github.com/music-assistant/server/pull/8197",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5501596284",
+          "title": "Show the real HomePod volume as soon as Music Assistant connects",
+          "url": "https://github.com/music-assistant/server/pull/8173",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "corrupt-database-file-cleanup",
+      "title": "Old damaged databases no longer hide their disk use",
+      "dek": "A repair notice offers removal only after confirmation, leaving recovery copies available to keep.",
+      "body": [
+        "When a damaged SQLite history database is replaced, its old files can remain on disk indefinitely. Home Assistant reports how many of those files exist and how much space they occupy, with a repair flow that asks before deleting them.",
+        "Owners who want the files for recovery can ignore the notice. A later corruption produces a new notice, and confirmation removes only the files that were shown. This cleans up abandoned files; it does not repair the damaged database or its underlying storage."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 87,
+      "contributors": [
+        "erwindouna"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "erwindouna",
+          "name": "Erwin Douna",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5011203?v=4",
+          "profileUrl": "https://github.com/erwindouna"
+        }
+      ],
+      "reviewers": [
+        "chemelli74",
+        "frenck",
+        "c0ffeeca7"
+      ],
+      "approvers": [
+        "frenck",
+        "c0ffeeca7"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "chemelli74",
+          "name": "Simone Chemelli",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/57354320?v=4",
+          "profileUrl": "https://github.com/chemelli74"
+        },
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        },
+        {
+          "login": "c0ffeeca7",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/38767475?v=4",
+          "profileUrl": "https://github.com/c0ffeeca7"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5632642545",
+          "title": "Add repair issue for corrupt recorder database files",
+          "url": "https://github.com/home-assistant/core/pull/183612",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5632676830",
+          "title": "Mention the corrupt database repair in the recorder docs",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/48576",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "queue-items-personal-listening-progress",
+      "title": "Your podcast progress stays yours in a shared queue",
+      "dek": "Adding an episode or letting an automation add one no longer changes who receives the earlier item’s history.",
+      "body": [
+        "While one person listens to a podcast, somebody else can add the next episode without inheriting the first person’s progress. Each Music Assistant queue item remembers who added it and uses that person’s music sources, instead of assigning every play to whoever last changed the queue.",
+        "The same correction keeps a Home Assistant automation from taking ownership of later listening. Automatic song choices count for the person who started the queue, and the next book or episode follows the preceding item’s listener. Older saved queues use the identity of the person who last started them."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 86,
+      "contributors": [
+        "fmunkes"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "fmunkes",
+          "name": "Fabian Munkes",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/105975993?v=4",
+          "profileUrl": "https://github.com/fmunkes"
+        }
+      ],
+      "reviewers": [
+        "marcelveldt",
+        "MarvinSchenkel"
+      ],
+      "approvers": [
+        "marcelveldt"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        },
+        {
+          "login": "MarvinSchenkel",
+          "name": "Marvin Schenkel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
+          "profileUrl": "https://github.com/MarvinSchenkel"
+        }
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5443440153",
+          "title": "Credit plays and progress to the user who added the item to the queue",
+          "url": "https://github.com/music-assistant/server/pull/8068",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "genre-scan-library-stall",
+      "title": "Nightly library checks stop holding up your music",
+      "dek": "A 50,000-track test cut the affected scan from 67 seconds to 0.26 seconds after a 2.11 beta regression.",
+      "body": [
+        "A routine scan after a library update or overnight could make every other library lookup wait for minutes. Music Assistant speaker commands could then fail with “still busy with a previous command”, as reported for a group of WiiM speakers.",
+        "The scan again looks up genre names through an index instead of searching repeatedly for every tag. Marcel van der Veldt reports the 50,000-track comparison; it measures this scan, rather than promising that a complete library update will take a fraction of a second."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 84,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5515538834",
+          "title": "Fix the server stalling for minutes during the genre scan on large libraries",
+          "url": "https://github.com/music-assistant/server/pull/8199",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esp32-p4-camera-sensors",
+      "title": "Build a camera around the ESP32-P4’s video connector",
+      "dek": "Pictures feed the existing Home Assistant camera connection; the hardware trial covers one Waveshare board and sensor.",
+      "body": [
+        "A local camera built around an ESP32-P4 can use the chip’s dedicated MIPI-CSI connector, a connection for camera sensors. ESPHome exposes it through its existing camera platform, with settings for image size, JPEG quality, frame rate and image orientation.",
+        "Horstexplorer tested a Waveshare ESP32-P4-WiFi6 board with an OV5647 sensor. The setup needs Espressif’s ESP-IDF development framework and extra working memory called PSRAM; the guide recommends a memory clock of at least 100 MHz where supported to avoid damaged pictures at higher resolutions or frame rates.",
+        "Other listed sensors have their own supported image sizes and formats, without evidence of a hardware trial for every combination. The accompanying guide is Horstexplorer’s first contribution to the ESPHome documentation repository."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 82,
+      "contributors": [
+        "Horstexplorer"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "Horstexplorer",
+          "name": "Horstexplorer",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/21320859?v=4",
+          "profileUrl": "https://github.com/Horstexplorer"
+        }
+      ],
+      "reviewers": [
+        "bdraco",
+        "clydebarrow"
+      ],
+      "approvers": [
+        "bdraco",
+        "clydebarrow"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        },
+        {
+          "login": "clydebarrow",
+          "name": "Clyde Stubbs",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2366188?v=4",
+          "profileUrl": "https://github.com/clydebarrow"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "4607907734",
+          "title": "[mipi_csi] adds support for mipi csi camera sensors on esp32-p4",
+          "url": "https://github.com/esphome/esphome/pull/19480",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "4617859471",
+          "title": "[mipi_csi] adds documentation for mipi_csi component",
+          "url": "https://github.com/esphome/esphome.io/pull/7425",
+          "repository": "esphome/esphome.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "caldav-to-do-reordering",
+      "title": "Put shared tasks in the order you want",
+      "dek": "Manual sorting follows between Home Assistant and compatible services such as Nextcloud Tasks.",
+      "body": [
+        "Dragging an item in a CalDAV to-do list changes its saved position instead of leaving the list in the server’s arbitrary order. Home Assistant uses the ordering convention understood by Nextcloud Tasks and Tasks.org, so compatible apps can show the same sequence.",
+        "New tasks appear at the end. Older items created without a creation time initially sort first, and completed tasks are ordered separately from open ones. The contributor checked ordering against Nextcloud Tasks in both directions and exercised the change with five CalDAV servers."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 81,
+      "contributors": [
+        "ivenos",
+        "joostlek"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "ivenos",
+          "name": "iven",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/99438726?v=4",
+          "profileUrl": "https://github.com/ivenos"
+        },
+        {
+          "login": "joostlek",
+          "name": "Joost Lekkerkerker",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/7083755?v=4",
+          "profileUrl": "https://github.com/joostlek"
+        }
+      ],
+      "reviewers": [
+        "frenck",
+        "epenet"
+      ],
+      "approvers": [
+        "frenck",
+        "epenet"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        },
+        {
+          "login": "epenet",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6771947?v=4",
+          "profileUrl": "https://github.com/epenet"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "6075199815",
+          "title": "Allow moving CalDAV to-do items",
+          "url": "https://github.com/home-assistant/core/pull/189018",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "6630742897",
+          "title": "Save moved CalDAV to-do items in a single executor job",
+          "url": "https://github.com/home-assistant/core/pull/194810",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "6075217894",
+          "title": "Document moving CalDAV to-do items",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/49947",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "vehicle-radar-readings",
+      "title": "Watch approaching vehicles with a homemade radar sensor",
+      "dek": "The LD2451 reports speed and distance for up to five targets; configuration controls remain separate work.",
+      "body": [
+        "A radar pointed down a driveway or street can supply a vehicle count and each target’s distance, angle and speed to ESPHome. Kyrill adds support for the Hi-Link LD2451, intended for vehicles rather than indoor room presence.",
+        "The implementation follows direction values observed on hardware, correcting a reversal in the manufacturer’s protocol description. In a three-hour-and-25-minute roadside test, an ESP32-C3 received 8,606 frames without warnings or rejected frames, and the observed passes confirmed which direction meant approaching.",
+        "This addition reads the radar. Controls for detection range, sensitivity and direction filtering, plus a dedicated approach-alarm signal, remain separate work."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 80,
+      "contributors": [
+        "poolski"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "poolski",
+          "name": "Kyrill",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1942093?v=4",
+          "profileUrl": "https://github.com/poolski"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5509784488",
+          "title": "[ld2451] Add LD2451 radar hub and sensor platform",
+          "url": "https://github.com/esphome/esphome/pull/23330",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "template-timestamps-configured-timezone",
+      "title": "Time calculations follow the home’s chosen time zone",
+      "dek": "Container users who added a manual correction may need to remove it.",
+      "body": [
+        "Noon on a particular date can mean different moments to a container and the home it controls. The as_timestamp template function converts a date into a numeric time; dates without a time-zone marker use Home Assistant’s configured zone instead of the process’s zone.",
+        "If a template added an offset to compensate for the previous behavior, remove that adjustment when adopting the change. Dates that already contain a time zone are unaffected, as are ordinary setups where the process and Home Assistant use the same zone."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 82,
+      "contributors": [
+        "raman325"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "raman325",
+          "name": "Raman Gupta",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/7243222?v=4",
+          "profileUrl": "https://github.com/raman325"
+        }
+      ],
+      "reviewers": [
+        "frenck"
+      ],
+      "approvers": [
+        "frenck"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5949119276",
+          "title": "Use configured time zone for naive date/times in as_timestamp",
+          "url": "https://github.com/home-assistant/core/pull/187676",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "native-controls-mp3-crossfade",
+      "title": "Pause a crossfaded playlist from the speaker itself",
+      "dek": "MP3 joins WAV, Cast gains track-by-track controls, and the special DLNA setup switch disappears.",
+      "body": [
+        "With track-by-track playback selected, a queue with overlapping transitions can use the speaker’s own pause and seek controls. Music Assistant extends yesterday’s WAV support on Sonos and compatible DLNA network players to crossfades and to MP3, which uses much less bandwidth.",
+        "Compatible DLNA players automatically receive the track information they need, replacing “Requires a fixed content length”. Cast supports its own pause, resume and seek when flow mode is off and MP3 or WAV is selected. Flow mode sends one continuous stream, and remains Cast’s default.",
+        "The work was checked with a WiiM Pro and Sonos Era 100, and the Cast addition with a Chromecast Audio, Nest Hub, Samsung Music Frame and a Cast group. A crossfading queue that repeats just one or two tracks keeps its previous streaming path."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 82,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "6617688698",
+          "title": "Let a player pause, resume and seek by itself in a queue with crossfade (WAV)",
+          "url": "https://github.com/music-assistant/server/pull/8179",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "6628402624",
+          "title": "Let a player pause, resume and seek by itself in an MP3 track",
+          "url": "https://github.com/music-assistant/server/pull/8191",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5518656924",
+          "title": "Pause and seek on a Cast device itself when it plays track by track",
+          "url": "https://github.com/music-assistant/server/pull/8210",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5519072310",
+          "title": "Remove the fixed content length setting: players get what they need by themselves",
+          "url": "https://github.com/music-assistant/server/pull/8211",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "intesis-external-room-temperature",
+      "title": "Let the air conditioner use a separate room thermometer",
+      "dek": "Intesis controls also expose the open-window signal and its automatic shutoff delay.",
+      "body": [
+        "A thermometer elsewhere in the room can supply the temperature an Intesis-connected air conditioner regulates against. A new setting accepts a reference from 10 to 38 °C; additional readings show the reference in use and the target temperature the unit actually applies.",
+        "The gateway’s open-window state also becomes visible, with a configurable delay of up to 30 minutes before it turns the air conditioner off. Alarm and remote-control-lock readings help explain why the unit is not behaving as expected. Several diagnostic settings and readings need enabling first.",
+        "This builds on the existing Intesis Modbus connection. It exposes the gateway’s controls and signals; it does not automatically select a room sensor or add support for every Intesis gateway."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 80,
+      "contributors": [
+        "TimoPtr"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "TimoPtr",
+          "name": "Timothy",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6560631?v=4",
+          "profileUrl": "https://github.com/TimoPtr"
+        }
+      ],
+      "reviewers": [
+        "frenck"
+      ],
+      "approvers": [
+        "frenck"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "6622174379",
+          "title": "Add number platform to Intesis Modbus",
+          "url": "https://github.com/home-assistant/core/pull/194688",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "6621962700",
+          "title": "Add input reference temp, real set point and control lock sensors",
+          "url": "https://github.com/home-assistant/core/pull/194681",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "6603289670",
+          "title": "Add alarm and window binary sensors to Intesis modbus",
+          "url": "https://github.com/home-assistant/core/pull/194450",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "c6-clock-fault-workaround",
+      "title": "A Wi-Fi setting may stop unexplained sensor freezes",
+      "dek": "New guidance identifies a timer fault on some ESP32-C6 revision 0.2 chips.",
+      "body": [
+        "Sensors can stop updating for minutes or hours when an affected chip’s clock jumps backwards. A Bluetooth proxy may restart with a “Scan never terminated” message. ESPHome’s new warning explains how to identify revision 0.2 in the startup log.",
+        "Several users reported stopping the fault on Wi-Fi by setting output_power to 15dB under wifi. The problem has also been reported with Thread, but that Wi-Fi workaround is not a Thread fix or a guarantee for every affected board."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 79,
+      "contributors": [
+        "bdraco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "reviewers": [
+        "swoboda1337"
+      ],
+      "approvers": [
+        "swoboda1337"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "swoboda1337",
+          "name": "Jonathan Swoboda",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/154711427?v=4",
+          "profileUrl": "https://github.com/swoboda1337"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5340189298",
+          "title": "[esp32] Note the ESP32-C6 rev v0.2 system timer fault",
+          "url": "https://github.com/esphome/esphome.io/pull/8144",
+          "repository": "esphome/esphome.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "marketplace-translated-readmes",
+      "title": "Read a community integration’s guide in the home’s language",
+      "dek": "Repository authors must supply a matching translation; the original remains the fallback.",
+      "body": [
+        "A community integration can already include translated instructions beside its main README. The Marketplace repository page selects the best matching file for Home Assistant’s configured language instead of always showing the default document.",
+        "The translation follows the installed version when there is one. With no matching file, or when the file list cannot be read, the original instructions remain. The current interface uses the home-wide language rather than each person’s preference.",
+        "Alexander Hass accompanies the implementation with his first contribution to Home Assistant’s documentation repository."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 78,
+      "contributors": [
+        "alexhass"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "alexhass",
+          "name": "Alexander Hass",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/4450722?v=4",
+          "profileUrl": "https://github.com/alexhass"
+        }
+      ],
+      "reviewers": [
+        "frenck"
+      ],
+      "approvers": [
+        "frenck"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "6147466547",
+          "title": "Show the README in the language of the user in the Marketplace",
+          "url": "https://github.com/home-assistant/core/pull/189842",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "6147580723",
+          "title": "Document translated READMEs on the Marketplace repository page",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50098",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "standard-expert-listening-interface",
+      "title": "A simpler play menu is a profile choice",
+      "dek": "Every user can change Standard or Expert mode from their profile, including administrators.",
+      "body": [
+        "The Standard play menu offers Play now, Play next and Add to the queue, leaving the extra choices to Expert mode. Music Assistant keeps useful source names and library indicators while hiding the technical line and sample button.",
+        "The choice lives in Profile → Interface and can be changed after setup. Advanced settings start hidden in Standard and visible in Expert until the person chooses otherwise. Administrators who never made a choice normally start in Expert; other users start in Standard."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 77,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5518653294",
+          "title": "Choose Standard or Expert in your profile, and keep Standard simpler",
+          "url": "https://github.com/music-assistant/frontend/pull/3353",
+          "repository": "music-assistant/frontend"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "flo-distinct-alert-events",
+      "title": "A second water warning can trigger its own response",
+      "dek": "Flo valves report new events even while an earlier alert remains undismissed.",
+      "body": [
+        "A pending-alert sensor stays on after the first warning, making a later water shutoff hard to distinguish. Home Assistant adds a Flo event entity—a signal that automations can react to—for each newly pending alert or increase in its count.",
+        "Events include the warning’s severity and type. Existing alerts are not replayed on startup, and several occurrences between checks are represented by their higher count. The feature covers valves, not leak-detector pucks.",
+        "Automated tests cover event firing. The contributor’s live valve check verified setup and that old alerts were not replayed; it did not encounter a new alert."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "ajplotkin"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "ajplotkin",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/61085222?v=4",
+          "profileUrl": "https://github.com/ajplotkin"
+        }
+      ],
+      "reviewers": [
+        "frenck"
+      ],
+      "approvers": [
+        "frenck"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "6130408097",
+          "title": "Add an alert event entity to Flo",
+          "url": "https://github.com/home-assistant/core/pull/189637",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "6130410274",
+          "title": "Document the Flo alert event entity",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50063",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "powerwall-local-control-fallback-notice",
+      "title": "Older Powerwall gateways get their own sign-in",
+      "dek": "A repair notice also makes a failed local-control key visible instead of silently relying on the cloud.",
+      "body": [
+        "Early Tesla Backup Gateway 1 units can reject the shortened password used by newer gateways. Teslemetry recognizes those units during local pairing and asks for their full gateway password, keeping it intact when connecting again later.",
+        "A site already configured for local control also gets a repair notice if its key file cannot be loaded and commands fall back to the cloud. The notice names the site and file and clears when local control works again or that local-control entry is removed.",
+        "Other gateways and existing configurations keep their current login path. These changes improve local setup and visibility; they do not remove the integration’s dependence on cloud data or prevent fallback."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "Bre77"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "Bre77",
+          "name": "Brett Adams",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2647914?v=4",
+          "profileUrl": "https://github.com/Bre77"
+        }
+      ],
+      "reviewers": [
+        "frenck",
+        "zweckj"
+      ],
+      "approvers": [
+        "frenck",
+        "zweckj"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        },
+        {
+          "login": "zweckj",
+          "name": "Josef Zweck",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/24647999?v=4",
+          "profileUrl": "https://github.com/zweckj"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "6599945323",
+          "title": "Use the legacy gateway login for Teslemetry Gateway 1 sites",
+          "url": "https://github.com/home-assistant/core/pull/194397",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5487466492",
+          "title": "Use the legacy gateway login for Teslemetry Gateway 1 sites",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/51124",
+          "repository": "home-assistant/home-assistant.io"
+        },
+        {
+          "id": "6622166558",
+          "title": "Raise a repair when Teslemetry local Powerwall control falls back to cloud",
+          "url": "https://github.com/home-assistant/core/pull/194687",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "squeezelite-reconnect-power-state",
+      "title": "Reconnecting a speaker need not cycle its amplifier",
+      "dek": "Squeezelite receives its saved power state immediately instead of a brief off-then-on sequence.",
+      "body": [
+        "An amplifier or relay controlled by a squeezelite power script could switch off and back on whenever Music Assistant reconnected. The first connection message carries the saved power state, so the device receives one instruction in the right state.",
+        "@danijel1124 makes a first contribution to Music Assistant’s server with the correction. Checks covered a Squeezebox Radio and squeezelite through server restarts, player restarts and a lost connection. A Radio or Touch can still turn itself on after a cold boot because its own software forgets the previous state."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "danijel1124"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "danijel1124",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/22705884?v=4",
+          "profileUrl": "https://github.com/danijel1124"
+        }
+      ],
+      "reviewers": [
+        "marcelveldt",
+        "MarvinSchenkel"
+      ],
+      "approvers": [
+        "marcelveldt",
+        "MarvinSchenkel"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        },
+        {
+          "login": "MarvinSchenkel",
+          "name": "Marvin Schenkel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
+          "profileUrl": "https://github.com/MarvinSchenkel"
+        }
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5515913287",
+          "title": "Squeezelite: connect a player in its saved power state",
+          "url": "https://github.com/music-assistant/server/pull/8201",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5401102954",
+          "title": "Restore the power state of a connecting player like LMS",
+          "url": "https://github.com/music-assistant/aioslimproto/pull/628",
+          "repository": "music-assistant/aioslimproto"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "devialet-browse-play-local-media",
+      "title": "Send a radio station straight to a Devialet speaker",
+      "dek": "The system’s main speaker gains media browsing, while playback changes arrive without waiting for a poll.",
+      "body": [
+        "Audio from Home Assistant’s media browser, including Radio Browser stations, can be sent to a Devialet system once its main speaker’s network media renderer is found. Home Assistant and the speakers need to be on the same network.",
+        "A companion change receives volume, mute, source, playback and track updates directly from the speaker. Routine polling becomes less frequent while that connection works and returns to its previous pace if the connection drops."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 75,
+      "contributors": [
+        "fwestenberg"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "fwestenberg",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/47930023?v=4",
+          "profileUrl": "https://github.com/fwestenberg"
+        }
+      ],
+      "reviewers": [
+        "frenck"
+      ],
+      "approvers": [
+        "frenck"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "6606827494",
+          "title": "Add media playback and browsing to Devialet",
+          "url": "https://github.com/home-assistant/core/pull/194513",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "6626663621",
+          "title": "Add push updates to Devialet",
+          "url": "https://github.com/home-assistant/core/pull/194742",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "6606900222",
+          "title": "Document media playback for Devialet",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/51156",
+          "repository": "home-assistant/home-assistant.io"
+        },
+        {
+          "id": "5510058264",
+          "title": "Document push updates for Devialet",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/51216",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "energyzero-gas-tax-inclusive-prices",
+      "title": "Gas price readings include tax as well as the market rate",
+      "dek": "EnergyZero’s purchasing fee remains outside the displayed amount.",
+      "body": [
+        "An energy automation can use the current or next hour’s gas price including energy tax and VAT, instead of calculating those additions from the market rate. Home Assistant adds two EnergyZero readings for that amount.",
+        "Existing gas readings are labelled as market prices and keep their entity IDs. The “all-in” figure excludes EnergyZero’s purchasing fee, so it is not every customer’s final bill.",
+        "David Shaw contributes the readings and guide in his first contributions to Home Assistant Core and its documentation repository."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 72,
+      "contributors": [
+        "nythtech-nl"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "nythtech-nl",
+          "name": "David Shaw",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/254768704?v=4",
+          "profileUrl": "https://github.com/nythtech-nl"
+        }
+      ],
+      "reviewers": [
+        "frenck",
+        "klaasnicolaas"
+      ],
+      "approvers": [
+        "frenck",
+        "klaasnicolaas"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        },
+        {
+          "login": "klaasnicolaas",
+          "name": "Klaas Schoute",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/20448157?v=4",
+          "profileUrl": "https://github.com/klaasnicolaas"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "6422748730",
+          "title": "Add all-in gas price sensors to EnergyZero",
+          "url": "https://github.com/home-assistant/core/pull/192910",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "6429002361",
+          "title": "Add all-in gas price sensors to EnergyZero",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50693",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "distance-sensor-farthest-target",
+      "title": "Measure past a partial obstruction",
+      "dek": "A new distance sensor can select the nearest, farthest or strongest return.",
+      "body": [
+        "A box partly in front of a distance sensor need not hide the floor or ceiling behind it. The VL53L4CX component lets an ESPHome maker choose which detected object to report and ignore objects closer than a chosen minimum distance.",
+        "The component uses ST’s target-detection driver. In a bench comparison with a box about 20 centimetres away and a ceiling at 2.4 metres, that driver reported both objects while the simpler comparison reported only the box.",
+        "The work prepares a path for ratgdo’s Disco board to use ESP-IDF, Espressif’s development framework. Adoption by ratgdo is a separate step."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 72,
+      "contributors": [
+        "bdraco"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "reviewers": [
+        "swoboda1337"
+      ],
+      "approvers": [
+        "swoboda1337"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "swoboda1337",
+          "name": "Jonathan Swoboda",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/154711427?v=4",
+          "profileUrl": "https://github.com/swoboda1337"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5462559547",
+          "title": "[vl53l4cx] Add the VL53L4CX multi-target time-of-flight sensor",
+          "url": "https://github.com/esphome/esphome/pull/23215",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "5462519270",
+          "title": "[vl53l4cx] Document the VL53L4CX multi-target time-of-flight sensor",
+          "url": "https://github.com/esphome/esphome.io/pull/8230",
+          "repository": "esphome/esphome.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "enocean-esp2-dongles",
+      "title": "Older EnOcean adapters get a working setup path",
+      "dek": "Automatic protocol detection supports the Eltako FAM-USB and filters its unused serial port.",
+      "body": [
+        "An Eltako FAM-USB adapter could be offered for setup but never work because the connection always assumed a newer serial protocol. Home Assistant detects which EnOcean protocol the dongle speaks and starts it accordingly.",
+        "For adapters that expose multiple ports, only the responding radio port is normally offered. Existing configurations keep their previous protocol. The contributor verified setup and repeated opening with a FAM-USB on Linux; this is adapter compatibility, not a promise that every EnOcean device is supported."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 71,
+      "contributors": [
+        "eltakoal"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "eltakoal",
+          "name": "AlexSperka",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/222787144?v=4",
+          "profileUrl": "https://github.com/eltakoal"
+        }
+      ],
+      "reviewers": [
+        "frenck"
+      ],
+      "approvers": [
+        "frenck"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5454309983",
+          "title": "Support EnOcean dongles that speak ESP2",
+          "url": "https://github.com/home-assistant/core/pull/193970",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "lutron-motor-covers-and-shade-stop",
+      "title": "Drapery motors get working open, close and stop controls",
+      "dek": "Supported Lutron systems also gain a stop command for moving shades.",
+      "body": [
+        "Motor modules used for curtains and screens were represented as switches that failed whenever they were operated. In Home Assistant’s Lutron integration, they become covers with open, close and stop controls; shades also gain the ability to halt partway through movement.",
+        "The motors do not report or accept a position percentage. Raz makes a first contribution to Home Assistant Core, building on work originally submitted by @afalk42, and tested the change on a HomeWorks QS system with 23 shades and three motor outputs. Existing Sivoia QED outputs remain lights."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 70,
+      "contributors": [
+        "razsteinmetz"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "razsteinmetz",
+          "name": "Raz",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/24994504?v=4",
+          "profileUrl": "https://github.com/razsteinmetz"
+        }
+      ],
+      "reviewers": [
+        "frenck"
+      ],
+      "approvers": [
+        "frenck"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "6541914155",
+          "title": "Add Lutron motor covers and stop for shades",
+          "url": "https://github.com/home-assistant/core/pull/193786",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "bluetti-balco-working-mode",
+      "title": "Choose how a Balco 260 home battery should work",
+      "dek": "A local selector exposes Custom, Self-consumption and Backup modes.",
+      "body": [
+        "A battery can be switched between its three working modes through Home Assistant’s existing local BLUETTI Modbus connection. The contributor verified changes on a Balco 260, including reading back choices made in the BLUETTI app.",
+        "Firmware that rejects this optional setting leaves the selector unavailable while other settings keep working. Changing the mode does not itself toggle the AC output, grid charging or grid feed-in switches."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 69,
+      "contributors": [
+        "chpego"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "chpego",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/38792705?v=4",
+          "profileUrl": "https://github.com/chpego"
+        }
+      ],
+      "reviewers": [
+        "frenck"
+      ],
+      "approvers": [
+        "frenck"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "6611268466",
+          "title": "Add working mode select to BLUETTI Modbus",
+          "url": "https://github.com/home-assistant/core/pull/194569",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "6611293927",
+          "title": "Document the BLUETTI Modbus working mode select",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/51171",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "matter-stateful-firewall-guidance",
+      "title": "Keep a firewall from cutting off quiet Matter devices",
+      "dek": "Both connection-tracking timeouts matter; ordinary Home Assistant OS needs no change.",
+      "body": [
+        "A device can connect successfully and later have its next update rejected as unsolicited traffic. The revised Matter.js Server guide explains why increasing only one Linux firewall timeout can leave brief exchanges subject to a 30-second limit.",
+        "It recommends checking both UDP tracking timeouts—the timers for remembering device conversations—on the machine that filters the packets and setting them to at least 3,700 seconds. Long-sleeping devices need a timeout beyond their longest idle interval. This concerns custom firewall arrangements, not ordinary Home Assistant OS installations.",
+        "Eric Schoeller makes his first contribution to Matter.js Server with the explanation of short exchanges. Ingo Fischer follows with the revised timeout guidance."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 68,
+      "contributors": [
+        "eschoeller",
+        "Apollon77"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "eschoeller",
+          "name": "Eric Schoeller",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12864741?v=4",
+          "profileUrl": "https://github.com/eschoeller"
+        },
+        {
+          "login": "Apollon77",
+          "name": "Ingo Fischer",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/11976694?v=4",
+          "profileUrl": "https://github.com/Apollon77"
+        }
+      ],
+      "reviewers": [
+        "agners"
+      ],
+      "approvers": [],
+      "reviewerProfiles": [
+        {
+          "login": "agners",
+          "name": "Stefan Agner",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/34061?v=4",
+          "profileUrl": "https://github.com/agners"
+        }
+      ],
+      "topics": [
+        "Matter.js"
+      ],
+      "pullRequests": [
+        {
+          "id": "5502588532",
+          "title": "docs: also raise nf_conntrack_udp_timeout for stateful firewalls",
+          "url": "https://github.com/matter-js/matterjs-server/pull/1323",
+          "repository": "matter-js/matterjs-server"
+        },
+        {
+          "id": "5507310454",
+          "title": "Adjust conntrack UDP timeout settings to 3700 and 90000",
+          "url": "https://github.com/matter-js/matterjs-server/pull/1324",
+          "repository": "matter-js/matterjs-server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "times-of-day-sun-boundaries",
+      "title": "Dusk-to-dawn helpers no longer need handwritten configuration",
+      "dek": "Times of the Day accepts sunrise, sunset and offsets in its setup form.",
+      "body": [
+        "An overnight period can follow the sun rather than a fixed clock time. Home Assistant’s Times of the Day helper lets its boundaries use sun positions and optional offsets directly in the configuration interface.",
+        "This brings the interface in line with options already available through YAML configuration. Existing time-based helpers are migrated to the explicit time-or-sun settings."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 67,
+      "contributors": [
+        "andrew-codechimp"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "andrew-codechimp",
+          "name": "Andrew Jackson",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1849731?v=4",
+          "profileUrl": "https://github.com/andrew-codechimp"
+        }
+      ],
+      "reviewers": [
+        "frenck"
+      ],
+      "approvers": [
+        "frenck"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "6351259835",
+          "title": "Add sun positions to Times of the Day config flow",
+          "url": "https://github.com/home-assistant/core/pull/192274",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "6351304395",
+          "title": "Add sun position Times of the Day UI configuration options",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50526",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "victron-hourly-forecast-actions",
+      "title": "Tomorrow’s solar outlook becomes an automation input",
+      "dek": "Victron supplies hourly production and consumption estimates already held by the integration.",
+      "body": [
+        "A home-energy routine can ask for forecast watt-hours over a chosen time window rather than reading only a summary. Home Assistant’s Victron Remote Monitoring action returns hourly solar and consumption estimates in time order.",
+        "The action uses the existing cached forecast, making no extra request to Victron. Missing values remain empty; it supplies estimates for a routine to use, not automatic battery scheduling."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 66,
+      "contributors": [
+        "GoNzCiD"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "GoNzCiD",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/12912439?v=4",
+          "profileUrl": "https://github.com/GoNzCiD"
+        }
+      ],
+      "reviewers": [
+        "AndyTempel",
+        "frenck"
+      ],
+      "approvers": [
+        "AndyTempel",
+        "frenck"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "AndyTempel",
+          "name": "NANI",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/9637751?v=4",
+          "profileUrl": "https://github.com/AndyTempel"
+        },
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "6276254093",
+          "title": "Add hourly forecast action to Victron Remote Monitoring",
+          "url": "https://github.com/home-assistant/core/pull/191346",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ],
+  "roadmapUpdates": []
+}
