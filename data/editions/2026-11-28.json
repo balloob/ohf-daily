@@ -1,0 +1,2107 @@
+{
+  "date": "2026-11-28",
+  "generatedAt": "2026-11-28T05:10:46.664Z",
+  "windowStart": "2026-11-27T05:04:34.640Z",
+  "windowEnd": "2026-11-28T05:04:34.640Z",
+  "timezone": "Europe/Amsterdam",
+  "stats": {
+    "mergedPullRequests": 388,
+    "repositories": 37,
+    "contributors": 172,
+    "dependencyUpdates": 26,
+    "hacsNewIntegrations": 69
+  },
+  "lead": {
+    "id": "5505783358",
+    "title": "[canopen] Add node monitoring (heartbeat_clients, on_node_event) and the NMT master (canopen.nmt)",
+    "summary": "What does this implement/fix? Fourth part of the canopen component (after the SDO client, #22410, raw frames / heartbeat / EMCY triggers, #23266, and the node core, #23299): a node can…",
+    "unlocks": "Unlocks: [canopen] Add node monitoring (heartbeat_clients, on_node_event) and the NMT master (canopen.nmt).",
+    "url": "https://github.com/esphome/esphome/pull/23327",
+    "repository": "esphome/esphome",
+    "organization": "ESPHome",
+    "author": "mrk-its",
+    "mergedAt": "2026-11-27T23:58:06Z",
+    "labels": [
+      "new-feature",
+      "has-tests",
+      "core",
+      "by-code-owner",
+      "component: canopen"
+    ],
+    "kind": "feature",
+    "score": 70.6,
+    "additions": 1599,
+    "deletions": 38,
+    "changedFiles": 21
+  },
+  "highlights": [
+    {
+      "id": "4907364374",
+      "title": "[tcp_uart] Accept several connections on one port",
+      "summary": "What does this implement/fix? tcp uart in the server role accepts several clients on one port with max connections (1 to 8, default 1, which keeps today's behaviour).",
+      "unlocks": "Unlocks: [tcp_uart] Accept several connections on one port.",
+      "url": "https://github.com/esphome/esphome/pull/21040",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "Bascht74",
+      "mergedAt": "2026-11-27T20:13:52Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "core",
+        "by-code-owner",
+        "component: socket",
+        "component: tcp_uart"
+      ],
+      "kind": "feature",
+      "score": 69.3,
+      "additions": 1554,
+      "deletions": 124,
+      "changedFiles": 18
+    },
+    {
+      "id": "5519212394",
+      "title": "Playback quality: pick a quality level per player instead of an output codec",
+      "summary": "What does this implement/fix? The \"Output codec\" setting of a player made you choose between FLAC, MP3, AAC and WAV, which says little about what you get.",
+      "url": "https://github.com/music-assistant/server/pull/8212",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-27T11:55:27Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 69.2,
+      "additions": 842,
+      "deletions": 319,
+      "changedFiles": 46
+    },
+    {
+      "id": "5533835621",
+      "title": "[storage] Add the storage component and the ram_disk platform",
+      "summary": "What does this implement/fix? Add storage , a platform component for devices that store data in fixed size blocks, and ram disk , a storage platform in RAM.",
+      "unlocks": "Unlocks: [storage] Add the storage component and the ram_disk platform.",
+      "url": "https://github.com/esphome/esphome/pull/23407",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "clydebarrow",
+      "mergedAt": "2026-11-28T02:17:06Z",
+      "labels": [
+        "new-component",
+        "new-feature",
+        "has-tests",
+        "core",
+        "component: storage",
+        "new-feature-developer",
+        "component: ram_disk"
+      ],
+      "kind": "feature",
+      "score": 68.2,
+      "additions": 736,
+      "deletions": 0,
+      "changedFiles": 18
+    },
+    {
+      "id": "5531909777",
+      "title": "[core] Add `esphome prune` to remove SDK installs no longer used by default",
+      "summary": "What does this implement/fix? Nothing removes an SDK once ESPHome moves to a newer one, so the shared install folders keep growing with every framework bump.",
+      "unlocks": "Unlocks: [core] Add `esphome prune` to remove SDK installs no longer used by default.",
+      "url": "https://github.com/esphome/esphome/pull/23394",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "swoboda1337",
+      "mergedAt": "2026-11-28T00:59:49Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "core",
+        "component: libretiny",
+        "component: nrf52",
+        "platform: libretiny",
+        "platform: nrf52",
+        "mega-pr"
+      ],
+      "kind": "feature",
+      "score": 68.2,
+      "additions": 2182,
+      "deletions": 2,
+      "changedFiles": 16
+    }
+  ],
+  "briefs": [
+    {
+      "id": "3403352510",
+      "title": "[async_tcp][esp8266][mqtt] Add ESP8266 MQTT TLS support",
+      "summary": "What does this implement/fix? ESP8266 can now use MQTT over TLS, verifying the broker by its pinned SHA1 certificate fingerprint, which until now was only possible on ESP32.",
+      "unlocks": "Unlocks: [async_tcp][esp8266][mqtt] Add ESP8266 MQTT TLS support.",
+      "url": "https://github.com/esphome/esphome/pull/14855",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "2asoft",
+      "mergedAt": "2026-11-27T16:49:29Z",
+      "labels": [
+        "new-feature",
+        "component: async_tcp",
+        "component: mqtt",
+        "has-tests",
+        "core",
+        "component: esp8266",
+        "platform: esp8266"
+      ],
+      "kind": "feature",
+      "score": 66.2,
+      "additions": 448,
+      "deletions": 17,
+      "changedFiles": 16
+    },
+    {
+      "id": "5458889110",
+      "title": "Allow moving the buffered next track on Sendspin players",
+      "summary": "What does this implement/fix? Sendspin players can now drop a next track they already received and play another one in its place.",
+      "url": "https://github.com/music-assistant/server/pull/8084",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "maximmaxim345",
+      "mergedAt": "2026-11-27T15:34:55Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 65.6,
+      "additions": 445,
+      "deletions": 58,
+      "changedFiles": 29
+    },
+    {
+      "id": "5525727606",
+      "title": "[uart] Add a hardware UART on nRF52 (Zephyr)",
+      "summary": "What does this implement/fix? Add a hardware UART to the uart component on nRF52 (Zephyr).",
+      "unlocks": "Unlocks: [uart] Add a hardware UART on nRF52 (Zephyr).",
+      "url": "https://github.com/esphome/esphome/pull/23375",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "clydebarrow",
+      "mergedAt": "2026-11-27T23:34:25Z",
+      "labels": [
+        "new-feature",
+        "component: uart",
+        "has-tests",
+        "component: weikai",
+        "component: ble_nus",
+        "component: usb_cdc_acm",
+        "component: serial_proxy",
+        "component: tcp_uart"
+      ],
+      "kind": "feature",
+      "score": 63.5,
+      "additions": 488,
+      "deletions": 8,
+      "changedFiles": 12
+    },
+    {
+      "id": "5497317056",
+      "title": "Version the peripheral API and add version 2",
+      "summary": "What does this implement/fix? The peripheral API is versioned and gets a second, reduced version for the Linux Peripherals Controller.",
+      "unlocks": "Unlocks: Version the peripheral API and add version 2.",
+      "url": "https://github.com/OHF-Voice/linux-voice-assistant/pull/614",
+      "repository": "OHF-Voice/linux-voice-assistant",
+      "organization": "OHF Voice",
+      "author": "florian-asche",
+      "mergedAt": "2026-11-28T01:41:00Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 62.7,
+      "additions": 3425,
+      "deletions": 970,
+      "changedFiles": 38
+    },
+    {
+      "id": "5168747441",
+      "title": "[mipi_dsi] Add a light platform to set the panel brightness",
+      "summary": "What does this implement/fix? Adds a mipi dsi light platform that sets the panel brightness with the standard brightness command (0x51), the same way the mipi spi light does.",
+      "unlocks": "Unlocks: [mipi_dsi] Add a light platform to set the panel brightness.",
+      "url": "https://github.com/esphome/esphome/pull/22303",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "clydebarrow",
+      "mergedAt": "2026-11-27T23:18:58Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "new-platform",
+        "component: mipi_dsi"
+      ],
+      "kind": "feature",
+      "score": 62.6,
+      "additions": 421,
+      "deletions": 1,
+      "changedFiles": 11
+    },
+    {
+      "id": "5527040967",
+      "title": "Keep a Sonos sync group playing when its leader is removed",
+      "summary": "What does this implement/fix? When the speaker that leads a Sonos sync group is removed from the group, the other speakers now keep playing; until now the music stopped and started again on the speakers that were left.",
+      "url": "https://github.com/music-assistant/server/pull/8244",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-27T22:42:02Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 60.5,
+      "additions": 1833,
+      "deletions": 29,
+      "changedFiles": 16
+    },
+    {
+      "id": "5381098835",
+      "title": "[pd_pioneer_ir] Add display switch",
+      "summary": "What does this implement/fix? Adds a switch platform to pd pioneer ir with one switch, display , which turns the display on the front of the indoor unit on or off.",
+      "unlocks": "Unlocks: [pd_pioneer_ir] Add display switch.",
+      "url": "https://github.com/esphome/esphome/pull/22880",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "martinsah",
+      "mergedAt": "2026-11-28T01:15:05Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "new-platform",
+        "medium-pr",
+        "component: pd_pioneer_ir"
+      ],
+      "kind": "feature",
+      "score": 59.4,
+      "additions": 180,
+      "deletions": 5,
+      "changedFiles": 8
+    },
+    {
+      "id": "5124956631",
+      "title": "Add a combobox component and use it in the link alias dialog",
+      "summary": "What does this implement/fix? Adds a shadcn vue combobox and uses it in the genre \"Link alias\" dialog, which also lists aliases again.",
+      "unlocks": "Unlocks: Add a combobox component and use it in the link alias dialog.",
+      "url": "https://github.com/music-assistant/frontend/pull/3089",
+      "repository": "music-assistant/frontend",
+      "organization": "Music Assistant",
+      "author": "pierosavi",
+      "mergedAt": "2026-11-27T13:06:26Z",
+      "labels": [
+        "maintenance"
+      ],
+      "kind": "feature",
+      "score": 59.3,
+      "additions": 936,
+      "deletions": 33,
+      "changedFiles": 19
+    },
+    {
+      "id": "5300943402",
+      "title": "Add schedule start and end times for UniFi firewall policies",
+      "summary": "Depends on #194557. This branch is stacked on it, so until that PR merges this diff also shows the commits below it.",
+      "unlocks": "Unlocks: Add schedule start and end times for UniFi firewall policies.",
+      "url": "https://github.com/home-assistant/core/pull/192592",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "bhamiltoncx",
+      "mergedAt": "2026-11-27T15:57:08Z",
+      "labels": [
+        "new-platform",
+        "new-feature",
+        "integration: unifi",
+        "has-tests",
+        "quality scale: silver",
+        "top 200",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 59.2,
+      "additions": 642,
+      "deletions": 17,
+      "changedFiles": 10
+    },
+    {
+      "id": "4427339256",
+      "title": "Keep an own timer list that follows the Home Assistant timer_list",
+      "summary": "What does this implement/fix? Rework of the timers as described in #590: LVA keeps its own list of all timers, with the statuses of the Home Assistant timer list entity, counts them down…",
+      "unlocks": "Unlocks: Keep an own timer list that follows the Home Assistant timer_list.",
+      "url": "https://github.com/OHF-Voice/linux-voice-assistant/pull/417",
+      "repository": "OHF-Voice/linux-voice-assistant",
+      "organization": "OHF Voice",
+      "author": "omaramin-2000",
+      "mergedAt": "2026-11-28T01:55:44Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 59.1,
+      "additions": 2419,
+      "deletions": 384,
+      "changedFiles": 25
+    },
+    {
+      "id": "5506524925",
+      "title": "[e131] Add optional sACN source arbitration",
+      "summary": "What does this implement/fix? The ESPHome e131 component does not follow the standard regarding stream priority when two sACN/E1.31 sources transmit at the same time.",
+      "unlocks": "Unlocks: [e131] Add optional sACN source arbitration.",
+      "url": "https://github.com/esphome/esphome/pull/23329",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "docteurzoidberg",
+      "mergedAt": "2026-11-27T18:58:39Z",
+      "labels": [
+        "new-feature",
+        "component: e131",
+        "has-tests",
+        "core"
+      ],
+      "kind": "feature",
+      "score": 58.8,
+      "additions": 206,
+      "deletions": 1,
+      "changedFiles": 7
+    },
+    {
+      "id": "5511696981",
+      "title": "[duco] Add a node network type text sensor and show the network type in discovery",
+      "summary": "Added support for reading network type of nodes during discovery and using yaml Types of changes Bugfix (non breaking change which fixes an issue) New feature (non breaking change which adds…",
+      "unlocks": "Unlocks: [duco] Add a node network type text sensor and show the network type in discovery.",
+      "url": "https://github.com/esphome/esphome/pull/23334",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "w1ll14m",
+      "mergedAt": "2026-11-27T20:00:20Z",
+      "labels": [
+        "new-feature",
+        "has-tests",
+        "by-code-owner",
+        "component: duco",
+        "medium-pr"
+      ],
+      "kind": "feature",
+      "score": 58.7,
+      "additions": 97,
+      "deletions": 22,
+      "changedFiles": 10
+    },
+    {
+      "id": "5300944028",
+      "title": "Add schedule start and end dates for UniFi firewall policies",
+      "summary": "Depends on #192592. This branch is stacked on it, so until that PR merges this diff also shows the commits below it.",
+      "unlocks": "Unlocks: Add schedule start and end dates for UniFi firewall policies.",
+      "url": "https://github.com/home-assistant/core/pull/192593",
+      "repository": "home-assistant/core",
+      "organization": "Home Assistant",
+      "author": "bhamiltoncx",
+      "mergedAt": "2026-11-27T20:05:20Z",
+      "labels": [
+        "new-platform",
+        "new-feature",
+        "integration: unifi",
+        "has-tests",
+        "quality scale: silver",
+        "top 200",
+        "top 100"
+      ],
+      "kind": "feature",
+      "score": 58.6,
+      "additions": 516,
+      "deletions": 4,
+      "changedFiles": 9
+    },
+    {
+      "id": "5534200495",
+      "title": "Playback quality: flow mode plays lossless on a Sonos speaker",
+      "summary": "What does this implement/fix? A Sonos speaker in flow mode always got its queue as an AAC stream, whatever playback quality was picked.",
+      "url": "https://github.com/music-assistant/server/pull/8262",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "marcelveldt",
+      "mergedAt": "2026-11-28T00:55:04Z",
+      "labels": [
+        "enhancement"
+      ],
+      "kind": "platform",
+      "score": 58.4,
+      "additions": 831,
+      "deletions": 43,
+      "changedFiles": 13
+    },
+    {
+      "id": "5522279643",
+      "title": "[remote_base] Add Denon protocol",
+      "summary": "What does this implement/fix? Adds a denon protocol to remote base for Denon's 15 bit infrared codes, the format Denon AV receivers and other Denon devices use.",
+      "unlocks": "Unlocks: [remote_base] Add Denon protocol.",
+      "url": "https://github.com/esphome/esphome/pull/23368",
+      "repository": "esphome/esphome",
+      "organization": "ESPHome",
+      "author": "Tntdruid",
+      "mergedAt": "2026-11-27T17:18:24Z",
+      "labels": [
+        "new-feature",
+        "component: remote_base",
+        "has-tests",
+        "core"
+      ],
+      "kind": "feature",
+      "score": 57.8,
+      "additions": 217,
+      "deletions": 0,
+      "changedFiles": 9
+    },
+    {
+      "id": "5535111179",
+      "title": "Run the devices with drivers, a file per device type and the ESPHome API for Home Assistant",
+      "summary": "What does this implement/fix? LPC now runs the hardware of a device and is its own ESPHome device in Home Assistant.",
+      "unlocks": "Unlocks: Run the devices with drivers, a file per device type and the ESPHome API for Home Assistant.",
+      "url": "https://github.com/OHF-Voice/linux-peripherals-controller/pull/19",
+      "repository": "OHF-Voice/linux-peripherals-controller",
+      "organization": "OHF Voice",
+      "author": "florian-asche",
+      "mergedAt": "2026-11-28T01:20:27Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 57.1,
+      "additions": 5567,
+      "deletions": 114,
+      "changedFiles": 64
+    },
+    {
+      "id": "5458888456",
+      "title": "Replace a Sendspin next track that was already sent without a restart",
+      "summary": "What does this implement/fix? When the queue changes the next track after Sendspin already sent part of it, playback no longer restarts.",
+      "url": "https://github.com/music-assistant/server/pull/8083",
+      "repository": "music-assistant/server",
+      "organization": "Music Assistant",
+      "author": "maximmaxim345",
+      "mergedAt": "2026-11-27T14:58:10Z",
+      "labels": [
+        "enhancement",
+        "dependencies-reviewed"
+      ],
+      "kind": "platform",
+      "score": 56.6,
+      "additions": 417,
+      "deletions": 8,
+      "changedFiles": 6
+    },
+    {
+      "id": "5528211533",
+      "title": "[3/8] Control a Sendspin player through its control socket and duck its PulseAudio stream",
+      "summary": "What does this implement/fix? LVA controls a Sendspin player that runs next to it ( sendspin cli , for example the Music Assistant Local Audio add on) and ducks it while the assistant talks,…",
+      "unlocks": "Unlocks: [3/8] Control a Sendspin player through its control socket and duck its PulseAudio stream.",
+      "url": "https://github.com/OHF-Voice/linux-voice-assistant/pull/638",
+      "repository": "OHF-Voice/linux-voice-assistant",
+      "organization": "OHF Voice",
+      "author": "florian-asche",
+      "mergedAt": "2026-11-28T02:06:26Z",
+      "labels": [
+        "new-feature"
+      ],
+      "kind": "feature",
+      "score": 56.4,
+      "additions": 2320,
+      "deletions": 29,
+      "changedFiles": 35
+    }
+  ],
+  "dependencies": [
+    {
+      "title": "Bump google-nest-sdm to 9.2.3",
+      "url": "https://github.com/home-assistant/core/pull/194833",
+      "repository": "home-assistant/core",
+      "author": "jtbandes"
+    },
+    {
+      "title": "Bump habluetooth to 7.2.1",
+      "url": "https://github.com/home-assistant/core/pull/195107",
+      "repository": "home-assistant/core",
+      "author": "thecode"
+    },
+    {
+      "title": "Update ruby/setup-ruby action to v1.344.0",
+      "url": "https://github.com/home-assistant/android/pull/7986",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update github/codeql-action action to v4.39.5",
+      "url": "https://github.com/home-assistant/android/pull/7991",
+      "repository": "home-assistant/android",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump bosch-shc-camera-client to 0.8.3",
+      "url": "https://github.com/home-assistant/core/pull/193834",
+      "repository": "home-assistant/core",
+      "author": "mosandlt"
+    },
+    {
+      "title": "Update dependency @rspack/core to v2.3.4",
+      "url": "https://github.com/home-assistant/frontend/pull/56201",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump pywaze to 1.2.6",
+      "url": "https://github.com/home-assistant/core/pull/194947",
+      "repository": "home-assistant/core",
+      "author": "eshattow"
+    },
+    {
+      "title": "Bump openhomedevice to 2.8",
+      "url": "https://github.com/home-assistant/core/pull/194847",
+      "repository": "home-assistant/core",
+      "author": "bazwilliams"
+    },
+    {
+      "title": "Update ruby/setup-ruby action to v1.344.0",
+      "url": "https://github.com/home-assistant/home-assistant.io/pull/51251",
+      "repository": "home-assistant/home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump PySrDaliGateway to 0.21.1",
+      "url": "https://github.com/home-assistant/core/pull/194916",
+      "repository": "home-assistant/core",
+      "author": "niracler"
+    },
+    {
+      "title": "Update ruff",
+      "url": "https://github.com/home-assistant/core/pull/194917",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update Node.js to v26",
+      "url": "https://github.com/home-assistant/works-with.home-assistant.io/pull/128",
+      "repository": "home-assistant/works-with.home-assistant.io",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump aiowebostv to 2.0.0",
+      "url": "https://github.com/home-assistant/core/pull/194891",
+      "repository": "home-assistant/core",
+      "author": "thecode"
+    },
+    {
+      "title": "Update github/gh-actions-lock to v0.5.1",
+      "url": "https://github.com/home-assistant/core/pull/194910",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update pydantic to 2.14.4",
+      "url": "https://github.com/home-assistant/core/pull/194911",
+      "repository": "home-assistant/core",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Bump glances-api to 0.11.0",
+      "url": "https://github.com/home-assistant/core/pull/194927",
+      "repository": "home-assistant/core",
+      "author": "olliemaller"
+    },
+    {
+      "title": "Update dependency marked to v18.3.0",
+      "url": "https://github.com/home-assistant/frontend/pull/56194",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "Update dependency @versatiles/style to v9.1.2",
+      "url": "https://github.com/home-assistant/frontend/pull/56193",
+      "repository": "home-assistant/frontend",
+      "author": "renovate[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump syrupy from 7.0.2 to 7.0.3",
+      "url": "https://github.com/home-assistant-libs/forecast_solar/pull/494",
+      "repository": "home-assistant-libs/forecast_solar",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump ty from 0.0.104 to 0.0.109",
+      "url": "https://github.com/home-assistant-libs/forecast_solar/pull/495",
+      "repository": "home-assistant-libs/forecast_solar",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump zizmor from 1.32.0 to 1.33.1",
+      "url": "https://github.com/home-assistant-libs/forecast_solar/pull/493",
+      "repository": "home-assistant-libs/forecast_solar",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "build(deps-dev): Bump ruff from 0.17.5 to 0.17.6",
+      "url": "https://github.com/home-assistant-libs/forecast_solar/pull/492",
+      "repository": "home-assistant-libs/forecast_solar",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump coverage from 7.17.4 to 7.17.5",
+      "url": "https://github.com/home-assistant-libs/python-supervisor-client/pull/476",
+      "repository": "home-assistant-libs/python-supervisor-client",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump esptool from 5.6.0 to 5.7.0",
+      "url": "https://github.com/esphome/esphome/pull/23396",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "Bump github/codeql-action from 4.39.4 to 4.39.5",
+      "url": "https://github.com/esphome/esphome/pull/23395",
+      "repository": "esphome/esphome",
+      "author": "dependabot[bot]"
+    },
+    {
+      "title": "[async_tcp] Bump RPAsyncTCP to 1.3.2-esphome.2",
+      "url": "https://github.com/esphome/esphome/pull/23377",
+      "repository": "esphome/esphome",
+      "author": "bdraco"
+    }
+  ],
+  "pulse": [
+    {
+      "product": "Home Assistant",
+      "today": 147,
+      "thisWeek": 1894,
+      "sinceRelease": 5100,
+      "lastReleaseDate": "2026-11-04"
+    },
+    {
+      "product": "Music Assistant",
+      "today": 66,
+      "thisWeek": 483,
+      "sinceRelease": 7,
+      "lastReleaseDate": "2026-11-27"
+    },
+    {
+      "product": "ESPHome",
+      "today": 42,
+      "thisWeek": 492,
+      "sinceRelease": 669,
+      "lastReleaseDate": "2026-11-18"
+    }
+  ],
+  "landedReleases": [
+    {
+      "id": "music-assistant/server:461126473",
+      "product": "Music Assistant",
+      "repository": "music-assistant/server",
+      "name": "2.10.14",
+      "tag": "2.10.14",
+      "url": "https://github.com/music-assistant/server/releases/tag/2.10.14",
+      "publishedAt": "2026-11-27T22:56:15Z",
+      "channel": "stable",
+      "accent": "rust"
+    }
+  ],
+  "publishedPosts": [],
+  "releases": [
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "accent": "green",
+      "date": "2026-12-02",
+      "sourceId": "ical:6erh1r5tmkkcv34m6e3a2c5sbc@google.com/2026-12-02",
+      "version": "2026.12"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "accent": "blue",
+      "date": "2026-12-02",
+      "sourceId": "ical:5b4ns7pc5lojtu3a643ts8a9pv@google.com/2026-12-02",
+      "version": "2026.12"
+    },
+    {
+      "product": "Home Assistant Cloud becomes Home Assistant Link",
+      "kind": "Event",
+      "date": "2026-12-02",
+      "accent": "blue",
+      "url": "https://www.nabucasa.com/news/2026-10-02-cloud-becomes-link/",
+      "sourceId": "nabu-casa-news:f36a2d74296ea793a5022d53"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Release",
+      "accent": "green",
+      "date": "2026-12-16",
+      "sourceId": "ical:7u7o4m2jef4edchfokh3h3rvv6@google.com/2026-12-16",
+      "version": "2026.12"
+    },
+    {
+      "product": "Music Assistant",
+      "kind": "Release",
+      "accent": "rust",
+      "date": "2026-12-16",
+      "version": "2.11",
+      "sourceId": "ical:2nvc60navbuake679tll25tpub@google.com/2026-12-16"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Beta",
+      "accent": "blue",
+      "date": "2026-12-30",
+      "sourceId": "ical:4do8chta4eh6rs73jj2u1t6l9g@google.com/2026-12-30",
+      "version": "2027.1"
+    },
+    {
+      "product": "ESPHome",
+      "kind": "Beta",
+      "accent": "green",
+      "date": "2027-01-06",
+      "sourceId": "ical:6erh1r5tmkkcv34m6e3a2c5sbc@google.com/2027-01-06",
+      "version": "2027.1"
+    },
+    {
+      "product": "Home Assistant",
+      "kind": "Release",
+      "accent": "blue",
+      "date": "2027-01-06",
+      "sourceId": "ical:5b4ns7pc5lojtu3a643ts8a9pv@google.com/2027-01-06",
+      "version": "2027.1"
+    }
+  ],
+  "communityMeetups": [
+    {
+      "id": "evt-87JtJwYoojgDwdR@events.lu.ma",
+      "title": "Home Assistant Meetup Köln",
+      "url": "https://luma.com/83fycwc9",
+      "startAt": "2026-12-03T17:00:00.000Z",
+      "endAt": "2026-12-03T21:00:00.000Z",
+      "allDay": false,
+      "date": "2026-12-03",
+      "endDate": "2026-12-03",
+      "location": "REWE Digital GmbH, Schanzenstraße 6-20, 51063 Köln, Germany",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-JrQQIH3uBJV4C3A@events.lu.ma",
+      "title": "Home Assistant Meetup - Carpi",
+      "url": "https://luma.com/yjfnms6a",
+      "startAt": "2026-12-12T08:30:00.000Z",
+      "endAt": "2026-12-12T11:30:00.000Z",
+      "allDay": false,
+      "date": "2026-12-12",
+      "endDate": "2026-12-12",
+      "location": "TERMINAL - Terre d’Argine Innovation Lab, Piazzale Allende Salvador, 5, 41012 Carpi MO, Italy",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-3GIz2yYPGSZ8Gnw@events.lu.ma",
+      "title": "Orlando Home Assistant Meetup: Get-Together & Gear Swap",
+      "url": "https://luma.com/qpe49nll",
+      "startAt": "2027-01-09T14:00:00.000Z",
+      "endAt": "2027-01-09T17:00:00.000Z",
+      "allDay": false,
+      "date": "2027-01-09",
+      "endDate": "2027-01-09",
+      "location": "Stardust Video & Coffee, 1842 Winter Park Rd, Orlando, FL 32803, USA",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    },
+    {
+      "id": "evt-9d75XRFz6VpfCfI@events.lu.ma",
+      "title": "Home Assistant Community Meetup - Tauranga",
+      "url": "https://luma.com/0nai7yth",
+      "startAt": "2027-01-26T04:30:00.000Z",
+      "endAt": "2027-01-26T05:30:00.000Z",
+      "allDay": false,
+      "date": "2027-01-26",
+      "endDate": "2027-01-26",
+      "location": "148 Durham Street, Tauranga 3110, New Zealand",
+      "calendarUrls": [
+        "https://luma.com/homeassistant"
+      ]
+    }
+  ],
+  "notes": [],
+  "articles": [
+    {
+      "id": "playback-quality-speaker-defaults",
+      "title": "Choose sound quality without decoding audio formats",
+      "dek": "New Cast defaults favor speaker controls over gapless playback; saved preferences stay in place.",
+      "body": [
+        "A player’s settings offer “Lossless, uncompressed”, “Lossless, compressed” and “High quality, compressed” instead of asking listeners to choose WAV, FLAC, MP3 or AAC. Music Assistant maps the choice to a format the speaker understands, explains unavailable levels and carries existing selections over.",
+        "Sonos, Sonos S1, HEOS, generic DLNA network players and squeezelite default to uncompressed lossless sound when no preference was saved. That needs more network bandwidth; compressed lossless remains an option on weak Wi-Fi. Players reached through dedicated connections such as WiiM or Bluesound are outside the generic DLNA change.",
+        "Cast devices default to compressed high-quality sound and individual tracks, including Chromecast Audio and Nest Hub. This enables the speaker’s own progress, pause and seek controls, but leaves a short gap between tracks. Turn flow mode back on for gapless playback; crossfade keeps using a continuous stream. Explicit quality and flow-mode choices stay in place.",
+        "The audio-chain display uses the same plain-language quality labels. Expert mode retains the format details underneath; other listeners can open them when needed."
+      ],
+      "kind": "daily",
+      "placement": "lead",
+      "score": 94,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "continuity": "Yesterday’s track-by-track controls become the default on Cast. Chromecast Audio and Nest Hub also join the compressed-quality default, reversing their earlier exception.",
+      "pullRequests": [
+        {
+          "id": "5519212394",
+          "title": "Playback quality: pick a quality level per player instead of an output codec",
+          "url": "https://github.com/music-assistant/server/pull/8212",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5526197711",
+          "title": "Playback quality: Sonos speakers default to lossless, uncompressed",
+          "url": "https://github.com/music-assistant/server/pull/8237",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5526198830",
+          "title": "Playback quality: HEOS players default to lossless, uncompressed",
+          "url": "https://github.com/music-assistant/server/pull/8238",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5526199881",
+          "title": "Playback quality: DLNA players default to lossless, uncompressed",
+          "url": "https://github.com/music-assistant/server/pull/8239",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5526201163",
+          "title": "Playback quality: Squeezelite players default to lossless, uncompressed",
+          "url": "https://github.com/music-assistant/server/pull/8240",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5526202375",
+          "title": "Playback quality: Cast devices play track by track in high quality, compressed by default",
+          "url": "https://github.com/music-assistant/server/pull/8241",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5527256737",
+          "title": "Playback quality: Sonos S1 speakers default to lossless, uncompressed",
+          "url": "https://github.com/music-assistant/server/pull/8245",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5533045809",
+          "title": "Playback quality: friendly names in the audio chain",
+          "url": "https://github.com/music-assistant/frontend/pull/3368",
+          "repository": "music-assistant/frontend"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "tapo-battery-camera-polling",
+      "title": "A sleeping camera needs fewer wake-up calls",
+      "dek": "Battery-powered Tapo cameras get a longer polling interval; commands still refresh their state immediately.",
+      "body": [
+        "Checking a sleeping camera every five seconds repeatedly wakes it. Home Assistant changes that interval to ten minutes for TP-Link cameras whose connection reports a battery, addressing unnecessary wake-ups between camera events.",
+        "Mains-powered devices retain their five-second checks. A command sent from Home Assistant still prompts an immediate refresh, so the slower background schedule does not delay showing the result of that command."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 88,
+      "contributors": [
+        "alberttwong"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "alberttwong",
+          "name": "Albert T. Wong",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/749093?v=4",
+          "profileUrl": "https://github.com/alberttwong"
+        }
+      ],
+      "reviewers": [
+        "JamesFromIT",
+        "rytilahti"
+      ],
+      "approvers": [
+        "JamesFromIT",
+        "rytilahti"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "JamesFromIT",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/32079449?v=4",
+          "profileUrl": "https://github.com/JamesFromIT"
+        },
+        {
+          "login": "rytilahti",
+          "name": "Teemu R.",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/3705853?v=4",
+          "profileUrl": "https://github.com/rytilahti"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5318601118",
+          "title": "Poll battery-powered TP-Link cameras less often",
+          "url": "https://github.com/home-assistant/core/pull/192736",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "reclaim-unused-device-build-tools",
+      "title": "Reclaim the space left behind by old device builds",
+      "dek": "A preview lists what will be removed; custom version pins are not protected.",
+      "body": [
+        "Each framework upgrade can leave another set of development tools on the computer that builds device firmware. The new esphome prune command removes versions no longer used by ESPHome’s default builds, while --dry-run shows the proposed cleanup without deleting anything.",
+        "Jonathan Swoboda tested it after twenty builds spanning older and current frameworks. The installed tools shrank from 18.2 GB to 6.6 GB in three seconds; rebuilding the default configurations then required no framework downloads or reinstalls.",
+        "Do not run cleanup during a build. A non-default version pinned in a device configuration can be removed and will download again when next needed. This is a command-line tool; running it from Device Builder is separate work."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 88,
+      "contributors": [
+        "swoboda1337"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "swoboda1337",
+          "name": "Jonathan Swoboda",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/154711427?v=4",
+          "profileUrl": "https://github.com/swoboda1337"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5531909777",
+          "title": "[core] Add `esphome prune` to remove SDK installs no longer used by default",
+          "url": "https://github.com/esphome/esphome/pull/23394",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "5531935666",
+          "title": "[cli] Document the prune command",
+          "url": "https://github.com/esphome/esphome.io/pull/8282",
+          "repository": "esphome/esphome.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "sendspin-edit-buffered-next-song",
+      "title": "Change the next song after the speaker has prepared it",
+      "dek": "Compatible Sendspin groups keep queue controls available until five seconds before the transition.",
+      "body": [
+        "A song sitting next in the queue can still be moved, deleted, shuffled or replaced with Play next after it has been sent to the speaker. Music Assistant’s queue stops locking that item as soon as it is buffered, when the Sendspin players can replace it.",
+        "The change needs legacy clients disabled and support from every group member. A bridged Squeezelite or Cast player keeps the old lock, and the last buffered song remains locked when no playable item follows it.",
+        "Replacing the prepared audio normally stays within the running stream. If a crossfade was already prepared, the existing restart remains; changing very late can still leave a brief pause while the new song arrives. The controls were checked with Sendspin clients and the revised queue interface."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 88,
+      "contributors": [
+        "maximmaxim345",
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "maximmaxim345",
+          "name": "Maxim Raznatovski",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/30021287?v=4",
+          "profileUrl": "https://github.com/maximmaxim345"
+        },
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [
+        "marcelveldt"
+      ],
+      "approvers": [
+        "marcelveldt"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5458888456",
+          "title": "Replace a Sendspin next track that was already sent without a restart",
+          "url": "https://github.com/music-assistant/server/pull/8083",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5458889110",
+          "title": "Allow moving the buffered next track on Sendspin players",
+          "url": "https://github.com/music-assistant/server/pull/8084",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5527445622",
+          "title": "Publish the locked part of the queue as one queue field",
+          "url": "https://github.com/music-assistant/server/pull/8246",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5527442373",
+          "title": "Add the locked part of the queue to the player queue",
+          "url": "https://github.com/music-assistant/models/pull/495",
+          "repository": "music-assistant/models"
+        },
+        {
+          "id": "5471217379",
+          "title": "Allow moving and removing the next track on Sendspin players",
+          "url": "https://github.com/music-assistant/frontend/pull/3326",
+          "repository": "music-assistant/frontend"
+        },
+        {
+          "id": "5527448643",
+          "title": "Read the locked part of the queue from one queue field",
+          "url": "https://github.com/music-assistant/frontend/pull/3360",
+          "repository": "music-assistant/frontend"
+        }
+      ],
+      "externalSources": [],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-11-28/sendspin-edit-buffered-next-song-2232b454bf43-1280w.webp",
+          "alt": "The menu for a buffered next track with its queue actions enabled",
+          "width": 1280,
+          "height": 800,
+          "variants": [
+            {
+              "url": "/media/2026-11-28/sendspin-edit-buffered-next-song-2232b454bf43-480w.webp",
+              "width": 480,
+              "height": 300,
+              "bytes": 10594,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-28/sendspin-edit-buffered-next-song-2232b454bf43-960w.webp",
+              "width": 960,
+              "height": 600,
+              "bytes": 27282,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-28/sendspin-edit-buffered-next-song-2232b454bf43-1280w.webp",
+              "width": 1280,
+              "height": 800,
+              "bytes": 38700,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 76576
+        }
+      ]
+    },
+    {
+      "id": "android-notification-progress-milestones",
+      "title": "Mark the milestones in a charging notification",
+      "dek": "Android 16 or later supports coloured segments, threshold markers and icons along the progress bar.",
+      "body": [
+        "A car charging towards an 80% limit can show that target beside its current progress, with the remaining range marked in another colour. Home Assistant notifications gain configurable segments and points, plus icons at either end and a moving progress icon.",
+        "Segment lengths determine the maximum automatically. The new styling also carries points and segments into Android Live Updates on the always-on display, without colour there. These options take precedence over a video attachment and do not use an indeterminate progress bar.",
+        "The companion guide includes a complete charging example. The supporting delivery work includes @inukiwi’s first contribution to the shared mobile notification service."
+      ],
+      "kind": "daily",
+      "placement": "feature",
+      "score": 84,
+      "contributors": [
+        "inukiwi"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "inukiwi",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/21198638?v=4",
+          "profileUrl": "https://github.com/inukiwi"
+        }
+      ],
+      "reviewers": [
+        "jpelgrom",
+        "TimoPtr",
+        "bgoncal",
+        "c0ffeeca7"
+      ],
+      "approvers": [
+        "jpelgrom",
+        "TimoPtr",
+        "c0ffeeca7"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "jpelgrom",
+          "name": "Joris Pelgröm",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/8148535?v=4",
+          "profileUrl": "https://github.com/jpelgrom"
+        },
+        {
+          "login": "TimoPtr",
+          "name": "Timothy",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6560631?v=4",
+          "profileUrl": "https://github.com/TimoPtr"
+        },
+        {
+          "login": "bgoncal",
+          "name": "Bruno Pantaleão Gonçalves",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5808343?v=4",
+          "profileUrl": "https://github.com/bgoncal"
+        },
+        {
+          "login": "c0ffeeca7",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/38767475?v=4",
+          "profileUrl": "https://github.com/c0ffeeca7"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "3349011851",
+          "title": "Notification progress bar customization",
+          "url": "https://github.com/home-assistant/android/pull/6527",
+          "repository": "home-assistant/android"
+        },
+        {
+          "id": "3348999080",
+          "title": "Add documentation for progress bar customization on Android",
+          "url": "https://github.com/home-assistant/companion.home-assistant/pull/1297",
+          "repository": "home-assistant/companion.home-assistant"
+        },
+        {
+          "id": "3884663095",
+          "title": "Support progress styling keys on Android",
+          "url": "https://github.com/home-assistant/mobile-apps-fcm-push/pull/317",
+          "repository": "home-assistant/mobile-apps-fcm-push"
+        }
+      ],
+      "externalSources": [],
+      "media": [
+        {
+          "type": "image",
+          "url": "/media/2026-11-28/android-notification-progress-milestones-d560a910a95c-613w.webp",
+          "alt": "An Android charging notification with a segmented progress bar, an 80 percent marker and battery icons.",
+          "width": 613,
+          "height": 215,
+          "variants": [
+            {
+              "url": "/media/2026-11-28/android-notification-progress-milestones-d560a910a95c-480w.webp",
+              "width": 480,
+              "height": 168,
+              "bytes": 4866,
+              "type": "image/webp"
+            },
+            {
+              "url": "/media/2026-11-28/android-notification-progress-milestones-d560a910a95c-613w.webp",
+              "width": 613,
+              "height": 215,
+              "bytes": 6390,
+              "type": "image/webp"
+            }
+          ],
+          "bytes": 11256
+        }
+      ]
+    },
+    {
+      "id": "sonos-group-leader-without-interruption",
+      "title": "Remove a Sonos speaker without interrupting the others",
+      "dek": "The handover works for individual WAV or MP3 tracks, including queues with crossfades.",
+      "body": [
+        "Taking the speaker in charge out of a listening group no longer has to stop and restart music throughout the room. Music Assistant follows the Sonos speaker that takes over, whether the change was made in Music Assistant or the Sonos app.",
+        "The departing speaker can be used on its own while the others keep their queue and playback position. Related changes let two speakers read the same track during the handover, including a crossfaded transition, without cutting off each other’s audio.",
+        "This applies with flow mode off and either “Lossless, uncompressed” or “High quality, compressed” selected. Compressed lossless playback, continuous flow mode and paused groups keep their previous stop or restart behavior. Checks used two Sonos stereo pairs and a portable speaker, including repeated handovers and changes around a crossfade."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 88,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "continuity": "Earlier group recovery restarted playback after a leader disappeared. This handover preserves the playing queue when a Sonos speaker deliberately leaves the group.",
+      "pullRequests": [
+        {
+          "id": "5520210933",
+          "title": "Let each player protocol tell whether its sync group can change leader without a restart",
+          "url": "https://github.com/music-assistant/server/pull/8228",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5520276945",
+          "title": "Let the stream of a sync group follow the group's leader",
+          "url": "https://github.com/music-assistant/server/pull/8230",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5524077935",
+          "title": "Serve the queue of a Sonos-led sync group under the group's id",
+          "url": "https://github.com/music-assistant/server/pull/8231",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5525622098",
+          "title": "Keep a track starting fast after a player drops a request",
+          "url": "https://github.com/music-assistant/server/pull/8234",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5527040967",
+          "title": "Keep a Sonos sync group playing when its leader is removed",
+          "url": "https://github.com/music-assistant/server/pull/8244",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5527621109",
+          "title": "Keep a track playing when a second speaker asks for the same file",
+          "url": "https://github.com/music-assistant/server/pull/8247",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5529680349",
+          "title": "Let two speakers read a track with crossfade at the same time",
+          "url": "https://github.com/music-assistant/server/pull/8253",
+          "repository": "music-assistant/server"
+        },
+        {
+          "id": "5534515974",
+          "title": "Keep a Sonos sync group playing when its leader is taken out in the Sonos app",
+          "url": "https://github.com/music-assistant/server/pull/8263",
+          "repository": "music-assistant/server"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "esp8266-encrypted-mqtt",
+      "title": "Older ESP8266 boards gain encrypted messaging",
+      "dek": "A matching server certificate is required, and the secure connection needs spare memory.",
+      "body": [
+        "A sensor can refuse a message server whose certificate does not match the one its owner configured. ESPHome adds encrypted MQTT connections on ESP8266 boards; MQTT carries sensor readings and commands, while TLS protects that traffic in transit.",
+        "Anton makes a first contribution to ESPHome with the feature, tested on an ESP8266 HUZZAH, an ESP-01S and a D1 mini running ratgdo. The secure session uses about 12 KB of working memory, leaving little spare space when a busy web server runs alongside it. Configurations without a fingerprint keep their existing unencrypted path.",
+        "Normal shutdowns also send an orderly disconnect instead of triggering the broker’s lost-connection alert. The regular shutdown message still marks the device offline; configurations that deliberately cleared shutdown_message lose that signal on a clean shutdown."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 83,
+      "contributors": [
+        "2asoft"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "2asoft",
+          "name": "Anton",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1157248?v=4",
+          "profileUrl": "https://github.com/2asoft"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "3403352510",
+          "title": "[async_tcp][esp8266][mqtt] Add ESP8266 MQTT TLS support",
+          "url": "https://github.com/esphome/esphome/pull/14855",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "dutch-half-hour-timer",
+      "title": "A half-hour timer means thirty minutes in Dutch",
+      "dek": "Requests for the next song also stop turning into searches for a track called “volgende”.",
+      "body": [
+        "“Zet een timer van een half uur” could set an hour and thirty minutes: the Dutch word for “a” was being counted as one hour. Assist’s sentence rules interpret it as thirty minutes, and “een halve minuut” as thirty seconds.",
+        "Quarter-hour requests and phrases such as “doe er nog 5 minuten bij” gain explicit handling. A paused timer’s response includes its remaining time.",
+        "For music, “speel het volgende nummer” advances playback instead of searching for “volgende”, and “ga verder” resumes it. The same language review accepts more natural heating, blinds, vacuum and lighting requests. These are command-matching changes, not a new speech-recognition model."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 83,
+      "contributors": [
+        "TheFes"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "TheFes",
+          "name": "Martijn van der Pol",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/28803438?v=4",
+          "profileUrl": "https://github.com/TheFes"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Voice"
+      ],
+      "pullRequests": [
+        {
+          "id": "5473401653",
+          "title": "[NL] Tighten and extend sentences for the timer intents (part 1)",
+          "url": "https://github.com/OHF-Voice/intents/pull/4360",
+          "repository": "OHF-Voice/intents"
+        },
+        {
+          "id": "5474498745",
+          "title": "[NL] Tighten and extend sentences for the timer intents (part 2)",
+          "url": "https://github.com/OHF-Voice/intents/pull/4361",
+          "repository": "OHF-Voice/intents"
+        },
+        {
+          "id": "5442619387",
+          "title": "[NL] Tighten and extend sentences for the media intents",
+          "url": "https://github.com/OHF-Voice/intents/pull/4351",
+          "repository": "OHF-Voice/intents"
+        },
+        {
+          "id": "5443670194",
+          "title": "[NL] Tighten and extend sentences for the vacuum and lawn mower intents",
+          "url": "https://github.com/OHF-Voice/intents/pull/4352",
+          "repository": "OHF-Voice/intents"
+        },
+        {
+          "id": "5459860041",
+          "title": "[NL] Tighten and extend sentences for the climate and fan intents",
+          "url": "https://github.com/OHF-Voice/intents/pull/4356",
+          "repository": "OHF-Voice/intents"
+        },
+        {
+          "id": "5461203620",
+          "title": "[NL] Tighten and extend sentences for the cover intents",
+          "url": "https://github.com/OHF-Voice/intents/pull/4357",
+          "repository": "OHF-Voice/intents"
+        },
+        {
+          "id": "5510120938",
+          "title": "[NL] Tighten and extend sentences for the light set intents",
+          "url": "https://github.com/OHF-Voice/intents/pull/4363",
+          "repository": "OHF-Voice/intents"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "voice-timers-survive-disconnection",
+      "title": "Timers keep counting when Home Assistant disconnects",
+      "dek": "Experimental Linux voice clients save countdowns across restarts and can stop ringing locally.",
+      "body": [
+        "A kitchen countdown need not disappear when the connection to its server is lost. Linux Voice Assistant keeps its own timer list, counts down locally and rings when time is up, with the stop word and peripheral buttons still able to silence it.",
+        "Timers are saved across a restart of the voice client. An overdue timer rings after startup, paused timers stay paused, and several timers ringing together share one alarm that a single stop silences. The peripheral controller shows the ringing alert ahead of the Home Assistant-disconnected indicator.",
+        "The implementation has unit and simulated end-to-end tests, rather than a microphone-and-speaker trial. Refreshing the timer list from a real Home Assistant server after reconnection remains unverified; the local countdown does not depend on that refresh succeeding. A spoken announcement can still replace a ringing alarm and turn off its stop word, an existing limitation left for follow-up work."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 82,
+      "contributors": [
+        "omaramin-2000",
+        "florian-asche"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "omaramin-2000",
+          "name": "Omar Amin",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/65174210?v=4",
+          "profileUrl": "https://github.com/omaramin-2000"
+        },
+        {
+          "login": "florian-asche",
+          "name": "Florian Asche",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2785700?v=4",
+          "profileUrl": "https://github.com/florian-asche"
+        }
+      ],
+      "reviewers": [
+        "omaramin-2000"
+      ],
+      "approvers": [],
+      "reviewerProfiles": [
+        {
+          "login": "omaramin-2000",
+          "name": "Omar Amin",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/65174210?v=4",
+          "profileUrl": "https://github.com/omaramin-2000"
+        }
+      ],
+      "topics": [
+        "Voice"
+      ],
+      "pullRequests": [
+        {
+          "id": "4427339256",
+          "title": "Keep an own timer list that follows the Home Assistant timer_list",
+          "url": "https://github.com/OHF-Voice/linux-voice-assistant/pull/417",
+          "repository": "OHF-Voice/linux-voice-assistant"
+        },
+        {
+          "id": "5497317056",
+          "title": "Version the peripheral API and add version 2",
+          "url": "https://github.com/OHF-Voice/linux-voice-assistant/pull/614",
+          "repository": "OHF-Voice/linux-voice-assistant"
+        },
+        {
+          "id": "5521387571",
+          "title": "Show a ringing timer while LVA has no Home Assistant connection and accept paused timers",
+          "url": "https://github.com/OHF-Voice/linux-peripherals-controller/pull/17",
+          "repository": "OHF-Voice/linux-peripherals-controller"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "unifi-firewall-schedule-times-dates",
+      "title": "Give a network block a start and finish",
+      "dek": "Administrator-only controls set UniFi firewall policy times and dates, including overnight windows.",
+      "body": [
+        "A network restriction can end the next morning instead of depending on a second automation to turn it off. Each UniFi firewall policy gains start and end time controls alongside its existing schedule-mode selection; an end time before the start runs past midnight.",
+        "Date controls choose the day for a one-time schedule or the first and last days of a custom range. A custom range must end on a later day, and settings that the selected mode does not use remain unknown and reject changes.",
+        "These are configuration entities, disabled by default and created only for administrator accounts. They extend the existing policy controls rather than creating firewall rules themselves."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 80,
+      "contributors": [
+        "bhamiltoncx"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "bhamiltoncx",
+          "name": "Ben Hamilton",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/671827?v=4",
+          "profileUrl": "https://github.com/bhamiltoncx"
+        }
+      ],
+      "reviewers": [
+        "Kane610"
+      ],
+      "approvers": [
+        "Kane610"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "Kane610",
+          "name": "Robert Svensson",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/24575746?v=4",
+          "profileUrl": "https://github.com/Kane610"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5300943402",
+          "title": "Add schedule start and end times for UniFi firewall policies",
+          "url": "https://github.com/home-assistant/core/pull/192592",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5300944028",
+          "title": "Add schedule start and end dates for UniFi firewall policies",
+          "url": "https://github.com/home-assistant/core/pull/192593",
+          "repository": "home-assistant/core"
+        },
+        {
+          "id": "5300944590",
+          "title": "Document the UniFi firewall policy schedule start and end times",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50581",
+          "repository": "home-assistant/home-assistant.io"
+        },
+        {
+          "id": "5300945079",
+          "title": "Document the UniFi firewall policy schedule start and end dates",
+          "url": "https://github.com/home-assistant/home-assistant.io/pull/50582",
+          "repository": "home-assistant/home-assistant.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "community-catalog-release-review-gate",
+      "title": "Community music updates wait for a review verdict",
+      "dek": "A catalog maintainer can clear a held version; installed servers keep their current version while it waits.",
+      "body": [
+        "Publishing a community provider version no longer puts it straight into Music Assistant’s catalog after the usual checks. An automated code review must pass, or a registry maintainer must explicitly clear the version, before the catalog offers it to servers.",
+        "New providers are reviewed in full; updates are compared with an accepted version. The review covers the provider folder, not its dependencies, and a passing verdict does not guarantee safety. Servers keep their current version while an update waits."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 78,
+      "contributors": [
+        "marcelveldt"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "marcelveldt",
+          "name": "Marcel van der Veldt",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/6389780?v=4",
+          "profileUrl": "https://github.com/marcelveldt"
+        }
+      ],
+      "reviewers": [],
+      "approvers": [],
+      "reviewerProfiles": [],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5531930176",
+          "title": "Make the reading ready to hold back releases",
+          "url": "https://github.com/music-assistant/community-catalog/pull/80",
+          "repository": "music-assistant/community-catalog"
+        },
+        {
+          "id": "5533150943",
+          "title": "Offer only releases the reading accepted",
+          "url": "https://github.com/music-assistant/community-catalog/pull/81",
+          "repository": "music-assistant/community-catalog"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "ios-widget-actions-run-again",
+      "title": "A widget tap runs its action again",
+      "dek": "A regression in the iPhone app’s November release opened the app without executing custom tiles.",
+      "body": [
+        "A script tile on the home screen could open Home Assistant and leave the script untouched. The correction restores action execution for single tiles, split-tile icons and confirmation buttons.",
+        "Meet Thakkar makes a first contribution to the iOS app with the fix, tested with scripts, confirmation steps and navigation. These buttons no longer dim while their action runs; optimistic toggle controls keep their existing behaviour."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 77,
+      "contributors": [
+        "meet4731"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "meet4731",
+          "name": "Meet Thakkar",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/164538171?v=4",
+          "profileUrl": "https://github.com/meet4731"
+        }
+      ],
+      "reviewers": [
+        "bgoncal"
+      ],
+      "approvers": [
+        "bgoncal"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bgoncal",
+          "name": "Bruno Pantaleão Gonçalves",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/5808343?v=4",
+          "profileUrl": "https://github.com/bgoncal"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5513242878",
+          "title": "Fix custom widget tiles opening the app instead of running their action",
+          "url": "https://github.com/home-assistant/iOS/pull/6309",
+          "repository": "home-assistant/iOS"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "lighting-stream-priority",
+      "title": "Priority alerts interrupt an LED animation cleanly",
+      "dek": "An opt-in priority setting returns the display to its background animation afterward.",
+      "body": [
+        "Two lighting programs sending different colours at once could make an LED display alternate between them. ESPHome’s E1.31 receiver can instead choose the higher-priority stream, allowing a temporary message to interrupt a background animation without mixing their colours.",
+        "The setting is arbitrate_sources: true; existing configurations remain unchanged. An explicit end-of-stream message releases control immediately, while a source that falls silent expires after 2.5 seconds. Hardware checks used an 8-by-8 LED matrix. DrZoid accompanies the change with a first contribution to the ESPHome documentation repository."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 77,
+      "contributors": [
+        "docteurzoidberg"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "docteurzoidberg",
+          "name": "DrZoid",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/745762?v=4",
+          "profileUrl": "https://github.com/docteurzoidberg"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5506524925",
+          "title": "[e131] Add optional sACN source arbitration",
+          "url": "https://github.com/esphome/esphome/pull/23329",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "5506505026",
+          "title": "[e131] Document the arbitrate_sources option",
+          "url": "https://github.com/esphome/esphome.io/pull/8261",
+          "repository": "esphome/esphome.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "music-quiz-older-cast-screens",
+      "title": "A readable music quiz on older Cast screens",
+      "dek": "Compatibility corrections target the browser still found on some Android TV 12 receivers.",
+      "body": [
+        "White answer cards with white text can make a television quiz impossible to play. Music Assistant supplies compatible styling for older Cast receivers so answer choices, the countdown and the reveal artwork use a readable television layout.",
+        "The work also restores responsive layouts elsewhere in the app on those receivers. Before-and-after checks used Chromium 92 at 1280×720 through a Cast dashboard link; this was a browser reproduction rather than a test of every affected television."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 77,
+      "contributors": [
+        "MarvinSchenkel"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "MarvinSchenkel",
+          "name": "Marvin Schenkel",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/17671719?v=4",
+          "profileUrl": "https://github.com/MarvinSchenkel"
+        }
+      ],
+      "reviewers": [
+        "stvncode"
+      ],
+      "approvers": [
+        "stvncode"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "stvncode",
+          "name": "Steven Travers",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/25082266?v=4",
+          "profileUrl": "https://github.com/stvncode"
+        }
+      ],
+      "topics": [
+        "Music Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5509278157",
+          "title": "Fix the Music Quiz dashboard on older Cast receivers",
+          "url": "https://github.com/music-assistant/frontend/pull/3345",
+          "repository": "music-assistant/frontend"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "mqtt-listening-keeps-automation-triggers",
+      "title": "Inspecting messages no longer disrupts their automations",
+      "dek": "The MQTT listening tool could intermittently stop text matches and cause template errors.",
+      "body": [
+        "Opening “Listen to a topic” should help explain why a device is not responding. Instead, the listening tool and an automation could receive the wrong form of the same MQTT message: raw bytes where the automation expected text.",
+        "The listening tool gets its raw data separately, leaving automations with the text they expect. Troubleshooting a topic therefore no longer changes whether its text matches or templates work."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 76,
+      "contributors": [
+        "frenck"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "frenck",
+          "name": "Franck Nijhof",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/195327?v=4",
+          "profileUrl": "https://github.com/frenck"
+        }
+      ],
+      "reviewers": [
+        "jbouwh"
+      ],
+      "approvers": [
+        "jbouwh"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "jbouwh",
+          "name": "Jan Bouwhuis",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/7188918?v=4",
+          "profileUrl": "https://github.com/jbouwh"
+        }
+      ],
+      "topics": [
+        "Home Assistant"
+      ],
+      "pullRequests": [
+        {
+          "id": "5514588572",
+          "title": "Cache received MQTT messages per topic and encoding",
+          "url": "https://github.com/home-assistant/core/pull/194841",
+          "repository": "home-assistant/core"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "denon-infrared-paired-codes",
+      "title": "Control a Denon receiver with a homemade infrared remote",
+      "dek": "Published device and function numbers replace unreliable raw recordings.",
+      "body": [
+        "A captured remote signal can fail because the receiver expects a second, inverted copy of the command. ESPHome’s new Denon infrared support sends that pair and can also recognize incoming commands without counting the second copy as another button press.",
+        "Christian makes first contributions to both ESPHome and its documentation with the addition, tested using an Athom AR01 and a Denon AVR-1912. The feature handles Denon’s 15-bit commands; newer 48-bit functions use the existing Panasonic-format transmitter described in the guide."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 73,
+      "contributors": [
+        "Tntdruid"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "Tntdruid",
+          "name": "Christian",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/72948?v=4",
+          "profileUrl": "https://github.com/Tntdruid"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5522279643",
+          "title": "[remote_base] Add Denon protocol",
+          "url": "https://github.com/esphome/esphome/pull/23368",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "5522279180",
+          "title": "[remote_transmitter] [remote_receiver] Document the Denon protocol",
+          "url": "https://github.com/esphome/esphome.io/pull/8278",
+          "repository": "esphome/esphome.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "invalid-hardware-clock-dates",
+      "title": "Bad clock readings stop resetting the date",
+      "dek": "Satellite time waits for a valid fix, and a backup clock warns when low voltage has erased its time.",
+      "body": [
+        "A satellite receiver with no signal can report its own stale calendar rather than the current date. ESPHome only synchronizes from GPS sentences with a valid fix, preventing a receiver tested without satellites from resetting the device to December 2025.",
+        "The RX8130 hardware clock receives a matching safeguard: when its supply has dropped too low to keep time, its readings are ignored until a valid time is written back. The fault was observed on an M5Stack Tab5 that started with a date in 2070.",
+        "Custom GPS code that uses get_tiny_gps() needs the replacement get_data() interface. Ordinary Home Assistant sensor precision is unchanged."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 70,
+      "contributors": [
+        "clydebarrow"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "clydebarrow",
+          "name": "Clyde Stubbs",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/2366188?v=4",
+          "profileUrl": "https://github.com/clydebarrow"
+        }
+      ],
+      "reviewers": [
+        "bdraco",
+        "Beormund"
+      ],
+      "approvers": [
+        "bdraco",
+        "Beormund"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        },
+        {
+          "login": "Beormund",
+          "name": null,
+          "avatarUrl": "https://avatars.githubusercontent.com/u/75735592?v=4",
+          "profileUrl": "https://github.com/Beormund"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5533139038",
+          "title": "[gps] Replace TinyGPS++ with a native NMEA parser",
+          "url": "https://github.com/esphome/esphome/pull/23402",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "5521591444",
+          "title": "[rx8130] Do not read the time after the RTC lost it",
+          "url": "https://github.com/esphome/esphome/pull/23365",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "soil-sensor-silent-unknown",
+      "title": "A silent soil sensor no longer looks healthy",
+      "dek": "SMT100 readings become unknown after a missing or malformed answer.",
+      "body": [
+        "A disconnected soil probe could leave its last moisture reading on screen indefinitely, while text in a damaged reply could become a false zero. ESPHome checks that an SMT100 reply contains all five expected numbers and arrives in response to a pending request.",
+        "If no valid reply arrives within one second, the readings become unknown and a warning appears. The next good reply clears the warning. This changes the old behavior of retaining the last value when the probe stopped answering."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 69,
+      "contributors": [
+        "piechade"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "piechade",
+          "name": "piechade",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/1434005?v=4",
+          "profileUrl": "https://github.com/piechade"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5514044226",
+          "title": "[smt100] Check the answer and report a sensor that stops answering",
+          "url": "https://github.com/esphome/esphome/pull/23336",
+          "repository": "esphome/esphome"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    },
+    {
+      "id": "canopen-missing-device-monitoring",
+      "title": "Spot a missing device on a wired control network",
+      "dek": "CANopen nodes can watch other devices and send start, stop and reset commands.",
+      "body": [
+        "A missed check-in can trigger an automation instead of leaving a silent device unnoticed. ESPHome’s CANopen support adds configurable monitoring of other nodes, reporting when a device first appears, stops answering, changes state or restarts.",
+        "CANopen is a protocol used by equipment such as motor drives and wired sensors. The component can also direct another node, or all nodes, to start, stop or reset, extending its earlier ability to read and write device values."
+      ],
+      "kind": "daily",
+      "placement": "brief",
+      "score": 65,
+      "contributors": [
+        "mrk-its"
+      ],
+      "contributorProfiles": [
+        {
+          "login": "mrk-its",
+          "name": "Mariusz Kryński",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/920204?v=4",
+          "profileUrl": "https://github.com/mrk-its"
+        }
+      ],
+      "reviewers": [
+        "bdraco"
+      ],
+      "approvers": [
+        "bdraco"
+      ],
+      "reviewerProfiles": [
+        {
+          "login": "bdraco",
+          "name": "J. Nick Koston",
+          "avatarUrl": "https://avatars.githubusercontent.com/u/663432?v=4",
+          "profileUrl": "https://github.com/bdraco"
+        }
+      ],
+      "topics": [
+        "ESPHome"
+      ],
+      "pullRequests": [
+        {
+          "id": "5505783358",
+          "title": "[canopen] Add node monitoring (heartbeat_clients, on_node_event) and the NMT master (canopen.nmt)",
+          "url": "https://github.com/esphome/esphome/pull/23327",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "5495512403",
+          "title": "[canopen] Add the CANopen node: node_id, NMT, heartbeat producer, SDO server, identity",
+          "url": "https://github.com/esphome/esphome/pull/23299",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "5206165007",
+          "title": "[canopen] Add CANopen SDO client component",
+          "url": "https://github.com/esphome/esphome/pull/22410",
+          "repository": "esphome/esphome"
+        },
+        {
+          "id": "5500151573",
+          "title": "[canopen] Add the CANopen node: node_id, NMT, heartbeat, SDO server, identity",
+          "url": "https://github.com/esphome/esphome.io/pull/8254",
+          "repository": "esphome/esphome.io"
+        }
+      ],
+      "externalSources": [],
+      "media": []
+    }
+  ],
+  "roadmapUpdates": []
+}
